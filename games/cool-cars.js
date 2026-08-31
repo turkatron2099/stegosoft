@@ -82,6 +82,57 @@
       osc.stop(when + dur + 0.02);
     }
 
+    // For sounds with a pitch that bends/wobbles over time (meow, neigh,
+    // trumpet, roar) — freqFn(t) maps 0..1 across the sound's duration to
+    // a frequency in Hz.
+    function curveTone(freqFn, dur, when, type, peakGain) {
+      const c = ensureCtx();
+      const osc = c.createOscillator();
+      osc.type = type;
+      const steps = 50;
+      const curve = new Float32Array(steps);
+      for (let i = 0; i < steps; i++) curve[i] = Math.max(20, freqFn(i / (steps - 1)));
+      osc.frequency.setValueCurveAtTime(curve, when, dur);
+      const gain = c.createGain();
+      gain.gain.setValueAtTime(0.0001, when);
+      gain.gain.exponentialRampToValueAtTime(peakGain, when + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+      osc.connect(gain);
+      gain.connect(c.destination);
+      osc.start(when);
+      osc.stop(when + dur + 0.02);
+    }
+
+    // Stylized, cartoonish approximations — not recordings — built the same
+    // synthesized way as everything else here, so there's nothing to license.
+    const ANIMAL_SOUNDS = {
+      dog(now) {
+        tone(190, 0.1, now, "square", 0.22);
+        tone(160, 0.12, now + 0.15, "square", 0.22);
+      },
+      cat(now) {
+        curveTone((t) => 420 + 320 * Math.sin(Math.PI * t), 0.35, now, "triangle", 0.16);
+      },
+      horse(now) {
+        curveTone((t) => 360 - 90 * t + 26 * Math.sin(t * 40), 0.45, now, "sawtooth", 0.16);
+      },
+      pig(now) {
+        tone(150, 0.09, now, "sawtooth", 0.2);
+        tone(115, 0.11, now + 0.13, "sawtooth", 0.2);
+      },
+      elephant(now) {
+        curveTone((t) => 220 + 420 * Math.pow(t, 0.5) + (t > 0.6 ? 18 * Math.sin(t * 60) : 0), 0.5, now, "sawtooth", 0.18);
+      },
+      tiger(now) {
+        curveTone((t) => 100 - 15 * t + 22 * Math.sin(t * 10), 0.55, now, "sawtooth", 0.2);
+      },
+      monkey(now) {
+        [0, 0.08, 0.16, 0.24].forEach((dt, i) => {
+          tone(i % 2 === 0 ? 520 : 660, 0.06, now + dt, "square", 0.15);
+        });
+      },
+    };
+
     function scheduleMusicStep() {
       if (!musicPlaying) return;
       const c = ensureCtx();
@@ -106,6 +157,11 @@
         tone(420, 0.14, now, "sawtooth", 0.18);
         tone(420, 0.14, now + 0.18, "sawtooth", 0.18);
       },
+      animalSound(id) {
+        const c = ensureCtx();
+        const play = ANIMAL_SOUNDS[id];
+        if (play) play(c.currentTime);
+      },
     };
   }
 
@@ -126,7 +182,13 @@
     let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, trees, popText;
 
     function resetGameplay() {
-      player = { x: (ROAD_LEFT + ROAD_RIGHT) / 2, y: H - 96, w: 44, h: 70 };
+      const isTruck = selection.vehicle.id === "truck";
+      player = {
+        x: (ROAD_LEFT + ROAD_RIGHT) / 2,
+        y: H - 96,
+        w: isTruck ? 50 : 40,
+        h: isTruck ? 76 : 68,
+      };
       objects = [];
       nextNumber = 1;
       crashTimer = 0;
@@ -356,6 +418,7 @@
         const y = startY + row * cellH;
         button(x + 10, y, cellW - 20, cellH - 16, () => {
           selection.animal = a;
+          sound.animalSound(a.id);
           state = "chooseVehicle";
         });
         emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
@@ -454,6 +517,94 @@
       emoji(driverEmoji, cx, cy - h * 0.18, Math.min(26, w * 0.6));
     }
 
+    function drawWheels(cx, cy, w, h, wheelW, wheelH, topInset, bottomInset) {
+      ctx.fillStyle = "#222";
+      [
+        [cx - w / 2 - wheelW / 2 + 2, cy - h / 2 + topInset],
+        [cx + w / 2 - wheelW / 2 - 2, cy - h / 2 + topInset],
+        [cx - w / 2 - wheelW / 2 + 2, cy + h / 2 - bottomInset],
+        [cx + w / 2 - wheelW / 2 - 2, cy + h / 2 - bottomInset],
+      ].forEach(([wx, wy]) => ctx.fillRect(wx, wy, wheelW, wheelH));
+    }
+
+    // Sleek, tapered top-down shape echoing the 🏎️ from the vehicle picker.
+    function drawSportsCarTopDown(cx, cy, color, driverEmoji, w, h) {
+      const hw = w / 2;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - h / 2);
+      ctx.lineTo(cx + hw * 0.45, cy - h / 2 + 12);
+      ctx.lineTo(cx + hw, cy - h * 0.05);
+      ctx.lineTo(cx + hw * 0.9, cy + h / 2 - 10);
+      ctx.lineTo(cx + hw * 0.55, cy + h / 2);
+      ctx.lineTo(cx - hw * 0.55, cy + h / 2);
+      ctx.lineTo(cx - hw * 0.9, cy + h / 2 - 10);
+      ctx.lineTo(cx - hw, cy - h * 0.05);
+      ctx.lineTo(cx - hw * 0.45, cy - h / 2 + 12);
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,0.35)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = "rgba(255,255,255,0.55)";
+      ctx.fillRect(cx - 4, cy - h / 2 + 8, 8, h - 20);
+
+      roundRect(ctx, cx - w * 0.26, cy - h * 0.12, w * 0.52, h * 0.26, 5);
+      ctx.fillStyle = "rgba(255,255,255,0.85)";
+      ctx.fill();
+
+      drawWheels(cx, cy, w, h, 6, 13, 16, 24);
+      ctx.restore();
+
+      emoji(driverEmoji, cx, cy - h * 0.1, Math.min(24, w * 0.55));
+    }
+
+    // Boxy cab-plus-cargo shape echoing the 🚚 from the vehicle picker.
+    function drawTruckTopDown(cx, cy, color, driverEmoji, w, h) {
+      ctx.save();
+      const cabH = h * 0.34;
+
+      roundRect(ctx, cx - w / 2, cy - h / 2 + cabH - 4, w, h - cabH + 4, 6);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,0.35)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      for (let i = 1; i <= 2; i++) {
+        const ly = cy - h / 2 + cabH + ((h - cabH) * i) / 3;
+        ctx.strokeStyle = "rgba(0,0,0,0.15)";
+        ctx.beginPath();
+        ctx.moveTo(cx - w / 2 + 4, ly);
+        ctx.lineTo(cx + w / 2 - 4, ly);
+        ctx.stroke();
+      }
+
+      roundRect(ctx, cx - w / 2, cy - h / 2, w, cabH, 8);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,0.35)";
+      ctx.stroke();
+
+      roundRect(ctx, cx - w * 0.32, cy - h / 2 + 5, w * 0.64, cabH - 10, 4);
+      ctx.fillStyle = "rgba(255,255,255,0.85)";
+      ctx.fill();
+
+      drawWheels(cx, cy, w, h, 7, 16, cabH + 4, 8);
+      ctx.restore();
+
+      emoji(driverEmoji, cx, cy - h / 2 + cabH / 2, Math.min(22, w * 0.5));
+    }
+
+    function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
+      if (vehicleId === "truck") {
+        drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
+      } else {
+        drawSportsCarTopDown(cx, cy, color, driverEmoji, w, h);
+      }
+    }
+
     function drawGameplay() {
       ctx.fillStyle = "#6cb84a";
       ctx.fillRect(0, 0, W, H);
@@ -494,7 +645,7 @@
 
       const flashHidden = crashTimer > 0 && Math.floor(crashTimer / 6) % 2 === 0;
       if (!flashHidden) {
-        drawTopDownCar(player.x, player.y, selection.color.hex, selection.animal.emoji, player.w, player.h);
+        drawPlayerVehicle(player.x, player.y, selection.color.hex, selection.animal.emoji, player.w, player.h, selection.vehicle.id);
       }
 
       // HUD: progress dots
