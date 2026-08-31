@@ -1,0 +1,30 @@
+name: Build daily news digest
+
+on:
+  schedule:
+    - cron: "17 11 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build digest
+        run: node scripts/build-digest.mjs
+
+      - name: Commit digest.json if changed
+        run: |
+          git config user.name "stegosoft-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add digest.json
+          git diff --cached --quiet || git commit -m "Update daily news digest"
+          git push

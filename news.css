@@ -14,57 +14,89 @@
   font-size: 1.1rem;
 }
 
+.digest-updated {
+  margin-top: 10px;
+  color: var(--light-foreground);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
 .news-feeds {
   padding: 16px 0 80px;
 }
 
-.news-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-}
-
-.feed-column h2 {
-  color: var(--accent);
-  font-size: 1.15rem;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--muted);
-}
-
-.feed-list {
+.digest-list {
   list-style: none;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-.feed-item {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--dark-background);
+.digest-item {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--muted);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
-.feed-item a {
+.digest-item:first-child {
+  padding-top: 0;
+}
+
+.digest-topic {
+  align-self: flex-start;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  color: var(--background);
+}
+
+.topic-technology {
+  background: var(--cyan);
+}
+
+.topic-gaming {
+  background: var(--accent);
+}
+
+.topic-archaeology {
+  background: var(--green);
   color: var(--foreground);
-  font-size: 0.95rem;
-  line-height: 1.4;
 }
 
-.feed-item a:hover {
+.digest-title {
+  color: var(--foreground);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.digest-title:hover {
   color: var(--accent);
 }
 
-.feed-meta {
-  font-size: 0.75rem;
+.digest-summary {
   color: var(--light-foreground);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.feed-status {
+.digest-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.digest-status {
+  list-style: none;
   color: var(--light-foreground);
   font-size: 0.9rem;
   padding: 12px 0;
+  text-align: center;
 }
 
-.feed-error {
+.digest-error {
   color: var(--red);
 }

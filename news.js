@@ -1,91 +1,71 @@
-const RSS_TO_JSON = "https://api.rss2json.com/v1/api.json?rss_url=";
-const ITEMS_PER_COLUMN = 8;
+const listEl = document.getElementById("digest-list");
+const updatedEl = document.getElementById("digest-updated");
 
-const COLUMNS = [
-  {
-    id: "feed-technology",
-    feeds: [
-      { source: "Ars Technica", url: "https://feeds.arstechnica.com/arstechnica/index" },
-      { source: "The Verge", url: "https://www.theverge.com/rss/index.xml" },
-    ],
-  },
-  {
-    id: "feed-gaming",
-    feeds: [
-      { source: "Polygon", url: "https://www.polygon.com/rss/index.xml" },
-      { source: "IGN", url: "https://feeds.ign.com/ign/games-all" },
-    ],
-  },
-  {
-    id: "feed-archaeology",
-    feeds: [
-      { source: "Biblical Archaeology Society", url: "https://www.biblicalarchaeology.org/feed/" },
-    ],
-  },
-];
+const TOPIC_CLASS = {
+  Technology: "topic-technology",
+  Gaming: "topic-gaming",
+  "Biblical Archaeology": "topic-archaeology",
+};
 
-async function fetchFeed(feed) {
-  const res = await fetch(RSS_TO_JSON + encodeURIComponent(feed.url));
-  if (!res.ok) throw new Error(`${feed.source}: HTTP ${res.status}`);
-  const data = await res.json();
-  if (data.status !== "ok") throw new Error(`${feed.source}: ${data.message || "feed error"}`);
-  return data.items.map((item) => ({
-    title: item.title,
-    link: item.link,
-    source: feed.source,
-    date: item.pubDate ? new Date(item.pubDate) : null,
-  }));
+function formatUpdated(iso) {
+  const date = new Date(iso);
+  return date.toLocaleString(undefined, {
+    dateStyle: "long",
+    timeStyle: "short",
+  });
 }
 
-function renderItems(listEl, items) {
+function renderDigest(digest) {
+  updatedEl.textContent = `Updated ${formatUpdated(digest.generatedAt)}`;
+
   listEl.innerHTML = "";
   listEl.dataset.status = "ready";
-  items.forEach((item) => {
-    const li = document.createElement("li");
-    li.className = "feed-item";
 
-    const a = document.createElement("a");
-    a.href = item.link;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.textContent = item.title;
-    li.appendChild(a);
+  digest.items.forEach((item) => {
+    const li = document.createElement("li");
+    li.className = "digest-item";
+
+    const topic = document.createElement("span");
+    topic.className = `digest-topic ${TOPIC_CLASS[item.topic] || ""}`;
+    topic.textContent = item.topic;
+    li.appendChild(topic);
+
+    const title = document.createElement("a");
+    title.className = "digest-title";
+    title.href = item.link;
+    title.target = "_blank";
+    title.rel = "noopener noreferrer";
+    title.textContent = item.title;
+    li.appendChild(title);
+
+    if (item.summary) {
+      const summary = document.createElement("p");
+      summary.className = "digest-summary";
+      summary.textContent = item.summary;
+      li.appendChild(summary);
+    }
 
     const meta = document.createElement("span");
-    meta.className = "feed-meta";
-    meta.textContent = item.date
-      ? `${item.source} · ${item.date.toLocaleDateString()}`
-      : item.source;
+    meta.className = "digest-meta";
+    const date = item.date ? new Date(item.date).toLocaleDateString() : null;
+    meta.textContent = date ? `${item.source} · ${date}` : item.source;
     li.appendChild(meta);
 
     listEl.appendChild(li);
   });
 }
 
-async function loadColumn(column) {
-  const listEl = document.querySelector(`#${column.id} .feed-list`);
-  const results = await Promise.allSettled(column.feeds.map(fetchFeed));
-
-  const items = results
-    .filter((r) => r.status === "fulfilled")
-    .flatMap((r) => r.value)
-    .sort((a, b) => (b.date || 0) - (a.date || 0))
-    .slice(0, ITEMS_PER_COLUMN);
-
-  if (items.length === 0) {
-    listEl.innerHTML = '<li class="feed-status feed-error">Couldn\'t load this feed right now.</li>';
-    listEl.dataset.status = "error";
-    return;
-  }
-
-  renderItems(listEl, items);
+async function loadDigest() {
+  const res = await fetch("digest.json", { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const digest = await res.json();
+  if (!digest.items || digest.items.length === 0) throw new Error("empty digest");
+  renderDigest(digest);
 }
 
-COLUMNS.forEach((column) => {
-  loadColumn(column).catch((err) => {
-    console.error(err);
-    const listEl = document.querySelector(`#${column.id} .feed-list`);
-    listEl.innerHTML = '<li class="feed-status feed-error">Couldn\'t load this feed right now.</li>';
-    listEl.dataset.status = "error";
-  });
+loadDigest().catch((err) => {
+  console.error(err);
+  listEl.innerHTML = '<li class="digest-status digest-error">Couldn\'t load today\'s digest right now.</li>';
+  listEl.dataset.status = "error";
+  updatedEl.textContent = "";
 });

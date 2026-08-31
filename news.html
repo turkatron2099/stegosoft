@@ -26,28 +26,16 @@
   <section class="news-intro">
     <div class="wrap">
       <h1>News</h1>
-      <p class="tagline">A live feed of what I actually care about.</p>
+      <p class="tagline">One digest a day, from what I actually care about.</p>
+      <p class="digest-updated" id="digest-updated"></p>
     </div>
   </section>
 
   <section class="news-feeds">
-    <div class="wrap news-columns">
-
-      <div class="feed-column" id="feed-technology">
-        <h2>Technology</h2>
-        <ul class="feed-list" data-status="loading"><li class="feed-status">Loading…</li></ul>
-      </div>
-
-      <div class="feed-column" id="feed-gaming">
-        <h2>Gaming</h2>
-        <ul class="feed-list" data-status="loading"><li class="feed-status">Loading…</li></ul>
-      </div>
-
-      <div class="feed-column" id="feed-archaeology">
-        <h2>Biblical Archaeology</h2>
-        <ul class="feed-list" data-status="loading"><li class="feed-status">Loading…</li></ul>
-      </div>
-
+    <div class="wrap">
+      <ul class="digest-list" id="digest-list" data-status="loading">
+        <li class="digest-status">Loading today's digest…</li>
+      </ul>
     </div>
   </section>
 </main>
