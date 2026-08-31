@@ -1,0 +1,139 @@
+:root {
+  --background: #05182e;
+  --dark-background: #031222;
+  --lighter-background: #0a2540;
+  --foreground: #f6dcac;
+  --light-foreground: #a7c9c6;
+  --accent: #faa968;
+  --teal: #3f8f8a;
+  --cyan: #8cbfb8;
+  --green: #028391;
+  --red: #f85525;
+  --muted: #2a6b78;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cyan);
+}
+
+.site-header {
+  background: var(--dark-background);
+  border-bottom: 1px solid var(--muted);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--foreground);
+  letter-spacing: 0.02em;
+}
+
+.site-header nav a {
+  margin-left: 24px;
+  color: var(--light-foreground);
+  font-size: 0.95rem;
+}
+
+.site-header nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  padding: 120px 0;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, var(--lighter-background), var(--background) 70%);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--foreground);
+  letter-spacing: 0.01em;
+}
+
+.hero .tagline {
+  margin-top: 12px;
+  font-size: 1.25rem;
+  color: var(--cyan);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: var(--dark-background);
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.cta:hover {
+  background: var(--red);
+  color: var(--foreground);
+}
+
+.about,
+.contact {
+  padding: 80px 0;
+  border-top: 1px solid var(--muted);
+}
+
+.about {
+  background: var(--dark-background);
+}
+
+.about h2,
+.contact h2 {
+  color: var(--accent);
+  font-size: 1.75rem;
+  margin-bottom: 16px;
+}
+
+.about p,
+.contact p {
+  color: var(--light-foreground);
+  max-width: 640px;
+}
+
+.site-footer {
+  background: var(--dark-background);
+  border-top: 1px solid var(--muted);
+  padding: 24px 0;
+}
+
+.site-footer .wrap {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
