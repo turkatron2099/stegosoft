@@ -87,7 +87,14 @@ a:hover {
   height: 35px;
   object-fit: cover;
   border-radius: 8px;
+  border: 2px solid var(--foreground);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.2);
 }
 
 .about,
