@@ -49,6 +49,66 @@
     ctx.closePath();
   }
 
+  // --- sound: everything synthesized live via Web Audio, no audio files ---
+  function makeSound() {
+    let ctx = null;
+    let musicTimer = null;
+    let musicPlaying = false;
+    let musicStep = 0;
+
+    // A short, cheerful, entirely original 8-step riff (C major) — composed
+    // here in code, so there's no licensing question about where it's from.
+    const MELODY = [261.63, 329.63, 392.0, 523.25, 392.0, 329.63, 392.0, 440.0];
+    const STEP_SECONDS = 0.19;
+
+    function ensureCtx() {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if (ctx.state === "suspended") ctx.resume();
+      return ctx;
+    }
+
+    function tone(freq, dur, when, type, peakGain) {
+      const c = ensureCtx();
+      const osc = c.createOscillator();
+      osc.type = type;
+      osc.frequency.value = freq;
+      const gain = c.createGain();
+      gain.gain.setValueAtTime(0.0001, when);
+      gain.gain.exponentialRampToValueAtTime(peakGain, when + 0.015);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+      osc.connect(gain);
+      gain.connect(c.destination);
+      osc.start(when);
+      osc.stop(when + dur + 0.02);
+    }
+
+    function scheduleMusicStep() {
+      if (!musicPlaying) return;
+      const c = ensureCtx();
+      tone(MELODY[musicStep % MELODY.length], STEP_SECONDS * 0.8, c.currentTime, "square", 0.05);
+      musicStep++;
+      musicTimer = setTimeout(scheduleMusicStep, STEP_SECONDS * 1000);
+    }
+
+    return {
+      startMusic() {
+        if (musicPlaying) return;
+        musicPlaying = true;
+        scheduleMusicStep();
+      },
+      stopMusic() {
+        musicPlaying = false;
+        if (musicTimer) clearTimeout(musicTimer);
+      },
+      honk() {
+        const c = ensureCtx();
+        const now = c.currentTime;
+        tone(420, 0.14, now, "sawtooth", 0.18);
+        tone(420, 0.14, now + 0.18, "sawtooth", 0.18);
+      },
+    };
+  }
+
   function startCoolCars(canvas) {
     const ctx = canvas.getContext("2d");
     const W = canvas.width;
@@ -60,6 +120,8 @@
     let running = true;
     let rafId;
     let hoverPoint = null;
+    let animFrame = 0;
+    const sound = makeSound();
 
     let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, trees, popText;
 
@@ -195,17 +257,18 @@
       ctx.arc(W - 100, 90, 44, 0, Math.PI * 2);
       ctx.fill();
 
-      function cloud(cx, cy, s) {
+      function cloud(cx, cy, s, phase) {
+        const bob = Math.sin(animFrame * 0.035 + phase) * 6;
         ctx.fillStyle = "rgba(255,255,255,0.95)";
         [[-1, 0], [-0.4, -0.35], [0.4, -0.3], [1, 0], [0, 0.15]].forEach(([dx, dy]) => {
           ctx.beginPath();
-          ctx.arc(cx + dx * s, cy + dy * s, s * 0.6, 0, Math.PI * 2);
+          ctx.arc(cx + dx * s, cy + dy * s + bob, s * 0.6, 0, Math.PI * 2);
           ctx.fill();
         });
       }
-      cloud(140, 90, 30);
-      cloud(420, 60, 24);
-      cloud(300, 140, 20);
+      cloud(140, 90, 30, 0);
+      cloud(420, 60, 24, 1.4);
+      cloud(300, 140, 20, 2.7);
 
       ctx.fillStyle = "#6cb84a";
       ctx.fillRect(0, H * 0.72, W, H * 0.28);
@@ -214,17 +277,20 @@
       ctx.fillRect(0, H * 0.8, W, H * 0.14);
       ctx.strokeStyle = "#f6dcac";
       ctx.setLineDash([22, 18]);
+      ctx.lineDashOffset = -(animFrame * 3);
       ctx.lineWidth = 4;
       ctx.beginPath();
       ctx.moveTo(0, H * 0.87);
       ctx.lineTo(W, H * 0.87);
       ctx.stroke();
       ctx.setLineDash([]);
+      ctx.lineDashOffset = 0;
 
       emoji("🌴", 70, H * 0.68, 46);
       emoji("🌴", W - 70, H * 0.62, 46);
 
-      drawSideCar(W / 2, H * 0.87, "#e63946", "🐶");
+      const bounce = Math.sin(animFrame * 0.12) * 3;
+      drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
     }
 
     function drawSideCar(cx, cy, color, driverEmoji) {
@@ -396,7 +462,6 @@
       ctx.strokeStyle = "#f6dcac";
       ctx.setLineDash([26, 20]);
       ctx.lineWidth = 5;
-      const dashOffset = (performance && crashTimer <= 0 ? 0 : 0) || 0;
       ctx.beginPath();
       ctx.moveTo((ROAD_LEFT + ROAD_RIGHT) / 2, 0);
       ctx.lineTo((ROAD_LEFT + ROAD_RIGHT) / 2, H);
@@ -512,6 +577,7 @@
     const keys = {};
     function onKeyDown(e) {
       keys[e.key] = true;
+      if (e.key === " " && state === "playing") sound.honk();
     }
     function onKeyUp(e) {
       keys[e.key] = false;
@@ -548,6 +614,7 @@
 
     function loop() {
       if (!running) return;
+      animFrame++;
       update();
       draw();
       rafId = requestAnimationFrame(loop);
@@ -555,12 +622,14 @@
 
     running = true;
     resetGameplay();
+    sound.startMusic();
     loop();
 
     return {
       stop() {
         running = false;
         if (rafId) cancelAnimationFrame(rafId);
+        sound.stopMusic();
         window.removeEventListener("keydown", onKeyDown);
         window.removeEventListener("keyup", onKeyUp);
         canvas.removeEventListener("click", onClick);
@@ -574,6 +643,6 @@
   window.STEGO_GAMES.coolCars = {
     title: "Cool Cars",
     start: startCoolCars,
-    controlsHint: "Click to choose · Arrow keys (or A/D) to steer",
+    controlsHint: "Click to choose · Arrow keys (or A/D) to steer · Space to honk",
   };
 })();
