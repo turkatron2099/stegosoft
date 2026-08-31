@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Games — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="games.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="images/stegosoft-logo.jpg" alt="Stegosoft" class="logo-img"></a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="games-intro">
+    <div class="wrap">
+      <h1>Games</h1>
+      <p class="tagline">Drag a cartridge into the console to play.</p>
+    </div>
+  </section>
+
+  <section class="game-room">
+    <div class="wrap game-room-layout">
+
+      <div class="console" id="console">
+        <div class="console-vents"></div>
+        <div class="console-slot" id="console-slot">
+          <div class="slot-opening"></div>
+          <span class="slot-label">insert cartridge</span>
+        </div>
+
+        <div class="console-screen">
+          <div class="screen-placeholder" id="screen-placeholder">
+            <p>NO SIGNAL</p>
+            <p class="hint">Drag a cartridge into the slot above</p>
+          </div>
+          <canvas id="game-canvas" width="720" height="480" hidden></canvas>
+          <div class="hud" id="hud" hidden>
+            <span id="hud-title"></span>
+            <button type="button" id="eject-btn">Eject</button>
+          </div>
+        </div>
+
+        <div class="console-controls">
+          <p id="controls-hint">Arrow keys / WASD to move &middot; Space to fire &middot; Enter to restart</p>
+        </div>
+      </div>
+
+      <div class="cartridge-shelf" id="cartridge-shelf" aria-label="Game cartridges">
+        <div class="cartridge" draggable="true" data-game="asteroids" tabindex="0" role="button" aria-label="Insert Asteroids cartridge">
+          <div class="cartridge-label cartridge-asteroids">
+            <span class="cartridge-title">ASTEROIDS</span>
+            <span class="cartridge-sub">vector combat</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="games/asteroids.js"></script>
+<script src="games.js"></script>
+</body>
+</html>
