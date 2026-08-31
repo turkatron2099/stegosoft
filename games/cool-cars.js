@@ -286,8 +286,8 @@
       ctx.setLineDash([]);
       ctx.lineDashOffset = 0;
 
-      emoji("🌴", 70, H * 0.68, 46);
-      emoji("🌴", W - 70, H * 0.62, 46);
+      emoji("🌴", 70, H * 0.765, 36);
+      emoji("🌴", W - 70, H * 0.765, 36);
 
       const bounce = Math.sin(animFrame * 0.12) * 3;
       drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
@@ -323,13 +323,13 @@
       ctx.strokeText("COOL CARS", W / 2, 90);
       ctx.fillText("COOL CARS", W / 2, 90);
 
-      button(W / 2 - 90, H - 66, 180, 56, () => {
+      button(W / 2 - 90, 155, 180, 56, () => {
         state = "chooseAnimal";
       }, "#e63946");
       ctx.fillStyle = "#fff";
       ctx.font = "bold 26px sans-serif";
       ctx.textBaseline = "middle";
-      ctx.fillText("START", W / 2, H - 38);
+      ctx.fillText("START", W / 2, 183);
     }
 
     function drawHeading(text) {
@@ -576,6 +576,9 @@
 
     const keys = {};
     function onKeyDown(e) {
+      if (["ArrowLeft", "ArrowRight", " ", "a", "d", "A", "D"].includes(e.key)) {
+        e.preventDefault();
+      }
       keys[e.key] = true;
       if (e.key === " " && state === "playing") sound.honk();
     }
