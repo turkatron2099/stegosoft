@@ -25,6 +25,16 @@
     { id: "pink", hex: "#ff5fa2", label: "Pink" },
   ];
 
+  // A mix of scenery scrolling along the roadside during gameplay.
+  const ROADSIDE_KINDS = [
+    { emoji: "🌴", size: 40 },
+    { emoji: "🌲", size: 42 },
+    { emoji: "🌳", size: 42 },
+    { emoji: "🪨", size: 28 },
+    { emoji: "🌿", size: 24 },
+    { emoji: "🌾", size: 26 },
+  ];
+
   const ROAD_LEFT = 180;
   const ROAD_RIGHT = 540;
   const SCROLL_SPEED = 4;
@@ -57,15 +67,20 @@
     let musicPlaying = false;
     let musicStep = 0;
 
-    // Two short, entirely original riffs (composed here in code, so there's
-    // no licensing question about where they came from): a cheerful loop for
-    // regular play, and a brighter, faster fanfare for the win screen.
+    // Three short, entirely original riffs (composed here in code, so
+    // there's no licensing question about where they came from): a laid-back
+    // loop for the title/picker screens, a peppier one for gameplay, and a
+    // brighter, faster fanfare for the win screen.
+    const CRUISE_MELODY = [220.0, 261.63, 329.63, 392.0, 329.63, 293.66, 261.63, 246.94];
+    const CRUISE_STEP_SECONDS = 0.3;
     const MAIN_MELODY = [261.63, 329.63, 392.0, 523.25, 392.0, 329.63, 392.0, 440.0];
     const MAIN_STEP_SECONDS = 0.19;
     const VICTORY_MELODY = [523.25, 659.25, 783.99, 1046.5, 783.99, 1046.5, 1318.51, 1046.5];
     const VICTORY_STEP_SECONDS = 0.15;
-    let currentMelody = MAIN_MELODY;
-    let currentStepSeconds = MAIN_STEP_SECONDS;
+    let currentMelody = CRUISE_MELODY;
+    let currentStepSeconds = CRUISE_STEP_SECONDS;
+    let currentWave = "triangle";
+    let currentSustain = 0.8;
 
     function ensureCtx() {
       ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
@@ -145,26 +160,31 @@
     function scheduleMusicStep() {
       if (!musicPlaying) return;
       const c = ensureCtx();
-      tone(currentMelody[musicStep % currentMelody.length], currentStepSeconds * 0.8, c.currentTime, "square", 0.05);
+      tone(currentMelody[musicStep % currentMelody.length], currentStepSeconds * currentSustain, c.currentTime, currentWave, 0.05);
       musicStep++;
       musicTimer = setTimeout(scheduleMusicStep, currentStepSeconds * 1000);
     }
 
-    function startLoop(melody, stepSeconds) {
+    function startLoop(melody, stepSeconds, wave, sustain) {
       if (musicTimer) clearTimeout(musicTimer);
       currentMelody = melody;
       currentStepSeconds = stepSeconds;
+      currentWave = wave;
+      currentSustain = sustain;
       musicStep = 0;
       musicPlaying = true;
       scheduleMusicStep();
     }
 
     return {
+      startCruiseMusic() {
+        startLoop(CRUISE_MELODY, CRUISE_STEP_SECONDS, "triangle", 0.95);
+      },
       startMusic() {
-        startLoop(MAIN_MELODY, MAIN_STEP_SECONDS);
+        startLoop(MAIN_MELODY, MAIN_STEP_SECONDS, "square", 0.8);
       },
       startVictoryMusic() {
-        startLoop(VICTORY_MELODY, VICTORY_STEP_SECONDS);
+        startLoop(VICTORY_MELODY, VICTORY_STEP_SECONDS, "square", 0.8);
       },
       stopMusic() {
         musicPlaying = false;
@@ -198,7 +218,7 @@
     let animFrame = 0;
     const sound = makeSound();
 
-    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, trees, popText, roadScroll;
+    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, popText, roadScroll;
 
     function resetGameplay() {
       const isTruck = selection.vehicle.id === "truck";
@@ -215,10 +235,16 @@
       numberCooldown = 120;
       popText = null;
       roadScroll = 0;
-      trees = Array.from({ length: 6 }, (_, i) => ({
-        side: i % 2 === 0 ? "left" : "right",
-        y: (i * H) / 3,
-      }));
+      roadside = Array.from({ length: 10 }, (_, i) => {
+        const kind = ROADSIDE_KINDS[randInt(0, ROADSIDE_KINDS.length - 1)];
+        return {
+          side: i % 2 === 0 ? "left" : "right",
+          y: (i * H) / 5,
+          xJitter: rand(-16, 16),
+          emoji: kind.emoji,
+          size: kind.size,
+        };
+      });
     }
 
     // x is fixed for the lifetime of every object here (only y scrolls), so
@@ -281,7 +307,7 @@
       if (right) player.x += STEER_SPEED;
       player.x = clamp(player.x, ROAD_LEFT + player.w / 2 + 4, ROAD_RIGHT - player.w / 2 - 4);
 
-      trees.forEach((t) => {
+      roadside.forEach((t) => {
         t.y += SCROLL_SPEED;
         if (t.y > H + 40) t.y -= H + 80;
       });
@@ -526,6 +552,7 @@
             selection.color = c;
             state = "playing";
             resetGameplay();
+            sound.startMusic();
           },
         });
         const isHover = hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + size && hoverPoint.y >= y && hoverPoint.y <= y + size;
@@ -688,9 +715,9 @@
       ctx.setLineDash([]);
       ctx.lineDashOffset = 0;
 
-      trees.forEach((t) => {
-        const x = t.side === "left" ? ROAD_LEFT - 50 : ROAD_RIGHT + 50;
-        emoji("🌴", x, t.y, 40);
+      roadside.forEach((t) => {
+        const baseX = t.side === "left" ? ROAD_LEFT - 50 : ROAD_RIGHT + 50;
+        emoji(t.emoji, baseX + t.xJitter, t.y, t.size);
       });
 
       objects.forEach((o) => {
@@ -763,7 +790,7 @@
 
       button(W / 2 - 100, 280, 200, 56, () => {
         state = "start";
-        sound.startMusic();
+        sound.startCruiseMusic();
       }, "#e63946");
       ctx.fillStyle = "#fff";
       ctx.font = "bold 22px sans-serif";
@@ -846,7 +873,7 @@
 
     running = true;
     resetGameplay();
-    sound.startMusic();
+    sound.startCruiseMusic();
     loop();
 
     return {
