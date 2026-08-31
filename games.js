@@ -5,6 +5,7 @@
   const hud = document.getElementById("hud");
   const hudTitle = document.getElementById("hud-title");
   const ejectBtn = document.getElementById("eject-btn");
+  const resetBtn = document.getElementById("reset-btn");
   const shelf = document.getElementById("cartridge-shelf");
   const consoleEl = document.getElementById("console");
 
@@ -53,6 +54,14 @@
   }
 
   ejectBtn.addEventListener("click", eject);
+
+  resetBtn.addEventListener("click", () => {
+    if (!current) return;
+    const gameId = current.id;
+    current.controller.stop();
+    current = null;
+    insertCartridge(gameId);
+  });
 
   shelf.querySelectorAll(".cartridge").forEach((cartridge) => {
     cartridge.addEventListener("dragstart", (e) => {

@@ -34,7 +34,13 @@
     <div class="wrap game-room-layout">
 
       <div class="console" id="console">
+        <div class="console-top">
+          <span class="console-brand">STEGO <em>ENTERTAINMENT SYSTEM</em></span>
+          <span class="console-led" id="console-led" title="Power"></span>
+        </div>
+
         <div class="console-vents"></div>
+
         <div class="console-slot" id="console-slot">
           <div class="slot-opening"></div>
           <span class="slot-label">insert cartridge</span>
@@ -53,6 +59,10 @@
         </div>
 
         <div class="console-controls">
+          <div class="console-buttons">
+            <button type="button" class="console-btn" id="reset-btn">RESET</button>
+            <span class="console-btn console-btn-power">POWER</span>
+          </div>
           <p id="controls-hint">Arrow keys / WASD to move &middot; Space to fire &middot; Enter to restart</p>
         </div>
       </div>
