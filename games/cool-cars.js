@@ -25,15 +25,12 @@
     { id: "pink", hex: "#ff5fa2", label: "Pink" },
   ];
 
-  // A mix of scenery scrolling along the roadside during gameplay.
-  const ROADSIDE_KINDS = [
-    { emoji: "🌴", size: 40 },
-    { emoji: "🌲", size: 42 },
-    { emoji: "🌳", size: 42 },
-    { emoji: "🪨", size: 28 },
-    { emoji: "🌿", size: 24 },
-    { emoji: "🌾", size: 26 },
-  ];
+  // Roadside decorations scrolling past during gameplay: mostly palm trees,
+  // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
+  // clearance kept between any two items on the same side, checked at spawn
+  // time — since every item moves at the identical SCROLL_SPEED afterward,
+  // a safe gap at spawn stays safe forever (same trick used for cars/numbers).
+  const ROADSIDE_MIN_GAP = 70;
 
   const ROAD_LEFT = 180;
   const ROAD_RIGHT = 540;
@@ -196,6 +193,12 @@
         tone(420, 0.14, now, "sawtooth", 0.18);
         tone(420, 0.14, now + 0.18, "sawtooth", 0.18);
       },
+      coinPickup() {
+        const c = ensureCtx();
+        const now = c.currentTime;
+        tone(988, 0.08, now, "square", 0.2);
+        tone(1319, 0.18, now + 0.07, "square", 0.2);
+      },
       animalSound(id) {
         const c = ensureCtx();
         const play = ANIMAL_SOUNDS[id];
@@ -218,7 +221,7 @@
     let animFrame = 0;
     const sound = makeSound();
 
-    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, popText, roadScroll;
+    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, roadsideTimer, birdTimer, popText, roadScroll;
 
     function resetGameplay() {
       const isTruck = selection.vehicle.id === "truck";
@@ -235,16 +238,31 @@
       numberCooldown = 120;
       popText = null;
       roadScroll = 0;
-      roadside = Array.from({ length: 10 }, (_, i) => {
-        const kind = ROADSIDE_KINDS[randInt(0, ROADSIDE_KINDS.length - 1)];
-        return {
-          side: i % 2 === 0 ? "left" : "right",
-          y: (i * H) / 5,
-          xJitter: rand(-16, 16),
-          emoji: kind.emoji,
-          size: kind.size,
-        };
+      // Pre-seeded so the roadside isn't empty for the first couple seconds;
+      // spacing here already respects ROADSIDE_MIN_GAP.
+      roadside = [
+        { side: "left", y: -200, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
+        { side: "left", y: -20, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
+        { side: "right", y: -260, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
+        { side: "right", y: -80, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
+      ];
+      roadsideTimer = 30;
+      birdTimer = randInt(360, 600);
+    }
+
+    function spawnRoadsideItem(isBird) {
+      const side = Math.random() < 0.5 ? "left" : "right";
+      const y = -60;
+      const blocked = roadside.some((r) => r.side === side && Math.abs(r.y - y) < ROADSIDE_MIN_GAP);
+      if (blocked) return false;
+      roadside.push({
+        side,
+        y,
+        xJitter: rand(-16, 16),
+        emoji: isBird ? "🐦" : "🌴",
+        size: isBird ? 26 : 40,
       });
+      return true;
     }
 
     // x is fixed for the lifetime of every object here (only y scrolls), so
@@ -307,10 +325,18 @@
       if (right) player.x += STEER_SPEED;
       player.x = clamp(player.x, ROAD_LEFT + player.w / 2 + 4, ROAD_RIGHT - player.w / 2 - 4);
 
-      roadside.forEach((t) => {
-        t.y += SCROLL_SPEED;
-        if (t.y > H + 40) t.y -= H + 80;
-      });
+      roadsideTimer--;
+      if (roadsideTimer <= 0) {
+        const spawned = spawnRoadsideItem(false);
+        roadsideTimer = spawned ? randInt(45, 70) : 15;
+      }
+      birdTimer--;
+      if (birdTimer <= 0) {
+        const spawned = spawnRoadsideItem(true);
+        birdTimer = spawned ? randInt(500, 900) : 30;
+      }
+      roadside.forEach((t) => (t.y += SCROLL_SPEED));
+      roadside = roadside.filter((t) => t.y < H + 60);
       roadScroll += SCROLL_SPEED;
 
       spawnTimer--;
@@ -336,6 +362,7 @@
           if (o.value === nextNumber) {
             o.collected = true;
             popText = { text: `${nextNumber}!`, life: 45 };
+            sound.coinPickup();
             nextNumber++;
             if (nextNumber > 10) {
               state = "won";
@@ -652,7 +679,9 @@
       drawWheels(cx, cy, w, h, 6, 13, 16, 24);
       ctx.restore();
 
-      emoji(driverEmoji, cx, cy - h * 0.1, Math.min(24, w * 0.55));
+      if (driverEmoji) {
+        emoji(driverEmoji, cx, cy - h * 0.1, Math.min(24, w * 0.55));
+      }
     }
 
     // Boxy cab-plus-cargo shape echoing the 🚚 from the vehicle picker.
@@ -685,10 +714,12 @@
       ctx.fillStyle = "rgba(255,255,255,0.85)";
       ctx.fill();
 
-      drawWheels(cx, cy, w, h, 7, 16, cabH + 4, 8);
+      drawWheels(cx, cy, w, h, 7, 16, cabH + 4, 20);
       ctx.restore();
 
-      emoji(driverEmoji, cx, cy - h / 2 + cabH / 2, Math.min(22, w * 0.5));
+      if (driverEmoji) {
+        emoji(driverEmoji, cx, cy - h / 2 + cabH / 2, Math.min(22, w * 0.5));
+      }
     }
 
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
@@ -785,8 +816,15 @@
       ctx.strokeText("YOU WIN!", W / 2, 140);
       ctx.fillText("YOU WIN!", W / 2, 140);
 
-      emoji(selection.animal.emoji, W / 2 - 50, 220, 60);
-      emoji(selection.vehicle.emoji, W / 2 + 50, 220, 60);
+      emoji(selection.animal.emoji, W / 2 - 60, 220, 60);
+      {
+        const isTruck = selection.vehicle.id === "truck";
+        const baseW = isTruck ? 50 : 40;
+        const baseH = isTruck ? 76 : 68;
+        const previewH = 80;
+        const previewW = previewH * (baseW / baseH);
+        drawPlayerVehicle(W / 2 + 55, 222, selection.color.hex, null, previewW, previewH, selection.vehicle.id);
+      }
 
       button(W / 2 - 100, 280, 200, 56, () => {
         state = "start";
