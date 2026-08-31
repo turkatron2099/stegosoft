@@ -11,6 +11,11 @@
   let current = null; // { id, controller }
 
   function insertCartridge(gameId) {
+    if (current && current.id === gameId) {
+      canvas.focus();
+      return;
+    }
+
     const game = window.STEGO_GAMES && window.STEGO_GAMES[gameId];
     if (!game) return;
 
@@ -27,6 +32,13 @@
 
     const controller = game.start(canvas);
     current = { id: gameId, controller };
+
+    // Move focus off the cartridge/slot so Space/Enter control the game,
+    // not re-trigger insertion of the cartridge that was just activated.
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    canvas.focus();
   }
 
   function eject() {
