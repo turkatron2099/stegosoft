@@ -15,6 +15,9 @@ const FEEDS = [
   { topic: "Biblical Archaeology", source: "Biblical Archaeology Society", url: "https://www.biblicalarchaeology.org/feed/" },
   { topic: "Comics", source: "Bleeding Cool", url: "https://bleedingcool.com/feed/" },
   { topic: "Comics", source: "ComicBook.com", url: "https://comicbook.com/feed/" },
+  { topic: "Cybersecurity", source: "Krebs on Security", url: "https://krebsonsecurity.com/feed/" },
+  { topic: "Cybersecurity", source: "The Hacker News", url: "https://feeds.feedburner.com/TheHackersNews" },
+  { topic: "Cybersecurity", source: "Dark Reading", url: "https://www.darkreading.com/rss.xml" },
   { topic: "Top News", source: "NPR", url: "https://feeds.npr.org/1001/rss.xml" },
   { topic: "Top News", source: "BBC News", url: "http://feeds.bbci.co.uk/news/rss.xml" },
 ];
@@ -26,6 +29,7 @@ const TOPIC_LIMITS = {
   Gaming: 6,
   "Biblical Archaeology": 6,
   Comics: 6,
+  Cybersecurity: 6,
   "Top News": 2,
 };
 const DEFAULT_TOPIC_LIMIT = 6;
@@ -117,8 +121,13 @@ async function fetchFeed(feed) {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const xml = await res.text();
+    const now = Date.now();
     return parseRssItems(xml)
       .filter((item) => item.title && item.link)
+      // Some feeds (e.g. recurring webinar/event listings) date an entry by
+      // its event date rather than publish date, which can be in the future
+      // and would otherwise falsely rank as the "most recent" item.
+      .filter((item) => !item.date || item.date.getTime() <= now)
       .map((item) => ({
         title: item.title,
         link: item.link,
