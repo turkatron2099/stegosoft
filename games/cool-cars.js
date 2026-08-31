@@ -57,10 +57,15 @@
     let musicPlaying = false;
     let musicStep = 0;
 
-    // A short, cheerful, entirely original 8-step riff (C major) — composed
-    // here in code, so there's no licensing question about where it's from.
-    const MELODY = [261.63, 329.63, 392.0, 523.25, 392.0, 329.63, 392.0, 440.0];
-    const STEP_SECONDS = 0.19;
+    // Two short, entirely original riffs (composed here in code, so there's
+    // no licensing question about where they came from): a cheerful loop for
+    // regular play, and a brighter, faster fanfare for the win screen.
+    const MAIN_MELODY = [261.63, 329.63, 392.0, 523.25, 392.0, 329.63, 392.0, 440.0];
+    const MAIN_STEP_SECONDS = 0.19;
+    const VICTORY_MELODY = [523.25, 659.25, 783.99, 1046.5, 783.99, 1046.5, 1318.51, 1046.5];
+    const VICTORY_STEP_SECONDS = 0.15;
+    let currentMelody = MAIN_MELODY;
+    let currentStepSeconds = MAIN_STEP_SECONDS;
 
     function ensureCtx() {
       ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
@@ -140,16 +145,26 @@
     function scheduleMusicStep() {
       if (!musicPlaying) return;
       const c = ensureCtx();
-      tone(MELODY[musicStep % MELODY.length], STEP_SECONDS * 0.8, c.currentTime, "square", 0.05);
+      tone(currentMelody[musicStep % currentMelody.length], currentStepSeconds * 0.8, c.currentTime, "square", 0.05);
       musicStep++;
-      musicTimer = setTimeout(scheduleMusicStep, STEP_SECONDS * 1000);
+      musicTimer = setTimeout(scheduleMusicStep, currentStepSeconds * 1000);
+    }
+
+    function startLoop(melody, stepSeconds) {
+      if (musicTimer) clearTimeout(musicTimer);
+      currentMelody = melody;
+      currentStepSeconds = stepSeconds;
+      musicStep = 0;
+      musicPlaying = true;
+      scheduleMusicStep();
     }
 
     return {
       startMusic() {
-        if (musicPlaying) return;
-        musicPlaying = true;
-        scheduleMusicStep();
+        startLoop(MAIN_MELODY, MAIN_STEP_SECONDS);
+      },
+      startVictoryMusic() {
+        startLoop(VICTORY_MELODY, VICTORY_STEP_SECONDS);
       },
       stopMusic() {
         musicPlaying = false;
@@ -206,16 +221,38 @@
       }));
     }
 
+    // x is fixed for the lifetime of every object here (only y scrolls), so
+    // avoiding an x-overlap at spawn time guarantees two objects can never
+    // visually collide later, regardless of how their y positions drift.
+    function pickSafeX(halfWidth, avoid) {
+      const lo = ROAD_LEFT + halfWidth;
+      const hi = ROAD_RIGHT - halfWidth;
+      if (lo > hi) return null;
+      for (let attempt = 0; attempt < 16; attempt++) {
+        const x = rand(lo, hi);
+        const conflict = avoid.some((a) => Math.abs(x - a.center) < halfWidth + a.halfWidth + (a.buffer || 0));
+        if (!conflict) return x;
+      }
+      return null;
+    }
+
     function spawnObstacle() {
       const w = 44;
-      const x = rand(ROAD_LEFT + w, ROAD_RIGHT - w);
+      const activeNumbers = objects
+        .filter((o) => o.type === "number" && !o.collected)
+        .map((o) => ({ center: o.x, halfWidth: o.r, buffer: 26 }));
+      const x = pickSafeX(w / 2, activeNumbers);
+      if (x === null) return; // no safe gap right now — just skip this spawn cycle
       const color = COLORS[randInt(0, COLORS.length - 1)];
       objects.push({ type: "car", x, y: -60, w: 44, h: 70, color: color.hex });
     }
 
     function spawnNumber() {
-      const x = rand(ROAD_LEFT + 30, ROAD_RIGHT - 30);
+      const activeCars = objects.filter((o) => o.type === "car").map((o) => ({ center: o.x, halfWidth: o.w / 2, buffer: 26 }));
+      const x = pickSafeX(20, activeCars);
+      if (x === null) return false; // no clear gap right now
       objects.push({ type: "number", x, y: -40, r: 20, value: nextNumber });
+      return true;
     }
 
     function triggerCrash(obstacle) {
@@ -257,8 +294,8 @@
       }
       numberCooldown--;
       if (numberCooldown <= 0 && !objects.some((o) => o.type === "number")) {
-        spawnNumber();
-        numberCooldown = randInt(260, 380);
+        const spawned = spawnNumber();
+        numberCooldown = spawned ? randInt(260, 380) : 20;
       }
 
       objects.forEach((o) => (o.y += SCROLL_SPEED));
@@ -274,7 +311,10 @@
             o.collected = true;
             popText = { text: `${nextNumber}!`, life: 45 };
             nextNumber++;
-            if (nextNumber > 10) state = "won";
+            if (nextNumber > 10) {
+              state = "won";
+              sound.startVictoryMusic();
+            }
           }
         }
       }
@@ -463,6 +503,13 @@
       const gap = 20;
       const rowW = cols * size + (cols - 1) * gap;
       const startX = (W - rowW) / 2;
+
+      const isTruck = selection.vehicle.id === "truck";
+      const baseW = isTruck ? 50 : 40;
+      const baseH = isTruck ? 76 : 68;
+      const previewH = 74;
+      const previewW = previewH * (baseW / baseH);
+
       COLORS.forEach((c, i) => {
         const col = i % cols;
         const row = Math.floor(i / cols);
@@ -482,13 +529,25 @@
           },
         });
         const isHover = hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + size && hoverPoint.y >= y && hoverPoint.y <= y + size;
-        ctx.beginPath();
-        ctx.arc(x + size / 2, y + size / 2, isHover ? size / 2 - 2 : size / 2 - 6, 0, Math.PI * 2);
-        ctx.fillStyle = c.hex;
+
+        roundRect(ctx, x, y, size, size, 14);
+        ctx.fillStyle = "#0a2540";
         ctx.fill();
-        ctx.lineWidth = 3;
+        ctx.lineWidth = isHover ? 3 : 2;
         ctx.strokeStyle = "#f6dcac";
         ctx.stroke();
+
+        const cx = x + size / 2;
+        const cy = y + size / 2;
+        ctx.save();
+        if (isHover) {
+          ctx.translate(cx, cy);
+          ctx.scale(1.08, 1.08);
+          ctx.translate(-cx, -cy);
+        }
+        drawPlayerVehicle(cx, cy, c.hex, selection.animal.emoji, previewW, previewH, selection.vehicle.id);
+        ctx.restore();
+
         ctx.fillStyle = "#f6dcac";
         ctx.font = "15px sans-serif";
         ctx.textAlign = "center";
@@ -520,7 +579,9 @@
       ].forEach(([wx, wy]) => ctx.fillRect(wx, wy, wheelW, wheelH));
       ctx.restore();
 
-      emoji(driverEmoji, cx, cy - h * 0.18, Math.min(26, w * 0.6));
+      if (driverEmoji) {
+        emoji(driverEmoji, cx, cy - h * 0.18, Math.min(26, w * 0.6));
+      }
     }
 
     function drawWheels(cx, cy, w, h, wheelW, wheelH, topInset, bottomInset) {
@@ -634,7 +695,7 @@
 
       objects.forEach((o) => {
         if (o.type === "car") {
-          drawTopDownCar(o.x, o.y, o.color, "🚗", o.w, o.h);
+          drawTopDownCar(o.x, o.y, o.color, null, o.w, o.h);
         } else {
           ctx.beginPath();
           ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
@@ -700,13 +761,14 @@
       emoji(selection.animal.emoji, W / 2 - 50, 220, 60);
       emoji(selection.vehicle.emoji, W / 2 + 50, 220, 60);
 
-      button(W / 2 - 100, H - 100, 200, 56, () => {
+      button(W / 2 - 100, 280, 200, 56, () => {
         state = "start";
+        sound.startMusic();
       }, "#e63946");
       ctx.fillStyle = "#fff";
       ctx.font = "bold 22px sans-serif";
       ctx.textBaseline = "middle";
-      ctx.fillText("PLAY AGAIN", W / 2, H - 72);
+      ctx.fillText("PLAY AGAIN", W / 2, 308);
     }
 
     function draw() {
