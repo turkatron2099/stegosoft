@@ -1,92 +1,29 @@
 {
-  "generatedAt": "2026-08-31T17:36:58.540Z",
-  "summary": {
-    "totalCount": 32,
-    "counts": {
-      "Technology": 6,
-      "Gaming": 6,
-      "Biblical Archaeology": 6,
-      "Comics": 6,
-      "Cybersecurity": 6,
-      "Top News": 2
-    },
-    "topHeadlines": [
-      {
-        "title": "The big moves to watch out for before football's transfer window closes",
-        "link": "https://www.bbc.co.uk/sport/football/articles/c7v433lejveo?at_medium=RSS&at_campaign=rss",
-        "source": "BBC News"
-      },
-      {
-        "title": "Victoria Beckham's company makes its first profit after 18 years",
-        "link": "https://www.bbc.co.uk/news/articles/cj645yl6d6do?at_medium=RSS&at_campaign=rss",
-        "source": "BBC News"
-      }
-    ]
-  },
+  "generatedAt": "2026-08-31T17:42:52.812Z",
   "items": [
     {
-      "title": "China-Linked Fire Ant Hijacks Cisco Routers to Steal Credentials and Blind Security Logs",
-      "link": "https://thehackernews.com/2026/08/china-linked-fire-ant-hijacks-cisco.html",
-      "summary": "A China-nexus cyber espionage actor tracked as Fire Ant has expanded a long-running campaign beyond VMware hypervisors to compromise Cisco IOS XR routers, Terminal Access Controller Access-Control System (TACACS)…",
+      "title": "ValleyRAT Backdoor Hides in Signed Adware That Users Add to Antivirus Exclusions",
+      "link": "https://thehackernews.com/2026/08/valleyrat-backdoor-hides-in-signed.html",
+      "summary": "The threat actor known as Silver Fox has been observed distributing the ValleyRAT backdoor disguised as a signed Chinese adware application, running the malware under a trusted process to slip past users who add such…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-08-31T09:04:55.000Z"
+      "date": "2026-08-31T12:14:00.000Z"
     },
     {
-      "title": "⚡ Weekly Recap: Chinese Spy Proxy, AI Agents Go Off-Task, Router Backdoors and More",
-      "link": "https://thehackernews.com/2026/08/weekly-recap-chinese-spy-proxy-ai.html",
-      "summary": "The boring parts caused most of the trouble. A router shipped ready to listen. A fake check turned the user into the installer. Trusted systems collected traffic and passwords, then cleaned the logs. Old bugs formed new…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-08-31T13:50:00.000Z"
+      "title": "The Walking Dead: Dead City S03E07 \"Hourglass\" Images: Back to Reality",
+      "link": "https://bleedingcool.com/tv/the-walking-dead-dead-city-s03e07-hourglass-images-back-to-reality/",
+      "summary": "It's back to a very deadly reality in the next episode of AMC's The Walking Dead: Dead City. Here's the image gallery for S03E07 \"Hourglass.\"",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-08-31T17:39:10.000Z"
     },
     {
-      "title": "Rare Wick Discovery Illuminates Bronze Age Burials",
-      "link": "https://www.biblicalarchaeology.org/daily/rare-wick-discovery-illuminates-bronze-age-burials/",
-      "summary": "Excavations at the site of Neve Efraim, near Tel Aviv, have revealed three of the oldest lamp wicks ever discovered. Although wicks may seem like…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-08-31T10:00:39.000Z"
-    },
-    {
-      "title": "A 12TB Steam 'Teraleak' Spills More Than a Decade of Lost PC Gaming History",
-      "link": "https://games.slashdot.org/story/26/08/31/0247220/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A massive 12TB archive of old Steam2 content has surfaced online, apparently containing nearly every version of games uploaded to Valve's servers between 2003 and 2013, including unreleased prototypes, playtest builds,…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-08-31T16:00:00.000Z"
-    },
-    {
-      "title": "Josephus and Jesus",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/josephus-and-jesus/",
-      "summary": "Josephus, a first-century Jewish historian with close ties to Jerusalem’s priestly aristocracy, offers the earliest non-Christian account of Jesus. In his Jewish Antiquities, Josephus recounts…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-08-31T10:45:19.000Z"
-    },
-    {
-      "title": "Pokémon Go Mega Evolution guide",
-      "link": "https://www.polygon.com/pokemon-go-guide/22447919/mega-evolution-list-candy-bonus-buddy-raids/",
-      "summary": "Pokémon Go players can power up their strong Pokémon by using Mega Evolution. Our guide details which Pokémon can Mega Evolve and how to get Mega Energy.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-08-31T15:38:38.000Z"
-    },
-    {
-      "title": "California's Age Verification Bill Passes with Linux Exemption Intact",
-      "link": "https://yro.slashdot.org/story/26/08/31/0549210/californias-age-verification-bill-passes-with-linux-exemption-intact?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "California's age-verification bill has passed in its legislature — but with its open-source carve-out intact, reports the blog Linuxiac: Back in May, we reported that California lawmakers amended Assembly Bill 1856 to…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-08-31T11:34:00.000Z"
-    },
-    {
-      "title": "MapQuest's App Surges to No. 1 In Navigation After Refusing to Rename Lake Ontario",
-      "link": "https://news.slashdot.org/story/26/08/31/1646204/mapquests-app-surges-to-no-1-in-navigation-after-refusing-to-rename-lake-ontario?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "MapQuest's refusal to rename Lake Ontario as \"Lake America\" has sent its app surging up the charts, making it the No. 1 navigation app in the U.S. and driving \"hundreds of thousands\" of new downloads. In contrast,…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-08-31T17:00:00.000Z"
+      "title": "GTA 6 Confirms Violent Feature Never Seen in Grand Theft Auto Before",
+      "link": "https://comicbook.com/gaming/news/gta-6-grand-theft-auto-vi-rdr2-feature/",
+      "summary": "GTA 6 has confirmed a violent feature never seen before in a single previous Grand Theft Auto game. That said, Rockstar Games did debut the feature in Red Dead Redemption 2, so it’s not too surprising that it’s being…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-08-31T17:02:43.000Z"
     },
     {
       "title": "Securing Claude Code: The New Compliance API, Local Visibility, and Identity Governance",
@@ -97,20 +34,196 @@
       "date": "2026-08-31T11:31:47.000Z"
     },
     {
-      "title": "'Taken' Meets Jason Bourne in Mark Wahlberg's 124-Minute Action Thriller Officially Streaming for Free",
-      "link": "https://www.polygon.com/mark-wahlberg-best-movie-shooter-streaming-free/",
-      "summary": "One of the action star's cult classics is available to watch for free.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-08-31T15:47:35.000Z"
+      "title": "Josephus and Jesus",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/josephus-and-jesus/",
+      "summary": "Josephus, a first-century Jewish historian with close ties to Jerusalem’s priestly aristocracy, offers the earliest non-Christian account of Jesus. In his Jewish Antiquities, Josephus recounts…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-08-31T10:45:19.000Z"
     },
     {
-      "title": "Victoria Beckham's company makes its first profit after 18 years",
-      "link": "https://www.bbc.co.uk/news/articles/cj645yl6d6do?at_medium=RSS&at_campaign=rss",
-      "summary": "Beckham's fashion and beauty business makes a £7.3m operating profit after years of losses.",
+      "title": "Ashkenazi Jewish Ancestry Confirmed European by mtDNA Tests",
+      "link": "https://www.biblicalarchaeology.org/daily/news/ashkenazi-jewish-ancestry-confirmed-european-by-mtdna-tests/",
+      "summary": "A recent study on mitochondrial DNA revealed that the female line of Ashkenazi Jewish ancestry closely resembles that of Southern and Western Europe, rather than the ancient Near East, as many scholars proposed in the…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-08-29T11:00:50.000Z"
+    },
+    {
+      "title": "The Expulsion of the Hyksos",
+      "link": "https://www.biblicalarchaeology.org/daily/news/the-expulsion-of-the-hyksos/",
+      "summary": "In the 16th century B.C.E., Ahmose I overthrew the Hyksos and initiated the 18th Dynasty and the New Kingdom of Egypt. Recent archaeological discoveries at Tel Habuwa shed new light on Ahmose’s campaign.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-08-30T11:00:36.000Z"
+    },
+    {
+      "title": "Mattel DC Comics Core Collection – Superman Is a Symbol of Hope",
+      "link": "https://bleedingcool.com/collectibles/mattel-dc-comics-core-collection-superman-is-a-symbol-of-hope/",
+      "summary": "Mattel's DC Comics Core Collection is arriving, and we're taking a closer look at the new DC Comics Core action figures",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-08-31T17:22:16.000Z"
+    },
+    {
+      "title": "Intergalactic: The Heretic Prophet Has Finished Shooting its Performance Capture, Confirms Naughty Dog",
+      "link": "https://www.ign.com/articles/intergalactic-the-heretic-prophet-has-finished-shooting-its-performance-capture-confirms-naughty-dog",
+      "summary": "Naughty Dog's next game, Intergalactic: The Heretic Prophet, has wrapped shooting on the game's performance capture.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-08-31T16:53:36.000Z"
+    },
+    {
+      "title": "Berlin Is Being Blackmailed By Hackers",
+      "link": "https://it.slashdot.org/story/26/08/31/0229251/berlin-is-being-blackmailed-by-hackers?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from the BBC: Berlin is being blackmailed by hackers who were able to compromise city systems and steal data earlier this month, its mayor has said. Kai Wegner said officials would…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-08-31T15:00:00.000Z"
+    },
+    {
+      "title": "Did Midian Have a Brand?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/did-midian-have-a-brand/",
+      "summary": "For decades, archaeologists have known a distinctive kind of pottery as “Midianite Pottery.” These beautifully painted vessels were associated with ancient Arabia yet found at…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-08-28T10:45:48.000Z"
+    },
+    {
+      "title": "ChatGPT and Reddit now face EU's toughest online safety rules",
+      "link": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
+      "summary": "Explosive growth comes with a new regulatory burden in the European Union.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-08-31T13:41:40.000Z"
+    },
+    {
+      "title": "All Adventure Effects and what they do in Pokémon Go",
+      "link": "https://www.polygon.com/pokemon-go-adventure-effect-list-cost-unlock/",
+      "summary": "Some legendary Pokémon in Pokémon Go have special bonus effects that buff your gameplay. Here's a list of them all.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-08-31T17:41:28.000Z"
+    },
+    {
+      "title": "Aurora Ransomware Operators Use Cursor AI in Attacks Against 10 Targets",
+      "link": "https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html",
+      "summary": "Threat actors associated with Aurora (aka Aur0ra) ransomware have been observed using SpaceX's artificial intelligence (AI)-powered coding assistant Cursor to break into target networks, according to findings from…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-08-31T11:47:24.000Z"
+    },
+    {
+      "title": "Nepal rescuers blast hillside in search of hydropower workers as families wait anxiously",
+      "link": "https://www.bbc.co.uk/news/articles/c5ylvgq9q71o?at_medium=RSS&at_campaign=rss",
+      "summary": "Rescuers have resorted to explosives as they struggle to reach trapped workers, as the flooding death toll reaches 939.",
       "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-08-31T17:28:19.000Z"
+      "date": "2026-08-31T17:30:47.000Z"
+    },
+    {
+      "title": "NASA's next \"great observatory\" begins mission to widen our view of the Universe",
+      "link": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
+      "summary": "\"We would need over half a million 4K TVs to fully display the single Roman image from our largest survey.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-08-31T13:01:09.000Z"
+    },
+    {
+      "title": "A 12TB Steam 'Teraleak' Spills More Than a Decade of Lost PC Gaming History",
+      "link": "https://games.slashdot.org/story/26/08/31/0247220/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A massive 12TB archive of old Steam2 content has surfaced online, apparently containing nearly every version of games uploaded to Valve's servers between 2003 and 2013, including unreleased prototypes, playtest builds,…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-08-31T16:00:00.000Z"
+    },
+    {
+      "title": "DoJ Corrects China Hacking Claim, Says U.S. Agencies Were Targets, Not Victims",
+      "link": "https://thehackernews.com/2026/08/doj-corrects-china-hacking-claim-says.html",
+      "summary": "The U.S. Department of Justice (DoJ) on Friday corrected a previously issued press statement that several of its agencies were victims of attacks carried out by Chinese threat actors, instead now pointing out that they…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-08-31T07:56:53.000Z"
+    },
+    {
+      "title": "Naughty Dog Confirms Major Intergalactic Milestone Ahead of Sony's State of Play",
+      "link": "https://www.polygon.com/naughty-dog-intergalactic-heretic-prophet-update-ps5/",
+      "summary": "Intergalactic: The Heretic Prophet has wrapped filming on its cinematic content, Naughty Dog announced Monday ahead of September's Sony State of Play.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-08-31T17:39:17.000Z"
+    },
+    {
+      "title": "The big moves to watch out for before football's transfer window closes",
+      "link": "https://www.bbc.co.uk/sport/football/articles/c7v433lejveo?at_medium=RSS&at_campaign=rss",
+      "summary": "BBC Sport's football experts pick out the standout transfers that could go through before Tuesday's 23:00 BST English deadline.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-08-31T17:28:57.000Z"
+    },
+    {
+      "title": "California's Age Verification Bill Passes with Linux Exemption Intact",
+      "link": "https://yro.slashdot.org/story/26/08/31/0549210/californias-age-verification-bill-passes-with-linux-exemption-intact?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "California's age-verification bill has passed in its legislature — but with its open-source carve-out intact, reports the blog Linuxiac: Back in May, we reported that California lawmakers amended Assembly Bill 1856 to…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-08-31T11:34:00.000Z"
+    },
+    {
+      "title": "Rare Wick Discovery Illuminates Bronze Age Burials",
+      "link": "https://www.biblicalarchaeology.org/daily/rare-wick-discovery-illuminates-bronze-age-burials/",
+      "summary": "Excavations at the site of Neve Efraim, near Tel Aviv, have revealed three of the oldest lamp wicks ever discovered. Although wicks may seem like…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-08-31T10:00:39.000Z"
+    },
+    {
+      "title": "⚡ Weekly Recap: Chinese Spy Proxy, AI Agents Go Off-Task, Router Backdoors and More",
+      "link": "https://thehackernews.com/2026/08/weekly-recap-chinese-spy-proxy-ai.html",
+      "summary": "The boring parts caused most of the trouble. A router shipped ready to listen. A fake check turned the user into the installer. Trusted systems collected traffic and passwords, then cleaned the logs. Old bugs formed new…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-08-31T13:50:00.000Z"
+    },
+    {
+      "title": "MapQuest's App Surges to No. 1 In Navigation After Refusing to Rename Lake Ontario",
+      "link": "https://news.slashdot.org/story/26/08/31/1646204/mapquests-app-surges-to-no-1-in-navigation-after-refusing-to-rename-lake-ontario?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "MapQuest's refusal to rename Lake Ontario as \"Lake America\" has sent its app surging up the charts, making it the No. 1 navigation app in the U.S. and driving \"hundreds of thousands\" of new downloads. In contrast,…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-08-31T17:00:00.000Z"
+    },
+    {
+      "title": "China-Linked Fire Ant Hijacks Cisco Routers to Steal Credentials and Blind Security Logs",
+      "link": "https://thehackernews.com/2026/08/china-linked-fire-ant-hijacks-cisco.html",
+      "summary": "A China-nexus cyber espionage actor tracked as Fire Ant has expanded a long-running campaign beyond VMware hypervisors to compromise Cisco IOS XR routers, Terminal Access Controller Access-Control System (TACACS)…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-08-31T09:04:55.000Z"
+    },
+    {
+      "title": "Jujutsu Kaisen Creator Reveals Haibara’s Mysterious Power at Last (& It Makes Him Just Like Yuji)",
+      "link": "https://comicbook.com/anime/news/jujutsu-kaisen-creator-reveals-haibaras-mysterious-power-at-last-it-makes-him-just-like-yuji/",
+      "summary": "Courtesy of Toho Animation Jujutsu Kaisen‘s creator has finally revealed the mysterious power Yu Haibara wielded before his tragic death, and it’s a power that has an even more heartbreaking connection to Yuji Itadori.…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-08-31T17:21:34.000Z"
+    },
+    {
+      "title": "The Blood of Dawnwalker Reviews Say The Witcher 3 Finally Has a Worthy Successor",
+      "link": "https://www.polygon.com/blood-of-dawnwalker-review-roundup/",
+      "summary": "Reviews for The Blood of Dawnwalker are in, and critics are raving about Rebel Wolves' vampire RPG.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-08-31T16:31:03.000Z"
+    },
+    {
+      "title": "Onimusha: Way of the Sword Reviews Say Capcom Has a Fourth Hit on Its Hands this Year",
+      "link": "https://www.polygon.com/onimusha-way-of-the-sword-review-roundup-metacritic-score/",
+      "summary": "Onimusha Way of the Sword reviews highlight the action game's top-notch combat and storytelling, despite some limitations and repetition",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-08-31T17:00:14.000Z"
     },
     {
       "title": "The Blood Of The Dawnwalker Is My New Obsession (And Will Be Yours Too) [Review]",
@@ -129,46 +242,6 @@
       "date": "2026-08-31T16:53:48.000Z"
     },
     {
-      "title": "The big moves to watch out for before football's transfer window closes",
-      "link": "https://www.bbc.co.uk/sport/football/articles/c7v433lejveo?at_medium=RSS&at_campaign=rss",
-      "summary": "BBC Sport's football experts pick out the standout transfers that could go through before Tuesday's 23:00 BST English deadline.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-08-31T17:28:57.000Z"
-    },
-    {
-      "title": "Onimusha: Way of the Sword Reviews Say Capcom Has a Fourth Hit on Its Hands this Year",
-      "link": "https://www.polygon.com/onimusha-way-of-the-sword-review-roundup-metacritic-score/",
-      "summary": "Onimusha Way of the Sword reviews highlight the action game's top-notch combat and storytelling, despite some limitations and repetition",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-08-31T17:00:14.000Z"
-    },
-    {
-      "title": "Did Midian Have a Brand?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/did-midian-have-a-brand/",
-      "summary": "For decades, archaeologists have known a distinctive kind of pottery as “Midianite Pottery.” These beautifully painted vessels were associated with ancient Arabia yet found at…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-08-28T10:45:48.000Z"
-    },
-    {
-      "title": "Mattel DC Comics Core Collection – Superman Is a Symbol of Hope",
-      "link": "https://bleedingcool.com/collectibles/mattel-dc-comics-core-collection-superman-is-a-symbol-of-hope/",
-      "summary": "Mattel's DC Comics Core Collection is arriving, and we're taking a closer look at the new DC Comics Core action figures",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-08-31T17:22:16.000Z"
-    },
-    {
-      "title": "Ashkenazi Jewish Ancestry Confirmed European by mtDNA Tests",
-      "link": "https://www.biblicalarchaeology.org/daily/news/ashkenazi-jewish-ancestry-confirmed-european-by-mtdna-tests/",
-      "summary": "A recent study on mitochondrial DNA revealed that the female line of Ashkenazi Jewish ancestry closely resembles that of Southern and Western Europe, rather than the ancient Near East, as many scholars proposed in the…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-08-29T11:00:50.000Z"
-    },
-    {
       "title": "More Queries and Comments Fall 2026",
       "link": "https://www.biblicalarchaeology.org/queries-comments/fall-2026/",
       "summary": "Thank you for your thoughts and comments about our Spring 2026 issue. We appreciate your feedback. Here are a few of the letters and responses…",
@@ -177,108 +250,12 @@
       "date": "2026-08-31T10:00:47.000Z"
     },
     {
-      "title": "DoJ Corrects China Hacking Claim, Says U.S. Agencies Were Targets, Not Victims",
-      "link": "https://thehackernews.com/2026/08/doj-corrects-china-hacking-claim-says.html",
-      "summary": "The U.S. Department of Justice (DoJ) on Friday corrected a previously issued press statement that several of its agencies were victims of attacks carried out by Chinese threat actors, instead now pointing out that they…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-08-31T07:56:53.000Z"
-    },
-    {
-      "title": "Jujutsu Kaisen Creator Reveals Haibara’s Mysterious Power at Last (& It Makes Him Just Like Yuji)",
-      "link": "https://comicbook.com/anime/news/jujutsu-kaisen-creator-reveals-haibaras-mysterious-power-at-last-it-makes-him-just-like-yuji/",
-      "summary": "Courtesy of Toho Animation Jujutsu Kaisen‘s creator has finally revealed the mysterious power Yu Haibara wielded before his tragic death, and it’s a power that has an even more heartbreaking connection to Yuji Itadori.…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-08-31T17:21:34.000Z"
-    },
-    {
-      "title": "Intergalactic: The Heretic Prophet Has Finished Shooting its Performance Capture, Confirms Naughty Dog",
-      "link": "https://www.ign.com/articles/intergalactic-the-heretic-prophet-has-finished-shooting-its-performance-capture-confirms-naughty-dog",
-      "summary": "Naughty Dog's next game, Intergalactic: The Heretic Prophet, has wrapped shooting on the game's performance capture.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-08-31T16:53:36.000Z"
-    },
-    {
-      "title": "Aurora Ransomware Operators Use Cursor AI in Attacks Against 10 Targets",
-      "link": "https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html",
-      "summary": "Threat actors associated with Aurora (aka Aur0ra) ransomware have been observed using SpaceX's artificial intelligence (AI)-powered coding assistant Cursor to break into target networks, according to findings from…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-08-31T11:47:24.000Z"
-    },
-    {
       "title": "Is the Sequel to Alien: Romulus Canceled After Ridley Scott Resurrected His Prequel?",
       "link": "https://comicbook.com/movies/feature/ridley-scott-is-rewriting-the-next-alien-movie-and-it-wont-be-a-sequel-to-romulus/",
       "summary": "Image courtesy of 20th Century Studios Ridley Scott has been tied to the Alien franchise since he launched it in 1979, even as other filmmakers steered the series in different directions over the decades. James Cameron…",
       "source": "ComicBook.com",
       "topic": "Comics",
       "date": "2026-08-31T17:00:00.000Z"
-    },
-    {
-      "title": "This 60-Year-Old Star Trek Prop Just Became a $250K Collector’s Holy Grail",
-      "link": "https://comicbook.com/collectibles/news/this-60-year-old-star-trek-prop-just-became-a-250k-collectors-holy-grail/",
-      "summary": "Courtesy of Paramount In the last six decades, there have been several sci-fi franchises that have redefined the genre for three generations. Star Trek still remains one of the most influential and most imitated sci-fi…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-08-31T17:00:00.000Z"
-    },
-    {
-      "title": "NASA's next \"great observatory\" begins mission to widen our view of the Universe",
-      "link": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
-      "summary": "\"We would need over half a million 4K TVs to fully display the single Roman image from our largest survey.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-08-31T13:01:09.000Z"
-    },
-    {
-      "title": "The Expulsion of the Hyksos",
-      "link": "https://www.biblicalarchaeology.org/daily/news/the-expulsion-of-the-hyksos/",
-      "summary": "In the 16th century B.C.E., Ahmose I overthrew the Hyksos and initiated the 18th Dynasty and the New Kingdom of Egypt. Recent archaeological discoveries at Tel Habuwa shed new light on Ahmose’s campaign.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-08-30T11:00:36.000Z"
-    },
-    {
-      "title": "Berlin Is Being Blackmailed By Hackers",
-      "link": "https://it.slashdot.org/story/26/08/31/0229251/berlin-is-being-blackmailed-by-hackers?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from the BBC: Berlin is being blackmailed by hackers who were able to compromise city systems and steal data earlier this month, its mayor has said. Kai Wegner said officials would…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-08-31T15:00:00.000Z"
-    },
-    {
-      "title": "The Blood of Dawnwalker Reviews Say The Witcher 3 Finally Has a Worthy Successor",
-      "link": "https://www.polygon.com/blood-of-dawnwalker-review-roundup/",
-      "summary": "Reviews for The Blood of Dawnwalker are in, and critics are raving about Rebel Wolves' vampire RPG.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-08-31T16:31:03.000Z"
-    },
-    {
-      "title": "ChatGPT and Reddit now face EU's toughest online safety rules",
-      "link": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
-      "summary": "Explosive growth comes with a new regulatory burden in the European Union.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-08-31T13:41:40.000Z"
-    },
-    {
-      "title": "GTA 6 Confirms Violent Feature Never Seen in Grand Theft Auto Before",
-      "link": "https://comicbook.com/gaming/news/gta-6-grand-theft-auto-vi-rdr2-feature/",
-      "summary": "GTA 6 has confirmed a violent feature never seen before in a single previous Grand Theft Auto game. That said, Rockstar Games did debut the feature in Red Dead Redemption 2, so it’s not too surprising that it’s being…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-08-31T17:02:43.000Z"
-    },
-    {
-      "title": "ValleyRAT Backdoor Hides in Signed Adware That Users Add to Antivirus Exclusions",
-      "link": "https://thehackernews.com/2026/08/valleyrat-backdoor-hides-in-signed.html",
-      "summary": "The threat actor known as Silver Fox has been observed distributing the ValleyRAT backdoor disguised as a signed Chinese adware application, running the malware under a trusted process to slip past users who add such…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-08-31T12:14:00.000Z"
     }
   ]
 }

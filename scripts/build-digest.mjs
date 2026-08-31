@@ -163,30 +163,10 @@ async function main() {
     throw new Error("No items fetched from any feed — refusing to overwrite digest.json with an empty digest.");
   }
 
-  // Counts and top headlines are computed before the shuffle below, from the
-  // same finalItems membership — order doesn't matter for either.
-  const counts = {};
-  for (const item of finalItems) {
-    counts[item.topic] = (counts[item.topic] || 0) + 1;
-  }
-
-  const byRecency = [...finalItems].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-  const topHeadlines = (byRecency.filter((item) => item.topic === "Top News").length > 0
-    ? byRecency.filter((item) => item.topic === "Top News")
-    : byRecency
-  )
-    .slice(0, 2)
-    .map((item) => ({ title: item.title, link: item.link, source: item.source }));
-
   shuffle(finalItems);
 
   const digest = {
     generatedAt: new Date().toISOString(),
-    summary: {
-      totalCount: finalItems.length,
-      counts,
-      topHeadlines,
-    },
     items: finalItems,
   };
 

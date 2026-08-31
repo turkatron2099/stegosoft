@@ -25,51 +25,6 @@
   padding: 16px 0 80px;
 }
 
-#digest-summary {
-  max-width: 720px;
-  margin: 0 auto 28px;
-}
-
-#digest-summary:empty {
-  margin: 0;
-}
-
-.digest-counts {
-  color: var(--light-foreground);
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-}
-
-.digest-top {
-  margin-top: 14px;
-  padding: 16px 18px;
-  background: var(--dark-background);
-  border: 1px solid var(--muted);
-  border-radius: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px 14px;
-}
-
-.digest-top-label {
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.digest-top-link {
-  color: var(--foreground);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.digest-top-link:hover {
-  color: var(--accent);
-}
-
 .digest-list {
   list-style: none;
   max-width: 720px;
