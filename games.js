@@ -8,6 +8,8 @@
   const resetBtn = document.getElementById("reset-btn");
   const shelf = document.getElementById("cartridge-shelf");
   const consoleEl = document.getElementById("console");
+  const controlsHint = document.getElementById("controls-hint");
+  const defaultControlsHint = controlsHint.textContent;
 
   let current = null; // { id, controller }
 
@@ -29,6 +31,7 @@
     canvas.hidden = false;
     hud.hidden = false;
     hudTitle.textContent = game.title;
+    controlsHint.textContent = game.controlsHint || defaultControlsHint;
     consoleEl.classList.add("powered-on");
 
     const controller = game.start(canvas);
@@ -50,6 +53,7 @@
     canvas.hidden = true;
     hud.hidden = true;
     placeholder.hidden = false;
+    controlsHint.textContent = defaultControlsHint;
     consoleEl.classList.remove("powered-on");
   }
 

@@ -374,3 +374,7 @@ button.console-btn:active {
 .cartridge-asteroids {
   --label-border: var(--green);
 }
+
+.cartridge-coolcars {
+  --label-border: var(--red);
+}

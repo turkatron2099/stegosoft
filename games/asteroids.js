@@ -313,5 +313,6 @@
   window.STEGO_GAMES.asteroids = {
     title: "Asteroids",
     start: startAsteroids,
+    controlsHint: "Arrow keys / WASD to move · Space to fire · Enter to restart",
   };
 })();
