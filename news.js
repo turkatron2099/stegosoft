@@ -1,12 +1,6 @@
 const listEl = document.getElementById("digest-list");
 const updatedEl = document.getElementById("digest-updated");
 
-const TOPIC_CLASS = {
-  Technology: "topic-technology",
-  Gaming: "topic-gaming",
-  "Biblical Archaeology": "topic-archaeology",
-};
-
 function formatUpdated(iso) {
   const date = new Date(iso);
   return date.toLocaleString(undefined, {
@@ -24,11 +18,6 @@ function renderDigest(digest) {
   digest.items.forEach((item) => {
     const li = document.createElement("li");
     li.className = "digest-item";
-
-    const topic = document.createElement("span");
-    topic.className = `digest-topic ${TOPIC_CLASS[item.topic] || ""}`;
-    topic.textContent = item.topic;
-    li.appendChild(topic);
 
     const title = document.createElement("a");
     title.className = "digest-title";

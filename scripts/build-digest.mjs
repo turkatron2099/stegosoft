@@ -9,23 +9,52 @@ import { fileURLToPath } from "node:url";
 const FEEDS = [
   { topic: "Technology", source: "Ars Technica", url: "https://feeds.arstechnica.com/arstechnica/index" },
   { topic: "Technology", source: "The Verge", url: "https://www.theverge.com/rss/index.xml" },
+  { topic: "Technology", source: "Slashdot", url: "http://rss.slashdot.org/Slashdot/slashdotMain" },
   { topic: "Gaming", source: "Polygon", url: "https://www.polygon.com/rss/index.xml" },
   { topic: "Gaming", source: "IGN", url: "https://feeds.ign.com/ign/games-all" },
   { topic: "Biblical Archaeology", source: "Biblical Archaeology Society", url: "https://www.biblicalarchaeology.org/feed/" },
+  { topic: "Comics", source: "Bleeding Cool", url: "https://bleedingcool.com/feed/" },
+  { topic: "Comics", source: "ComicBook.com", url: "https://comicbook.com/feed/" },
+  { topic: "Top News", source: "NPR", url: "https://feeds.npr.org/1001/rss.xml" },
+  { topic: "Top News", source: "BBC News", url: "http://feeds.bbci.co.uk/news/rss.xml" },
 ];
 
-const PER_TOPIC_LIMIT = 6;
+// Per-topic cap on the final digest. "Top News" is general-interest filler,
+// not one of the actual interests, so it only gets a couple of items.
+const TOPIC_LIMITS = {
+  Technology: 6,
+  Gaming: 6,
+  "Biblical Archaeology": 6,
+  Comics: 6,
+  "Top News": 2,
+};
+const DEFAULT_TOPIC_LIMIT = 6;
 const SUMMARY_MAX_LEN = 220;
 
+const NAMED_ENTITIES = {
+  mdash: "—",
+  ndash: "–",
+  hellip: "…",
+  nbsp: " ",
+  rsquo: "’",
+  lsquo: "‘",
+  rdquo: "”",
+  ldquo: "“",
+};
+
 function decodeEntities(str) {
+  // &amp; goes first: some feeds (e.g. Slashdot) double-encode, writing
+  // "&amp;mdash;" for what should be "&mdash;". Decoding &amp; first turns
+  // that back into a normal single-encoded entity the rest of this can read.
   return str
+    .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&apos;/g, "'")
     .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
     .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
-    .replace(/&amp;/g, "&");
+    .replace(/&([a-z]+);/gi, (full, name) => NAMED_ENTITIES[name.toLowerCase()] ?? full);
 }
 
 function stripTags(html) {
@@ -55,7 +84,10 @@ function extractTag(xml, tag) {
 }
 
 function parseRssItems(xml) {
-  const blocks = xml.match(/<item[\s\S]*?<\/item>/gi) || [];
+  // The lookahead requires "item" to be followed by whitespace or ">" so this
+  // doesn't also match "<items>" (RDF/RSS 1.0 feeds like Slashdot's use that
+  // as a table-of-contents wrapper, distinct from the real <item> elements).
+  const blocks = xml.match(/<item(?=[\s>])[\s\S]*?<\/item>/gi) || [];
   return blocks.map((block) => {
     const title = decodeEntities(extractTag(block, "title"));
     const link = extractTag(block, "link").trim();
@@ -105,9 +137,9 @@ async function main() {
   }
 
   const finalItems = [];
-  for (const items of byTopic.values()) {
+  for (const [topic, items] of byTopic.entries()) {
     items.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-    finalItems.push(...items.slice(0, PER_TOPIC_LIMIT));
+    finalItems.push(...items.slice(0, TOPIC_LIMITS[topic] ?? DEFAULT_TOPIC_LIMIT));
   }
   finalItems.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 

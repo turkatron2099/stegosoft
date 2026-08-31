@@ -43,30 +43,6 @@
   padding-top: 0;
 }
 
-.digest-topic {
-  align-self: flex-start;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  border-radius: 999px;
-  color: var(--background);
-}
-
-.topic-technology {
-  background: var(--cyan);
-}
-
-.topic-gaming {
-  background: var(--accent);
-}
-
-.topic-archaeology {
-  background: var(--green);
-  color: var(--foreground);
-}
-
 .digest-title {
   color: var(--foreground);
   font-size: 1.1rem;
