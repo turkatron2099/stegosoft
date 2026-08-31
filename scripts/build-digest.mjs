@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Fetches RSS feeds for each topic, merges/dedupes/sorts them, and writes
-// digest.json — a single static snapshot the News page reads. Run daily
-// by .github/workflows/daily-digest.yml, or manually to refresh locally.
+// digest.json — a single static snapshot the News page reads. Run every
+// 4 hours by .github/workflows/daily-digest.yml, or manually to refresh
+// locally.
 
 import { writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
