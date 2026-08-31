@@ -68,6 +68,14 @@ function stripTags(html) {
   return withoutBoilerplate;
 }
 
+function shuffle(items) {
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  return items;
+}
+
 function truncate(text, maxLen) {
   if (text.length <= maxLen) return text;
   const cut = text.slice(0, maxLen);
@@ -141,7 +149,7 @@ async function main() {
     items.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
     finalItems.push(...items.slice(0, TOPIC_LIMITS[topic] ?? DEFAULT_TOPIC_LIMIT));
   }
-  finalItems.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  shuffle(finalItems);
 
   if (finalItems.length === 0) {
     throw new Error("No items fetched from any feed — refusing to overwrite digest.json with an empty digest.");
