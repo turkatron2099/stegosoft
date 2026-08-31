@@ -7,6 +7,7 @@
     { id: "elephant", emoji: "🐘", label: "Elephant" },
     { id: "tiger", emoji: "🐯", label: "Tiger" },
     { id: "monkey", emoji: "🐵", label: "Monkey" },
+    { id: "bear", emoji: "🐻", label: "Bear" },
   ];
 
   const VEHICLES = [
@@ -131,6 +132,9 @@
           tone(i % 2 === 0 ? 520 : 660, 0.06, now + dt, "square", 0.15);
         });
       },
+      bear(now) {
+        curveTone((t) => 85 - 20 * t + 14 * Math.sin(t * 6), 0.6, now, "sawtooth", 0.22);
+      },
     };
 
     function scheduleMusicStep() {
@@ -179,7 +183,7 @@
     let animFrame = 0;
     const sound = makeSound();
 
-    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, trees, popText;
+    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, trees, popText, roadScroll;
 
     function resetGameplay() {
       const isTruck = selection.vehicle.id === "truck";
@@ -195,6 +199,7 @@
       spawnTimer = 80;
       numberCooldown = 120;
       popText = null;
+      roadScroll = 0;
       trees = Array.from({ length: 6 }, (_, i) => ({
         side: i % 2 === 0 ? "left" : "right",
         y: (i * H) / 3,
@@ -243,6 +248,7 @@
         t.y += SCROLL_SPEED;
         if (t.y > H + 40) t.y -= H + 80;
       });
+      roadScroll += SCROLL_SPEED;
 
       spawnTimer--;
       if (spawnTimer <= 0) {
@@ -414,7 +420,7 @@
       ANIMALS.forEach((a, i) => {
         const col = i % cols;
         const row = Math.floor(i / cols);
-        const x = startX + col * cellW + (row === 1 ? cellW * 1.5 : 0) - (row === 1 ? cellW / 2 : 0);
+        const x = startX + col * cellW;
         const y = startY + row * cellH;
         button(x + 10, y, cellW - 20, cellH - 16, () => {
           selection.animal = a;
@@ -612,12 +618,14 @@
       ctx.fillRect(ROAD_LEFT, 0, ROAD_RIGHT - ROAD_LEFT, H);
       ctx.strokeStyle = "#f6dcac";
       ctx.setLineDash([26, 20]);
+      ctx.lineDashOffset = -roadScroll;
       ctx.lineWidth = 5;
       ctx.beginPath();
       ctx.moveTo((ROAD_LEFT + ROAD_RIGHT) / 2, 0);
       ctx.lineTo((ROAD_LEFT + ROAD_RIGHT) / 2, H);
       ctx.stroke();
       ctx.setLineDash([]);
+      ctx.lineDashOffset = 0;
 
       trees.forEach((t) => {
         const x = t.side === "left" ? ROAD_LEFT - 50 : ROAD_RIGHT + 50;
