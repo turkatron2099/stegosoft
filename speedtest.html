@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speedtest — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="speedtest.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="speedtest.html">Speedtest</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="speedtest-intro">
+    <div class="wrap">
+      <h1>Speedtest</h1>
+      <p class="tagline">Check your connection's ping, download, and upload speed.</p>
+    </div>
+  </section>
+
+  <section class="speedtest-panel">
+    <div class="wrap">
+
+      <div class="meter-grid">
+        <div class="meter" id="meter-ping">
+          <span class="meter-label">Ping</span>
+          <span class="meter-value" id="ping-value">--</span>
+          <span class="meter-unit">ms</span>
+        </div>
+        <div class="meter" id="meter-jitter">
+          <span class="meter-label">Jitter</span>
+          <span class="meter-value" id="jitter-value">--</span>
+          <span class="meter-unit">ms</span>
+        </div>
+        <div class="meter meter-primary" id="meter-download">
+          <span class="meter-label">Download</span>
+          <span class="meter-value" id="download-value">--</span>
+          <span class="meter-unit">Mbps</span>
+        </div>
+        <div class="meter meter-primary" id="meter-upload">
+          <span class="meter-label">Upload</span>
+          <span class="meter-value" id="upload-value">--</span>
+          <span class="meter-unit">Mbps</span>
+        </div>
+      </div>
+
+      <div class="speedtest-controls">
+        <button type="button" id="start-btn">Start Test</button>
+        <p class="speedtest-status" id="status-text">Ready when you are.</p>
+        <div class="progress-track" id="progress-track" hidden>
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <p class="speedtest-note">
+        Runs entirely in your browser against Cloudflare's public speed-test network edge —
+        no data is sent to Stegosoft. Results can vary with device load, Wi-Fi conditions, and
+        the route to the nearest test server.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="speedtest.js"></script>
+</body>
+</html>
