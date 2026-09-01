@@ -25,6 +25,12 @@
     { id: "pink", hex: "#ff5fa2", label: "Pink" },
   ];
 
+  // Pixel-art player sprite. Loaded once at module scope so it's ready
+  // (and cached) across restarts; drawPlayerVehicle falls back to the old
+  // procedural shape until it finishes loading.
+  const PLAYER_CAR_IMAGE = new Image();
+  PLAYER_CAR_IMAGE.src = "games/images/player-car.png";
+
   // Roadside decorations scrolling past during gameplay: mostly palm trees,
   // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
   // clearance kept between any two items on the same side, checked at spawn
@@ -209,6 +215,7 @@
 
   function startCoolCars(canvas) {
     const ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false; // keep the pixel-art sprite crisp when scaled up
     const W = canvas.width;
     const H = canvas.height;
 
@@ -723,7 +730,16 @@
     }
 
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
-      if (vehicleId === "truck") {
+      if (PLAYER_CAR_IMAGE.complete && PLAYER_CAR_IMAGE.naturalWidth > 0) {
+        // Keep the sprite's own aspect ratio instead of stretching it to fill
+        // the (taller) hitbox — fit to width and center within the hitbox height.
+        const drawW = w;
+        const drawH = w * (PLAYER_CAR_IMAGE.naturalHeight / PLAYER_CAR_IMAGE.naturalWidth);
+        ctx.drawImage(PLAYER_CAR_IMAGE, cx - drawW / 2, cy - drawH / 2, drawW, drawH);
+        if (driverEmoji) {
+          emoji(driverEmoji, cx, cy - drawH * 0.12, Math.min(24, w * 0.55));
+        }
+      } else if (vehicleId === "truck") {
         drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
       } else {
         drawSportsCarTopDown(cx, cy, color, driverEmoji, w, h);
