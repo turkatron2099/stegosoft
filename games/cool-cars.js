@@ -30,6 +30,9 @@
   // procedural shape until it finishes loading.
   const PLAYER_CAR_IMAGE = new Image();
   PLAYER_CAR_IMAGE.src = "games/images/player-car.png";
+  // The sprite is drawn as solid red (~hue 0deg); recolor it per selection
+  // with a hue-rotate filter instead of needing a sprite per color.
+  const PLAYER_CAR_BASE_HUE = 0;
 
   // Roadside decorations scrolling past during gameplay: mostly palm trees,
   // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
@@ -43,6 +46,22 @@
   const SCROLL_SPEED = 4;
   const STEER_SPEED = 5;
   const CRASH_FRAMES = 72;
+
+  function hexToHue(hex) {
+    const r = parseInt(hex.slice(1, 3), 16) / 255;
+    const g = parseInt(hex.slice(3, 5), 16) / 255;
+    const b = parseInt(hex.slice(5, 7), 16) / 255;
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const d = max - min;
+    if (d === 0) return 0;
+    let h;
+    if (max === r) h = ((g - b) / d) % 6;
+    else if (max === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+    h *= 60;
+    return h < 0 ? h + 360 : h;
+  }
 
   function rand(min, max) {
     return min + Math.random() * (max - min);
@@ -731,7 +750,10 @@
 
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
       if (PLAYER_CAR_IMAGE.complete && PLAYER_CAR_IMAGE.naturalWidth > 0) {
+        ctx.save();
+        ctx.filter = `hue-rotate(${hexToHue(color) - PLAYER_CAR_BASE_HUE}deg)`;
         ctx.drawImage(PLAYER_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
+        ctx.restore();
         if (driverEmoji) {
           emoji(driverEmoji, cx, cy - h * 0.12, Math.min(24, w * 0.55));
         }
