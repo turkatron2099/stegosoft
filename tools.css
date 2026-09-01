@@ -8,12 +8,6 @@
   color: var(--foreground);
 }
 
-.tools-intro .tagline {
-  margin-top: 8px;
-  color: var(--cyan);
-  font-size: 1.1rem;
-}
-
 .tools-grid-section {
   padding: 16px 0 80px;
 }
@@ -53,12 +47,6 @@
   color: var(--foreground);
   font-size: 1.15rem;
   font-weight: 700;
-}
-
-.tool-card-desc {
-  color: var(--light-foreground);
-  font-size: 0.9rem;
-  line-height: 1.5;
 }
 
 .tool-card-arrow {
