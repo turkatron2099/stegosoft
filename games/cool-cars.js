@@ -30,9 +30,9 @@
   // procedural shape until it finishes loading.
   const PLAYER_CAR_IMAGE = new Image();
   PLAYER_CAR_IMAGE.src = "games/images/player-car.png";
-  // The sprite is drawn as solid red (~hue 0deg); recolor it per selection
-  // with a hue-rotate filter instead of needing a sprite per color.
-  const PLAYER_CAR_BASE_HUE = 0;
+  // The sprite's body is drawn at ~hue 231deg (blue); recolor it per
+  // selection with a hue-rotate filter instead of needing a sprite per color.
+  const PLAYER_CAR_BASE_HUE = 231;
 
   // Roadside decorations scrolling past during gameplay: mostly palm trees,
   // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
