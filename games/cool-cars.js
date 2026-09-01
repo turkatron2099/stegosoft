@@ -748,12 +748,14 @@
       }
     }
 
-    // Hue-rotate alone inherits the sprite's own (fairly muted) saturation
-    // and brightness, so yellow/orange come out duller than their swatch —
-    // punch those two up specifically to read as bright.
+    // Hue-rotate alone inherits the sprite's own (fairly muted, and fairly
+    // dark since the base art is a dark blue) saturation and brightness, so
+    // some colors come out duller/darker than their swatch — yellow needs
+    // the biggest boost since it's naturally a much brighter hue than the
+    // sprite's dark-blue base, otherwise it reads as brown.
     const PLAYER_CAR_EXTRA_FILTER = {
       "#f3922b": "saturate(1.6) brightness(1.2)", // orange
-      "#ffd166": "saturate(1.6) brightness(1.25)", // yellow
+      "#ffd166": "saturate(1.6) brightness(2.5)", // yellow
       "#ff5fa2": "saturate(1.3) brightness(1.1)", // pink
     };
 
