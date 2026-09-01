@@ -754,9 +754,6 @@
         ctx.filter = `hue-rotate(${hexToHue(color) - PLAYER_CAR_BASE_HUE}deg)`;
         ctx.drawImage(PLAYER_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
         ctx.restore();
-        if (driverEmoji) {
-          emoji(driverEmoji, cx, cy - h * 0.12, Math.min(24, w * 0.55));
-        }
       } else if (vehicleId === "truck") {
         drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
       } else {
