@@ -1,5 +1,9 @@
 (() => {
   const BASE = "https://speed.cloudflare.com";
+  const PARALLEL_STREAMS = 6;
+  const TEST_DURATION_MS = 8000;
+  const DOWNLOAD_CHUNK_BYTES = 20000000; // 20 MB — big enough that fast connections don't idle between chunks
+  const UPLOAD_CHUNK_BYTES = 4000000; // 4 MB per upload request, repeated for the test window
 
   const startBtn = document.getElementById("start-btn");
   const statusText = document.getElementById("status-text");
@@ -36,52 +40,21 @@
     setActive(meterPing);
     statusText.textContent = "Measuring ping…";
     const samples = [];
-    const rounds = 12;
+    const rounds = 16;
     for (let i = 0; i < rounds; i++) {
       const t0 = performance.now();
       await fetch(`${BASE}/__down?bytes=0&cache=${Math.random()}`, { cache: "no-store" });
       samples.push(performance.now() - t0);
       setProgress((i + 1) / rounds);
     }
-    // Drop the first sample (connection setup) before computing stats.
-    const warm = samples.slice(1);
+    // Drop the first couple of samples (connection/TLS setup) before computing stats.
+    const warm = samples.slice(2);
     const latency = median(warm);
     const diffs = warm.slice(1).map((v, i) => Math.abs(v - warm[i]));
     const jitter = diffs.length ? diffs.reduce((a, b) => a + b, 0) / diffs.length : 0;
 
     pingValue.textContent = latency.toFixed(0);
     jitterValue.textContent = jitter.toFixed(1);
-  }
-
-  async function measureDownload() {
-    setActive(meterDownload);
-    statusText.textContent = "Testing download speed…";
-    setProgress(0);
-
-    // Small warm-up request to ramp up the TCP window before the timed run.
-    await fetch(`${BASE}/__down?bytes=1000000&cache=${Math.random()}`, { cache: "no-store" });
-
-    const testBytes = 26214400; // 25 MB
-    const t0 = performance.now();
-    const res = await fetch(`${BASE}/__down?bytes=${testBytes}&cache=${Math.random()}`, {
-      cache: "no-store",
-    });
-    const reader = res.body.getReader();
-    let received = 0;
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      received += value.length;
-      setProgress(received / testBytes);
-      const elapsed = (performance.now() - t0) / 1000;
-      if (elapsed > 0.2) {
-        downloadValue.textContent = ((received * 8) / 1e6 / elapsed).toFixed(1);
-      }
-    }
-
-    const duration = (performance.now() - t0) / 1000;
-    downloadValue.textContent = ((received * 8) / 1e6 / duration).toFixed(1);
   }
 
   function randomBlob(sizeBytes) {
@@ -98,27 +71,79 @@
     return new Blob(chunks);
   }
 
-  async function measureUpload() {
-    setActive(meterUpload);
-    statusText.textContent = "Testing upload speed…";
+  // Runs several parallel streams for a fixed duration and reports aggregate
+  // throughput — a single connection can't saturate a fast link before a
+  // fixed-size transfer finishes, so real speed tests always use several.
+  async function measureThroughput({ kind, meter, valueEl, durationMs }) {
+    setActive(meter);
+    statusText.textContent =
+      kind === "download" ? "Testing download speed…" : "Testing upload speed…";
     setProgress(0);
 
-    const size = 8 * 1024 * 1024; // 8 MB
-    const blob = randomBlob(size);
+    let totalBytes = 0;
+    let stopFlag = false;
+    const startTime = performance.now();
 
-    const t0 = performance.now();
-    await new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", `${BASE}/__up`, true);
-      xhr.upload.onprogress = (e) => {
-        if (e.lengthComputable) setProgress(e.loaded / e.total);
-      };
-      xhr.onload = resolve;
-      xhr.onerror = reject;
-      xhr.send(blob);
-    });
-    const duration = (performance.now() - t0) / 1000;
-    uploadValue.textContent = ((size * 8) / 1e6 / duration).toFixed(1);
+    async function downloadWorker() {
+      while (!stopFlag) {
+        const res = await fetch(`${BASE}/__down?bytes=${DOWNLOAD_CHUNK_BYTES}&cache=${Math.random()}`, {
+          cache: "no-store",
+        });
+        const reader = res.body.getReader();
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          totalBytes += value.length;
+          if (stopFlag) {
+            reader.cancel().catch(() => {});
+            return;
+          }
+        }
+      }
+    }
+
+    function uploadChunk() {
+      return new Promise((resolve, reject) => {
+        const blob = randomBlob(UPLOAD_CHUNK_BYTES);
+        const xhr = new XMLHttpRequest();
+        let lastLoaded = 0;
+        xhr.open("POST", `${BASE}/__up`, true);
+        xhr.upload.onprogress = (e) => {
+          totalBytes += e.loaded - lastLoaded;
+          lastLoaded = e.loaded;
+        };
+        xhr.onload = () => resolve();
+        xhr.onerror = () => reject(new Error("upload failed"));
+        xhr.send(blob);
+      });
+    }
+
+    async function uploadWorker() {
+      while (!stopFlag) {
+        await uploadChunk();
+      }
+    }
+
+    const worker = kind === "download" ? downloadWorker : uploadWorker;
+    const workers = Array.from({ length: PARALLEL_STREAMS }, () => worker());
+
+    const progressTimer = setInterval(() => {
+      const elapsed = (performance.now() - startTime) / 1000;
+      setProgress(Math.min(1, elapsed / (durationMs / 1000)));
+      if (elapsed > 0.3) {
+        valueEl.textContent = ((totalBytes * 8) / 1e6 / elapsed).toFixed(1);
+      }
+    }, 200);
+
+    await new Promise((r) => setTimeout(r, durationMs));
+    stopFlag = true;
+    clearInterval(progressTimer);
+
+    // Let in-flight reads/uploads unwind, but don't block the UI indefinitely.
+    await Promise.race([Promise.allSettled(workers), new Promise((r) => setTimeout(r, 1500))]);
+
+    const elapsed = (performance.now() - startTime) / 1000;
+    valueEl.textContent = ((totalBytes * 8) / 1e6 / elapsed).toFixed(1);
     setProgress(1);
   }
 
@@ -132,8 +157,18 @@
 
     try {
       await measureLatency();
-      await measureDownload();
-      await measureUpload();
+      await measureThroughput({
+        kind: "download",
+        meter: meterDownload,
+        valueEl: downloadValue,
+        durationMs: TEST_DURATION_MS,
+      });
+      await measureThroughput({
+        kind: "upload",
+        meter: meterUpload,
+        valueEl: uploadValue,
+        durationMs: TEST_DURATION_MS,
+      });
       statusText.textContent = "Done. Run it again anytime.";
     } catch (err) {
       statusText.textContent = "Test failed — check your connection and try again.";
