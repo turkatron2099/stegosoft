@@ -748,10 +748,19 @@
       }
     }
 
+    // Hue-rotate alone inherits the sprite's own (fairly muted) saturation
+    // and brightness, so yellow/orange come out duller than their swatch —
+    // punch those two up specifically to read as bright.
+    const PLAYER_CAR_EXTRA_FILTER = {
+      "#f3922b": "saturate(1.6) brightness(1.2)", // orange
+      "#ffd166": "saturate(1.6) brightness(1.25)", // yellow
+    };
+
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
       if (PLAYER_CAR_IMAGE.complete && PLAYER_CAR_IMAGE.naturalWidth > 0) {
         ctx.save();
-        ctx.filter = `hue-rotate(${hexToHue(color) - PLAYER_CAR_BASE_HUE}deg)`;
+        const extra = PLAYER_CAR_EXTRA_FILTER[color] || "";
+        ctx.filter = `hue-rotate(${hexToHue(color) - PLAYER_CAR_BASE_HUE}deg) ${extra}`.trim();
         ctx.drawImage(PLAYER_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
         ctx.restore();
       } else if (vehicleId === "truck") {
