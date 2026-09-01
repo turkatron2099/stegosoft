@@ -754,6 +754,7 @@
     const PLAYER_CAR_EXTRA_FILTER = {
       "#f3922b": "saturate(1.6) brightness(1.2)", // orange
       "#ffd166": "saturate(1.6) brightness(1.25)", // yellow
+      "#ff5fa2": "saturate(1.3) brightness(1.1)", // pink
     };
 
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
