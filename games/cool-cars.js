@@ -731,13 +731,9 @@
 
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
       if (PLAYER_CAR_IMAGE.complete && PLAYER_CAR_IMAGE.naturalWidth > 0) {
-        // Keep the sprite's own aspect ratio instead of stretching it to fill
-        // the (taller) hitbox — fit to width and center within the hitbox height.
-        const drawW = w;
-        const drawH = w * (PLAYER_CAR_IMAGE.naturalHeight / PLAYER_CAR_IMAGE.naturalWidth);
-        ctx.drawImage(PLAYER_CAR_IMAGE, cx - drawW / 2, cy - drawH / 2, drawW, drawH);
+        ctx.drawImage(PLAYER_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
         if (driverEmoji) {
-          emoji(driverEmoji, cx, cy - drawH * 0.12, Math.min(24, w * 0.55));
+          emoji(driverEmoji, cx, cy - h * 0.12, Math.min(24, w * 0.55));
         }
       } else if (vehicleId === "truck") {
         drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
