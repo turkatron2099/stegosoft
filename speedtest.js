@@ -1,7 +1,8 @@
 (() => {
   const BASE = "https://speed.cloudflare.com";
-  const PARALLEL_STREAMS = 6;
-  const TEST_DURATION_MS = 8000;
+  const PARALLEL_STREAMS = 8;
+  const TEST_DURATION_MS = 9000;
+  const RAMP_UP_MS = 1000; // exclude the TCP slow-start window from the final figure
   const DOWNLOAD_CHUNK_BYTES = 20000000; // 20 MB — big enough that fast connections don't idle between chunks
   const UPLOAD_CHUNK_BYTES = 4000000; // 4 MB per upload request, repeated for the test window
 
@@ -82,6 +83,8 @@
 
     let totalBytes = 0;
     let stopFlag = false;
+    let bytesAtRampEnd = null;
+    let rampEndTime = null;
     const startTime = performance.now();
 
     async function downloadWorker() {
@@ -128,8 +131,17 @@
     const workers = Array.from({ length: PARALLEL_STREAMS }, () => worker());
 
     const progressTimer = setInterval(() => {
-      const elapsed = (performance.now() - startTime) / 1000;
+      const now = performance.now();
+      const elapsed = (now - startTime) / 1000;
       setProgress(Math.min(1, elapsed / (durationMs / 1000)));
+
+      // Mark the point where slow-start ramp-up ends, so the final figure
+      // can be computed from the steady-state window only.
+      if (bytesAtRampEnd === null && now - startTime >= RAMP_UP_MS) {
+        bytesAtRampEnd = totalBytes;
+        rampEndTime = now;
+      }
+
       if (elapsed > 0.3) {
         valueEl.textContent = ((totalBytes * 8) / 1e6 / elapsed).toFixed(1);
       }
@@ -137,13 +149,19 @@
 
     await new Promise((r) => setTimeout(r, durationMs));
     stopFlag = true;
+    // Snapshot bytes/time now — measuring the transfer window, not the
+    // cleanup that follows. In-flight requests are still allowed to unwind
+    // below, but they no longer count toward the reported duration.
+    const stopTime = performance.now();
+    const bytesAtStop = totalBytes;
     clearInterval(progressTimer);
 
     // Let in-flight reads/uploads unwind, but don't block the UI indefinitely.
     await Promise.race([Promise.allSettled(workers), new Promise((r) => setTimeout(r, 1500))]);
 
-    const elapsed = (performance.now() - startTime) / 1000;
-    valueEl.textContent = ((totalBytes * 8) / 1e6 / elapsed).toFixed(1);
+    const measuredBytes = bytesAtStop - (bytesAtRampEnd ?? 0);
+    const measuredSeconds = (stopTime - (rampEndTime ?? startTime)) / 1000;
+    valueEl.textContent = (measuredSeconds > 0 ? (measuredBytes * 8) / 1e6 / measuredSeconds : 0).toFixed(1);
     setProgress(1);
   }
 
