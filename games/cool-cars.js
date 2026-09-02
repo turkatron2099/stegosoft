@@ -40,6 +40,12 @@
   NPC_CAR_IMAGE.src = "games/images/npc-car.png";
   const NPC_CAR_BASE_HUE = 5;
 
+  // Pixel-art player truck sprite, recolored the same way. Same red family
+  // as the NPC sprite, so it shares its base hue.
+  const PLAYER_TRUCK_IMAGE = new Image();
+  PLAYER_TRUCK_IMAGE.src = "games/images/truck.png";
+  const PLAYER_TRUCK_BASE_HUE = 5;
+
   // Roadside decorations scrolling past during gameplay: mostly palm trees,
   // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
   // clearance kept between any two items on the same side, checked at spawn
@@ -778,19 +784,27 @@
 
     // Same idea for the NPC sprite — its red base is brighter than the
     // player sprite's blue, so it needs smaller (but still real) boosts.
+    // The player truck sprite shares this same red base, so it shares
+    // these values too.
     const NPC_CAR_EXTRA_FILTER = {
       "#f3922b": "saturate(1.4) brightness(1.4)", // orange
       "#ffd166": "saturate(1.5) brightness(1.8)", // yellow
     };
+    const PLAYER_TRUCK_EXTRA_FILTER = NPC_CAR_EXTRA_FILTER;
 
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
-      if (PLAYER_CAR_IMAGE.complete && PLAYER_CAR_IMAGE.naturalWidth > 0) {
+      const isTruck = vehicleId === "truck";
+      const image = isTruck ? PLAYER_TRUCK_IMAGE : PLAYER_CAR_IMAGE;
+      const baseHue = isTruck ? PLAYER_TRUCK_BASE_HUE : PLAYER_CAR_BASE_HUE;
+      const extraFilter = isTruck ? PLAYER_TRUCK_EXTRA_FILTER : PLAYER_CAR_EXTRA_FILTER;
+
+      if (image.complete && image.naturalWidth > 0) {
         ctx.save();
-        const extra = PLAYER_CAR_EXTRA_FILTER[color] || "";
-        ctx.filter = `hue-rotate(${hexToHue(color) - PLAYER_CAR_BASE_HUE}deg) ${extra}`.trim();
-        ctx.drawImage(PLAYER_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
+        const extra = extraFilter[color] || "";
+        ctx.filter = `hue-rotate(${hexToHue(color) - baseHue}deg) ${extra}`.trim();
+        ctx.drawImage(image, cx - w / 2, cy - h / 2, w, h);
         ctx.restore();
-      } else if (vehicleId === "truck") {
+      } else if (isTruck) {
         drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
       } else {
         drawSportsCarTopDown(cx, cy, color, driverEmoji, w, h);
