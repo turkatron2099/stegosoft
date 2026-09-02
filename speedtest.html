@@ -73,6 +73,52 @@
 
     </div>
   </section>
+
+  <section class="network-info">
+    <div class="wrap">
+      <h2>Network Details</h2>
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h3>Connection</h3>
+          <dl>
+            <div class="info-row"><dt>Type</dt><dd id="conn-type">—</dd></div>
+            <div class="info-row"><dt>Downlink (est.)</dt><dd id="conn-downlink">—</dd></div>
+            <div class="info-row"><dt>Round-trip (est.)</dt><dd id="conn-rtt">—</dd></div>
+            <div class="info-row"><dt>Data Saver</dt><dd id="conn-savedata">—</dd></div>
+          </dl>
+        </div>
+
+        <div class="info-card">
+          <h3>Network Path</h3>
+          <dl>
+            <div class="info-row"><dt>Public IP</dt><dd id="path-ip">—</dd></div>
+            <div class="info-row"><dt>Country</dt><dd id="path-country">—</dd></div>
+            <div class="info-row"><dt>Edge Location</dt><dd id="path-colo">—</dd></div>
+            <div class="info-row"><dt>HTTP Protocol</dt><dd id="path-http">—</dd></div>
+            <div class="info-row"><dt>TLS Version</dt><dd id="path-tls">—</dd></div>
+          </dl>
+        </div>
+
+        <div class="info-card">
+          <h3>Connection Timing</h3>
+          <dl>
+            <div class="info-row"><dt>DNS Lookup</dt><dd id="timing-dns">Run the test</dd></div>
+            <div class="info-row"><dt>TCP Connect</dt><dd id="timing-tcp">Run the test</dd></div>
+            <div class="info-row"><dt>TLS Handshake</dt><dd id="timing-tls">Run the test</dd></div>
+            <div class="info-row"><dt>Time to First Byte</dt><dd id="timing-ttfb">Run the test</dd></div>
+            <div class="info-row"><dt>Transfer Protocol</dt><dd id="timing-protocol">Run the test</dd></div>
+          </dl>
+        </div>
+
+      </div>
+      <p class="speedtest-note">
+        Connection type/downlink/RTT come from your browser's Network Information API (Chrome/Edge
+        only — not exposed by Firefox or Safari). Network path and timing figures are read directly
+        from your browser's own request timers and Cloudflare's public trace endpoint.
+      </p>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">

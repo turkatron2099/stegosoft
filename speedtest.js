@@ -165,6 +165,91 @@
     setProgress(1);
   }
 
+  function initConnectionInfo() {
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const typeEl = document.getElementById("conn-type");
+    const downlinkEl = document.getElementById("conn-downlink");
+    const rttEl = document.getElementById("conn-rtt");
+    const saveDataEl = document.getElementById("conn-savedata");
+
+    if (!conn) {
+      [typeEl, downlinkEl, rttEl, saveDataEl].forEach((el) => (el.textContent = "Not supported"));
+      return;
+    }
+
+    const update = () => {
+      typeEl.textContent = conn.effectiveType ? conn.effectiveType.toUpperCase() : "Unknown";
+      downlinkEl.textContent = conn.downlink != null ? `${conn.downlink} Mbps` : "—";
+      rttEl.textContent = conn.rtt != null ? `${conn.rtt} ms` : "—";
+      saveDataEl.textContent = conn.saveData ? "On" : "Off";
+    };
+    update();
+    conn.addEventListener("change", update);
+  }
+
+  function initNetworkPath() {
+    const ipEl = document.getElementById("path-ip");
+    const countryEl = document.getElementById("path-country");
+    const coloEl = document.getElementById("path-colo");
+    const httpEl = document.getElementById("path-http");
+    const tlsEl = document.getElementById("path-tls");
+
+    fetch(`${BASE}/cdn-cgi/trace`, { cache: "no-store" })
+      .then((res) => res.text())
+      .then((text) => {
+        const fields = {};
+        text
+          .trim()
+          .split("\n")
+          .forEach((line) => {
+            const i = line.indexOf("=");
+            if (i > -1) fields[line.slice(0, i)] = line.slice(i + 1);
+          });
+        ipEl.textContent = fields.ip || "Unavailable";
+        countryEl.textContent = fields.loc || "Unavailable";
+        coloEl.textContent = fields.colo || "Unavailable";
+        httpEl.textContent = fields.http ? fields.http.toUpperCase() : "Unavailable";
+        tlsEl.textContent = fields.tls || "Unavailable";
+      })
+      .catch(() => {
+        [ipEl, countryEl, coloEl, httpEl, tlsEl].forEach((el) => (el.textContent = "Unavailable"));
+      });
+  }
+
+  // Pulled from the browser's own Resource Timing entries for the download
+  // test's requests — real DNS/TCP/TLS/TTFB breakdown for this connection,
+  // not an estimate. Cloudflare's edge sends Timing-Allow-Origin, which is
+  // what allows a cross-origin page to read these normally-hidden timings.
+  function captureConnectionTiming() {
+    const entries = performance.getEntriesByType("resource").filter((e) => e.name.includes("/__down"));
+    const entry = entries.find((e) => e.connectEnd > e.connectStart) || entries[0];
+    const dnsEl = document.getElementById("timing-dns");
+    const tcpEl = document.getElementById("timing-tcp");
+    const tlsEl = document.getElementById("timing-tls");
+    const ttfbEl = document.getElementById("timing-ttfb");
+    const protocolEl = document.getElementById("timing-protocol");
+
+    if (!entry) {
+      [dnsEl, tcpEl, tlsEl, ttfbEl, protocolEl].forEach((el) => (el.textContent = "Unavailable"));
+      return;
+    }
+
+    const fmt = (ms) => (ms > 0 ? `${ms.toFixed(0)} ms` : "< 1 ms");
+    const hasTls = entry.secureConnectionStart > 0;
+    const dns = entry.domainLookupEnd - entry.domainLookupStart;
+    const tcp = hasTls
+      ? entry.secureConnectionStart - entry.connectStart
+      : entry.connectEnd - entry.connectStart;
+    const tls = hasTls ? entry.connectEnd - entry.secureConnectionStart : 0;
+    const ttfb = entry.responseStart - entry.requestStart;
+
+    dnsEl.textContent = fmt(dns);
+    tcpEl.textContent = fmt(tcp);
+    tlsEl.textContent = hasTls ? fmt(tls) : "N/A";
+    ttfbEl.textContent = fmt(ttfb);
+    protocolEl.textContent = entry.nextHopProtocol ? entry.nextHopProtocol.toUpperCase() : "Unavailable";
+  }
+
   async function runTest() {
     startBtn.disabled = true;
     progressTrack.hidden = false;
@@ -181,6 +266,7 @@
         valueEl: downloadValue,
         durationMs: TEST_DURATION_MS,
       });
+      captureConnectionTiming();
       await measureThroughput({
         kind: "upload",
         meter: meterUpload,
@@ -200,4 +286,7 @@
   }
 
   startBtn.addEventListener("click", runTest);
+
+  initConnectionInfo();
+  initNetworkPath();
 })();

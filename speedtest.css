@@ -132,3 +132,74 @@
   font-size: 0.8rem;
   line-height: 1.5;
 }
+
+.network-info {
+  padding: 0 0 80px;
+  border-top: 1px solid var(--muted);
+}
+
+.network-info .wrap {
+  padding-top: 40px;
+}
+
+.network-info h2 {
+  color: var(--accent);
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 760px) {
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.info-card {
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.info-card h3 {
+  color: var(--foreground);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.info-card dl {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.info-row dt {
+  color: var(--light-foreground);
+}
+
+.info-row dd {
+  color: var(--accent);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  word-break: break-word;
+}
