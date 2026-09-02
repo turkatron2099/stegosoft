@@ -1,173 +1,45 @@
 {
-  "generatedAt": "2026-09-02T04:39:11.886Z",
+  "generatedAt": "2026-09-02T12:47:42.417Z",
   "items": [
     {
-      "title": "More Queries and Comments Fall 2026",
-      "link": "https://www.biblicalarchaeology.org/queries-comments/fall-2026/",
-      "summary": "Thank you for your thoughts and comments about our Spring 2026 issue. We appreciate your feedback. Here are a few of the letters and responses…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-08-31T10:00:47.000Z"
-    },
-    {
-      "title": "LZ Experiment Sees Surprising Result In Search For Dark Matter",
-      "link": "https://science.slashdot.org/story/26/09/02/0018212/lz-experiment-sees-surprising-result-in-search-for-dark-matter?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "New submitter greytree shares a report from Brown University: LUX-ZEPLIN, an experiment co-led by Brown University faculty and students, observed a particle interaction that could be interpreted as a signal from WIMPs,…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-02T03:30:00.000Z"
-    },
-    {
-      "title": "Attackers Pounce on Critical Artifactory Flaw Following Disclosure",
-      "link": "https://www.darkreading.com/application-security/attackers-pounce-critical-artifactory-flaw-disclosure",
-      "summary": "CVE-2026-82329 is an authentication bypass flaw in JFrog's repository manager that enables bad actors to gain admin-level access on affected systems.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-01T21:05:53.000Z"
-    },
-    {
-      "title": "FBI Probes Service Selling 153M+ Drivers Licenses",
-      "link": "https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/",
-      "summary": "A new identity theft service launched on the dark web this week is selling digital scans of more than 153 million drivers licenses from people in the United States and Canada. Based on interviews with individuals whose…",
-      "source": "Krebs on Security",
-      "topic": "Cybersecurity",
-      "date": "2026-09-01T22:40:28.000Z"
-    },
-    {
-      "title": "Anthropic's Claude Fable 5.1 and Mythos 5.1 Arrive With a 75% Cost Reduction For Fable Cache Reads",
-      "link": "https://it.slashdot.org/story/26/09/01/2037255/anthropics-claude-fable-51-and-mythos-51-arrive-with-a-75-cost-reduction-for-fable-cache-reads?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Anthropic has released Claude Fable 5.1 and Mythos 5.1, two versions of the same underlying model aimed at longer-running agentic work. \"For enterprise buyers, however, the release is about more than another round of…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-01T21:00:00.000Z"
-    },
-    {
-      "title": "Sideshow Collectibles Reveal What Inspired Hit Pulp Vixens Line, And Tease The Future of the Series (Exclusive)",
-      "link": "https://comicbook.com/gear/feature/sideshow-collectibles-reveal-what-inspired-hit-pulp-vixens-line-and-tease-the-future-of-the-series-exclusive/",
-      "summary": "Sideshow Collectibles is one of the best at taking iconic moments from your favorite franchises and bringing them to life in stunning statue form, with DC, Marvel, Star Wars, One Piece, and more among Sideshow’s lineup.…",
+      "title": "Nintendo Switch Online Just Added 3 More Classic NES Games",
+      "link": "https://comicbook.com/gaming/news/nintendo-switch-online-just-added-3-more-classic-nes-games-september-2026/",
+      "summary": "Image courtesy of Nintendo If you frequently use Nintendo’s online features like Game Chat or connecting with friends in-game, chances are that you’ve got a Nintendo Switch Online subscription. Along with the basic…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-02T02:57:11.000Z"
+      "date": "2026-09-02T12:44:41.000Z"
     },
     {
-      "title": "Josephus and Jesus",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/josephus-and-jesus/",
-      "summary": "Josephus was a first-century Jewish historian whose writings contain the earliest surviving non-Christian account of Jesus. In his Jewish Antiquities, Josephus recounts that Jesus was…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-08-31T10:45:19.000Z"
-    },
-    {
-      "title": "Mario Kart 8 Just Got a Game-Changing Update for Nintendo Switch 2",
-      "link": "https://www.polygon.com/mario-kart-8-deluxe-switch-2-update-patch-notes-nintendo/",
-      "summary": "Nintendo adds Switch 2 support to Mario Kart 8 Deluxe bringing 8-player split-screen multiplayer and a 96-course marathon VS Race.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-02T02:03:35.000Z"
-    },
-    {
-      "title": "Onimusha Way of the Sword release time in your time zone",
-      "link": "https://www.polygon.com/onimusha-way-of-the-sword-release-time-when-edt-pdt/",
-      "summary": "Here's when Onimusha: Way of the Sword releases in different time zones, and what you can get from pre-ordering and buying the different editions",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-02T04:01:16.000Z"
-    },
-    {
-      "title": "Stronger Security Drives Ransomware Groups to Recruit From Within",
-      "link": "https://www.darkreading.com/cyber-risk/stronger-security-drives-ransomware-groups-to-recruit-from-within",
-      "summary": "Some security researchers have observed an uptick in insider-assisted ransomware attacks, but malicious insiders pose other threats that cost companies millions.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-01T21:03:19.000Z"
-    },
-    {
-      "title": "Power Rangers Reveals Unpublished Zords (And Why They Never Made It Into The Series)",
-      "link": "https://comicbook.com/comics/news/power-rangers-reveals-unpublished-zords-and-why-they-never-made-it-into-the-series/",
-      "summary": "Power Rangers is home to some truly wild concepts and character designs, and that also extends to the Zords. While we’ve seen some really interesting designs and concepts for Zords and Megazords over the years, it turns…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-02T04:11:56.000Z"
-    },
-    {
-      "title": "Iran retaliates after US strikes kill four at wedding party, state media reports",
-      "link": "https://www.bbc.co.uk/news/articles/cj06q4ynpmjo?at_medium=RSS&at_campaign=rss",
-      "summary": "Iran has launched attacks on US military bases in Iraq and Jordan, according to local state media and the Jordanian Armed Forces.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-02T03:19:44.000Z"
-    },
-    {
-      "title": "3 Drawbacks That Stop Naruto From Becoming The Greatest Anime of All Time",
-      "link": "https://comicbook.com/anime/list/3-drawbacks-that-stop-naruto-from-becoming-the-greatest-anime-of-all-time/",
-      "summary": "Image Courtesy of Studio Pierrot The legacy of the Shonen Big Three remains unmatched even though several years have passed since their debut. As the new era of the anime and manga industry began with shorter and…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-02T02:45:00.000Z"
-    },
-    {
-      "title": "Who Is John Ternus, the New Apple CEO?",
-      "link": "https://hardware.slashdot.org/story/26/09/01/1955204/who-is-john-ternus-the-new-apple-ceo?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "John Ternus has officially taken over as Apple CEO after 15 years under Tim Cook, stepping up from his role as senior vice president of hardware engineering. A 25-year Apple veteran who helped oversee products including…",
-      "source": "Slashdot",
+      "title": "BGP hijack infecting networks caused by a comedy of errors that’s not funny at all",
+      "link": "https://arstechnica.com/security/2026/09/well-executed-bgp-attack-uses-hijacked-ips-to-infect-real-networks/",
+      "summary": "What can we learn from a BGP hijacking that poisoned production software? Plenty.",
+      "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-01T22:00:00.000Z"
+      "date": "2026-09-02T11:00:43.000Z"
     },
     {
-      "title": "Jailed HK activist Joshua Wong pleads guilty to foreign collusion",
-      "link": "https://www.bbc.co.uk/news/articles/cx2zmzg0408o?at_medium=RSS&at_campaign=rss",
-      "summary": "Wong, 29, is already in prison on subversion charges under the controversial National Security Law.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-02T04:29:02.000Z"
-    },
-    {
-      "title": "Dyson Made a Camera-Equipped Toothbrush That Flosses For You",
-      "link": "https://tech.slashdot.org/story/26/09/01/1927243/dyson-made-a-camera-equipped-toothbrush-that-flosses-for-you?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Dyson is entering oral care with the $499 CameraJet, a smart toothbrush that uses a tiny camera and on-device AI to detect gaps between teeth and automatically blast them with mouthwash while you brush. Regular…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-01T20:00:00.000Z"
-    },
-    {
-      "title": "Tomb of Apostle Philip Found",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/tomb-of-apostle-philip-found/",
-      "summary": "Amid the remains of a fourth- or fifth-century church at Hierapolis, one of the most significant Christian sites in Turkey, archaeologist Francesco D’Andria found a first-century Roman tomb that he believes once held…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-01T11:00:42.000Z"
-    },
-    {
-      "title": "63 Years Later, the Creepiest Episode of 'The Twilight Zone' is Still Nightmare Fuel",
-      "link": "https://www.polygon.com/creepiest-episode-twilight-zone-living-doll/",
-      "summary": "\"Living Doll\" is a season 5 episode of The Twilight Zone, Rod Serling's influencial anthology series. It remains the show's scariest episode",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-02T04:00:18.000Z"
-    },
-    {
-      "title": "Critical Langflow Flaw Exploited as Attacks on AI Platform Rise",
-      "link": "https://www.darkreading.com/vulnerabilities-threats/critical-langflow-flaw-exploited-attacks-rise",
-      "summary": "The attacks targeting CVE-2026-0768 are the latest threat against the low-code AI development platform, which is receiving more attention from adversaries this year.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-01T20:48:52.000Z"
-    },
-    {
-      "title": "GTA 6 Soars to No. 1 on Netflix's Movie Chart",
-      "link": "https://www.polygon.com/gta-6-netflix-movie-charts/",
-      "summary": "Grand Theft Auto 6 is dominating Netflix's movie charts, with its 27-minute extended look hitting No. 1 in 87 countries.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-02T00:39:54.000Z"
-    },
-    {
-      "title": "Project Perseus #1 Preview: Sober Up or Die Trying",
-      "link": "https://bleedingcool.com/comics/project-perseus-1-preview-sober-up-or-die-trying/",
-      "summary": "Project Perseus #1 hits shelves with a time-hopping cryptid hunter, a decade-long bender to cure, and a jungle-to-dive-bar chase through history.",
+      "title": "God of War: Judge Discusses Passing on Kratos Return in Amazon Series",
+      "link": "https://bleedingcool.com/tv/god-of-war-judge-discusses-passing-on-kratos-return-in-amazon-series/",
+      "summary": "God of War games star Christopher Judge discusses why he passed on the opportunity to reprise playing Kratos for Prime Video's series.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-02T04:27:09.000Z"
+      "date": "2026-09-02T12:38:08.000Z"
+    },
+    {
+      "title": "Black Canary’s First Appearance Is Already a Collector’s Grail but This Copy Is One-of-a-Kind",
+      "link": "https://comicbook.com/collectibles/news/black-canarys-first-appearance-is-already-a-collectors-grail-but-this-copy-is-one-of-a-kind/",
+      "summary": "One of the best and worst things about loving DC Comics is its Golden Age. Virtually every DC hero you can name off the top of your head debuted before Marvel Comics ever even existed, emerging in the years immediately…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-02T12:00:00.000Z"
+    },
+    {
+      "title": "Attackers Exploit Critical Switchvox Flaw to Deploy Reverse Shells Without Credentials",
+      "link": "https://thehackernews.com/2026/09/attackers-exploit-critical-switchvox.html",
+      "summary": "Threat actors are exploiting a severe security vulnerability in Sangoma Switchvox, an enterprise VoIP platform, that could allow unauthenticated remote code execution. The vulnerability in question is CVE-2026-9586…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T07:08:50.000Z"
     },
     {
       "title": "The Bethesda Pool, Site of One of Jesus’ Miracles",
@@ -178,6 +50,118 @@
       "date": "2026-09-01T11:00:17.000Z"
     },
     {
+      "title": "Elder Care in Antiquity",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/elder-care-in-antiquity/",
+      "summary": "Although family members typically cared for the elderly in antiquity, the concept of places dedicated to elder care is by no means a modern invention.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-02T11:00:28.000Z"
+    },
+    {
+      "title": "Tracker, AHS 13, The Venture Bros, NCIS & More: BCTV Daily Dispatch",
+      "link": "https://bleedingcool.com/tv/tracker-ahs-13-the-venture-bros-ncis-more-bctv-daily-dispatch/",
+      "summary": "In today's BCTV Daily Dispatch: The Venture Bros., NCIS, Sheriff Country, Elsbeth, Boston Blue, Tracker, Heated Rivalry, AHS 13, and more!",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-02T11:37:09.000Z"
+    },
+    {
+      "title": "Star Wars Zero Company Handles Difficulty Like No Other Game Ever Has",
+      "link": "https://www.polygon.com/star-wars-zero-company-crisis-missions/",
+      "summary": "Star Wars Zero Company's best feature is an innovative approach to difficulty that lets you choose your own challenge.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-02T11:00:14.000Z"
+    },
+    {
+      "title": "LZ Experiment Sees Surprising Result In Search For Dark Matter",
+      "link": "https://science.slashdot.org/story/26/09/02/0018212/lz-experiment-sees-surprising-result-in-search-for-dark-matter?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "New submitter greytree shares a report from Brown University: LUX-ZEPLIN, an experiment co-led by Brown University faculty and students, observed a particle interaction that could be interpreted as a signal from WIMPs,…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-02T03:30:00.000Z"
+    },
+    {
+      "title": "Viral Gaming Toilet Chair Appears to Resurface Via Facebook Marketplace — Listed as in 'Used' Condition, for $500",
+      "link": "https://www.ign.com/articles/viral-gaming-toilet-chair-appears-to-resurface-via-facebook-marketplace-listed-as-in-used-condition-for-500",
+      "summary": "A viral fan-made Fortnite toilet chair made infamous via TikTok has apparently resurfaced via Facebook Marketplace, with the item priced at $500 and listed as in \"used\" condition.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-02T12:29:34.000Z"
+    },
+    {
+      "title": "GeoNetwork Fixes Unauthenticated RCE Chain Affecting Government Geoportal Backends",
+      "link": "https://thehackernews.com/2026/09/geonetwork-fixes-unauthenticated-rce.html",
+      "summary": "Two vulnerabilities in GeoNetwork can be chained to achieve unauthenticated remote code execution (RCE) on the open-source geospatial metadata catalog, which sits behind many government and agency geoportals. The…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T09:18:02.000Z"
+    },
+    {
+      "title": "Sonos Has New Devices, a New OS, and Yes, a New App",
+      "link": "https://entertainment.slashdot.org/story/26/09/02/0543221/sonos-has-new-devices-a-new-os-and-yes-a-new-app?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from Wired: Sonos has a new app. Stop me if you've heard this one before. The smart speaker company, long a darling of the audio industry, undid much of the goodwill it earned with…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-02T11:00:00.000Z"
+    },
+    {
+      "title": "Four in court over murder of baby stabbed to death",
+      "link": "https://www.bbc.co.uk/news/articles/cn458wx1w0eo?at_medium=RSS&at_campaign=rss",
+      "summary": "Four people, aged between 19 and 38, appear in court charged with murdering the newborn.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-02T12:23:12.000Z"
+    },
+    {
+      "title": "Tomb of Apostle Philip Found",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/tomb-of-apostle-philip-found/",
+      "summary": "Amid the remains of a fourth- or fifth-century church at Hierapolis, one of the most significant Christian sites in Turkey, archaeologist Francesco D’Andria found a first-century Roman tomb that he believes once held…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-01T11:00:42.000Z"
+    },
+    {
+      "title": "The Absolute Captain America Of Absolute Green Lantern #18? (Spoilers)",
+      "link": "https://bleedingcool.com/comics/the-absolute-captain-america-of-absolute-green-lantern-18-spoilers/",
+      "summary": "Agent Zero, The Captain America Of Absolute Green Lantern #18? (Spoilers)",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-02T12:07:11.000Z"
+    },
+    {
+      "title": "Researchers Use Claude to Port Pre-Auth RCE Exploit From One PLC Model to Another",
+      "link": "https://thehackernews.com/2026/09/researchers-use-claude-to-port-pre-auth.html",
+      "summary": "Forescout Research - Vedere Labs said it used Anthropic's Claude to port a working pre-authentication remote code execution (RCE) exploit from one WAGO programmable logic controller (PLC) to another, executing…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T07:47:13.000Z"
+    },
+    {
+      "title": "Pokémon Fans Think The Franchise's New TCG Movie Hides a Secret Mega Evolution",
+      "link": "https://www.ign.com/articles/pokmon-fans-think-the-franchises-new-tcg-movie-hides-a-secret-mega-evolution",
+      "summary": "The reveal of upcoming movie Pokémon: Wild Card hid a brand new Mega Evolution in plain sight, fans believe.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-02T11:14:56.000Z"
+    },
+    {
+      "title": "Extradited Russian Hacker Faces Charges Over Excel Malware Campaign That Infected Thousands",
+      "link": "https://thehackernews.com/2026/09/extradited-russian-hacker-faces-charges.html",
+      "summary": "The U.S. Department of Justice (DoJ) has charged a Russian national, extradited from Cyprus on August 28, with using roughly 255 fake accounts on a freelance platform to send malware-laced Excel attachments to about…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T09:10:23.000Z"
+    },
+    {
+      "title": "Lanterns Finally Reveals The Meaning of John Stewart’s Birds, And Every Parent Can Relate",
+      "link": "https://comicbook.com/tv-shows/feature/lanterns-finally-reveals-the-meaning-of-john-stewarts-birds-and-every-parent-can-relate/",
+      "summary": "DC Studios - HBO Lanterns has finally revealed why John Stewart has a thing for birds, and it’s more to do with character than power. Lanterns is in a class of its own as a superhero TV show; it’s prestige TV, with…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-02T11:00:00.000Z"
+    },
+    {
       "title": "Fall 2026 Caption Contest",
       "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest/fall-2026-2/",
       "summary": "Write a caption for this cartoon, based on Acts 14:11–12, and submit it to our Caption Contest.",
@@ -186,44 +170,28 @@
       "date": "2026-09-01T13:37:01.000Z"
     },
     {
-      "title": "Supernatural: Wayward Special #1 Preview: Winchesters Split Up",
-      "link": "https://bleedingcool.com/comics/supernatural-wayward-special-1-preview-winchesters-split-up/",
-      "summary": "Sam and Dean's road trip hits a fiery detour in Supernatural: Wayward Special #1, forcing the Winchester brothers toward a split neither one saw coming.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-02T02:26:08.000Z"
+      "title": "Is Russia's rival to Starlink failing? Here's what we know.",
+      "link": "https://arstechnica.com/space/2026/09/rassvet-russias-rival-to-starlink-is-getting-off-to-a-slow-start/",
+      "summary": "At least three of the first 32 Rassvet satellites likely suffered outright failures, and more may be in trouble.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-02T11:15:23.000Z"
     },
     {
-      "title": "One VisionQuest Character Theory Seems Much More Likely After New MCU Reports",
-      "link": "https://comicbook.com/tv-shows/news/one-visionquest-character-theory-seems-much-more-likely-after-new-mcu-reports/",
-      "summary": "Both the MCU and Star Wars seem to be slowing down on their live-action TV shows recently after both franchises had exploded with them around 2020 and continued putting them out for many years. That has, unfortunately,…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-02T02:31:52.000Z"
-    },
-    {
-      "title": "Star Wars Zero Company Is the Andor Replacement No One Expected",
-      "link": "https://www.polygon.com/star-wars-zero-company-andor-story/",
-      "summary": "Despite not caring much for Star Wars, Zero Company has drawn me in by focusing on the little weirdos who are just scraping by.",
+      "title": "Overwatch Is Getting the Critical Role Treatment With Upcoming TTRPG Adventure",
+      "link": "https://www.polygon.com/overwatch-questwatch-ttrpg-critical-role-matt-mercer/",
+      "summary": "Overwatch and Critical Role combine in the first TTRPG event, Questwatch, featuring Matthew Mercer leading four heroes through the world of Overland.",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-01T23:00:14.000Z"
+      "date": "2026-09-02T11:38:39.000Z"
     },
     {
-      "title": "Spring 2026 Caption Contest Winners",
-      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/spring-2026-3/",
-      "summary": "And the winner is… “Were you trying to sneak more than 3.4 fluid ounces in your carry-on?” Joseph Mitgang, Woodmere, New York Thank you to…",
+      "title": "Josephus and Jesus",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/josephus-and-jesus/",
+      "summary": "Josephus was a first-century Jewish historian whose writings contain the earliest surviving non-Christian account of Jesus. In his Jewish Antiquities, Josephus recounts that Jesus was…",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
-      "date": "2026-09-01T14:00:29.000Z"
-    },
-    {
-      "title": "GoPro Says It's Moving Into Data Centers As Part of a $285 Million Merger",
-      "link": "https://slashdot.org/story/26/09/01/1943244/gopro-says-its-moving-into-data-centers-as-part-of-a-285-million-merger?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "GoPro plans to expand into AI infrastructure through a $285 million merger with optical-photonics company Starman Optical, whose transceivers will give the action-camera maker a foothold in the fast-growing data center…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-01T23:00:00.000Z"
+      "date": "2026-08-31T10:45:19.000Z"
     },
     {
       "title": "Here's our first look—and drive—of the 2027 Range Rover Electric",
@@ -234,28 +202,60 @@
       "date": "2026-09-01T23:01:52.000Z"
     },
     {
-      "title": "AI Model Evaluator METR Hit by Credential Theft, Probing",
-      "link": "https://www.darkreading.com/identity-access-management-security/ai-model-evaluator-metr-credential-theft-probing",
-      "summary": "In one attack, threat actors stole an API key that ultimately led to the consumption of $600,000 in public AI model credits for the security nonprofit.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-01T20:13:09.000Z"
+      "title": "Nepal intensifies relief and recovery efforts after deadly floods, UN says",
+      "link": "https://www.bbc.co.uk/news/articles/c8xk45k9r1go?at_medium=RSS&at_campaign=rss",
+      "summary": "More than 1,000 people have died and thousands are missing, as rescue efforts continue and aid is airlifted to villages.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-02T12:33:15.000Z"
     },
     {
-      "title": "Star Wars Zero Company Was Originally Pitched as a Titanfall Universe Game",
-      "link": "https://www.ign.com/articles/star-wars-zero-company-was-originally-pitched-as-a-titanfall-universe-game",
-      "summary": "Star Wars Zero Company was originally pitched as a game in the Titanfall universe.",
-      "source": "IGN",
+      "title": "How to Secure Enterprise AI: From Adoption to Incident Readiness",
+      "link": "https://thehackernews.com/2026/09/how-to-secure-enterprise-ai-from.html",
+      "summary": "The debate about whether AI delivers business value is over. The challenge now is implementing it at scale and securely across every function while meeting board-level pressure to move fast. Organizations must focus on…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T11:30:00.000Z"
+    },
+    {
+      "title": "NASA Selects Blue Origin As Mars Telecommunications Network Provider",
+      "link": "https://science.slashdot.org/story/26/09/02/0527234/nasa-selects-blue-origin-as-mars-telecommunications-network-provider?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "NASA has awarded Blue Origin a contract worth up to $700 million to build and operate a dedicated Mars telecommunications network for current and future missions to the Red Planet. Blue Origin is expected to deliver the…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-02T07:00:00.000Z"
+    },
+    {
+      "title": "PlayStation Faces $7.85 Million Lawsuit for Allegedly Establishing Digital Game Monopoly on PlayStation",
+      "link": "https://www.polygon.com/sony-playstation-lawsuit-digital-game-monopoly/",
+      "summary": "Sony is being sued for anticompetitive behavior due its problematic policies regarding digital PlayStation game sales.",
+      "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-01T23:12:12.000Z"
+      "date": "2026-09-02T12:05:44.000Z"
     },
     {
-      "title": "Old, Unpatched Flaws Give Attackers Access to Philippines Nuclear Agency",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/old-unpatched-flaws-attackers-philippines-nuclear-agency",
-      "summary": "Threat actors exploited commodity in ownCloud to gain initial access, resulting in stolen reactor databases, personnel records, and credential stores.",
-      "source": "Dark Reading",
+      "title": "Attackers Exploit Two SonicWall SMA 1000 Zero-Days That May Form an Attack Chain",
+      "link": "https://thehackernews.com/2026/09/attackers-exploit-two-sonicwall-sma.html",
+      "summary": "SonicWall has released security updates to address two security flaws impacting its Secure Mobile Access (SMA) 1000 series VPN appliances that have been exploited in zero-day attacks. The vulnerabilities, discovered…",
+      "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-02T01:00:00.000Z"
+      "date": "2026-09-02T10:53:49.000Z"
+    },
+    {
+      "title": "Marvel Officially Reveals New Version of Doctor Strange Ahead of 'Avengers: Doomsday'",
+      "link": "https://www.polygon.com/doctor-strange-endless-nightmare-marvel-comics-exclusive-preview/",
+      "summary": "Doctor Strange Endless Nightmare is the Sorcerer Supreme's next trippy adventure. It will be published as part of Abrams ComicArts' Marvel Arts line.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-02T12:00:14.000Z"
+    },
+    {
+      "title": "Spring 2026 Caption Contest Winners",
+      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/spring-2026-3/",
+      "summary": "And the winner is… “Were you trying to sneak more than 3.4 fluid ounces in your carry-on?” Joseph Mitgang, Woodmere, New York Thank you to…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-01T14:00:29.000Z"
     }
   ]
 }
