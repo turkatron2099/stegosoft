@@ -34,6 +34,12 @@
   // selection with a hue-rotate filter instead of needing a sprite per color.
   const PLAYER_CAR_BASE_HUE = 231;
 
+  // Pixel-art oncoming-traffic sprite, recolored the same way as the player
+  // sprite. Drawn red (~hue 5deg) by design.
+  const NPC_CAR_IMAGE = new Image();
+  NPC_CAR_IMAGE.src = "games/images/npc-car.png";
+  const NPC_CAR_BASE_HUE = 5;
+
   // Roadside decorations scrolling past during gameplay: mostly palm trees,
   // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
   // clearance kept between any two items on the same side, checked at spawn
@@ -636,6 +642,17 @@
     }
 
     function drawTopDownCar(cx, cy, color, driverEmoji, w, h) {
+      if (NPC_CAR_IMAGE.complete && NPC_CAR_IMAGE.naturalWidth > 0) {
+        ctx.save();
+        const extra = NPC_CAR_EXTRA_FILTER[color] || "";
+        ctx.filter = `hue-rotate(${hexToHue(color) - NPC_CAR_BASE_HUE}deg) ${extra}`.trim();
+        ctx.drawImage(NPC_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
+        ctx.restore();
+        if (driverEmoji) {
+          emoji(driverEmoji, cx, cy - h * 0.18, Math.min(26, w * 0.6));
+        }
+        return;
+      }
       ctx.save();
       roundRect(ctx, cx - w / 2, cy - h / 2, w, h, 10);
       ctx.fillStyle = color;
@@ -757,6 +774,13 @@
       "#f3922b": "saturate(1.6) brightness(1.2)", // orange
       "#ffd166": "saturate(1.6) brightness(2.5)", // yellow
       "#ff5fa2": "saturate(1.3) brightness(1.1)", // pink
+    };
+
+    // Same idea for the NPC sprite — its red base is brighter than the
+    // player sprite's blue, so it needs smaller (but still real) boosts.
+    const NPC_CAR_EXTRA_FILTER = {
+      "#f3922b": "saturate(1.4) brightness(1.4)", // orange
+      "#ffd166": "saturate(1.5) brightness(1.8)", // yellow
     };
 
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
