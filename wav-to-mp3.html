@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAV to MP3 — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="wav-to-mp3.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="tools.html">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wav2mp3-intro">
+    <div class="wrap">
+      <h1>WAV to MP3</h1>
+      <p class="tagline">Convert an audio file to MP3 — entirely in your browser.</p>
+    </div>
+  </section>
+
+  <section class="wav2mp3-panel">
+    <div class="wrap">
+
+      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose a WAV file">
+        <input type="file" id="file-input" accept=".wav,audio/wav,audio/x-wav" hidden>
+        <p id="drop-label">Drag a WAV file here, or click to choose one</p>
+      </div>
+
+      <div class="bitrate-row">
+        <label for="bitrate-select">Quality</label>
+        <select id="bitrate-select">
+          <option value="96">96 kbps — smaller file</option>
+          <option value="128" selected>128 kbps — recommended</option>
+          <option value="192">192 kbps</option>
+          <option value="320">320 kbps — best quality</option>
+        </select>
+      </div>
+
+      <p class="wav2mp3-status" id="status-text" hidden></p>
+      <div class="progress-track" id="progress-track" hidden>
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="wav2mp3-result" id="result-box" hidden>
+        <p class="result-info" id="result-info"></p>
+        <audio id="preview-audio" controls hidden></audio>
+        <a id="download-link" class="download-btn" download="converted.mp3">Download MP3</a>
+      </div>
+
+      <p class="wav2mp3-note">
+        The file is decoded and encoded right here in your browser — nothing is uploaded to
+        Stegosoft or anywhere else.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script src="wav-to-mp3.js"></script>
+</body>
+</html>
