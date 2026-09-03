@@ -71,9 +71,9 @@
   const GRASS_IMAGE = new Image();
   GRASS_IMAGE.src = "games/images/grass.png";
 
-  // Roadside decorations scrolling past during gameplay: mostly palm trees,
-  // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
-  // clearance kept between any two items on the same side, checked at spawn
+  // Roadside decorations (palm trees) scrolling past during gameplay.
+  // ROADSIDE_MIN_GAP is the minimum vertical clearance kept between any two
+  // items on the same side, checked at spawn
   // time — since every item moves at the identical SCROLL_SPEED afterward,
   // a safe gap at spawn stays safe forever (same trick used for cars/numbers).
   const ROADSIDE_MIN_GAP = 70;
@@ -292,7 +292,7 @@
     let grassPattern = null; // lazily built once GRASS_IMAGE has loaded
     const sound = makeSound();
 
-    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, roadsideTimer, birdTimer, popText, roadScroll;
+    let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, roadsideTimer, popText, roadScroll;
 
     function resetGameplay() {
       const isTruck = selection.vehicle.id === "truck";
@@ -318,10 +318,9 @@
         { side: "right", y: -80, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
       ];
       roadsideTimer = 30;
-      birdTimer = randInt(360, 600);
     }
 
-    function spawnRoadsideItem(isBird) {
+    function spawnRoadsideItem() {
       const side = Math.random() < 0.5 ? "left" : "right";
       const y = -60;
       const blocked = roadside.some((r) => r.side === side && Math.abs(r.y - y) < ROADSIDE_MIN_GAP);
@@ -330,8 +329,8 @@
         side,
         y,
         xJitter: rand(-16, 16),
-        emoji: isBird ? "🐦" : "🌴",
-        size: isBird ? 26 : 40,
+        emoji: "🌴",
+        size: 40,
       });
       return true;
     }
@@ -398,13 +397,8 @@
 
       roadsideTimer--;
       if (roadsideTimer <= 0) {
-        const spawned = spawnRoadsideItem(false);
+        const spawned = spawnRoadsideItem();
         roadsideTimer = spawned ? randInt(45, 70) : 15;
-      }
-      birdTimer--;
-      if (birdTimer <= 0) {
-        const spawned = spawnRoadsideItem(true);
-        birdTimer = spawned ? randInt(500, 900) : 30;
       }
       roadside.forEach((t) => (t.y += SCROLL_SPEED));
       roadside = roadside.filter((t) => t.y < H + 60);
