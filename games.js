@@ -77,7 +77,11 @@
 
     if (window.speechSynthesis && window.SpeechSynthesisUtterance) {
       window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance("Steeeegoooo");
+      // "eh"/"oh" (not "ee"/"oo") spelled with trailing h's rather than
+      // repeated vowels, so the vowel quality stays "Stego" and only the
+      // duration stretches — repeating the vowel letter itself would drift
+      // toward "ee"/"oo" (as in "meet"/"moon") instead.
+      const utter = new SpeechSynthesisUtterance("Stehhh gohhh");
       utter.pitch = 0.3;
       utter.rate = 0.6;
       window.speechSynthesis.speak(utter);
