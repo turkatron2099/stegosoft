@@ -124,6 +124,38 @@
     return h < 0 ? h + 360 : h;
   }
 
+  // Canvas's `filter` (hue-rotate/saturate/brightness) is much more
+  // expensive per draw than a plain drawImage — costly when several NPC
+  // cars are recolored independently every single frame. Render each
+  // (sprite, color) combination through the filter exactly once into a
+  // small offscreen canvas at native resolution, then every later draw is
+  // just a cheap unfiltered drawImage from that cache. Module-level so the
+  // cache survives game restarts, not just one playthrough.
+  const SPRITE_RECOLOR_CACHE = new Map(); // image -> Map(color -> canvas)
+
+  function getRecoloredSprite(image, color, baseHue, extraFilterMap) {
+    if (!image.complete || image.naturalWidth === 0) return null;
+
+    let byColor = SPRITE_RECOLOR_CACHE.get(image);
+    if (!byColor) {
+      byColor = new Map();
+      SPRITE_RECOLOR_CACHE.set(image, byColor);
+    }
+
+    let cached = byColor.get(color);
+    if (!cached) {
+      cached = document.createElement("canvas");
+      cached.width = image.naturalWidth;
+      cached.height = image.naturalHeight;
+      const octx = cached.getContext("2d");
+      const extra = extraFilterMap[color] || "";
+      octx.filter = `hue-rotate(${hexToHue(color) - baseHue}deg) ${extra}`.trim();
+      octx.drawImage(image, 0, 0);
+      byColor.set(color, cached);
+    }
+    return cached;
+  }
+
   function rand(min, max) {
     return min + Math.random() * (max - min);
   }
@@ -733,12 +765,9 @@
     }
 
     function drawTopDownCar(cx, cy, color, driverEmoji, w, h) {
-      if (NPC_CAR_IMAGE.complete && NPC_CAR_IMAGE.naturalWidth > 0) {
-        ctx.save();
-        const extra = NPC_CAR_EXTRA_FILTER[color] || "";
-        ctx.filter = `hue-rotate(${hexToHue(color) - NPC_CAR_BASE_HUE}deg) ${extra}`.trim();
-        ctx.drawImage(NPC_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
-        ctx.restore();
+      const sprite = getRecoloredSprite(NPC_CAR_IMAGE, color, NPC_CAR_BASE_HUE, NPC_CAR_EXTRA_FILTER);
+      if (sprite) {
+        ctx.drawImage(sprite, cx - w / 2, cy - h / 2, w, h);
         if (driverEmoji) {
           emoji(driverEmoji, cx, cy - h * 0.18, Math.min(26, w * 0.6));
         }
@@ -883,12 +912,9 @@
       const baseHue = isTruck ? PLAYER_TRUCK_BASE_HUE : PLAYER_CAR_BASE_HUE;
       const extraFilter = isTruck ? PLAYER_TRUCK_EXTRA_FILTER : PLAYER_CAR_EXTRA_FILTER;
 
-      if (image.complete && image.naturalWidth > 0) {
-        ctx.save();
-        const extra = extraFilter[color] || "";
-        ctx.filter = `hue-rotate(${hexToHue(color) - baseHue}deg) ${extra}`.trim();
-        ctx.drawImage(image, cx - w / 2, cy - h / 2, w, h);
-        ctx.restore();
+      const sprite = getRecoloredSprite(image, color, baseHue, extraFilter);
+      if (sprite) {
+        ctx.drawImage(sprite, cx - w / 2, cy - h / 2, w, h);
       } else if (isTruck) {
         drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
       } else {
