@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trim Audio — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="trim-audio.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="tools.html">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="trim-intro">
+    <div class="wrap">
+      <h1>Trim Audio</h1>
+      <p class="tagline">Shorten an audio clip to just the part you need — right in your browser.</p>
+    </div>
+  </section>
+
+  <section class="trim-panel">
+    <div class="wrap">
+
+      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose an audio file">
+        <input type="file" id="file-input" accept="audio/*,.mp3,.wav,.ogg,.m4a,.aac,.flac" hidden>
+        <p id="drop-label">Drag an audio file here, or click to choose one</p>
+        <p class="drop-hint">Supports MP3, WAV, OGG, M4A, and most other formats your browser can play</p>
+      </div>
+
+      <p class="trim-status" id="status-text" hidden></p>
+
+      <div class="trim-editor" id="editor" hidden>
+        <audio id="source-audio" controls></audio>
+
+        <canvas id="waveform" width="700" height="120"></canvas>
+
+        <div class="range-row">
+          <div class="range-field">
+            <label for="start-input">Start</label>
+            <input type="number" id="start-input" min="0" step="0.01" value="0">
+            <span>sec</span>
+            <button type="button" id="mark-start-btn" class="mark-btn">Use playback position</button>
+          </div>
+          <div class="range-field">
+            <label for="end-input">End</label>
+            <input type="number" id="end-input" min="0" step="0.01" value="0">
+            <span>sec</span>
+            <button type="button" id="mark-end-btn" class="mark-btn">Use playback position</button>
+          </div>
+        </div>
+
+        <p class="selection-info" id="selection-info"></p>
+
+        <div class="format-row">
+          <label for="format-select">Output</label>
+          <select id="format-select">
+            <option value="wav" selected>WAV (lossless)</option>
+            <option value="mp3">MP3</option>
+          </select>
+          <select id="bitrate-select">
+            <option value="96">96 kbps</option>
+            <option value="128" selected>128 kbps</option>
+            <option value="192">192 kbps</option>
+            <option value="320">320 kbps</option>
+          </select>
+        </div>
+
+        <button type="button" id="trim-btn">Trim &amp; Convert</button>
+      </div>
+
+      <div class="progress-track" id="progress-track" hidden>
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="trim-result" id="result-box" hidden>
+        <p class="result-info" id="result-info"></p>
+        <audio id="preview-audio" controls></audio>
+        <a id="download-link" class="download-btn" download="trimmed.wav">Download</a>
+      </div>
+
+      <p class="trim-note">
+        The file is decoded and re-encoded right here in your browser — nothing is uploaded to
+        Stegosoft or anywhere else.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script src="trim-audio.js"></script>
+</body>
+</html>
