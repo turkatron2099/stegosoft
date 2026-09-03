@@ -104,7 +104,7 @@
 
   const ROAD_LEFT = 180;
   const ROAD_RIGHT = 540;
-  const SCROLL_SPEED = 4;
+  const SCROLL_SPEED = 3.5;
   const STEER_SPEED = 5;
   const CRASH_FRAMES = 72;
 
