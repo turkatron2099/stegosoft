@@ -46,6 +46,10 @@
   PLAYER_TRUCK_IMAGE.src = "games/images/truck.png";
   const PLAYER_TRUCK_BASE_HUE = 5;
 
+  // Tileable grass texture for the roadside during gameplay.
+  const GRASS_IMAGE = new Image();
+  GRASS_IMAGE.src = "games/images/grass.png";
+
   // Roadside decorations scrolling past during gameplay: mostly palm trees,
   // with the occasional bird. ROADSIDE_MIN_GAP is the minimum vertical
   // clearance kept between any two items on the same side, checked at spawn
@@ -257,6 +261,7 @@
     let rafId;
     let hoverPoint = null;
     let animFrame = 0;
+    let grassPattern = null; // lazily built once GRASS_IMAGE has loaded
     const sound = makeSound();
 
     let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, roadsideTimer, birdTimer, popText, roadScroll;
@@ -812,7 +817,10 @@
     }
 
     function drawGameplay() {
-      ctx.fillStyle = "#6cb84a";
+      if (!grassPattern && GRASS_IMAGE.complete && GRASS_IMAGE.naturalWidth > 0) {
+        grassPattern = ctx.createPattern(GRASS_IMAGE, "repeat");
+      }
+      ctx.fillStyle = grassPattern || "#6cb84a";
       ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = "#8d8f92";
       ctx.fillRect(ROAD_LEFT, 0, ROAD_RIGHT - ROAD_LEFT, H);
