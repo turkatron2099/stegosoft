@@ -153,9 +153,15 @@
   overflow: hidden;
 }
 
-/* Fullscreen swaps the fixed 3:2 box for the full viewport, centers the
-   canvas, and lets it keep its own 3:2 ratio via max-width/height instead
-   of stretching to fill (which would distort the game). */
+/* Fullscreen swaps the fixed 3:2 box for the full viewport. The canvas
+   itself (not just its painted content) needs to stay 3:2 and fit within
+   whichever dimension is tighter — object-fit only scales what's *drawn*
+   inside the box, not the box itself, so getBoundingClientRect() would
+   still report the full unshaped viewport and throw off click-position
+   mapping in the picker screens. This is the standard max-width/max-height
+   cross-cap trick: each dimension is capped by a calc() derived from the
+   *other* live viewport dimension, so whichever one is actually the
+   constraint wins and the box resolves to a real 3:2 rectangle. */
 .console-screen:fullscreen,
 .console-screen:-webkit-full-screen {
   width: 100vw;
@@ -170,11 +176,10 @@
 
 .console-screen:fullscreen #game-canvas,
 .console-screen:-webkit-full-screen #game-canvas {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  aspect-ratio: 3 / 2;
+  width: 100vw;
+  height: 100vh;
+  max-width: calc(100vh * 3 / 2);
+  max-height: calc(100vw * 2 / 3);
 }
 
 #game-canvas {
