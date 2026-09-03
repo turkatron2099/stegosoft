@@ -366,10 +366,20 @@
   }
 
   function startCoolCars(canvas) {
+    // Render at a higher backing-store resolution than the canvas's logical
+    // 720x480 size so content (especially the number pickups' text) stays
+    // crisp when CSS stretches the canvas much larger, e.g. fullscreen.
+    // Every existing draw call and click-coordinate calculation below keeps
+    // using the same 720x480 logical space via W/H; ctx.setTransform just
+    // makes that space map onto more actual pixels.
+    const W = 720;
+    const H = 480;
+    const RENDER_SCALE = 2;
+    canvas.width = W * RENDER_SCALE;
+    canvas.height = H * RENDER_SCALE;
     const ctx = canvas.getContext("2d");
+    ctx.setTransform(RENDER_SCALE, 0, 0, RENDER_SCALE, 0, 0);
     ctx.imageSmoothingEnabled = false; // keep the pixel-art sprite crisp when scaled up
-    const W = canvas.width;
-    const H = canvas.height;
 
     let state = "start"; // start, chooseAnimal, chooseVehicle, chooseColor, playing, won
     let selection = { animal: ANIMALS[0], vehicle: VEHICLES[0], color: COLORS[0] };
