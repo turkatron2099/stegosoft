@@ -46,6 +46,25 @@
     ANIMAL_AUDIO[id] = audio;
   });
 
+  // Real background music per screen. makeSound()'s startCruiseMusic/
+  // startMusic/startVictoryMusic play these directly, falling back to the
+  // synthesized chiptune loop (further down) if a track fails to play.
+  // Quieter than the sound effects (which play at full volume) so pickups,
+  // honks, and animal noises still cut through.
+  const MUSIC_FILES = {
+    cruise: "games/sounds/title-screen-music.mp3",
+    main: "games/sounds/in-game-music.mp3",
+    victory: "games/sounds/victory-music.mp3",
+  };
+  const MUSIC_AUDIO = {};
+  Object.entries(MUSIC_FILES).forEach(([key, src]) => {
+    const audio = new Audio(src);
+    audio.preload = "auto";
+    audio.loop = true;
+    audio.volume = 0.4;
+    MUSIC_AUDIO[key] = audio;
+  });
+
   // Pixel-art player sprite. Loaded once at module scope so it's ready
   // (and cached) across restarts; drawPlayerVehicle falls back to the old
   // procedural shape until it finishes loading.
@@ -224,7 +243,7 @@
       musicTimer = setTimeout(scheduleMusicStep, currentStepSeconds * 1000);
     }
 
-    function startLoop(melody, stepSeconds, wave, sustain) {
+    function startSynthLoop(melody, stepSeconds, wave, sustain) {
       if (musicTimer) clearTimeout(musicTimer);
       currentMelody = melody;
       currentStepSeconds = stepSeconds;
@@ -235,19 +254,45 @@
       scheduleMusicStep();
     }
 
+    function stopRealMusic() {
+      Object.values(MUSIC_AUDIO).forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    }
+
+    // Plays the real track for this screen, restarting it from the top.
+    // Falls back to the synthesized loop if playback fails for any reason
+    // (the file missing, a decode error, autoplay being blocked) so there's
+    // still music either way.
+    function playTrack(key, melody, stepSeconds, wave, sustain) {
+      musicPlaying = false;
+      if (musicTimer) clearTimeout(musicTimer);
+      stopRealMusic();
+
+      const audio = MUSIC_AUDIO[key];
+      const playResult = audio && audio.play();
+      if (playResult && typeof playResult.catch === "function") {
+        playResult.catch(() => startSynthLoop(melody, stepSeconds, wave, sustain));
+      } else if (!audio) {
+        startSynthLoop(melody, stepSeconds, wave, sustain);
+      }
+    }
+
     return {
       startCruiseMusic() {
-        startLoop(CRUISE_MELODY, CRUISE_STEP_SECONDS, "triangle", 0.95);
+        playTrack("cruise", CRUISE_MELODY, CRUISE_STEP_SECONDS, "triangle", 0.95);
       },
       startMusic() {
-        startLoop(MAIN_MELODY, MAIN_STEP_SECONDS, "square", 0.8);
+        playTrack("main", MAIN_MELODY, MAIN_STEP_SECONDS, "square", 0.8);
       },
       startVictoryMusic() {
-        startLoop(VICTORY_MELODY, VICTORY_STEP_SECONDS, "square", 0.8);
+        playTrack("victory", VICTORY_MELODY, VICTORY_STEP_SECONDS, "square", 0.8);
       },
       stopMusic() {
         musicPlaying = false;
         if (musicTimer) clearTimeout(musicTimer);
+        stopRealMusic();
       },
       honk() {
         const c = ensureCtx();
