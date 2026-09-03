@@ -1,109 +1,13 @@
 {
-  "generatedAt": "2026-09-02T22:40:32.464Z",
+  "generatedAt": "2026-09-03T04:36:38.360Z",
   "items": [
     {
-      "title": "I rented a car, and within hours, my driver's license was for sale",
-      "link": "https://arstechnica.com/security/2026/09/my-drivers-license-is-one-of-153-million-for-sale-on-a-new-dark-website/",
-      "summary": "The FBI is reportedly investigating a massive data breach that is unfolding in real time.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-02T20:32:02.000Z"
-    },
-    {
-      "title": "OpenAI's Altman Says the Use of AI is 'Non-Negotiable'",
-      "link": "https://slashdot.org/story/26/09/02/1957204/openais-altman-says-the-use-of-ai-is-non-negotiable?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "OpenAI CEO Sam Altman said AI adoption is \"non-negotiable\" for countries, comparing rejecting it to refusing electricity a century ago and predicting it will unleash an unprecedented boom in entrepreneurship. \"The…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-02T20:00:00.000Z"
-    },
-    {
-      "title": "Exploring the Land of Abraham’s Birth",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
-      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-02T12:55:07.000Z"
-    },
-    {
-      "title": "Lanterns Finally Reveals The Guardians’ True Form (And It Was Right In Front of Us The Whole Time)",
-      "link": "https://comicbook.com/tv-shows/feature/lanterns-finally-reveals-the-guardians-true-form-and-it-was-right-in-front-of-us-the-whole-time/",
-      "summary": "Lanterns has been slow-rolling the lore of the Green Lantern Corps, while taking the more grounded approach of following two space cops (Hal Jordan and John Stewart) investigating a clandestine alien plot in small-town…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-02T21:30:00.000Z"
-    },
-    {
-      "title": "CERN Transitioning From RHEL To Debian",
-      "link": "https://linux.slashdot.org/story/26/09/02/2041220/cern-transitioning-from-rhel-to-debian?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Longtime Slashdot reader Microsplat: CERN plans to have all 2,200+ industrial computers and embedded systems in its accelerator-control infrastructure running Debian 13 by the end of 2026. These are systems used for…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-02T21:00:00.000Z"
-    },
-    {
-      "title": "Fall 2026 Caption Contest",
-      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest/fall-2026-2/",
-      "summary": "Write a caption for this cartoon, based on Acts 14:11–12, and submit it to our Caption Contest.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-01T13:37:01.000Z"
-    },
-    {
-      "title": "AI’s Vulnerability Surge May Be More Manageable Than First Feared",
-      "link": "https://www.darkreading.com/application-security/ai-vulnerability-surge-manageable-than-first-feared",
-      "summary": "New research suggests the coming Vulnpocalypse may not be so overwhelming for enterprise security teams — if they have the right strategies.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-02T21:14:06.000Z"
-    },
-    {
-      "title": "The Witcher 4, Cyberpunk 2077 Developer CD Projekt Red Ramps Up Hiring on 'Project Hadar'",
-      "link": "https://www.ign.com/articles/the-witcher-4-cyberpunk-2077-developer-cd-projekt-red-ramps-up-hiring-on-project-hadar",
-      "summary": "The Witcher and Cyberpunk developer CD Projekt Red is staffing up for its unannounced 'Project Hadar', as that team is currently over 30 people strong with plans \"to hire more, up to 50 developers by the end of this…",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-02T22:04:16.000Z"
-    },
-    {
-      "title": "NCIS: Origins Previews Mark Harmon's Gibbs Ahead of Season 3 Return",
-      "link": "https://bleedingcool.com/tv/ncis-origins-previews-mark-harmons-gibbs-ahead-of-season-3-return/",
-      "summary": "Check out some first looks at Mark Harmon making his return as Gibbs for the third season of CBS's Austin Stowell-starring NCIS: Origins.",
+      "title": "Nighthawks: Brand-New Vampire RPG Officially Launches September 22",
+      "link": "https://bleedingcool.com/games/nighthawks-brand-new-vampire-rpg-officially-launches-september-22/",
+      "summary": "Learn the ways of the vampire and find your spot in their society as the new RPG Nighthawks releases on September 22.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-02T22:38:09.000Z"
-    },
-    {
-      "title": "AEW Dynamite Preview: Ospreay, Moné Celebrate All In Wins",
-      "link": "https://bleedingcool.com/tv/aew-dynamite-preview-ospreay-mone-celebrate-all-in-wins/",
-      "summary": "AEW Dynamite preview: Ospreay speaks as NEW champion, The New Level & Swerve defend trios gold, and Mercedes Moné celebrates her title win!",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-02T22:08:07.000Z"
-    },
-    {
-      "title": "AI Gives Cybercriminals a Dangerous Time Advantage",
-      "link": "https://www.darkreading.com/threat-intelligence/ai-gives-cybercriminals-dangerous-time-advantage",
-      "summary": "Former cybercriminal Brett Johnson provides a look inside the mind of a threat actor and discusses where AI provides the most value for attackers.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-02T19:46:31.000Z"
-    },
-    {
-      "title": "1Password Wades Into a Right-Wing Mess After Funding a Linux Project",
-      "link": "https://news.slashdot.org/story/26/09/02/2055245/1password-wades-into-a-right-wing-mess-after-funding-a-linux-project?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "1Password is facing customer and internal employee backlash after pledging $300,000 to support a Linux distro created by David Heinemeier Hansson, who has regularly published racist and anti-immigrant rhetoric. \"The…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-02T22:00:00.000Z"
-    },
-    {
-      "title": "The Bethesda Pool, Site of One of Jesus’ Miracles",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/jerusalem/the-bethesda-pool-site-of-one-of-jesus-miracles/",
-      "summary": "The Bethesda Pool, where Jesus heals the paralytic man in the Gospel of John, is a complex site. It appears to have been a mikveh , or ritual bath.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-01T11:00:17.000Z"
+      "date": "2026-09-03T01:50:09.000Z"
     },
     {
       "title": "Fake Software Installers Disable Windows Update and Weaken Microsoft Defender",
@@ -114,20 +18,52 @@
       "date": "2026-09-02T16:41:06.000Z"
     },
     {
-      "title": "Over 600 Unused Voice Lines From Resident Evil 4 Leak Online, Showing That Capcom Intended to Connect the Game to Village",
-      "link": "https://www.ign.com/articles/over-600-unused-voice-lines-from-resident-evil-4-leak-online-showing-that-capcom-intended-to-connect-the-game-to-village",
-      "summary": "Over 30 minutes’ worth of unused voice lines from Resident Evil 4 Remake have surfaced online, one of which proves that Capcom wanted to make a connection to Village.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-02T22:01:38.000Z"
+      "title": "Tomb of Apostle Philip Found",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/tomb-of-apostle-philip-found/",
+      "summary": "Amid the remains of a fourth- or fifth-century church at Hierapolis, one of the most significant Christian sites in Turkey, archaeologist Francesco D’Andria found a first-century Roman tomb that he believes once held…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-01T11:00:42.000Z"
     },
     {
-      "title": "Star Wars Zero Company’s Campaign Reminds Me Why I Adore the Star Wars Universe in the First Place",
-      "link": "https://comicbook.com/gaming/feature/star-wars-zero-companys-campaign-reminds-me-why-i-adore-the-star-wars-universe-in-the-first-place/",
-      "summary": "Courtesy of Bit Reactor The tactical gameplay of Star Wars Zero Company is worthy of praise, for both its complex squad building mechanics and permanent consequences for failure during missions. The XCOM inspirations…",
+      "title": "The Bethesda Pool, Site of One of Jesus’ Miracles",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/jerusalem/the-bethesda-pool-site-of-one-of-jesus-miracles/",
+      "summary": "The Bethesda Pool, where Jesus heals the paralytic man in the Gospel of John, is a complex site. It appears to have been a mikveh , or ritual bath.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-01T11:00:17.000Z"
+    },
+    {
+      "title": "Two Years Ago, One Piece Entered Its Final Phase With Its Biggest Arc Ever",
+      "link": "https://comicbook.com/anime/feature/two-years-ago-one-piece-entered-its-final-phase-with-its-biggest-arc-ever/",
+      "summary": "Courtesy of Toei Animation Warning: This article contains spoilers from the One Piece manga! Although One Piece entered its Final Saga in the Egghead Arc, the story truly begins to head towards its ending in the ongoing…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-02T22:30:00.000Z"
+      "date": "2026-09-03T01:30:00.000Z"
+    },
+    {
+      "title": "Brendan Fraser Reveals Mummy Ready Makeover: “Rick O’Connell Energy Is Fully Back”",
+      "link": "https://comicbook.com/movies/news/brendan-fraser-reveals-mummy-ready-makeover-rick-oconnell-energy-is-fully-back/",
+      "summary": "Image Courtesy of Universal Pictures More than 25 years after The Mummy (1999) hit the big screen, the franchise is back once again with The Mummy 4, currently slated for Oct. 15, 2027. Among the most exciting aspects…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-03T03:20:45.000Z"
+    },
+    {
+      "title": "Threat Gang 'Springs' Vishing Attacks on Microsoft Teams Users",
+      "link": "https://www.darkreading.com/cyberattacks-data-breaches/threat-gang-springs-vishing-attacks-microsoft-teams-users",
+      "summary": "The \"Spring Ring\" operation aims to compromise users of the collaboration suite to remotely access their sessions, spread malware, and even take over infrastructure.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T16:51:21.000Z"
+    },
+    {
+      "title": "The Witcher 4, Cyberpunk 2077 Developer CD Projekt Red Ramps Up Hiring on 'Project Hadar'",
+      "link": "https://www.ign.com/articles/the-witcher-4-cyberpunk-2077-developer-cd-projekt-red-ramps-up-hiring-on-project-hadar",
+      "summary": "The Witcher and Cyberpunk developer CD Projekt Red is staffing up for its unannounced 'Project Hadar', as that team is currently over 30 people strong with plans \"to hire more, up to 50 developers by the end of this…",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-02T22:04:16.000Z"
     },
     {
       "title": "7 Best Games Like Silksong to Play While You Wait for Sea of Sorrows",
@@ -138,12 +74,36 @@
       "date": "2026-09-02T22:30:14.000Z"
     },
     {
-      "title": "Threat Gang 'Springs' Vishing Attacks on Microsoft Teams Users",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/threat-gang-springs-vishing-attacks-microsoft-teams-users",
-      "summary": "The \"Spring Ring\" operation aims to compromise users of the collaboration suite to remotely access their sessions, spread malware, and even take over infrastructure.",
+      "title": "SonicWall SMA 1000 Zero-Days Enable Unauthenticated RCE",
+      "link": "https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce",
+      "summary": "The exploitation activity follows attacks earlier this summer on two other zero-day vulnerabilities in the vendor's edge devices.",
       "source": "Dark Reading",
       "topic": "Cybersecurity",
-      "date": "2026-09-02T16:51:21.000Z"
+      "date": "2026-09-02T20:43:59.000Z"
+    },
+    {
+      "title": "Fall 2 Replaces Its Deadly Tower With a Real-Life Nightmare",
+      "link": "https://www.polygon.com/fall-2-directors-interview/",
+      "summary": "Fall 2: Deadpoint is in theaters now, and goes to great lengths to scare you.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-03T00:00:14.000Z"
+    },
+    {
+      "title": "Sabalenka earns 53-minute US Open win - but tension still shows",
+      "link": "https://www.bbc.co.uk/sport/tennis/articles/ce8emkzpxmmo?at_medium=RSS&at_campaign=rss",
+      "summary": "Two-time defending champion Aryna Sabalenka cruises into the US Open third round before a spiky exchange with a journalist.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-03T02:21:11.000Z"
+    },
+    {
+      "title": "The 12 Best Star Wars Video Games of All Time, Ranked",
+      "link": "https://www.polygon.com/best-star-wars-games-ranked/",
+      "summary": "Out of the many Star Wars games released over the years, 12 fantastic titles deserve your attention now and forever.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-03T01:00:14.000Z"
     },
     {
       "title": "Spending deal comes with a bonus: Blocking political control of grants",
@@ -162,84 +122,84 @@
       "date": "2026-09-01T14:00:29.000Z"
     },
     {
-      "title": "Boulter wins one game in 58-minute US Open defeat",
-      "link": "https://www.bbc.co.uk/sport/tennis/articles/cjdv3gxl5zgo?at_medium=RSS&at_campaign=rss",
-      "summary": "British number one Katie Boulter is dumped out in the second round of the US Open as she wins just one game in a 58-minute demolition by Karolina Muchova.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-02T22:14:20.000Z"
-    },
-    {
-      "title": "'Someone Needs A Lesson' quest walkthrough in The Blood of Dawnwalker",
-      "link": "https://www.polygon.com/blood-of-dawnwalker-someone-needs-a-lesson-quest-walkthrough-vasil-atanas/",
-      "summary": "A complete walkthrough for the \"Someone Needs A Lesson\" quest during the prologue in The Blood of Dawnwalker.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-02T22:01:14.000Z"
-    },
-    {
-      "title": "The Russo Brothers Name Classic ’60s Movie as Inspiration for Avengers: Doomsday (& It’s Not a Superhero Film)",
-      "link": "https://comicbook.com/movies/news/the-russo-brothers-name-classic-60s-movie-as-inspiration-for-avengers-doomsday-its-not-a-superhero-film/",
-      "summary": "Marvel Studios - Paramount Avengers: Doomsday is coming, but many are wondering if the project could doom the Marvel Cinematic Universe franchise, if it’s not the Massive Marvel movie event fans are hoping for. This…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-02T22:18:21.000Z"
-    },
-    {
-      "title": "'Stronger Than Achilles' quest walkthrough in The Blood of Dawnwalker",
-      "link": "https://www.polygon.com/blood-of-dawnwalker-stronger-than-achilles-quest-walkthrough/",
-      "summary": "Here's what happens if you let Anca use the font in The Blood of Dawnwalker's 'Stronger Than Achilles' quest.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-02T22:01:14.000Z"
-    },
-    {
-      "title": "Which quests should you do before mass in The Blood of Dawnwalker?",
-      "link": "https://www.polygon.com/blood-of-dawnwalker-mass-quests-which-prologue/",
-      "summary": "There's only so much time before mass in The Blood of Dawnwalker. Here's which quests you should focus on, and how to start them.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-02T22:01:14.000Z"
-    },
-    {
-      "title": "Tomb of Apostle Philip Found",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/tomb-of-apostle-philip-found/",
-      "summary": "Amid the remains of a fourth- or fifth-century church at Hierapolis, one of the most significant Christian sites in Turkey, archaeologist Francesco D’Andria found a first-century Roman tomb that he believes once held…",
+      "title": "Fall 2026 Caption Contest",
+      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest/fall-2026-2/",
+      "summary": "Write a caption for this cartoon, based on Acts 14:11–12, and submit it to our Caption Contest.",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
-      "date": "2026-09-01T11:00:42.000Z"
+      "date": "2026-09-01T13:37:01.000Z"
     },
     {
-      "title": "SonicWall SMA 1000 Zero-Days Enable Unauthenticated RCE",
-      "link": "https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce",
-      "summary": "The exploitation activity follows attacks earlier this summer on two other zero-day vulnerabilities in the vendor's edge devices.",
+      "title": "Spider-Man: Brand New Day’s Best Scene Was Connected to Real-Life Fans",
+      "link": "https://comicbook.com/movies/news/spider-man-brand-new-days-best-scene-was-connected-to-real-life-fans/",
+      "summary": "Image Courtesy of Marvel At this point, saying Spider-Man: Brand New Day is a good movie is basically like saying water is wet. The movie absolutely smashed box office records, received very positive reviews, and has…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-03T00:58:27.000Z"
+    },
+    {
+      "title": "Exploring the Land of Abraham’s Birth",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
+      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-02T12:55:07.000Z"
+    },
+    {
+      "title": "Fire Country: CBS Releases New Looks at Season 5 E01: \"Founder's Day\"",
+      "link": "https://bleedingcool.com/tv/fire-country-cbs-releases-new-looks-at-season-5-e01-founders-day/",
+      "summary": "Returning for its fifth season on October 9th, CBS released some new looks at Max Thieriot-starring Fire Country S05E01: \"Founder's Day.\"",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-03T02:38:09.000Z"
+    },
+    {
+      "title": "1Password Wades Into a Right-Wing Mess After Funding a Linux Project",
+      "link": "https://news.slashdot.org/story/26/09/02/2055245/1password-wades-into-a-right-wing-mess-after-funding-a-linux-project?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "1Password is facing customer and internal employee backlash after pledging $300,000 to support a Linux distro created by David Heinemeier Hansson, who has regularly published racist and anti-immigrant rhetoric. \"The…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-02T22:00:00.000Z"
+    },
+    {
+      "title": "AI Gives Cybercriminals a Dangerous Time Advantage",
+      "link": "https://www.darkreading.com/threat-intelligence/ai-gives-cybercriminals-dangerous-time-advantage",
+      "summary": "Former cybercriminal Brett Johnson provides a look inside the mind of a threat actor and discusses where AI provides the most value for attackers.",
       "source": "Dark Reading",
       "topic": "Cybersecurity",
-      "date": "2026-09-02T20:43:59.000Z"
+      "date": "2026-09-02T19:46:31.000Z"
     },
     {
-      "title": "FCC plans robocall scorecard to grade phone companies on spam call blocking",
-      "link": "https://arstechnica.com/tech-policy/2026/09/fcc-plans-robocall-scorecard-to-grade-phone-companies-on-spam-call-blocking/",
-      "summary": "Carrier scorecards may include call-blocking stats and data on customer complaints.",
+      "title": "Save 26% Off Kirby Air Riders for the Nintendo Switch 2",
+      "link": "https://www.ign.com/articles/kirby-air-riders-switch-2-game-deal-september-2026",
+      "summary": "It's as if Mario Kart and Super Smash Bros had a baby, and then Kirby ate it.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-03T00:10:00.000Z"
+    },
+    {
+      "title": "I rented a car, and within hours, my driver's license was for sale",
+      "link": "https://arstechnica.com/security/2026/09/my-drivers-license-is-one-of-153-million-for-sale-on-a-new-dark-website/",
+      "summary": "The FBI is reportedly investigating a massive data breach that is unfolding in real time.",
       "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-02T19:54:27.000Z"
+      "date": "2026-09-02T20:32:02.000Z"
     },
     {
-      "title": "Will the Lindsay Clancy trial end in mistrial? Here are the jury's options",
-      "link": "https://www.bbc.co.uk/news/articles/c93vgv4kr49o?at_medium=RSS&at_campaign=rss",
-      "summary": "Jurors have five options before them as they decide the fate of the former nurse charged with murdering her three children.",
+      "title": "Over 600 Unused Voice Lines From Resident Evil 4 Leak Online, Showing That Capcom Intended to Connect the Game to Village",
+      "link": "https://www.ign.com/articles/over-600-unused-voice-lines-from-resident-evil-4-leak-online-showing-that-capcom-intended-to-connect-the-game-to-village",
+      "summary": "Over 30 minutes’ worth of unused voice lines from Resident Evil 4 Remake have surfaced online, one of which proves that Capcom wanted to make a connection to Village.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-02T22:01:38.000Z"
+    },
+    {
+      "title": "EU and Nato vow to step up pressure on Russia after 'new escalation' in Germany",
+      "link": "https://www.bbc.co.uk/news/articles/ce9e810pg7ko?at_medium=RSS&at_campaign=rss",
+      "summary": "Russia is accused of growing increasingly reckless after Berlin blamed Russia for a failed drone attack on Leipzig airport.",
       "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-09-02T22:21:33.000Z"
-    },
-    {
-      "title": "Google, Anthropic, and OpenAI Unveil Cyber AI Models, Safeguards, and Access Programs",
-      "link": "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",
-      "summary": "Google on Wednesday announced Gemini 3.8 Flash Cyber, which it described as its most capable cybersecurity model, and has made it available to a set of trusted defenders via a new initiative called the Fairwind Program.…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-02T18:27:49.000Z"
+      "date": "2026-09-03T03:21:24.000Z"
     },
     {
       "title": "Elder Care in Antiquity",
@@ -250,12 +210,52 @@
       "date": "2026-09-02T11:00:28.000Z"
     },
     {
-      "title": "Dragon Ball Super Remake Confirms Release Date With New Trailer – Watch",
-      "link": "https://comicbook.com/anime/news/dragon-ball-super-remake-confirms-release-date-with-new-trailer-watch/",
-      "summary": "©BIRD STUDIO/SHUEISHA, TOEI ANIMATION Dragon Ball Super is coming back this Fall with a brand new remake anime series, and Dragon Ball Super: Beerus has set a release date with a new trailer and poster showing it all…",
+      "title": "AI’s Vulnerability Surge May Be More Manageable Than First Feared",
+      "link": "https://www.darkreading.com/application-security/ai-vulnerability-surge-manageable-than-first-feared",
+      "summary": "New research suggests the coming Vulnpocalypse may not be so overwhelming for enterprise security teams — if they have the right strategies.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T21:14:06.000Z"
+    },
+    {
+      "title": "Global Heating Will Hit At Least 1.8C, UN Warns, and There Are 'No Good Outcomes'",
+      "link": "https://news.slashdot.org/story/26/09/02/2228245/global-heating-will-hit-at-least-18c-un-warns-and-there-are-no-good-outcomes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from The Guardian: Global heating will reach at least 1.8C under even the most optimistic future, well beyond the Paris agreement goal of 1.5C, according to a UN report that warns…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-03T03:30:00.000Z"
+    },
+    {
+      "title": "Google, Anthropic, and OpenAI Unveil Cyber AI Models, Safeguards, and Access Programs",
+      "link": "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",
+      "summary": "Google on Wednesday announced Gemini 3.8 Flash Cyber, which it described as its most capable cybersecurity model, and has made it available to a set of trusted defenders via a new initiative called the Fairwind Program.…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-02T18:27:49.000Z"
+    },
+    {
+      "title": "CERN Transitioning From RHEL To Debian",
+      "link": "https://linux.slashdot.org/story/26/09/02/2041220/cern-transitioning-from-rhel-to-debian?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Longtime Slashdot reader Microsplat: CERN plans to have all 2,200+ industrial computers and embedded systems in its accelerator-control infrastructure running Debian 13 by the end of 2026. These are systems used for…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-02T21:00:00.000Z"
+    },
+    {
+      "title": "10 Best Anime to Binge on Crunchyroll in September 2026",
+      "link": "https://comicbook.com/anime/list/10-best-anime-to-binge-on-crunchyroll-in-september-2026/",
+      "summary": "Image Courtesy of Big Firebird Culture / Crunchyroll Now that we’re already in September, the Fall 2026 anime season is only a month away. It will be the final quarter of the year, so fans can expect some of the most…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-02T22:29:17.000Z"
+      "date": "2026-09-03T03:00:52.000Z"
+    },
+    {
+      "title": "FCC Plans Robocall Scorecard to Grade Phone Companies On Spam Call Blocking",
+      "link": "https://mobile.slashdot.org/story/26/09/02/215232/fcc-plans-robocall-scorecard-to-grade-phone-companies-on-spam-call-blocking?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "The FCC is proposing (PDF) a public \"robocall mitigation scorecard\" that would grade phone companies on how well they block illegal spam calls while avoiding false positives on the legitimate ones. \"The Scorecard will…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-02T23:00:00.000Z"
     }
   ]
 }
