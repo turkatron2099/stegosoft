@@ -936,8 +936,12 @@
       if (!grassPattern && GRASS_IMAGE.complete && GRASS_IMAGE.naturalWidth > 0) {
         grassPattern = ctx.createPattern(GRASS_IMAGE, "repeat");
       }
+      // Only paint the grass verges, not the road strip between them — it
+      // gets immediately covered by the fillRect below, so painting it first
+      // was pure wasted pattern-fill work (half the canvas width, every frame).
       ctx.fillStyle = grassPattern || "#6cb84a";
-      ctx.fillRect(0, 0, W, H);
+      ctx.fillRect(0, 0, ROAD_LEFT, H);
+      ctx.fillRect(ROAD_RIGHT, 0, W - ROAD_RIGHT, H);
       ctx.fillStyle = "#8d8f92";
       ctx.fillRect(ROAD_LEFT, 0, ROAD_RIGHT - ROAD_LEFT, H);
       ctx.strokeStyle = "#f6dcac";
