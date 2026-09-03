@@ -4,40 +4,30 @@
 
   let audioCtx = null;
 
-  function playExplosion() {
+  // Same two-note chime as Cool Cars' number-pickup sound (synthesized,
+  // no audio file — ported from games/cool-cars.js's coinPickup()/tone()).
+  function playCoinPickup() {
     audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
     const ctx = audioCtx;
-    const now = ctx.currentTime;
-    const duration = 0.5;
 
-    // White noise burst swept through a falling lowpass filter, classic
-    // 8-bit "boom" — no audio file needed, synthesized entirely in-browser.
-    const bufferSize = ctx.sampleRate * duration;
-    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-    const data = buffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = Math.random() * 2 - 1;
+    function tone(freq, dur, when, type, peakGain) {
+      const osc = ctx.createOscillator();
+      osc.type = type;
+      osc.frequency.value = freq;
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.0001, when);
+      gain.gain.exponentialRampToValueAtTime(peakGain, when + 0.015);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(when);
+      osc.stop(when + dur + 0.02);
     }
 
-    const noise = ctx.createBufferSource();
-    noise.buffer = buffer;
-
-    const filter = ctx.createBiquadFilter();
-    filter.type = "lowpass";
-    filter.frequency.setValueAtTime(4000, now);
-    filter.frequency.exponentialRampToValueAtTime(80, now + duration);
-
-    const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0.6, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
-
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(ctx.destination);
-
-    noise.start(now);
-    noise.stop(now + duration);
+    const now = ctx.currentTime;
+    tone(988, 0.08, now, "square", 0.2);
+    tone(1319, 0.18, now + 0.07, "square", 0.2);
   }
 
-  logo.addEventListener("click", playExplosion);
+  logo.addEventListener("click", playCoinPickup);
 })();
