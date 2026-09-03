@@ -246,7 +246,8 @@ button.console-btn:active {
 }
 
 .console-btn-eject {
-  background: linear-gradient(180deg, #8a232f, #5c1219);
+  /* Same maroon as the accent band across the top of the console. */
+  background: linear-gradient(180deg, var(--accent-maroon), #591620);
 }
 
 .console-controls p {
