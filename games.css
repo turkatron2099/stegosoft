@@ -216,6 +216,33 @@
   text-transform: none;
 }
 
+.placeholder-off,
+.placeholder-boot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.placeholder-boot #boot-logo-canvas {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.placeholder-boot p {
+  color: var(--light-foreground);
+  font-size: 0.85rem;
+  animation: boot-blink 1.1s steps(1) infinite;
+}
+
+@keyframes boot-blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
 .hud {
   position: absolute;
   top: 10px;
@@ -274,7 +301,7 @@ button.console-btn:active {
   transform: translateY(2px);
 }
 
-.console-btn-eject {
+.console-btn-power {
   /* Same maroon as the accent band across the top of the console. */
   background: linear-gradient(180deg, var(--accent-maroon), #591620);
 }

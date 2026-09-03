@@ -49,8 +49,14 @@
 
         <div class="console-screen">
           <div class="screen-placeholder" id="screen-placeholder">
-            <p>NO SIGNAL</p>
-            <p class="hint">Drag a cartridge into the slot above</p>
+            <div class="placeholder-off" id="placeholder-off">
+              <p>NO SIGNAL</p>
+              <p class="hint">Drag a cartridge into the slot above</p>
+            </div>
+            <div class="placeholder-boot" id="placeholder-boot" hidden>
+              <canvas id="boot-logo-canvas" width="160" height="160"></canvas>
+              <p>Insert a Cartridge</p>
+            </div>
           </div>
           <canvas id="game-canvas" width="720" height="480" tabindex="0" hidden></canvas>
           <div class="hud" id="hud" hidden>
@@ -62,7 +68,7 @@
           <div class="console-buttons">
             <button type="button" class="console-btn" id="reset-btn">RESET</button>
             <button type="button" class="console-btn" id="fullscreen-btn">FULLSCREEN</button>
-            <button type="button" class="console-btn console-btn-eject" id="eject-btn">EJECT</button>
+            <button type="button" class="console-btn console-btn-power" id="power-btn">POWER</button>
           </div>
           <p id="controls-hint">Arrow keys / WASD to move &middot; Space to fire &middot; Enter to restart</p>
         </div>
