@@ -77,13 +77,15 @@
 
     if (window.speechSynthesis && window.SpeechSynthesisUtterance) {
       window.speechSynthesis.cancel();
-      // "eh"/"oh" (not "ee"/"oo") spelled with trailing h's rather than
-      // repeated vowels, so the vowel quality stays "Stego" and only the
-      // duration stretches — repeating the vowel letter itself would drift
-      // toward "ee"/"oo" (as in "meet"/"moon") instead.
-      const utter = new SpeechSynthesisUtterance("Stehhh gohhh");
+      // "eh" survives trailing h's fine (it's a recognized interjection
+      // spelling either way), but "go" does not: a trailing consonant closes
+      // the syllable, which flips English letter-to-sound rules from long o
+      // ("go") to short o ("got") — hence "goh" reading as "gah". "go" has
+      // to stay bare/open to keep the long-o sound, so the drag comes
+      // entirely from the slow rate below instead of the spelling.
+      const utter = new SpeechSynthesisUtterance("Stehhh go");
       utter.pitch = 0.3;
-      utter.rate = 0.6;
+      utter.rate = 0.5;
       window.speechSynthesis.speak(utter);
     }
   }
