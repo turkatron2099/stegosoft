@@ -66,9 +66,11 @@
   });
 
   // Real horn honk. honk() below falls back to the synthesized version if
-  // this fails to load/play.
+  // this fails to load/play. Trucks get their own, deeper horn clip.
   const HONK_AUDIO = new Audio("games/sounds/honk.mp3");
   HONK_AUDIO.preload = "auto";
+  const TRUCK_HONK_AUDIO = new Audio("games/sounds/truck-horn.mp3");
+  TRUCK_HONK_AUDIO.preload = "auto";
 
   // Pixel-art player sprite. Loaded once at module scope so it's ready
   // (and cached) across restarts; drawPlayerVehicle falls back to the old
@@ -331,10 +333,11 @@
         if (musicTimer) clearTimeout(musicTimer);
         stopRealMusic();
       },
-      honk() {
+      honk(isTruck) {
         // Clone so rapid honks (holding Space) overlap instead of cutting
         // each other off, same as animalSound() below.
-        const playResult = HONK_AUDIO.cloneNode().play();
+        const audio = isTruck ? TRUCK_HONK_AUDIO : HONK_AUDIO;
+        const playResult = audio.cloneNode().play();
         if (playResult && typeof playResult.catch === "function") {
           playResult.catch(() => {
             const c = ensureCtx();
@@ -1075,7 +1078,7 @@
         e.preventDefault();
       }
       keys[e.key] = true;
-      if (e.key === " " && state === "playing") sound.honk();
+      if (e.key === " " && state === "playing") sound.honk(selection.vehicle.id === "truck");
     }
     function onKeyUp(e) {
       keys[e.key] = false;
