@@ -65,6 +65,11 @@
     MUSIC_AUDIO[key] = audio;
   });
 
+  // Real horn honk. honk() below falls back to the synthesized version if
+  // this fails to load/play.
+  const HONK_AUDIO = new Audio("games/sounds/honk.mp3");
+  HONK_AUDIO.preload = "auto";
+
   // Pixel-art player sprite. Loaded once at module scope so it's ready
   // (and cached) across restarts; drawPlayerVehicle falls back to the old
   // procedural shape until it finishes loading.
@@ -295,10 +300,17 @@
         stopRealMusic();
       },
       honk() {
-        const c = ensureCtx();
-        const now = c.currentTime;
-        tone(420, 0.14, now, "sawtooth", 0.18);
-        tone(420, 0.14, now + 0.18, "sawtooth", 0.18);
+        // Clone so rapid honks (holding Space) overlap instead of cutting
+        // each other off, same as animalSound() below.
+        const playResult = HONK_AUDIO.cloneNode().play();
+        if (playResult && typeof playResult.catch === "function") {
+          playResult.catch(() => {
+            const c = ensureCtx();
+            const now = c.currentTime;
+            tone(420, 0.14, now, "sawtooth", 0.18);
+            tone(420, 0.14, now + 0.18, "sawtooth", 0.18);
+          });
+        }
       },
       coinPickup() {
         const c = ensureCtx();
