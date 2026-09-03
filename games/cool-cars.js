@@ -25,16 +25,19 @@
     { id: "pink", hex: "#ff5fa2", label: "Pink" },
   ];
 
-  // Real recorded animal clips, keyed by animal id. Not every animal has one
-  // yet — animalSound() below falls back to the synthesized version for any
-  // id missing here. Preloaded once at module scope so restarting the game
-  // doesn't re-fetch them.
+  // Real recorded animal clips, keyed by animal id. animalSound() below
+  // falls back to the synthesized version for any id missing here, in case
+  // a future animal gets added without a clip yet. Preloaded once at module
+  // scope so restarting the game doesn't re-fetch them.
   const ANIMAL_SOUND_FILES = {
     dog: "games/sounds/dog.mp3",
     cat: "games/sounds/cat.mp3",
     horse: "games/sounds/horse.mp3",
     pig: "games/sounds/pig.mp3",
+    elephant: "games/sounds/elephant.mp3",
+    tiger: "games/sounds/tiger.mp3",
     monkey: "games/sounds/monkey.mp3",
+    bear: "games/sounds/bear.mp3",
   };
   const ANIMAL_AUDIO = {};
   Object.entries(ANIMAL_SOUND_FILES).forEach(([id, src]) => {
