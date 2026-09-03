@@ -6,12 +6,39 @@
   const hudTitle = document.getElementById("hud-title");
   const ejectBtn = document.getElementById("eject-btn");
   const resetBtn = document.getElementById("reset-btn");
+  const fullscreenBtn = document.getElementById("fullscreen-btn");
+  const consoleScreen = document.querySelector(".console-screen");
   const shelf = document.getElementById("cartridge-shelf");
   const consoleEl = document.getElementById("console");
   const controlsHint = document.getElementById("controls-hint");
   const defaultControlsHint = controlsHint.textContent;
 
   let current = null; // { id, controller }
+
+  // Safari still needs the -webkit- prefixed names.
+  function isFullscreen() {
+    return !!(document.fullscreenElement || document.webkitFullscreenElement);
+  }
+
+  function requestFullscreen(el) {
+    const request = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!request) return;
+    // Can reject (denied by the browser/OS, disallowed in this context) —
+    // nothing else depends on it succeeding, so just let it be a no-op.
+    const result = request.call(el);
+    if (result && typeof result.catch === "function") result.catch(() => {});
+  }
+
+  function exitFullscreen() {
+    const exit = document.exitFullscreen || document.webkitExitFullscreen;
+    if (exit) exit.call(document);
+  }
+
+  ["fullscreenchange", "webkitfullscreenchange"].forEach((evt) => {
+    document.addEventListener(evt, () => {
+      fullscreenBtn.textContent = isFullscreen() ? "EXIT FULLSCREEN" : "FULLSCREEN";
+    });
+  });
 
   function insertCartridge(gameId) {
     if (current && current.id === gameId) {
@@ -46,6 +73,7 @@
   }
 
   function eject() {
+    if (isFullscreen()) exitFullscreen();
     if (current) {
       current.controller.stop();
       current = null;
@@ -65,6 +93,16 @@
     current.controller.stop();
     current = null;
     insertCartridge(gameId);
+  });
+
+  fullscreenBtn.addEventListener("click", () => {
+    if (!current) return;
+    if (isFullscreen()) {
+      exitFullscreen();
+    } else {
+      requestFullscreen(consoleScreen);
+    }
+    canvas.focus();
   });
 
   shelf.querySelectorAll(".cartridge").forEach((cartridge) => {
