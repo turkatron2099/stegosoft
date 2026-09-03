@@ -206,22 +206,6 @@
   border-radius: 4px;
 }
 
-#eject-btn {
-  font: inherit;
-  font-size: 0.75rem;
-  padding: 5px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--muted);
-  background: var(--dark-background);
-  color: var(--foreground);
-  cursor: pointer;
-}
-
-#eject-btn:hover {
-  border-color: var(--red);
-  color: var(--red);
-}
-
 .console-controls {
   margin-top: 16px;
   text-align: center;
@@ -261,7 +245,7 @@ button.console-btn:active {
   transform: translateY(2px);
 }
 
-.console-btn-power {
+.console-btn-eject {
   background: linear-gradient(180deg, #8a232f, #5c1219);
 }
 
