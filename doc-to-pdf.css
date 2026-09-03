@@ -1,0 +1,134 @@
+.doc2pdf-intro {
+  padding: 56px 0 8px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, var(--lighter-background), var(--background) 70%);
+}
+
+.doc2pdf-intro h1 {
+  color: var(--foreground);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.doc2pdf-intro .tagline {
+  color: var(--light-foreground);
+  font-size: 0.95rem;
+}
+
+.doc2pdf-panel {
+  padding: 40px 0 80px;
+}
+
+.drop-zone {
+  max-width: 560px;
+  margin: 0 auto;
+  border: 2px dashed var(--muted);
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--light-foreground);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.drop-zone:hover,
+.drop-zone:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.drop-zone.is-dragover {
+  border-color: var(--accent);
+  background: var(--lighter-background);
+}
+
+.drop-hint {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.doc2pdf-status {
+  max-width: 560px;
+  margin: 20px auto 0;
+  text-align: center;
+  color: var(--light-foreground);
+  font-size: 0.9rem;
+}
+
+.progress-track {
+  max-width: 560px;
+  margin: 12px auto 0;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--dark-background);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  border-radius: 999px;
+  transition: width 0.15s ease;
+}
+
+.doc2pdf-result {
+  max-width: 560px;
+  margin: 24px auto 0;
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.result-info {
+  color: var(--foreground);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.download-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--dark-background);
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  color: var(--dark-background);
+}
+
+/* Rendered off-screen (not display:none, since html2canvas can't rasterize
+   an element that isn't actually laid out) so DOCX content can be measured
+   and captured before being converted to PDF pages. */
+.docx-render {
+  position: fixed;
+  top: 0;
+  left: -9999px;
+  width: 700px;
+  background: #ffffff;
+  color: #111111;
+  padding: 40px;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.5;
+}
+
+.docx-render img {
+  max-width: 100%;
+}
+
+.doc2pdf-note {
+  max-width: 560px;
+  margin: 24px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}

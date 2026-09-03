@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document to PDF — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="doc-to-pdf.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="tools.html">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="doc2pdf-intro">
+    <div class="wrap">
+      <h1>Document to PDF</h1>
+      <p class="tagline">Convert a Word doc, text file, or image to PDF — entirely in your browser.</p>
+    </div>
+  </section>
+
+  <section class="doc2pdf-panel">
+    <div class="wrap">
+
+      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose a file to convert">
+        <input type="file" id="file-input" accept=".docx,.txt,.png,.jpg,.jpeg,.gif,.webp,.bmp" hidden>
+        <p id="drop-label">Drag a file here, or click to choose one</p>
+        <p class="drop-hint">Supports .docx, .txt, and common image formats (.png, .jpg, .gif, .webp, .bmp)</p>
+      </div>
+
+      <p class="doc2pdf-status" id="status-text" hidden></p>
+      <div class="progress-track" id="progress-track" hidden>
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="doc2pdf-result" id="result-box" hidden>
+        <p class="result-info" id="result-info"></p>
+        <a id="download-link" class="download-btn" download="converted.pdf">Download PDF</a>
+      </div>
+
+      <!-- Off-screen render target for DOCX → HTML → canvas conversion -->
+      <div id="docx-render" class="docx-render" aria-hidden="true"></div>
+
+      <p class="doc2pdf-note">
+        The file is converted right here in your browser — nothing is uploaded to Stegosoft or
+        anywhere else. Legacy .doc, .xlsx, and .pptx files aren't supported — only modern .docx,
+        plain text, and image files convert reliably without a server doing the heavy lifting.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mammoth@1.7.2/mammoth.browser.min.js"></script>
+<script src="doc-to-pdf.js"></script>
+</body>
+</html>
