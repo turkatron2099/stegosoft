@@ -25,6 +25,24 @@
     { id: "pink", hex: "#ff5fa2", label: "Pink" },
   ];
 
+  // Real recorded animal clips, keyed by animal id. Not every animal has one
+  // yet — animalSound() below falls back to the synthesized version for any
+  // id missing here. Preloaded once at module scope so restarting the game
+  // doesn't re-fetch them.
+  const ANIMAL_SOUND_FILES = {
+    dog: "games/sounds/dog.mp3",
+    cat: "games/sounds/cat.mp3",
+    horse: "games/sounds/horse.mp3",
+    pig: "games/sounds/pig.mp3",
+    monkey: "games/sounds/monkey.mp3",
+  };
+  const ANIMAL_AUDIO = {};
+  Object.entries(ANIMAL_SOUND_FILES).forEach(([id, src]) => {
+    const audio = new Audio(src);
+    audio.preload = "auto";
+    ANIMAL_AUDIO[id] = audio;
+  });
+
   // Pixel-art player sprite. Loaded once at module scope so it's ready
   // (and cached) across restarts; drawPlayerVehicle falls back to the old
   // procedural shape until it finishes loading.
@@ -241,6 +259,13 @@
         tone(1319, 0.18, now + 0.07, "square", 0.2);
       },
       animalSound(id) {
+        const clip = ANIMAL_AUDIO[id];
+        if (clip) {
+          // Clone so rapid repeats (e.g. collecting numbers back to back)
+          // overlap instead of cutting each other off.
+          clip.cloneNode().play().catch(() => {});
+          return;
+        }
         const c = ensureCtx();
         const play = ANIMAL_SOUNDS[id];
         if (play) play(c.currentTime);
@@ -406,6 +431,7 @@
             o.collected = true;
             popText = { text: `${nextNumber}!`, life: 45 };
             sound.coinPickup();
+            sound.animalSound(selection.animal.id);
             nextNumber++;
             if (nextNumber > 10) {
               state = "won";
