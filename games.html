@@ -50,8 +50,12 @@
         <div class="console-screen">
           <div class="screen-placeholder" id="screen-placeholder">
             <div class="placeholder-off" id="placeholder-off">
-              <p>NO SIGNAL</p>
-              <p class="hint">Drag a cartridge into the slot above</p>
+              <canvas id="static-canvas"></canvas>
+              <div class="static-scanlines"></div>
+              <div class="placeholder-off-text">
+                <p>NO SIGNAL</p>
+                <p class="hint">Drag a cartridge into the slot above</p>
+              </div>
             </div>
             <div class="placeholder-boot" id="placeholder-boot" hidden>
               <canvas id="boot-logo-canvas" width="160" height="160"></canvas>

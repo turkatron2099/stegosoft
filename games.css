@@ -216,7 +216,68 @@
   text-transform: none;
 }
 
-.placeholder-off,
+.placeholder-off {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.placeholder-off canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.static-scanlines {
+  /* Oversized and translated on a diagonal so the sweep never reveals an
+     edge, like interference bars drifting across old TV static. */
+  position: absolute;
+  inset: -20%;
+  background: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.14) 0px,
+    rgba(255, 255, 255, 0.14) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  animation: static-scroll 1.4s linear infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@keyframes static-scroll {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(40px, 40px);
+  }
+}
+
+.placeholder-off-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(2, 12, 23, 0.8);
+  padding: 10px 18px;
+  border-radius: 4px;
+}
+
+.placeholder-off-text p:first-child {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
 .placeholder-boot {
   display: flex;
   flex-direction: column;

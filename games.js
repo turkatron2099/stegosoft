@@ -4,6 +4,7 @@
   const placeholderOff = document.getElementById("placeholder-off");
   const placeholderBoot = document.getElementById("placeholder-boot");
   const bootLogoCanvas = document.getElementById("boot-logo-canvas");
+  const staticCanvas = document.getElementById("static-canvas");
   const canvas = document.getElementById("game-canvas");
   const hud = document.getElementById("hud");
   const hudTitle = document.getElementById("hud-title");
@@ -18,6 +19,44 @@
 
   let current = null; // { id, controller }
   let poweredOnIdle = false; // powered on via the Power button, no cartridge inserted
+
+  // Old-TV static for the powered-off "NO SIGNAL" screen: random grayscale
+  // noise redrawn every frame. Rendered at a tiny internal resolution and
+  // scaled up with smoothing off — cheap to generate and reads as chunky
+  // analog snow rather than smooth noise. Only runs while the off screen is
+  // actually visible.
+  const STATIC_W = 120;
+  const STATIC_H = 80;
+  let staticRafId = null;
+
+  function startStatic() {
+    if (staticRafId) return;
+    const ctx = staticCanvas.getContext("2d");
+    staticCanvas.width = STATIC_W;
+    staticCanvas.height = STATIC_H;
+    const imageData = ctx.createImageData(STATIC_W, STATIC_H);
+    const buf = imageData.data;
+
+    function draw() {
+      for (let i = 0; i < buf.length; i += 4) {
+        const v = (Math.random() * 255) | 0;
+        buf[i] = v;
+        buf[i + 1] = v;
+        buf[i + 2] = v;
+        buf[i + 3] = 255;
+      }
+      ctx.putImageData(imageData, 0, 0);
+      staticRafId = requestAnimationFrame(draw);
+    }
+    draw();
+  }
+
+  function stopStatic() {
+    if (staticRafId) {
+      cancelAnimationFrame(staticRafId);
+      staticRafId = null;
+    }
+  }
 
   // Pixelated boot logo: downsample the real logo to a tiny grid, then draw
   // it back out scaled with smoothing off, for a blocky "8-bit" look. Built
@@ -129,6 +168,7 @@
       current = null;
     }
     poweredOnIdle = false;
+    stopStatic();
 
     placeholder.hidden = true;
     canvas.hidden = false;
@@ -162,6 +202,7 @@
     placeholderOff.hidden = false;
     controlsHint.textContent = defaultControlsHint;
     consoleEl.classList.remove("powered-on");
+    startStatic();
   }
 
   function powerOnIdle() {
@@ -169,6 +210,7 @@
     placeholderOff.hidden = true;
     placeholderBoot.hidden = false;
     consoleEl.classList.add("powered-on");
+    stopStatic();
     drawBootLogo();
     playStegoBoot();
   }
@@ -239,4 +281,7 @@
     const gameId = e.dataTransfer.getData("text/plain");
     if (gameId) insertCartridge(gameId);
   });
+
+  // Page loads straight into the powered-off "NO SIGNAL" state.
+  startStatic();
 })();
