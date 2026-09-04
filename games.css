@@ -209,13 +209,6 @@
   margin: 0;
 }
 
-.screen-placeholder .hint {
-  font-size: 0.75rem;
-  color: var(--light-foreground);
-  letter-spacing: 0.02em;
-  text-transform: none;
-}
-
 .placeholder-off {
   position: relative;
   width: 100%;
