@@ -130,6 +130,30 @@
     }
   });
 
+  function resetLogo() {
+    clicks = 0;
+    localStorage.removeItem(STORAGE_KEY);
+    renderCounter();
+
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    roaming = false;
+    falling = false;
+    logo.classList.remove("logo-roaming");
+    logo.style.transform = "";
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() !== "r") return;
+    const target = e.target;
+    if (target instanceof HTMLElement && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
+      return;
+    }
+    resetLogo();
+  });
+
   // Resume the right behavior immediately on reload, rather than waiting
   // for the next click, if the stored count already crossed a threshold.
   if (clicks >= FALL_AT) {
