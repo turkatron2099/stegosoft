@@ -106,4 +106,13 @@
   if (localStorage.getItem(STORAGE_KEY) === "1") {
     attemptPlay();
   }
+
+  // Small public hook so other scripts on the page (e.g. games.js, when a
+  // cartridge is inserted) can duck this out of the way without needing to
+  // know anything about how it works internally.
+  window.SomaFMPlayer = {
+    pause() {
+      if (!audio.paused) audio.pause();
+    },
+  };
 })();

@@ -169,6 +169,7 @@
     }
     poweredOnIdle = false;
     stopStatic();
+    if (window.SomaFMPlayer) window.SomaFMPlayer.pause();
 
     placeholder.hidden = true;
     canvas.hidden = false;
