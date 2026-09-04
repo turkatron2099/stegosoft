@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-04T18:59:50.550Z",
+  "generatedAt": "2026-09-04T22:22:31.879Z",
   "items": [
     {
-      "title": "AI Is Ending the Era of Hidden Vulnerabilities — Are Vendors Ready?",
-      "link": "https://www.darkreading.com/vulnerabilities-threats/ai-ending-era-hidden-vulnerabilities-are-vendors-ready",
-      "summary": "A tidal wave of bug reports is overwhelming software vendors, exposing secure-by-design failures and creating disclosure bottlenecks.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T13:00:00.000Z"
+      "title": "4 things investigators learned about the dysfunction at Trump's Labor Department",
+      "link": "https://www.npr.org/2026/09/04/nx-s1-5958601/labor-department-inspector-general-secretary-chavez-deremer",
+      "summary": "A report from Labor Department investigators found former Labor Secretary Lori Chavez-DeRemer violated her own department's policy prohibiting harassment. She resigned in April.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-09-04T21:47:19.000Z"
     },
     {
       "title": "Elder Care in Antiquity",
@@ -18,44 +18,52 @@
       "date": "2026-09-02T11:00:28.000Z"
     },
     {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:21.000Z"
-    },
-    {
-      "title": "PostgreSQL Fixes 12-Year-Old Logical Decoding Flaw Enabling Replication-Role Code Execution",
-      "link": "https://thehackernews.com/2026/09/postgresql-fixes-12-year-old-logical.html",
-      "summary": "PostgreSQL has released updates to address a security flaw that allows an account with the REPLICATION attribute to run arbitrary code as the operating-system user running the database server. The flaw, tracked as…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T15:20:19.000Z"
-    },
-    {
-      "title": "All match overrides and console locations in Fortnite Chapter 7 Season 4",
-      "link": "https://www.polygon.com/fortnite-chapter-7-season-4-match-overrides-console-locations-c7s4/",
-      "summary": "Match overrides change the way you play Fortnite in Chapter 7 Season 4. Here are all the match overrides and where to find override consoles.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T18:05:12.000Z"
-    },
-    {
-      "title": "GTA 6 for Xbox: You Can Save $10, Today Only",
-      "link": "https://www.ign.com/articles/gta-6-for-xbox-you-can-save-10-today-only",
-      "summary": "Xbox owners can save $10 on Grand Theft Auto 6's ultimate edition using this simple workaround (but it's only available today).",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-04T18:21:04.000Z"
-    },
-    {
-      "title": "The Iron Fist Returns to Mezco Toyz with Marvel Comics One:12 Reissue",
-      "link": "https://bleedingcool.com/collectibles/the-iron-fist-returns-to-mezco-toyz-with-marvel-comics-one12-reissue/",
-      "summary": "Prepare to add the iconic Defender to your collection — Mezco Toyz has unveiled the One:12 Collective reissue of the Marvel Comics Iron Fist figure.",
-      "source": "Bleeding Cool",
+      "title": "Cancelled Shonen Jump Creator Returns With New Debut & It’s Already a Smash Hit",
+      "link": "https://comicbook.com/anime/news/cancelled-shonen-jump-creator-returns-with-new-debut-its-already-a-smash-hit/",
+      "summary": "Courtesy of Shueisha Shueisha’s Shonen Jump magazine and platforms are famous for releasing all kinds of new series with unique stories and appealing casts. However, the competition has become increasingly difficult…",
+      "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-04T18:22:08.000Z"
+      "date": "2026-09-04T22:00:00.000Z"
+    },
+    {
+      "title": "“Trust, not features, is the real deficit”: VMware tries to appease SMBs",
+      "link": "https://arstechnica.com/information-technology/2026/09/trust-not-features-is-the-real-deficit-vmware-tries-to-appease-smbs/",
+      "summary": "Broadcom admits it put “too big a focus on VCF.”",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T17:35:02.000Z"
+    },
+    {
+      "title": "41 Years Later, This Fan Favorite X-Men Character is Finally Getting the Chance to Lead",
+      "link": "https://comicbook.com/comics/news/41-years-later-this-fan-favorite-x-men-character-is-finally-getting-the-chance-to-lead/",
+      "summary": "Variant Cover from Inglorious X-Men #1 Part of the X-Men’s Shadows of Tomorrow relaunch, Inglorious X-Force by Tim Seeley set forth a new iteration of the military strike force still led by tried-and-true leader Nathan…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T22:00:00.000Z"
+    },
+    {
+      "title": "Insurers Search for Answers to Rein in Rogue AI",
+      "link": "https://www.darkreading.com/cyber-risk/insurers-search-answers-rogue-ai",
+      "summary": "As incidents of unintended harm caused by rogue AI agents mount, CISOs and insurance firms are figuring out how to handle the fallout.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T12:15:03.000Z"
+    },
+    {
+      "title": "Pentagon rescinds new testosterone screening policy without explanation",
+      "link": "https://arstechnica.com/health/2026/09/pentagon-releases-then-quickly-removes-testosterone-screening-policy/",
+      "summary": "The Pentagon says the guidance is being updated after being online for one day.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T16:57:24.000Z"
+    },
+    {
+      "title": "'It's so strong' - Sabalenka halts play over cannabis smell",
+      "link": "https://www.bbc.co.uk/sport/tennis/articles/c4gm2607p0zo?at_medium=RSS&at_campaign=rss",
+      "summary": "Aryna Sabalenka briefly halts her US Open match against Kamilla Rakhimova because of the smell of cannabis before going on to reach the fourth round.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-04T22:08:20.000Z"
     },
     {
       "title": "Spring 2026 Caption Contest Winners",
@@ -66,46 +74,6 @@
       "date": "2026-09-01T14:00:29.000Z"
     },
     {
-      "title": "Exploring the Land of Abraham’s Birth",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
-      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-02T12:55:07.000Z"
-    },
-    {
-      "title": "Anthropic’s $2 trillion IPO puts powerful external trustees in spotlight",
-      "link": "https://arstechnica.com/ai/2026/09/anthropics-2-trillion-ipo-puts-powerful-external-trustees-in-spotlight/",
-      "summary": "Public-market scrutiny will intensify pressure on the Claude maker’s unusual attempt to balance profit and purpose.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-04T16:22:18.000Z"
-    },
-    {
-      "title": "Farage threatens to overhaul Lords and judges to meet his pledges",
-      "link": "https://www.bbc.co.uk/news/articles/clyeq5jvd2po?at_medium=RSS&at_campaign=rss",
-      "summary": "The Reform UK leader promises to deliver on key priorities in the first 100 days of government, if the party wins power.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-04T18:45:21.000Z"
-    },
-    {
-      "title": "Second complete map of a fruit fly brain completed",
-      "link": "https://arstechnica.com/science/2026/09/brain-of-a-male-fly-completely-mapped-joins-earlier-map-of-a-female-brain/",
-      "summary": "Every neuron and connection in the brain of a fly has been mapped—twice.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-04T16:24:24.000Z"
-    },
-    {
-      "title": "Scalebound Director Pushes for Xbox to Revive the Canceled Action Game",
-      "link": "https://comicbook.com/gaming/news/scalebound-director-pushes-for-xbox-to-revive-the-canceled-action-game/",
-      "summary": "Few canceled games have maintained the same level of fascination as Scalebound. Announced by Microsoft and PlatinumGames as an ambitious Xbox One and Windows 10 action game, it promised enormous battles, an open world,…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-04T18:03:29.000Z"
-    },
-    {
       "title": "Phishing Campaign Sends Millions of Emails Using Invisible Unicode to Evade Filters",
       "link": "https://thehackernews.com/2026/09/phishing-campaign-sends-millions-of.html",
       "summary": "Microsoft is alerting of a \"high-volume phishing campaign\" that's using invisible Unicode tag characters to bypass email filters. \"Instead of using these characters to hide instructions from people while exposing them…",
@@ -114,76 +82,60 @@
       "date": "2026-09-04T15:57:15.000Z"
     },
     {
-      "title": "New Ted Backdoor Hides Inside Victims' Own HAProxy Builds to Intercept Web Traffic",
-      "link": "https://thehackernews.com/2026/09/new-ted-backdoor-hides-inside-victims.html",
-      "summary": "A previously undocumented Linux toolkit has been found compiled directly into the trojanized HAProxy load balancers of two South Korean organizations, where it intercepted web traffic and served altered pages to…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T14:51:13.000Z"
-    },
-    {
-      "title": "Valve secretly leaked a Left 4 Dead 2 trailer to dodge the ESRB",
-      "link": "https://arstechnica.com/gaming/2026/09/valve-secretly-leaked-a-left-4-dead-2-trailer-to-dodge-the-esrb/",
-      "summary": "\"I think we can't get in trouble for that now. It's like 20 years ago.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-04T16:42:53.000Z"
-    },
-    {
-      "title": "By Any Means Director Reveals John Woo and Quentin Tarantino’s Influence on New Movie [EXCLUSIVE]",
-      "link": "https://comicbook.com/movies/news/by-any-means-director-reveals-john-woo-and-quentin-tarantinos-influence-on-new-movie-exclusive/",
-      "summary": "In theaters today, By Any Means is a high-octane thriller with roots in a real historical story. After civil rights attorney Vernon Dahmer is murdered in Mississippi in the 1960s, a black FBI agent (Yahya Abdul-Mateen…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-04T18:17:29.000Z"
-    },
-    {
-      "title": "Trump White House just tossed a grenade into international space relations",
-      "link": "https://arstechnica.com/space/2026/09/why-did-us-space-companies-pull-out-of-a-french-space-meeting-its-complicated/",
-      "summary": "\"Let me be clear: America is not only welcome—we want you there.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-04T15:46:33.000Z"
-    },
-    {
-      "title": "Steam Users Can Play This Chaotic Among Us-like for Free Until Sept. 7",
-      "link": "https://www.polygon.com/free-on-steam-first-class-trouble-september-2026/",
-      "summary": "First Class Trouble is free to play on Steam this weekend, letting you team up with friends, uncover traitors, and cause chaos aboard a space cruise.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T18:41:04.000Z"
-    },
-    {
-      "title": "What time are the Cheat Master power hours in Fortnite Chapter 7 Season 4?",
-      "link": "https://www.polygon.com/fortnite-chapter-7-season-4-cheat-master-power-hours-what-time/",
-      "summary": "Cheat Master sprite spawns are boosted in Fortnite this Saturday, Sept. 5. Here's what time the Cheat Master power hours start.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T18:36:23.000Z"
-    },
-    {
-      "title": "4 Actors Who Almost Played the MCU’s Thor Before Chris Hemsworth, And One Nearly Joined the MCU Later",
-      "link": "https://comicbook.com/movies/list/4-actors-who-almost-played-the-mcus-thor-before-chris-hemsworth-and-one-nearly-joined-the-mcu-later/",
-      "summary": "After 15 years, it’s hard to imagine anyone playing Thor other than Chris Hemsworth. The God of Thunder was the breakout role for the charismatic actor after a scene-stealing performance in the opening sequence of Star…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-04T18:30:00.000Z"
-    },
-    {
-      "title": "Over 440,000 Exploit Attempts Target Super Forms and Elementor Pro RCE Flaws",
-      "link": "https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html",
-      "summary": "Threat actors are exploiting two critical security flaws in WordPress plugins Super Forms and Elementor Pro, according to findings from Wordfence. The vulnerabilities in question are - CVE-2026-14894 (CVSS score: 9.8) -…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T08:48:45.000Z"
-    },
-    {
-      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
-      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "title": "Exploring the Land of Abraham’s Birth",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
+      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:29.000Z"
+      "date": "2026-09-02T12:55:07.000Z"
+    },
+    {
+      "title": "9 Game and Movie Trailers Worth Watching This Week",
+      "link": "https://www.ign.com/articles/9-game-and-movie-trailers-this-week-august-29-september-4",
+      "summary": "Street Fighter, Stranger Than Heaven, buzzy festival movies, horror schlock, a super-stylish indie, and more.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-04T20:25:26.000Z"
+    },
+    {
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:21.000Z"
+    },
+    {
+      "title": "Lost City Found on Egypt’s Way of Horus?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
+      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-04T10:45:50.000Z"
+    },
+    {
+      "title": "Trump admin fights ABC lawsuit as watchdogs worry Disney will settle with FCC",
+      "link": "https://arstechnica.com/tech-policy/2026/09/trump-admin-fights-abc-lawsuit-as-watchdogs-worry-disney-will-settle-with-fcc/",
+      "summary": "FCC tells court it is “open-minded\" about whether ABC should lose licenses.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T19:46:34.000Z"
+    },
+    {
+      "title": "AI Is Ending the Era of Hidden Vulnerabilities — Are Vendors Ready?",
+      "link": "https://www.darkreading.com/vulnerabilities-threats/ai-ending-era-hidden-vulnerabilities-are-vendors-ready",
+      "summary": "A tidal wave of bug reports is overwhelming software vendors, exposing secure-by-design failures and creating disclosure bottlenecks.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T13:00:00.000Z"
+    },
+    {
+      "title": "PostgreSQL Fixes 12-Year-Old Logical Decoding Flaw Enabling Replication-Role Code Execution",
+      "link": "https://thehackernews.com/2026/09/postgresql-fixes-12-year-old-logical.html",
+      "summary": "PostgreSQL has released updates to address a security flaw that allows an account with the REPLICATION attribute to run arbitrary code as the operating-system user running the database server. The flaw, tracked as…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T15:20:19.000Z"
     },
     {
       "title": "Companies Have 6 Months to Prepare for Automated Attacks",
@@ -194,68 +146,116 @@
       "date": "2026-09-04T15:57:31.000Z"
     },
     {
-      "title": "Miami Wants To Turn The City Into 'GTA 6' And Cops Aren't Happy About It",
-      "link": "https://www.polygon.com/gta-6-miami-dade-rockstar-marketing-proposal-where-is-located/",
-      "summary": "Miami-Dade officials proposed a massive GTA 6 partnership with Rockstar, but some county reps aren't having it",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T18:01:26.000Z"
-    },
-    {
-      "title": "Musk wins court order to block use of “Twitter,” but not “tweet” and bird logo",
-      "link": "https://arstechnica.com/tech-policy/2026/09/musk-wins-court-order-to-block-use-of-twitter-but-not-tweet-and-bird-logo/",
-      "summary": "Saying X is “formerly Twitter” in App Store lets Musk block use of Twitter name.",
+      "title": "Medieval manuscripts are \"biological time capsules\" for deadly sheeppox virus",
+      "link": "https://arstechnica.com/science/2026/09/medieval-manuscripts-are-biological-time-capsules-for-deadly-sheeppox-virus/",
+      "summary": "Other archives and libraries around the world may also contain genetic traces of past disease outbreaks.",
       "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-04T15:59:47.000Z"
+      "date": "2026-09-04T19:01:02.000Z"
     },
     {
-      "title": "Auto Companies Call For Ban On Chinese-Made Cars",
-      "link": "https://tech.slashdot.org/story/26/09/04/0441229/auto-companies-call-for-ban-on-chinese-made-cars?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from The Hill: A group representing American automakers sent a letter (PDF) Thursday to congressional leaders asking for a \"permanent ban\" on Chinese-made cars in the U.S. John…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-04T15:00:00.000Z"
-    },
-    {
-      "title": "Sheriff Country S02E01: \"Cyclone\" Images, S02E05 Overview Released",
-      "link": "https://bleedingcool.com/tv/sheriff-country-s02e01-cyclone-images-s02e05-overview-released/",
-      "summary": "Check out the images for CBS's Morena Baccarin-starring Sheriff Country S02E01: \"Cyclone\" and the S02E05 overview, a Fire Country crossover.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-04T18:45:10.000Z"
-    },
-    {
-      "title": "What happens next after Lindsay Clancy's murder case ends in a mistrial?",
-      "link": "https://www.bbc.co.uk/news/articles/cj9x248npw1o?at_medium=RSS&at_campaign=rss",
-      "summary": "The US mother accused of murder is likely to remain in a mental health facility as lawyers weigh their next steps.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-04T18:36:02.000Z"
-    },
-    {
-      "title": "Resident Evil 2 Director Thinks There’s a Chance His Canceled Xbox-Exclusive Will Still Happen",
-      "link": "https://www.polygon.com/xbox-exclusive-scalebound-still-possible-hopes-hideki-kamiya/",
-      "summary": "Bayonetta and Okami creator Hideki Kamiy still has hope his canceled Xbox game Scalebound will happen",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T18:04:22.000Z"
-    },
-    {
-      "title": "7 Ways Marvel’s Ultimate Universe Made Its Most Familiar Heroes Almost Unrecognizable",
-      "link": "https://comicbook.com/comics/list/7-ways-marvels-ultimate-universe-made-its-most-familiar-heroes-almost-unrecognizable/",
-      "summary": "Image Courtesy of Marvel Comics The Marvel Ultimate Universe went a long way in updating heroes for a new generation of younger readers. The entire purpose of the comic book line was to modernize the origin stories,…",
+      "title": "Roblox Announced Their Must-Play Games for the Fall, Including One From a Marvel Studios Veteran",
+      "link": "https://comicbook.com/gaming/news/roblox-announced-their-must-play-games-for-the-fall-including-one-from-a-marvel-studios-veteran/",
+      "summary": "For the past 20 years, Roblox games have been very recognizable. The simple game loops with blocky avatars were an unmistakable part of its identity. For kids, that was part of the appeal. The games looked like an…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-04T18:00:00.000Z"
+      "date": "2026-09-04T22:14:58.000Z"
     },
     {
-      "title": "Lost City Found on Egypt’s Way of Horus?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
-      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
+      "title": "6 Years Ago, A Controversial Live-Action Disney Remake Skipped Cinemas & Made Theaters Very Angry",
+      "link": "https://comicbook.com/movies/feature/6-years-ago-a-controversial-live-action-disney-remake-skipped-cinemas-made-theaters-very-angry/",
+      "summary": "The history of Disney and its live-action remakes has been a mixed bag. In some cases, fans are excited to see a new take on a tried-and-true story, especially when it does something completely different from what we…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T22:00:00.000Z"
+    },
+    {
+      "title": "New Collection of NES and SNES Games Stealth-Released on Nintendo Switch and PS5",
+      "link": "https://comicbook.com/gaming/news/snes-nes-nintendo-switch-ps5-collection-new-release/",
+      "summary": "A new collection of NES and SNES games has been stealth-released on Nintendo Switch and PS5. Oddly enough, there is no Nintendo Switch 2 version. Meanwhile, in the other direction, there is no PS4 version. This isn’t an…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T22:12:03.000Z"
+    },
+    {
+      "title": "Silo: 4 Big Questions I Have After That Shocking Season 3 Finale",
+      "link": "https://comicbook.com/tv-shows/list/silo-4-big-questions-i-have-after-that-shocking-season-3-finale/",
+      "summary": "Screenshot Silo Season 3 started off seeming like it could be a misstep – but ended up proving all the naysayers wrong. The continuing story of Sheriff Juliette Nichols (Rebecca Ferguson) and her quest to uncover the…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T22:00:00.000Z"
+    },
+    {
+      "title": "Once popular for attacking AI, ASCII smuggling is embraced by spammers",
+      "link": "https://arstechnica.com/security/2026/09/once-popular-for-attacking-ai-ascii-smuggling-is-embraced-by-spammers/",
+      "summary": "A once-overlooked block of unicode that's invisible to humans is gaining ever wider use.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T17:18:12.000Z"
+    },
+    {
+      "title": "Tetris Responds After Trump Administration Launches 'Build the Wall' Clone Game",
+      "link": "https://www.ign.com/articles/tetris-responds-after-trump-administration-launches-build-the-wall-clone-game",
+      "summary": "Official Tetris pages have responded after the Trump administration launched a clone video game called 'Build the Wall.'",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-04T21:10:54.000Z"
+    },
+    {
+      "title": "8 New TV Shows to Watch This Weekend on Netflix, Prime Video, and Hulu (September 4-6)",
+      "link": "https://www.polygon.com/new-tv-shows-streaming-this-weekend-netflix-september-4-6/",
+      "summary": "In this week's column, we include newly released TV shows alongside other series that have been made available on platforms like Netflix.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T20:30:14.000Z"
+    },
+    {
+      "title": "'Star Wars: Revenge of the Sith' Officially Gets a New Sequel, and It's a 10/10 Masterpiece",
+      "link": "https://www.polygon.com/star-wars-andor-prequel-10/10/",
+      "summary": "Rebecca Roanhorse's Star Wars novel 'Edge of the Abyss' holds up a mirror to the modern world's most disturbing reality.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T21:00:14.000Z"
+    },
+    {
+      "title": "New Ted Backdoor Hides Inside Victims' Own HAProxy Builds to Intercept Web Traffic",
+      "link": "https://thehackernews.com/2026/09/new-ted-backdoor-hides-inside-victims.html",
+      "summary": "A previously undocumented Linux toolkit has been found compiled directly into the trojanized HAProxy load balancers of two South Korean organizations, where it intercepted web traffic and served altered pages to…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T14:51:13.000Z"
+    },
+    {
+      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
+      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
-      "date": "2026-09-04T10:45:50.000Z"
+      "date": "2026-09-03T11:00:29.000Z"
+    },
+    {
+      "title": "10 Near-Perfect Switch Games Nobody Played",
+      "link": "https://www.polygon.com/10-switch-hidden-gems/",
+      "summary": "The Switch game library is massive, but a lot of people overlook 10 amazing hidden gems.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T22:00:14.000Z"
+    },
+    {
+      "title": "Measles killed 6-week-old baby, coroner confirms after RFK Jr. disputed deaths",
+      "link": "https://arstechnica.com/health/2026/09/measles-killed-6-week-old-baby-coroner-confirms-after-rfk-jr-disputed-deaths/",
+      "summary": "\"It’s long past time for RFK to stop playing games with people’s lives.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T20:22:41.000Z"
+    },
+    {
+      "title": "Tetris Maker Officially Responds to White House's Hateful Tetris Clone",
+      "link": "https://www.polygon.com/tetris-white-house-arcade-game-copyright-infringement-trump/",
+      "summary": "The company behind the iconic puzzle game is taking a stand against the Trump admin's controversial arcade games",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T20:19:48.000Z"
     }
   ]
 }
