@@ -81,6 +81,11 @@
     });
   }
 
+  // Set right before a game cartridge programmatically ducks playback, so
+  // the pause listener below knows not to treat it like the user asking for
+  // the music to stay off — it should still auto-resume on the next page.
+  let ducked = false;
+
   audio.addEventListener("playing", () => {
     clearConnectTimeout();
     localStorage.setItem(STORAGE_KEY, "1");
@@ -88,7 +93,8 @@
   });
   audio.addEventListener("pause", () => {
     clearConnectTimeout();
-    localStorage.setItem(STORAGE_KEY, "0");
+    if (!ducked) localStorage.setItem(STORAGE_KEY, "0");
+    ducked = false;
     render();
   });
 
@@ -112,7 +118,10 @@
   // know anything about how it works internally.
   window.SomaFMPlayer = {
     pause() {
-      if (!audio.paused) audio.pause();
+      if (!audio.paused) {
+        ducked = true;
+        audio.pause();
+      }
     },
   };
 })();
