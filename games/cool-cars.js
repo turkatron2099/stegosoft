@@ -98,10 +98,11 @@
   const TITLE_CAR_IMAGE = new Image();
   TITLE_CAR_IMAGE.src = "games/images/title-screen-car.png";
 
-  // Pixel-art truck icon for the vehicle picker, drawn as-is like the
-  // title-screen car (it's a fixed picker icon, not the in-game sprite).
+  // Pixel-art truck icon for the vehicle picker. Recolored blue via the same
+  // hue-rotate machinery as the player sprites (see drawVehicleScreen).
   const TRUCK_OPTION_IMAGE = new Image();
   TRUCK_OPTION_IMAGE.src = "games/images/truck-option.png";
+  const TRUCK_OPTION_BASE_HUE = 0;
 
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
@@ -743,7 +744,8 @@
         if (v.id === "sports" && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
           drawSideCarSprite(x + w / 2, y + h / 2 - 20, 150);
         } else if (v.id === "truck" && TRUCK_OPTION_IMAGE.complete && TRUCK_OPTION_IMAGE.naturalWidth) {
-          drawCroppedSprite(TRUCK_OPTION_IMAGE, TRUCK_OPTION_CONTENT, x + w / 2, y + h / 2 - 20, 150);
+          const blueTruck = getRecoloredSprite(TRUCK_OPTION_IMAGE, "#3a86ff", TRUCK_OPTION_BASE_HUE, {});
+          drawCroppedSprite(blueTruck || TRUCK_OPTION_IMAGE, TRUCK_OPTION_CONTENT, x + w / 2, y + h / 2 - 20, 150);
         } else {
           emoji(v.emoji, x + w / 2, y + h / 2 - 20, 72);
         }
