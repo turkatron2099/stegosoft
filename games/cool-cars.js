@@ -1163,27 +1163,19 @@
       ctx.strokeStyle = "#05182e";
       ctx.fillStyle = "#ffd166";
       ctx.font = "bold 56px 'Comic Sans MS', sans-serif";
-      ctx.strokeText("YOU WIN!", W / 2, 140);
-      ctx.fillText("YOU WIN!", W / 2, 140);
+      ctx.strokeText("YOU WIN!", W / 2, 90);
+      ctx.fillText("YOU WIN!", W / 2, 90);
 
-      emoji(selection.animal.emoji, W / 2 - 60, 220, 60);
-      {
-        const isTruck = selection.vehicle.id === "truck";
-        const baseW = isTruck ? 50 : 40;
-        const baseH = isTruck ? 76 : 68;
-        const previewH = 80;
-        const previewW = previewH * (baseW / baseH);
-        drawPlayerVehicle(W / 2 + 55, 222, selection.color.hex, null, previewW, previewH, selection.vehicle.id);
-      }
-
-      button(W / 2 - 100, 280, 200, 56, () => {
+      button(W / 2 - 100, 155, 200, 56, () => {
         state = "start";
         sound.startCruiseMusic();
       }, "#e63946");
       ctx.fillStyle = "#fff";
       ctx.font = "bold 22px sans-serif";
       ctx.textBaseline = "middle";
-      ctx.fillText("PLAY AGAIN", W / 2, 308);
+      ctx.fillText("PLAY AGAIN", W / 2, 183);
+
+      emoji(selection.animal.emoji, W / 2, 250, 60);
     }
 
     function draw() {
