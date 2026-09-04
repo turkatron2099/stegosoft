@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anaglyph Maker — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="anaglyph.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="tools.html">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="anaglyph-intro">
+    <div class="wrap">
+      <h1>Anaglyph Maker</h1>
+      <p class="tagline">Turn a stereo pair of photos into a red/cyan 3D image — grab a pair of 3D glasses.</p>
+    </div>
+  </section>
+
+  <section class="anaglyph-panel">
+    <div class="wrap">
+
+      <div class="pair-row">
+        <div class="pair-zone" id="left-zone" tabindex="0" role="button" aria-label="Choose the left-eye image">
+          <input type="file" id="left-input" accept="image/*" hidden>
+          <img class="pair-thumb" id="left-thumb" hidden alt="Left-eye preview">
+          <p class="pair-label">Left-Eye Photo</p>
+          <p class="pair-hint" id="left-hint">Drag an image here, or click to choose one</p>
+        </div>
+        <div class="pair-zone" id="right-zone" tabindex="0" role="button" aria-label="Choose the right-eye image">
+          <input type="file" id="right-input" accept="image/*" hidden>
+          <img class="pair-thumb" id="right-thumb" hidden alt="Right-eye preview">
+          <p class="pair-label">Right-Eye Photo</p>
+          <p class="pair-hint" id="right-hint">Drag an image here, or click to choose one</p>
+        </div>
+      </div>
+
+      <p class="pair-tip">
+        Take the two photos from about eye-width apart (~6&ndash;7cm), same height, same framing —
+        shift sideways only, don't rotate the camera.
+      </p>
+
+      <p class="anaglyph-status" id="status-text" hidden></p>
+
+      <div class="anaglyph-editor" id="editor" hidden>
+        <div class="control-row">
+          <label for="method-select">Style</label>
+          <select id="method-select">
+            <option value="color">Color (vivid, more ghosting)</option>
+            <option value="halfcolor" selected>Half-color (balanced, recommended)</option>
+            <option value="gray">Gray (no color, least ghosting)</option>
+          </select>
+          <button type="button" id="swap-btn">Swap Eyes</button>
+        </div>
+
+        <div class="control-row">
+          <label for="shift-input">Alignment shift</label>
+          <input type="range" id="shift-input" min="-100" max="100" value="0" step="1">
+          <span id="shift-value">0px</span>
+        </div>
+
+        <canvas id="preview" width="800" height="600"></canvas>
+
+        <button type="button" id="download-btn">Download PNG</button>
+      </div>
+
+      <p class="anaglyph-note">
+        Everything happens right here in your browser — your photos are never uploaded to
+        Stegosoft or anywhere else. View the result with red/cyan (left-red) 3D glasses.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="anaglyph.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
