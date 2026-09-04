@@ -742,7 +742,7 @@
           state = "chooseColor";
         });
         if (v.id === "sports" && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
-          drawSideCarSprite(x + w / 2, y + h / 2 - 20, 150);
+          drawSideCarSprite(x + w / 2, y + h / 2 - 20, 115);
         } else if (v.id === "truck" && TRUCK_OPTION_IMAGE.complete && TRUCK_OPTION_IMAGE.naturalWidth) {
           const blueTruck = getRecoloredSprite(TRUCK_OPTION_IMAGE, "#3a86ff", TRUCK_OPTION_BASE_HUE, {});
           drawCroppedSprite(blueTruck || TRUCK_OPTION_IMAGE, TRUCK_OPTION_CONTENT, x + w / 2, y + h / 2 - 20, 150);
