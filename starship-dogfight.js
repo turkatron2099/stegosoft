@@ -220,6 +220,64 @@
     });
   }
 
+  // A shooting star that streaks across every so often — a comet-trail line
+  // (gradient to transparent) with a bright head, not a persisted trail.
+  let meteor = null;
+  let nextMeteorAt = performance.now() + rand(4000, 9000);
+
+  function maybeSpawnMeteor(now) {
+    if (meteor || now < nextMeteorAt) return;
+    const speed = rand(9, 14);
+    let x, y, angle;
+    if (Math.random() < 0.6) {
+      x = rand(0, W);
+      y = -20;
+      const goingRight = Math.random() < 0.5;
+      const drop = rand(Math.PI * 0.15, Math.PI * 0.35);
+      angle = goingRight ? drop : Math.PI - drop;
+    } else {
+      const fromLeft = Math.random() < 0.5;
+      x = fromLeft ? -20 : W + 20;
+      y = rand(0, H * 0.6);
+      const drop = rand(Math.PI * 0.05, Math.PI * 0.25);
+      angle = fromLeft ? drop : Math.PI - drop;
+    }
+    meteor = { x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed };
+  }
+
+  function stepMeteor(now) {
+    if (!meteor) return;
+    meteor.x += meteor.vx;
+    meteor.y += meteor.vy;
+    if (meteor.x < -50 || meteor.x > W + 50 || meteor.y < -50 || meteor.y > H + 50) {
+      meteor = null;
+      nextMeteorAt = now + rand(6000, 14000);
+    }
+  }
+
+  function drawMeteor() {
+    if (!meteor) return;
+    const tailLen = 46;
+    const angle = Math.atan2(meteor.vy, meteor.vx);
+    const tailX = meteor.x - Math.cos(angle) * tailLen;
+    const tailY = meteor.y - Math.sin(angle) * tailLen;
+    const grad = ctx.createLinearGradient(meteor.x, meteor.y, tailX, tailY);
+    grad.addColorStop(0, "rgba(246, 220, 172, 0.95)");
+    grad.addColorStop(1, "rgba(246, 220, 172, 0)");
+    ctx.beginPath();
+    ctx.moveTo(meteor.x, meteor.y);
+    ctx.lineTo(tailX, tailY);
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(meteor.x, meteor.y, 1.6, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(246, 220, 172, 0.95)";
+    ctx.fill();
+  }
+
   let running = false;
   let rafId = null;
 
@@ -228,6 +286,9 @@
     const now = performance.now();
     ctx.clearRect(0, 0, W, H);
     drawStars(now);
+    maybeSpawnMeteor(now);
+    stepMeteor(now);
+    drawMeteor();
     stepShip(ships[0], ships[1], now);
     stepShip(ships[1], ships[0], now);
     drawBolts();
