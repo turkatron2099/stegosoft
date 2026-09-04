@@ -648,20 +648,25 @@
       if (useSprites && TREE_IMAGE.complete && TREE_IMAGE.naturalWidth) {
         // Anchored by the trunk base (just above the road) rather than
         // centered, so a taller tree's canopy extends up into the sky
-        // instead of its trunk sinking into the road. A scrolling, evenly
-        // spaced row (instead of two fixed trees) sells the car driving by.
-        const treeW = 64;
-        const treeH = (TREE_CONTENT.sh / TREE_CONTENT.sw) * treeW;
-        const treeBaseY = H * 0.79;
-        const treeCy = treeBaseY - treeH / 2;
-        const treeSpacing = 200;
-        const scroll = (animFrame * TREE_SCROLL_SPEED) % treeSpacing;
-        const treeCount = Math.ceil(W / treeSpacing) + 2;
-        for (let i = -1; i < treeCount; i++) {
-          const x = i * treeSpacing + treeSpacing / 2 - scroll;
-          if (x < -treeW || x > W + treeW) continue;
-          drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, x, treeCy, treeW);
+        // instead of its trunk sinking into the road. Two scrolling rows —
+        // a smaller/slower "background" one behind a larger/faster
+        // "foreground" one — read as depth instead of one flat line, the
+        // same parallax trick as the road stripe versus the tree rows
+        // themselves. Positive scroll direction matches the road stripe's
+        // lineDashOffset above (both grow with animFrame the same way).
+        function treeRow(treeW, baseYFrac, spacing, speed, phase) {
+          const treeH = (TREE_CONTENT.sh / TREE_CONTENT.sw) * treeW;
+          const cy = H * baseYFrac - treeH / 2;
+          const scroll = (animFrame * speed + phase) % spacing;
+          const count = Math.ceil(W / spacing) + 2;
+          for (let i = -1; i < count; i++) {
+            const x = i * spacing + spacing / 2 + scroll;
+            if (x < -treeW || x > W + treeW) continue;
+            drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, x, cy, treeW);
+          }
         }
+        treeRow(38, 0.75, 150, TREE_SCROLL_SPEED * 0.5, 0);
+        treeRow(64, 0.79, 200, TREE_SCROLL_SPEED, 70);
       } else {
         emoji("🌴", 70, H * 0.765, 36);
         emoji("🌴", W - 70, H * 0.765, 36);
