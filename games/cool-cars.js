@@ -956,6 +956,31 @@
     };
     const PLAYER_TRUCK_EXTRA_FILTER = NPC_CAR_EXTRA_FILTER;
 
+    // The truck sprite (32x64 source) is cab + front wheel-well (rows 0-21),
+    // a plain flatbed section with no cross-details (rows 22-52), and a rear
+    // wheel-well/tailgate (rows 53-63). Stretching just the plain middle
+    // slice lengthens the cargo bed without distorting the cab or wheels.
+    const TRUCK_SLICE_ROWS = { top: 22, mid: 31, bottom: 11 };
+    const TRUCK_BED_EXTRA_FRACTION = 0.22; // how much longer the bed gets, as a fraction of the base height
+
+    function drawTruckSprite(sprite, cx, cy, w, h) {
+      const { top, mid, bottom } = TRUCK_SLICE_ROWS;
+      const srcW = sprite.width;
+      const scale = h / (top + mid + bottom);
+      const topH = top * scale;
+      const bottomH = bottom * scale;
+      const midH = mid * scale + h * TRUCK_BED_EXTRA_FRACTION;
+      const totalH = topH + midH + bottomH;
+
+      const dx = cx - w / 2;
+      let dy = cy - totalH / 2;
+      ctx.drawImage(sprite, 0, 0, srcW, top, dx, dy, w, topH);
+      dy += topH;
+      ctx.drawImage(sprite, 0, top, srcW, mid, dx, dy, w, midH);
+      dy += midH;
+      ctx.drawImage(sprite, 0, top + mid, srcW, bottom, dx, dy, w, bottomH);
+    }
+
     function drawPlayerVehicle(cx, cy, color, driverEmoji, w, h, vehicleId) {
       const isTruck = vehicleId === "truck";
       const image = isTruck ? PLAYER_TRUCK_IMAGE : PLAYER_CAR_IMAGE;
@@ -964,7 +989,11 @@
 
       const sprite = getRecoloredSprite(image, color, baseHue, extraFilter);
       if (sprite) {
-        ctx.drawImage(sprite, cx - w / 2, cy - h / 2, w, h);
+        if (isTruck) {
+          drawTruckSprite(sprite, cx, cy, w, h);
+        } else {
+          ctx.drawImage(sprite, cx - w / 2, cy - h / 2, w, h);
+        }
       } else if (isTruck) {
         drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
       } else {
