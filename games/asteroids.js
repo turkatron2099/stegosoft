@@ -297,16 +297,38 @@
       }
     }
 
-    function loop() {
+    // update() assumes each call is a fixed 1/60s slice of game time (ship
+    // thrust, asteroid drift, fire rate are all tuned in those units).
+    // requestAnimationFrame fires at the display's refresh rate though,
+    // which is 120/144/240Hz on a lot of gaming monitors — without this,
+    // the whole game would run 2-4x faster on those screens than on a
+    // standard 60Hz one. Accumulate real elapsed time and only run
+    // update() as many times as needed to keep pace with it, so gameplay
+    // speed is tied to real time instead of the display's refresh rate.
+    const TICK_MS = 1000 / 60;
+    let accumulator = 0;
+    let lastTime = null;
+
+    function loop(now) {
       if (!running) return;
-      update();
+      if (lastTime === null) lastTime = now;
+      let delta = now - lastTime;
+      lastTime = now;
+      if (delta > 250) delta = 250; // don't burst-catch-up after a backgrounded tab
+      accumulator += delta;
+
+      while (accumulator >= TICK_MS) {
+        update();
+        accumulator -= TICK_MS;
+      }
+
       draw();
       rafId = requestAnimationFrame(loop);
     }
 
     running = true;
     resetGame();
-    loop();
+    rafId = requestAnimationFrame(loop);
 
     return {
       stop() {
