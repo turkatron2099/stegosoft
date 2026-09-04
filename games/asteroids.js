@@ -127,7 +127,7 @@
       }));
     }
 
-    function update() {
+    function update(dt) {
       if (gameOver) return;
 
       const left = keys["ArrowLeft"] || keys["a"];
@@ -135,23 +135,24 @@
       const up = keys["ArrowUp"] || keys["w"];
       const firing = keys[" "];
 
-      if (left) ship.angle -= 0.06;
-      if (right) ship.angle += 0.06;
+      if (left) ship.angle -= 0.06 * dt;
+      if (right) ship.angle += 0.06 * dt;
 
       ship.thrusting = !!up;
       if (up) {
-        ship.vx += Math.cos(ship.angle) * 0.12;
-        ship.vy += Math.sin(ship.angle) * 0.12;
+        ship.vx += Math.cos(ship.angle) * 0.12 * dt;
+        ship.vy += Math.sin(ship.angle) * 0.12 * dt;
       }
-      ship.vx *= 0.99;
-      ship.vy *= 0.99;
-      ship.x += ship.vx;
-      ship.y += ship.vy;
+      const drag = Math.pow(0.99, dt);
+      ship.vx *= drag;
+      ship.vy *= drag;
+      ship.x += ship.vx * dt;
+      ship.y += ship.vy * dt;
       wrap(ship);
 
-      if (invulnerable > 0) invulnerable--;
+      if (invulnerable > 0) invulnerable -= dt;
 
-      lastShot++;
+      lastShot += dt;
       if (firing && lastShot > 10) {
         bullets.push({
           x: ship.x + Math.cos(ship.angle) * ship.radius,
@@ -164,16 +165,16 @@
       }
 
       bullets.forEach((b) => {
-        b.x += b.vx;
-        b.y += b.vy;
-        b.life--;
+        b.x += b.vx * dt;
+        b.y += b.vy * dt;
+        b.life -= dt;
       });
       bullets = bullets.filter((b) => b.life > 0 && b.x > -10 && b.x < W + 10 && b.y > -10 && b.y < H + 10);
 
       asteroids.forEach((a) => {
-        a.x += a.vx;
-        a.y += a.vy;
-        a.angle += a.spin;
+        a.x += a.vx * dt;
+        a.y += a.vy * dt;
+        a.angle += a.spin * dt;
         wrap(a);
       });
 
@@ -297,16 +298,20 @@
       }
     }
 
-    // update() assumes each call is a fixed 1/60s slice of game time (ship
-    // thrust, asteroid drift, fire rate are all tuned in those units).
-    // requestAnimationFrame fires at the display's refresh rate though,
-    // which is 120/144/240Hz on a lot of gaming monitors — without this,
-    // the whole game would run 2-4x faster on those screens than on a
-    // standard 60Hz one. Accumulate real elapsed time and only run
-    // update() as many times as needed to keep pace with it, so gameplay
-    // speed is tied to real time instead of the display's refresh rate.
-    const TICK_MS = 1000 / 60;
-    let accumulator = 0;
+    // Ship thrust, asteroid drift, and fire rate are all tuned as "amount
+    // per 1/60th of a second". requestAnimationFrame fires at the
+    // display's refresh rate though, which is 120/144/240Hz on a lot of
+    // gaming monitors — calling update() once per callback with those
+    // fixed amounts would run the whole game proportionally faster on
+    // those screens than on a standard 60Hz one. dt below is "how many
+    // 1/60s frames' worth of real time actually passed since the last
+    // callback" (1.0 at 60Hz, ~0.25 at 240Hz), and every per-frame amount
+    // in update() is scaled by it — so update()/draw() still run once per
+    // callback (smooth at any refresh rate) while covering the correct
+    // amount of game-time either way, instead of the choppier alternative
+    // of only running update() on some callbacks to hold a fixed
+    // simulation rate.
+    const REFERENCE_MS = 1000 / 60;
     let lastTime = null;
 
     function loop(now) {
@@ -314,14 +319,10 @@
       if (lastTime === null) lastTime = now;
       let delta = now - lastTime;
       lastTime = now;
-      if (delta > 250) delta = 250; // don't burst-catch-up after a backgrounded tab
-      accumulator += delta;
+      if (delta > 250) delta = 250; // don't lurch forward after a backgrounded tab
+      const dt = delta / REFERENCE_MS;
 
-      while (accumulator >= TICK_MS) {
-        update();
-        accumulator -= TICK_MS;
-      }
-
+      update(dt);
       draw();
       rafId = requestAnimationFrame(loop);
     }

@@ -483,41 +483,41 @@
       return Math.hypot(rect.x - circle.x, rect.y - circle.y) < circle.r + rect.w / 2 - 4;
     }
 
-    function update() {
+    function update(dt) {
       if (state !== "playing") return;
 
       if (crashTimer > 0) {
-        crashTimer--;
+        crashTimer -= dt;
         return;
       }
 
       const left = keys["ArrowLeft"] || keys["a"] || keys["A"];
       const right = keys["ArrowRight"] || keys["d"] || keys["D"];
-      if (left) player.x -= STEER_SPEED;
-      if (right) player.x += STEER_SPEED;
+      if (left) player.x -= STEER_SPEED * dt;
+      if (right) player.x += STEER_SPEED * dt;
       player.x = clamp(player.x, ROAD_LEFT + player.w / 2 + 4, ROAD_RIGHT - player.w / 2 - 4);
 
-      roadsideTimer--;
+      roadsideTimer -= dt;
       if (roadsideTimer <= 0) {
         const spawned = spawnRoadsideItem();
         roadsideTimer = spawned ? randInt(45, 70) : 15;
       }
-      roadside.forEach((t) => (t.y += SCROLL_SPEED));
+      roadside.forEach((t) => (t.y += SCROLL_SPEED * dt));
       roadside = roadside.filter((t) => t.y < H + 60);
-      roadScroll += SCROLL_SPEED;
+      roadScroll += SCROLL_SPEED * dt;
 
-      spawnTimer--;
+      spawnTimer -= dt;
       if (spawnTimer <= 0) {
         spawnObstacle();
         spawnTimer = randInt(75, 140);
       }
-      numberCooldown--;
+      numberCooldown -= dt;
       if (numberCooldown <= 0 && !objects.some((o) => o.type === "number")) {
         const spawned = spawnNumber();
         numberCooldown = spawned ? randInt(260, 380) : 20;
       }
 
-      objects.forEach((o) => (o.y += SCROLL_SPEED));
+      objects.forEach((o) => (o.y += SCROLL_SPEED * dt));
       objects = objects.filter((o) => o.y < H + 60);
 
       for (const o of objects) {
@@ -542,7 +542,7 @@
       objects = objects.filter((o) => !o.collected);
 
       if (popText) {
-        popText.life--;
+        popText.life -= dt;
         if (popText.life <= 0) popText = null;
       }
     }
@@ -1113,17 +1113,20 @@
     canvas.addEventListener("click", onClick);
     canvas.addEventListener("mousemove", onMouseMove);
 
-    // update() assumes each call is a fixed 1/60s slice of game time —
-    // movement speeds, spawn timers, and the crash duration are all tuned
-    // in those units. requestAnimationFrame fires at the display's refresh
-    // rate, though, which is 120/144/240Hz on a lot of gaming monitors —
-    // without this, the whole game (steering, traffic, spawn rate,
-    // everything) would run 2-4x faster on those screens than on a
-    // standard 60Hz one. Accumulate real elapsed time and only run
-    // update() as many times as needed to keep pace with it, so gameplay
-    // speed is tied to real time instead of the display's refresh rate.
-    const TICK_MS = 1000 / 60;
-    let accumulator = 0;
+    // Movement speeds, spawn timers, and the crash duration are all tuned
+    // as "amount per 1/60th of a second". requestAnimationFrame fires at
+    // the display's refresh rate though, which is 120/144/240Hz on a lot
+    // of gaming monitors — calling update() once per callback with those
+    // fixed amounts would run the whole game (steering, traffic, spawn
+    // rate, everything) proportionally faster on those screens than on a
+    // standard 60Hz one. dt below is "how many 1/60s frames' worth of
+    // real time actually passed since the last callback" (1.0 at 60Hz,
+    // ~0.25 at 240Hz), and every per-frame amount in update() is scaled by
+    // it — so update()/draw() still run once per callback (smooth at any
+    // refresh rate) while covering the correct amount of game-time either
+    // way, instead of the choppier alternative of only running update()
+    // on some callbacks to hold a fixed simulation rate.
+    const REFERENCE_MS = 1000 / 60;
     let lastTime = null;
 
     function loop(now) {
@@ -1131,15 +1134,11 @@
       if (lastTime === null) lastTime = now;
       let delta = now - lastTime;
       lastTime = now;
-      if (delta > 250) delta = 250; // don't burst-catch-up after a backgrounded tab
-      accumulator += delta;
+      if (delta > 250) delta = 250; // don't lurch forward after a backgrounded tab
+      const dt = delta / REFERENCE_MS;
 
-      while (accumulator >= TICK_MS) {
-        animFrame++;
-        update();
-        accumulator -= TICK_MS;
-      }
-
+      animFrame += dt;
+      update(dt);
       draw();
       rafId = requestAnimationFrame(loop);
     }
