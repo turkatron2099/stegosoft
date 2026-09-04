@@ -625,17 +625,22 @@
 
       const bounce = Math.sin(animFrame * 0.12) * 3;
       if (useTitleCarSprite && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
-        drawSideCarSprite(W / 2, H * 0.87 + bounce, "🐶");
+        drawSideCarSprite(W / 2, H * 0.82 + bounce);
       } else {
         drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
       }
     }
 
-    function drawSideCarSprite(cx, cy, driverEmoji) {
+    // The exported sprite is a 32x32 canvas, but the car art only fills rows
+    // 15-27 (the rest is transparent padding) — crop to that content box so
+    // scaling doesn't push the visible car below where it's centered.
+    const TITLE_CAR_CONTENT = { sx: 0, sy: 15, sw: 32, sh: 13 };
+
+    function drawSideCarSprite(cx, cy) {
+      const { sx, sy, sw, sh } = TITLE_CAR_CONTENT;
       const w = 140;
-      const h = (TITLE_CAR_IMAGE.naturalHeight / TITLE_CAR_IMAGE.naturalWidth) * w;
-      ctx.drawImage(TITLE_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
-      emoji(driverEmoji, cx - 4, cy - h / 2 - 8, 34);
+      const h = (sh / sw) * w;
+      ctx.drawImage(TITLE_CAR_IMAGE, sx, sy, sw, sh, cx - w / 2, cy - h / 2, w, h);
     }
 
     function drawSideCar(cx, cy, color, driverEmoji) {
