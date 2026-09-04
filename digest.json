@@ -1,101 +1,13 @@
 {
-  "generatedAt": "2026-09-04T12:44:56.965Z",
+  "generatedAt": "2026-09-04T18:59:50.550Z",
   "items": [
     {
-      "title": "Star Trek 60: MeTV Celebrates Franchise with Shatner, Specials & More!",
-      "link": "https://bleedingcool.com/tv/star-trek-60-metv-celebrates-franchise-with-shatner-specials-more/",
-      "summary": "MeTV is celebrating Star Trek 60 all September with specials, TOS, TNG & DS9 screenings, William Shatner on Toon in With Me, and more.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-04T12:39:09.000Z"
-    },
-    {
-      "title": "The X-Files, God of War/Bautista, SNL UK & More: BCTV Daily Dispatch",
-      "link": "https://bleedingcool.com/tv/the-x-files-god-of-war-bautista-snl-uk-more-bctv-daily-dispatch/",
-      "summary": "In today's BCTV Daily Dispatch: Tracker, Lanterns, The Traitors: New Blood, Alien: Earth, AHS 13, The X-Files, God of War, SNL UK, and more!",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-04T11:37:09.000Z"
-    },
-    {
-      "title": "Leclerc leads Hamilton in first practice at Monza",
-      "link": "https://www.bbc.co.uk/sport/formula1/articles/cgk5g0z26yxo?at_medium=RSS&at_campaign=rss",
-      "summary": "Charles Leclerc leads Lewis Hamilton in first practice at the Italian Grand Prix to start the weekend off on a positive note for Ferrari.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-04T12:16:42.000Z"
-    },
-    {
-      "title": "Lost City Found on Egypt’s Way of Horus?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
-      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-04T10:45:50.000Z"
-    },
-    {
-      "title": "Google Releases Chrome Update to Patch Actively Exploited V8 Zero-Day",
-      "link": "https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html",
-      "summary": "Google on Thursday released security updates to patch 12 vulnerabilities, including one that has come under active exploitation in the wild. The high-severity vulnerability, tracked as CVE-2026-85046 (CVSS score: 8.8),…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T07:18:47.000Z"
-    },
-    {
-      "title": "Plex Urges Immediate Updates After Patching Multiple Undisclosed Security Flaws",
-      "link": "https://thehackernews.com/2026/09/plex-urges-immediate-updates-after.html",
-      "summary": "Plex is urging users to update their instances to the latest version following the release of an update that patches multiple security flaws. The fixes are available in Plex Media Server 1.43.3 and Plex Desktop 1.115.0.…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T07:35:14.000Z"
-    },
-    {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:21.000Z"
-    },
-    {
-      "title": "Large Enterprises Targeted in Fake Merger & Acquisition Scams",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/large-enterprises-fake-merger-acquisition-scams",
-      "summary": "Threat actors behind the \"Phantom Deal\" campaign are studying companies in extreme detail, aiming to dupe midlevel employees into initiating large financial transfers.",
+      "title": "AI Is Ending the Era of Hidden Vulnerabilities — Are Vendors Ready?",
+      "link": "https://www.darkreading.com/vulnerabilities-threats/ai-ending-era-hidden-vulnerabilities-are-vendors-ready",
+      "summary": "A tidal wave of bug reports is overwhelming software vendors, exposing secure-by-design failures and creating disclosure bottlenecks.",
       "source": "Dark Reading",
       "topic": "Cybersecurity",
-      "date": "2026-09-03T20:18:14.000Z"
-    },
-    {
-      "title": "Spring 2026 Caption Contest Winners",
-      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/spring-2026-3/",
-      "summary": "And the winner is… “Were you trying to sneak more than 3.4 fluid ounces in your carry-on?” Joseph Mitgang, Woodmere, New York Thank you to…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-01T14:00:29.000Z"
-    },
-    {
-      "title": "Gasly loses Monaco podium after McLaren and Red Bull win appeals",
-      "link": "https://www.bbc.co.uk/sport/formula1/articles/c4gq26zglpzo?at_medium=RSS&at_campaign=rss",
-      "summary": "McLaren and Red Bull win their appeals against the result of the Monaco Grand Prix after a controversy over multiple incorrect pit-lane speeding penalties.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-04T12:35:37.000Z"
-    },
-    {
-      "title": "Viz Comic Has Also Been Hit By Late Printer Issues",
-      "link": "https://bleedingcool.com/comics/viz-comic-has-also-been-hit-by-late-printer-issues/",
-      "summary": "Viz Comic has now also been hit by late printer issues",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-04T12:42:09.000Z"
-    },
-    {
-      "title": "GPT-6 Astra Scores 100% on ExploitBench as OpenAI Blocks PoC Exploit Requests",
-      "link": "https://thehackernews.com/2026/09/gpt-6-astra-scores-100-on-exploitbench.html",
-      "summary": "OpenAI on Thursday officially unveiled GPT‑6 Astra, which it described as the \"world's most intelligent and aligned model.\" The development comes days after the artificial intelligence (AI) company said the model had…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T06:47:52.000Z"
+      "date": "2026-09-04T13:00:00.000Z"
     },
     {
       "title": "Elder Care in Antiquity",
@@ -106,20 +18,52 @@
       "date": "2026-09-02T11:00:28.000Z"
     },
     {
-      "title": "Bernie Sanders Proposes Artificial Superintelligence Ban Amid Rogue AI Hackings",
-      "link": "https://yro.slashdot.org/story/26/09/03/2222247/bernie-sanders-proposes-artificial-superintelligence-ban-amid-rogue-ai-hackings?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from The Hill: Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) are calling for a permanent ban on the development and deployment of artificial superintelligence, citing a…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-04T03:30:00.000Z"
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:21.000Z"
     },
     {
-      "title": "Genetically Modified Pig Kidney Keeps Man Alive For Record Nine Months",
-      "link": "https://science.slashdot.org/story/26/09/04/0433242/genetically-modified-pig-kidney-keeps-man-alive-for-record-nine-months?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A genetically modified pig kidney kept a 66-year-old man off dialysis for a record nine months, marking the longest survival yet for a pig kidney transplanted into a living person and the first time such an organ…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-04T11:00:00.000Z"
+      "title": "PostgreSQL Fixes 12-Year-Old Logical Decoding Flaw Enabling Replication-Role Code Execution",
+      "link": "https://thehackernews.com/2026/09/postgresql-fixes-12-year-old-logical.html",
+      "summary": "PostgreSQL has released updates to address a security flaw that allows an account with the REPLICATION attribute to run arbitrary code as the operating-system user running the database server. The flaw, tracked as…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T15:20:19.000Z"
+    },
+    {
+      "title": "All match overrides and console locations in Fortnite Chapter 7 Season 4",
+      "link": "https://www.polygon.com/fortnite-chapter-7-season-4-match-overrides-console-locations-c7s4/",
+      "summary": "Match overrides change the way you play Fortnite in Chapter 7 Season 4. Here are all the match overrides and where to find override consoles.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T18:05:12.000Z"
+    },
+    {
+      "title": "GTA 6 for Xbox: You Can Save $10, Today Only",
+      "link": "https://www.ign.com/articles/gta-6-for-xbox-you-can-save-10-today-only",
+      "summary": "Xbox owners can save $10 on Grand Theft Auto 6's ultimate edition using this simple workaround (but it's only available today).",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-04T18:21:04.000Z"
+    },
+    {
+      "title": "The Iron Fist Returns to Mezco Toyz with Marvel Comics One:12 Reissue",
+      "link": "https://bleedingcool.com/collectibles/the-iron-fist-returns-to-mezco-toyz-with-marvel-comics-one12-reissue/",
+      "summary": "Prepare to add the iconic Defender to your collection — Mezco Toyz has unveiled the One:12 Collective reissue of the Marvel Comics Iron Fist figure.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-04T18:22:08.000Z"
+    },
+    {
+      "title": "Spring 2026 Caption Contest Winners",
+      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/spring-2026-3/",
+      "summary": "And the winner is… “Were you trying to sneak more than 3.4 fluid ounces in your carry-on?” Joseph Mitgang, Woodmere, New York Thank you to…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-01T14:00:29.000Z"
     },
     {
       "title": "Exploring the Land of Abraham’s Birth",
@@ -130,84 +74,100 @@
       "date": "2026-09-02T12:55:07.000Z"
     },
     {
-      "title": "Apple Sued For $2.7 Billion Over App Tracking Transparency Rules",
-      "link": "https://yro.slashdot.org/story/26/09/03/2015253/apple-sued-for-27-billion-over-app-tracking-transparency-rules?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A former UK competition official has filed a $2.7 billion lawsuit against Apple on behalf of app developers, alleging its App Tracking Transparency rules unfairly disadvantaged third-party apps while favoring Apple's…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-03T22:00:00.000Z"
-    },
-    {
-      "title": "Xbox Is Putting a Time Limit on Cloud Gaming",
-      "link": "https://www.polygon.com/xbox-game-pass-cloud-gaming-time-limit/",
-      "summary": "Cloud gaming is being significantly downgraded as an Xbox Game Pass perk, as Xbox introduces playtime limits.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T10:23:46.000Z"
-    },
-    {
-      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
-      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:29.000Z"
-    },
-    {
-      "title": "Netflix Is About to Lose an Unforgettable Sci-Fi Movie With a Near-Perfect Rotten Tomatoes Score",
-      "link": "https://www.polygon.com/poor-things-emma-stone-leaving-netflix-september-2026/",
-      "summary": "Emma Stone delivers an Oscar-winning performance in Poor Things, Yorgos Lanthimos’ unforgettable sci-fi fantasy leaving Netflix on Sept. 7.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T10:00:14.000Z"
-    },
-    {
-      "title": "AWOL Vision Debuts Its New LuxVision During IFA 2026",
-      "link": "https://bleedingcool.com/pop-culture/awol-vision-debuts-its-new-luxvision-during-ifa-2026/",
-      "summary": "AWOL Vision has a new projector they're showing off during IFA 2026, as they unveiled the new LuxVision with a number of modern features.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-04T12:32:10.000Z"
-    },
-    {
-      "title": "6 Upcoming Steam Games That Need To Be on Your Wishlist",
-      "link": "https://www.polygon.com/wishlister-gamescom-september-4/",
-      "summary": "Fresh off of Gamescom, here are six standouts from the show that should be on your Steam wishlist.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T11:00:14.000Z"
-    },
-    {
-      "title": "8 Near-Perfect Anime To Watch if You Like 'Solo Leveling'",
-      "link": "https://www.polygon.com/8-best-anime-like-solo-leveling-to-watch/",
-      "summary": "Not every title has an overpowered protagonist, but all of them share Solo Leveling's DNA.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T08:00:14.000Z"
-    },
-    {
-      "title": "Netflix Scraps One Dungeons & Dragons TV Series in Favor of Another, With the Perfect Setting",
-      "link": "https://comicbook.com/tv-shows/news/netflix-scraps-one-dungeons-dragons-tv-series-in-favor-of-another-with-the-perfect-setting/",
-      "summary": "Courtesy of Wizards of the Coast Dungeons & Dragons has had a chaotic couple of years in movies and TV shows. Paramount’s 2023 film Dungeons & Dragons: Honor Among Thieves earned strong reviews and enthusiastic word of…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-04T11:47:10.000Z"
-    },
-    {
-      "title": "PUBG: DED.NET Developer Argues Making a Game for the Mass Market Where 'Nobody's Too Offended and Everybody Kind of Likes It' Has Become 'Box Office Poison'",
-      "link": "https://www.ign.com/articles/pubg-dednet-developer-argues-making-a-game-for-the-mass-market-where-nobodys-too-offended-and-everybody-kind-of-likes-it-has-become-box-office-poison",
-      "summary": "PUBG: DED.NET developer Dave Curd has argued that making a video game for the mass market where \"nobody's too offended and everybody kind of likes it\" has become \"box office poison.\"",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-04T10:37:59.000Z"
-    },
-    {
-      "title": "Reports: RFK Jr. ordered measles deaths deletion; CDC still secretly counts them",
-      "link": "https://arstechnica.com/health/2026/09/reports-rfk-jr-ordered-measles-deaths-deletion-cdc-still-secretly-counts-them/",
-      "summary": "CDC staff had already accepted the measles death reports when RFK Jr. meddled.",
+      "title": "Anthropic’s $2 trillion IPO puts powerful external trustees in spotlight",
+      "link": "https://arstechnica.com/ai/2026/09/anthropics-2-trillion-ipo-puts-powerful-external-trustees-in-spotlight/",
+      "summary": "Public-market scrutiny will intensify pressure on the Claude maker’s unusual attempt to balance profit and purpose.",
       "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-03T22:13:50.000Z"
+      "date": "2026-09-04T16:22:18.000Z"
+    },
+    {
+      "title": "Farage threatens to overhaul Lords and judges to meet his pledges",
+      "link": "https://www.bbc.co.uk/news/articles/clyeq5jvd2po?at_medium=RSS&at_campaign=rss",
+      "summary": "The Reform UK leader promises to deliver on key priorities in the first 100 days of government, if the party wins power.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-04T18:45:21.000Z"
+    },
+    {
+      "title": "Second complete map of a fruit fly brain completed",
+      "link": "https://arstechnica.com/science/2026/09/brain-of-a-male-fly-completely-mapped-joins-earlier-map-of-a-female-brain/",
+      "summary": "Every neuron and connection in the brain of a fly has been mapped—twice.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T16:24:24.000Z"
+    },
+    {
+      "title": "Scalebound Director Pushes for Xbox to Revive the Canceled Action Game",
+      "link": "https://comicbook.com/gaming/news/scalebound-director-pushes-for-xbox-to-revive-the-canceled-action-game/",
+      "summary": "Few canceled games have maintained the same level of fascination as Scalebound. Announced by Microsoft and PlatinumGames as an ambitious Xbox One and Windows 10 action game, it promised enormous battles, an open world,…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T18:03:29.000Z"
+    },
+    {
+      "title": "Phishing Campaign Sends Millions of Emails Using Invisible Unicode to Evade Filters",
+      "link": "https://thehackernews.com/2026/09/phishing-campaign-sends-millions-of.html",
+      "summary": "Microsoft is alerting of a \"high-volume phishing campaign\" that's using invisible Unicode tag characters to bypass email filters. \"Instead of using these characters to hide instructions from people while exposing them…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T15:57:15.000Z"
+    },
+    {
+      "title": "New Ted Backdoor Hides Inside Victims' Own HAProxy Builds to Intercept Web Traffic",
+      "link": "https://thehackernews.com/2026/09/new-ted-backdoor-hides-inside-victims.html",
+      "summary": "A previously undocumented Linux toolkit has been found compiled directly into the trojanized HAProxy load balancers of two South Korean organizations, where it intercepted web traffic and served altered pages to…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T14:51:13.000Z"
+    },
+    {
+      "title": "Valve secretly leaked a Left 4 Dead 2 trailer to dodge the ESRB",
+      "link": "https://arstechnica.com/gaming/2026/09/valve-secretly-leaked-a-left-4-dead-2-trailer-to-dodge-the-esrb/",
+      "summary": "\"I think we can't get in trouble for that now. It's like 20 years ago.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T16:42:53.000Z"
+    },
+    {
+      "title": "By Any Means Director Reveals John Woo and Quentin Tarantino’s Influence on New Movie [EXCLUSIVE]",
+      "link": "https://comicbook.com/movies/news/by-any-means-director-reveals-john-woo-and-quentin-tarantinos-influence-on-new-movie-exclusive/",
+      "summary": "In theaters today, By Any Means is a high-octane thriller with roots in a real historical story. After civil rights attorney Vernon Dahmer is murdered in Mississippi in the 1960s, a black FBI agent (Yahya Abdul-Mateen…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T18:17:29.000Z"
+    },
+    {
+      "title": "Trump White House just tossed a grenade into international space relations",
+      "link": "https://arstechnica.com/space/2026/09/why-did-us-space-companies-pull-out-of-a-french-space-meeting-its-complicated/",
+      "summary": "\"Let me be clear: America is not only welcome—we want you there.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T15:46:33.000Z"
+    },
+    {
+      "title": "Steam Users Can Play This Chaotic Among Us-like for Free Until Sept. 7",
+      "link": "https://www.polygon.com/free-on-steam-first-class-trouble-september-2026/",
+      "summary": "First Class Trouble is free to play on Steam this weekend, letting you team up with friends, uncover traitors, and cause chaos aboard a space cruise.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T18:41:04.000Z"
+    },
+    {
+      "title": "What time are the Cheat Master power hours in Fortnite Chapter 7 Season 4?",
+      "link": "https://www.polygon.com/fortnite-chapter-7-season-4-cheat-master-power-hours-what-time/",
+      "summary": "Cheat Master sprite spawns are boosted in Fortnite this Saturday, Sept. 5. Here's what time the Cheat Master power hours start.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T18:36:23.000Z"
+    },
+    {
+      "title": "4 Actors Who Almost Played the MCU’s Thor Before Chris Hemsworth, And One Nearly Joined the MCU Later",
+      "link": "https://comicbook.com/movies/list/4-actors-who-almost-played-the-mcus-thor-before-chris-hemsworth-and-one-nearly-joined-the-mcu-later/",
+      "summary": "After 15 years, it’s hard to imagine anyone playing Thor other than Chris Hemsworth. The God of Thunder was the breakout role for the charismatic actor after a scene-stealing performance in the opening sequence of Star…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T18:30:00.000Z"
     },
     {
       "title": "Over 440,000 Exploit Attempts Target Super Forms and Elementor Pro RCE Flaws",
@@ -218,44 +178,84 @@
       "date": "2026-09-04T08:48:45.000Z"
     },
     {
-      "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi In Austin",
-      "link": "https://tech.slashdot.org/story/26/09/04/0427208/tesla-launches-steering-wheel-free-cybercab-robotaxi-in-austin?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Tesla has begun offering public rides in Austin in its purpose-built Cybercab, a two-seat robotaxi with no steering wheel or pedals. \"You can go outside, take rides,\" said Ashok Elluswamy, Tesla's VP of AI. \"Anyone can…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-04T07:00:00.000Z"
+      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
+      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:29.000Z"
     },
     {
-      "title": "10 New Movies to Watch This Weekend on Netflix, HBO Max, and Hulu (September 4-6)",
-      "link": "https://www.polygon.com/new-movies-streaming-this-weekend-netflix-september-4-6/",
-      "summary": "In this weekend's movie streaming column, there's the new Star Wars story, the latest entry in a long-running parody-horror franchise, and more.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-04T09:00:14.000Z"
-    },
-    {
-      "title": "Four Major AI Models Suffer Rare Overlapping Downtime",
-      "link": "https://tech.slashdot.org/story/26/09/03/2023242/four-major-ai-models-suffer-rare-overlapping-downtime?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "ChatGPT, Claude, Grok, and Gemini all suffered significant service disruptions within roughly the same few-hour window Thursday morning. OpenAI and Anthropic reported elevated errors and later restored service, while…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-03T23:00:00.000Z"
-    },
-    {
-      "title": "Nintendo Switch Online Adds Three NES Titles For September 2026",
-      "link": "https://bleedingcool.com/games/nintendo-switch-online-adds-three-nes-titles-for-september-2026/",
-      "summary": "Ninja Gaiden III, Ikari Warriors, and R.C. PRO-AM II join the NES library for Nintendo Switch Online as the September 2026 additions.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-04T12:13:11.000Z"
-    },
-    {
-      "title": "What We Missed: Did ShinyHunters 'Breach' ReliaQuest?",
-      "link": "https://www.darkreading.com/cybersecurity-operations/what-we-missed-did-shinyhunters-breach-reliaquest",
-      "summary": "In this video conversation, Dark Reading editors discuss some of the news they didn't get a chance to cover, from the latest antics of ShinyHunters to new research about the prevalence (or lack thereof) of AI-generated…",
+      "title": "Companies Have 6 Months to Prepare for Automated Attacks",
+      "link": "https://www.darkreading.com/cybersecurity-operations/companies-six-months-prepare-automated-attacks",
+      "summary": "Frontier AI models have already demonstrated they can autonomously — and in some cases, inadvertently — conduct end-to-end compromises, but the situation will become more urgent very soon.",
       "source": "Dark Reading",
       "topic": "Cybersecurity",
-      "date": "2026-09-03T19:42:39.000Z"
+      "date": "2026-09-04T15:57:31.000Z"
+    },
+    {
+      "title": "Miami Wants To Turn The City Into 'GTA 6' And Cops Aren't Happy About It",
+      "link": "https://www.polygon.com/gta-6-miami-dade-rockstar-marketing-proposal-where-is-located/",
+      "summary": "Miami-Dade officials proposed a massive GTA 6 partnership with Rockstar, but some county reps aren't having it",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T18:01:26.000Z"
+    },
+    {
+      "title": "Musk wins court order to block use of “Twitter,” but not “tweet” and bird logo",
+      "link": "https://arstechnica.com/tech-policy/2026/09/musk-wins-court-order-to-block-use-of-twitter-but-not-tweet-and-bird-logo/",
+      "summary": "Saying X is “formerly Twitter” in App Store lets Musk block use of Twitter name.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T15:59:47.000Z"
+    },
+    {
+      "title": "Auto Companies Call For Ban On Chinese-Made Cars",
+      "link": "https://tech.slashdot.org/story/26/09/04/0441229/auto-companies-call-for-ban-on-chinese-made-cars?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from The Hill: A group representing American automakers sent a letter (PDF) Thursday to congressional leaders asking for a \"permanent ban\" on Chinese-made cars in the U.S. John…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-04T15:00:00.000Z"
+    },
+    {
+      "title": "Sheriff Country S02E01: \"Cyclone\" Images, S02E05 Overview Released",
+      "link": "https://bleedingcool.com/tv/sheriff-country-s02e01-cyclone-images-s02e05-overview-released/",
+      "summary": "Check out the images for CBS's Morena Baccarin-starring Sheriff Country S02E01: \"Cyclone\" and the S02E05 overview, a Fire Country crossover.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-04T18:45:10.000Z"
+    },
+    {
+      "title": "What happens next after Lindsay Clancy's murder case ends in a mistrial?",
+      "link": "https://www.bbc.co.uk/news/articles/cj9x248npw1o?at_medium=RSS&at_campaign=rss",
+      "summary": "The US mother accused of murder is likely to remain in a mental health facility as lawyers weigh their next steps.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-04T18:36:02.000Z"
+    },
+    {
+      "title": "Resident Evil 2 Director Thinks There’s a Chance His Canceled Xbox-Exclusive Will Still Happen",
+      "link": "https://www.polygon.com/xbox-exclusive-scalebound-still-possible-hopes-hideki-kamiya/",
+      "summary": "Bayonetta and Okami creator Hideki Kamiy still has hope his canceled Xbox game Scalebound will happen",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T18:04:22.000Z"
+    },
+    {
+      "title": "7 Ways Marvel’s Ultimate Universe Made Its Most Familiar Heroes Almost Unrecognizable",
+      "link": "https://comicbook.com/comics/list/7-ways-marvels-ultimate-universe-made-its-most-familiar-heroes-almost-unrecognizable/",
+      "summary": "Image Courtesy of Marvel Comics The Marvel Ultimate Universe went a long way in updating heroes for a new generation of younger readers. The entire purpose of the comic book line was to modernize the origin stories,…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T18:00:00.000Z"
+    },
+    {
+      "title": "Lost City Found on Egypt’s Way of Horus?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
+      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-04T10:45:50.000Z"
     }
   ]
 }
