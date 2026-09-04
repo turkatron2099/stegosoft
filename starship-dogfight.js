@@ -25,8 +25,21 @@
     canvas.style.height = H + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  window.addEventListener("resize", resize);
+  // Small starfield behind the dogfight — same cream as the "Home" link and
+  // the logo's border (var(--foreground) in style.css).
+  const STAR_COLOR = "#f6dcac";
+  let stars = [];
+  function makeStars() {
+    const count = Math.round((W * H) / 6000);
+    stars = [];
+    for (let i = 0; i < count; i++) {
+      stars.push({ x: rand(0, W), y: rand(0, H), r: rand(0.6, 1.6), phase: rand(0, Math.PI * 2) });
+    }
+  }
+
+  window.addEventListener("resize", () => { resize(); makeStars(); });
   resize();
+  makeStars();
 
   function rand(min, max) {
     return min + Math.random() * (max - min);
@@ -91,7 +104,10 @@
     };
   }
 
-  const ships = [makeShip("#faa968"), makeShip("#8cbfb8")];
+  // Same dark navy as the .about/.dark-background section behind the quote
+  // (var(--dark-background) in style.css).
+  const SHIP_COLOR = "#031222";
+  const ships = [makeShip(SHIP_COLOR), makeShip(SHIP_COLOR)];
   const bolts = [];
 
   function angleDiff(a, b) {
@@ -161,7 +177,7 @@
     ctx.closePath();
     ctx.fillStyle = ship.color;
     ctx.fill();
-    ctx.strokeStyle = "rgba(5, 24, 46, 0.8)";
+    ctx.strokeStyle = STAR_COLOR;
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -192,6 +208,18 @@
     }
   }
 
+  function drawStars(now) {
+    stars.forEach((s) => {
+      const twinkle = 0.5 + Math.sin(now * 0.001 + s.phase) * 0.35;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = STAR_COLOR;
+      ctx.globalAlpha = twinkle;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+  }
+
   let running = false;
   let rafId = null;
 
@@ -199,6 +227,7 @@
     if (!running) return;
     const now = performance.now();
     ctx.clearRect(0, 0, W, H);
+    drawStars(now);
     stepShip(ships[0], ships[1], now);
     stepShip(ships[1], ships[0], now);
     drawBolts();
