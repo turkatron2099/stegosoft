@@ -11,7 +11,7 @@
   ];
 
   const VEHICLES = [
-    { id: "sports", emoji: "🏎️", label: "Sports Car" },
+    { id: "sports", emoji: "🏎️", label: "Car" },
     { id: "truck", emoji: "🚚", label: "Truck" },
   ];
 
