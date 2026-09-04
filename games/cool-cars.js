@@ -707,6 +707,7 @@
         const y = 140;
         button(x, y, w, h, () => {
           selection.vehicle = v;
+          sound.honk(v.id === "truck");
           state = "chooseColor";
         });
         emoji(v.emoji, x + w / 2, y + h / 2 - 20, 72);
