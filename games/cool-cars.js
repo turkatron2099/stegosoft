@@ -672,7 +672,7 @@
 
     const TITLE_CAR_CONTENT = { sx: 0, sy: 15, sw: 32, sh: 13 };
     const TRUCK_OPTION_CONTENT = { sx: 0, sy: 10, sw: 32, sh: 12 };
-    const TREE_CONTENT = { sx: 6, sy: 3, sw: 21, sh: 25 };
+    const TREE_CONTENT = { sx: 4, sy: 1, sw: 24, sh: 30 };
     const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
     const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
 
@@ -1055,7 +1055,11 @@
 
       roadside.forEach((t) => {
         const baseX = t.side === "left" ? ROAD_LEFT - 50 : ROAD_RIGHT + 50;
-        emoji(t.emoji, baseX + t.xJitter, t.y, t.size);
+        if (TREE_IMAGE.complete && TREE_IMAGE.naturalWidth) {
+          drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, baseX + t.xJitter, t.y, t.size * 1.15);
+        } else {
+          emoji(t.emoji, baseX + t.xJitter, t.y, t.size);
+        }
       });
 
       objects.forEach((o) => {
