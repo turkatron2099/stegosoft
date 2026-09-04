@@ -22,21 +22,22 @@
   let rightImg = null;
 
   function setupZone(zone, input, thumb, hint, onLoaded) {
-    function handleFile(file) {
-      if (!file || !file.type.startsWith("image/")) return;
-      const url = URL.createObjectURL(file);
-      const img = new Image();
-      img.onload = () => {
+    async function handleFile(file) {
+      if (!file || !window.looksLikeImageFile(file)) return;
+      statusText.hidden = false;
+      statusText.textContent = /\.hei[cf]$/i.test(file.name) ? "Converting HEIC…" : "Loading…";
+      try {
+        const { img, url } = await window.loadImageFile(file);
         thumb.src = url;
         thumb.hidden = false;
         hint.textContent = file.name;
+        statusText.hidden = true;
         onLoaded(img);
-      };
-      img.onerror = () => {
+      } catch (err) {
+        console.error(err);
         statusText.hidden = false;
-        statusText.textContent = "Couldn't load that image — try a different file.";
-      };
-      img.src = url;
+        statusText.textContent = err.message || "Couldn't load that image — try a different file.";
+      }
     }
 
     zone.addEventListener("click", () => input.click());

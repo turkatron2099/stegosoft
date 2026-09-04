@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Converter — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="image-converter.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="tools.html">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="convert-intro">
+    <div class="wrap">
+      <h1>Image Converter</h1>
+      <p class="tagline">Convert a photo between PNG, JPEG, and WebP — HEIC/HEIF included.</p>
+    </div>
+  </section>
+
+  <section class="convert-panel">
+    <div class="wrap">
+
+      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose an image file">
+        <input type="file" id="file-input" accept="image/*,.heic,.heif" hidden>
+        <p id="drop-label">Drag an image here, or click to choose one</p>
+        <p class="drop-hint">Supports PNG, JPEG, WebP, GIF, BMP, and HEIC/HEIF (iPhone photos)</p>
+      </div>
+
+      <p class="convert-status" id="status-text" hidden></p>
+
+      <div class="convert-editor" id="editor" hidden>
+        <img id="source-preview" alt="Selected image preview">
+        <p class="source-info" id="source-info"></p>
+
+        <div class="format-row">
+          <label for="format-select">Convert to</label>
+          <select id="format-select">
+            <option value="image/png" selected>PNG (lossless)</option>
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+          <div class="quality-field" id="quality-field">
+            <label for="quality-input">Quality</label>
+            <input type="range" id="quality-input" min="0.1" max="1" step="0.05" value="0.9">
+            <span id="quality-value">90%</span>
+          </div>
+        </div>
+
+        <button type="button" id="convert-btn">Convert</button>
+      </div>
+
+      <div class="convert-result" id="result-box" hidden>
+        <p class="result-info" id="result-info"></p>
+        <img id="result-preview" alt="Converted image preview">
+        <a id="download-link" class="download-btn" download="converted">Download</a>
+      </div>
+
+      <p class="convert-note">
+        The conversion happens right here in your browser — nothing is uploaded to Stegosoft or
+        anywhere else.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+<script src="image-load.js"></script>
+<script src="image-converter.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>

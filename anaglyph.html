@@ -36,13 +36,13 @@
 
       <div class="pair-row">
         <div class="pair-zone" id="left-zone" tabindex="0" role="button" aria-label="Choose the left-eye image">
-          <input type="file" id="left-input" accept="image/*" hidden>
+          <input type="file" id="left-input" accept="image/*,.heic,.heif" hidden>
           <img class="pair-thumb" id="left-thumb" hidden alt="Left-eye preview">
           <p class="pair-label">Left-Eye Photo</p>
           <p class="pair-hint" id="left-hint">Drag an image here, or click to choose one</p>
         </div>
         <div class="pair-zone" id="right-zone" tabindex="0" role="button" aria-label="Choose the right-eye image">
-          <input type="file" id="right-input" accept="image/*" hidden>
+          <input type="file" id="right-input" accept="image/*,.heic,.heif" hidden>
           <img class="pair-thumb" id="right-thumb" hidden alt="Right-eye preview">
           <p class="pair-label">Right-Eye Photo</p>
           <p class="pair-hint" id="right-hint">Drag an image here, or click to choose one</p>
@@ -93,6 +93,8 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+<script src="image-load.js"></script>
 <script src="anaglyph.js"></script>
 <script src="somafm-player.js"></script>
 </body>
