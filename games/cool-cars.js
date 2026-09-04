@@ -646,8 +646,22 @@
       ctx.lineDashOffset = 0;
 
       if (useSprites && TREE_IMAGE.complete && TREE_IMAGE.naturalWidth) {
-        drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, 70, H * 0.765, 42);
-        drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, W - 70, H * 0.765, 42);
+        // Anchored by the trunk base (just above the road) rather than
+        // centered, so a taller tree's canopy extends up into the sky
+        // instead of its trunk sinking into the road. A scrolling, evenly
+        // spaced row (instead of two fixed trees) sells the car driving by.
+        const treeW = 64;
+        const treeH = (TREE_CONTENT.sh / TREE_CONTENT.sw) * treeW;
+        const treeBaseY = H * 0.79;
+        const treeCy = treeBaseY - treeH / 2;
+        const treeSpacing = 200;
+        const scroll = (animFrame * TREE_SCROLL_SPEED) % treeSpacing;
+        const treeCount = Math.ceil(W / treeSpacing) + 2;
+        for (let i = -1; i < treeCount; i++) {
+          const x = i * treeSpacing + treeSpacing / 2 - scroll;
+          if (x < -treeW || x > W + treeW) continue;
+          drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, x, treeCy, treeW);
+        }
       } else {
         emoji("🌴", 70, H * 0.765, 36);
         emoji("🌴", W - 70, H * 0.765, 36);
@@ -673,6 +687,7 @@
     const TITLE_CAR_CONTENT = { sx: 0, sy: 15, sw: 32, sh: 13 };
     const TRUCK_OPTION_CONTENT = { sx: 0, sy: 10, sw: 32, sh: 12 };
     const TREE_CONTENT = { sx: 4, sy: 1, sw: 24, sh: 30 };
+    const TREE_SCROLL_SPEED = 1.6; // px per animFrame unit (1.0 == a 60Hz frame)
     const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
     const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
 
