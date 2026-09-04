@@ -1,6 +1,7 @@
 (function () {
   const logo = document.querySelector(".hero-logo");
   if (!logo) return;
+  const heroHeading = logo.parentElement; // the <h1> wrapping the logo
 
   let audioCtx = null;
 
@@ -71,6 +72,9 @@
     y = rect.top;
     vx = SPEED * (Math.random() < 0.5 ? 1 : -1);
     vy = SPEED * (Math.random() < 0.5 ? 1 : -1);
+    // Lock the heading's current height before pulling the logo out of flow
+    // (position: fixed), so the hero section — and the page — doesn't shrink.
+    heroHeading.style.minHeight = heroHeading.getBoundingClientRect().height + "px";
     logo.classList.add("logo-roaming");
     tick();
   }
@@ -143,6 +147,7 @@
     falling = false;
     logo.classList.remove("logo-roaming");
     logo.style.transform = "";
+    heroHeading.style.minHeight = "";
   }
 
   document.addEventListener("keydown", (e) => {
