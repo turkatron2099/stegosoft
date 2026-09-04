@@ -77,9 +77,22 @@ a:hover {
 }
 
 .hero {
+  position: relative;
   padding: 120px 0;
   text-align: center;
   background: radial-gradient(circle at 50% 0%, var(--lighter-background), var(--background) 70%);
+}
+
+.hero > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.dogfight-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-logo {
