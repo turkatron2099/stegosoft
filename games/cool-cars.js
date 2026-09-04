@@ -625,7 +625,7 @@
 
       const bounce = Math.sin(animFrame * 0.12) * 3;
       if (useTitleCarSprite && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
-        drawSideCarSprite(W / 2, H * 0.82 + bounce);
+        drawSideCarSprite(W / 2, H * 0.82 + bounce, 140);
       } else {
         drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
       }
@@ -636,9 +636,8 @@
     // scaling doesn't push the visible car below where it's centered.
     const TITLE_CAR_CONTENT = { sx: 0, sy: 15, sw: 32, sh: 13 };
 
-    function drawSideCarSprite(cx, cy) {
+    function drawSideCarSprite(cx, cy, w) {
       const { sx, sy, sw, sh } = TITLE_CAR_CONTENT;
-      const w = 140;
       const h = (sh / sw) * w;
       ctx.drawImage(TITLE_CAR_IMAGE, sx, sy, sw, sh, cx - w / 2, cy - h / 2, w, h);
     }
@@ -731,7 +730,11 @@
           sound.honk(v.id === "truck");
           state = "chooseColor";
         });
-        emoji(v.emoji, x + w / 2, y + h / 2 - 20, 72);
+        if (v.id === "sports" && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
+          drawSideCarSprite(x + w / 2, y + h / 2 - 20, 150);
+        } else {
+          emoji(v.emoji, x + w / 2, y + h / 2 - 20, 72);
+        }
         ctx.fillStyle = "#f6dcac";
         ctx.font = "bold 20px sans-serif";
         ctx.textAlign = "center";
