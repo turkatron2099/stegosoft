@@ -98,6 +98,11 @@
   const TITLE_CAR_IMAGE = new Image();
   TITLE_CAR_IMAGE.src = "games/images/title-screen-car.png";
 
+  // Pixel-art truck icon for the vehicle picker, drawn as-is like the
+  // title-screen car (it's a fixed picker icon, not the in-game sprite).
+  const TRUCK_OPTION_IMAGE = new Image();
+  TRUCK_OPTION_IMAGE.src = "games/images/truck-option.png";
+
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
   GRASS_IMAGE.src = "games/images/grass.png";
@@ -631,15 +636,20 @@
       }
     }
 
-    // The exported sprite is a 32x32 canvas, but the car art only fills rows
-    // 15-27 (the rest is transparent padding) — crop to that content box so
-    // scaling doesn't push the visible car below where it's centered.
+    // Both picker sprites are exported as 32x32 canvases with the actual art
+    // only filling a thin horizontal band — crop to that content box so
+    // scaling doesn't offset the visible art from where it's centered.
+    function drawCroppedSprite(image, content, cx, cy, w) {
+      const { sx, sy, sw, sh } = content;
+      const h = (sh / sw) * w;
+      ctx.drawImage(image, sx, sy, sw, sh, cx - w / 2, cy - h / 2, w, h);
+    }
+
     const TITLE_CAR_CONTENT = { sx: 0, sy: 15, sw: 32, sh: 13 };
+    const TRUCK_OPTION_CONTENT = { sx: 0, sy: 10, sw: 32, sh: 12 };
 
     function drawSideCarSprite(cx, cy, w) {
-      const { sx, sy, sw, sh } = TITLE_CAR_CONTENT;
-      const h = (sh / sw) * w;
-      ctx.drawImage(TITLE_CAR_IMAGE, sx, sy, sw, sh, cx - w / 2, cy - h / 2, w, h);
+      drawCroppedSprite(TITLE_CAR_IMAGE, TITLE_CAR_CONTENT, cx, cy, w);
     }
 
     function drawSideCar(cx, cy, color, driverEmoji) {
@@ -732,6 +742,8 @@
         });
         if (v.id === "sports" && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
           drawSideCarSprite(x + w / 2, y + h / 2 - 20, 150);
+        } else if (v.id === "truck" && TRUCK_OPTION_IMAGE.complete && TRUCK_OPTION_IMAGE.naturalWidth) {
+          drawCroppedSprite(TRUCK_OPTION_IMAGE, TRUCK_OPTION_CONTENT, x + w / 2, y + h / 2 - 20, 150);
         } else {
           emoji(v.emoji, x + w / 2, y + h / 2 - 20, 72);
         }
