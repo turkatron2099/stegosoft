@@ -681,7 +681,7 @@
       const driverEmoji = vehicleOverride ? vehicleOverride.driverEmoji : "🐶";
       const sceneCarImage = vehicleId === "truck" ? TRUCK_OPTION_IMAGE : TITLE_CAR_IMAGE;
       if (useSprites && sceneCarImage.complete && sceneCarImage.naturalWidth) {
-        const sceneVehicleWidth = vehicleId === "truck" ? 170 : 140; // trucks read as bigger rigs than cars
+        const sceneVehicleWidth = vehicleId === "truck" ? 210 : 140; // trucks read as bigger rigs than cars
         drawVehicleSideSprite(vehicleId, colorHex, W / 2, H * 0.82 + bounce, sceneVehicleWidth);
       } else {
         drawSideCar(W / 2, H * 0.87 + bounce, colorHex, driverEmoji);
