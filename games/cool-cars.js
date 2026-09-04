@@ -104,6 +104,15 @@
   TRUCK_OPTION_IMAGE.src = "games/images/truck-option.png";
   const TRUCK_OPTION_BASE_HUE = 0;
 
+  // Pixel-art tree/cloud/sun, used in place of the procedural versions on
+  // the title screen (see drawSkyScene).
+  const TREE_IMAGE = new Image();
+  TREE_IMAGE.src = "games/images/tree.png";
+  const CLOUD_IMAGE = new Image();
+  CLOUD_IMAGE.src = "games/images/cloud.png";
+  const SUN_IMAGE = new Image();
+  SUN_IMAGE.src = "games/images/sun.png";
+
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
   GRASS_IMAGE.src = "games/images/grass.png";
@@ -585,20 +594,30 @@
       ctx.restore();
     }
 
-    function drawSkyScene(useTitleCarSprite) {
+    function drawSkyScene(useSprites) {
       const sky = ctx.createLinearGradient(0, 0, 0, H);
       sky.addColorStop(0, "#4fb3e8");
       sky.addColorStop(1, "#bfe8f7");
       ctx.fillStyle = sky;
       ctx.fillRect(0, 0, W, H * 0.72);
 
-      ctx.fillStyle = "#e8c94a";
-      ctx.beginPath();
-      ctx.arc(W - 100, 90, 44, 0, Math.PI * 2);
-      ctx.fill();
+      const useSunSprite = useSprites && SUN_IMAGE.complete && SUN_IMAGE.naturalWidth;
+      if (useSunSprite) {
+        drawCroppedSprite(SUN_IMAGE, SUN_CONTENT, W - 100, 90, 100);
+      } else {
+        ctx.fillStyle = "#e8c94a";
+        ctx.beginPath();
+        ctx.arc(W - 100, 90, 44, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
+      const useCloudSprite = useSprites && CLOUD_IMAGE.complete && CLOUD_IMAGE.naturalWidth;
       function cloud(cx, cy, s, phase) {
         const bob = Math.sin(animFrame * 0.035 + phase) * 6;
+        if (useCloudSprite) {
+          drawCroppedSprite(CLOUD_IMAGE, CLOUD_CONTENT, cx, cy + bob, s * 3.2);
+          return;
+        }
         ctx.fillStyle = "rgba(255,255,255,0.95)";
         [[-1, 0], [-0.4, -0.35], [0.4, -0.3], [1, 0], [0, 0.15]].forEach(([dx, dy]) => {
           ctx.beginPath();
@@ -626,11 +645,16 @@
       ctx.setLineDash([]);
       ctx.lineDashOffset = 0;
 
-      emoji("🌴", 70, H * 0.765, 36);
-      emoji("🌴", W - 70, H * 0.765, 36);
+      if (useSprites && TREE_IMAGE.complete && TREE_IMAGE.naturalWidth) {
+        drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, 70, H * 0.765, 42);
+        drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, W - 70, H * 0.765, 42);
+      } else {
+        emoji("🌴", 70, H * 0.765, 36);
+        emoji("🌴", W - 70, H * 0.765, 36);
+      }
 
       const bounce = Math.sin(animFrame * 0.12) * 3;
-      if (useTitleCarSprite && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
+      if (useSprites && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
         drawSideCarSprite(W / 2, H * 0.82 + bounce, 140);
       } else {
         drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
@@ -648,6 +672,9 @@
 
     const TITLE_CAR_CONTENT = { sx: 0, sy: 15, sw: 32, sh: 13 };
     const TRUCK_OPTION_CONTENT = { sx: 0, sy: 10, sw: 32, sh: 12 };
+    const TREE_CONTENT = { sx: 6, sy: 3, sw: 21, sh: 25 };
+    const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
+    const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
 
     function drawSideCarSprite(cx, cy, w) {
       drawCroppedSprite(TITLE_CAR_IMAGE, TITLE_CAR_CONTENT, cx, cy, w);
