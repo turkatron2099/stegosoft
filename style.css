@@ -107,17 +107,45 @@ a:hover {
   background: var(--dark-background);
 }
 
-.about h2,
 .contact h2 {
   color: var(--accent);
   font-size: 1.75rem;
   margin-bottom: 16px;
 }
 
-.about p,
 .contact p {
   color: var(--light-foreground);
   max-width: 640px;
+}
+
+.quote {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quote-text {
+  color: var(--foreground);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.quote-text::before {
+  content: "\201C";
+}
+
+.quote-text::after {
+  content: "\201D";
+}
+
+.quote-author {
+  display: block;
+  margin-top: 16px;
+  color: var(--accent);
+  font-style: normal;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
 }
 
 .site-footer {
