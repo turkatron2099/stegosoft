@@ -93,10 +93,13 @@
   PLAYER_TRUCK_IMAGE.src = "games/images/truck.png";
   const PLAYER_TRUCK_BASE_HUE = 5;
 
-  // Pixel-art title-screen car, drawn as-is (no recolor) since it's a fixed
-  // decorative element rather than a player-selectable vehicle.
+  // Pixel-art side-view car. Drawn as-is (its own red) on the title screen's
+  // fixed decorative car and the vehicle-picker's Car icon; recolored via
+  // hue-rotate on the win screen, where it reflects the player's actual
+  // vehicle/color pick (see drawVehicleSideSprite).
   const TITLE_CAR_IMAGE = new Image();
   TITLE_CAR_IMAGE.src = "games/images/title-screen-car.png";
+  const TITLE_CAR_BASE_HUE = 0;
 
   // Pixel-art truck icon for the vehicle picker. Recolored blue via the same
   // hue-rotate machinery as the player sprites (see drawVehicleScreen).
@@ -594,7 +597,7 @@
       ctx.restore();
     }
 
-    function drawSkyScene(useSprites) {
+    function drawSkyScene(useSprites, vehicleOverride) {
       const sky = ctx.createLinearGradient(0, 0, 0, H);
       sky.addColorStop(0, "#4fb3e8");
       sky.addColorStop(1, "#bfe8f7");
@@ -673,10 +676,14 @@
       }
 
       const bounce = Math.sin(animFrame * 0.12) * 3;
-      if (useSprites && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
-        drawSideCarSprite(W / 2, H * 0.82 + bounce, 140);
+      const vehicleId = vehicleOverride ? vehicleOverride.id : "sports";
+      const colorHex = vehicleOverride ? vehicleOverride.colorHex : "#e63946";
+      const driverEmoji = vehicleOverride ? vehicleOverride.driverEmoji : "🐶";
+      const sceneCarImage = vehicleId === "truck" ? TRUCK_OPTION_IMAGE : TITLE_CAR_IMAGE;
+      if (useSprites && sceneCarImage.complete && sceneCarImage.naturalWidth) {
+        drawVehicleSideSprite(vehicleId, colorHex, W / 2, H * 0.82 + bounce, 140);
       } else {
-        drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
+        drawSideCar(W / 2, H * 0.87 + bounce, colorHex, driverEmoji);
       }
     }
 
@@ -698,6 +705,18 @@
 
     function drawSideCarSprite(cx, cy, w) {
       drawCroppedSprite(TITLE_CAR_IMAGE, TITLE_CAR_CONTENT, cx, cy, w);
+    }
+
+    // Side-view car/truck recolored to a player's actual color pick, for the
+    // win screen's background car — same hue-rotate machinery already used
+    // to recolor player sprites and the blue Truck picker icon.
+    function drawVehicleSideSprite(vehicleId, colorHex, cx, cy, w) {
+      const isTruck = vehicleId === "truck";
+      const image = isTruck ? TRUCK_OPTION_IMAGE : TITLE_CAR_IMAGE;
+      const content = isTruck ? TRUCK_OPTION_CONTENT : TITLE_CAR_CONTENT;
+      const baseHue = isTruck ? TRUCK_OPTION_BASE_HUE : TITLE_CAR_BASE_HUE;
+      const sprite = getRecoloredSprite(image, colorHex, baseHue, {}) || image;
+      drawCroppedSprite(sprite, content, cx, cy, w);
     }
 
     function drawSideCar(cx, cy, color, driverEmoji) {
@@ -1135,7 +1154,7 @@
     }
 
     function drawWinScreen() {
-      drawSkyScene();
+      drawSkyScene(true, { id: selection.vehicle.id, colorHex: selection.color.hex, driverEmoji: selection.animal.emoji });
       ctx.fillStyle = "rgba(5,24,46,0.35)";
       ctx.fillRect(0, 0, W, H);
 
