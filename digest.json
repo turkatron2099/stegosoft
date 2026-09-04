@@ -1,165 +1,21 @@
 {
-  "generatedAt": "2026-09-03T22:37:07.494Z",
+  "generatedAt": "2026-09-04T04:37:56.501Z",
   "items": [
     {
-      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
-      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:29.000Z"
-    },
-    {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:21.000Z"
-    },
-    {
-      "title": "Xbox Cloud Gaming Switches to Monthly Hour Limits",
-      "link": "https://games.slashdot.org/story/26/09/03/1943208/xbox-cloud-gaming-switches-to-monthly-hour-limits?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Microsoft is imposing monthly limits on Xbox Cloud Gaming starting in November, with Game Pass Ultimate, Premium, and Essential subscribers getting 15, 10, and 5 hours respectively before they have to buy additional…",
+      "title": "Four Major AI Models Suffer Rare Overlapping Downtime",
+      "link": "https://tech.slashdot.org/story/26/09/03/2023242/four-major-ai-models-suffer-rare-overlapping-downtime?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "ChatGPT, Claude, Grok, and Gemini all suffered significant service disruptions within roughly the same few-hour window Thursday morning. OpenAI and Anthropic reported elevated errors and later restored service, while…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-03T21:00:00.000Z"
+      "date": "2026-09-03T23:00:00.000Z"
     },
     {
-      "title": "The Blood of Dawnwalker's Most Popular Mod Completely Defeats the Purpose of the Game",
-      "link": "https://www.ign.com/articles/the-blood-of-dawnwalkers-most-popular-mod-completely-defeats-the-purpose-of-the-game",
-      "summary": "The Blood of Dawnwalker already has a mod that largely defeats the purpose of the game.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-03T21:32:10.000Z"
-    },
-    {
-      "title": "Every New Monster In Monster Hunter Wilds: Ascendance Revealed So Far",
-      "link": "https://comicbook.com/gaming/list/every-new-monster-in-monster-hunter-wilds-ascendance-revealed-so-far/",
-      "summary": "Courtesy of Capcom The official first trailer for Monster Hunter Wilds‘ Ascendance expansion was released during Sony’s September 2026 State of Play, showing off a number of new story and gameplay details. While players…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-03T22:31:05.000Z"
-    },
-    {
-      "title": "Star Wars Fans Can No Longer Blame Dave Filoni for This Mandalorian and Grogu Complaint",
-      "link": "https://comicbook.com/movies/news/star-wars-fans-can-no-longer-blame-dave-filoni-for-this-mandalorian-and-grogu-complaint/",
-      "summary": "Image courtesy of Lucasfilm When The Mandalorian and Grogu was announced, it seemed like it had everything going for it. Star Wars movies have never had an easy path, which was made clear not only with the sequel…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-03T21:15:58.000Z"
-    },
-    {
-      "title": "Blizzard Might Be Teasing a New StarCraft Game",
-      "link": "https://www.ign.com/articles/blizzard-might-be-teasing-a-new-starcraft-game",
-      "summary": "There's something odd happening on the StarCraft website. While the content still features StarCraft Remastered, which launched back in 2017, the page now seems to be glitching out, with various elements, images, and…",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-03T20:29:56.000Z"
-    },
-    {
-      "title": "BraZetsu Malware Turns Compromised Windows Hosts Into Criminal Marketplace Inventory",
-      "link": "https://thehackernews.com/2026/09/brazetsu-malware-turns-compromised.html",
-      "summary": "Cybersecurity researchers have disclosed details of a sophisticated Python-based Windows malware framework called BraZetsu that fuels an underground marketplace commercializing access to compromised hosts. \"Unlike the…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-03T15:26:47.000Z"
-    },
-    {
-      "title": "Netflix Is Making a Live-Action Dungeons & Dragons Series About Darklord Strahd Von Zarovich's Origin Story",
-      "link": "https://www.ign.com/articles/netflix-is-making-a-live-action-dungeons-dragons-series-about-darklord-strahd-von-zarovichs-origin-story",
-      "summary": "Netflix is cooking up a live-action Dungeons & Dragons TV show based on the tabletop RPG’s gothic-horror campaign, Ravenloft, and its vampire villain, Darklord Strahd von Zarovich.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-03T20:57:33.000Z"
-    },
-    {
-      "title": "ThreatsDay: CEO Phishing Kits, 5K Dropbox Account Hacks, OAuth Traps + 17 More Stories",
-      "link": "https://thehackernews.com/2026/09/threatsday-ceo-phishing-kits-5k-dropbox.html",
-      "summary": "The worst part is how normal these attacks look. A call from IT. A shared file. A trusted app. A simple request to click “Allow.” Why break in when someone might open the door? That idea runs through this edition.…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-03T18:02:47.000Z"
-    },
-    {
-      "title": "Elder Care in Antiquity",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/elder-care-in-antiquity/",
-      "summary": "Although family members typically cared for the elderly in antiquity, the concept of places dedicated to elder care is by no means a modern invention.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-02T11:00:28.000Z"
-    },
-    {
-      "title": "MCU Fans Have Shocking Reaction to the Russo Brothers’ Latest Avengers: Doomsday Confirmation",
-      "link": "https://comicbook.com/movies/news/mcu-fans-have-shocking-reaction-to-the-russo-brothers-latest-avengers-doomsday-confirmation/",
-      "summary": "Marvel Studios Avengers: Doomsday is headed to theaters riding a massive wave of hype, as the film is poised to be the biggest Marvel movie event ever. Doomsday will see Robert Downey Jr. returning to the Marvel…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-03T22:32:28.000Z"
-    },
-    {
-      "title": "Spring 2026 Caption Contest Winners",
-      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/spring-2026-3/",
-      "summary": "And the winner is… “Were you trying to sneak more than 3.4 fluid ounces in your carry-on?” Joseph Mitgang, Woodmere, New York Thank you to…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-01T14:00:29.000Z"
-    },
-    {
-      "title": "Rust's New Force Wipe Update Includes Major Game Changes",
-      "link": "https://www.polygon.com/rust-force-wipe-breach-clear-update-september-2026/",
-      "summary": "September's force wipe is now live, and it is time for players to explore all the new features and changes that have been made to Rust this month.",
+      "title": "Netflix Is Officially Streaming the Most Satisfying Action Thriller of the Decade",
+      "link": "https://www.polygon.com/ready-of-not-streaming-netflix-september-2026/",
+      "summary": "Ready or Not makes the leap to a new streaming home",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-03T20:47:55.000Z"
-    },
-    {
-      "title": "The Most Divisive Civilization Game is Completely Free to Play on Steam for One Week",
-      "link": "https://www.polygon.com/civilization-7-free-steam-september-2026/",
-      "summary": "Sid Meier's Civilization 7 is free on Steam through Sept. 10 as Firaxis celebrates 35 years of Civilization.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-03T21:04:32.000Z"
-    },
-    {
-      "title": "Apple Sued For $2.7 Billion Over App Tracking Transparency Rules",
-      "link": "https://yro.slashdot.org/story/26/09/03/2015253/apple-sued-for-27-billion-over-app-tracking-transparency-rules?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A former UK competition official has filed a $2.7 billion lawsuit against Apple on behalf of app developers, alleging its App Tracking Transparency rules unfairly disadvantaged third-party apps while favoring Apple's…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-03T22:00:00.000Z"
-    },
-    {
-      "title": "Exploring the Land of Abraham’s Birth",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
-      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-02T12:55:07.000Z"
-    },
-    {
-      "title": "Star Trek Writers Tease \"Training Day,\" \"Crimson Tide\" as Inspirations",
-      "link": "https://bleedingcool.com/tv/star-trek-writers-tease-training-day-crimson-tide-as-inspirations/",
-      "summary": "Star Trek writers John Francis Daley and Jonathan Goldstein discuss how films like Training Day and Crimson Tide are inspiring their work.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-03T21:37:09.000Z"
-    },
-    {
-      "title": "Transplanted pig kidney works in US man's body for record 271 days",
-      "link": "https://www.bbc.co.uk/news/articles/c305qn2jeggo?at_medium=RSS&at_campaign=rss",
-      "summary": "A man has lived for a record nine months with a transplanted pig kidney while waiting for a human transplant.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-03T22:31:23.000Z"
-    },
-    {
-      "title": "Critical Cisco Nexus 9000 Flaw Lets Unauthenticated Remote Attackers Run Code as Root",
-      "link": "https://thehackernews.com/2026/09/critical-cisco-nexus-9000-flaw-lets.html",
-      "summary": "Cisco has released patches to address a critical security flaw affecting 10 Silicon One-based Nexus 9000 switches that could allow an unauthenticated, remote attacker to execute code as root, alongside an IOS XR…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-03T15:52:07.000Z"
+      "date": "2026-09-04T04:26:13.000Z"
     },
     {
       "title": "Reports: RFK Jr. ordered measles deaths deletion; CDC still secretly counts them",
@@ -170,60 +26,28 @@
       "date": "2026-09-03T22:13:50.000Z"
     },
     {
-      "title": "US investigating if missile hit Iran wedding, Vance says",
-      "link": "https://www.bbc.co.uk/news/articles/cy4zvk3z2k1o?at_medium=RSS&at_campaign=rss",
-      "summary": "The Iranian Red Crescent Society (IRCS) said shrapnel from a missile hit the ceremony and killed four people on Tuesday.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-03T22:19:59.000Z"
-    },
-    {
-      "title": "Xbox imposes harsh new time limits for Game Pass game streaming",
-      "link": "https://arstechnica.com/gaming/2026/09/xbox-imposes-harsh-new-time-limits-for-game-pass-game-streaming/",
-      "summary": "Over 1 million Game Pass subscribers will have to pay more for their heavy streaming use.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-03T21:10:59.000Z"
-    },
-    {
-      "title": "Point It Out! Episode 2",
-      "link": "https://www.polygon.com/video/the-state-of-gaming-in-2026-yikes-point-it-out-episode-2/",
-      "summary": "On episode 2 of Polygon's news show Point It Out!, Patches and Simone do a state of the union for the games industry in 2026.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-03T21:53:09.000Z"
-    },
-    {
-      "title": "Fall 2026 Caption Contest",
-      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest/fall-2026-2/",
-      "summary": "Write a caption for this cartoon, based on Acts 14:11–12, and submit it to our Caption Contest.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-01T13:37:01.000Z"
-    },
-    {
-      "title": "An Ordinary Star Wars Figure Has Become a Hot Auction Item For One Very Weird Reason",
-      "link": "https://comicbook.com/collectibles/news/an-ordinary-star-wars-figure-has-become-a-hot-auction-item-for-one-very-weird-reason/",
-      "summary": "Vintage toy collectors always have Kenner’s Star Wars figures on their radar. The manufacturer was among the first to partner with Lucasfilm to create toys for the beloved sci-fi franchise, and some of these figures are…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-03T22:00:00.000Z"
-    },
-    {
-      "title": "Thomson Reuters Court Software Breach May Have Exposed SSNs and Sealed Data",
-      "link": "https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html",
-      "summary": "Thomson Reuters disclosed on Wednesday that an unauthorized party obtained files from C-Track, the court case management platform sold by its West Publishing Corporation unit, in March 2026, affecting courts in 11 U.S.…",
+      "title": "BraZetsu Malware Turns Compromised Windows Hosts Into Criminal Marketplace Inventory",
+      "link": "https://thehackernews.com/2026/09/brazetsu-malware-turns-compromised.html",
+      "summary": "Cybersecurity researchers have disclosed details of a sophisticated Python-based Windows malware framework called BraZetsu that fuels an underground marketplace commercializing access to compromised hosts. \"Unlike the…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-03T14:39:05.000Z"
+      "date": "2026-09-03T15:26:47.000Z"
     },
     {
-      "title": "'Welcome to the AGI Era,' OpenAI Says As GPT-6 Astra Debuts",
-      "link": "https://slashdot.org/story/26/09/03/1932255/welcome-to-the-agi-era-openai-says-as-gpt-6-astra-debuts?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "OpenAI has released GPT-6 Astra, a new model that president Greg Brockman called a \"generational leap\" and suggested may represent the arrival of AGI. \"I think it might be about this model,\" Brockman said in a briefing…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-03T20:00:00.000Z"
+      "title": "Gundam Rogue Orbit Will Officially Release on March 5, 2027",
+      "link": "https://bleedingcool.com/games/gundam-rogue-orbit-will-officially-release-on-march-5-2027/",
+      "summary": "Bandai Namco's Gundam Rogue Orbit will be released on March 5, 2027, according to a new trailer showing off more of the title.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-04T01:31:10.000Z"
+    },
+    {
+      "title": "Original Gran Turismo Circuit Returns to Series After 13-Year Absence",
+      "link": "https://www.ign.com/articles/original-gran-turismo-circuit-returns-to-series-after-13-year-absence",
+      "summary": "Polyphony Digital has revealed Gran Turismo 7’s next major update will mark the return of Autumn Ring, and includes a dozen new cars, the series debut of real-life circuit Sportsland Sugo, and a variety of other…",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-04T02:02:21.000Z"
     },
     {
       "title": "What We Missed: Did ShinyHunters 'Breach' ReliaQuest?",
@@ -234,6 +58,78 @@
       "date": "2026-09-03T19:42:39.000Z"
     },
     {
+      "title": "After 20 Years of Fancasting, Ben Barnes Addresses Sirius Black Potential With Harry Potter Reboot",
+      "link": "https://comicbook.com/tv-shows/news/after-20-years-of-fancasting-ben-barnes-addresses-sirius-black-potential-with-harry-potter-reboot/",
+      "summary": "Although Harry Potter fans are largely excited about HBO’s reboot series, there is one Harry Potter project that audiences have long wanted to see and are seemingly never going to get, and that’s a series (or some other…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T00:01:00.000Z"
+    },
+    {
+      "title": "ThreatsDay: CEO Phishing Kits, 5K Dropbox Account Hacks, OAuth Traps + 17 More Stories",
+      "link": "https://thehackernews.com/2026/09/threatsday-ceo-phishing-kits-5k-dropbox.html",
+      "summary": "The worst part is how normal these attacks look. A call from IT. A shared file. A trusted app. A simple request to click “Allow.” Why break in when someone might open the door? That idea runs through this edition.…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-03T18:02:47.000Z"
+    },
+    {
+      "title": "Vin Diesel’s Latest Fast & Furious 11 Tease Is His Most Confusing Yet, And Even Fans Don’t Know What to Think",
+      "link": "https://comicbook.com/movies/news/vin-diesels-latest-fast-furious-11-tease-is-his-most-confusing-yet-and-even-fans-dont-know-what-to-think/",
+      "summary": "Image via Universal For fans of the Fast Saga, Fast Forever is not only an eagerly anticipated film but something of a massive question mark as well. The film was first confirmed in 2024 following the release of Fast X…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-04T02:23:38.000Z"
+    },
+    {
+      "title": "Blizzard Starts Teasing StarCraft News with Cryptic Secret Messages",
+      "link": "https://www.polygon.com/starcraft-teaser-blizzard-blizzcon-2026/",
+      "summary": "Amid StarCraft 3 reports, Blizzard has started teasing a new StarCraft project the week before BlizzCon 2026.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T02:50:19.000Z"
+    },
+    {
+      "title": "Exploring the Land of Abraham’s Birth",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
+      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-02T12:55:07.000Z"
+    },
+    {
+      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
+      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:29.000Z"
+    },
+    {
+      "title": "Critical Cisco Nexus 9000 Flaw Lets Unauthenticated Remote Attackers Run Code as Root",
+      "link": "https://thehackernews.com/2026/09/critical-cisco-nexus-9000-flaw-lets.html",
+      "summary": "Cisco has released patches to address a critical security flaw affecting 10 Silicon One-based Nexus 9000 switches that could allow an unauthenticated, remote attacker to execute code as root, alongside an IOS XR…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-03T15:52:07.000Z"
+    },
+    {
+      "title": "Fall 2026 Caption Contest",
+      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest/fall-2026-2/",
+      "summary": "Write a caption for this cartoon, based on Acts 14:11–12, and submit it to our Caption Contest.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-01T13:37:01.000Z"
+    },
+    {
+      "title": "Stuart Fails to Save the Universe S01E07 Preview: Telepath Problems",
+      "link": "https://bleedingcool.com/tv/stuart-fails-to-save-the-universe-s01e07-preview-telepath-problems/",
+      "summary": "Check out our preview for HBO Max's Stuart Fails to Save the Universe, S01E07: \"Spoiler: Dexys Midnight Runners Get a Royalty Payment.\"",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-03T23:57:10.000Z"
+    },
+    {
       "title": "Large Enterprises Targeted in Fake Merger & Acquisition Scams",
       "link": "https://www.darkreading.com/cyberattacks-data-breaches/large-enterprises-fake-merger-acquisition-scams",
       "summary": "Threat actors behind the \"Phantom Deal\" campaign are studying companies in extreme detail, aiming to dupe midlevel employees into initiating large financial transfers.",
@@ -242,20 +138,124 @@
       "date": "2026-09-03T20:18:14.000Z"
     },
     {
-      "title": "After 49 Years, Star Wars Finally Releases Its First Ever Horror Story (But It’s Still Not What Fans Want)",
-      "link": "https://comicbook.com/movies/news/after-49-years-star-wars-finally-releases-its-first-ever-horror-story-but-its-still-not-what-fans-want/",
-      "summary": "Although George Lucas long argued that Star Wars is meant for kids, and that has been proven time and again throughout the franchise’s many decades, these themes and characters have also always seemed perfect for a…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-03T22:35:47.000Z"
+      "title": "Argentina to sanction oil firms as Falklands dispute with UK heats up",
+      "link": "https://www.bbc.co.uk/news/articles/clyk18g1l8ko?at_medium=RSS&at_campaign=rss",
+      "summary": "Javier Milei reiterates his country's claim on the British overseas territory, saying the \"winds of change\" favour it.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-04T04:04:42.000Z"
     },
     {
-      "title": "150 research primates got diarrhea, flooding lab with priceless vaccine data",
-      "link": "https://arstechnica.com/health/2026/09/150-research-primates-got-diarrhea-flooding-lab-with-priceless-vaccine-data/",
-      "summary": "Researchers now have clear new targets and insights for developing a Shigella vaccine.",
+      "title": "Thomson Reuters Court Software Breach May Have Exposed SSNs and Sealed Data",
+      "link": "https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html",
+      "summary": "Thomson Reuters disclosed on Wednesday that an unauthorized party obtained files from C-Track, the court case management platform sold by its West Publishing Corporation unit, in March 2026, affecting courts in 11 U.S.…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-03T14:39:05.000Z"
+    },
+    {
+      "title": "Final Fantasy Resonance Launches Free Demo Ahead of Release",
+      "link": "https://bleedingcool.com/games/final-fantasy-resonance-launches-free-demo-ahead-of-release/",
+      "summary": "Final Fantasy Resonance has released a free demo for you to try out before the game is released for PC and consoles on October 22.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-03T23:42:10.000Z"
+    },
+    {
+      "title": "Elder Care in Antiquity",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/elder-care-in-antiquity/",
+      "summary": "Although family members typically cared for the elderly in antiquity, the concept of places dedicated to elder care is by no means a modern invention.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-02T11:00:28.000Z"
+    },
+    {
+      "title": "Apple Sued For $2.7 Billion Over App Tracking Transparency Rules",
+      "link": "https://yro.slashdot.org/story/26/09/03/2015253/apple-sued-for-27-billion-over-app-tracking-transparency-rules?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A former UK competition official has filed a $2.7 billion lawsuit against Apple on behalf of app developers, alleging its App Tracking Transparency rules unfairly disadvantaged third-party apps while favoring Apple's…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-03T22:00:00.000Z"
+    },
+    {
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:21.000Z"
+    },
+    {
+      "title": "10 Games Where Every Level Is a Flawless Masterpiece",
+      "link": "https://www.polygon.com/best-perfect-video-game-levels/",
+      "summary": "Each generation and platform has rare games that chop out the filler to provide nothing but fantastic levels from start to finish, like these 10.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T02:26:19.000Z"
+    },
+    {
+      "title": "39 Years Later, an Iconic X-Men Villain's First Appearance Is Suddenly the Hottest Comic on the Market",
+      "link": "https://www.polygon.com/x-men-mister-sinister-first-appearance-39-years-later-major-price/",
+      "summary": "The mighty mutants will face this foe in Marvel Studios' upcoming reboot.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T04:00:18.000Z"
+    },
+    {
+      "title": "Xbox Cloud Gaming Switches to Monthly Hour Limits",
+      "link": "https://games.slashdot.org/story/26/09/03/1943208/xbox-cloud-gaming-switches-to-monthly-hour-limits?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Microsoft is imposing monthly limits on Xbox Cloud Gaming starting in November, with Game Pass Ultimate, Premium, and Essential subscribers getting 15, 10, and 5 hours respectively before they have to buy additional…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-03T21:00:00.000Z"
+    },
+    {
+      "title": "'Obsession' Breakout Inde Navarrette Finds Her Next Big Sci-fi Thriller",
+      "link": "https://www.polygon.com/inde-navarrette-apple-waffle-house-index/",
+      "summary": "The Obsession breakout is heading to Apple for a sci-fi thriller involving a very unlucky Waffle House waitress,",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-04T00:01:09.000Z"
+    },
+    {
+      "title": "Could robots be the future of theme parks?",
+      "link": "https://www.bbc.co.uk/news/videos/cdr7g3vdl58o?at_medium=RSS&at_campaign=rss",
+      "summary": "Galaxy Robot Park is a 16,500-square-meter venue in South Korea, with attractions including humanoid robots dancing to K-pop hits.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-04T02:02:02.000Z"
+    },
+    {
+      "title": "Shake Shack Launches Reese's Peanut Butter Cup Shake",
+      "link": "https://bleedingcool.com/pop-culture/shake-shack-launches-reeses-peanut-butter-cup-shake/",
+      "summary": "Shake Shack has a brand-new item available for Halloween, as they've teamed with Hershey for the Reese’s Peanut Butter Cup Shake",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-04T00:40:09.000Z"
+    },
+    {
+      "title": "Xbox imposes harsh new time limits for Game Pass game streaming",
+      "link": "https://arstechnica.com/gaming/2026/09/xbox-imposes-harsh-new-time-limits-for-game-pass-game-streaming/",
+      "summary": "Over 1 million Game Pass subscribers will have to pay more for their heavy streaming use.",
       "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-03T20:14:48.000Z"
+      "date": "2026-09-03T21:10:59.000Z"
+    },
+    {
+      "title": "Bernie Sanders Proposes Artificial Superintelligence Ban Amid Rogue AI Hackings",
+      "link": "https://yro.slashdot.org/story/26/09/03/2222247/bernie-sanders-proposes-artificial-superintelligence-ban-amid-rogue-ai-hackings?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from The Hill: Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) are calling for a permanent ban on the development and deployment of artificial superintelligence, citing a…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-04T03:30:00.000Z"
+    },
+    {
+      "title": "Spring 2026 Caption Contest Winners",
+      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/spring-2026-3/",
+      "summary": "And the winner is… “Were you trying to sneak more than 3.4 fluid ounces in your carry-on?” Joseph Mitgang, Woodmere, New York Thank you to…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-01T14:00:29.000Z"
     }
   ]
 }
