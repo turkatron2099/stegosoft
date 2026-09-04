@@ -41,7 +41,7 @@
   document.body.appendChild(counter);
 
   function renderCounter() {
-    counter.textContent = "Logo clicks: " + clicks;
+    counter.textContent = String(clicks);
   }
   renderCounter();
 
