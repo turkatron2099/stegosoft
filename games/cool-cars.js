@@ -93,6 +93,11 @@
   PLAYER_TRUCK_IMAGE.src = "games/images/truck.png";
   const PLAYER_TRUCK_BASE_HUE = 5;
 
+  // Pixel-art title-screen car, drawn as-is (no recolor) since it's a fixed
+  // decorative element rather than a player-selectable vehicle.
+  const TITLE_CAR_IMAGE = new Image();
+  TITLE_CAR_IMAGE.src = "games/images/title-screen-car.png";
+
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
   GRASS_IMAGE.src = "games/images/grass.png";
@@ -574,7 +579,7 @@
       ctx.restore();
     }
 
-    function drawSkyScene() {
+    function drawSkyScene(useTitleCarSprite) {
       const sky = ctx.createLinearGradient(0, 0, 0, H);
       sky.addColorStop(0, "#4fb3e8");
       sky.addColorStop(1, "#bfe8f7");
@@ -619,7 +624,18 @@
       emoji("🌴", W - 70, H * 0.765, 36);
 
       const bounce = Math.sin(animFrame * 0.12) * 3;
-      drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
+      if (useTitleCarSprite && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
+        drawSideCarSprite(W / 2, H * 0.87 + bounce, "🐶");
+      } else {
+        drawSideCar(W / 2, H * 0.87 + bounce, "#e63946", "🐶");
+      }
+    }
+
+    function drawSideCarSprite(cx, cy, driverEmoji) {
+      const w = 140;
+      const h = (TITLE_CAR_IMAGE.naturalHeight / TITLE_CAR_IMAGE.naturalWidth) * w;
+      ctx.drawImage(TITLE_CAR_IMAGE, cx - w / 2, cy - h / 2, w, h);
+      emoji(driverEmoji, cx - 4, cy - h / 2 - 8, 34);
     }
 
     function drawSideCar(cx, cy, color, driverEmoji) {
@@ -642,7 +658,7 @@
     }
 
     function drawStartScreen() {
-      drawSkyScene();
+      drawSkyScene(true);
 
       ctx.textAlign = "center";
       ctx.lineWidth = 6;
