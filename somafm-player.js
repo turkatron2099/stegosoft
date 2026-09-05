@@ -106,10 +106,13 @@
     }
   });
 
-  // Landing on a fresh page: try to pick back up where it left off. This
-  // can be silently blocked by the browser's autoplay policy — if so it
-  // just stays paused and one click resumes it.
-  if (localStorage.getItem(STORAGE_KEY) === "1") {
+  // Autoplay by default on every visit — unless the user has explicitly
+  // paused it before (stored "0"), in which case respect that. This can be
+  // silently blocked by the browser's autoplay policy on unvisited origins
+  // — if so it just stays paused and one click resumes it (and unlocks
+  // autoplay for the origin going forward, in browsers that gate it on
+  // engagement history).
+  if (localStorage.getItem(STORAGE_KEY) !== "0") {
     attemptPlay();
   }
 
