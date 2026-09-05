@@ -46,8 +46,8 @@
   }
 
   const MARGIN = 70; // how far past the edge a ship flies before going "away"
-  const SPEED = 1.7; // px/frame cruising speed
-  const TURN_RATE = 0.05; // max radians/frame steered toward the target heading
+  const SPEED = 1.7; // px per 60fps-equivalent frame cruising speed (scaled by dtScale)
+  const TURN_RATE = 0.05; // max radians per 60fps-equivalent frame (scaled by dtScale)
 
   function newTarget(ship, other) {
     if (Math.random() < 0.7) {
@@ -117,7 +117,7 @@
     return d;
   }
 
-  function stepShip(ship, other, now) {
+  function stepShip(ship, other, now, dtScale) {
     if (ship.state === "away") {
       if (now >= ship.awayUntil) reenter(ship);
       return;
@@ -130,9 +130,10 @@
     }
 
     const desired = Math.atan2(ship.targetY - ship.y, ship.targetX - ship.x);
-    ship.angle += Math.max(-TURN_RATE, Math.min(TURN_RATE, angleDiff(ship.angle, desired)));
-    ship.x += Math.cos(ship.angle) * SPEED;
-    ship.y += Math.sin(ship.angle) * SPEED;
+    const turn = TURN_RATE * dtScale;
+    ship.angle += Math.max(-turn, Math.min(turn, angleDiff(ship.angle, desired)));
+    ship.x += Math.cos(ship.angle) * SPEED * dtScale;
+    ship.y += Math.sin(ship.angle) * SPEED * dtScale;
     ship.flame = 0.6 + Math.random() * 0.4;
 
     if (ship.state === "leaving" && (ship.x < -MARGIN || ship.x > W + MARGIN || ship.y < -MARGIN || ship.y > H + MARGIN)) {
@@ -142,7 +143,9 @@
 
     // Occasional blaster bolt at the other ship while both are on-screen and
     // reasonably close — a light flourish, not a real hit-detection system.
-    if (ship.state === "active" && other.state === "active" && Math.random() < 0.01) {
+    // The 0.01 chance is per 60fps-equivalent frame, so scale it by dtScale
+    // to keep the average bolt rate constant regardless of refresh rate.
+    if (ship.state === "active" && other.state === "active" && Math.random() < 0.01 * dtScale) {
       const dx = other.x - ship.x, dy = other.y - ship.y;
       if (dx * dx + dy * dy < 300 * 300) {
         bolts.push({ x1: ship.x, y1: ship.y, x2: other.x, y2: other.y, life: 1, color: ship.color });
@@ -189,10 +192,10 @@
     ctx.restore();
   }
 
-  function drawBolts() {
+  function drawBolts(dtScale) {
     for (let i = bolts.length - 1; i >= 0; i--) {
       const b = bolts[i];
-      b.life -= 0.06;
+      b.life -= 0.06 * dtScale;
       if (b.life <= 0) { bolts.splice(i, 1); continue; }
       const t = 1 - b.life;
       const x = b.x1 + (b.x2 - b.x1) * Math.min(1, t * 2.5);
@@ -245,10 +248,10 @@
     meteor = { x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed };
   }
 
-  function stepMeteor(now) {
+  function stepMeteor(now, dtScale) {
     if (!meteor) return;
-    meteor.x += meteor.vx;
-    meteor.y += meteor.vy;
+    meteor.x += meteor.vx * dtScale;
+    meteor.y += meteor.vy * dtScale;
     if (meteor.x < -50 || meteor.x > W + 50 || meteor.y < -50 || meteor.y > H + 50) {
       meteor = null;
       nextMeteorAt = now + rand(6000, 14000);
@@ -280,18 +283,25 @@
 
   let running = false;
   let rafId = null;
+  let lastTime = null;
+  const REFERENCE_FRAME_MS = 1000 / 60; // all per-frame speeds above are tuned for 60fps
+  const MAX_DT_MS = 50; // clamp so a stall/tab-switch hiccup doesn't teleport anything
 
   function frame() {
     if (!running) return;
     const now = performance.now();
+    const dt = lastTime === null ? REFERENCE_FRAME_MS : Math.min(now - lastTime, MAX_DT_MS);
+    lastTime = now;
+    const dtScale = dt / REFERENCE_FRAME_MS; // >1 on slower displays, <1 on faster ones (e.g. 240Hz)
+
     ctx.clearRect(0, 0, W, H);
     drawStars(now);
     maybeSpawnMeteor(now);
-    stepMeteor(now);
+    stepMeteor(now, dtScale);
     drawMeteor();
-    stepShip(ships[0], ships[1], now);
-    stepShip(ships[1], ships[0], now);
-    drawBolts();
+    stepShip(ships[0], ships[1], now, dtScale);
+    stepShip(ships[1], ships[0], now, dtScale);
+    drawBolts(dtScale);
     ships.forEach(drawShip);
     rafId = requestAnimationFrame(frame);
   }
@@ -299,6 +309,7 @@
   function start() {
     if (running) return;
     running = true;
+    lastTime = null; // avoid a large dt from time spent stopped
     frame();
   }
   function stop() {
