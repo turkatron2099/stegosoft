@@ -1,45 +1,21 @@
 {
-  "generatedAt": "2026-09-05T11:50:53.209Z",
+  "generatedAt": "2026-09-05T15:17:05.568Z",
   "items": [
     {
-      "title": "Samara Weaving's Gritty Action Sleeper Hit Officially Finds a New Home on Streaming",
-      "link": "https://www.polygon.com/samara-weaving-ready-or-not-netflix-streaming/",
-      "summary": "Weaving's impressive performance cements her status as a scream queen.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-05T09:00:14.000Z"
+      "title": "5 Great Superhero Movie Sidekicks That Deserved Their Own Movies (1 Has An Incredible Solo Comic Book Series)",
+      "link": "https://comicbook.com/uncategorized/news/5-great-superhero-movie-sidekicks-that-deserved-their-own-movies-1-has-an-incredible-solo-comic-book-series/",
+      "summary": "The superhero movie genre has proven itself one of the most consistently popular and successful in modern cinema. Big franchises and comic book inspiration might seem to be at the core of the genre’s success, but…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-05T15:00:00.000Z"
     },
     {
-      "title": "OpenAI agents discussed ways to escape their sandbox on public wiki",
-      "link": "https://arstechnica.com/security/2026/09/openai-agents-discussed-ways-to-escape-their-sandbox-on-public-wiki/",
-      "summary": "In all, 3,700 internal agents posted 18,000 messages discussing cheating on a test.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-04T22:17:36.000Z"
-    },
-    {
-      "title": "Measles killed 6-week-old baby, coroner confirms after RFK Jr. disputed deaths",
-      "link": "https://arstechnica.com/health/2026/09/measles-killed-6-week-old-baby-coroner-confirms-after-rfk-jr-disputed-deaths/",
-      "summary": "\"It’s long past time for RFK to stop playing games with people’s lives.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-04T20:22:41.000Z"
-    },
-    {
-      "title": "Thousands of OpenAI Agents Quietly Turned an Abandoned Wiki Into Their Coordination Channel",
-      "link": "https://thehackernews.com/2026/09/thousands-of-openai-agents-quietly.html",
-      "summary": "A group of AI safety researchers says a fleet of autonomous agents that identified themselves as OpenAI systems left about 18,000 posts on a dormant 25-year-old German wiki between May and July 2026, using the site as a…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-05T07:55:10.000Z"
-    },
-    {
-      "title": "Lost City Found on Egypt’s Way of Horus?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
-      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-04T10:45:50.000Z"
+      "title": "DC Comics Finally Brought Back the Greatest Version of Superman of All Time",
+      "link": "https://comicbook.com/comics/feature/dc-comics-finally-brought-back-the-greatest-version-of-superman-of-all-time/",
+      "summary": "Image Courtesy of DC Comics In 1938, the world changed forever with the debut of Superman. A Man of Steel who fights for a better tomorrow, Superman has shown what it means to be a hero for nearly a century. As such an…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-05T15:00:00.000Z"
     },
     {
       "title": "PostgreSQL Fixes 12-Year-Old Logical Decoding Flaw Enabling Replication-Role Code Execution",
@@ -50,20 +26,36 @@
       "date": "2026-09-04T15:20:19.000Z"
     },
     {
-      "title": "Attackers Exploit PaperCut Flaws to Steal Credentials From Schools and Universities",
-      "link": "https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html",
-      "summary": "Threat actors are exploiting the newly disclosed PaperCut flaws to facilitate credential theft in attacks targeting the education sector in the U.S. and Europe. The Arctic Wolf Adversary Research Team said it observed…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-05T07:31:53.000Z"
+      "title": "5 Evolving D&D Magic Items From Arcana Unleashed For Players To Find In Their Loot",
+      "link": "https://comicbook.com/gaming/list/5-evolving-dd-magic-items-from-arcana-unleashed-for-players-to-find-in-their-loot/",
+      "summary": "Courtesy of Wizards of the Coast New magic items are a part of Dungeons and Dragons‘ Arcana Unleashed expansion, but these tools have something few magic items have had in the past — the ability to evolve. Some items in…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-05T15:00:00.000Z"
     },
     {
-      "title": "Batman #13 Smashes The Top 10 Wednesday-To-Weekend Bestsellers Chart",
-      "link": "https://bleedingcool.com/comics/batman-13-smashes-the-top-10-wednesday-to-weekend-bestsellers-chart/",
-      "summary": "Batman #13 Smashes The Top 10 Wednesday-To-Weekend Bestsellers Chart",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-05T11:22:12.000Z"
+      "title": "US envoys arrive in Moscow ahead of Ukraine talks",
+      "link": "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss",
+      "summary": "Steve Witkoff and Jared Kushner are due to hold talks with Russia before travelling to Ukraine on Sunday.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-05T15:05:14.000Z"
+    },
+    {
+      "title": "Measles killed 6-week-old baby, coroner confirms after RFK Jr. disputed deaths",
+      "link": "https://arstechnica.com/health/2026/09/measles-killed-6-week-old-baby-coroner-confirms-after-rfk-jr-disputed-deaths/",
+      "summary": "\"It’s long past time for RFK to stop playing games with people’s lives.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T20:22:41.000Z"
+    },
+    {
+      "title": "Kingdom Hearts' Highly Anticipated Fortnite Collab Delayed, Rumors Say",
+      "link": "https://www.polygon.com/fortnite-kingdom-hearts-collab-delayed-next-update/",
+      "summary": "For unknown reasons, Fortnite has delayed Sora's debut in the Battle Royale, but thankfully, Rocket League leaks will keep fans busy.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-05T14:56:20.000Z"
     },
     {
       "title": "Exploring the Land of Abraham’s Birth",
@@ -74,92 +66,44 @@
       "date": "2026-09-02T12:55:07.000Z"
     },
     {
-      "title": "Ridley Scott's 158-Minute War Action Epic Is Officially a Global Streaming Sensation",
-      "link": "https://www.polygon.com/ridley-scott-napoleon-apple-tv-top-movies/",
-      "summary": "Discover how Ridley Scott's Napoleon is thriving on streaming platforms after a lukewarm box office performance.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-05T08:33:14.000Z"
-    },
-    {
-      "title": "Avengers: Doomsday’s X-Men Returns Look So Much Worse In Light of This 10-Year-Old Jean Grey Quote",
-      "link": "https://comicbook.com/movies/feature/avengers-doomsdays-x-men-returns-look-so-much-worse-in-light-of-this-10-year-old-jean-grey-quote/",
-      "summary": "The initial cast reveal video for Avengers: Doomsday was an exciting day filled with major surprises. While the expected names like Chris Hemsworth, Florence Pugh, Anthony Mackie, and Vanessa Kirby popped up, the shocks…",
+      "title": "6 Years Later, Fan-Favorite Crunchyroll Isekai Finally Confirms Season 2 Release – Watch the Trailer",
+      "link": "https://comicbook.com/anime/news/6-years-later-fan-favorite-crunchyroll-isekai-finally-confirms-season-2-release-watch-the-trailer/",
+      "summary": "Courtesy of Silver Link A major Isekai now streaming with Crunchyroll has finally confirmed it’s coming back with Season 2 in a new trailer showing off its return after six long years of waiting for it. Isekai…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-05T09:54:00.000Z"
+      "date": "2026-09-05T14:59:00.000Z"
     },
     {
-      "title": "Brandon Sanderson’s Latest Sci-Fi Book has a Surprise Cosmere Connection",
-      "link": "https://www.polygon.com/janci-patterson-blightfall-interview-hoid/",
-      "summary": "You never know where Hoid will pop up next",
+      "title": "'Overwatch' Won't Get Its Most Exciting New Feature In Years Until Next Season",
+      "link": "https://www.polygon.com/overwatch-unvaulted-passes-delay/",
+      "summary": "Blizzard delayed adding Unvaulted Passes to Overwatch until the start of Season 5, which is expected to begin in October.",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-05T11:00:14.000Z"
+      "date": "2026-09-05T14:19:35.000Z"
     },
     {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:21.000Z"
-    },
-    {
-      "title": "40 Years Ago, Konami Changed the Video Game Industry Forever",
-      "link": "https://www.polygon.com/40-years-konami-changed-industry/",
-      "summary": "Four decades after it released, Konami's classic platformer continues to inspire its competition.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-05T10:00:15.000Z"
-    },
-    {
-      "title": "OpenAI Agents Hijacked a German Wiki to Discuss Ways to Escape Their Sandbox",
-      "link": "https://slashdot.org/story/26/09/05/049215/openai-agents-hijacked-a-german-wiki-to-discuss-ways-to-escape-their-sandbox?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Citing researchers published Friday, Ars Technica writes that AI agents \"posted 18,000 messages to a public wiki that discussed ways for other agents to bypass security sandbox restrictions.\" Reuters attributes the…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-05T07:50:00.000Z"
-    },
-    {
-      "title": "New Ted Backdoor Hides Inside Victims' Own HAProxy Builds to Intercept Web Traffic",
-      "link": "https://thehackernews.com/2026/09/new-ted-backdoor-hides-inside-victims.html",
-      "summary": "A previously undocumented Linux toolkit has been found compiled directly into the trojanized HAProxy load balancers of two South Korean organizations, where it intercepted web traffic and served altered pages to…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T14:51:13.000Z"
-    },
-    {
-      "title": "Tomb Raider: Legacy of Atlantis Could Be Great, But There's Some Things We Can't Ignore...",
-      "link": "https://www.ign.com/articles/tomb-raider-legacy-of-atlantis-impressions",
-      "summary": "Tomb Raider: Legacy of Atlantis shows massive potential, but controversial changes like skill trees and modern hand-holding threaten to frustrate fans. And some of that food looks very suspicious.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-05T10:00:00.000Z"
-    },
-    {
-      "title": "After 8 years, Europe's BepiColombo mission is on final approach to Mercury",
-      "link": "https://arstechnica.com/space/2026/09/after-8-years-europes-bepicolombo-mission-is-on-final-approach-to-mercury/",
-      "summary": "\"Fundamentally, we want to learn about the origins of this planet and how it came to be like it is.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-04T22:49:17.000Z"
-    },
-    {
-      "title": "5 DC Villains Who Could Make Spider-Man’s Life Even Worse, Including An Upcoming DCU Star",
-      "link": "https://comicbook.com/comics/list/5-dc-villains-who-could-make-spider-mans-life-even-worse/",
-      "summary": "Image Courtesy of DC Comics They say that a hero is only as good as their villain, and while that definitely isn’t all true, there’s no denying that a great villain can elevate a story from good to fantastic. Spider-Man…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-05T10:25:00.000Z"
-    },
-    {
-      "title": "Reform promises to increase tax-free personal allowance to £15,000",
-      "link": "https://www.bbc.co.uk/news/articles/cgk5g51xk57o?at_medium=RSS&at_campaign=rss",
-      "summary": "The party says the tax cut will be paid for by reducing public spending by £80bn.",
+      "title": "US hits three Iranian oil tankers after saying its warships were targeted",
+      "link": "https://www.bbc.co.uk/news/articles/cj64rrne643o?at_medium=RSS&at_campaign=rss",
+      "summary": "US Central Command says the attacks came after Iran launched ballistic missiles at two of its Navy warships.",
       "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-09-05T11:16:11.000Z"
+      "date": "2026-09-05T15:14:21.000Z"
+    },
+    {
+      "title": "OpenAI agents discussed ways to escape their sandbox on public wiki",
+      "link": "https://arstechnica.com/security/2026/09/openai-agents-discussed-ways-to-escape-their-sandbox-on-public-wiki/",
+      "summary": "In all, 3,700 internal agents posted 18,000 messages discussing cheating on a test.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-04T22:17:36.000Z"
+    },
+    {
+      "title": "Blu-ray on My Mind (TV Edition): NCIS S23, Ultraman & Taylor Sheridan",
+      "link": "https://bleedingcool.com/tv/blu-ray-on-my-mind-tv-edition-ncis-s23-ultraman-taylor-sheridan/",
+      "summary": "This week's TV DVD/Blu-ray news includes looks at NCIS S23, two Taylor Sheridan shows (Landman & Tulsa King), and Ultraman Omega.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-05T14:37:11.000Z"
     },
     {
       "title": "Elder Care in Antiquity",
@@ -178,30 +122,6 @@
       "date": "2026-09-01T14:00:29.000Z"
     },
     {
-      "title": "5 Star Trek Ships That Changed the Legendary Sci-Fi Franchise Forever",
-      "link": "https://www.polygon.com/star-trek-ships-best-spaceships/",
-      "summary": "From the USS Enterprise to the Borg Cube, these are the five starships that left the biggest mark on Star Trek.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-05T09:00:14.000Z"
-    },
-    {
-      "title": "Big Marvel MCU Spoilers In The Daily LITG, 5th September, 2026",
-      "link": "https://bleedingcool.com/comics/big-marvel-mcu-spoilers-in-the-daily-litg-5th-september-2026/",
-      "summary": "Big Marvel MCU Spoilers was the most-read article on Bleeding Cool yesterday. Lying In The Gutters is the daily runaround",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-05T09:58:17.000Z"
-    },
-    {
-      "title": "Nintendo Game Shutting Down and Will Soon Be Unplayable for Millions",
-      "link": "https://comicbook.com/gaming/news/nintendo-game-shutting-down-september-2026/",
-      "summary": "A Nintendo game, which is to say, a game internally developed by Nintendo itself, is shutting down at the end of the month and will be unplayable for millions as a result. And not just partially unplayable, but…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-05T11:07:00.000Z"
-    },
-    {
       "title": "'Coyote vs. Acme' Beats Ridley Scott's Newest Movie",
       "link": "https://entertainment.slashdot.org/story/26/09/05/0310256/coyote-vs-acme-beats-ridley-scotts-newest-movie?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "summary": "Inverse shares a movie success story from last weekend: Coyote vs. Acme debuted to $15.9 million at the box office, beating out iconic director Ridley Scott's latest sci-fi adventure, The Dog Stars. This success has…",
@@ -210,36 +130,44 @@
       "date": "2026-09-05T03:20:00.000Z"
     },
     {
-      "title": "Whatever happened to the floating schools of Bangladesh?",
-      "link": "https://www.npr.org/2026/09/05/g-s1-141464/climate-change-floating-schools-bangladesh",
-      "summary": "It was a light bulb moment: If monsoon rains keep kids from safely getting to school, let's create a floating school to pick them up! Bangladesh pioneered the idea. How's it doing?",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-09-05T11:26:09.000Z"
+      "title": "Lost City Found on Egypt’s Way of Horus?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
+      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-04T10:45:50.000Z"
     },
     {
-      "title": "Trump admin fights ABC lawsuit as watchdogs worry Disney will settle with FCC",
-      "link": "https://arstechnica.com/tech-policy/2026/09/trump-admin-fights-abc-lawsuit-as-watchdogs-worry-disney-will-settle-with-fcc/",
-      "summary": "FCC tells court it is “open-minded\" about whether ABC should lose licenses.",
+      "title": "7 Games To Play While You Wait For Fire Emblem: Fortune's Weave",
+      "link": "https://www.polygon.com/best-games-like-fire-emblem-fortunes-weave/",
+      "summary": "Tactics RPGs including Mario + Rabbids, Triangle Strategy, and the Banner Saga offer tactical gameplay in the lead up to Fire Emblem: Fortune's Weave.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-05T14:58:28.000Z"
+    },
+    {
+      "title": "Thousands of OpenAI Agents Quietly Turned an Abandoned Wiki Into Their Coordination Channel",
+      "link": "https://thehackernews.com/2026/09/thousands-of-openai-agents-quietly.html",
+      "summary": "A group of AI safety researchers says a fleet of autonomous agents that identified themselves as OpenAI systems left about 18,000 posts on a dormant 25-year-old German wiki between May and July 2026, using the site as a…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-05T07:55:10.000Z"
+    },
+    {
+      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
+      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:29.000Z"
+    },
+    {
+      "title": "After 8 years, Europe's BepiColombo mission is on final approach to Mercury",
+      "link": "https://arstechnica.com/space/2026/09/after-8-years-europes-bepicolombo-mission-is-on-final-approach-to-mercury/",
+      "summary": "\"Fundamentally, we want to learn about the origins of this planet and how it came to be like it is.\"",
       "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-04T19:46:34.000Z"
-    },
-    {
-      "title": "Lanterns, Criminal, CIA/FBI Crossover & More: BCTV Daily Dispatch",
-      "link": "https://bleedingcool.com/tv/lanterns-criminal-cia-fbi-crossover-more-bctv-daily-dispatch/",
-      "summary": "In today's BCTV Daily Dispatch: Lanterns, Spider-Noir, Dexter: Resurrection, Sheriff Country, TWD: Dead City, CIA & FBI, Criminal, and more!",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-05T11:37:08.000Z"
-    },
-    {
-      "title": "Companies Have 6 Months to Prepare for Automated Attacks",
-      "link": "https://www.darkreading.com/cybersecurity-operations/companies-six-months-prepare-automated-attacks",
-      "summary": "Frontier AI models have already demonstrated they can autonomously — and in some cases, inadvertently — conduct end-to-end compromises, but the situation will become more urgent very soon.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-04T15:57:31.000Z"
+      "date": "2026-09-04T22:49:17.000Z"
     },
     {
       "title": "Phishing Campaign Sends Millions of Emails Using Invisible Unicode to Evade Filters",
@@ -250,12 +178,84 @@
       "date": "2026-09-04T15:57:15.000Z"
     },
     {
-      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
-      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "title": "Star Trek Actor Reveals His Plan for a Perfect James Bond Crossover",
+      "link": "https://www.polygon.com/after-playing-a-q-on-star-trek-rhys-darby-thinks-hes-ready-to-be-q-in-james-bond/",
+      "summary": "The Our Flag Means Death star answers our Q Qs",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-05T14:00:14.000Z"
+    },
+    {
+      "title": "Hundreds More Flock Cameras Removed in the US This Week. Flock Caught Repackaging Traffic Data",
+      "link": "https://yro.slashdot.org/story/26/09/05/0637208/hundreds-more-flock-cameras-removed-in-the-us-this-week-flock-caught-repackaging-traffic-data?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Florida's Republican Governor Ron DeSantis said this week he's removing Flock cameras from state roadways. And according to a local news report, that led sheriff's departments in at least three other Florida counties to…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-05T12:20:00.000Z"
+    },
+    {
+      "title": "New Ted Backdoor Hides Inside Victims' Own HAProxy Builds to Intercept Web Traffic",
+      "link": "https://thehackernews.com/2026/09/new-ted-backdoor-hides-inside-victims.html",
+      "summary": "A previously undocumented Linux toolkit has been found compiled directly into the trojanized HAProxy load balancers of two South Korean organizations, where it intercepted web traffic and served altered pages to…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T14:51:13.000Z"
+    },
+    {
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:29.000Z"
+      "date": "2026-09-03T11:00:21.000Z"
+    },
+    {
+      "title": "Attackers Exploit PaperCut Flaws to Steal Credentials From Schools and Universities",
+      "link": "https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html",
+      "summary": "Threat actors are exploiting the newly disclosed PaperCut flaws to facilitate credential theft in attacks targeting the education sector in the U.S. and Europe. The Arctic Wolf Adversary Research Team said it observed…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-05T07:31:53.000Z"
+    },
+    {
+      "title": "OpenAI Agents Hijacked a German Wiki to Discuss Ways to Escape Their Sandbox",
+      "link": "https://slashdot.org/story/26/09/05/049215/openai-agents-hijacked-a-german-wiki-to-discuss-ways-to-escape-their-sandbox?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Citing researchers published Friday, Ars Technica writes that AI agents \"posted 18,000 messages to a public wiki that discussed ways for other agents to bypass security sandbox restrictions.\" Reuters attributes the…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-05T07:50:00.000Z"
+    },
+    {
+      "title": "Amazon Just Canceled The Most Subversive Spider-Man Show Ever Made",
+      "link": "https://www.polygon.com/spider-noir-canceled/",
+      "summary": "Spider-Noir will not get a second season, although another Marvel TV show from Sony may still come to Prime Video",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-05T13:40:22.000Z"
+    },
+    {
+      "title": "NES Exclusive Game Last Seen on Wii U Officially Getting New Remake",
+      "link": "https://comicbook.com/gaming/news/nes-wii-u-game-exclusive-remake/",
+      "summary": "An NES exclusive game that hasn’t been seen since the Wii U virtual console is getting a remake. The NES game in question, a sci-fi shoot ’em up, debuted all the way back in 1990. And in the 36 years since, it’s never…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-05T14:42:32.000Z"
+    },
+    {
+      "title": "Companies Have 6 Months to Prepare for Automated Attacks",
+      "link": "https://www.darkreading.com/cybersecurity-operations/companies-six-months-prepare-automated-attacks",
+      "summary": "Frontier AI models have already demonstrated they can autonomously — and in some cases, inadvertently — conduct end-to-end compromises, but the situation will become more urgent very soon.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-04T15:57:31.000Z"
+    },
+    {
+      "title": "Exodus Won't Let You Bang the Octopus",
+      "link": "https://www.polygon.com/exodus-romance-options-interview-salt/",
+      "summary": "Exodus is a new sci-fi RPG with many party members. Narrative director Drew Karpyshyn details how romance works in a new interview",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-05T15:04:01.000Z"
     }
   ]
 }
