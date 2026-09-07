@@ -47,10 +47,16 @@
   renderCounter();
 
   // --- DVD-bounce / keepy-uppy physics ---
-  const SPEED = 3; // px/frame horizontal & (pre-gravity) vertical drift
+  // SPEED/GRAVITY/CLICK_IMPULSE/MAX_FALL_SPEED are all tuned per 60fps-equivalent
+  // frame; tick() scales position/velocity updates by dtScale (real elapsed time
+  // vs that reference) so the logo moves at the same real-world speed regardless
+  // of the display's refresh rate.
+  const SPEED = 3; // px per 60fps-equivalent frame, horizontal & (pre-gravity) vertical drift
   const GRAVITY = 0.35;
   const CLICK_IMPULSE = -11; // upward kick applied on each click once falling
   const MAX_FALL_SPEED = 14;
+  const REFERENCE_FRAME_MS = 1000 / 60;
+  const MAX_DT_MS = 50; // clamp so a stall/tab-switch hiccup doesn't teleport it
 
   let roaming = false;
   let falling = false;
@@ -61,6 +67,7 @@
   let logoW = 0;
   let logoH = 0;
   let rafId = null;
+  let lastTime = null;
 
   function startRoaming() {
     if (roaming) return;
@@ -76,19 +83,25 @@
     // (position: fixed), so the hero section — and the page — doesn't shrink.
     heroHeading.style.minHeight = heroHeading.getBoundingClientRect().height + "px";
     logo.classList.add("logo-roaming");
+    lastTime = null;
     tick();
   }
 
   function tick() {
+    const now = performance.now();
+    const dt = lastTime === null ? REFERENCE_FRAME_MS : Math.min(now - lastTime, MAX_DT_MS);
+    lastTime = now;
+    const dtScale = dt / REFERENCE_FRAME_MS;
+
     const vw = window.innerWidth;
     const vh = window.innerHeight;
 
     if (falling) {
-      vy = Math.min(vy + GRAVITY, MAX_FALL_SPEED);
+      vy = Math.min(vy + GRAVITY * dtScale, MAX_FALL_SPEED);
     }
 
-    x += vx;
-    y += vy;
+    x += vx * dtScale;
+    y += vy * dtScale;
 
     if (x <= 0) {
       x = 0;
