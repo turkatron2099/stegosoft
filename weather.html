@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10-Day Forecast — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="weather.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="weather-intro">
+    <div class="wrap">
+      <h1>10-Day Forecast</h1>
+      <p class="tagline">Enter a city, zip, or place name to see the next 10 days.</p>
+    </div>
+  </section>
+
+  <section class="weather-panel">
+    <div class="wrap">
+
+      <div class="weather-form">
+        <input type="text" id="location-input" placeholder="City, state, zip, or place name" autocomplete="off">
+        <button type="button" id="search-btn">Get Forecast</button>
+      </div>
+
+      <p class="weather-status" id="status-text" hidden></p>
+
+      <div class="weather-result" id="result-box" hidden>
+        <h2 class="location-name" id="location-name"></h2>
+        <div class="forecast-row" id="forecast-row"></div>
+      </div>
+
+      <p class="weather-note">
+        Forecast data from <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a>.
+        Like any 10-day forecast, the later days are a lot less certain than the next couple.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="weather.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
