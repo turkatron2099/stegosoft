@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meme Maker — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="meme.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="meme-intro">
+    <div class="wrap">
+      <h1>Meme Maker</h1>
+      <p class="tagline">Add bold white text with a black border to a picture or GIF.</p>
+    </div>
+  </section>
+
+  <section class="meme-panel">
+    <div class="wrap">
+
+      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose an image or GIF file">
+        <input type="file" id="file-input" accept="image/png,image/jpeg,image/webp,image/bmp,image/gif" hidden>
+        <p id="drop-label">Drag a picture or GIF here, or click to choose one</p>
+        <p class="drop-hint">Supports PNG, JPEG, WebP, BMP, and animated GIF</p>
+      </div>
+
+      <p class="meme-status" id="status-text" hidden></p>
+
+      <div class="meme-editor" id="editor" hidden>
+        <div class="meme-stage" id="stage">
+          <img id="meme-image" alt="Uploaded picture">
+          <div class="meme-text-overlay" id="meme-text"></div>
+        </div>
+
+        <div class="meme-controls">
+          <textarea id="text-input" rows="2" placeholder="Your text here"></textarea>
+          <div class="size-row">
+            <label for="size-input">Text size</label>
+            <input type="range" id="size-input" min="3" max="30" step="0.5" value="9">
+          </div>
+        </div>
+
+        <button type="button" id="create-btn">Create Meme</button>
+      </div>
+
+      <div class="meme-result" id="result-box" hidden>
+        <p class="result-info" id="result-info"></p>
+        <img id="result-preview" alt="Finished meme preview">
+        <a id="download-link" class="download-btn" download="meme">Download</a>
+      </div>
+
+      <p class="meme-note">
+        Everything happens right here in your browser — your picture is never uploaded to Stegosoft or
+        anywhere else.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script type="module" src="meme.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
