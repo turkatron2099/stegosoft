@@ -376,6 +376,18 @@
     start();
   });
 
+  // Same "r" reset key as hero-logo.js's click-counter reset — pressing it
+  // also clears the matrix takeover back to the starfield/dogfight scene.
+  document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() !== "r" || !matrixMode) return;
+    const target = e.target;
+    if (target instanceof HTMLElement && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
+      return;
+    }
+    matrixMode = false;
+    localStorage.removeItem(MATRIX_STORAGE_KEY);
+  });
+
   if (matrixMode) {
     start();
   } else {
