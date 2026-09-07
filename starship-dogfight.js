@@ -37,13 +37,50 @@
     }
   }
 
-  window.addEventListener("resize", () => { resize(); makeStars(); });
-  resize();
-  makeStars();
-
   function rand(min, max) {
     return min + Math.random() * (max - min);
   }
+
+  // Matrix-mode: once the konami easter egg (matrix-mode.js) has been
+  // triggered, this replaces the starfield/dogfight scene with digital rain,
+  // both immediately (via the event) and on every future page load (via the
+  // shared localStorage flag).
+  const MATRIX_STORAGE_KEY = "stegosoft-matrix-mode";
+  const MATRIX_CHARS = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
+  const MATRIX_FONT_SIZE = 16;
+  let matrixMode = localStorage.getItem(MATRIX_STORAGE_KEY) === "1";
+  let matrixDrops = [];
+
+  function setupMatrixRain() {
+    const cols = Math.ceil(W / MATRIX_FONT_SIZE);
+    matrixDrops = new Array(cols).fill(0).map(() => rand(0, H / MATRIX_FONT_SIZE));
+  }
+
+  function drawMatrixRain(dtScale) {
+    ctx.fillStyle = "rgba(3, 18, 34, 0.15)";
+    ctx.fillRect(0, 0, W, H);
+    ctx.font = MATRIX_FONT_SIZE + "px monospace";
+    for (let i = 0; i < matrixDrops.length; i++) {
+      const x = i * MATRIX_FONT_SIZE;
+      const y = matrixDrops[i] * MATRIX_FONT_SIZE;
+      ctx.fillStyle = Math.random() < 0.05 ? "#d6ffe0" : "#2fe86a";
+      ctx.fillText(MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)], x, y);
+      if (y > H && Math.random() > 0.975) {
+        matrixDrops[i] = 0;
+      } else {
+        matrixDrops[i] += 0.4 * dtScale;
+      }
+    }
+  }
+
+  window.addEventListener("resize", () => {
+    resize();
+    makeStars();
+    if (matrixMode) setupMatrixRain();
+  });
+  resize();
+  makeStars();
+  if (matrixMode) setupMatrixRain();
 
   const MARGIN = 70; // how far past the edge a ship flies before going "away"
   const SPEED = 1.7; // px per 60fps-equivalent frame cruising speed (scaled by dtScale)
@@ -296,15 +333,19 @@
     lastTime = now;
     const dtScale = dt / REFERENCE_FRAME_MS; // >1 on slower displays, <1 on faster ones (e.g. 240Hz)
 
-    ctx.clearRect(0, 0, W, H);
-    drawStars(now);
-    maybeSpawnMeteor(now);
-    stepMeteor(now, dtScale);
-    drawMeteor();
-    stepShip(ships[0], ships[1], now, dtScale);
-    stepShip(ships[1], ships[0], now, dtScale);
-    drawBolts(dtScale);
-    ships.forEach(drawShip);
+    if (matrixMode) {
+      drawMatrixRain(dtScale);
+    } else {
+      ctx.clearRect(0, 0, W, H);
+      drawStars(now);
+      maybeSpawnMeteor(now);
+      stepMeteor(now, dtScale);
+      drawMeteor();
+      stepShip(ships[0], ships[1], now, dtScale);
+      stepShip(ships[1], ships[0], now, dtScale);
+      drawBolts(dtScale);
+      ships.forEach(drawShip);
+    }
     rafId = requestAnimationFrame(frame);
   }
 
@@ -320,14 +361,27 @@
     rafId = null;
   }
 
+  let hasSat = matrixMode; // matrix rain shows immediately; the dogfight still waits its 10s
+
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stop();
     else if (hasSat) start();
   });
 
-  let hasSat = false;
-  setTimeout(() => {
+  window.addEventListener("stegosoft:matrix-mode-on", () => {
+    if (matrixMode) return;
+    matrixMode = true;
+    setupMatrixRain();
     hasSat = true;
-    if (!document.hidden) start();
-  }, 10000);
+    start();
+  });
+
+  if (matrixMode) {
+    start();
+  } else {
+    setTimeout(() => {
+      hasSat = true;
+      if (!document.hidden) start();
+    }, 10000);
+  }
 })();
