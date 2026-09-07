@@ -40,7 +40,7 @@
     canvas.className = "matrix-overlay-canvas";
     const message = document.createElement("div");
     message.className = "matrix-overlay-message";
-    message.textContent = "WAKE UP STEGO";
+    message.textContent = "Wake up, Stego...";
     overlay.appendChild(canvas);
     overlay.appendChild(message);
     document.body.appendChild(overlay);
