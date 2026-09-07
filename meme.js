@@ -169,7 +169,7 @@ function drawTextOnCanvas(ctx, w, h) {
     ctx.textBaseline = "middle";
     ctx.lineJoin = "round";
     ctx.miterLimit = 2;
-    ctx.lineWidth = fontPx * 0.12;
+    ctx.lineWidth = fontPx * 0.2;
     ctx.strokeStyle = "#000";
     ctx.fillStyle = "#fff";
 
