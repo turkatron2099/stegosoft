@@ -53,6 +53,27 @@
   border-color: var(--accent);
 }
 
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  color: var(--light-foreground);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.checkbox-field input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
 #calc-btn {
   display: block;
   margin: 20px auto 0;

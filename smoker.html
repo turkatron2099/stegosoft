@@ -41,6 +41,10 @@
           <label for="meat-weight">Meat weight (lbs)</label>
           <input type="number" id="meat-weight" value="10" min="0.1" step="0.1" inputmode="decimal">
         </div>
+        <label class="checkbox-field">
+          <input type="checkbox" id="crutch-check">
+          Using the Texas crutch (wrapping in foil/butcher paper through the stall)
+        </label>
         <button type="button" id="calc-btn">Calculate</button>
         <p class="range-warning" id="range-warning" hidden></p>
       </div>
@@ -56,11 +60,11 @@
 
       <p class="smoker-note">
         This is a rough estimate from common low-and-slow smoking rules of thumb (roughly 1.5–2
-        hours per pound at 225°F to reach the low-200s, scaled for your smoker temperature) — it
-        doesn't know the cut, whether it's wrapped, starting temperature, or your smoker's real
-        behavior, and the "stall" around 150–170°F varies a lot in practice. Treat these numbers as
-        a planning guide, not a timer — always finish by internal temperature with a meat
-        thermometer.
+        hours per pound at 225°F to reach the low-200s, scaled for your smoker temperature and
+        whether you're crutching it) — it doesn't know the cut, starting temperature, or your
+        smoker's real behavior, and the "stall" around 150–170°F varies a lot in practice. Treat
+        these numbers as a planning guide, not a timer — always finish by internal temperature
+        with a meat thermometer.
       </p>
 
     </div>

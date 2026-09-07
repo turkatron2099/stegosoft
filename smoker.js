@@ -9,6 +9,7 @@
 (() => {
   const smokerTempInput = document.getElementById("smoker-temp");
   const meatWeightInput = document.getElementById("meat-weight");
+  const crutchCheck = document.getElementById("crutch-check");
   const calcBtn = document.getElementById("calc-btn");
   const rangeWarning = document.getElementById("range-warning");
   const resultBox = document.getElementById("result-box");
@@ -16,14 +17,20 @@
 
   const REFERENCE_TEMP_F = 225;
 
-  // { temp, ratePerLbMinutes at 225°F, label }
+  // { temp, ratePerLbMinutes at 225°F, rateWrapped, label }
+  // rateWrapped models the Texas crutch: wrapping in foil/butcher paper
+  // (typically once the stall sets in, around 150°F) traps steam and
+  // roughly braises the meat the rest of the way, cutting a big chunk off
+  // the time still needed past that point — so 145°F is unaffected (the
+  // wrap hasn't happened yet), and later checkpoints get meaningfully
+  // faster. That speedup is a rough approximation, not a measured figure.
   const CHECKPOINTS = [
-    { temp: 145, rate: 25, label: "Safe minimum — whole cuts" },
-    { temp: 155, rate: 40, label: "Medium-well" },
-    { temp: 160, rate: 50, label: "Well done" },
-    { temp: 165, rate: 62, label: "Safe minimum — poultry/ground" },
-    { temp: 201, rate: 100, label: "Pulled pork / brisket, probe-tender" },
-    { temp: 210, rate: 108, label: "Fully rendered, extra tender" },
+    { temp: 145, rate: 25, rateWrapped: 25, label: "Safe minimum — whole cuts" },
+    { temp: 155, rate: 40, rateWrapped: 33, label: "Medium-well" },
+    { temp: 160, rate: 50, rateWrapped: 39, label: "Well done" },
+    { temp: 165, rate: 62, rateWrapped: 46, label: "Safe minimum — poultry/ground" },
+    { temp: 201, rate: 100, rateWrapped: 67, label: "Pulled pork / brisket, probe-tender" },
+    { temp: 210, rate: 108, rateWrapped: 71, label: "Fully rendered, extra tender" },
   ];
 
   function formatDuration(totalMinutes) {
@@ -52,10 +59,11 @@
     }
 
     const scale = REFERENCE_TEMP_F / smokerTemp;
+    const wrapped = crutchCheck.checked;
 
     resultBody.innerHTML = "";
     CHECKPOINTS.forEach((cp) => {
-      const minutes = cp.rate * weight * scale;
+      const minutes = (wrapped ? cp.rateWrapped : cp.rate) * weight * scale;
       const tr = document.createElement("tr");
       const tempTd = document.createElement("td");
       tempTd.textContent = `${cp.temp}°F`;
@@ -71,6 +79,7 @@
   }
 
   calcBtn.addEventListener("click", calculate);
+  crutchCheck.addEventListener("change", calculate);
   [smokerTempInput, meatWeightInput].forEach((input) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") calculate();
