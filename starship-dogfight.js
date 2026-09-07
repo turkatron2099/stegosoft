@@ -148,7 +148,9 @@
     if (ship.state === "active" && other.state === "active" && Math.random() < 0.01 * dtScale) {
       const dx = other.x - ship.x, dy = other.y - ship.y;
       if (dx * dx + dy * dy < 300 * 300) {
-        bolts.push({ x1: ship.x, y1: ship.y, x2: other.x, y2: other.y, life: 1, color: ship.color });
+        // Bright accent color, not the ship's dark hull fill — a hull-colored
+        // bolt is nearly invisible against the dark background.
+        bolts.push({ x1: ship.x, y1: ship.y, x2: other.x, y2: other.y, life: 1, color: STAR_COLOR });
       }
     }
   }
