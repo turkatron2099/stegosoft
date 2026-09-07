@@ -43,16 +43,10 @@
       <div class="meme-editor" id="editor" hidden>
         <div class="meme-stage" id="stage">
           <img id="meme-image" alt="Uploaded picture">
-          <div class="meme-text-overlay" id="meme-text"></div>
         </div>
 
-        <div class="meme-controls">
-          <textarea id="text-input" rows="2" placeholder="Your text here"></textarea>
-          <div class="size-row">
-            <label for="size-input">Text size</label>
-            <input type="range" id="size-input" min="3" max="30" step="0.5" value="9">
-          </div>
-        </div>
+        <div class="meme-text-layers" id="text-layers"></div>
+        <button type="button" id="add-line-btn" class="add-line-btn">+ Add another line</button>
 
         <button type="button" id="create-btn">Create Meme</button>
       </div>

@@ -1,6 +1,6 @@
-// Simple meme maker: drag/resize one line of white-with-black-border text
-// over an uploaded picture or GIF. Static images render to PNG directly on
-// a canvas. Animated GIFs are decoded frame-by-frame with gifuct-js
+// Simple meme maker: drag/resize one or more lines of white-with-black-border
+// text over an uploaded picture or GIF. Static images render to PNG directly
+// on a canvas. Animated GIFs are decoded frame-by-frame with gifuct-js
 // (composited per the GIF disposal spec — see compositeFrames below), the
 // text is baked onto each composited frame, and the result is re-encoded
 // with gifenc. Everything runs client-side; nothing is uploaded anywhere.
@@ -14,20 +14,22 @@ const statusText = document.getElementById("status-text");
 const editor = document.getElementById("editor");
 const stage = document.getElementById("stage");
 const memeImage = document.getElementById("meme-image");
-const textOverlay = document.getElementById("meme-text");
-const textInput = document.getElementById("text-input");
-const sizeInput = document.getElementById("size-input");
+const textLayersEl = document.getElementById("text-layers");
+const addLineBtn = document.getElementById("add-line-btn");
 const createBtn = document.getElementById("create-btn");
 const resultBox = document.getElementById("result-box");
 const resultInfo = document.getElementById("result-info");
 const resultPreview = document.getElementById("result-preview");
 const downloadLink = document.getElementById("download-link");
 
+const MAX_LAYERS = 5;
+// Pleasant starting spot for each new line so it doesn't land on top of the
+// last one — top, bottom, then fan out from the middle. Purely a default;
+// every line is still freely draggable afterward.
+const DEFAULT_Y_PCT = [15, 85, 50, 30, 70];
+
 const state = {
-  text: "",
-  xPct: 50,
-  yPct: 50,
-  sizePct: 9,
+  layers: [],
   isGif: false,
   naturalWidth: 0,
   naturalHeight: 0,
@@ -35,81 +37,153 @@ const state = {
   sourceName: "meme",
 };
 
+let nextLayerId = 0;
+
 function clamp(n, min, max) {
   return Math.max(min, Math.min(max, n));
 }
 
-function render() {
-  textOverlay.style.left = state.xPct + "%";
-  textOverlay.style.top = state.yPct + "%";
-  textOverlay.style.fontSize = (state.sizePct / 100) * stage.clientWidth + "px";
-  textOverlay.textContent = state.text;
+function renderLayer(layer) {
+  layer.overlayEl.style.left = layer.xPct + "%";
+  layer.overlayEl.style.top = layer.yPct + "%";
+  layer.overlayEl.style.fontSize = (layer.sizePct / 100) * stage.clientWidth + "px";
+  layer.overlayEl.textContent = layer.text;
 }
 
-// --- Dragging the text with pointer events (mouse + touch) ---
-let dragOffsetX = 0;
-let dragOffsetY = 0;
+function render() {
+  state.layers.forEach(renderLayer);
+}
 
-textOverlay.addEventListener("pointerdown", (e) => {
-  textOverlay.setPointerCapture(e.pointerId);
-  const rect = stage.getBoundingClientRect();
-  dragOffsetX = e.clientX - (rect.left + (state.xPct / 100) * rect.width);
-  dragOffsetY = e.clientY - (rect.top + (state.yPct / 100) * rect.height);
-});
+function addLayer() {
+  if (state.layers.length >= MAX_LAYERS) return;
 
-textOverlay.addEventListener("pointermove", (e) => {
-  if (!textOverlay.hasPointerCapture(e.pointerId)) return;
-  const rect = stage.getBoundingClientRect();
-  const x = e.clientX - dragOffsetX - rect.left;
-  const y = e.clientY - dragOffsetY - rect.top;
-  state.xPct = clamp((x / rect.width) * 100, 0, 100);
-  state.yPct = clamp((y / rect.height) * 100, 0, 100);
-  render();
-});
+  const id = nextLayerId++;
+  const layer = {
+    id,
+    text: "",
+    xPct: 50,
+    yPct: DEFAULT_Y_PCT[state.layers.length % DEFAULT_Y_PCT.length],
+    sizePct: 9,
+  };
 
-textOverlay.addEventListener("pointerup", (e) => {
-  if (textOverlay.hasPointerCapture(e.pointerId)) textOverlay.releasePointerCapture(e.pointerId);
-});
+  // --- Draggable overlay on the image itself ---
+  const overlayEl = document.createElement("div");
+  overlayEl.className = "meme-text-overlay";
+  stage.appendChild(overlayEl);
+  layer.overlayEl = overlayEl;
 
-textInput.addEventListener("input", () => {
-  state.text = textInput.value;
-  render();
-});
+  let dragOffsetX = 0;
+  let dragOffsetY = 0;
+  overlayEl.addEventListener("pointerdown", (e) => {
+    overlayEl.setPointerCapture(e.pointerId);
+    const rect = stage.getBoundingClientRect();
+    dragOffsetX = e.clientX - (rect.left + (layer.xPct / 100) * rect.width);
+    dragOffsetY = e.clientY - (rect.top + (layer.yPct / 100) * rect.height);
+  });
+  overlayEl.addEventListener("pointermove", (e) => {
+    if (!overlayEl.hasPointerCapture(e.pointerId)) return;
+    const rect = stage.getBoundingClientRect();
+    const x = e.clientX - dragOffsetX - rect.left;
+    const y = e.clientY - dragOffsetY - rect.top;
+    layer.xPct = clamp((x / rect.width) * 100, 0, 100);
+    layer.yPct = clamp((y / rect.height) * 100, 0, 100);
+    renderLayer(layer);
+  });
+  overlayEl.addEventListener("pointerup", (e) => {
+    if (overlayEl.hasPointerCapture(e.pointerId)) overlayEl.releasePointerCapture(e.pointerId);
+  });
 
-sizeInput.addEventListener("input", () => {
-  state.sizePct = parseFloat(sizeInput.value);
-  render();
-});
+  // --- Its control row: text box + size slider + remove button ---
+  const row = document.createElement("div");
+  row.className = "text-layer-row";
 
+  const textarea = document.createElement("textarea");
+  textarea.className = "text-layer-input";
+  textarea.rows = 2;
+  textarea.placeholder = "Your text here";
+  textarea.id = `text-input-${id}`;
+  textarea.addEventListener("input", () => {
+    layer.text = textarea.value;
+    renderLayer(layer);
+  });
+
+  const sizeRow = document.createElement("div");
+  sizeRow.className = "size-row";
+  const sizeLabel = document.createElement("label");
+  sizeLabel.textContent = "Text size";
+  sizeLabel.htmlFor = `size-input-${id}`;
+  const sizeInput = document.createElement("input");
+  sizeInput.type = "range";
+  sizeInput.id = `size-input-${id}`;
+  sizeInput.min = "3";
+  sizeInput.max = "30";
+  sizeInput.step = "0.5";
+  sizeInput.value = String(layer.sizePct);
+  sizeInput.addEventListener("input", () => {
+    layer.sizePct = parseFloat(sizeInput.value);
+    renderLayer(layer);
+  });
+  sizeRow.append(sizeLabel, sizeInput);
+
+  const removeBtn = document.createElement("button");
+  removeBtn.type = "button";
+  removeBtn.className = "remove-line-btn";
+  removeBtn.setAttribute("aria-label", "Remove this line");
+  removeBtn.textContent = "×";
+  removeBtn.addEventListener("click", () => removeLayer(layer));
+
+  row.append(removeBtn, textarea, sizeRow);
+  textLayersEl.appendChild(row);
+  layer.rowEl = row;
+
+  state.layers.push(layer);
+  updateAddButton();
+  renderLayer(layer);
+}
+
+function removeLayer(layer) {
+  layer.overlayEl.remove();
+  layer.rowEl.remove();
+  state.layers = state.layers.filter((l) => l !== layer);
+  updateAddButton();
+}
+
+function updateAddButton() {
+  addLineBtn.disabled = state.layers.length >= MAX_LAYERS;
+}
+
+addLineBtn.addEventListener("click", addLayer);
 window.addEventListener("resize", render);
 
 // --- Drawing the text onto an export canvas (matches the live overlay's
 // center-anchored position, but with real stroke/fill text instead of the
 // CSS approximation used for the live preview). ---
 function drawTextOnCanvas(ctx, w, h) {
-  const text = state.text;
-  if (!text.trim()) return;
+  state.layers.forEach((layer) => {
+    const text = layer.text;
+    if (!text.trim()) return;
 
-  const fontPx = (state.sizePct / 100) * w;
-  ctx.font = `bold ${fontPx}px Impact, "Arial Black", sans-serif`;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.lineJoin = "round";
-  ctx.miterLimit = 2;
-  ctx.lineWidth = fontPx * 0.12;
-  ctx.strokeStyle = "#000";
-  ctx.fillStyle = "#fff";
+    const fontPx = (layer.sizePct / 100) * w;
+    ctx.font = `bold ${fontPx}px Impact, "Arial Black", sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.lineJoin = "round";
+    ctx.miterLimit = 2;
+    ctx.lineWidth = fontPx * 0.12;
+    ctx.strokeStyle = "#000";
+    ctx.fillStyle = "#fff";
 
-  const lines = text.split("\n");
-  const lineHeight = fontPx * 1.15;
-  const totalHeight = lineHeight * (lines.length - 1);
-  const cx = (state.xPct / 100) * w;
-  const cy = (state.yPct / 100) * h;
+    const lines = text.split("\n");
+    const lineHeight = fontPx * 1.15;
+    const totalHeight = lineHeight * (lines.length - 1);
+    const cx = (layer.xPct / 100) * w;
+    const cy = (layer.yPct / 100) * h;
 
-  lines.forEach((line, i) => {
-    const ly = cy - totalHeight / 2 + i * lineHeight;
-    ctx.strokeText(line, cx, ly);
-    ctx.fillText(line, cx, ly);
+    lines.forEach((line, i) => {
+      const ly = cy - totalHeight / 2 + i * lineHeight;
+      ctx.strokeText(line, cx, ly);
+      ctx.fillText(line, cx, ly);
+    });
   });
 }
 
@@ -299,3 +373,6 @@ dropZone.addEventListener("drop", (e) => {
 fileInput.addEventListener("change", () => {
   if (fileInput.files[0]) handleFile(fileInput.files[0]);
 });
+
+// Start with one line, same as before — "+ Add another line" grows from here.
+addLayer();
