@@ -91,13 +91,12 @@
   paint-order: stroke fill;
   font-family: Impact, "Arial Black", sans-serif;
   font-weight: 700;
-  white-space: pre-wrap;
+  white-space: pre;
   text-align: center;
   line-height: 1.15;
   cursor: grab;
   touch-action: none;
   user-select: none;
-  max-width: 94%;
 }
 
 .meme-text-overlay:active {
