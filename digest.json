@@ -1,54 +1,6 @@
 {
-  "generatedAt": "2026-09-06T22:08:28.390Z",
+  "generatedAt": "2026-09-07T14:16:46.682Z",
   "items": [
-    {
-      "title": "Cult Classic Platformer Rain World Is Getting A Definitive Release On Nintendo Switch 2",
-      "link": "https://www.polygon.com/cult-classic-platformer-rain-world-is-getting-a-definitive-release-on-nintendo-switch-2/",
-      "summary": "Rain World Anthology Edition, Airframe Ultra's release date, Bonespire, and more were announced in the first-ever Akupara Direct",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-06T19:30:14.000Z"
-    },
-    {
-      "title": "Farmed salmon may not be as nutritious as it once was, new research suggests",
-      "link": "https://arstechnica.com/science/2026/09/farmed-salmon-may-not-be-as-nutritious-as-it-once-was-new-research-suggests/",
-      "summary": "The shift in the fish’s diet is having significant downstream impacts on the environment and climate.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-06T10:00:35.000Z"
-    },
-    {
-      "title": "Doomsday Reshoots Reportedly Add Audience Pleaser Scene But Fans Are Hoping for Different Things",
-      "link": "https://comicbook.com/movies/news/doomsday-reshoots-reportedly-add-audience-pleaser-scene-but-fans-are-hoping-for-different-things/",
-      "summary": "Image Courtesy of Marvel Avengers: Doomsday arrives in December, and Marvel went back in and did some reshoots to finish things up before locking the movie down. While this might cause some fans to panic, it is not…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-06T21:42:45.000Z"
-    },
-    {
-      "title": "Halloween: The Game Appears to Patch Out a Sex Minigame — and Players Think They Know Why",
-      "link": "https://www.ign.com/articles/halloween-the-game-appears-to-patch-out-a-sex-minigame-and-players-think-they-know-why",
-      "summary": "Halloween: The Game developer IllFonic appears to have patched out a sex mini-game after a gameplay clip went viral.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-06T19:36:30.000Z"
-    },
-    {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:21.000Z"
-    },
-    {
-      "title": "Unpatched Magento and Adobe Commerce Zero-Day Exploited to Backdoor Online Stores",
-      "link": "https://thehackernews.com/2026/09/unpatched-magento-and-adobe-commerce.html",
-      "summary": "Attackers are exploiting a new unpatched vulnerability in Magento Open Source and Adobe Commerce that lets them run malicious code on an online store's server without logging in, Dutch e-commerce security company Sansec…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-05T20:14:47.000Z"
-    },
     {
       "title": "Attackers Hijack MikroTik Routers Through Internet-Exposed SSH Without Authentication",
       "link": "https://thehackernews.com/2026/09/attackers-hijack-mikrotik-routers.html",
@@ -58,100 +10,68 @@
       "date": "2026-09-06T09:32:38.000Z"
     },
     {
-      "title": "UN Votes To Encourage Map Projections More Accurately Reflecting the True Size of Continents",
-      "link": "https://yro.slashdot.org/story/26/09/06/0017242/un-votes-to-encourage-map-projections-more-accurately-reflecting-the-true-size-of-continents?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The United Nations has an announcement. \"The UN General Assembly has voted overwhelmingly to encourage governments, schools and tech companies worldwide to stop using maps that make Africa look far smaller than it…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-06T14:34:00.000Z"
+      "title": "Telerik UI Padding-Oracle Bug Chained to Unauthenticated RCE — Public Exploit Released",
+      "link": "https://thehackernews.com/2026/09/telerik-ui-padding-oracle-bug-chained.html",
+      "summary": "A TantoSec proof-of-concept turns an AES-CBC \"padding oracle\" in Telerik UI for ASP.NET AJAX into unauthenticated remote code execution — but only against applications in a specific non-default configuration, and…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T11:20:14.000Z"
     },
     {
-      "title": "The Walking Dead: Dead City S03E07: \"Hourglass\": Negan's Final Run?",
-      "link": "https://bleedingcool.com/tv/the-walking-dead-dead-city-s03e07-hourglass-negans-final-run/",
-      "summary": "Check out our updated preview for tonight's episode of AMC and Showrunner Seth Hoffman's The Walking Dead: Dead City S03E07: \"Hourglass.\"",
+      "title": "JSCeal Malware Can Bypass Google Authentication Using Stolen Session Cookies",
+      "link": "https://thehackernews.com/2026/09/jsceal-malware-can-bypass-google.html",
+      "summary": "Cybersecurity researchers have unpacked JSCeal, a sophisticated compiled V8 JavaScript (JSC) malware with credential harvesting, surveillance, and traffic-interception capabilities. \"The payloads are protected with…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T07:53:04.000Z"
+    },
+    {
+      "title": "The Inbetweeners 3 In Production; Beesley & Morris Writing/Directing",
+      "link": "https://bleedingcool.com/tv/the-inbetweeners-3-in-production-beesley-morris-writing-directing/",
+      "summary": "Netflix announced that production on The Inbetweeners 3 is underway, with Simon Bird, James Buckley, Blake Harrison, and Joe Thomas returning.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-06T22:06:09.000Z"
+      "date": "2026-09-07T14:08:09.000Z"
     },
     {
-      "title": "BBC News presenter reveals she has blood cancer",
-      "link": "https://www.bbc.co.uk/news/articles/cx2zkyl7kwyo?at_medium=RSS&at_campaign=rss",
-      "summary": "Maryam Moshiri tells the BBC she wanted to reveal her diagnosis to raise awareness about the cancer.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-06T22:00:36.000Z"
-    },
-    {
-      "title": "5 Short Anime For Beginners With Perfect 10/10 Stories",
-      "link": "https://comicbook.com/anime/list/5-short-anime-for-beginners-with-perfect-10-10-stories/",
-      "summary": "Image Courtesy of Manglobe / MAPPA The anime industry keeps expanding exponentially every year, attracting more and more viewers in the process. While anime series and films gained popularity in the West during the…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-06T22:00:00.000Z"
-    },
-    {
-      "title": "TiVo Will Start Charging Fees For Its Automatic Commercial Break-Skipping Feature 'SkipMode'",
-      "link": "https://entertainment.slashdot.org/story/26/09/06/0347252/tivo-will-start-charging-fees-for-its-automatic-commercial-break-skipping-feature-skipmode?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "TiVo is notifying customers about changes to \"one of its longest-standing and most popular DVR features,\" reports the blog Cord Cutter News: Starting November 2, 2026, the current version of SkipMode that allows users…",
+      "title": "Roku's 24/7 AI Slop Channel Is Even Worse Than Expected",
+      "link": "https://entertainment.slashdot.org/story/26/09/06/0633216/rokus-247-ai-slop-channel-is-even-worse-than-expected?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A new streaming TV channel shows films made with genAI, reports Engadget. \"Fairground AI Creator TV\" is free — and supported with ads — describing its material as \"AI Cinema\": \"AI-generated\" can make it sound as though…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-06T20:34:00.000Z"
+      "date": "2026-09-07T04:30:00.000Z"
     },
     {
-      "title": "German company becomes first in Europe to launch fully commercial orbital rocket",
-      "link": "https://arstechnica.com/space/2026/09/german-company-becomes-first-in-europe-to-launch-fully-commercial-orbital-rocket/",
-      "summary": "\"We achieved within a few years what had taken the European space industry decades before.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-06T11:55:26.000Z"
+      "title": "Man arrested on suspicion of murder after two people found dead at house",
+      "link": "https://www.bbc.co.uk/news/articles/cpd019n2pejo?at_medium=RSS&at_campaign=rss",
+      "summary": "The bodies of a man and a woman have been discovered at a house in Blackburn and a man has been arrested.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-07T14:03:24.000Z"
     },
     {
-      "title": "Lost City Found on Egypt’s Way of Horus?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
-      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-04T10:45:50.000Z"
-    },
-    {
-      "title": "Attackers Breached JetBrains Cadence via Unpatched TeamCity, Extracting AWS Credentials",
-      "link": "https://thehackernews.com/2026/09/attackers-breached-jetbrains-cadence.html",
-      "summary": "JetBrains is urging Cadence users to revoke and rotate all credentials following a security incident last month in which unidentified threat actors exploited a recently disclosed critical vulnerability in TeamCity to…",
+      "title": "N-able Issues Fourth N-central Hotfix in Five Weeks for Unauthenticated RCE Flaw",
+      "link": "https://thehackernews.com/2026/09/n-able-issues-fourth-n-central-hotfix.html",
+      "summary": "Every on-premises N-central build below 2026.3.1.14 — including servers updated to Hotfix 3 a day earlier — needs Hotfix 4. N-able's incident notice says the flaw has been exploited in the wild; its release notes say…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-05T16:52:33.000Z"
+      "date": "2026-09-07T08:31:12.000Z"
     },
     {
-      "title": "Critical VMware Workstation and Fusion Flaw Lets VM Admins Execute Host Code",
-      "link": "https://thehackernews.com/2026/09/critical-vmware-workstation-and-fusion.html",
-      "summary": "Broadcom has released security updates for two security flaws impacting VMware Workstation and Fusion, including one critical bug that could result in arbitrary code execution under certain conditions. The…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-05T16:05:08.000Z"
-    },
-    {
-      "title": "55 Years Ago, Marvel Made the Avengers Cosmic and the MCU Should Take Notes",
-      "link": "https://comicbook.com/comics/feature/55-years-ago-marvel-made-the-avengers-cosmic-and-the-mcu-should-take-notes/",
-      "summary": "Image Courtesy of Marvel Comics The Avengers, as any MCU fan will tell you, were C-list nobodies until the Marvel Cinematic Universe came along, pulling them from obscurity. This is patently false; there were several…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-06T21:52:54.000Z"
-    },
-    {
-      "title": "Christopher Nolan's Greatest Sci-Fi Action Masterpiece Is Officially Free to Watch on YouTube",
-      "link": "https://www.polygon.com/christopher-nolan-sci-fi-inception-free-on-youtube/",
-      "summary": "Christopher Nolan’s Inception is a mind-bending dream heist packed with practical effects, emotional stakes, and an ending still in hot debate.",
+      "title": "Resident Evil's Zach Cregger: What Being 'Faithful' Really Means",
+      "link": "https://www.polygon.com/zach-cregger-resident-evil-interview/",
+      "summary": "2026's Resident Evil lifts from RE2 but the Weapons director really wanted to tell his own story in this world — maybe sequels too.",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-06T22:00:14.000Z"
+      "date": "2026-09-07T14:12:20.000Z"
     },
     {
-      "title": "Four REVSTEALER-Linked Modules Disable Windows Update and Defender to Run a Crypto Miner",
-      "link": "https://thehackernews.com/2026/09/four-revstealer-linked-modules-disable.html",
-      "summary": "Elastic Security Labs has documented four previously unreported programs associated with REVSTEALER, an emerging Windows information stealer, that remain on an infected machine after the stealer deletes itself. One of…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-06T08:34:20.000Z"
+      "title": "Sexy Fire Emblem-Inspired Game Food Devils Officially Claims November Release",
+      "link": "https://www.polygon.com/food-devils-exclusive-release-date-interview/",
+      "summary": "We spoke to the developer of Food Devils to learn more about the strategy game alongside the announcement of its Nov. 5 release date",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-07T13:00:14.000Z"
     },
     {
       "title": "Elder Care in Antiquity",
@@ -162,76 +82,108 @@
       "date": "2026-09-02T11:00:28.000Z"
     },
     {
-      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
-      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-03T11:00:29.000Z"
-    },
-    {
-      "title": "Official Backrooms 2 Announcement Reportedly Happening Soon, With Kane Parsons Returning",
-      "link": "https://www.polygon.com/backrooms-sequel-kane-parsons-director-report/",
-      "summary": "Report indicates that A24 has signed Backrooms director and web series creator Kane Parsons to take charge of the sequel.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-06T17:31:58.000Z"
-    },
-    {
-      "title": "Trezor Says ShipMonk Breach Exposed 67,000 U.S. Customers' Data It Said Was Deleted",
-      "link": "https://thehackernews.com/2026/09/trezor-says-shipmonk-breach-exposed.html",
-      "summary": "Hardware wallet manufacturer Trezor on Friday disclosed that another 67,000 customers from the U.S. have been impacted in a breach at its shipping provider ShipMonk. The exposed information includes customer names,…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-05T14:17:02.000Z"
-    },
-    {
-      "title": "Germany's far-right AfD set for big win in eastern state, just short of majority",
-      "link": "https://www.bbc.co.uk/news/articles/cy4zejgz3z9o?at_medium=RSS&at_campaign=rss",
-      "summary": "Germany's AfD has hailed a \"historic result\" and is projected to win 44% of the vote, far ahead of the conservatives on 17%.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-06T21:37:05.000Z"
-    },
-    {
-      "title": "New 85% on Metacritic Fantasy Action Game Just Shot Up to No. 1 on Steam Overnight",
-      "link": "https://www.polygon.com/steam-ominusha-way-of-the-sword-number-1-game/",
-      "summary": "Fans have waited 20 years for a new installment of Capcom's action game.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-06T20:11:13.000Z"
-    },
-    {
-      "title": "Two Yomawari Games Are Coming to PS5 on November 5",
-      "link": "https://bleedingcool.com/games/two-yomawari-games-are-coming-to-ps5-on-november-5/",
-      "summary": "Two horror games, Yomawari: The Long Night Collection and Yomawari: Lost in the Dark, are both being released for the PS5 this November",
+      "title": "Scott Snyder, Matt Fraction And eBay On Absolute Batman And Batman Day",
+      "link": "https://bleedingcool.com/comics/scott-snyder-matt-fraction-and-ebay-on-absolute-batman-and-batman-day/",
+      "summary": "Scott Snyder, Matt Fraction and eBay on Absolute Batman, Batman Of Two Worlds and Batman Day on the 19th of September",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-06T21:13:08.000Z"
+      "date": "2026-09-07T13:57:12.000Z"
     },
     {
-      "title": "Before Brendan Fraser’s Mummy Returns, This Failed Horror Reboot Is a Surprise Streaming Hit",
-      "link": "https://comicbook.com/movies/news/before-brendan-frasers-mummy-returns-this-failed-horror-reboot-is-a-surprise-streaming-hit/",
-      "summary": "Tom Cruise has been a household name since the 80s, when he quickly began dominating Hollywood, appearing in everything from Risky Business to Top Gun to Days of Thunder (which is finally getting its sequel, nearly 40…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-06T21:32:34.000Z"
+      "title": "Tarae: The Unbound Developers Hope Its East Asia Folklore Aesthetic Sets It Apart From Western Medieval Action RPGs Like Diablo",
+      "link": "https://www.ign.com/articles/tarae-the-unbound-developers-hope-its-east-asia-folklore-aesthetic-sets-it-apart-from-western-medieval-action-rpgs-like-diablo",
+      "summary": "Tarae: The Unbound developers explain why this South Korean action RPG will stand out from the crowd.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-07T11:54:14.000Z"
     },
     {
-      "title": "Spring 2026 Caption Contest Winners",
-      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/spring-2026-3/",
-      "summary": "And the winner is… “Were you trying to sneak more than 3.4 fluid ounces in your carry-on?” Joseph Mitgang, Woodmere, New York Thank you to…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-01T14:00:29.000Z"
-    },
-    {
-      "title": "Private German Rocket Makes History, Reaches Orbit From European Soil",
-      "link": "https://science.slashdot.org/story/26/09/06/0446242/private-german-rocket-makes-history-reaches-orbit-from-european-soil?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"No rocket had ever reached orbit from Western European soil — until today,\" reports Space.com. DW.com reports that a Spectrum space rocket from German company Isar Aerospace launched today from the Arctic Norwegian…",
+      "title": "Where a Massive Solar Storm Could Take Down the US Power Grid for Millions",
+      "link": "https://hardware.slashdot.org/story/26/09/05/2253221/where-a-massive-solar-storm-could-take-down-the-us-power-grid-for-millions?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A new study published Friday in AGU Advances \"depicts the most advanced picture yet of how a rare but massive solar storm could affect some US industries and electric systems more than others,\" reports CNN. \"During a…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-06T11:34:00.000Z"
+      "date": "2026-09-06T23:34:00.000Z"
+    },
+    {
+      "title": "Lost City Found on Egypt’s Way of Horus?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
+      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-04T10:45:50.000Z"
+    },
+    {
+      "title": "5 Reveals to Expect From Nintendo’s Zelda Direct",
+      "link": "https://comicbook.com/gaming/list/5-reveals-to-expect-from-nintendos-zelda-direct/",
+      "summary": "To the delight of Nintendo fans, not only has Nintendo revealed that there will be a Nintendo Direct on September 9th, but there will also be a special Direct dedicated to The Legend of Zelda the day before, on…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-07T13:30:00.000Z"
+    },
+    {
+      "title": "The complex corporate web behind a $3.2 billion AI data center",
+      "link": "https://arstechnica.com/ai/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/",
+      "summary": "When multiple companies are behind one project, who bears responsibility for problems?",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-07T11:00:03.000Z"
+    },
+    {
+      "title": "'The Jobs Apocalypse Is Postponed.  An AI Jobs Boom Is Here'",
+      "link": "https://slashdot.org/story/26/09/06/214258/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A new article about AI in The Economist argues that \"Initial effects of the technology on employment look positive.\" Perhaps AI will eventually make many humans unemployable — but there is no sign of it yet. On…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T11:34:00.000Z"
+    },
+    {
+      "title": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected Hosts",
+      "link": "https://thehackernews.com/2026/09/rogue-screenconnect-clients-spread-four.html",
+      "summary": "Cybersecurity researchers have disclosed details of worm-like activity that abuses ConnectWise ScreenConnect to distribute a malicious Visual Basic Script (VBScript) payload to newly connected systems. According to…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T11:36:39.000Z"
+    },
+    {
+      "title": "Slay the Spire Fans Need to Devour This New Game for Art Alone",
+      "link": "https://www.polygon.com/shroom-gloom-new-deckbuilder-2026-preview/",
+      "summary": "Shroom and Gloom is ready for Early Access release in September 2026 and our preview shows off all the art.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-07T12:00:14.000Z"
+    },
+    {
+      "title": "Bitcoin-based Liquid Network Says $320 Million Withdrawn in Hack",
+      "link": "https://yro.slashdot.org/story/26/09/07/0727220/bitcoin-based-liquid-network-says-320-million-withdrawn-in-hack?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Reuters reports: Liquid Network, a Bitcoin-based payments and settlement network, said on Sunday that about $320 million was withdrawn from its federation wallet in a hack. \"Purported white-hat hackers\" withdrew around…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T07:30:00.000Z"
+    },
+    {
+      "title": "Were the Greek Gods Actually Minoan?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/were-greek-gods-actually-minoan/",
+      "summary": "Long before the world of classical Greece, the island of Crete was home to the Minoans, one of the great civilizations of the Bronze Age Mediterranean.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-07T10:45:16.000Z"
+    },
+    {
+      "title": "Your Cloud Security Checklist Doesn't Work the Way You Think It Does",
+      "link": "https://thehackernews.com/2026/09/your-cloud-security-checklist-doesnt.html",
+      "summary": "If managing security across multiple cloud providers wasn't hard enough, each one fails in a different way. For the 2026 Cloud Security Index, Intruder analyzed misconfiguration data from 3,000 organizations across AWS,…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T11:45:00.000Z"
+    },
+    {
+      "title": "26 Years Later, the Best 'Dilbert' Quote Remains a Comic Strip Classic Despite Its Controversial Creator",
+      "link": "https://www.polygon.com/best-dilbert-comic-strip-quote/",
+      "summary": "efore revealing his controversial views, Scott Adams found success with the comic strip Dilbert. This is his best quote from the comic",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-07T14:00:15.000Z"
     },
     {
       "title": "Exploring the Land of Abraham’s Birth",
@@ -242,20 +194,68 @@
       "date": "2026-09-02T12:55:07.000Z"
     },
     {
-      "title": "Flock Offered Webinar Teaching Cops How to Surveil 'No Kings' Protesters",
-      "link": "https://yro.slashdot.org/story/26/09/05/0659243/flock-offered-webinar-teaching-cops-how-to-surveil-no-kings-protesters?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Thursday 404 Media reported that Flock taught America's cops \"how they could surveil the No Kings protests\" against President Trump (as well as \"small parades\") in a webinar last year that described \"using a mix of…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-06T17:34:00.000Z"
+      "title": "Germany's far-right AfD says 'democracy demands' parties work with them after state election win",
+      "link": "https://www.bbc.co.uk/news/articles/cpd0113082eo?at_medium=RSS&at_campaign=rss",
+      "summary": "The far-right party is trying to form a government in the state after falling three seats short of a majority.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-07T14:04:01.000Z"
     },
     {
-      "title": "5 Most Exciting Thriller Movies of All Time",
-      "link": "https://www.polygon.com/most-exciting-thrillers-all-time-ranked/",
-      "summary": "From The Silence of the Lambs to Jaws, these five essential thriller movies deliver unforgettable suspense, shocking twists, and gripping mysteries.",
+      "title": "Mr. Jambo's Kyle Gordon Reveals His Terrible Video Game Inspirations",
+      "link": "https://www.polygon.com/mr-jambo-kyle-gordon-shelf-quest/",
+      "summary": "Planet of the Bass creator Kyle Gordon has a new album in fall 2026. Before that, he joined Shelf Quest.",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-06T20:00:14.000Z"
+      "date": "2026-09-07T12:00:14.000Z"
+    },
+    {
+      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
+      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:29.000Z"
+    },
+    {
+      "title": "US Military Disables Ad Trackers On Devices To Protect Troops",
+      "link": "https://yro.slashdot.org/story/26/09/06/0553230/us-military-disables-ad-trackers-on-devices-to-protect-troops?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Slashdot reader DeanonymizedCoward writes: Reuters reports that the US Military is disabling ad tracking on devices, to prevent adversaries from buying publicly-available tracking data to assist in targeting troops.…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T01:34:00.000Z"
+    },
+    {
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-03T11:00:21.000Z"
+    },
+    {
+      "title": "Final Fantasy 7 Revelation’s FITS System Takes The RPG Elements of the Series to a Whole New Level",
+      "link": "https://comicbook.com/gaming/feature/final-fantasy-7-revelations-fits-system-takes-the-rpg-elements-of-the-series-to-a-whole-new-level/",
+      "summary": "Courtesy of Square Enix Final Fantasy 7 Revelation is set to be the biggest game in the FF7 Remake series by a wide margin, expanding combat systems, exploration, and so much more. On top of the familiar gameplay from…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-07T14:00:00.000Z"
+    },
+    {
+      "title": "Sony Exec Reveals the Secret to Spider-Man: Brand New Day’s Massive Success",
+      "link": "https://comicbook.com/movies/news/sony-exec-reveals-the-secret-to-spider-man-brand-new-days-massive-success/",
+      "summary": "Image Courtesy of Marvel More than a month after Spider-Man: Brand New Day hit theaters, it has proven to be an incredible success, the likes of which few could have anticipated or guessed. At present, the movie is…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-07T13:22:26.000Z"
+    },
+    {
+      "title": "Comic Spotlight: X-Men (Vol. 2) #1 Recast the Comic Industry In Its Image, for Better and for Worse",
+      "link": "https://comicbook.com/comics/feature/comic-spotlight-x-men-vol-2-1-recast-the-comic-industry-in-its-image-for-better-and-for-worse/",
+      "summary": "The X-Men coming to the MCU in 2028 is some of the biggest news for Marvel’s merry mutants in years. The history of the group is one of the most important in comics. It started back in 1963, with Stan Lee and Jack Kirby…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-07T14:00:00.000Z"
     }
   ]
 }
