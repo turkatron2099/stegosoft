@@ -187,21 +187,20 @@
     poweredOnIdle = false;
     if (window.SomaFMPlayer) window.SomaFMPlayer.pause();
 
-    // Hold on the "reading cartridge" static for a beat instead of cutting
-    // straight to the game, so the click sound above finishes before the
-    // game's own start-up music/audio comes in rather than the two overlapping.
+    // Blank to black for a beat instead of cutting straight to the game, so
+    // the click sound above finishes before the game's own start-up
+    // music/audio comes in rather than the two overlapping. Hiding the
+    // placeholder entirely (rather than showing the NO SIGNAL static) leaves
+    // just the console screen's own near-black background showing.
     canvas.hidden = true;
     hud.hidden = true;
-    placeholder.hidden = false;
-    placeholderBoot.hidden = true;
-    placeholderOff.hidden = false;
+    placeholder.hidden = true;
+    stopStatic();
     controlsHint.textContent = defaultControlsHint;
     consoleEl.classList.remove("powered-on");
-    startStatic();
 
     pendingInsertTimeoutId = setTimeout(() => {
       pendingInsertTimeoutId = null;
-      stopStatic();
 
       placeholder.hidden = true;
       canvas.hidden = false;
