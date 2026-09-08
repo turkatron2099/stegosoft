@@ -12,7 +12,7 @@
   // secondary tints/shades need all 3 — a primary pair plus white or black —
   // which is why the lamp now accepts up to 3 colors instead of 2.
   const TARGETS = [
-    { id: "lightRed", label: "Light Red", pair: ["red", "white"] },
+    { id: "lightRed", label: "Pink", pair: ["red", "white"] },
     { id: "darkRed", label: "Dark Red", pair: ["red", "black"] },
     { id: "lightYellow", label: "Light Yellow", pair: ["yellow", "white"] },
     { id: "darkYellow", label: "Dark Yellow", pair: ["yellow", "black"] },
