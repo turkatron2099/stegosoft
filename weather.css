@@ -100,10 +100,26 @@
   border-radius: 12px;
   padding: 16px 10px;
   text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.forecast-card:hover {
+  border-color: var(--accent);
+}
+
+.forecast-card:active {
+  transform: scale(0.97);
 }
 
 .forecast-card.is-today {
   border-color: var(--accent);
+}
+
+.forecast-card.is-selected {
+  border-color: var(--accent);
+  background: var(--dark-background);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 .forecast-day {
@@ -149,6 +165,60 @@
   margin-top: 6px;
   color: var(--teal);
   font-size: 0.75rem;
+}
+
+.hourly-panel {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--muted);
+}
+
+.hourly-title {
+  color: var(--foreground);
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.hourly-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.hourly-card {
+  flex: 0 0 76px;
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.hourly-time {
+  color: var(--light-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.hourly-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hourly-temp {
+  color: var(--foreground);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.hourly-precip {
+  margin-top: 4px;
+  color: var(--teal);
+  font-size: 0.68rem;
 }
 
 .weather-note {

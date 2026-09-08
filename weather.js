@@ -10,6 +10,9 @@
   const resultBox = document.getElementById("result-box");
   const locationName = document.getElementById("location-name");
   const forecastRow = document.getElementById("forecast-row");
+  const hourlyPanel = document.getElementById("hourly-panel");
+  const hourlyTitle = document.getElementById("hourly-title");
+  const hourlyRow = document.getElementById("hourly-row");
 
   // Standard WMO weather codes used by Open-Meteo — see
   // https://open-meteo.com/en/docs for the full table.
@@ -73,6 +76,7 @@
       latitude: place.latitude,
       longitude: place.longitude,
       daily: "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+      hourly: "temperature_2m,weather_code,precipitation_probability",
       temperature_unit: "fahrenheit",
       timezone: place.timezone || "auto",
       forecast_days: "10",
@@ -89,9 +93,62 @@
     return { weekday, monthDay };
   }
 
+  function formatHour(dateTimeStr) {
+    const date = new Date(dateTimeStr); // naive "YYYY-MM-DDTHH:mm" — no timezone conversion, just reads the wall-clock hour
+    return date.toLocaleTimeString(undefined, { hour: "numeric" });
+  }
+
+  let hourlyData = null; // forecast.hourly from the last fetch, reused for every day clicked
+  let selectedDateStr = null;
+
+  function showHourly(dateStr, dayLabel) {
+    if (selectedDateStr === dateStr) {
+      // Clicking the already-open day closes it.
+      selectedDateStr = null;
+      hourlyPanel.hidden = true;
+      updateSelectedCard();
+      return;
+    }
+
+    selectedDateStr = dateStr;
+    updateSelectedCard();
+
+    const { time, temperature_2m, weather_code, precipitation_probability } = hourlyData;
+    hourlyTitle.textContent = `Hour by hour — ${dayLabel}`;
+    hourlyRow.innerHTML = "";
+
+    time.forEach((dateTimeStr, i) => {
+      if (!dateTimeStr.startsWith(dateStr)) return;
+      const [icon] = describeWeather(weather_code[i]);
+      const precip = precipitation_probability ? precipitation_probability[i] : null;
+
+      const card = document.createElement("div");
+      card.className = "hourly-card";
+      card.innerHTML = `
+        <div class="hourly-time">${formatHour(dateTimeStr)}</div>
+        <div class="hourly-icon">${icon}</div>
+        <div class="hourly-temp">${Math.round(temperature_2m[i])}°</div>
+        ${precip !== null ? `<div class="hourly-precip">💧 ${precip}%</div>` : ""}
+      `;
+      hourlyRow.appendChild(card);
+    });
+
+    hourlyPanel.hidden = false;
+  }
+
+  function updateSelectedCard() {
+    forecastRow.querySelectorAll(".forecast-card").forEach((card) => {
+      card.classList.toggle("is-selected", card.dataset.date === selectedDateStr);
+    });
+  }
+
   function renderForecast(place, forecast) {
     const parts = [place.name, place.admin1, place.country].filter(Boolean);
     locationName.textContent = parts.join(", ");
+
+    hourlyData = forecast.hourly;
+    selectedDateStr = null;
+    hourlyPanel.hidden = true;
 
     forecastRow.innerHTML = "";
     const { time, weather_code, temperature_2m_max, temperature_2m_min, precipitation_probability_max } = forecast.daily;
@@ -103,6 +160,7 @@
 
       const card = document.createElement("div");
       card.className = "forecast-card" + (i === 0 ? " is-today" : "");
+      card.dataset.date = dateStr;
       card.innerHTML = `
         <div class="forecast-day">${weekday}</div>
         <div class="forecast-date">${monthDay}</div>
@@ -111,6 +169,7 @@
         <div class="forecast-temps">${Math.round(temperature_2m_max[i])}° <span class="low">${Math.round(temperature_2m_min[i])}°</span></div>
         ${precip !== null ? `<div class="forecast-precip">💧 ${precip}%</div>` : ""}
       `;
+      card.addEventListener("click", () => showHourly(dateStr, `${weekday}, ${monthDay}`));
       forecastRow.appendChild(card);
     });
 
