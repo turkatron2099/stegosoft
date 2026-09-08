@@ -1,85 +1,21 @@
 {
-  "generatedAt": "2026-09-08T04:41:34.360Z",
+  "generatedAt": "2026-09-08T12:53:34.831Z",
   "items": [
     {
-      "title": "Fortnite Officially Bringing Mega Man to the Island with Tournament and Skins",
-      "link": "https://www.polygon.com/fortnite-mega-man-cosmetics-tournament/",
-      "summary": "Fortnite has announced the Mega Man Cup that allows players to unlock free cosmetics, and in doing so, it has revealed the collab's upcoming skins.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-07T22:59:20.000Z"
-    },
-    {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-06T11:00:21.000Z"
-    },
-    {
-      "title": "How Grotesqqque Turns One Creator's Unfiltered Imagination Into an Anime Anthology",
-      "link": "https://www.polygon.com/why-the-director-of-grotesqqque-thinks-the-best-anime-are-a-little-unorganized/",
-      "summary": "Polygon sat down with director Atsushi Nishigori to talk Grotesqqque, his new anthology film that looks to emphasize his love of all things weird.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-08T03:00:14.000Z"
-    },
-    {
-      "title": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected Hosts",
-      "link": "https://thehackernews.com/2026/09/rogue-screenconnect-clients-spread-four.html",
-      "summary": "Cybersecurity researchers have disclosed details of worm-like activity that abuses ConnectWise ScreenConnect to distribute a malicious Visual Basic Script (VBScript) payload to newly connected systems. According to…",
+      "title": "FreeIPA Flaw Chain Lets Anonymous Clients Create Reusable Administrator Credentials",
+      "link": "https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html",
+      "summary": "A flaw in FreeIPA lets a client that has never logged in create a Kerberos identity of its own choosing in the directory and end up in the administrators group, Red Hat says. FreeIPA is the system that determines who…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-07T11:36:39.000Z"
+      "date": "2026-09-08T11:22:07.000Z"
     },
     {
-      "title": "Food Meets Romance In The Tactical RPG Roguelite Food Devils",
-      "link": "https://bleedingcool.com/games/food-meets-romance-in-the-tactical-rpg-roguelite-food-devils/",
-      "summary": "Food Devils brings all of the action of a roguelite into a tactical RPG, as you find yourself the last chef in a post-apocalyptic world.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-08T02:45:09.000Z"
-    },
-    {
-      "title": "Instead of Fighting AI, Some Teachers Work It Into Their Lessons",
-      "link": "https://news.slashdot.org/story/26/09/07/0021232/instead-of-fighting-ai-some-teachers-work-it-into-their-lessons?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Last year the writing program at the University of Baltimore used an app that tracks students while they're writing in Google Docs, offering teachers a video playing back revisions \"with a scoreboard of all the edits,…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T20:34:00.000Z"
-    },
-    {
-      "title": "PEEP Turns Chrome and Edge Into Post-Compromise Backdoors for Host Command Execution",
-      "link": "https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
-      "summary": "Cybersecurity researchers have disclosed details of a complex Chromium-based post-exploitation toolkit called PEEP that masquerades as a bookmarks extension for the web browser. \"Requiring prior administrative or code…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T18:12:09.000Z"
-    },
-    {
-      "title": "Pokémon TCG Destined Rivals ETB in Stock at Amazon and Under Market Price",
-      "link": "https://www.ign.com/articles/pokemon-tcg-destined-rivals-etb-amazon-restock",
-      "summary": "Amazon has restocked the rare Pokémon TCG Destined Rivals Elite Trainer Box for under market price.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-08T01:00:00.000Z"
-    },
-    {
-      "title": "Telerik UI Padding-Oracle Bug Chained to Unauthenticated RCE — Public Exploit Released",
-      "link": "https://thehackernews.com/2026/09/telerik-ui-padding-oracle-bug-chained.html",
-      "summary": "A TantoSec proof-of-concept turns an AES-CBC \"padding oracle\" in Telerik UI for ASP.NET AJAX into unauthenticated remote code execution — but only against applications in a specific non-default configuration, and…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T11:20:14.000Z"
-    },
-    {
-      "title": "The Legend of Zelda's Best Amiibo Finally Arrives This Month",
-      "link": "https://www.polygon.com/zelda-tears-of-the-kingdom-best-amiibo-september-2026/",
-      "summary": "Nintendo's new amiibo for The Legend of Zelda: Tears of the Kingdom based on Mineru's Construct arrives on Sept. 18, 3 years after TOTK's release.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-07T22:54:09.000Z"
+      "title": "McTominay's heart procedure 'a complete success'",
+      "link": "https://www.bbc.co.uk/sport/football/articles/cd79y308yl9o?at_medium=RSS&at_campaign=rss",
+      "summary": "Napoli say Scott McTominay's heart surgery \"was a complete success\" and expect the Scotland midfielder to resume training this month.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-08T12:28:16.000Z"
     },
     {
       "title": "Switzerland's Federal Government Tests Open-Source Alternatives to Microsoft on 3,000 Computers",
@@ -90,28 +26,36 @@
       "date": "2026-09-07T23:34:00.000Z"
     },
     {
-      "title": "A&E did not get the basics right - now my son's life is ruined at 32",
-      "link": "https://www.bbc.co.uk/news/articles/cqlw0ke2v97o?at_medium=RSS&at_campaign=rss",
-      "summary": "Oli's experience is one of a growing number of clinical negligence claims being made in England, BBC analysis shows.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-08T03:49:39.000Z"
+      "title": "The 25 Best PS5 Games in 2026",
+      "link": "https://www.polygon.com/best-ps5-games/",
+      "summary": "What are the best PlayStation 5 games? From 007 First Light to Star Wars Zero Company, here are our favorite games to play on the Sony PS5.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-08T12:52:13.000Z"
     },
     {
-      "title": "'The Jobs Apocalypse Is Postponed.  An AI Jobs Boom Is Here'",
-      "link": "https://slashdot.org/story/26/09/06/214258/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A new article about AI in The Economist argues that \"Initial effects of the technology on employment look positive.\" Perhaps AI will eventually make many humans unemployable — but there is no sign of it yet. On…",
+      "title": "Why Google Told Drivers to Drive a Longer Way On Purpose",
+      "link": "https://tech.slashdot.org/story/26/09/07/0653248/why-google-told-drivers-to-drive-a-longer-way-on-purpose?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "\"A team at Google's research arm used Google Maps to reroute a small portion of drivers in 10 U.S. cities,\" reports SFGate — including San Francisco and Los Angeles. \"Through their experiment, which was published in the…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-07T11:34:00.000Z"
+      "date": "2026-09-08T05:34:00.000Z"
     },
     {
-      "title": "Sonic the Hedgehog #89 Preview: Staff Infection at Sylvania Castle",
-      "link": "https://bleedingcool.com/comics/sonic-the-hedgehog-89-preview-staff-infection-at-sylvania-castle/",
-      "summary": "Silver and Blaze uncover something sinister behind the smiles in Sonic the Hedgehog #89, as a gothic castle mystery kicks off IDW's road to issue #100.",
+      "title": "Small Prophets Series 2 Announced: Set for 2027; Moving to BBC One",
+      "link": "https://bleedingcool.com/tv/small-prophets-series-2-announced-set-for-2027-moving-to-bbc-one/",
+      "summary": "Mackenzie Crook's Small Prophets has been renewed for a second series, with the critically acclaimed, award-winning show returning in 2027.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-08T02:27:09.000Z"
+      "date": "2026-09-08T12:37:08.000Z"
+    },
+    {
+      "title": "Star Trek: 60th Anniversary Special #1 Preview: Mudd's Wife Bots",
+      "link": "https://bleedingcool.com/comics/star-trek-60th-anniversary-special-1-preview-mudds-wife-bots/",
+      "summary": "Star Trek: 60th Anniversary Special #1 celebrates 60 years of Trek with Harry Mudd's android wives, Klingons, and more in this star-studded anthology.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-08T12:26:09.000Z"
     },
     {
       "title": "Were the Greek Gods Actually Minoan?",
@@ -122,84 +66,44 @@
       "date": "2026-09-07T10:45:16.000Z"
     },
     {
+      "title": "Baldur's Gate 3 Prequel Exclusive Clip Finds Neil Newbon Back as Astarion",
+      "link": "https://www.polygon.com/baldurs-gate-3-astarion-book-excerpt/",
+      "summary": "T.Kingfisher and Random House Worlds have teamed up for a new Baldur's Gate 3 novel featuring Astarion. Read an exclusive excerpt here at Polygon.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-08T11:00:14.000Z"
+    },
+    {
+      "title": "Jarrett J. Krosoczka Adapts Arthur Graphic Novels For 50th Anniversary",
+      "link": "https://bleedingcool.com/comics/jarrett-j-krosoczka-adapts-arthur-graphic-novels-for-50th-anniversary/",
+      "summary": "Jarrett J. Krosoczka adapts Marc Brown's Arthur as graphic novels for Arthur's 50th anniversary in May 2027",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-08T11:57:22.000Z"
+    },
+    {
+      "title": "BengalSEO Poisons Bing Search Results to Deliver MayaBot and Tech Support Scams",
+      "link": "https://thehackernews.com/2026/09/bengalseo-poisons-bing-search-results.html",
+      "summary": "Cybersecurity researchers have disclosed details of a sprawling search engine optimization (SEO) poisoning campaign that paves the way for malware deployment and tech support scams. The campaign, discovered by the DFIR…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-08T08:43:51.000Z"
+    },
+    {
+      "title": "PEEP Turns Chrome and Edge Into Post-Compromise Backdoors for Host Command Execution",
+      "link": "https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
+      "summary": "Cybersecurity researchers have disclosed details of a complex Chromium-based post-exploitation toolkit called PEEP that masquerades as a bookmarks extension for the web browser. \"Requiring prior administrative or code…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T18:12:09.000Z"
+    },
+    {
       "title": "Lost City Found on Egypt’s Way of Horus?",
       "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
       "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
       "date": "2026-09-04T10:45:50.000Z"
-    },
-    {
-      "title": "Next Hunger Games Movie 'Sunrise' Confirms Switching Genres in 'Return to Form'",
-      "link": "https://www.polygon.com/hunger-games-sunrise-on-the-reaping-haymitch-new-interview/",
-      "summary": "Director Francis Lawrence and producer Nina Jacobson explain how the new sequel throws back to Catching Fire",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-07T23:01:14.000Z"
-    },
-    {
-      "title": "A Man Charged His EV at a Dealership - and Was Billed $418",
-      "link": "https://hardware.slashdot.org/story/26/09/07/012247/a-man-charged-his-ev-at-a-dealership---and-was-billed-418?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The EV blog Electrek reports: A Clinton Township, Michigan man was charged $418 for a single EV charging session at Elder Hyundai's Macomb Township store after finding the charger listed as publicly available on the…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T17:34:00.000Z"
-    },
-    {
-      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
-      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-05T11:00:29.000Z"
-    },
-    {
-      "title": "Dark Shonen Jump Anime Confirms Season 2 Return After 4 Years With First Look",
-      "link": "https://comicbook.com/anime/news/dark-shonen-jump-anime-confirms-season-2-return-after-4-years-with-first-look/",
-      "summary": "Image Courtesy of OLM / Shueisha One of the darkest Shonen Jump anime series will be returning with a second season after almost four years. Over the decades, Shueisha’s Shonen Jump magazines have always been at the…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-08T02:15:00.000Z"
-    },
-    {
-      "title": "Your Cloud Security Checklist Doesn't Work the Way You Think It Does",
-      "link": "https://thehackernews.com/2026/09/your-cloud-security-checklist-doesnt.html",
-      "summary": "If managing security across multiple cloud providers wasn't hard enough, each one fails in a different way. For the 2026 Cloud Security Index, Intruder analyzed misconfiguration data from 3,000 organizations across AWS,…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T11:45:00.000Z"
-    },
-    {
-      "title": "Mouse: P.I. For Hire Will Officially Release Its Soundtrack on Vinyl",
-      "link": "https://bleedingcool.com/pop-culture/mouse-p-i-for-hire-will-officially-release-its-soundtrack-on-vinyl/",
-      "summary": "Mouse: P.I. For Hire is getting the vinyl soundtrack treatment as iam8bit brings all 19 tracks to a 1xLP album, set for release in Q4 2026.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-08T03:33:11.000Z"
-    },
-    {
-      "title": "⚡ Weekly Recap: Chrome 0-Day, Router Hijacks, Coder Supply Chain Attack and More",
-      "link": "https://thehackernews.com/2026/09/weekly-recap-chrome-0-day-router.html",
-      "summary": "Turning off email images should at least stop the pictures. This week, attackers had a workaround: a scannable QR code built out of text. It still appears, even with images blocked. A small detail, but an annoying one…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T14:36:07.000Z"
-    },
-    {
-      "title": "Exploring the Land of Abraham’s Birth",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
-      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-02T12:55:07.000Z"
-    },
-    {
-      "title": "Roblox 20th Anniversary Trailer Teases Birthday Presents For Players",
-      "link": "https://comicbook.com/gaming/news/roblox-20th-anniversary-trailer-teases-birthday-presents-for-players/",
-      "summary": "Roblox just turned 20 years old. After launching on September 1st 2006, it has grown into a gaming juggernaut. Twenty years is a major milestone, but for a brand that has grown up with its audience, that’s a lot of core…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-08T02:36:59.000Z"
     },
     {
       "title": "Does Brave Browser Load Faster Than Chrome, Firefox, and Microsoft Edge?",
@@ -210,20 +114,20 @@
       "date": "2026-09-08T02:34:00.000Z"
     },
     {
-      "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
-      "link": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
-      "summary": "Threat hunters have disclosed details of a widespread data theft and extortion threat cluster that's targeting Microsoft 365 and other software-as-a-service (SaaS) offerings through information technology (IT) help desk…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T15:51:56.000Z"
+      "title": "The Legend of Zelda 40th Anniversary Direct Live Blog — Nintendo Finally Set to Pull Back the Curtain on Its Big Switch 2 Exclusive",
+      "link": "https://www.ign.com/articles/the-legend-of-zelda-40th-anniversary-direct-everything-announced-by-nintendo",
+      "summary": "It’s almost time for The Legend of Zelda 40th Anniversary Direct, and IGN will be reporting live with all the news, trailers, and whatever else Nintendo has in store for us right here.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-08T12:22:07.000Z"
     },
     {
-      "title": "'She Lost Her Sight. Her Billionaire Father Bet On a Daring New Treatment.'",
-      "link": "https://science.slashdot.org/story/26/09/07/0036234/she-lost-her-sight-her-billionaire-father-bet-on-a-daring-new-treatment?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"Billionaire Bill Ackman's life was upended this February when his 26-year-old daughter collapsed in her Brooklyn apartment, suffering a brain hemorrhage that would render her unable to move, speak or see,\" writes the…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T14:34:00.000Z"
+      "title": "Grindr to Pay £26 Million to Settle U.K. Claims Over HIV Status Data Sharing",
+      "link": "https://thehackernews.com/2026/09/grindr-to-pay-26-million-to-settle-uk.html",
+      "summary": "Online dating app Grindr has opted to pay £26 million ($35.1 million) to settle a lawsuit in the U.K. over allegations that it shared users' personal information, including their HIV status, with third-parties. Grindr,…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-08T07:00:43.000Z"
     },
     {
       "title": "Elder Care in Antiquity",
@@ -234,28 +138,124 @@
       "date": "2026-09-02T11:00:28.000Z"
     },
     {
-      "title": "Chachu #2 Preview: Family Road Trip Hits Some Bumps in Vegas",
-      "link": "https://bleedingcool.com/comics/chachu-2-preview-family-road-trip-hits-some-bumps-in-vegas/",
-      "summary": "Chachu #2 sends Leila and her estranged uncle chasing a missing wife's trail to Vegas, where family secrets threaten to steer them off course.",
+      "title": "The War for Westeros Developers Are Planning for a Flood of Game of Thrones Fans Who Have Never Played an RTS",
+      "link": "https://www.ign.com/articles/the-war-for-westeros-developers-are-planning-for-a-flood-of-game-of-thrones-fans-who-have-never-played-an-rts",
+      "summary": "War for Westeros is a real-time strategy game for real-time strategy enthusiasts, but the developers at PlaySide know they’re going to get inundated with Game of Thrones fans who have never played an RTS before when the…",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-08T10:59:12.000Z"
+    },
+    {
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-06T11:00:21.000Z"
+    },
+    {
+      "title": "Sci-Fi Holocaust Play, Memoriam by Noga Flaishon Gets Its London Cast",
+      "link": "https://bleedingcool.com/pop-culture/sci-fi-play-memoriam-noga-flaishon-full-cast/",
+      "summary": "Sci-Fi Holocaust Play, Memoriam by Noga Flaishon, Gets Its Full Cast, ahead of its premiere in London next month",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-08T04:26:09.000Z"
+      "date": "2026-09-08T10:57:08.000Z"
     },
     {
-      "title": "The Papers: 'Port in a storm' and 'Megxit means Megxit'",
-      "link": "https://www.bbc.co.uk/news/articles/cde0z4e8d1wo?at_medium=RSS&at_campaign=rss",
-      "summary": "Immigration protests, Harry and Meghan, and UK-Israel relations dominate the front pages on Tuesday.",
+      "title": "Nintendo Store Leak Reveals The Legend of Zelda: Ocarina of Time Switch 2 Remake Pricing",
+      "link": "https://www.ign.com/articles/nintendo-store-leak-reveals-the-legend-of-zelda-ocarina-of-time-switch-2-remake-pricing",
+      "summary": "It looks like Nintendo has inadvertently revealed how much its remake of The Legend of Zelda: Ocarina of Time will cost on Switch 2.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-08T08:52:24.000Z"
+    },
+    {
+      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
+      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-05T11:00:29.000Z"
+    },
+    {
+      "title": "South Park/Trump, AHS 13, Lucifer & More: BCTV Daily Dispatch",
+      "link": "https://bleedingcool.com/tv/south-park-trump-ahs-13-lucifer-more-bctv-daily-dispatch/",
+      "summary": "In today's BCTV Daily Dispatch: Lucifer, Lanterns, The Traitors: New Blood, SNL UK, South Park, AHS 13, Star Trek: Strange New Worlds & more!",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-08T11:37:09.000Z"
+    },
+    {
+      "title": "Nottingham attacks victim's death 'potentially preventable'",
+      "link": "https://www.bbc.co.uk/news/articles/cddvz1mz09zo?at_medium=RSS&at_campaign=rss",
+      "summary": "The Nottingham Inquiry hears there was a chance one of Valdo Calocane's victims may have survived.",
       "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-09-08T04:00:49.000Z"
+      "date": "2026-09-08T12:28:20.000Z"
     },
     {
-      "title": "10 Biggest Most Important Anime Releases of Fall 2026",
-      "link": "https://www.polygon.com/new-anime-shows-fall-2026-releases/",
-      "summary": "This fall anime season, we have a robust roster to choose from.",
+      "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
+      "link": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
+      "summary": "Threat hunters have disclosed details of a widespread data theft and extortion threat cluster that's targeting Microsoft 365 and other software-as-a-service (SaaS) offerings through information technology (IT) help desk…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T15:51:56.000Z"
+    },
+    {
+      "title": "Before Jason Momoa, Only One Actor Was Ever Cast as Aquaman in a Movie, And He Still Hasn’t Played a Superhero",
+      "link": "https://comicbook.com/movies/news/before-jason-momoa-only-one-actor-was-ever-cast-as-aquaman-in-a-movie-and-he-still-hasnt-played-a-superhero/",
+      "summary": "In 2006, HBO’s Entourage built a running joke out of a fake blockbuster. Its fictional movie star lands the lead in an Aquaman film directed by James Cameron, who guest-starred as himself four separate times. The gag…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-08T10:42:00.000Z"
+    },
+    {
+      "title": "How to Watch Nintendo's Zelda 40th Anniversary Direct",
+      "link": "https://www.polygon.com/nintendo-zelda-direct-date-time-september-2026/",
+      "summary": "A new Nintendo Direct about The Legend of Zelda arrives on Sept. 8, promising details on the Ocarina of Time remake and 2027's Legend of Zelda movie.",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-08T01:00:14.000Z"
+      "date": "2026-09-08T12:04:28.000Z"
+    },
+    {
+      "title": "Adobe Patches Magento Zero-Day Exploited to Deploy Rust Backdoor and PHP Web Shell",
+      "link": "https://thehackernews.com/2026/09/adobe-patches-magento-zero-day.html",
+      "summary": "Adobe on Monday released security patches to address a maximum-severity flaw impacting Adobe Commerce and Magento Open Source that has come under active exploitation in the wild. The vulnerability, now tracked as…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-08T09:13:47.000Z"
+    },
+    {
+      "title": "Instead of Fighting AI, Some Teachers Work It Into Their Lessons",
+      "link": "https://news.slashdot.org/story/26/09/07/0021232/instead-of-fighting-ai-some-teachers-work-it-into-their-lessons?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Last year the writing program at the University of Baltimore used an app that tracks students while they're writing in Google Docs, offering teachers a video playing back revisions \"with a scoreboard of all the edits,…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T20:34:00.000Z"
+    },
+    {
+      "title": "Exploring the Land of Abraham’s Birth",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
+      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-02T12:55:07.000Z"
+    },
+    {
+      "title": "AMD Working To 'Push Rust Deep into the GPU Stack'",
+      "link": "https://developers.slashdot.org/story/26/09/07/086221/amd-working-to-push-rust-deep-into-the-gpu-stack?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Phoronix reports: AMD is building out what they are describing as an \"elite\" team of developers for driving Rust code \"deep into the GPU stack\" from firmware to drivers, shader compilers, and other GPU software in Rust.…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-08T11:34:00.000Z"
+    },
+    {
+      "title": "Three Cities, 16 Years And $1 Billion Later, 'Defiant' Lucas Museum of Narrative Art Opens To Mixed Reviews",
+      "link": "https://entertainment.slashdot.org/story/26/09/06/1745223/three-cities-16-years-and-1-billion-later-defiant-lucas-museum-of-narrative-art-opens-to-mixed-reviews?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "It looks like a spaceship hovering over South Los Angeles, writes CNN, with futuristic tube-like elevators and an exhibition of Banksy murals. There's a room featuring Luke Skywalker's X-34 Landspeeder, but in its…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-08T08:34:00.000Z"
     }
   ]
 }
