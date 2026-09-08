@@ -193,6 +193,7 @@
     let picks = []; // up to MAX_PICKS base-color ids currently in the lamp
     let blobs = [];
     let mixFramesLeft = 0;
+    let resolved = false; // true once a mix has finished and settled into a single result
     const MAX_PICKS = 3;
     const MIX_DELAY_FRAMES = 180; // ~3s at the 60fps-equivalent dt unit used below, restarted on every pour
     let merge = null; // { t, duration, from: [blobSnapshot, ...], resultHex, correct }
@@ -215,6 +216,7 @@
       merge = null;
       mixFramesLeft = 0;
       message = null;
+      resolved = false;
     }
 
     // slot 0 (first pick) enters from the top, slot 1 (second) from the
@@ -238,14 +240,14 @@
       message = { text, color, framesLeft: frames, totalFrames: frames };
     }
 
-    // Picking a color while MAX_PICKS are already in the lamp (whether still
-    // floating, mid-merge, or already resolved) clears the lamp first and
-    // this pick becomes the new lone "first" color — same rule at every step.
-    // Once 2 are in, every further pour restarts the mix countdown, so the
-    // player gets a full fresh window to add a 3rd color if the recipe needs
-    // one instead of it being cut off right as they add it.
+    // Picking a color once a mix has already settled into a result (right or
+    // wrong) always clears the lamp first, even after just 2 colors — the
+    // player doesn't get to keep adding onto an already-resolved mix. While
+    // still building up to that (2 colors, floating, not yet resolved), a
+    // pour is still treated as reaching for a 3rd ingredient; only hitting
+    // MAX_PICKS unresolved also clears, same as an already-resolved pour.
     function pickColor(id) {
-      if (picks.length >= MAX_PICKS) startNewRound(true);
+      if (resolved || picks.length >= MAX_PICKS) startNewRound(true);
       picks.push(id);
       spawnBlob(colorById(id).hex, picks.length - 1);
       sound.pick();
@@ -294,6 +296,7 @@
         },
       ];
       merge = null;
+      resolved = true;
       if (correct) {
         showMessage("You made " + target.label + "!", "#ffd166", 150);
         sound.celebrate();
