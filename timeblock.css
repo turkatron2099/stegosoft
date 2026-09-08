@@ -1,0 +1,114 @@
+.timeblock-intro {
+  padding: 56px 0 8px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, var(--lighter-background), var(--background) 70%);
+}
+
+.timeblock-intro h1 {
+  color: var(--foreground);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.timeblock-intro .tagline {
+  color: var(--light-foreground);
+  font-size: 0.95rem;
+}
+
+.timeblock-panel {
+  padding: 40px 0 80px;
+  text-align: center;
+}
+
+.timeblock-picker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.timeblock-btn {
+  background: var(--lighter-background);
+  color: var(--foreground);
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  padding: 20px 12px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.timeblock-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.timeblock-running {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.timeblock-clock {
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.timeblock-label {
+  color: var(--light-foreground);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.timeblock-cancel {
+  display: block;
+  margin: 24px auto 0;
+  background: transparent;
+  color: var(--light-foreground);
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.timeblock-cancel:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.timeblock-done {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.timeblock-done-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.timeblock-dismiss {
+  display: block;
+  margin: 20px auto 0;
+  background: var(--accent);
+  color: var(--dark-background);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.timeblock-dismiss:hover {
+  transform: scale(1.05);
+}

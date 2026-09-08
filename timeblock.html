@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Block — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="timeblock.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="timeblock-intro">
+    <div class="wrap">
+      <h1>Time Block</h1>
+      <p class="tagline">Pick a block, focus, get a ding when it's up.</p>
+    </div>
+  </section>
+
+  <section class="timeblock-panel">
+    <div class="wrap">
+
+      <div class="timeblock-picker" id="timeblock-picker">
+        <button type="button" class="timeblock-btn" data-minutes="15">15 min</button>
+        <button type="button" class="timeblock-btn" data-minutes="30">30 min</button>
+        <button type="button" class="timeblock-btn" data-minutes="45">45 min</button>
+        <button type="button" class="timeblock-btn" data-minutes="60">1 hour</button>
+      </div>
+
+      <div class="timeblock-running" id="timeblock-running" hidden>
+        <div class="timeblock-clock" id="timeblock-clock">00:00</div>
+        <p class="timeblock-label" id="timeblock-label"></p>
+        <button type="button" class="timeblock-cancel" id="timeblock-cancel">Cancel</button>
+      </div>
+
+      <div class="timeblock-done" id="timeblock-done" hidden>
+        <p class="timeblock-done-text">Time's up!</p>
+        <button type="button" class="timeblock-dismiss" id="timeblock-dismiss">Dismiss</button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="timeblock.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
