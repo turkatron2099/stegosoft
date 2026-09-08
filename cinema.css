@@ -1,5 +1,5 @@
 .cinema-intro {
-  padding: 56px 0 8px;
+  padding: 56px 0 32px;
   text-align: center;
   background: radial-gradient(circle at 50% 0%, var(--lighter-background), var(--background) 70%);
 }
@@ -7,12 +7,6 @@
 .cinema-intro h1 {
   color: var(--foreground);
   font-size: 2rem;
-  margin-bottom: 8px;
-}
-
-.cinema-intro .tagline {
-  color: var(--light-foreground);
-  font-size: 0.95rem;
 }
 
 .cinema-panel {
@@ -66,4 +60,35 @@
 
 .cinema-credit a {
   color: var(--muted);
+}
+
+.cinema-playlist {
+  max-width: 900px;
+  margin: 24px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cinema-playlist-item {
+  background: var(--lighter-background);
+  color: var(--light-foreground);
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.cinema-playlist-item:hover {
+  border-color: var(--accent);
+  color: var(--foreground);
+}
+
+.cinema-playlist-item.is-playing {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
 }
