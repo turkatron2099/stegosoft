@@ -134,6 +134,36 @@ a:hover {
   border-radius: 4px;
 }
 
+.logo-reset-btn {
+  display: none;
+  position: fixed;
+  bottom: 12px;
+  right: 68px;
+  z-index: 9999;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 12, 23, 0.7);
+  color: var(--light-foreground);
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.logo-reset-btn:active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (pointer: coarse) {
+  .logo-reset-btn {
+    display: flex;
+  }
+}
+
 .matrix-overlay {
   position: fixed;
   inset: 0;

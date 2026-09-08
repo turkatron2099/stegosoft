@@ -49,6 +49,22 @@
   }
   renderCounter();
 
+  // Touch devices have no keyboard to press "r" on, so give them a tappable
+  // equivalent — shown only on coarse-pointer (touch) devices via CSS, since
+  // desktop already has the key. Dispatching the same synthetic keydown (rather
+  // than calling resetLogo() directly) also fires starship-dogfight.js's "r"
+  // handler, so one tap clears every reset-on-"r" easter egg, not just this one.
+  const resetBtn = document.createElement("button");
+  resetBtn.type = "button";
+  resetBtn.className = "logo-reset-btn";
+  resetBtn.setAttribute("aria-label", "Reset homepage easter eggs");
+  resetBtn.textContent = "↺";
+  document.body.appendChild(resetBtn);
+
+  resetBtn.addEventListener("click", () => {
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: "r" }));
+  });
+
   // --- DVD-bounce / keepy-uppy physics ---
   // SPEED/GRAVITY/CLICK_IMPULSE/MAX_FALL_SPEED are all tuned per 60fps-equivalent
   // frame; tick() scales position/velocity updates by dtScale (real elapsed time
