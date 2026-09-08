@@ -1,222 +1,6 @@
 {
-  "generatedAt": "2026-09-07T19:58:57.168Z",
+  "generatedAt": "2026-09-07T22:51:33.441Z",
   "items": [
-    {
-      "title": "Practical Magic 2 First Look: A New Generation of Witches Emerges",
-      "link": "https://www.polygon.com/practical-magic-2-exclusive-image/",
-      "summary": "Check out this exclusive image of Practical Magic 2, showing some of the new characters that are introduced to the franchise.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-07T17:00:14.000Z"
-    },
-    {
-      "title": "The Traitors: New Blood First Look Preview: The Journey Begins",
-      "link": "https://bleedingcool.com/tv/the-traitors-new-blood-first-look-preview-the-journey-begins/",
-      "summary": "With NBC and Emmy-winning host Alan Cumming's The Traitors: New Blood debuting on September 17th, here's a first look at the opening chapter.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-07T19:37:10.000Z"
-    },
-    {
-      "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
-      "link": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
-      "summary": "Threat hunters have disclosed details of a widespread data theft and extortion threat cluster that's targeting Microsoft 365 and other software-as-a-service (SaaS) offerings through information technology (IT) help desk…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T15:51:56.000Z"
-    },
-    {
-      "title": "Roku's 24/7 AI Slop Channel Is Even Worse Than Expected",
-      "link": "https://entertainment.slashdot.org/story/26/09/06/0633216/rokus-247-ai-slop-channel-is-even-worse-than-expected?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A new streaming TV channel shows films made with genAI, reports Engadget. \"Fairground AI Creator TV\" is free — and supported with ads — describing its material as \"AI Cinema\": \"AI-generated\" can make it sound as though…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T04:30:00.000Z"
-    },
-    {
-      "title": "Elder Care in Antiquity",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/elder-care-in-antiquity/",
-      "summary": "Although family members typically cared for the elderly in antiquity, the concept of places dedicated to elder care is by no means a modern invention.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-02T11:00:28.000Z"
-    },
-    {
-      "title": "Forza Horizon 6's PS5 Version Still on Track for 2026 Release, Playground Says",
-      "link": "https://www.ign.com/articles/forza-horizon-6s-ps5-version-still-on-track-for-2026-release-playground-says",
-      "summary": "Forza Horizon 6 is still planned to launch on PS5 this year, despite not having a firm release date yet.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-07T19:28:00.000Z"
-    },
-    {
-      "title": "Legend of the White Dragon Creatives Discuss Frank & Madsen, Future",
-      "link": "https://bleedingcool.com/movies/legend-of-the-white-dragon-creatives-discuss-frank-madsen-future/",
-      "summary": "Legend of the White Dragon director/star Aaron Schoenke and writer Alex Kellerman spoke to us about Jason David Frank, Michael Madsen & more.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-07T19:48:08.000Z"
-    },
-    {
-      "title": "Other Mommy Director Confirms New Jessica Chastain Horror Movie Might Set a Jump Scare Record",
-      "link": "https://comicbook.com/movies/news/other-mommy-director-confirms-new-jessica-chastain-horror-movie-might-set-a-jump-scare-record/",
-      "summary": "Universal - Blumhouse - Atomic Monster Horror movies are known and renowned for their ability to make us feel fear, and often get ranked by how often (and how well) they can do it. It’s become an annual routine for one…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-07T19:25:18.000Z"
-    },
-    {
-      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
-      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-05T11:00:29.000Z"
-    },
-    {
-      "title": "A Man Charged His EV at a Dealership - and Was Billed $418",
-      "link": "https://hardware.slashdot.org/story/26/09/07/012247/a-man-charged-his-ev-at-a-dealership---and-was-billed-418?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The EV blog Electrek reports: A Clinton Township, Michigan man was charged $418 for a single EV charging session at Elder Hyundai's Macomb Township store after finding the charger listed as publicly available on the…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T17:34:00.000Z"
-    },
-    {
-      "title": "⚡ Weekly Recap: Chrome 0-Day, Router Hijacks, Coder Supply Chain Attack and More",
-      "link": "https://thehackernews.com/2026/09/weekly-recap-chrome-0-day-router.html",
-      "summary": "Turning off email images should at least stop the pictures. This week, attackers had a workaround: a scannable QR code built out of text. It still appears, even with images blocked. A small detail, but an annoying one…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T14:36:07.000Z"
-    },
-    {
-      "title": "This Wolverine Rookie Card Is Surprisingly Valuable and It’s Not Because of the Marvel Hero",
-      "link": "https://comicbook.com/collectibles/news/this-wolverine-rookie-card-is-surprisingly-valuable-and-its-not-because-of-the-marvel-hero/",
-      "summary": "When it comes to trading cards, it’s usually the sports-related ones that tend to receive a high valuation. But, every now and then, a sealed pack or a single card related to comic book characters or movies will manage…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-07T19:25:00.000Z"
-    },
-    {
-      "title": "Lovecraft Horror Meets Snowpiercer in One of 2026’s Biggest Hidden Gems",
-      "link": "https://www.polygon.com/dreadline-express-preview-gamescom-2026/",
-      "summary": "Dreadline Express is a psychological horror adventure game about unravelling the mysteries of the last human train.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-07T19:00:14.000Z"
-    },
-    {
-      "title": "'She Lost Her Sight. Her Billionaire Father Bet On a Daring New Treatment.'",
-      "link": "https://science.slashdot.org/story/26/09/07/0036234/she-lost-her-sight-her-billionaire-father-bet-on-a-daring-new-treatment?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"Billionaire Bill Ackman's life was upended this February when his 26-year-old daughter collapsed in her Brooklyn apartment, suffering a brain hemorrhage that would render her unable to move, speak or see,\" writes the…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T14:34:00.000Z"
-    },
-    {
-      "title": "10 Best New TV Shows to Watch This Fall 2026",
-      "link": "https://www.polygon.com/new-tv-shows-fall-2026/",
-      "summary": "For fall 2026, highly anticipated releases include Carrie, VisionQuest, South Park, Harry Potter, Scrubs, Crystal Lake, Blade Runner 2099 and more",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-07T18:00:14.000Z"
-    },
-    {
-      "title": "Zheng stuns Swiatek after winning another set from 5-0 down",
-      "link": "https://www.bbc.co.uk/sport/tennis/articles/cm2ml7xxg80o?at_medium=RSS&at_campaign=rss",
-      "summary": "Zheng Qinwen wins a set from 5-0 down for the second successive match as she shocks Iga Swiatek to reach the US Open quarter-finals.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-07T19:28:40.000Z"
-    },
-    {
-      "title": "Self-described 'genocidal racist monster' jailed after BBC investigation",
-      "link": "https://www.bbc.co.uk/news/articles/c5ywj92jwy1o?at_medium=RSS&at_campaign=rss",
-      "summary": "A former tax worker is sentenced to two years for inciting hatred online.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-07T19:58:04.000Z"
-    },
-    {
-      "title": "'The Jobs Apocalypse Is Postponed.  An AI Jobs Boom Is Here'",
-      "link": "https://slashdot.org/story/26/09/06/214258/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A new article about AI in The Economist argues that \"Initial effects of the technology on employment look positive.\" Perhaps AI will eventually make many humans unemployable — but there is no sign of it yet. On…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T11:34:00.000Z"
-    },
-    {
-      "title": "Exploring the Land of Abraham’s Birth",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
-      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-02T12:55:07.000Z"
-    },
-    {
-      "title": "Lost City Found on Egypt’s Way of Horus?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
-      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-04T10:45:50.000Z"
-    },
-    {
-      "title": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected Hosts",
-      "link": "https://thehackernews.com/2026/09/rogue-screenconnect-clients-spread-four.html",
-      "summary": "Cybersecurity researchers have disclosed details of worm-like activity that abuses ConnectWise ScreenConnect to distribute a malicious Visual Basic Script (VBScript) payload to newly connected systems. According to…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T11:36:39.000Z"
-    },
-    {
-      "title": "Demon Slayer Shares Cool Look at Tanjiro Ahead of Infinity Castle Sequel",
-      "link": "https://comicbook.com/anime/news/demon-slayer-shares-cool-look-at-tanjiro-ahead-of-infinity-castle-sequel/",
-      "summary": "Courtesy of Crunchyroll / Sony Pictures Entertainment Demon Slayer: Kimetsu no Yaiba is now hard at work at the next big movie in the Infinity Castle trilogy, and the franchise has shared a cool look at Tanjiro Kamado…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-07T19:00:00.000Z"
-    },
-    {
-      "title": "PEEP Turns Chrome and Edge Into Post-Compromise Backdoors for Host Command Execution",
-      "link": "https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
-      "summary": "Cybersecurity researchers have disclosed details of a complex Chromium-based post-exploitation toolkit called PEEP that masquerades as a bookmarks extension for the web browser. \"Requiring prior administrative or code…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-07T18:12:09.000Z"
-    },
-    {
-      "title": "Bitcoin-based Liquid Network Says $320 Million Withdrawn in Hack",
-      "link": "https://yro.slashdot.org/story/26/09/07/0727220/bitcoin-based-liquid-network-says-320-million-withdrawn-in-hack?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Reuters reports: Liquid Network, a Bitcoin-based payments and settlement network, said on Sunday that about $320 million was withdrawn from its federation wallet in a hack. \"Purported white-hat hackers\" withdrew around…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-07T07:30:00.000Z"
-    },
-    {
-      "title": "Were the Greek Gods Actually Minoan?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/were-greek-gods-actually-minoan/",
-      "summary": "Long before the world of classical Greece, the island of Crete was home to the Minoans, one of the great civilizations of the Bronze Age Mediterranean.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-07T10:45:16.000Z"
-    },
-    {
-      "title": "The complex corporate web behind a $3.2 billion AI data center",
-      "link": "https://arstechnica.com/features/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/",
-      "summary": "When multiple companies are behind one project, who bears responsibility for problems?",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-07T11:00:03.000Z"
-    },
-    {
-      "title": "GTA 6 Will Launch Digitally at Midnight Around the World, So Of Course Fans Are Already Planning to Set Their Console Locations to New Zealand",
-      "link": "https://www.ign.com/articles/gta-6-will-launch-digitally-at-midnight-around-the-world-so-of-course-fans-are-already-planning-to-set-their-console-locations-to-new-zealand",
-      "summary": "Rockstar will launch Grand Theft Auto 6 at midnight local time in most countries on November 19 — meaning some fans are already planning to adjust their console region and play early.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-07T18:00:31.000Z"
-    },
     {
       "title": "Your Cloud Security Checklist Doesn't Work the Way You Think It Does",
       "link": "https://thehackernews.com/2026/09/your-cloud-security-checklist-doesnt.html",
@@ -224,6 +8,14 @@
       "source": "The Hacker News",
       "topic": "Cybersecurity",
       "date": "2026-09-07T11:45:00.000Z"
+    },
+    {
+      "title": "Sony Electronics Launches Multiple New Headphones For Fall 2026",
+      "link": "https://bleedingcool.com/pop-culture/sony-electronics-launches-multiple-new-headphones-for-fall-2026/",
+      "summary": "Sony Electronics revealed three new pairs of headphones for Fall 2026, along with a limited-edition Hello Kitty bundle.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-07T22:32:09.000Z"
     },
     {
       "title": "Paul and the Slave Girl in Philippi",
@@ -234,12 +26,180 @@
       "date": "2026-09-06T11:00:21.000Z"
     },
     {
-      "title": "Scholastic To Publish Kids 9/11 Comic, Ground Zero, Next September",
-      "link": "https://bleedingcool.com/comics/scholastic-to-publish-kids-9-11-comic-ground-zero-next-september/",
-      "summary": "Scholastic Graphix are to publish the middle grade 9/11 comic book adaptation of Ground Zero, *next* September",
+      "title": "It’s Been 7 Years, And Netflix’s Most Devious Cliffhanger Ending Is Still Unresolved",
+      "link": "https://comicbook.com/tv-shows/feature/its-been-7-years-and-netflixs-most-devious-cliffhanger-ending-is-still-unresolved/",
+      "summary": "Netflix is one of the most popular streaming services when it comes to impactful original programming, meaning that tons of their TV shows and movies have gone from original ideas to some of the most well-known…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-07T22:20:00.000Z"
+    },
+    {
+      "title": "Magic: The Gathering's Hobbit Gift Bundles Are Back In Stock at Amazon",
+      "link": "https://www.ign.com/articles/magic-the-gatherings-hobbit-gift-bundles-are-back-in-stock-at-amazon",
+      "summary": "Save almost 20% and get a Collector Booster included with 9 Play Boosters, too.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-07T20:06:31.000Z"
+    },
+    {
+      "title": "Cemetery Boys Sequel Reveals a Critical Role Connection New Reveal",
+      "link": "https://www.polygon.com/cemetery-boys-espiritu-excerpt-aiden-thomas/",
+      "summary": "Aiden Thomas's supernatural romance is here. Celebrate by listening to an audiobook excerpt from Critical Role's Vico Ortiz.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-07T20:00:14.000Z"
+    },
+    {
+      "title": "'The Jobs Apocalypse Is Postponed.  An AI Jobs Boom Is Here'",
+      "link": "https://slashdot.org/story/26/09/06/214258/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A new article about AI in The Economist argues that \"Initial effects of the technology on employment look positive.\" Perhaps AI will eventually make many humans unemployable — but there is no sign of it yet. On…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T11:34:00.000Z"
+    },
+    {
+      "title": "Tales of the Teenage Mutant Ninja Turtles: Coastal Chaos #1 Preview",
+      "link": "https://bleedingcool.com/comics/tales-of-the-teenage-mutant-ninja-turtles-coastal-chaos-1-preview/",
+      "summary": "Tales of the Teenage Mutant Ninja Turtles: Coastal Chaos #1 sends Mikey and his brothers to the Jersey Shore, where a suspiciously armed shark awaits.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-07T19:57:11.000Z"
+      "date": "2026-09-07T22:26:10.000Z"
+    },
+    {
+      "title": "NHL 27 Is Using AI-Generated Voiceover for In-Game Commentators, John Buccigross Says",
+      "link": "https://www.ign.com/articles/nhl-27-is-using-ai-generated-voiceover-for-in-game-commentators-john-buccigross-says",
+      "summary": "EA Sports is using generative AI to create voiceover for its in-game commentators in NHL 27, according to veteran sports commentator John Buccigross.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-07T22:25:49.000Z"
+    },
+    {
+      "title": "Rybakina sweeps past Osaka to close in on number one ranking",
+      "link": "https://www.bbc.co.uk/sport/tennis/articles/crk368k4e42o?at_medium=RSS&at_campaign=rss",
+      "summary": "Elena Rybakina sweeps aside two-time champion Naomi Osaka to reach the US Open quarter-finals and close in on becoming world number one.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-07T22:09:00.000Z"
+    },
+    {
+      "title": "A Man Charged His EV at a Dealership - and Was Billed $418",
+      "link": "https://hardware.slashdot.org/story/26/09/07/012247/a-man-charged-his-ev-at-a-dealership---and-was-billed-418?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "The EV blog Electrek reports: A Clinton Township, Michigan man was charged $418 for a single EV charging session at Elder Hyundai's Macomb Township store after finding the charger listed as publicly available on the…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T17:34:00.000Z"
+    },
+    {
+      "title": "Were the Greek Gods Actually Minoan?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/were-greek-gods-actually-minoan/",
+      "summary": "Long before the world of classical Greece, the island of Crete was home to the Minoans, one of the great civilizations of the Bronze Age Mediterranean.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-07T10:45:16.000Z"
+    },
+    {
+      "title": "Pokémon TCG Prismatic Evolutions Super-Premium Collection Restocked at Amazon",
+      "link": "https://www.ign.com/articles/pokemon-tcg-prismatic-evolutions-super-premium-amazon-restock",
+      "summary": "Amazon has restocked the rare Pokémon TCG Prismatic Evolutions Super-Premium Collection featuring 15 booster packs and promo cards.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-07T22:00:00.000Z"
+    },
+    {
+      "title": "PEEP Turns Chrome and Edge Into Post-Compromise Backdoors for Host Command Execution",
+      "link": "https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
+      "summary": "Cybersecurity researchers have disclosed details of a complex Chromium-based post-exploitation toolkit called PEEP that masquerades as a bookmarks extension for the web browser. \"Requiring prior administrative or code…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T18:12:09.000Z"
+    },
+    {
+      "title": "The Librarians: The Next Chapter: Here's Our Season 2 Finale Preview",
+      "link": "https://bleedingcool.com/tv/the-librarians-the-next-chapter-heres-our-season-2-finale-preview/",
+      "summary": "It all comes down to this one, folks! Here's our preview for TNT's The Librarians: The Next Chapter S02E12: \"And the Camelot Conundrum.\"",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-07T22:37:10.000Z"
+    },
+    {
+      "title": "Sebastian Stan Reveals Winter Soldier Spinoff Movie He Pitched to Marvel Studios, And It Sounds Perfect",
+      "link": "https://comicbook.com/movies/news/sebastian-stan-reveals-winter-soldier-spinoff-movie-he-pitched-to-marvel-studios-and-it-sounds-perfect/",
+      "summary": "Although Bucky Barnes/the Winter Soldier has never had a solo movie or TV show in the MCU, despite arguably coming somewhat close with both Captain America: Civil War and The Falcon and the Winter Soldier, there is no…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-07T22:21:42.000Z"
+    },
+    {
+      "title": "7 Iconic Shonen Jump Manga That Every True Fan Needs to Read",
+      "link": "https://comicbook.com/anime/list/7-iconic-shonen-jump-manga-that-every-true-fan-needs-to-read/",
+      "summary": "Image Courtesy of Shueisha For several decades now, shonen series have always been at the center of the spotlight in the anime and manga industry. The demographic continues to dominate the industry even now, which is…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-07T22:00:00.000Z"
+    },
+    {
+      "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
+      "link": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
+      "summary": "Threat hunters have disclosed details of a widespread data theft and extortion threat cluster that's targeting Microsoft 365 and other software-as-a-service (SaaS) offerings through information technology (IT) help desk…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T15:51:56.000Z"
+    },
+    {
+      "title": "Bitcoin-based Liquid Network Says $320 Million Withdrawn in Hack",
+      "link": "https://yro.slashdot.org/story/26/09/07/0727220/bitcoin-based-liquid-network-says-320-million-withdrawn-in-hack?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Reuters reports: Liquid Network, a Bitcoin-based payments and settlement network, said on Sunday that about $320 million was withdrawn from its federation wallet in a hack. \"Purported white-hat hackers\" withdrew around…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T07:30:00.000Z"
+    },
+    {
+      "title": "Exploring the Land of Abraham’s Birth",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-places/exploring-land-abrahams-birth/",
+      "summary": "The city of Urfa (known as Şanlıurfa in Turkish) is a living tapestry of faith. Nestled in southeastern Turkey and revered as the “city of…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-02T12:55:07.000Z"
+    },
+    {
+      "title": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected Hosts",
+      "link": "https://thehackernews.com/2026/09/rogue-screenconnect-clients-spread-four.html",
+      "summary": "Cybersecurity researchers have disclosed details of worm-like activity that abuses ConnectWise ScreenConnect to distribute a malicious Visual Basic Script (VBScript) payload to newly connected systems. According to…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T11:36:39.000Z"
+    },
+    {
+      "title": "Flight recorders recovered from 'devastating' Amazon cargo plane crash",
+      "link": "https://www.bbc.co.uk/news/articles/ce8e32n8epeo?at_medium=RSS&at_campaign=rss",
+      "summary": "Five people were killed and five others seriously injured when the Boeing 767-300 overshot the runway at Miami International Airport.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-07T22:23:03.000Z"
+    },
+    {
+      "title": "Final Fantasy Resonance Mod Brings Back Classic FF Character Ariana Grande",
+      "link": "https://www.ign.com/articles/final-fantasy-resonance-mod-brings-back-classic-ff-character-ariana-grande",
+      "summary": "If you were upset to hear that pop star Ariana Grande wouldn't return in Final Fantasy Resonance, a new mod is here to save the day.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-07T22:04:56.000Z"
+    },
+    {
+      "title": "The complex corporate web behind a $3.2 billion AI data center",
+      "link": "https://arstechnica.com/features/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/",
+      "summary": "When multiple companies are behind one project, who bears responsibility for problems?",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-07T11:00:03.000Z"
+    },
+    {
+      "title": "Elder Care in Antiquity",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/elder-care-in-antiquity/",
+      "summary": "Although family members typically cared for the elderly in antiquity, the concept of places dedicated to elder care is by no means a modern invention.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-02T11:00:28.000Z"
     },
     {
       "title": "Telerik UI Padding-Oracle Bug Chained to Unauthenticated RCE — Public Exploit Released",
@@ -250,12 +210,52 @@
       "date": "2026-09-07T11:20:14.000Z"
     },
     {
-      "title": "Is GTA 6 Too Realistic for Its Own Good? Refueling Cars and Gun Restrictions Spark Debate",
-      "link": "https://www.ign.com/articles/is-gta-6-too-realistic-for-its-own-good-refueling-cars-and-gun-restrictions-spark-debate",
-      "summary": "Early Grand Theft Auto 6 details have sparked debate about whether Rockstar Games' latest is too realistic for its own good.",
-      "source": "IGN",
+      "title": "Antiochus Epiphanes—The Bible’s Most Notoriously Forgotten Villain",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/antiochus-epiphanes-the-bibles-most-notoriously-forgotten-villain/",
+      "summary": "Many names come to mind when someone mentions the great “villains” of the Bible. Some are foreign powers, like the Pharaoh of the Exodus or…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-05T11:00:29.000Z"
+    },
+    {
+      "title": "Where to Play Every Grand Theft Auto Game in 2026",
+      "link": "https://www.polygon.com/gta-games-grand-theft-auto-where-to-play-all-2026/",
+      "summary": "Rockstar Games GTA might be the most popular game franchise of all time, but a lot of it is hard to play. Here's a guide on how to play every game",
+      "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-07T19:09:52.000Z"
+      "date": "2026-09-07T21:00:14.000Z"
+    },
+    {
+      "title": "⚡ Weekly Recap: Chrome 0-Day, Router Hijacks, Coder Supply Chain Attack and More",
+      "link": "https://thehackernews.com/2026/09/weekly-recap-chrome-0-day-router.html",
+      "summary": "Turning off email images should at least stop the pictures. This week, attackers had a workaround: a scannable QR code built out of text. It still appears, even with images blocked. A small detail, but an annoying one…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-07T14:36:07.000Z"
+    },
+    {
+      "title": "Lost City Found on Egypt’s Way of Horus?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/lost-city-found-on-egypts-way-of-horus/",
+      "summary": "New excavations at Tel Abu Saify, in Egypt’s eastern Delta region, are shedding light on a major site along the ancient Way of Horus, a…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-04T10:45:50.000Z"
+    },
+    {
+      "title": "Instead of Fighting AI, Some Teachers Work It Into Their Lessons",
+      "link": "https://news.slashdot.org/story/26/09/07/0021232/instead-of-fighting-ai-some-teachers-work-it-into-their-lessons?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Last year the writing program at the University of Baltimore used an app that tracks students while they're writing in Google Docs, offering teachers a video playing back revisions \"with a scoreboard of all the edits,…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T20:34:00.000Z"
+    },
+    {
+      "title": "'She Lost Her Sight. Her Billionaire Father Bet On a Daring New Treatment.'",
+      "link": "https://science.slashdot.org/story/26/09/07/0036234/she-lost-her-sight-her-billionaire-father-bet-on-a-daring-new-treatment?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "\"Billionaire Bill Ackman's life was upended this February when his 26-year-old daughter collapsed in her Brooklyn apartment, suffering a brain hemorrhage that would render her unable to move, speak or see,\" writes the…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-07T14:34:00.000Z"
     }
   ]
 }
