@@ -85,6 +85,8 @@
   const MARGIN = 70; // how far past the edge a ship flies before going "away"
   const SPEED = 1.7; // px per 60fps-equivalent frame cruising speed (scaled by dtScale)
   const TURN_RATE = 0.05; // max radians per 60fps-equivalent frame (scaled by dtScale)
+  const NOSE_LENGTH = 14; // matches the hull's front vertex in drawShip's local coords
+  const FIRING_CONE = Math.PI / 3; // only fire when the target is within this many radians of dead-ahead
 
   function newTarget(ship, other) {
     if (Math.random() < 0.7) {
@@ -184,10 +186,21 @@
     // to keep the average bolt rate constant regardless of refresh rate.
     if (ship.state === "active" && other.state === "active" && Math.random() < 0.01 * dtScale) {
       const dx = other.x - ship.x, dy = other.y - ship.y;
-      if (dx * dx + dy * dy < 300 * 300) {
+      // Only fire when the other ship is roughly ahead — without this, a
+      // bolt could launch toward a target off to the side or behind (e.g.
+      // right after retargeting, before the ship has turned to face it),
+      // which reads as firing out of the side no matter where on the hull
+      // it starts.
+      const facingOff = Math.abs(angleDiff(ship.angle, Math.atan2(dy, dx)));
+      if (dx * dx + dy * dy < 300 * 300 && facingOff < FIRING_CONE) {
+        // Fire from the hull's nose tip, not the ship's center point — the
+        // center sits mid-hull on this delta-wing shape, so a bolt starting
+        // there could otherwise read as coming out of the side/wing.
+        const noseX = ship.x + Math.cos(ship.angle) * NOSE_LENGTH;
+        const noseY = ship.y + Math.sin(ship.angle) * NOSE_LENGTH;
         // Bright accent color, not the ship's dark hull fill — a hull-colored
         // bolt is nearly invisible against the dark background.
-        bolts.push({ x1: ship.x, y1: ship.y, x2: other.x, y2: other.y, life: 1, color: STAR_COLOR });
+        bolts.push({ x1: noseX, y1: noseY, x2: other.x, y2: other.y, life: 1, color: STAR_COLOR });
       }
     }
   }
