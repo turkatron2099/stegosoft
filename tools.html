@@ -29,12 +29,13 @@
   <section class="tools-intro">
     <div class="wrap">
       <h1>Tools</h1>
+      <input type="text" id="tool-search" class="tool-search" placeholder="Search tools..." autocomplete="off">
     </div>
   </section>
 
   <section class="tools-grid-section">
     <div class="wrap">
-      <div class="tools-grid">
+      <div class="tools-grid" id="tools-grid">
         <a class="tool-card" href="speedtest.html">
           <span class="tool-card-title">Speedtest</span>
           <span class="tool-card-arrow" aria-hidden="true">&rarr;</span>
@@ -80,6 +81,7 @@
           <span class="tool-card-arrow" aria-hidden="true">&rarr;</span>
         </a>
       </div>
+      <p class="tools-empty" id="tools-empty" hidden>No tools match &ldquo;<span id="tools-empty-query"></span>&rdquo;.</p>
     </div>
   </section>
 </main>
@@ -90,6 +92,7 @@
   </div>
 </footer>
 
+<script src="tools.js"></script>
 <script src="pwa.js"></script>
 <script src="somafm-player.js"></script>
 </body>
