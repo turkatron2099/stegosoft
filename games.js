@@ -25,6 +25,14 @@
 
   let current = null; // { id, controller }
   let poweredOnIdle = false; // powered on via the Power button, no cartridge inserted
+  let pendingInsertTimeoutId = null; // set while waiting out the post-click boot delay below
+
+  function cancelPendingInsert() {
+    if (pendingInsertTimeoutId) {
+      clearTimeout(pendingInsertTimeoutId);
+      pendingInsertTimeoutId = null;
+    }
+  }
 
   // Old-TV static for the powered-off "NO SIGNAL" screen: random grayscale
   // noise redrawn every frame. Rendered at a tiny internal resolution and
@@ -169,6 +177,7 @@
     const game = window.STEGO_GAMES && window.STEGO_GAMES[gameId];
     if (!game) return;
 
+    cancelPendingInsert();
     CARTRIDGE_CLICK_AUDIO.cloneNode().play().catch(() => {});
 
     if (current) {
@@ -176,28 +185,45 @@
       current = null;
     }
     poweredOnIdle = false;
-    stopStatic();
     if (window.SomaFMPlayer) window.SomaFMPlayer.pause();
 
-    placeholder.hidden = true;
-    canvas.hidden = false;
-    hud.hidden = false;
-    hudTitle.textContent = game.title;
-    controlsHint.textContent = game.controlsHint || defaultControlsHint;
-    consoleEl.classList.add("powered-on");
+    // Hold on the "reading cartridge" static for a beat instead of cutting
+    // straight to the game, so the click sound above finishes before the
+    // game's own start-up music/audio comes in rather than the two overlapping.
+    canvas.hidden = true;
+    hud.hidden = true;
+    placeholder.hidden = false;
+    placeholderBoot.hidden = true;
+    placeholderOff.hidden = false;
+    controlsHint.textContent = defaultControlsHint;
+    consoleEl.classList.remove("powered-on");
+    startStatic();
 
-    const controller = game.start(canvas);
-    current = { id: gameId, controller };
+    pendingInsertTimeoutId = setTimeout(() => {
+      pendingInsertTimeoutId = null;
+      stopStatic();
 
-    // Move focus off the cartridge/slot so Space/Enter control the game,
-    // not re-trigger insertion of the cartridge that was just activated.
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-    canvas.focus();
+      placeholder.hidden = true;
+      canvas.hidden = false;
+      hud.hidden = false;
+      hudTitle.textContent = game.title;
+      controlsHint.textContent = game.controlsHint || defaultControlsHint;
+      consoleEl.classList.add("powered-on");
+
+      const controller = game.start(canvas);
+      current = { id: gameId, controller };
+
+      // Move focus off the cartridge/slot so Space/Enter control the game,
+      // not re-trigger insertion of the cartridge that was just activated.
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+      canvas.focus();
+    }, 1000);
   }
 
   function eject() {
+    cancelPendingInsert();
     if (isFullscreen()) exitFullscreen();
     if (current) {
       current.controller.stop();
