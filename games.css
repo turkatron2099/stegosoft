@@ -473,3 +473,7 @@ button.console-btn:active {
 .cartridge-coolcars {
   --label-border: var(--red);
 }
+
+.cartridge-lavalamp {
+  --label-border: var(--cyan);
+}
