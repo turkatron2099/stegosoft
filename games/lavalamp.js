@@ -144,7 +144,7 @@
     const START_LAMP_X = (W - START_LAMP_SIZE) / 2;
     const START_LAMP_Y = 250;
 
-    const PLAY_LAMP_SIZE = 300;
+    const PLAY_LAMP_SIZE = 290;
     const PLAY_LAMP_X = (W - PLAY_LAMP_SIZE) / 2;
     const PLAY_LAMP_Y = 96;
     const bulb = {
@@ -344,7 +344,7 @@
       ctx.fillStyle = "#f6dcac";
       ctx.font = "13px sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(color.label, cx, y + size + 18);
+      ctx.fillText(color.label, cx, y + size + 16);
     }
 
     function drawLampSprite(x, y, size) {
@@ -467,9 +467,9 @@
       // fully visible instead of being hidden behind this banner.
       if (message) {
         const bw = 340;
-        const bh = 42;
+        const bh = 40;
         const bx = W / 2 - bw / 2;
-        const by = 148;
+        const by = 145;
         roundRect(ctx, bx, by, bw, bh, 12);
         ctx.fillStyle = "rgba(5,24,46,0.85)";
         ctx.fill();
@@ -487,7 +487,7 @@
       const gap = 24;
       const totalW = BASE_COLORS.length * btnSize + (BASE_COLORS.length - 1) * gap;
       const startX = (W - totalW) / 2;
-      const btnY = 402;
+      const btnY = 396;
       BASE_COLORS.forEach((c, i) => {
         drawColorButton(startX + i * (btnSize + gap), btnY, btnSize, c);
       });
