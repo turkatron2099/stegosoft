@@ -192,6 +192,15 @@
   outline: none;
 }
 
+/* Shown briefly while a cartridge is "being read," between the click sound
+   and the game actually starting — solid gray so it's clearly a in-progress
+   blank, not mistaken for the console being off (NO SIGNAL static/black). */
+.screen-blank {
+  position: absolute;
+  inset: 0;
+  background: #4d4d4d;
+}
+
 .screen-placeholder {
   position: absolute;
   inset: 0;

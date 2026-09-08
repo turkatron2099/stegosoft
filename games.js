@@ -1,6 +1,7 @@
 (function () {
   const slot = document.getElementById("console-slot");
   const placeholder = document.getElementById("screen-placeholder");
+  const screenBlank = document.getElementById("screen-blank");
   const placeholderOff = document.getElementById("placeholder-off");
   const placeholderBoot = document.getElementById("placeholder-boot");
   const bootLogoCanvas = document.getElementById("boot-logo-canvas");
@@ -187,14 +188,15 @@
     poweredOnIdle = false;
     if (window.SomaFMPlayer) window.SomaFMPlayer.pause();
 
-    // Blank to black for a beat instead of cutting straight to the game, so
-    // the click sound above finishes before the game's own start-up
-    // music/audio comes in rather than the two overlapping. Hiding the
-    // placeholder entirely (rather than showing the NO SIGNAL static) leaves
-    // just the console screen's own near-black background showing.
+    // Blank to a solid gray for a beat instead of cutting straight to the
+    // game, so the click sound above finishes before the game's own
+    // start-up music/audio comes in rather than the two overlapping. Gray
+    // (not the NO SIGNAL static, and not just plain black) reads clearly as
+    // "in progress" rather than looking like the console is off.
     canvas.hidden = true;
     hud.hidden = true;
     placeholder.hidden = true;
+    screenBlank.hidden = false;
     stopStatic();
     controlsHint.textContent = defaultControlsHint;
     consoleEl.classList.remove("powered-on");
@@ -202,6 +204,7 @@
     pendingInsertTimeoutId = setTimeout(() => {
       pendingInsertTimeoutId = null;
 
+      screenBlank.hidden = true;
       placeholder.hidden = true;
       canvas.hidden = false;
       hud.hidden = false;
@@ -231,6 +234,7 @@
     poweredOnIdle = false;
     canvas.hidden = true;
     hud.hidden = true;
+    screenBlank.hidden = true;
     placeholder.hidden = false;
     placeholderBoot.hidden = true;
     placeholderOff.hidden = false;
