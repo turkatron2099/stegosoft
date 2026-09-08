@@ -7,12 +7,6 @@
 .timeblock-intro h1 {
   color: var(--foreground);
   font-size: 2rem;
-  margin-bottom: 8px;
-}
-
-.timeblock-intro .tagline {
-  color: var(--light-foreground);
-  font-size: 0.95rem;
 }
 
 .timeblock-panel {
