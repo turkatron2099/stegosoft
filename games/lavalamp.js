@@ -21,10 +21,13 @@
   function colorById(id) {
     return BASE_COLORS.find((c) => c.id === id);
   }
-  function blendHex(hexA, hexB) {
+  function mixColors(hexA, hexB, t) {
     const a = hexToRgb(hexA);
     const b = hexToRgb(hexB);
-    return rgbToHex((a.r + b.r) / 2, (a.g + b.g) / 2, (a.b + b.b) / 2);
+    return rgbToHex(a.r + (b.r - a.r) * t, a.g + (b.g - a.g) * t, a.b + (b.b - a.b) * t);
+  }
+  function blendHex(hexA, hexB) {
+    return mixColors(hexA, hexB, 0.5);
   }
 
   // Each target's swatch is the true blend of its own pair, so "the color to
@@ -319,16 +322,45 @@
       }
     }
 
-    function drawBlobCircle(x, y, r, hex) {
+    // A real lava lamp blob isn't a flat circle — it's a soft, slowly
+    // wobbling glob of wax with a glossy highlight and a faint glow. This
+    // builds an irregular outline (radius wobbling per angle, two sine
+    // frequencies layered so it doesn't look like a simple pulsing circle),
+    // then fills it with a radial gradient (lightened center, true hex
+    // mid-tone, darkened rim) for a waxy, lit-from-within look.
+    const BLOB_POINTS = 10;
+    function drawLavaBlob(x, y, r, hex, seed) {
+      ctx.save();
       ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
-      ctx.fillStyle = hex;
-      ctx.globalAlpha = 0.9;
+      const pts = [];
+      for (let i = 0; i < BLOB_POINTS; i++) {
+        const angle = (i / BLOB_POINTS) * Math.PI * 2;
+        const wobble =
+          Math.sin(angle * 3 + seed + animFrame * 0.025) * 0.6 + Math.sin(angle * 5 - seed * 1.7 + animFrame * 0.014) * 0.4;
+        const rad = r * (1 + wobble * 0.12);
+        pts.push({ x: x + Math.cos(angle) * rad, y: y + Math.sin(angle) * rad });
+      }
+      ctx.moveTo((pts[0].x + pts[pts.length - 1].x) / 2, (pts[0].y + pts[pts.length - 1].y) / 2);
+      for (let i = 0; i < pts.length; i++) {
+        const cur = pts[i];
+        const next = pts[(i + 1) % pts.length];
+        ctx.quadraticCurveTo(cur.x, cur.y, (cur.x + next.x) / 2, (cur.y + next.y) / 2);
+      }
+      ctx.closePath();
+
+      const gradient = ctx.createRadialGradient(x - r * 0.3, y - r * 0.35, r * 0.1, x, y, r * 1.15);
+      gradient.addColorStop(0, mixColors(hex, "#ffffff", 0.5));
+      gradient.addColorStop(0.55, hex);
+      gradient.addColorStop(1, mixColors(hex, "#000000", 0.3));
+      ctx.fillStyle = gradient;
+      ctx.shadowColor = hex;
+      ctx.shadowBlur = 16;
       ctx.fill();
-      ctx.globalAlpha = 1;
+      ctx.restore();
+
       ctx.beginPath();
-      ctx.arc(x - r * 0.3, y - r * 0.3, r * 0.35, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255,255,255,0.35)";
+      ctx.ellipse(x - r * 0.28, y - r * 0.32, r * 0.24, r * 0.15, -0.5, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,255,255,0.4)";
       ctx.fill();
     }
 
@@ -392,18 +424,21 @@
           const x = b.x + (bulbCX - b.x) * t;
           const y = b.y + (bulbCY - b.y) * t;
           const r = b.radius * (1 - t * 0.6);
-          drawBlobCircle(x, y, r, b.hex);
+          drawLavaBlob(x, y, r, b.hex, b.wobble);
         });
       } else {
-        blobs.forEach((b) => drawBlobCircle(b.x, b.y, b.radius, b.hex));
+        blobs.forEach((b) => drawLavaBlob(b.x, b.y, b.radius, b.hex, b.wobble));
       }
       ctx.restore();
 
+      // Pinned to the upper half of the glass, above where the merged blob
+      // settles (bulbCY), so the resulting color — right or wrong — stays
+      // fully visible instead of being hidden behind this banner.
       if (message) {
-        const bw = 360;
-        const bh = 44;
+        const bw = 340;
+        const bh = 42;
         const bx = W / 2 - bw / 2;
-        const by = 196;
+        const by = 148;
         roundRect(ctx, bx, by, bw, bh, 12);
         ctx.fillStyle = "rgba(5,24,46,0.85)";
         ctx.fill();
