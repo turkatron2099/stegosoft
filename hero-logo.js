@@ -2,6 +2,8 @@
   const logo = document.querySelector(".hero-logo");
   if (!logo) return;
   const heroHeading = logo.parentElement; // the <h1> wrapping the logo
+  const ORIGINAL_SRC = logo.getAttribute("src");
+  const ANAGLYPH_SRC = "images/Stegosoft_anaglyph.png";
 
   let audioCtx = null;
 
@@ -34,6 +36,7 @@
   const STORAGE_KEY = "stegosoft-logo-clicks";
   const ROAM_AT = 100; // logo starts bouncing around the screen, DVD-screensaver style
   const FALL_AT = 200; // logo starts falling under gravity — click it to keep it up
+  const ANAGLYPH_AT = 300; // the chaos stops — logo settles back in place, reskinned in anaglyph
 
   let clicks = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
 
@@ -132,13 +135,30 @@
     rafId = requestAnimationFrame(tick);
   }
 
+  // Ends the roam/fall chaos for good and puts the logo back exactly where
+  // it started in the page flow — just wearing the anaglyph skin now.
+  function settleAsAnaglyph() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    roaming = false;
+    falling = false;
+    logo.classList.remove("logo-roaming");
+    logo.style.transform = "";
+    heroHeading.style.minHeight = "";
+    logo.src = ANAGLYPH_SRC;
+  }
+
   logo.addEventListener("click", () => {
     clicks++;
     localStorage.setItem(STORAGE_KEY, String(clicks));
     renderCounter();
     playCoinPickup();
 
-    if (clicks >= FALL_AT) {
+    if (clicks >= ANAGLYPH_AT) {
+      settleAsAnaglyph();
+    } else if (clicks >= FALL_AT) {
       falling = true;
       vy = CLICK_IMPULSE; // bop it back up, keepy-uppy style
       startRoaming();
@@ -161,6 +181,7 @@
     logo.classList.remove("logo-roaming");
     logo.style.transform = "";
     heroHeading.style.minHeight = "";
+    logo.src = ORIGINAL_SRC;
   }
 
   document.addEventListener("keydown", (e) => {
@@ -174,7 +195,9 @@
 
   // Resume the right behavior immediately on reload, rather than waiting
   // for the next click, if the stored count already crossed a threshold.
-  if (clicks >= FALL_AT) {
+  if (clicks >= ANAGLYPH_AT) {
+    settleAsAnaglyph();
+  } else if (clicks >= FALL_AT) {
     falling = true;
     startRoaming();
   } else if (clicks >= ROAM_AT) {
