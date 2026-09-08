@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinema — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cinema.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="cinema-intro">
+    <div class="wrap">
+      <h1>Cinema</h1>
+      <p class="tagline">Public-domain movies, playing on a loop.</p>
+    </div>
+  </section>
+
+  <section class="cinema-panel">
+    <div class="wrap">
+
+      <div class="cinema-screen">
+        <video
+          id="cinema-player"
+          controls
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://archive.org/services/img/plan-9-from-outer-space_202011"
+          src="https://archive.org/download/plan-9-from-outer-space_202011/Plan%209%20from%20Outer%20Space%20%20%20Ed%20Wood%20%28full%20movie%29.ia.mp4"
+        >
+          Your browser doesn't support embedded video —
+          <a href="https://archive.org/details/plan-9-from-outer-space_202011">watch it on Internet Archive instead</a>.
+        </video>
+      </div>
+
+      <div class="cinema-info">
+        <h2>Plan 9 From Outer Space <span class="cinema-year">(1959)</span></h2>
+        <p class="cinema-blurb">
+          Aliens resurrect the dead as zombies and vampires in a scheme to stop humanity from
+          creating a doomsday weapon. Written and directed by Ed Wood, and widely regarded as one
+          of the greatest bad movies ever made.
+        </p>
+        <p class="cinema-credit">
+          Public domain (copyright never renewed). Print via
+          <a href="https://archive.org/details/plan-9-from-outer-space_202011" target="_blank" rel="noopener">Internet Archive</a>.
+          Autoplays muted — use the player's volume control for sound.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="somafm-player.js"></script>
+</body>
+</html>
