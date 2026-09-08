@@ -17,6 +17,12 @@
   const controlsHint = document.getElementById("controls-hint");
   const defaultControlsHint = controlsHint.textContent;
 
+  // Plays once per successful cartridge insertion, regardless of which game.
+  // Cloned per play (same pattern as cool-cars.js's honk/animal sounds) so
+  // rapidly switching cartridges doesn't cut a prior play short.
+  const CARTRIDGE_CLICK_AUDIO = new Audio("games/sounds/cartridge-click.mp3");
+  CARTRIDGE_CLICK_AUDIO.preload = "auto";
+
   let current = null; // { id, controller }
   let poweredOnIdle = false; // powered on via the Power button, no cartridge inserted
 
@@ -162,6 +168,8 @@
 
     const game = window.STEGO_GAMES && window.STEGO_GAMES[gameId];
     if (!game) return;
+
+    CARTRIDGE_CLICK_AUDIO.cloneNode().play().catch(() => {});
 
     if (current) {
       current.controller.stop();

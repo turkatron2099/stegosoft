@@ -52,12 +52,45 @@
     return rgbToHex(sum("r"), sum("g"), sum("b"));
   }
 
+  // Plain RGB averaging works fine for tinting/shading (mixing in white or
+  // black), but it badly misrepresents mixing two hues — yellow and blue in
+  // particular average toward gray/teal instead of green, since they sit
+  // near-complementary in RGB space (real subtractive pigment mixing doesn't
+  // work that way, which is the whole reason "yellow+blue=green" is a
+  // familiar fact). So the two chromatic primaries get a curated result
+  // instead of a computed one; white/black are then still averaged in on
+  // top of that, which looks correct since tinting doesn't have this problem.
+  const CHROMATIC_IDS = ["red", "yellow", "blue"];
+  const SECONDARY_MIX = {
+    "red,yellow": "#f3812e",
+    "blue,yellow": "#3fa34d",
+    "blue,red": "#8e4fae",
+  };
+
+  function blendIds(ids) {
+    const chromatic = ids.filter((id) => CHROMATIC_IDS.includes(id));
+    const modifiers = ids.filter((id) => !CHROMATIC_IDS.includes(id));
+
+    let baseHex = chromatic.length === 2 ? SECONDARY_MIX[[...chromatic].sort().join(",")] : null;
+    if (!baseHex && chromatic.length) {
+      // 1 chromatic color (nothing to mis-mix), or all 3 at once (an
+      // official recipe never asks for this — real paint just muddies
+      // toward brown when you mix every primary, which a flat average
+      // approximates fine).
+      baseHex = blendMany(chromatic.map((id) => colorById(id).hex));
+    }
+
+    const modifierHexes = modifiers.map((id) => colorById(id).hex);
+    if (!baseHex) return blendMany(modifierHexes); // only black/white picked
+    return modifierHexes.length ? blendMany([baseHex, ...modifierHexes]) : baseHex;
+  }
+
   // Each target's swatch is the true blend of its own recipe, so "the color
   // to make" always matches what mixing those base colors actually produces
   // in the lamp — correctness below just compares the picked id set to
   // target.pair rather than doing any float color-distance check.
   TARGETS.forEach((t) => {
-    t.hex = blendMany(t.pair.map((id) => colorById(id).hex));
+    t.hex = blendIds(t.pair);
   });
 
   const LAMP_IMAGE = new Image();
@@ -239,7 +272,7 @@
     }
 
     function startMerge() {
-      const resultHex = blendMany(blobs.map((b) => b.hex));
+      const resultHex = blendIds(picks);
       const sortedPicks = [...picks].sort().join(",");
       const sortedTarget = [...target.pair].sort().join(",");
       const correct = sortedPicks === sortedTarget;
