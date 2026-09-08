@@ -3,12 +3,30 @@
     { id: "red", hex: "#e63946", label: "Red" },
     { id: "yellow", hex: "#ffd166", label: "Yellow" },
     { id: "blue", hex: "#3a86ff", label: "Blue" },
+    { id: "black", hex: "#000000", label: "Black" },
+    { id: "white", hex: "#ffffff", label: "White" },
   ];
 
-  const SECONDARY_TARGETS = [
+  // Every color the player might be asked to make. Most are 2-ingredient
+  // (a secondary, or a primary lightened/darkened with white/black); the
+  // secondary tints/shades need all 3 — a primary pair plus white or black —
+  // which is why the lamp now accepts up to 3 colors instead of 2.
+  const TARGETS = [
+    { id: "lightRed", label: "Light Red", pair: ["red", "white"] },
+    { id: "darkRed", label: "Dark Red", pair: ["red", "black"] },
+    { id: "lightYellow", label: "Light Yellow", pair: ["yellow", "white"] },
+    { id: "darkYellow", label: "Dark Yellow", pair: ["yellow", "black"] },
+    { id: "lightBlue", label: "Light Blue", pair: ["blue", "white"] },
+    { id: "darkBlue", label: "Dark Blue", pair: ["blue", "black"] },
     { id: "orange", label: "Orange", pair: ["red", "yellow"] },
     { id: "green", label: "Green", pair: ["yellow", "blue"] },
     { id: "purple", label: "Purple", pair: ["red", "blue"] },
+    { id: "lightOrange", label: "Light Orange", pair: ["red", "yellow", "white"] },
+    { id: "darkOrange", label: "Dark Orange", pair: ["red", "yellow", "black"] },
+    { id: "lightGreen", label: "Light Green", pair: ["yellow", "blue", "white"] },
+    { id: "darkGreen", label: "Dark Green", pair: ["yellow", "blue", "black"] },
+    { id: "lightPurple", label: "Light Purple", pair: ["red", "blue", "white"] },
+    { id: "darkPurple", label: "Dark Purple", pair: ["red", "blue", "black"] },
   ];
 
   function hexToRgb(hex) {
@@ -26,17 +44,20 @@
     const b = hexToRgb(hexB);
     return rgbToHex(a.r + (b.r - a.r) * t, a.g + (b.g - a.g) * t, a.b + (b.b - a.b) * t);
   }
-  function blendHex(hexA, hexB) {
-    return mixColors(hexA, hexB, 0.5);
+  // Averages any number of colors (2 or 3 here) — used for both 2- and
+  // 3-ingredient targets so one function covers every recipe length.
+  function blendMany(hexes) {
+    const rgbs = hexes.map(hexToRgb);
+    const sum = (key) => rgbs.reduce((s, c) => s + c[key], 0) / rgbs.length;
+    return rgbToHex(sum("r"), sum("g"), sum("b"));
   }
 
-  // Each target's swatch is the true blend of its own pair, so "the color to
-  // make" always matches what mixing those two base colors actually produces
-  // in the lamp — correctness below just compares the picked id pair to
+  // Each target's swatch is the true blend of its own recipe, so "the color
+  // to make" always matches what mixing those base colors actually produces
+  // in the lamp — correctness below just compares the picked id set to
   // target.pair rather than doing any float color-distance check.
-  SECONDARY_TARGETS.forEach((t) => {
-    const [a, b] = t.pair;
-    t.hex = blendHex(colorById(a).hex, colorById(b).hex);
+  TARGETS.forEach((t) => {
+    t.hex = blendMany(t.pair.map((id) => colorById(id).hex));
   });
 
   const LAMP_IMAGE = new Image();
@@ -136,16 +157,17 @@
     const bulbCY = (bulb.top + bulb.bottom) / 2;
 
     let target = null;
-    let picks = []; // up to 2 base-color ids currently in the lamp
+    let picks = []; // up to MAX_PICKS base-color ids currently in the lamp
     let blobs = [];
     let mixFramesLeft = 0;
-    const MIX_DELAY_FRAMES = 180; // ~3s at the 60fps-equivalent dt unit used below
-    let merge = null; // { t, duration, from: [blobSnapshotA, blobSnapshotB], resultHex, correct }
+    const MAX_PICKS = 3;
+    const MIX_DELAY_FRAMES = 180; // ~3s at the 60fps-equivalent dt unit used below, restarted on every pour
+    let merge = null; // { t, duration, from: [blobSnapshot, ...], resultHex, correct }
     let message = null; // { text, color, framesLeft, totalFrames }
     let advanceTimeoutId = null;
 
     function pickRandomTarget(excludeId) {
-      const options = excludeId ? SECONDARY_TARGETS.filter((t) => t.id !== excludeId) : SECONDARY_TARGETS;
+      const options = excludeId ? TARGETS.filter((t) => t.id !== excludeId) : TARGETS;
       return options[Math.floor(Math.random() * options.length)];
     }
 
@@ -162,10 +184,12 @@
       message = null;
     }
 
-    function spawnBlob(hex, atTop) {
+    // slot 0 (first pick) enters from the top, slot 1 (second) from the
+    // bottom, slot 2 (third, when a recipe needs one) from the middle.
+    function spawnBlob(hex, slot) {
       const radius = 18;
       const x = bulbCX + (Math.random() - 0.5) * 8;
-      const y = atTop ? bulb.top + radius + 3 : bulb.bottom - radius - 3;
+      const y = slot === 0 ? bulb.top + radius + 3 : slot === 1 ? bulb.bottom - radius - 3 : bulbCY;
       blobs.push({
         hex,
         radius,
@@ -181,15 +205,18 @@
       message = { text, color, framesLeft: frames, totalFrames: frames };
     }
 
-    // Picking a color while 2 are already in the lamp (whether still
+    // Picking a color while MAX_PICKS are already in the lamp (whether still
     // floating, mid-merge, or already resolved) clears the lamp first and
     // this pick becomes the new lone "first" color — same rule at every step.
+    // Once 2 are in, every further pour restarts the mix countdown, so the
+    // player gets a full fresh window to add a 3rd color if the recipe needs
+    // one instead of it being cut off right as they add it.
     function pickColor(id) {
-      if (picks.length >= 2) startNewRound(true);
+      if (picks.length >= MAX_PICKS) startNewRound(true);
       picks.push(id);
-      spawnBlob(colorById(id).hex, picks.length === 1);
+      spawnBlob(colorById(id).hex, picks.length - 1);
       sound.pick();
-      if (picks.length === 2) mixFramesLeft = MIX_DELAY_FRAMES;
+      if (picks.length >= 2) mixFramesLeft = MIX_DELAY_FRAMES;
     }
 
     function updateBlob(b, dt) {
@@ -212,12 +239,11 @@
     }
 
     function startMerge() {
-      const [a, b] = blobs;
-      const resultHex = blendHex(a.hex, b.hex);
-      const sortedPicks = [...picks].sort();
-      const sortedTarget = [...target.pair].sort();
-      const correct = sortedPicks[0] === sortedTarget[0] && sortedPicks[1] === sortedTarget[1];
-      merge = { t: 0, duration: 36, from: [{ ...a }, { ...b }], resultHex, correct };
+      const resultHex = blendMany(blobs.map((b) => b.hex));
+      const sortedPicks = [...picks].sort().join(",");
+      const sortedTarget = [...target.pair].sort().join(",");
+      const correct = sortedPicks === sortedTarget;
+      merge = { t: 0, duration: 36, from: blobs.map((b) => ({ ...b })), resultHex, correct };
       sound.mix();
     }
 
@@ -257,7 +283,7 @@
         if (merge.t >= 1) finishMerge();
       } else {
         blobs.forEach((b) => updateBlob(b, dt));
-        if (picks.length === 2 && mixFramesLeft > 0) {
+        if (picks.length >= 2 && mixFramesLeft > 0) {
           mixFramesLeft -= dt;
           if (mixFramesLeft <= 0) startMerge();
         }
@@ -309,6 +335,11 @@
       ctx.arc(cx, cy, size / 2 - 12, 0, Math.PI * 2);
       ctx.fillStyle = color.hex;
       ctx.fill();
+      // A faint ring so black (and dark blends) still read as a distinct
+      // circle against the navy card behind it, not just a void.
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = "rgba(255,255,255,0.3)";
+      ctx.stroke();
       ctx.restore();
       ctx.fillStyle = "#f6dcac";
       ctx.font = "13px sans-serif";
@@ -535,6 +566,6 @@
   window.STEGO_GAMES.lavalamp = {
     title: "Lavalamp",
     start: startLavalamp,
-    controlsHint: "Click a color to pour it into the lamp — match the color shown up top",
+    controlsHint: "Click up to three colors to pour into the lamp — match the color shown up top",
   };
 })();
