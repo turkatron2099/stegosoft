@@ -7,20 +7,40 @@
     { id: "white", hex: "#ffffff", label: "White" },
   ];
 
-  // Every color the player might be asked to make. Most are 2-ingredient
-  // (a secondary, or a primary lightened/darkened with white/black); the
-  // secondary tints/shades need all 3 — a primary pair plus white or black —
-  // which is why the lamp now accepts up to 3 colors instead of 2.
-  const TARGETS = [
+  // Shared between both difficulties — the plain secondaries mean the same
+  // thing (two different primaries) whichever mode asks for them.
+  const ORANGE = { id: "orange", label: "Orange", pair: ["red", "yellow"] };
+  const GREEN = { id: "green", label: "Green", pair: ["yellow", "blue"] };
+  const PURPLE = { id: "purple", label: "Purple", pair: ["red", "blue"] };
+
+  // Easy: only red/yellow/blue, only 2 pours, and everything asked for is
+  // either a secondary (two different primaries) or a primary itself — made
+  // by pouring the same primary in twice, since there's no separate "just
+  // one color" recipe length in this engine.
+  const EASY_TARGETS = [
+    { id: "primaryRed", label: "Red", pair: ["red", "red"] },
+    { id: "primaryYellow", label: "Yellow", pair: ["yellow", "yellow"] },
+    { id: "primaryBlue", label: "Blue", pair: ["blue", "blue"] },
+    ORANGE,
+    GREEN,
+    PURPLE,
+  ];
+
+  // Hard: every color the player might be asked to make, including black
+  // and white. Most are 2-ingredient (a secondary, or a primary lightened/
+  // darkened with white/black); the secondary tints/shades need all 3 — a
+  // primary pair plus white or black — which is why hard mode accepts up to
+  // 3 colors instead of 2.
+  const HARD_TARGETS = [
     { id: "lightRed", label: "Pink", pair: ["red", "white"] },
     { id: "darkRed", label: "Dark Red", pair: ["red", "black"] },
     { id: "lightYellow", label: "Light Yellow", pair: ["yellow", "white"] },
     { id: "darkYellow", label: "Dark Yellow", pair: ["yellow", "black"] },
     { id: "lightBlue", label: "Light Blue", pair: ["blue", "white"] },
     { id: "darkBlue", label: "Dark Blue", pair: ["blue", "black"] },
-    { id: "orange", label: "Orange", pair: ["red", "yellow"] },
-    { id: "green", label: "Green", pair: ["yellow", "blue"] },
-    { id: "purple", label: "Purple", pair: ["red", "blue"] },
+    ORANGE,
+    GREEN,
+    PURPLE,
     { id: "lightOrange", label: "Light Orange", pair: ["red", "yellow", "white"] },
     { id: "darkOrange", label: "Dark Orange", pair: ["red", "yellow", "black"] },
     { id: "lightGreen", label: "Light Green", pair: ["yellow", "blue", "white"] },
@@ -89,7 +109,7 @@
   // to make" always matches what mixing those base colors actually produces
   // in the lamp — correctness below just compares the picked id set to
   // target.pair rather than doing any float color-distance check.
-  TARGETS.forEach((t) => {
+  [...EASY_TARGETS, ...HARD_TARGETS].forEach((t) => {
     t.hex = blendIds(t.pair);
   });
 
@@ -166,6 +186,7 @@
     ctx.imageSmoothingEnabled = false; // keep the pixel-art lamp crisp when scaled up
 
     let state = "start"; // start, playing
+    let mode = null; // "easy" or "hard", set by the title-screen buttons
     let clickTargets = [];
     let running = true;
     let rafId;
@@ -190,18 +211,30 @@
     const bulbCY = (bulb.top + bulb.bottom) / 2;
 
     let target = null;
-    let picks = []; // up to MAX_PICKS base-color ids currently in the lamp
+    let picks = []; // up to maxPicks() base-color ids currently in the lamp
     let blobs = [];
     let mixFramesLeft = 0;
     let resolved = false; // true once a mix has finished and settled into a single result
-    const MAX_PICKS = 3;
     const MIX_DELAY_FRAMES = 180; // ~3s at the 60fps-equivalent dt unit used below, restarted on every pour
     let merge = null; // { t, duration, from: [blobSnapshot, ...], resultHex, correct }
     let message = null; // { text, color, framesLeft, totalFrames }
     let advanceTimeoutId = null;
 
+    // Easy: 2-color pours only, from EASY_TARGETS. Hard: up to 3, from the
+    // full HARD_TARGETS (light/dark tints/shades, black/white included).
+    function maxPicks() {
+      return mode === "easy" ? 2 : 3;
+    }
+    function targetPool() {
+      return mode === "easy" ? EASY_TARGETS : HARD_TARGETS;
+    }
+    function activeColors() {
+      return mode === "easy" ? BASE_COLORS.slice(0, 3) : BASE_COLORS;
+    }
+
     function pickRandomTarget(excludeId) {
-      const options = excludeId ? TARGETS.filter((t) => t.id !== excludeId) : TARGETS;
+      const pool = targetPool();
+      const options = excludeId ? pool.filter((t) => t.id !== excludeId) : pool;
       return options[Math.floor(Math.random() * options.length)];
     }
 
@@ -244,10 +277,11 @@
     // wrong) always clears the lamp first, even after just 2 colors — the
     // player doesn't get to keep adding onto an already-resolved mix. While
     // still building up to that (2 colors, floating, not yet resolved), a
-    // pour is still treated as reaching for a 3rd ingredient; only hitting
-    // MAX_PICKS unresolved also clears, same as an already-resolved pour.
+    // pour is still treated as reaching for a 3rd ingredient in hard mode;
+    // only hitting the mode's cap unresolved also clears, same as an
+    // already-resolved pour.
     function pickColor(id) {
-      if (resolved || picks.length >= MAX_PICKS) startNewRound(true);
+      if (resolved || picks.length >= maxPicks()) startNewRound(true);
       picks.push(id);
       spawnBlob(colorById(id).hex, picks.length - 1);
       sound.pick();
@@ -445,21 +479,28 @@
       ctx.strokeText("LAVALAMP", W / 2, 90);
       ctx.fillText("LAVALAMP", W / 2, 90);
 
-      button(
-        W / 2 - 90,
-        155,
-        180,
-        56,
-        () => {
-          state = "playing";
-          startNewRound(false);
-        },
-        "#e63946"
-      );
+      function chooseMode(chosen) {
+        mode = chosen;
+        state = "playing";
+        startNewRound(false);
+      }
+
+      const btnW = 150;
+      const btnGap = 20;
+      const btnY = 155;
+      const btnH = 56;
+      const totalBtnW = btnW * 2 + btnGap;
+      const easyX = W / 2 - totalBtnW / 2;
+      const hardX = easyX + btnW + btnGap;
+
+      button(easyX, btnY, btnW, btnH, () => chooseMode("easy"), "#3fa34d");
+      button(hardX, btnY, btnW, btnH, () => chooseMode("hard"), "#e63946");
+
       ctx.fillStyle = "#fff";
       ctx.font = "bold 26px sans-serif";
       ctx.textBaseline = "middle";
-      ctx.fillText("START", W / 2, 183);
+      ctx.fillText("EASY", easyX + btnW / 2, btnY + btnH / 2);
+      ctx.fillText("HARD", hardX + btnW / 2, btnY + btnH / 2);
     }
 
     function drawPlayingScreen() {
@@ -519,12 +560,13 @@
         ctx.fillText(message.text, W / 2, by + bh / 2);
       }
 
+      const colors = activeColors();
       const btnSize = 56;
       const gap = 24;
-      const totalW = BASE_COLORS.length * btnSize + (BASE_COLORS.length - 1) * gap;
+      const totalW = colors.length * btnSize + (colors.length - 1) * gap;
       const startX = (W - totalW) / 2;
       const btnY = 396;
-      BASE_COLORS.forEach((c, i) => {
+      colors.forEach((c, i) => {
         drawColorButton(startX + i * (btnSize + gap), btnY, btnSize, c);
       });
     }
@@ -602,6 +644,6 @@
   window.STEGO_GAMES.lavalamp = {
     title: "Lavalamp",
     start: startLavalamp,
-    controlsHint: "Click up to three colors to pour into the lamp — match the color shown up top",
+    controlsHint: "Click colors to pour into the lamp — match the color shown up top",
   };
 })();
