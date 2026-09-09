@@ -156,47 +156,92 @@
     rafId = requestAnimationFrame(tick);
   }
 
-  // Builds a red/cyan anaglyph straight from the original artwork: two
-  // copies of the logo, shifted a few pixels in opposite directions, one
-  // keeping only its red channel and one keeping only green+blue — the same
-  // split a pair of anaglyph glasses pulls back apart — combined with
-  // "lighter" (additive) blending.
+  // Traces the artwork down to just its edges — a Sobel filter over
+  // grayscale luminance, thresholded to a hard line/no-line cutoff — then
+  // draws only the "line" pixels, opaque, onto an otherwise fully
+  // transparent canvas. That transparency is what makes this a genuinely
+  // different anaglyph technique from a plain color-photo one (see
+  // buildAnaglyphLogoSrc below): once color is gone, alpha *is* the
+  // drawing, the same as starship-dogfight.js's vector shapes.
   //
-  // This is different from starship-dogfight.js's drawAnaglyphFrame, which
-  // isolates color via "destination-in" against a flat fill: that works
-  // there because the source (stars/ships on an otherwise transparent
-  // canvas) has meaningful *alpha* to key off. The logo source is an opaque
-  // JPEG — alpha is 1 everywhere — so "destination-in" would just carve out
-  // a plain white rectangle and throw away all the actual artwork color.
-  // Isolating a channel here instead means "multiply", which needs its own
-  // fix-up: multiplying by an opaque fill also opacifies the transparent
-  // sliver at the shifted-off edge (where this copy has no image data), so
-  // a second "destination-in" pass re-clips alpha back down to match.
+  // Works from a downscaled copy (with a touch of blur) rather than the
+  // full-resolution source: edges from a photo/JPEG at full detail come out
+  // thin and noisy (compression artifacts, fine gradients), where working
+  // at a fraction of the size acts as a cheap low-pass filter first, giving
+  // fewer, bolder, more genuinely "line art" lines — plenty of resolution
+  // either way for a ~140px on-screen logo.
+  function buildLineArtCanvas() {
+    const workW = 480;
+    const workH = Math.round(workW * (logo.naturalHeight / logo.naturalWidth));
+
+    const small = document.createElement("canvas");
+    small.width = workW;
+    small.height = workH;
+    const smallCtx = small.getContext("2d");
+    smallCtx.filter = "blur(1px)";
+    smallCtx.drawImage(logo, 0, 0, workW, workH);
+
+    const src = smallCtx.getImageData(0, 0, workW, workH).data;
+    const gray = new Float32Array(workW * workH);
+    for (let i = 0, o = 0; i < gray.length; i++, o += 4) {
+      gray[i] = 0.299 * src[o] + 0.587 * src[o + 1] + 0.114 * src[o + 2];
+    }
+
+    const THRESHOLD = 340; // tuned against this specific artwork for ~8% ink coverage — a clean line-art density, not a noisy near-solid fill
+    const line = document.createElement("canvas");
+    line.width = workW;
+    line.height = workH;
+    const lineCtx = line.getContext("2d");
+    const out = lineCtx.createImageData(workW, workH);
+    for (let y = 1; y < workH - 1; y++) {
+      for (let x = 1; x < workW - 1; x++) {
+        const i = y * workW + x;
+        // Standard 3x3 Sobel kernels for the horizontal/vertical gradients.
+        const gx =
+          -gray[i - workW - 1] + gray[i - workW + 1] -
+          2 * gray[i - 1] + 2 * gray[i + 1] -
+          gray[i + workW - 1] + gray[i + workW + 1];
+        const gy =
+          -gray[i - workW - 1] - 2 * gray[i - workW] - gray[i - workW + 1] +
+          gray[i + workW - 1] + 2 * gray[i + workW] + gray[i + workW + 1];
+        if (Math.sqrt(gx * gx + gy * gy) > THRESHOLD) {
+          const o = i * 4;
+          out.data[o] = 255;
+          out.data[o + 1] = 255;
+          out.data[o + 2] = 255;
+          out.data[o + 3] = 255; // opaque line pixel — everything else stays alpha 0
+        }
+      }
+    }
+    lineCtx.putImageData(out, 0, 0);
+    return { canvas: line, w: workW, h: workH };
+  }
+
+  // Builds a red/cyan anaglyph from the line art above: two copies, shifted
+  // a few pixels in opposite directions, each clipped to a flat fill color
+  // via "destination-in" (which keys off alpha — correct here since the
+  // line art's only content *is* its alpha), combined with "lighter"
+  // (additive) blending. That's the same red/cyan separation a pair of
+  // anaglyph glasses splits apart. Built once and cached as a data URL — the
+  // artwork never changes, so there's no reason to redo the canvas work
+  // (edge detection included) on every settle.
   let anaglyphLogoSrc = null;
 
   function buildAnaglyphLogoSrc() {
-    const w = logo.naturalWidth;
-    const h = logo.naturalHeight;
+    const { canvas: scene, w, h } = buildLineArtCanvas();
     // ~2.8% of width lands the fringing somewhere clearly visible once the
     // logo is scaled down to its ~140px on-screen size, without it reading
     // as blurry double vision at full resolution.
-    const offset = Math.max(4, Math.round(w * 0.028));
-
-    const scene = document.createElement("canvas");
-    scene.width = w;
-    scene.height = h;
-    scene.getContext("2d").drawImage(logo, 0, 0, w, h);
+    const offset = Math.max(2, Math.round(w * 0.028));
 
     const eye = document.createElement("canvas");
     eye.width = w;
     eye.height = h;
     const eyeCtx = eye.getContext("2d");
-    function layer(channelColor, dx) {
+    function layer(color, dx) {
       eyeCtx.clearRect(0, 0, w, h);
       eyeCtx.globalCompositeOperation = "source-over";
-      eyeCtx.drawImage(scene, dx, 0, w, h);
-      eyeCtx.globalCompositeOperation = "multiply";
-      eyeCtx.fillStyle = channelColor;
+      eyeCtx.fillStyle = color;
       eyeCtx.fillRect(0, 0, w, h);
       eyeCtx.globalCompositeOperation = "destination-in";
       eyeCtx.drawImage(scene, dx, 0, w, h);
