@@ -14,7 +14,8 @@
   const clearBtn = document.getElementById("clear-btn");
   const combineBtn = document.getElementById("combine-btn");
 
-  const PAGE_MARGIN_PT = 54; // 0.75in
+  const PAGE_MARGIN_PT = 54; // 0.75in — used for text pages, where it aids readability
+  const IMAGE_MARGIN_PT = 12; // 1/6in — images don't need a reading margin, just a slim border
 
   // Files the user has added, in the order they'll appear in the combined
   // PDF. Each entry keeps its own convert function so converterFor() only
@@ -98,8 +99,8 @@
 
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
-    const maxW = pageWidth - PAGE_MARGIN_PT * 2;
-    const maxH = pageHeight - PAGE_MARGIN_PT * 2;
+    const maxW = pageWidth - IMAGE_MARGIN_PT * 2;
+    const maxH = pageHeight - IMAGE_MARGIN_PT * 2;
     const ratio = Math.min(maxW / canvas.width, maxH / canvas.height);
     const w = canvas.width * ratio;
     const h = canvas.height * ratio;
