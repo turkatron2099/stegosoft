@@ -1,78 +1,6 @@
 {
-  "generatedAt": "2026-09-09T12:59:05.870Z",
+  "generatedAt": "2026-09-09T19:18:01.451Z",
   "items": [
-    {
-      "title": "Man told ChatGPT he was feeling delusional. ChatGPT insisted he was Jesus.",
-      "link": "https://arstechnica.com/tech-policy/2026/09/man-told-chatgpt-he-was-feeling-delusional-chatgpt-insisted-he-was-jesus/",
-      "summary": "Man with bipolar disorder sued OpenAI after surviving ChatGPT-linked suicide attempt.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-09T11:00:10.000Z"
-    },
-    {
-      "title": "Star Trek Turns 60",
-      "link": "https://entertainment.slashdot.org/story/26/09/09/0113229/star-trek-turns-60?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"Star Trek\" marks its 60th anniversary today, September 8, six decades after the original series premiered in 1966 and went on to become one of the most successful science-fiction franchises in television history.…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T03:30:00.000Z"
-    },
-    {
-      "title": "10 Best New Sci-Fi and Fantasy Books to Read Fall 2026",
-      "link": "https://www.polygon.com/best-sci-fi-fantasy-books-fall-2026/",
-      "summary": "Rebecca Yarros, Brandon Sanderson, and Stephen King all have new releases",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T12:00:14.000Z"
-    },
-    {
-      "title": "Were the Greek Gods Actually Minoan?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/were-greek-gods-actually-minoan/",
-      "summary": "Long before the world of classical Greece, the island of Crete was home to the Minoans, one of the great civilizations of the Bronze Age Mediterranean.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-07T10:45:16.000Z"
-    },
-    {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-06T11:00:21.000Z"
-    },
-    {
-      "title": "'VisionQuest' Showrunner Reveals How His Mysterious Sci-Fi Series Connects to the MCU",
-      "link": "https://www.polygon.com/visionquest-showrunner-interview-terry-matalas/",
-      "summary": "Terry Matalas talks Vision, Ultron, and what you need to watch before Marvel's VisionQuest",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T11:00:14.000Z"
-    },
-    {
-      "title": "The Temple on Mount Gerizim—In the Bible and Archaeology",
-      "link": "https://www.biblicalarchaeology.org/daily/the-temple-on-mount-gerizim-in-the-bible-and-archaeology/",
-      "summary": "Temples have been found throughout the ancient Near East. What went on at these sites? Along with reconstructing architectural remains, can scholars piece together ancient worship practices?",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-08T11:00:05.000Z"
-    },
-    {
-      "title": "Deciphered Dead Sea Scroll Reveals 364-Day Calendar",
-      "link": "https://www.biblicalarchaeology.org/daily/news/qumran-community-364-day-calendar/",
-      "summary": "Researchers recently deciphered one of the last two remaining Dead Sea Scrolls. Written in code, the scroll describes a 364-day calendar used by the Qumran community that lived in the Judean Desert.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-08T11:00:19.000Z"
-    },
-    {
-      "title": "South Park, Dexter Returns, NCIS: Origins & More: BCTV Daily Dispatch",
-      "link": "https://bleedingcool.com/tv/south-park-dexter-returns-ncis-origins-more-bctv-daily-dispatch/",
-      "summary": "In today's BCTV Daily Dispatch: Lanterns, NCIS: Origins, SNL UK, AHS 13, Will Trent, The Rookie, South Park, Dexter: Resurrection, and more!",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-09T11:37:08.000Z"
-    },
     {
       "title": "Tracing the Justinian Plague",
       "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/tracing-the-justinian-plague/",
@@ -80,46 +8,6 @@
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
       "date": "2026-09-09T10:00:08.000Z"
-    },
-    {
-      "title": "Farming Simulator 25 Releases Free Pumps N' Hoses Pack",
-      "link": "https://bleedingcool.com/games/farming-simulator-25-releases-free-pumps-n-hoses-pack/",
-      "summary": "Farming Simulator 25 has a ton of new content available for free, as the developers have released the Pumps N' Hoses Pack this week.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-09T12:42:09.000Z"
-    },
-    {
-      "title": "Feds Accuse China of 'Systematic' Distillation of US AI Models",
-      "link": "https://slashdot.org/story/26/09/08/220242/feds-accuse-china-of-systematic-distillation-of-us-ai-models?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The NSA, CISA, and FBI are accusing (PDF) several Chinese AI companies of carrying out \"industrial-scale\" distillation campaigns against leading U.S. models such as ChatGPT, Claude, Gemini, and Grok. Since at least…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-08T22:02:00.000Z"
-    },
-    {
-      "title": "The Division 2's New Echoes of Central Park DLC Isn't Setup for The Division 3",
-      "link": "https://www.polygon.com/division-2-echoes-central-park-interview/",
-      "summary": "Echoes of Central Park, the upcoming DLC for The Division 2, brings the series to a brand-new location, its director told Polygon in a new interview.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T12:00:14.000Z"
-    },
-    {
-      "title": "Miliband rejects chief rabbi's claim British Jews in greater danger after sanctions move",
-      "link": "https://www.bbc.co.uk/news/articles/ce9e3djdz94o?at_medium=RSS&at_campaign=rss",
-      "summary": "The foreign secretary disagrees with the UK's chief rabbi who warns sanctions on Israeli settlements could put British Jews at greater risk.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-09T12:40:12.000Z"
-    },
-    {
-      "title": "The Legend of Zelda: Ocarina of Time Remake Preorders Are Finally Live in the UK",
-      "link": "https://www.ign.com/articles/zelda-ocarina-of-time-remake-uk-preorders",
-      "summary": "Preorders for The Legend of Zelda: Ocarina of Time Remake are now live in the UK on Nintendo Switch 2, featuring exclusive bonuses and a textured foil sleeve.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-09T11:44:11.000Z"
     },
     {
       "title": "U.S. Agencies Accuse China AI Firms of Distilling Claude, GPT, Gemini, and Grok",
@@ -130,44 +18,12 @@
       "date": "2026-09-09T09:32:26.000Z"
     },
     {
-      "title": "Avatar’s Creators Officially Reveal When 'Seven Havens' Takes Place After 'Legend Of Korra'",
-      "link": "https://www.polygon.com/avatar-seven-havens-team-reveals-the-sequels-timeline-after-korra-and-much-more/",
-      "summary": "Michael Dante DiMartino and his two EPs explain how the world of Airbender evolved into Paramount Plus' new show.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T12:30:14.000Z"
-    },
-    {
-      "title": "Google Will 'Degrade' Search In Europe to Avoid EU Fines",
-      "link": "https://search.slashdot.org/story/26/09/08/2214256/google-will-degrade-search-in-europe-to-avoid-eu-fines?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Google says it will overhaul Search in Europe to comply with the EU's Digital Markets Act, giving more prominence to comparison services like Expedia and Hotels.com while stripping some real-time features from hotel,…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-08T23:00:00.000Z"
-    },
-    {
-      "title": "Chrome V8 Zero-Day Exploited in the Wild Enables Code Execution Inside Sandbox",
-      "link": "https://thehackernews.com/2026/09/chrome-v8-zero-day-exploited-in-wild.html",
-      "summary": "Google on Thursday released updates to patch 230 security vulnerabilities, including one that has come under active exploitation in the wild. The medium-severity vulnerability, assigned the CVE identifier CVE-2026-87491…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T09:11:03.000Z"
-    },
-    {
-      "title": "Webinar: Learn How to Answer “Are We Exposed?” Faster After a New CVE",
-      "link": "https://thehackernews.com/2026/09/webinar-learn-how-to-answer-are-we.html",
-      "summary": "A major vulnerability is disclosed. The alert lands immediately. Then comes the harder question: Are we actually exposed? For many security teams, answering that means jumping between vulnerability scanners, endpoint…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T11:57:36.000Z"
-    },
-    {
-      "title": "A Star Wars Fan Shows Off His Autographed Kenner Figure Collection, And Some Of Them Are Absolute Gems",
-      "link": "https://comicbook.com/collectibles/news/a-star-wars-fan-shows-off-his-autographed-kenner-figure-collection-and-some-of-them-are-absolute-gems/",
-      "summary": "The rarity and quality of a vintage action figure are the biggest contributing factors to its value. Figures which are extremely hard to find tend to go for thousands of dollars, with their value only appreciating in…",
+      "title": "3 Classic X-Men Villains That Would Be Perfect for the MCU in 2028, And Haven’t Been Done to Death",
+      "link": "https://comicbook.com/movies/list/3-classic-x-men-villains-that-would-be-perfect-for-the-mcu-in-2028-and-havent-been-done-to-death/",
+      "summary": "Image Courtesy of Marvel Comics The X-Men have no shortage of iconic villains. There’s Magneto, Apocalypse, Dark Phoenix, Mystique, Sabretooth… and at this point, it feels like they all secretly had the mutant power to…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-09T12:00:00.000Z"
+      "date": "2026-09-09T19:15:00.000Z"
     },
     {
       "title": "Sacred Circles in Christianity and Buddhism",
@@ -178,44 +34,12 @@
       "date": "2026-09-09T10:45:42.000Z"
     },
     {
-      "title": "New cPanel Flaw Lets a Hosting Account With Mail Privileges Run Code as Root",
-      "link": "https://thehackernews.com/2026/09/new-cpanel-flaw-lets-hosting-account.html",
-      "summary": "cPanel has patched a flaw that it says lets a single hosting account take control of an entire server. An authenticated account holder with mail-related privileges can create files of their choosing on the server…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T08:19:32.000Z"
-    },
-    {
-      "title": "Google's Revived Nuclear Power Plant Gets $1.9 Billion Loan From US Government",
-      "link": "https://hardware.slashdot.org/story/26/09/09/0553205/googles-revived-nuclear-power-plant-gets-19-billion-loan-from-us-government?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The U.S. Department of Energy has approved a $1.9 billion loan to NextEra Energy to restart Iowa's shuttered Duane Arnold nuclear plant, which Google has backed as a power source for its growing AI infrastructure. \"The…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T11:00:00.000Z"
-    },
-    {
-      "title": "SteelSeries Unveils The Brand-New Aeon Pro Controller",
-      "link": "https://bleedingcool.com/pop-culture/steelseries-unveils-the-brand-new-aeon-pro-controller/",
-      "summary": "SteelSeries has released an all-new game controller this week called the Aeon Pro, giving the previous model a complete upgrade.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-09T12:32:09.000Z"
-    },
-    {
-      "title": "Alby Hub Critical Flaw Could Let Attackers Take Over Internet-Exposed Bitcoin Wallets",
-      "link": "https://thehackernews.com/2026/09/alby-hub-critical-flaw-could-let.html",
-      "summary": "Bitcoin wallet company Alby has warned of a critical flaw in Alby Hub that could have let an attacker take over a wallet and send its funds, but only where the owner had made the Hub reachable from the internet. Alby…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T10:43:04.000Z"
-    },
-    {
-      "title": "Nintendo Direct September 2026 Live Report: All the Announcements as They Happen",
-      "link": "https://www.ign.com/articles/nintendo-direct-september-2026-live-report-all-the-announcements-as-they-happen",
-      "summary": "Hot on the heels of yesterday’s The Legend of Zelda 40th Anniversary Direct, we have a brand new Nintendo Direct — and IGN will be reporting all the news live right here.",
-      "source": "IGN",
+      "title": "New Pokémon Confirmed For 'Pokémon Pokopia' In Stylish New Preview",
+      "link": "https://www.polygon.com/pokemon-pokopia-dlc-nintendo-direct-switch-2-new-monsters-items/",
+      "summary": "Switch 2 owners who purchase the Pokopia Expansion Pass have much to look forward to in the DLC according to the recent Nintendo DIrect",
+      "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-09T12:14:57.000Z"
+      "date": "2026-09-09T18:48:27.000Z"
     },
     {
       "title": "DeepSeek Harness Flaw Let AI Agents Disable Their Own File Sandbox Without Approval",
@@ -226,36 +50,212 @@
       "date": "2026-09-09T11:17:07.000Z"
     },
     {
-      "title": "Artificial: Teaser Trailer Now That NEON Has Distribution Rights",
-      "link": "https://bleedingcool.com/movies/artificial-teaser-trailer-now-that-neon-has-distribution-rights/",
-      "summary": "NEON secured the distribution rights for Luca Guadagnino's Artificial in July. This week, a teaser trailer has been released with a limited Christmas Day release confirmed.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-09T12:18:09.000Z"
+      "title": "Nintendo Is Quietly Putting Together a Killer 2027",
+      "link": "https://www.polygon.com/nintendo-switch-2-2027-lineup/",
+      "summary": "Nintendo's September Direct gave us a better idea of what its 2027 will look like, and its surprisingly packed already.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T18:00:14.000Z"
     },
     {
-      "title": "OpenAI Says It Has Cracked One of Math's 'Millennium Problems'",
-      "link": "https://science.slashdot.org/story/26/09/08/2228220/openai-says-it-has-cracked-one-of-maths-millennium-problems?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from The New York Times: OpenAIsaid on Tuesday that its newest artificial intelligence technology had solved one of the \"Millennium Problems,\" a collection of important unanswered…",
+      "title": "Apple Unveils the iPhone Duo, Its First Foldable iPhone",
+      "link": "https://mobile.slashdot.org/story/26/09/09/1821247/apple-unveils-the-iphone-duo-its-first-foldable-iphone?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "At its September event today, Apple unveiled the iPhone Duo, its first foldable iPhone and one of the biggest changes to the device's form factor since its debut. Starting at $1,999 and available for preorder beginning…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-09T07:00:00.000Z"
+      "date": "2026-09-09T18:22:00.000Z"
     },
     {
-      "title": "Actor Noel Clarke charged with sexual offences",
-      "link": "https://www.bbc.co.uk/news/articles/c86x0y3wd9do?at_medium=RSS&at_campaign=rss",
-      "summary": "He has been charged with sexual offences including sexual assault, voyeurism and exposure.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-09T12:51:24.000Z"
+      "title": "Infostealer Logs Expose Replayable AI Tokens That Can Bypass MFA",
+      "link": "https://thehackernews.com/2026/09/infostealer-logs-expose-replayable-ai.html",
+      "summary": "Cybercriminals are hijacking artificial intelligence (AI) user accounts via information stealer logs to create \"stolen keys\" that grant illicit access to tools from model providers like Google, Anthropic, and others.…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T14:23:55.000Z"
     },
     {
-      "title": "Powerpuff Girls: Kane Embraced Fatherhood like Prof. Utonium: Daily",
-      "link": "https://bleedingcool.com/tv/powerpuff-girls-kane-embraced-fatherhood-like-prof-utonium-daily/",
-      "summary": "The Powerpuff Girls star E.G. Daily on how late co-star Tom Kane was every bit as loving a father as his character Professor Utonium.",
+      "title": "2026’s Most Divisive Sci-Fi Movie Confirms Streaming Premiere Date, Just in Time for Halloween",
+      "link": "https://comicbook.com/movies/news/2026s-most-divisive-sci-fi-movie-confirms-streaming-premiere-date-just-in-time-for-halloween/",
+      "summary": "Universal Pictures We’re at that point in 2026 when the movies released in the first half of the year are making their way onto streaming platforms. Halloween season is quickly approaching, so viewers will start looking…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-09T18:54:56.000Z"
+    },
+    {
+      "title": "GOG Brings Back 'Big Box' PC Games, One Printable Template At a Time",
+      "link": "https://hardware.slashdot.org/story/26/09/09/0618254/gog-brings-back-big-box-pc-games-one-printable-template-at-a-time?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from Ars Technica: Those who remember PC gaming in the days before Steam may have fond memories of the \"big box\" packaging that made those games stand out as shelf eye candy and…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T15:00:00.000Z"
+    },
+    {
+      "title": "'Nosferatu' Director's New Gothic Thriller Is Already the Biggest Horror Movie of 2026",
+      "link": "https://www.polygon.com/robert-eggers-interview-werwulf/",
+      "summary": "Nosferatu's Robert Eggers goes deeper into the darkness with Werwulf: 'The forest has its own rules'",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T19:00:14.000Z"
+    },
+    {
+      "title": "Apple Launches iPhone 18 Pro With Variable-Aperture Camera System",
+      "link": "https://hardware.slashdot.org/story/26/09/09/1837238/apple-launches-iphone-18-pro-with-variable-aperture-camera-system?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Apple's iPhone 18 Pro and Pro Max were announced today and keep last year's overall design but put the emphasis on camera upgrades, including a 48-megapixel variable-aperture system, new manual controls, and 4K Dolby…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T19:00:00.000Z"
+    },
+    {
+      "title": "MTV VMAs 2026 Set to Honor Nirvana with Video Vanguard Award",
+      "link": "https://bleedingcool.com/tv/mtv-vmas-2026-set-to-honor-nirvana-with-video-vanguard-award/",
+      "summary": "Nirvana will be the recipient of this year's Video Vanguard Award when the MTV VMAs hit CBS, MTV, and Paramount+ on Sunday, September 27th.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-09T12:37:07.000Z"
+      "date": "2026-09-09T18:29:11.000Z"
+    },
+    {
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-06T11:00:21.000Z"
+    },
+    {
+      "title": "Eldrazi Officially Return to 'Magic: The Gathering' in a Way Players Didn’t Expect",
+      "link": "https://www.polygon.com/mtg-reality-fracture-leaks-emrakul-spoilers-trapped-in-the-moon/",
+      "summary": "Emrakul returns in MTG’s Reality Fracture story and a new card, potentially setting up the Eldrazi titan to destroy Jace’s Echoverse.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T18:33:19.000Z"
+    },
+    {
+      "title": "Deciphered Dead Sea Scroll Reveals 364-Day Calendar",
+      "link": "https://www.biblicalarchaeology.org/daily/news/qumran-community-364-day-calendar/",
+      "summary": "Researchers recently deciphered one of the last two remaining Dead Sea Scrolls. Written in code, the scroll describes a 364-day calendar used by the Qumran community that lived in the Judean Desert.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-08T11:00:19.000Z"
+    },
+    {
+      "title": "Microsoft Breaks Another Patch Tuesday Record",
+      "link": "https://it.slashdot.org/story/26/09/09/0626256/microsoft-breaks-another-patch-tuesday-record?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Microsoft's September 2026 Patch Tuesday is its largest ever, fixing a record 966 vulnerabilities, including 105 rated critical and two zero-days already being exploited in attacks. BleepingComputer reports: This Patch…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T16:00:00.000Z"
+    },
+    {
+      "title": "NOAA is putting commercial fishing ahead of conservation",
+      "link": "https://arstechnica.com/science/2026/09/noaa-is-putting-commercial-fishing-ahead-of-conservation/",
+      "summary": "Critics say the new agenda could weaken science-based rules and marine protections.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-09T13:58:44.000Z"
+    },
+    {
+      "title": "Identity-Based AI Attack Threatens Security of Enterprise Data",
+      "link": "https://www.darkreading.com/threat-intelligence/identity-based-ai-attack-security-enterprise-data",
+      "summary": "\"Workflow identity hijacking\" can bypass standard security controls and hijack an organization's data by sending a basic request through an unauthenticated entry point.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T14:39:44.000Z"
+    },
+    {
+      "title": "Beloved Fantasy Book Series Redfall Officially Returns in 2027",
+      "link": "https://www.polygon.com/redwall-orphans-of-mossflower-final-book-release-date-announced/",
+      "summary": "Redwall series announces final book, Orphans of Mossflower, 15 years after the author's death and sets a 2027 release",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T18:08:25.000Z"
+    },
+    {
+      "title": "What time does Marvel Rivals Season 10 release in your time zone?",
+      "link": "https://www.polygon.com/marvel-rivals-season-10-release-time-when-edt-pdt-utc/",
+      "summary": "Gorr is joining the battle in Marvel Rivals Season 10. Here's what time the new season will be released in your time zone.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T17:52:47.000Z"
+    },
+    {
+      "title": "Fold the phone: Apple's new CEO unveils a foldable iPhone",
+      "link": "https://www.npr.org/2026/09/09/nx-s1-5961487/apple-duo-foldable-iphone-john-ternus",
+      "summary": "New Apple CEO John Ternus announces the iPhone Duo, which folds like a passport and is the most radical iPhone design update in nearly 20 years.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-09-09T18:39:57.000Z"
+    },
+    {
+      "title": "The Temple on Mount Gerizim—In the Bible and Archaeology",
+      "link": "https://www.biblicalarchaeology.org/daily/the-temple-on-mount-gerizim-in-the-bible-and-archaeology/",
+      "summary": "Temples have been found throughout the ancient Near East. What went on at these sites? Along with reconstructing architectural remains, can scholars piece together ancient worship practices?",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-08T11:00:05.000Z"
+    },
+    {
+      "title": "Man told ChatGPT he was feeling delusional. ChatGPT insisted he was Jesus.",
+      "link": "https://arstechnica.com/tech-policy/2026/09/man-told-chatgpt-he-was-feeling-delusional-chatgpt-insisted-he-was-jesus/",
+      "summary": "Man with bipolar disorder sued OpenAI after surviving ChatGPT-linked suicide attempt.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-09T11:00:10.000Z"
+    },
+    {
+      "title": "PlayStation’s Response to Mario and Sonic Debuted 30 Years Ago, But Never Came Close to Reaching the Same Heights",
+      "link": "https://comicbook.com/gaming/feature/playstation-crash-bandicoot-gaming-history/",
+      "summary": "While gaming still has room for mascot characters like Mario and Sonic, the 1990s were a golden era for that genre. New competitors in the field like Sony needed their own answers to those kinds of characters, a drive…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-09T19:00:00.000Z"
+    },
+    {
+      "title": "5 Moments That Prove That General Zod Is Superman’s Deadliest Villain",
+      "link": "https://comicbook.com/comics/list/5-moments-that-prove-that-general-zod-is-supermans-deadliest-villain/",
+      "summary": "Image Courtesy of DC Comics Superman has a lot of powerful villains, but one of his deadliest has the same powers as Superman and one distinctive advantage over the hero. Superman is Kal-El, a Kryptonian sent to Earth…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-09T18:30:00.000Z"
+    },
+    {
+      "title": "Were the Greek Gods Actually Minoan?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/were-greek-gods-actually-minoan/",
+      "summary": "Long before the world of classical Greece, the island of Crete was home to the Minoans, one of the great civilizations of the Bronze Age Mediterranean.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-07T10:45:16.000Z"
+    },
+    {
+      "title": "Webinar: Learn How to Answer “Are We Exposed?” Faster After a New CVE",
+      "link": "https://thehackernews.com/2026/09/webinar-learn-how-to-answer-are-we.html",
+      "summary": "A major vulnerability is disclosed. The alert lands immediately. Then comes the harder question: Are we actually exposed? For many security teams, answering that means jumping between vulnerability scanners, endpoint…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T11:57:36.000Z"
+    },
+    {
+      "title": "Is Ursa Responsible For Krypton's Destruction? Kingdom Of Zod Spoilers",
+      "link": "https://bleedingcool.com/comics/is-ursa-responsible-for-kryptons-destruction-kingdom-of-zod-spoilers/",
+      "summary": "Was Ursa responsible for Krypton's destruction all along? Kingdom Of Zod Spoilers",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-09T19:09:11.000Z"
+    },
+    {
+      "title": "Tate brothers to remain in US jail as they fight extradition to UK",
+      "link": "https://www.bbc.co.uk/news/articles/cp849rlrrmlo?at_medium=RSS&at_campaign=rss",
+      "summary": "A federal judge denied them bail, saying the dual US-UK citizens' wealth and frequent international travel \"constitute quintessential flight risks\".",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-09T19:09:13.000Z"
+    },
+    {
+      "title": "Alby Hub Critical Flaw Could Let Attackers Take Over Internet-Exposed Bitcoin Wallets",
+      "link": "https://thehackernews.com/2026/09/alby-hub-critical-flaw-could-let.html",
+      "summary": "Bitcoin wallet company Alby has warned of a critical flaw in Alby Hub that could have let an attacker take over a wallet and send its funds, but only where the owner had made the Hub reachable from the internet. Alby…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T10:43:04.000Z"
     }
   ]
 }
