@@ -18,13 +18,39 @@
   const resultInfo = document.getElementById("result-info");
   const downloadLink = document.getElementById("download-link");
 
+  const editorBackdrop = document.getElementById("page-editor-backdrop");
+  const editorStage = document.getElementById("page-editor-stage");
+  const editorBg = document.getElementById("page-editor-bg");
+  const annotLayer = document.getElementById("annot-layer");
+  const addTextBtn = document.getElementById("add-text-btn");
+  const addImageBtn = document.getElementById("add-image-btn");
+  const annotImageInput = document.getElementById("annot-image-input");
+  const editorDoneBtn = document.getElementById("page-editor-done-btn");
+
   const THUMB_TARGET_WIDTH = 240; // px, rendered once and reused at whatever CSS size the grid displays it
+  const EDITOR_TARGET_WIDTH = 700; // px, the big page-editor background render
 
   // Loaded documents, one per PDF or image added. Each page below points
   // back into one of these by index rather than duplicating page data —
   // reordering/rotating/deleting only ever touches `pages`.
   let sources = []; // { pdfLibDoc, pdfjsDoc, name }
-  let pages = []; // { sourceIndex, pageIndexInSource, rotation (0/90/180/270), thumbSrc }
+  // pages[i]: { sourceIndex, pageIndexInSource, rotation (0/90/180/270), thumbSrc, annotations }
+  // annotations[j] is one of:
+  //   { type: "text", x, y, w, h, text, fontSize, bold, color: {r,g,b} }
+  //   { type: "image", x, y, w, h, bytes (Uint8Array), format: "png"|"jpeg", dataUrl }
+  // x/y/w/h are always in PDF point units, top-left origin, y increasing
+  // downward — i.e. plain CSS-style coordinates, NOT PDF's own bottom-left
+  // convention. They get flipped once, at export time (see exportPdf).
+  // Crucially this is the page's *native*, unrotated point space: the
+  // editor always renders its background at an explicit rotation of 0
+  // (see openEditor), regardless of the page's own `rotation` above or any
+  // rotation already baked into the source PDF. That's what lets rotation
+  // and annotations stay independent — PDF's /Rotate flag rotates a page's
+  // entire content stream as one unit for display, annotations included,
+  // so as long as everything is drawn in native space, whatever rotation
+  // is set later (via the grid, before or after adding annotations) just
+  // applies uniformly and correctly with no extra transform needed here.
+  let pages = [];
 
   function setProgress(fraction) {
     progressFill.style.width = `${Math.max(0, Math.min(1, fraction)) * 100}%`;
@@ -121,7 +147,7 @@
     const pageCount = pdfLibDoc.getPageCount();
     for (let i = 0; i < pageCount; i++) {
       const thumbSrc = await renderThumbnail(pdfjsDoc, i + 1);
-      pages.push({ sourceIndex, pageIndexInSource: i, rotation: 0, thumbSrc });
+      pages.push({ sourceIndex, pageIndexInSource: i, rotation: 0, thumbSrc, annotations: [] });
       setProgress((i + 1) / pageCount);
     }
   }
@@ -201,6 +227,12 @@
       img.alt = `Page ${i + 1}`;
       frame.appendChild(img);
 
+      const editBtn = document.createElement("button");
+      editBtn.type = "button";
+      editBtn.className = "page-edit-btn";
+      editBtn.textContent = p.annotations.length ? `Edit (${p.annotations.length})` : "Edit";
+      editBtn.addEventListener("click", () => openEditor(i));
+
       const footer = document.createElement("div");
       footer.className = "page-card-footer";
 
@@ -220,7 +252,7 @@
 
       controls.append(leftBtn, ccwBtn, cwBtn, rightBtn, removeBtn);
       footer.append(number, controls);
-      card.append(frame, footer);
+      card.append(frame, editBtn, footer);
       pageGrid.appendChild(card);
     });
 
@@ -241,6 +273,269 @@
     btn.addEventListener("click", onClick);
     return btn;
   }
+
+  // --- page editor: add/move/resize/delete text & image overlays on one page ---
+
+  let editingPageIndex = -1;
+  let editorScale = 1; // display px per PDF point, measured after the background image loads
+  let editorPageW = 0; // PDF points
+  let editorPageH = 0;
+
+  async function openEditor(pageIndex) {
+    editingPageIndex = pageIndex;
+    const p = pages[pageIndex];
+    const src = sources[p.sourceIndex];
+    const pdfjsPage = await src.pdfjsDoc.getPage(p.pageIndexInSource + 1);
+
+    // rotation: 0 explicitly — the editor always shows/edits the page's
+    // native orientation. See the big comment on `pages` near the top.
+    const unscaled = pdfjsPage.getViewport({ scale: 1, rotation: 0 });
+    editorPageW = unscaled.width;
+    editorPageH = unscaled.height;
+
+    const scale = EDITOR_TARGET_WIDTH / unscaled.width;
+    const viewport = pdfjsPage.getViewport({ scale, rotation: 0 });
+    const canvas = document.createElement("canvas");
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    await pdfjsPage.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+
+    editorBg.src = canvas.toDataURL("image/png");
+    await new Promise((resolve) => {
+      if (editorBg.complete) resolve();
+      else editorBg.onload = resolve;
+    });
+
+    editorStage.style.width = editorBg.clientWidth + "px";
+    editorStage.style.height = editorBg.clientHeight + "px";
+    editorScale = editorBg.clientWidth / editorPageW;
+
+    editorBackdrop.hidden = false;
+    renderAnnotLayer();
+  }
+
+  function closeEditor() {
+    editorBackdrop.hidden = true;
+    editingPageIndex = -1;
+    renderGrid(); // picks up any annotation-count change on the Edit button label
+  }
+
+  function currentAnnotations() {
+    return pages[editingPageIndex].annotations;
+  }
+
+  function clamp(v, min, max) {
+    return Math.max(min, Math.min(max, v));
+  }
+
+  function addTextAnnotation() {
+    const w = 200, h = 40;
+    currentAnnotations().push({
+      type: "text",
+      x: clamp((editorPageW - w) / 2, 0, Math.max(0, editorPageW - w)),
+      y: clamp((editorPageH - h) / 2, 0, Math.max(0, editorPageH - h)),
+      w,
+      h,
+      text: "Text",
+      fontSize: 18,
+      bold: false,
+      color: { r: 0, g: 0, b: 0 },
+    });
+    renderAnnotLayer();
+  }
+
+  async function addImageAnnotationFromFile(file) {
+    const img = await loadImageEl(file);
+    const canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    const ctx2d = canvas.getContext("2d");
+    ctx2d.drawImage(img, 0, 0);
+    const transparent = hasTransparency(ctx2d, canvas.width, canvas.height);
+    const format = transparent ? "png" : "jpeg";
+    const dataUrl = transparent ? canvas.toDataURL("image/png") : canvas.toDataURL("image/jpeg", 0.92);
+    const bytes = dataUrlToBytes(dataUrl);
+    URL.revokeObjectURL(img.src);
+
+    const maxW = 250; // pt, default size — fit within this, preserving aspect ratio
+    const ratio = Math.min(1, maxW / img.naturalWidth);
+    const w = img.naturalWidth * ratio;
+    const h = img.naturalHeight * ratio;
+
+    currentAnnotations().push({
+      type: "image",
+      x: clamp((editorPageW - w) / 2, 0, Math.max(0, editorPageW - w)),
+      y: clamp((editorPageH - h) / 2, 0, Math.max(0, editorPageH - h)),
+      w,
+      h,
+      bytes,
+      format,
+      dataUrl,
+    });
+    renderAnnotLayer();
+  }
+
+  function removeAnnotation(annot) {
+    const list = currentAnnotations();
+    const idx = list.indexOf(annot);
+    if (idx !== -1) list.splice(idx, 1);
+    renderAnnotLayer();
+  }
+
+  function renderAnnotLayer() {
+    annotLayer.innerHTML = "";
+    currentAnnotations().forEach((annot) => annotLayer.appendChild(buildAnnotEl(annot)));
+  }
+
+  function positionAnnotEl(el, annot) {
+    el.style.left = annot.x * editorScale + "px";
+    el.style.top = annot.y * editorScale + "px";
+    el.style.width = annot.w * editorScale + "px";
+    el.style.height = annot.h * editorScale + "px";
+  }
+
+  function rgbToHex(c) {
+    const h = (n) => Math.round(n * 255).toString(16).padStart(2, "0");
+    return `#${h(c.r)}${h(c.g)}${h(c.b)}`;
+  }
+  function hexToRgb(hex) {
+    return {
+      r: parseInt(hex.slice(1, 3), 16) / 255,
+      g: parseInt(hex.slice(3, 5), 16) / 255,
+      b: parseInt(hex.slice(5, 7), 16) / 255,
+    };
+  }
+
+  function buildAnnotEl(annot) {
+    const el = document.createElement("div");
+    el.className = "annot";
+    positionAnnotEl(el, annot);
+
+    if (annot.type === "text") {
+      const textarea = document.createElement("textarea");
+      textarea.className = "annot-text-area";
+      textarea.value = annot.text;
+      textarea.style.fontSize = annot.fontSize * editorScale + "px";
+      textarea.style.fontWeight = annot.bold ? "700" : "400";
+      textarea.style.color = rgbToHex(annot.color);
+      textarea.addEventListener("input", () => { annot.text = textarea.value; });
+      textarea.addEventListener("pointerdown", (e) => e.stopPropagation());
+      el.appendChild(textarea);
+
+      const tb = document.createElement("div");
+      tb.className = "annot-toolbar";
+
+      const sizeInput = document.createElement("input");
+      sizeInput.type = "number";
+      sizeInput.min = "6";
+      sizeInput.max = "96";
+      sizeInput.value = String(annot.fontSize);
+      sizeInput.title = "Font size (pt)";
+      sizeInput.addEventListener("pointerdown", (e) => e.stopPropagation());
+      sizeInput.addEventListener("change", () => {
+        annot.fontSize = clamp(parseInt(sizeInput.value, 10) || 18, 6, 96);
+        textarea.style.fontSize = annot.fontSize * editorScale + "px";
+      });
+
+      const boldBtn = document.createElement("button");
+      boldBtn.type = "button";
+      boldBtn.className = "annot-bold-btn" + (annot.bold ? " is-active" : "");
+      boldBtn.textContent = "B";
+      boldBtn.title = "Bold";
+      boldBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+      boldBtn.addEventListener("click", () => {
+        annot.bold = !annot.bold;
+        boldBtn.classList.toggle("is-active", annot.bold);
+        textarea.style.fontWeight = annot.bold ? "700" : "400";
+      });
+
+      const colorInput = document.createElement("input");
+      colorInput.type = "color";
+      colorInput.value = rgbToHex(annot.color);
+      colorInput.title = "Text color";
+      colorInput.addEventListener("pointerdown", (e) => e.stopPropagation());
+      colorInput.addEventListener("input", () => {
+        annot.color = hexToRgb(colorInput.value);
+        textarea.style.color = colorInput.value;
+      });
+
+      tb.append(sizeInput, boldBtn, colorInput);
+      el.appendChild(tb);
+    } else {
+      const img = document.createElement("img");
+      img.className = "annot-img";
+      img.src = annot.dataUrl;
+      img.alt = "";
+      el.appendChild(img);
+    }
+
+    const moveHandle = document.createElement("div");
+    moveHandle.className = "annot-handle annot-move";
+    moveHandle.textContent = "⠿";
+    el.appendChild(moveHandle);
+
+    const removeBtn = document.createElement("button");
+    removeBtn.type = "button";
+    removeBtn.className = "annot-remove";
+    removeBtn.textContent = "×";
+    removeBtn.setAttribute("aria-label", "Remove");
+    removeBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+    removeBtn.addEventListener("click", () => removeAnnotation(annot));
+    el.appendChild(removeBtn);
+
+    const resizeHandle = document.createElement("div");
+    resizeHandle.className = "annot-handle annot-resize";
+    el.appendChild(resizeHandle);
+
+    wireDrag(moveHandle, annot, el, "move");
+    wireDrag(resizeHandle, annot, el, "resize");
+
+    return el;
+  }
+
+  // Pointer capture keeps the drag/resize going even once the cursor moves
+  // outside the small handle element — standard pattern, no library needed.
+  function wireDrag(handle, annot, el, mode) {
+    handle.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      handle.setPointerCapture(e.pointerId);
+      const startClientX = e.clientX;
+      const startClientY = e.clientY;
+      const startX = annot.x, startY = annot.y, startW = annot.w, startH = annot.h;
+
+      function onMove(ev) {
+        const dx = (ev.clientX - startClientX) / editorScale;
+        const dy = (ev.clientY - startClientY) / editorScale;
+        if (mode === "move") {
+          annot.x = clamp(startX + dx, 0, Math.max(0, editorPageW - annot.w));
+          annot.y = clamp(startY + dy, 0, Math.max(0, editorPageH - annot.h));
+        } else {
+          annot.w = clamp(startW + dx, 20, editorPageW - annot.x);
+          annot.h = clamp(startH + dy, 12, editorPageH - annot.y);
+        }
+        positionAnnotEl(el, annot);
+      }
+      function onUp(ev) {
+        handle.releasePointerCapture(ev.pointerId);
+        handle.removeEventListener("pointermove", onMove);
+        handle.removeEventListener("pointerup", onUp);
+      }
+      handle.addEventListener("pointermove", onMove);
+      handle.addEventListener("pointerup", onUp);
+    });
+  }
+
+  addTextBtn.addEventListener("click", addTextAnnotation);
+  addImageBtn.addEventListener("click", () => annotImageInput.click());
+  annotImageInput.addEventListener("change", () => {
+    if (annotImageInput.files[0]) addImageAnnotationFromFile(annotImageInput.files[0]);
+    annotImageInput.value = "";
+  });
+  editorDoneBtn.addEventListener("click", closeEditor);
+  editorBackdrop.addEventListener("click", (e) => {
+    if (e.target === editorBackdrop) closeEditor();
+  });
 
   resetBtn.addEventListener("click", () => {
     sources = [];
@@ -268,10 +563,43 @@
 
     try {
       const outDoc = await PDFLib.PDFDocument.create();
+      const helvetica = await outDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+      const helveticaBold = await outDoc.embedFont(PDFLib.StandardFonts.HelveticaBold);
+
       for (let i = 0; i < pages.length; i++) {
         const p = pages[i];
         const src = sources[p.sourceIndex];
         const [copied] = await outDoc.copyPages(src.pdfLibDoc, [p.pageIndexInSource]);
+
+        // Drawn in the page's native (unrotated) point space — see the big
+        // comment on `pages` near the top for why this stays correct
+        // regardless of the rotation applied just below.
+        if (p.annotations.length) {
+          const nativeH = copied.getSize().height;
+          for (const annot of p.annotations) {
+            if (annot.type === "text") {
+              copied.drawText(annot.text || "", {
+                x: annot.x,
+                y: nativeH - annot.y - annot.fontSize,
+                size: annot.fontSize,
+                font: annot.bold ? helveticaBold : helvetica,
+                color: PDFLib.rgb(annot.color.r, annot.color.g, annot.color.b),
+                maxWidth: annot.w,
+                lineHeight: annot.fontSize * 1.2,
+              });
+            } else {
+              const embedded =
+                annot.format === "png" ? await outDoc.embedPng(annot.bytes) : await outDoc.embedJpg(annot.bytes);
+              copied.drawImage(embedded, {
+                x: annot.x,
+                y: nativeH - annot.y - annot.h,
+                width: annot.w,
+                height: annot.h,
+              });
+            }
+          }
+        }
+
         if (p.rotation) {
           const current = copied.getRotation().angle || 0;
           copied.setRotation(PDFLib.degrees((current + p.rotation) % 360));

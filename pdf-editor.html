@@ -29,7 +29,7 @@
   <section class="pdfedit-intro">
     <div class="wrap">
       <h1>PDF Editor</h1>
-      <p class="tagline">Reorder, rotate, delete, or merge pages — entirely in your browser.</p>
+      <p class="tagline">Reorder, rotate, delete, or merge pages, and add text or images — entirely in your browser.</p>
     </div>
   </section>
 
@@ -64,12 +64,31 @@
       <p class="pdfedit-note">
         Everything happens right here in your browser — nothing is uploaded to Stegosoft or
         anywhere else. Add more PDFs or images as new pages at any time, reorder or rotate any
-        page, remove ones you don't want, then export a single combined PDF.
+        page, remove ones you don't want. Click Edit on any page to drop in text or images —
+        drag to move, use the corner handle to resize — then export a single combined PDF.
       </p>
 
     </div>
   </section>
 </main>
+
+<div class="page-editor-backdrop" id="page-editor-backdrop" hidden>
+  <div class="page-editor">
+    <div class="page-editor-toolbar">
+      <button type="button" class="btn-secondary" id="add-text-btn">+ Text</button>
+      <button type="button" class="btn-secondary" id="add-image-btn">+ Image</button>
+      <input type="file" id="annot-image-input" accept=".png,.jpg,.jpeg,.gif,.webp,.bmp" hidden>
+      <span class="page-editor-spacer"></span>
+      <button type="button" class="btn-primary" id="page-editor-done-btn">Done</button>
+    </div>
+    <div class="page-editor-stage-wrap">
+      <div class="page-editor-stage" id="page-editor-stage">
+        <img class="page-editor-bg" id="page-editor-bg" alt="Page being edited">
+        <div class="annot-layer" id="annot-layer"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">
