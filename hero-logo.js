@@ -3,7 +3,6 @@
   if (!logo) return;
   const heroHeading = logo.parentElement; // the <h1> wrapping the logo
   const ORIGINAL_SRC = logo.getAttribute("src");
-  const ANAGLYPH_SRC = "images/Stegosoft_anaglyph2.png";
 
   let audioCtx = null;
 
@@ -157,6 +156,72 @@
     rafId = requestAnimationFrame(tick);
   }
 
+  // Builds a red/cyan anaglyph straight from the original artwork: two
+  // copies of the logo, shifted a few pixels in opposite directions, one
+  // keeping only its red channel and one keeping only green+blue — the same
+  // split a pair of anaglyph glasses pulls back apart — combined with
+  // "lighter" (additive) blending.
+  //
+  // This is different from starship-dogfight.js's drawAnaglyphFrame, which
+  // isolates color via "destination-in" against a flat fill: that works
+  // there because the source (stars/ships on an otherwise transparent
+  // canvas) has meaningful *alpha* to key off. The logo source is an opaque
+  // JPEG — alpha is 1 everywhere — so "destination-in" would just carve out
+  // a plain white rectangle and throw away all the actual artwork color.
+  // Isolating a channel here instead means "multiply", which needs its own
+  // fix-up: multiplying by an opaque fill also opacifies the transparent
+  // sliver at the shifted-off edge (where this copy has no image data), so
+  // a second "destination-in" pass re-clips alpha back down to match.
+  let anaglyphLogoSrc = null;
+
+  function buildAnaglyphLogoSrc() {
+    const w = logo.naturalWidth;
+    const h = logo.naturalHeight;
+    // ~2.8% of width lands the fringing somewhere clearly visible once the
+    // logo is scaled down to its ~140px on-screen size, without it reading
+    // as blurry double vision at full resolution.
+    const offset = Math.max(4, Math.round(w * 0.028));
+
+    const scene = document.createElement("canvas");
+    scene.width = w;
+    scene.height = h;
+    scene.getContext("2d").drawImage(logo, 0, 0, w, h);
+
+    const eye = document.createElement("canvas");
+    eye.width = w;
+    eye.height = h;
+    const eyeCtx = eye.getContext("2d");
+    function layer(channelColor, dx) {
+      eyeCtx.clearRect(0, 0, w, h);
+      eyeCtx.globalCompositeOperation = "source-over";
+      eyeCtx.drawImage(scene, dx, 0, w, h);
+      eyeCtx.globalCompositeOperation = "multiply";
+      eyeCtx.fillStyle = channelColor;
+      eyeCtx.fillRect(0, 0, w, h);
+      eyeCtx.globalCompositeOperation = "destination-in";
+      eyeCtx.drawImage(scene, dx, 0, w, h);
+      eyeCtx.globalCompositeOperation = "source-over";
+    }
+
+    const out = document.createElement("canvas");
+    out.width = w;
+    out.height = h;
+    const outCtx = out.getContext("2d");
+    layer("rgb(255, 0, 0)", -offset);
+    outCtx.drawImage(eye, 0, 0);
+    outCtx.globalCompositeOperation = "lighter";
+    layer("rgb(0, 255, 255)", offset);
+    outCtx.drawImage(eye, 0, 0);
+    outCtx.globalCompositeOperation = "source-over";
+
+    return out.toDataURL("image/png");
+  }
+
+  function anaglyphSrc() {
+    if (!anaglyphLogoSrc) anaglyphLogoSrc = buildAnaglyphLogoSrc();
+    return anaglyphLogoSrc;
+  }
+
   // Ends the roam/fall chaos for good and puts the logo back exactly where
   // it started in the page flow — just wearing the anaglyph skin now.
   function settleAsAnaglyph() {
@@ -169,7 +234,17 @@
     logo.classList.remove("logo-roaming");
     logo.style.transform = "";
     heroHeading.style.minHeight = "";
-    logo.src = ANAGLYPH_SRC;
+
+    // The generator draws from `logo` itself, so it needs the original
+    // artwork actually loaded first — true almost always in practice (it's
+    // on screen from page load), but guard for the rare case someone
+    // reaches this before that finishes (e.g. a slow connection plus the
+    // testing shortcut below).
+    if (logo.complete && logo.naturalWidth) {
+      logo.src = anaglyphSrc();
+    } else {
+      logo.addEventListener("load", () => { logo.src = anaglyphSrc(); }, { once: true });
+    }
 
     if (localStorage.getItem(ANAGLYPH_MODE_KEY) !== "1") {
       localStorage.setItem(ANAGLYPH_MODE_KEY, "1");
