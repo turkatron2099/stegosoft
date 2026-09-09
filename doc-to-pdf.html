@@ -36,10 +36,17 @@
   <section class="doc2pdf-panel">
     <div class="wrap">
 
-      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose a file to convert">
-        <input type="file" id="file-input" accept=".docx,.txt,.png,.jpg,.jpeg,.gif,.webp,.bmp" hidden>
-        <p id="drop-label">Drag a file here, or click to choose one</p>
-        <p class="drop-hint">Supports .docx, .txt, and common image formats (.png, .jpg, .gif, .webp, .bmp)</p>
+      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose files to convert">
+        <input type="file" id="file-input" accept=".docx,.txt,.png,.jpg,.jpeg,.gif,.webp,.bmp" multiple hidden>
+        <p id="drop-label">Drag files here, or click to choose — add as many as you like</p>
+        <p class="drop-hint">Supports .docx, .txt, and common image formats (.png, .jpg, .gif, .webp, .bmp) — combined into one PDF, in the order listed below</p>
+      </div>
+
+      <ul class="doc2pdf-queue" id="queue-list" hidden></ul>
+
+      <div class="doc2pdf-actions" id="queue-actions" hidden>
+        <button type="button" class="btn-secondary" id="clear-btn">Clear all</button>
+        <button type="button" class="btn-primary" id="combine-btn">Combine into PDF</button>
       </div>
 
       <p class="doc2pdf-status" id="status-text" hidden></p>
@@ -56,9 +63,11 @@
       <div id="docx-render" class="docx-render" aria-hidden="true"></div>
 
       <p class="doc2pdf-note">
-        The file is converted right here in your browser — nothing is uploaded to Stegosoft or
-        anywhere else. Legacy .doc, .xlsx, and .pptx files aren't supported — only modern .docx,
-        plain text, and image files convert reliably without a server doing the heavy lifting.
+        Everything is converted right here in your browser — nothing is uploaded to Stegosoft or
+        anywhere else. Add as many files as you want, reorder or remove them with the ↑ ↓ × buttons,
+        then combine — each file becomes one or more pages in a single output PDF, in list order.
+        Legacy .doc, .xlsx, and .pptx files aren't supported — only modern .docx, plain text, and
+        image files convert reliably without a server doing the heavy lifting.
       </p>
 
     </div>
