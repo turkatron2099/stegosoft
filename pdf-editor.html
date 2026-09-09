@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Editor — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pdf-editor.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="pdfedit-intro">
+    <div class="wrap">
+      <h1>PDF Editor</h1>
+      <p class="tagline">Reorder, rotate, delete, or merge pages — entirely in your browser.</p>
+    </div>
+  </section>
+
+  <section class="pdfedit-panel">
+    <div class="wrap">
+
+      <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Choose a PDF to edit">
+        <input type="file" id="file-input" accept=".pdf,.png,.jpg,.jpeg,.gif,.webp,.bmp" multiple hidden>
+        <p id="drop-label">Drag a PDF here, or click to choose one</p>
+        <p class="drop-hint">Opens into the page grid below — images work too, each becomes one page</p>
+      </div>
+
+      <p class="pdfedit-status" id="status-text" hidden></p>
+      <div class="progress-track" id="progress-track" hidden>
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="pdfedit-toolbar" id="toolbar" hidden>
+        <button type="button" class="btn-secondary" id="add-btn">Add pages&hellip;</button>
+        <button type="button" class="btn-secondary" id="reset-btn">Start over</button>
+        <button type="button" class="btn-primary" id="export-btn">Export PDF</button>
+      </div>
+
+      <div class="page-grid" id="page-grid" hidden></div>
+      <p class="pdfedit-empty" id="empty-msg" hidden>No pages left — add some, or start over.</p>
+
+      <div class="pdfedit-result" id="result-box" hidden>
+        <p class="result-info" id="result-info"></p>
+        <a id="download-link" class="download-btn" download="edited.pdf">Download PDF</a>
+      </div>
+
+      <p class="pdfedit-note">
+        Everything happens right here in your browser — nothing is uploaded to Stegosoft or
+        anywhere else. Add more PDFs or images as new pages at any time, reorder or rotate any
+        page, remove ones you don't want, then export a single combined PDF.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/legacy/build/pdf.min.js"></script>
+<script src="pdf-editor.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
