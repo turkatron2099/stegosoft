@@ -60,7 +60,52 @@
       blurb: "Strangers barricade themselves in a farmhouse as the recently dead return to life with a taste for the living. George Romero's debut invented the modern zombie film — and fell into the public domain when its distributor's title-card mistake omitted the copyright notice.",
       ...IA("night-of-the-living-dead-mp-4-burned", "NightOfTheLivingDead (mp4)-BURNED.ia.mp4"),
     },
+    {
+      title: "White Zombie",
+      year: 1932,
+      blurb: "A young woman is turned into a mindless zombie slave by a voodoo master on a Haitian sugar plantation, and her fiancé must brave his lair to save her. Bela Lugosi stars in the film that invented the zombie genre on screen.",
+      ...IA("turner_video_27", "27.ia.mp4"),
+    },
+    {
+      title: "House on Haunted Hill",
+      year: 1959,
+      blurb: "An eccentric millionaire offers five strangers $10,000 each to survive one night locked inside a haunted house with him and his estranged wife. Vincent Price headlines this William Castle chiller, famous for its theatrical \"Emergo\" gimmick — a glow-in-the-dark skeleton rigged to fly out over opening-night audiences.",
+      ...IA("The_House_On_Haunted_Hill", "The_House_On_Haunted_Hill_512kb.mp4"),
+    },
+    {
+      title: "The Brain That Wouldn't Die",
+      year: 1962,
+      blurb: "After a car crash decapitates his fiancée, a surgeon keeps her severed head alive in his lab and scours strip clubs for a body to transplant it onto — while the failed experiment he's locked in the closet grows restless. A gleefully tasteless slice of drive-in horror, shot in 1959 but held back from release for three years.",
+      ...IA("the_brain_that_wouldnt_die", "the_brain_that_wouldnt_die_512kb.mp4"),
+    },
+    {
+      title: "The Ape Man",
+      year: 1943,
+      blurb: "A scientist's self-experiment with an ape serum leaves him stooped, hairy, and desperate for the one thing that might cure him: fresh human spinal fluid. Bela Lugosi headlines this fast, cheap Monogram programmer, complete with a real gorilla as his uneasy lab partner.",
+      ...IA("TheApeMan", "TheApeMan_512kb.mp4"),
+    },
+    {
+      title: "It Conquered the World",
+      year: 1956,
+      blurb: "A disillusioned scientist helps guide a cone-shaped alien invader to Earth, convinced it means to save humanity from itself — only to watch it start enslaving the town's minds with flying, bat-like control devices. Roger Corman directed this cheap-and-cheerful Cold War creature feature, one of many drive-in staples he cranked out on a shoestring budget.",
+      ...IA("HowItConqueredTheWorld", "IT_Conquered_The_World_1956.mp4"),
+    },
   ];
+
+  // Fisher-Yates, same approach as scripts/build-digest.mjs's shuffle() —
+  // applied once per page load, so the lineup (and which film opens) is
+  // different each visit rather than always starting from A Trip to the
+  // Moon in the same fixed order.
+  function shuffle(items) {
+    const result = items.slice();
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+
+  const ORDER = shuffle(PLAYLIST);
 
   const player = document.getElementById("cinema-player");
   const titleEl = document.getElementById("cinema-title");
@@ -72,7 +117,7 @@
 
   function renderPlaylist() {
     playlistEl.innerHTML = "";
-    PLAYLIST.forEach((movie, i) => {
+    ORDER.forEach((movie, i) => {
       const item = document.createElement("button");
       item.type = "button";
       item.className = "cinema-playlist-item" + (i === currentIndex ? " is-playing" : "");
@@ -83,8 +128,8 @@
   }
 
   function play(index) {
-    currentIndex = (index + PLAYLIST.length) % PLAYLIST.length;
-    const movie = PLAYLIST[currentIndex];
+    currentIndex = (index + ORDER.length) % ORDER.length;
+    const movie = ORDER[currentIndex];
 
     player.poster = movie.poster;
     player.src = movie.src;
