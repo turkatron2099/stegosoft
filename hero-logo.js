@@ -313,6 +313,15 @@
     outCtx.fillRect(0, 0, w, h); // opaque black backdrop, unlike the anaglyph skin's transparency
     outCtx.drawImage(redLayer, 0, 0);
 
+    // "est. 2099" stamp, bottom-right — same red, same LED-readout feel as
+    // the rest of this skin, monospace so it reads like a digital display.
+    const pad = Math.round(w * 0.03);
+    outCtx.fillStyle = VIRTUALBOY_RED;
+    outCtx.font = `${Math.round(w * 0.045)}px "Courier New", monospace`;
+    outCtx.textAlign = "right";
+    outCtx.textBaseline = "bottom";
+    outCtx.fillText("est. 2099", w - pad, h - pad);
+
     return out.toDataURL("image/png");
   }
 
