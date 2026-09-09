@@ -106,7 +106,7 @@
 .console-vents {
   position: absolute;
   top: 24px;
-  right: 28px;
+  right: 45px; /* clears the "Power" LED to its right — was overlapping it by ~5px at 28px */
   width: 60px;
   height: 10px;
   background: repeating-linear-gradient(

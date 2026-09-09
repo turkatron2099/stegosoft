@@ -315,12 +315,17 @@
 
     // "est. 2099" stamp, bottom-right — same red, same LED-readout feel as
     // the rest of this skin, monospace so it reads like a digital display.
-    const pad = Math.round(w * 0.03);
+    // The logo displays at a fixed 140x140 with a 24px border-radius (see
+    // .hero-logo in style.css) — a much bigger corner cut, proportionally,
+    // than this canvas's own working resolution suggests, so the right
+    // margin needs to be well past what "looks" like enough padding here.
+    const padBottom = Math.round(h * 0.03);
+    const padRight = Math.round(w * 0.115);
     outCtx.fillStyle = VIRTUALBOY_RED;
     outCtx.font = `${Math.round(w * 0.045)}px "Courier New", monospace`;
     outCtx.textAlign = "right";
     outCtx.textBaseline = "bottom";
-    outCtx.fillText("est. 2099", w - pad, h - pad);
+    outCtx.fillText("est. 2099", w - padRight, h - padBottom);
 
     return out.toDataURL("image/png");
   }
