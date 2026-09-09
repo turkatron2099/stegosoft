@@ -1,189 +1,13 @@
 {
-  "generatedAt": "2026-09-09T19:18:01.451Z",
+  "generatedAt": "2026-09-09T22:34:49.075Z",
   "items": [
     {
-      "title": "Tracing the Justinian Plague",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/tracing-the-justinian-plague/",
-      "summary": "The Justinian Plague (c. 541–750 CE) was one of the deadliest pandemics in human history. The Byzantine chronicler Procopius recorded that the plague claimed the…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-09T10:00:08.000Z"
-    },
-    {
-      "title": "U.S. Agencies Accuse China AI Firms of Distilling Claude, GPT, Gemini, and Grok",
-      "link": "https://thehackernews.com/2026/09/us-agencies-accuse-china-ai-firms-of.html",
-      "summary": "U.S. cybersecurity and intelligence agencies have accused China-based artificial intelligence (AI) companies of conducting \"systematic extraction\" of proprietary functionalities and capabilities of American frontier…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T09:32:26.000Z"
-    },
-    {
-      "title": "3 Classic X-Men Villains That Would Be Perfect for the MCU in 2028, And Haven’t Been Done to Death",
-      "link": "https://comicbook.com/movies/list/3-classic-x-men-villains-that-would-be-perfect-for-the-mcu-in-2028-and-havent-been-done-to-death/",
-      "summary": "Image Courtesy of Marvel Comics The X-Men have no shortage of iconic villains. There’s Magneto, Apocalypse, Dark Phoenix, Mystique, Sabretooth… and at this point, it feels like they all secretly had the mutant power to…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-09T19:15:00.000Z"
-    },
-    {
-      "title": "Sacred Circles in Christianity and Buddhism",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/sacred-circles-in-christianity-and-buddhism/",
-      "summary": "Archaeologists have discovered dozens of eight-spoked wheels scratched into the floors, walls, and architectural elements of Greco-Roman temples, fountains, and street intersections. A circle divided…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-09T10:45:42.000Z"
-    },
-    {
-      "title": "New Pokémon Confirmed For 'Pokémon Pokopia' In Stylish New Preview",
-      "link": "https://www.polygon.com/pokemon-pokopia-dlc-nintendo-direct-switch-2-new-monsters-items/",
-      "summary": "Switch 2 owners who purchase the Pokopia Expansion Pass have much to look forward to in the DLC according to the recent Nintendo DIrect",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T18:48:27.000Z"
-    },
-    {
-      "title": "DeepSeek Harness Flaw Let AI Agents Disable Their Own File Sandbox Without Approval",
-      "link": "https://thehackernews.com/2026/09/deepseek-harness-flaw-let-ai-agents.html",
-      "summary": "A flaw in DeepSeek Harness, DeepSeek's open-source tool for running AI coding agents on a developer's machine, let a sandboxed agent turn off its own sandbox with a single command. The tool runs an agent's commands…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T11:17:07.000Z"
-    },
-    {
-      "title": "Nintendo Is Quietly Putting Together a Killer 2027",
-      "link": "https://www.polygon.com/nintendo-switch-2-2027-lineup/",
-      "summary": "Nintendo's September Direct gave us a better idea of what its 2027 will look like, and its surprisingly packed already.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T18:00:14.000Z"
-    },
-    {
-      "title": "Apple Unveils the iPhone Duo, Its First Foldable iPhone",
-      "link": "https://mobile.slashdot.org/story/26/09/09/1821247/apple-unveils-the-iphone-duo-its-first-foldable-iphone?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "At its September event today, Apple unveiled the iPhone Duo, its first foldable iPhone and one of the biggest changes to the device's form factor since its debut. Starting at $1,999 and available for preorder beginning…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T18:22:00.000Z"
-    },
-    {
-      "title": "Infostealer Logs Expose Replayable AI Tokens That Can Bypass MFA",
-      "link": "https://thehackernews.com/2026/09/infostealer-logs-expose-replayable-ai.html",
-      "summary": "Cybercriminals are hijacking artificial intelligence (AI) user accounts via information stealer logs to create \"stolen keys\" that grant illicit access to tools from model providers like Google, Anthropic, and others.…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T14:23:55.000Z"
-    },
-    {
-      "title": "2026’s Most Divisive Sci-Fi Movie Confirms Streaming Premiere Date, Just in Time for Halloween",
-      "link": "https://comicbook.com/movies/news/2026s-most-divisive-sci-fi-movie-confirms-streaming-premiere-date-just-in-time-for-halloween/",
-      "summary": "Universal Pictures We’re at that point in 2026 when the movies released in the first half of the year are making their way onto streaming platforms. Halloween season is quickly approaching, so viewers will start looking…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-09T18:54:56.000Z"
-    },
-    {
-      "title": "GOG Brings Back 'Big Box' PC Games, One Printable Template At a Time",
-      "link": "https://hardware.slashdot.org/story/26/09/09/0618254/gog-brings-back-big-box-pc-games-one-printable-template-at-a-time?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from Ars Technica: Those who remember PC gaming in the days before Steam may have fond memories of the \"big box\" packaging that made those games stand out as shelf eye candy and…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T15:00:00.000Z"
-    },
-    {
-      "title": "'Nosferatu' Director's New Gothic Thriller Is Already the Biggest Horror Movie of 2026",
-      "link": "https://www.polygon.com/robert-eggers-interview-werwulf/",
-      "summary": "Nosferatu's Robert Eggers goes deeper into the darkness with Werwulf: 'The forest has its own rules'",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T19:00:14.000Z"
-    },
-    {
-      "title": "Apple Launches iPhone 18 Pro With Variable-Aperture Camera System",
-      "link": "https://hardware.slashdot.org/story/26/09/09/1837238/apple-launches-iphone-18-pro-with-variable-aperture-camera-system?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Apple's iPhone 18 Pro and Pro Max were announced today and keep last year's overall design but put the emphasis on camera upgrades, including a 48-megapixel variable-aperture system, new manual controls, and 4K Dolby…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T19:00:00.000Z"
-    },
-    {
-      "title": "MTV VMAs 2026 Set to Honor Nirvana with Video Vanguard Award",
-      "link": "https://bleedingcool.com/tv/mtv-vmas-2026-set-to-honor-nirvana-with-video-vanguard-award/",
-      "summary": "Nirvana will be the recipient of this year's Video Vanguard Award when the MTV VMAs hit CBS, MTV, and Paramount+ on Sunday, September 27th.",
+      "title": "AEW Rebel Heart Dynamite Preview: Get Ready to Cry Tonight, Comrades",
+      "link": "https://bleedingcool.com/tv/aew-rebel-heart-dynamite-preview-get-ready-to-cry-tonight-comrades/",
+      "summary": "Greetings, comrades! El Presidente previews AEW Rebel Heart Dynamite honoring Rebel, featuring Ospreay vs Finlay and titles on the line! ¡Viva la lucha!",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-09T18:29:11.000Z"
-    },
-    {
-      "title": "Paul and the Slave Girl in Philippi",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
-      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-06T11:00:21.000Z"
-    },
-    {
-      "title": "Eldrazi Officially Return to 'Magic: The Gathering' in a Way Players Didn’t Expect",
-      "link": "https://www.polygon.com/mtg-reality-fracture-leaks-emrakul-spoilers-trapped-in-the-moon/",
-      "summary": "Emrakul returns in MTG’s Reality Fracture story and a new card, potentially setting up the Eldrazi titan to destroy Jace’s Echoverse.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T18:33:19.000Z"
-    },
-    {
-      "title": "Deciphered Dead Sea Scroll Reveals 364-Day Calendar",
-      "link": "https://www.biblicalarchaeology.org/daily/news/qumran-community-364-day-calendar/",
-      "summary": "Researchers recently deciphered one of the last two remaining Dead Sea Scrolls. Written in code, the scroll describes a 364-day calendar used by the Qumran community that lived in the Judean Desert.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-08T11:00:19.000Z"
-    },
-    {
-      "title": "Microsoft Breaks Another Patch Tuesday Record",
-      "link": "https://it.slashdot.org/story/26/09/09/0626256/microsoft-breaks-another-patch-tuesday-record?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Microsoft's September 2026 Patch Tuesday is its largest ever, fixing a record 966 vulnerabilities, including 105 rated critical and two zero-days already being exploited in attacks. BleepingComputer reports: This Patch…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T16:00:00.000Z"
-    },
-    {
-      "title": "NOAA is putting commercial fishing ahead of conservation",
-      "link": "https://arstechnica.com/science/2026/09/noaa-is-putting-commercial-fishing-ahead-of-conservation/",
-      "summary": "Critics say the new agenda could weaken science-based rules and marine protections.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-09T13:58:44.000Z"
-    },
-    {
-      "title": "Identity-Based AI Attack Threatens Security of Enterprise Data",
-      "link": "https://www.darkreading.com/threat-intelligence/identity-based-ai-attack-security-enterprise-data",
-      "summary": "\"Workflow identity hijacking\" can bypass standard security controls and hijack an organization's data by sending a basic request through an unauthenticated entry point.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T14:39:44.000Z"
-    },
-    {
-      "title": "Beloved Fantasy Book Series Redfall Officially Returns in 2027",
-      "link": "https://www.polygon.com/redwall-orphans-of-mossflower-final-book-release-date-announced/",
-      "summary": "Redwall series announces final book, Orphans of Mossflower, 15 years after the author's death and sets a 2027 release",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T18:08:25.000Z"
-    },
-    {
-      "title": "What time does Marvel Rivals Season 10 release in your time zone?",
-      "link": "https://www.polygon.com/marvel-rivals-season-10-release-time-when-edt-pdt-utc/",
-      "summary": "Gorr is joining the battle in Marvel Rivals Season 10. Here's what time the new season will be released in your time zone.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-09T17:52:47.000Z"
-    },
-    {
-      "title": "Fold the phone: Apple's new CEO unveils a foldable iPhone",
-      "link": "https://www.npr.org/2026/09/09/nx-s1-5961487/apple-duo-foldable-iphone-john-ternus",
-      "summary": "New Apple CEO John Ternus announces the iPhone Duo, which folds like a passport and is the most radical iPhone design update in nearly 20 years.",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-09-09T18:39:57.000Z"
+      "date": "2026-09-09T22:06:09.000Z"
     },
     {
       "title": "The Temple on Mount Gerizim—In the Bible and Archaeology",
@@ -194,28 +18,140 @@
       "date": "2026-09-08T11:00:05.000Z"
     },
     {
-      "title": "Man told ChatGPT he was feeling delusional. ChatGPT insisted he was Jesus.",
-      "link": "https://arstechnica.com/tech-policy/2026/09/man-told-chatgpt-he-was-feeling-delusional-chatgpt-insisted-he-was-jesus/",
-      "summary": "Man with bipolar disorder sued OpenAI after surviving ChatGPT-linked suicide attempt.",
+      "title": "Spanish intelligence warned of Ceuta mass crossing plans before surge",
+      "link": "https://www.bbc.co.uk/news/articles/ced7vj2gv82o?at_medium=RSS&at_campaign=rss",
+      "summary": "Declassified documents show Spanish and Moroccan authorities were alerted to social media calls for a mass migrant crossing the day before tens of thousands entered Ceuta.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-09T21:23:45.000Z"
+    },
+    {
+      "title": "Tracing the Justinian Plague",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/tracing-the-justinian-plague/",
+      "summary": "The Justinian Plague (c. 541–750 CE) was one of the deadliest pandemics in human history. The Byzantine chronicler Procopius recorded that the plague claimed the…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-09T10:00:08.000Z"
+    },
+    {
+      "title": "Gauff saves match points to set up Rybakina semi-final",
+      "link": "https://www.bbc.co.uk/sport/tennis/articles/c98670d418yo?at_medium=RSS&at_campaign=rss",
+      "summary": "Coco Gauff saves two match points to beat Mirra Andreeva and set up a US Open semi-final against incoming world number one Elena Rybakina.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-09T21:35:50.000Z"
+    },
+    {
+      "title": "Apple's long-rumored foldable becomes reality with the $2,000 iPhone Duo",
+      "link": "https://arstechnica.com/gadgets/2026/09/apples-long-rumored-foldable-becomes-reality-with-the-2000-iphone-duo/",
+      "summary": "Apple's first foldable can be yours next month.",
       "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-09T11:00:10.000Z"
+      "date": "2026-09-09T19:42:00.000Z"
     },
     {
-      "title": "PlayStation’s Response to Mario and Sonic Debuted 30 Years Ago, But Never Came Close to Reaching the Same Heights",
-      "link": "https://comicbook.com/gaming/feature/playstation-crash-bandicoot-gaming-history/",
-      "summary": "While gaming still has room for mascot characters like Mario and Sonic, the 1990s were a golden era for that genre. New competitors in the field like Sony needed their own answers to those kinds of characters, a drive…",
+      "title": "61 Years Ago, One Spider-Man Issue Set the Stage for Decades of Stories",
+      "link": "https://comicbook.com/comics/feature/61-years-ago-one-spider-man-issue-set-the-stage-for-decades-of-stories/",
+      "summary": "Image Courtesy of Marvel Comics Spider-Man is inarguably Marvel’s biggest character. He’s one of the most popular superheroes in the world and has defined how Marvel tackles their characters for generations. He’s the…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-09T19:00:00.000Z"
+      "date": "2026-09-09T21:30:00.000Z"
     },
     {
-      "title": "5 Moments That Prove That General Zod Is Superman’s Deadliest Villain",
-      "link": "https://comicbook.com/comics/list/5-moments-that-prove-that-general-zod-is-supermans-deadliest-villain/",
-      "summary": "Image Courtesy of DC Comics Superman has a lot of powerful villains, but one of his deadliest has the same powers as Superman and one distinctive advantage over the hero. Superman is Kal-El, a Kryptonian sent to Earth…",
+      "title": "Zelda: Ocarina of Time Is the Last Game That Needs a Jump Button",
+      "link": "https://www.polygon.com/zelda-ocarina-of-time-doesnt-need-a-jump-button/",
+      "summary": "The Legend of Zelda: Ocarina of Time is coming back with a new feature it could do without: a dedicated jump button.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T21:00:14.000Z"
+    },
+    {
+      "title": "Sacred Circles in Christianity and Buddhism",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/sacred-circles-in-christianity-and-buddhism/",
+      "summary": "Archaeologists have discovered dozens of eight-spoked wheels scratched into the floors, walls, and architectural elements of Greco-Roman temples, fountains, and street intersections. A circle divided…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-09T10:45:42.000Z"
+    },
+    {
+      "title": "Marvel Confirms the Two MCU Scenes You Need to Revisit Before VisionQuest, And They’re All-Timers",
+      "link": "https://comicbook.com/tv-shows/news/marvel-confirms-the-two-mcu-scenes-you-need-to-revisit-before-visionquest-and-theyre-all-timers/",
+      "summary": "IMAGE COURTESY OF MARVEL TV Are cinematic universes too much homework these days? That’s often the knock on Marvel movies, but the box office grosses sometimes say otherwise — if you really needed to see them all in…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-09T18:30:00.000Z"
+      "date": "2026-09-09T22:30:00.000Z"
+    },
+    {
+      "title": "How Many Guest Characters Is Too Many? Tokyo Revengers X City of the Wolves Collaboration Sparks Fighting Game Debate",
+      "link": "https://www.ign.com/articles/how-many-guest-characters-is-too-many-tokyo-revengers-x-city-of-the-wolves-collaboration-sparks-fighting-game-debate",
+      "summary": "The fighting game community is in the middle of a fierce debate over the amount of guest characters coming to Fatal Fury: City of the Wolves.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-09T20:29:35.000Z"
+    },
+    {
+      "title": "Apple's New iPhone Camera Mode Promises to Prove Your Photo Isn't AI",
+      "link": "https://mobile.slashdot.org/story/26/09/09/2144238/apples-new-iphone-camera-mode-promises-to-prove-your-photo-isnt-ai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Apple is introducing a new \"Reference Image\" mode on the iPhone 18 Pro and Pro Max that uses the camera sensor to digitally sign captured data and create an \"unalterable\" version of a photo, giving users a way to verify…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T22:00:00.000Z"
+    },
+    {
+      "title": "OpenAI's Rogue Agents Used At Least 10 More Sites For Unauthorized Communications",
+      "link": "https://slashdot.org/story/26/09/09/1937259/openais-rogue-agents-used-at-least-10-more-sites-for-unauthorized-communications?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from Reuters: AI agents unleashed by OpenAI used more than 10 previously undisclosed websites for unsanctioned communications earlier this year, according to six sets of independent…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T20:00:00.000Z"
+    },
+    {
+      "title": "Anthropic Researcher Believes More Than 10% Chance AI 'Could Kill All Humans'",
+      "link": "https://slashdot.org/story/26/09/09/1943258/anthropic-researcher-believes-more-than-10-chance-ai-could-kill-all-humans?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Longtime Slashdot reader fahrbot-bot shares a report from the BBC: A top safety researcher at Anthropic has warned AI is advancing so quickly he believes there is a greater than 10% chance it \"could kill all humans\"…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T21:00:00.000Z"
+    },
+    {
+      "title": "U.S. Disrupts Xinbi Guarantee Scam Marketplace, Freezes $52.8 Million in Crypto",
+      "link": "https://thehackernews.com/2026/09/us-disrupts-xinbi-guarantee-scam.html",
+      "summary": "The U.S. Department of Justice (DoJ) on Wednesday announced coordinated actions aimed at an illicit online marketplace called Xinbi Guarantee that offered scam services, including seizing Telegram channels used to run…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T18:26:05.000Z"
+    },
+    {
+      "title": "New Professor Layton Game Finally Gets a Release Date After Years of Delays",
+      "link": "https://www.polygon.com/professor-layton-new-world-of-steam-release-date-nintendo-direct-reveal/",
+      "summary": "The release date for Professor Layton and the New World of Steam has finally been announced at the September Nintendo Direct.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T20:44:33.000Z"
+    },
+    {
+      "title": "Marvel's Guardians of the Galaxy's Surprise Switch 2 Port Has Some Fans Hoping for a Sequel",
+      "link": "https://www.ign.com/articles/marvels-guardians-of-the-galaxys-surprise-switch-2-port-has-some-fans-hoping-for-a-sequel",
+      "summary": "Marvel's Guardians of the Galaxy has re-emerged, five years after its release, with a new Switch 2 version... and some fans hope it could lead to a sequel.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-09T20:41:27.000Z"
+    },
+    {
+      "title": "Marvel Sets a Disney+ Record After Seven Years, And Fans Are All Saying the Same Thing",
+      "link": "https://comicbook.com/movies/news/marvel-sets-a-disney-record-after-seven-years-and-fans-are-all-saying-the-same-thing/",
+      "summary": "For years after Avengers: Endgame hit theaters in 2019, Marvel seemed to struggle to put out consistent movies and TV shows that landed with MCU fans. Yes, every franchise has its ups and downs, and there were several…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-09T22:22:54.000Z"
+    },
+    {
+      "title": "Paul and the Slave Girl in Philippi",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/paul-and-the-slave-girl-in-philippi/",
+      "summary": "Some may be surprised that a passage in the Bible has a connection to Python from Greek mythology.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-06T11:00:21.000Z"
     },
     {
       "title": "Were the Greek Gods Actually Minoan?",
@@ -226,36 +162,100 @@
       "date": "2026-09-07T10:45:16.000Z"
     },
     {
-      "title": "Webinar: Learn How to Answer “Are We Exposed?” Faster After a New CVE",
-      "link": "https://thehackernews.com/2026/09/webinar-learn-how-to-answer-are-we.html",
-      "summary": "A major vulnerability is disclosed. The alert lands immediately. Then comes the harder question: Are we actually exposed? For many security teams, answering that means jumping between vulnerability scanners, endpoint…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T11:57:36.000Z"
-    },
-    {
-      "title": "Is Ursa Responsible For Krypton's Destruction? Kingdom Of Zod Spoilers",
-      "link": "https://bleedingcool.com/comics/is-ursa-responsible-for-kryptons-destruction-kingdom-of-zod-spoilers/",
-      "summary": "Was Ursa responsible for Krypton's destruction all along? Kingdom Of Zod Spoilers",
+      "title": "Avatar: Seven Havens Team: New Series Set 225 Years After \"Korra\"",
+      "link": "https://bleedingcool.com/tv/avatar-seven-havens-team-new-series-set-225-years-after-korra/",
+      "summary": "Avatar: The Last Airbender co-creator Michael DiMartino and Avatar: Seven Havens EPs Ethan Spaulding and Sehaj Sethi on the HUGE time jump.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-09T19:09:11.000Z"
+      "date": "2026-09-09T21:37:08.000Z"
     },
     {
-      "title": "Tate brothers to remain in US jail as they fight extradition to UK",
-      "link": "https://www.bbc.co.uk/news/articles/cp849rlrrmlo?at_medium=RSS&at_campaign=rss",
-      "summary": "A federal judge denied them bail, saying the dual US-UK citizens' wealth and frequent international travel \"constitute quintessential flight risks\".",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-09T19:09:13.000Z"
+      "title": "Onimusha: Way of the Sword Is Getting an Official Prequel Webtoon With New Chapters Every Saturday",
+      "link": "https://www.ign.com/articles/onimusha-way-of-the-sword-is-getting-an-official-prequel-webtoon-with-new-chapters-every-saturday",
+      "summary": "Onimusha: Way of the Sword dropped last week, and we’re of the opinion that it’s a 10/10 masterpiece . If you’ve already jumped into the action or are generally curious about the story side of things, it's worth…",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-09T20:29:42.000Z"
     },
     {
-      "title": "Alby Hub Critical Flaw Could Let Attackers Take Over Internet-Exposed Bitcoin Wallets",
-      "link": "https://thehackernews.com/2026/09/alby-hub-critical-flaw-could-let.html",
-      "summary": "Bitcoin wallet company Alby has warned of a critical flaw in Alby Hub that could have let an attacker take over a wallet and send its funds, but only where the owner had made the Hub reachable from the internet. Alby…",
+      "title": "Four Spy Groups Used the Same Chrome and Windows Exploit Kit Within a Week",
+      "link": "https://thehackernews.com/2026/09/four-spy-groups-used-same-chrome-and.html",
+      "summary": "Multiple espionage-motivated threat activity clusters have been found deploying a previously undocumented exploit kit called BlueMoon that chains together multiple vulnerabilities in Microsoft Windows and Google Chrome.…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-09T10:43:04.000Z"
+      "date": "2026-09-09T16:34:05.000Z"
+    },
+    {
+      "title": "Identity-Based AI Attack Threatens Security of Enterprise Data",
+      "link": "https://www.darkreading.com/threat-intelligence/identity-based-ai-attack-security-enterprise-data",
+      "summary": "\"Workflow identity hijacking\" can bypass standard security controls and hijack an organization's data by sending a basic request through an unauthenticated entry point.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T14:39:44.000Z"
+    },
+    {
+      "title": "Mythos Vulnerability Firehose Hits a Human Bottleneck",
+      "link": "https://www.darkreading.com/application-security/mythos-vulnerability-firehose-hits-human-bottleneck",
+      "summary": "An analysis of Project Glasswing findings shows only a fraction have reached disclosure, and an even smaller number have been fixed.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T21:19:55.000Z"
+    },
+    {
+      "title": "US Government Accuses Chinese AI Firms of Distilling Frontier Models",
+      "link": "https://www.darkreading.com/application-security/us-government-chinese-ai-firms-distilling-frontier-models",
+      "summary": "US agencies claim Chinese companies covertly extracted billions of tokens from OpenAI, Anthropic, Google Gemini, and SpaceX's Grok to reduce development costs.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T19:47:50.000Z"
+    },
+    {
+      "title": "When it comes to Beatles references, scientists can't let it be",
+      "link": "https://arstechnica.com/science/2026/09/scientists-really-love-to-reference-the-beatles-in-their-work/",
+      "summary": "New study detects 3,200 references to Beatles song titles and lyrics in academic papers.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-09T19:31:55.000Z"
+    },
+    {
+      "title": "Six Chinese AI firms accused of aggressively copying US frontier models",
+      "link": "https://arstechnica.com/tech-policy/2026/09/six-chinese-ai-firms-accused-of-aggressively-copying-us-frontier-models/",
+      "summary": "US urges AI firms to ID, then secretly switch, Chinese users to less-capable models.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-09T20:06:28.000Z"
+    },
+    {
+      "title": "Infostealer Logs Expose Replayable AI Tokens That Can Bypass MFA",
+      "link": "https://thehackernews.com/2026/09/infostealer-logs-expose-replayable-ai.html",
+      "summary": "Cybercriminals are hijacking artificial intelligence (AI) user accounts via information stealer logs to create \"stolen keys\" that grant illicit access to tools from model providers like Google, Anthropic, and others.…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T14:23:55.000Z"
+    },
+    {
+      "title": "Deciphered Dead Sea Scroll Reveals 364-Day Calendar",
+      "link": "https://www.biblicalarchaeology.org/daily/news/qumran-community-364-day-calendar/",
+      "summary": "Researchers recently deciphered one of the last two remaining Dead Sea Scrolls. Written in code, the scroll describes a 364-day calendar used by the Qumran community that lived in the Judean Desert.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-08T11:00:19.000Z"
+    },
+    {
+      "title": "Xbox Gets Exclusive Call of Duty Gun Skin PlayStation Players Can't See",
+      "link": "https://www.polygon.com/call-of-duty-modern-warfare-4-xbox-exclusive-gun-skin/",
+      "summary": "The latest battle in the console wars is happening in Call of Duty, where Xbox players are getting a gun skin that looks different on every other plat",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-09T21:56:50.000Z"
+    },
+    {
+      "title": "4 Star Wars Characters Who Were Once a Huge Deal (Then Completely Disappeared)",
+      "link": "https://comicbook.com/movies/list/4-star-wars-characters-who-were-once-a-huge-deal-then-completely-disappeared/",
+      "summary": "Throughout Star Wars‘ nearly 50 years, there have been innumerable characters, particularly when thinking beyond just Star Wars movies and TV shows. However, there have certainly been characters that have stood out…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-09T22:00:00.000Z"
     }
   ]
 }
