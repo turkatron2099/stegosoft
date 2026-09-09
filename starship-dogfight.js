@@ -10,7 +10,18 @@
   const canvas = document.createElement("canvas");
   canvas.className = "dogfight-canvas";
   hero.insertBefore(canvas, hero.firstChild);
-  const ctx = canvas.getContext("2d");
+  // `ctx` is reassignable (not const): drawAnaglyphFrame() briefly points it
+  // at an offscreen buffer so the existing drawStars/drawShip/etc functions
+  // — which all close over this variable rather than taking a ctx param —
+  // can render into that buffer unchanged, then restores it to mainCtx.
+  let ctx = canvas.getContext("2d");
+  const mainCtx = ctx;
+
+  // Offscreen buffers for the anaglyph 3D render path (see drawAnaglyphFrame).
+  const sceneCanvas = document.createElement("canvas");
+  const sceneCtx = sceneCanvas.getContext("2d");
+  const eyeCanvas = document.createElement("canvas");
+  const eyeCtx = eyeCanvas.getContext("2d");
 
   let W = 0, H = 0;
 
@@ -23,7 +34,14 @@
     canvas.height = Math.round(H * dpr);
     canvas.style.width = W + "px";
     canvas.style.height = H + "px";
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    mainCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    [sceneCanvas, eyeCanvas].forEach((c) => {
+      c.width = canvas.width;
+      c.height = canvas.height;
+    });
+    sceneCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    eyeCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   // Small starfield behind the dogfight — same cream as the "Home" link and
   // the logo's border (var(--foreground) in style.css).
@@ -72,6 +90,21 @@
       }
     }
   }
+
+  // Anaglyph mode: set by hero-logo.js once the logo settles into its
+  // red/cyan skin at 300 clicks (same flag/event pattern as matrix mode
+  // above, just triggered from that other script instead of this one).
+  // Unlike matrix mode this doesn't replace the scene, just how it's
+  // rendered — see drawAnaglyphFrame.
+  const ANAGLYPH_MODE_KEY = "stegosoft-anaglyph-mode";
+  let anaglyphMode = localStorage.getItem(ANAGLYPH_MODE_KEY) === "1";
+
+  window.addEventListener("stegosoft:anaglyph-mode-on", () => {
+    anaglyphMode = true;
+  });
+  window.addEventListener("stegosoft:anaglyph-mode-off", () => {
+    anaglyphMode = false;
+  });
 
   window.addEventListener("resize", () => {
     resize();
@@ -333,6 +366,54 @@
     ctx.fill();
   }
 
+  // --- Anaglyph 3D render path ---
+  // Renders the normal scene once (full color, into sceneCanvas), then
+  // composites two horizontally-offset copies onto the visible canvas — one
+  // recolored solid red, one solid cyan — the same red/cyan split a pair of
+  // 3D glasses separates. eyeLayer() builds each copy by filling eyeCanvas
+  // with the flat eye color, then "destination-in" clips that fill down to
+  // wherever the (offset) scene has coverage, inheriting the scene's own
+  // per-pixel alpha (so star twinkle and bolt fade still work). The two eye
+  // layers are then drawn onto the main canvas with "lighter" (additive)
+  // blending, which is what actually produces the characteristic red/cyan
+  // fringing where the two don't quite overlap.
+  const ANAGLYPH_OFFSET = 5; // px of horizontal separation between the two eye images
+
+  function eyeLayer(color, offsetX) {
+    eyeCtx.clearRect(0, 0, W, H);
+    eyeCtx.globalCompositeOperation = "source-over";
+    eyeCtx.fillStyle = color;
+    eyeCtx.fillRect(0, 0, W, H);
+    eyeCtx.globalCompositeOperation = "destination-in";
+    eyeCtx.drawImage(sceneCanvas, offsetX, 0, W, H);
+    eyeCtx.globalCompositeOperation = "source-over";
+  }
+
+  function drawAnaglyphFrame(now, dtScale) {
+    maybeSpawnMeteor(now);
+    stepMeteor(now, dtScale);
+    stepShip(ships[0], ships[1], now, dtScale);
+    stepShip(ships[1], ships[0], now, dtScale);
+
+    // Render the full-color scene once into the offscreen buffer, using the
+    // normal draw functions unchanged — they just need `ctx` pointed here.
+    ctx = sceneCtx;
+    ctx.clearRect(0, 0, W, H);
+    drawStars(now);
+    drawMeteor();
+    drawBolts(dtScale);
+    ships.forEach(drawShip);
+    ctx = mainCtx;
+
+    ctx.clearRect(0, 0, W, H);
+    eyeLayer("rgb(255, 0, 0)", -ANAGLYPH_OFFSET);
+    ctx.globalCompositeOperation = "lighter";
+    ctx.drawImage(eyeCanvas, 0, 0, W, H);
+    eyeLayer("rgb(0, 255, 255)", ANAGLYPH_OFFSET);
+    ctx.drawImage(eyeCanvas, 0, 0, W, H);
+    ctx.globalCompositeOperation = "source-over";
+  }
+
   let running = false;
   let rafId = null;
   let lastTime = null;
@@ -348,6 +429,8 @@
 
     if (matrixMode) {
       drawMatrixRain(dtScale);
+    } else if (anaglyphMode) {
+      drawAnaglyphFrame(now, dtScale);
     } else {
       ctx.clearRect(0, 0, W, H);
       drawStars(now);

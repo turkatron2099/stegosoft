@@ -38,6 +38,12 @@
   const FALL_AT = 200; // logo starts falling under gravity — click it to keep it up
   const ANAGLYPH_AT = 300; // the chaos stops — logo settles back in place, reskinned in anaglyph
 
+  // Shared with starship-dogfight.js (same pattern as matrix-mode.js's own
+  // flag/event pair) so the dogfight scene switches into its own red/cyan
+  // anaglyph render style in lockstep with the logo, both immediately and on
+  // future page loads.
+  const ANAGLYPH_MODE_KEY = "stegosoft-anaglyph-mode";
+
   let clicks = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
 
   const counter = document.createElement("div");
@@ -164,6 +170,11 @@
     logo.style.transform = "";
     heroHeading.style.minHeight = "";
     logo.src = ANAGLYPH_SRC;
+
+    if (localStorage.getItem(ANAGLYPH_MODE_KEY) !== "1") {
+      localStorage.setItem(ANAGLYPH_MODE_KEY, "1");
+      window.dispatchEvent(new Event("stegosoft:anaglyph-mode-on"));
+    }
   }
 
   logo.addEventListener("click", () => {
@@ -198,6 +209,11 @@
     logo.style.transform = "";
     heroHeading.style.minHeight = "";
     logo.src = ORIGINAL_SRC;
+
+    if (localStorage.getItem(ANAGLYPH_MODE_KEY) === "1") {
+      localStorage.removeItem(ANAGLYPH_MODE_KEY);
+      window.dispatchEvent(new Event("stegosoft:anaglyph-mode-off"));
+    }
   }
 
   document.addEventListener("keydown", (e) => {
