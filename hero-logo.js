@@ -3,7 +3,7 @@
   if (!logo) return;
   const heroHeading = logo.parentElement; // the <h1> wrapping the logo
   const ORIGINAL_SRC = logo.getAttribute("src");
-  const ANAGLYPH_SRC = "images/Stegosoft_anaglyph.png";
+  const ANAGLYPH_SRC = "images/Stegosoft_anaglyph2.png";
 
   let audioCtx = null;
 
