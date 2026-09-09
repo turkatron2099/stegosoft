@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encyclopedia — Stegosoft</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="encyclopedia.css">
+<link rel="icon" href="images/stegosoft-logo.jpg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="encyclopedia-intro">
+    <div class="wrap">
+      <h1>Encyclopedia</h1>
+      <p class="tagline">Look up a topic and read the summary right here, without leaving Stegosoft.</p>
+    </div>
+  </section>
+
+  <section class="encyclopedia-panel">
+    <div class="wrap">
+
+      <div class="encyclopedia-form">
+        <input type="text" id="topic-input" placeholder="Search Wikipedia..." autocomplete="off">
+        <button type="button" id="search-btn">Search</button>
+      </div>
+
+      <p class="encyclopedia-status" id="status-text" hidden></p>
+
+      <div class="encyclopedia-result" id="result-box" hidden>
+        <div class="article-header">
+          <img class="article-thumb" id="article-thumb" alt="" hidden>
+          <div class="article-heading">
+            <h2 class="article-title" id="article-title"></h2>
+            <p class="article-description" id="article-description" hidden></p>
+          </div>
+        </div>
+        <p class="article-extract" id="article-extract"></p>
+        <a class="article-link" id="article-link" target="_blank" rel="noopener">Read more on Wikipedia &rarr;</a>
+      </div>
+
+      <p class="encyclopedia-note">
+        Summaries from <a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a>, licensed under
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Stegosoft</span>
+  </div>
+</footer>
+
+<script src="encyclopedia.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>

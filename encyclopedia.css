@@ -1,0 +1,148 @@
+.encyclopedia-intro {
+  padding: 56px 0 8px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, var(--lighter-background), var(--background) 70%);
+}
+
+.encyclopedia-intro h1 {
+  color: var(--foreground);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.encyclopedia-intro .tagline {
+  color: var(--light-foreground);
+  font-size: 0.95rem;
+}
+
+.encyclopedia-panel {
+  padding: 40px 0 80px;
+}
+
+.encyclopedia-form {
+  display: flex;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#topic-input {
+  flex: 1;
+  min-width: 0;
+  background: var(--dark-background);
+  color: var(--foreground);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+#topic-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#search-btn {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: var(--dark-background);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+#search-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+#search-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.encyclopedia-status {
+  max-width: 500px;
+  margin: 20px auto 0;
+  text-align: center;
+  color: var(--light-foreground);
+  font-size: 0.9rem;
+}
+
+.encyclopedia-result {
+  max-width: 640px;
+  margin: 32px auto 0;
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.article-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.article-thumb {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--muted);
+  flex-shrink: 0;
+}
+
+.article-heading {
+  min-width: 0;
+}
+
+.article-title {
+  color: var(--foreground);
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.article-description {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.article-extract {
+  color: var(--light-foreground);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  white-space: pre-line;
+}
+
+.article-link {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.article-link:hover {
+  color: var(--cyan);
+}
+
+.encyclopedia-note {
+  max-width: 560px;
+  margin: 32px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.encyclopedia-note a {
+  color: var(--muted);
+}
