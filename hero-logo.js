@@ -36,12 +36,15 @@
   const ROAM_AT = 100; // logo starts bouncing around the screen, DVD-screensaver style
   const FALL_AT = 200; // logo starts falling under gravity — click it to keep it up
   const ANAGLYPH_AT = 300; // the chaos stops — logo settles back in place, reskinned in anaglyph
+  const VIRTUALBOY_AT = 400; // reskinned again — flat red-on-black, Virtual Boy style
 
   // Shared with starship-dogfight.js (same pattern as matrix-mode.js's own
   // flag/event pair) so the dogfight scene switches into its own red/cyan
   // anaglyph render style in lockstep with the logo, both immediately and on
   // future page loads.
   const ANAGLYPH_MODE_KEY = "stegosoft-anaglyph-mode";
+  // Same pattern again for the Virtual Boy tier at 400 clicks.
+  const VIRTUALBOY_MODE_KEY = "stegosoft-virtualboy-mode";
 
   let clicks = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
 
@@ -217,6 +220,20 @@
     return { canvas: line, w: workW, h: workH };
   }
 
+  // Memoized so the trace only ever runs once, against whatever `logo.src`
+  // currently is the *first* time either skin below is built. That matters
+  // once there are two skins: without this, reaching Virtual Boy (400
+  // clicks) after already settling into anaglyph (300) would re-trace edges
+  // from the anaglyph PNG itself instead of the original artwork. Since
+  // this is only ever invoked from settleAsAnaglyph()/settleAsVirtualBoy(),
+  // both of which run before their own first logo.src swap, the first call
+  // — whichever skin is reached first — always sees the pristine original.
+  let lineArtCanvas = null;
+  function getLineArtCanvas() {
+    if (!lineArtCanvas) lineArtCanvas = buildLineArtCanvas();
+    return lineArtCanvas;
+  }
+
   // Builds a red/cyan anaglyph from the line art above: two copies, shifted
   // a few pixels in opposite directions, each clipped to a flat fill color
   // via "destination-in" (which keys off alpha — correct here since the
@@ -228,7 +245,7 @@
   let anaglyphLogoSrc = null;
 
   function buildAnaglyphLogoSrc() {
-    const { canvas: scene, w, h } = buildLineArtCanvas();
+    const { canvas: scene, w, h } = getLineArtCanvas();
     // ~2.8% of width lands the fringing somewhere clearly visible once the
     // logo is scaled down to its ~140px on-screen size, without it reading
     // as blurry double vision at full resolution.
@@ -267,6 +284,43 @@
     return anaglyphLogoSrc;
   }
 
+  // Nintendo's Virtual Boy used exactly one LED color — a hot red — on pure
+  // black, no other hues, no gradients. Reuses the same line-art trace as
+  // the anaglyph skin above, but skips the two-color offset compositing
+  // entirely: one flat red fill, alpha-clipped to the traced lines via
+  // "destination-in" (the same masking trick), laid over an opaque black
+  // backdrop instead of a transparent one.
+  const VIRTUALBOY_RED = "#ff2400";
+  let virtualBoyLogoSrc = null;
+
+  function buildVirtualBoyLogoSrc() {
+    const { canvas: scene, w, h } = getLineArtCanvas();
+
+    const redLayer = document.createElement("canvas");
+    redLayer.width = w;
+    redLayer.height = h;
+    const redCtx = redLayer.getContext("2d");
+    redCtx.fillStyle = VIRTUALBOY_RED;
+    redCtx.fillRect(0, 0, w, h);
+    redCtx.globalCompositeOperation = "destination-in";
+    redCtx.drawImage(scene, 0, 0, w, h);
+
+    const out = document.createElement("canvas");
+    out.width = w;
+    out.height = h;
+    const outCtx = out.getContext("2d");
+    outCtx.fillStyle = "#000000";
+    outCtx.fillRect(0, 0, w, h); // opaque black backdrop, unlike the anaglyph skin's transparency
+    outCtx.drawImage(redLayer, 0, 0);
+
+    return out.toDataURL("image/png");
+  }
+
+  function virtualBoySrc() {
+    if (!virtualBoyLogoSrc) virtualBoyLogoSrc = buildVirtualBoyLogoSrc();
+    return virtualBoyLogoSrc;
+  }
+
   // Ends the roam/fall chaos for good and puts the logo back exactly where
   // it started in the page flow — just wearing the anaglyph skin now.
   function settleAsAnaglyph() {
@@ -297,13 +351,47 @@
     }
   }
 
+  // Same idea, one tier further — supersedes the anaglyph skin rather than
+  // combining with it, so this also turns anaglyph mode back off (clicks
+  // only ever climb, so this is always reached at 400+ regardless of
+  // whether 300-399 was ever actually seen — e.g. after a reload, or via
+  // the testing shortcut below).
+  function settleAsVirtualBoy() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    roaming = false;
+    falling = false;
+    logo.classList.remove("logo-roaming");
+    logo.style.transform = "";
+    heroHeading.style.minHeight = "";
+
+    if (logo.complete && logo.naturalWidth) {
+      logo.src = virtualBoySrc();
+    } else {
+      logo.addEventListener("load", () => { logo.src = virtualBoySrc(); }, { once: true });
+    }
+
+    if (localStorage.getItem(ANAGLYPH_MODE_KEY) === "1") {
+      localStorage.removeItem(ANAGLYPH_MODE_KEY);
+      window.dispatchEvent(new Event("stegosoft:anaglyph-mode-off"));
+    }
+    if (localStorage.getItem(VIRTUALBOY_MODE_KEY) !== "1") {
+      localStorage.setItem(VIRTUALBOY_MODE_KEY, "1");
+      window.dispatchEvent(new Event("stegosoft:virtualboy-mode-on"));
+    }
+  }
+
   logo.addEventListener("click", () => {
     clicks++;
     localStorage.setItem(STORAGE_KEY, String(clicks));
     renderCounter();
     playCoinPickup();
 
-    if (clicks >= ANAGLYPH_AT) {
+    if (clicks >= VIRTUALBOY_AT) {
+      settleAsVirtualBoy();
+    } else if (clicks >= ANAGLYPH_AT) {
       settleAsAnaglyph();
     } else if (clicks >= FALL_AT) {
       falling = true;
@@ -334,6 +422,10 @@
       localStorage.removeItem(ANAGLYPH_MODE_KEY);
       window.dispatchEvent(new Event("stegosoft:anaglyph-mode-off"));
     }
+    if (localStorage.getItem(VIRTUALBOY_MODE_KEY) === "1") {
+      localStorage.removeItem(VIRTUALBOY_MODE_KEY);
+      window.dispatchEvent(new Event("stegosoft:virtualboy-mode-off"));
+    }
   }
 
   document.addEventListener("keydown", (e) => {
@@ -348,7 +440,9 @@
   // Enters whichever state the current click count corresponds to — shared
   // by the reload-resume check below and the testing shortcut further down.
   function applyClickState() {
-    if (clicks >= ANAGLYPH_AT) {
+    if (clicks >= VIRTUALBOY_AT) {
+      settleAsVirtualBoy();
+    } else if (clicks >= ANAGLYPH_AT) {
       settleAsAnaglyph();
     } else if (clicks >= FALL_AT) {
       falling = true;

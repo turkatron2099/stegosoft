@@ -106,6 +106,19 @@
     anaglyphMode = false;
   });
 
+  // Virtual Boy: set by hero-logo.js once the logo re-skins again at 400
+  // clicks, superseding the anaglyph mode above (hero-logo.js turns
+  // anaglyphMode off before turning this on, so the two never overlap).
+  const VIRTUALBOY_MODE_KEY = "stegosoft-virtualboy-mode";
+  let virtualBoyMode = localStorage.getItem(VIRTUALBOY_MODE_KEY) === "1";
+
+  window.addEventListener("stegosoft:virtualboy-mode-on", () => {
+    virtualBoyMode = true;
+  });
+  window.addEventListener("stegosoft:virtualboy-mode-off", () => {
+    virtualBoyMode = false;
+  });
+
   window.addEventListener("resize", () => {
     resize();
     makeStars();
@@ -414,6 +427,34 @@
     ctx.globalCompositeOperation = "source-over";
   }
 
+  // --- Virtual Boy render path ---
+  // Same full-color scene render into sceneCanvas as the anaglyph path
+  // above, but composited down to Nintendo's actual Virtual Boy palette —
+  // one flat red, no offset pair, no other hue — over a solid black
+  // backdrop instead of anaglyph's transparency. Reuses eyeLayer() with no
+  // horizontal offset, since there's no second eye to separate from.
+  const VIRTUALBOY_RED = "#ff2400"; // matches hero-logo.js's Virtual Boy skin
+
+  function drawVirtualBoyFrame(now, dtScale) {
+    maybeSpawnMeteor(now);
+    stepMeteor(now, dtScale);
+    stepShip(ships[0], ships[1], now, dtScale);
+    stepShip(ships[1], ships[0], now, dtScale);
+
+    ctx = sceneCtx;
+    ctx.clearRect(0, 0, W, H);
+    drawStars(now);
+    drawMeteor();
+    drawBolts(dtScale);
+    ships.forEach(drawShip);
+    ctx = mainCtx;
+
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, W, H);
+    eyeLayer(VIRTUALBOY_RED, 0);
+    ctx.drawImage(eyeCanvas, 0, 0, W, H);
+  }
+
   let running = false;
   let rafId = null;
   let lastTime = null;
@@ -429,6 +470,8 @@
 
     if (matrixMode) {
       drawMatrixRain(dtScale);
+    } else if (virtualBoyMode) {
+      drawVirtualBoyFrame(now, dtScale);
     } else if (anaglyphMode) {
       drawAnaglyphFrame(now, dtScale);
     } else {
