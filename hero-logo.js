@@ -225,14 +225,37 @@
     resetLogo();
   });
 
+  // Enters whichever state the current click count corresponds to — shared
+  // by the reload-resume check below and the testing shortcut further down.
+  function applyClickState() {
+    if (clicks >= ANAGLYPH_AT) {
+      settleAsAnaglyph();
+    } else if (clicks >= FALL_AT) {
+      falling = true;
+      startRoaming();
+    } else if (clicks >= ROAM_AT) {
+      startRoaming();
+    }
+  }
+
+  // TODO(testing): remove this block — press 1-9 to jump straight to that
+  // many hundred clicks (100/200/300/...) instead of actually clicking
+  // through each threshold by hand.
+  document.addEventListener("keydown", (e) => {
+    if (!/^[1-9]$/.test(e.key)) return;
+    const target = e.target;
+    if (target instanceof HTMLElement && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
+      return;
+    }
+    resetLogo(); // clean slate so downgrading (e.g. anaglyph -> roaming) works too
+    clicks = Number(e.key) * 100;
+    localStorage.setItem(STORAGE_KEY, String(clicks));
+    renderCounter();
+    applyClickState();
+  });
+  // end TODO(testing) block
+
   // Resume the right behavior immediately on reload, rather than waiting
   // for the next click, if the stored count already crossed a threshold.
-  if (clicks >= ANAGLYPH_AT) {
-    settleAsAnaglyph();
-  } else if (clicks >= FALL_AT) {
-    falling = true;
-    startRoaming();
-  } else if (clicks >= ROAM_AT) {
-    startRoaming();
-  }
+  applyClickState();
 })();
