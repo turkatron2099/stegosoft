@@ -297,7 +297,11 @@
   border-radius: 12px;
   width: 100%;
   max-width: 900px;
-  max-height: 100%;
+  /* A definite height, not just a cap — .page-editor-stage-wrap below is
+     flex:1 and needs a concrete parent height to grow into. max-height
+     alone doesn't establish one (the container stays auto-sized to
+     content), which silently collapsed the whole PDF view to 0 height. */
+  height: min(900px, 90vh);
   display: flex;
   flex-direction: column;
   overflow: hidden;

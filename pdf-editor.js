@@ -306,11 +306,16 @@
       else editorBg.onload = resolve;
     });
 
+    // Must un-hide before reading clientWidth/clientHeight below — an
+    // element inside a display:none ancestor always reports 0 for both,
+    // regardless of its actual (already-loaded) image size, which
+    // previously collapsed the whole stage to 0x0.
+    editorBackdrop.hidden = false;
+
     editorStage.style.width = editorBg.clientWidth + "px";
     editorStage.style.height = editorBg.clientHeight + "px";
     editorScale = editorBg.clientWidth / editorPageW;
 
-    editorBackdrop.hidden = false;
     renderAnnotLayer();
   }
 
