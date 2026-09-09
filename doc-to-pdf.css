@@ -1,3 +1,12 @@
+/* The hidden attribute's default `display: none` is a browser-stylesheet
+   rule, which any of this file's own `display` declarations below silently
+   overrides (author styles beat the browser default regardless of selector
+   specificity) — so every element toggled via `.hidden = true/false` in JS
+   needs this guard, or it stays visible/laid-out even while "hidden". */
+[hidden] {
+  display: none !important;
+}
+
 .doc2pdf-intro {
   padding: 56px 0 8px;
   text-align: center;
