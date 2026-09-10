@@ -131,7 +131,7 @@
       window.speechSynthesis.cancel();
       const utter = new SpeechSynthesisUtterance("Hop on the byte");
       utter.pitch = 0.3;
-      utter.rate = 1.05;
+      utter.rate = 1.2;
       window.speechSynthesis.speak(utter);
     }
   }
