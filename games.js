@@ -77,12 +77,8 @@
   // it back out scaled with smoothing off, for a blocky "8-bit" look. Built
   // once and cached, same lazy-build-once pattern as cool-cars.js's grass
   // pattern.
-  // A dedicated, simplified mark for the boot screen: the full site logo's
-  // fine linework/gradients turn to mush at this pixel count, so this is
-  // just the back line, plates, and thagomizer tail spikes over the
-  // wordmark — bold shapes that hold up under heavy pixelation.
   const BOOT_LOGO_IMAGE = new Image();
-  BOOT_LOGO_IMAGE.src = "images/thagobyte_boot_logo.png";
+  BOOT_LOGO_IMAGE.src = "images/Thagomizer_Logo.png";
   const PIXEL_GRID = 56;
   let pixelLogoCanvas = null;
 
@@ -137,7 +133,7 @@
       window.speechSynthesis.cancel();
       const utter = new SpeechSynthesisUtterance("Hop on the byte");
       utter.pitch = 0.3;
-      utter.rate = 0.5;
+      utter.rate = 0.85;
       window.speechSynthesis.speak(utter);
     }
   }
