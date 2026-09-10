@@ -15,8 +15,6 @@
   const consoleScreen = document.querySelector(".console-screen");
   const shelf = document.getElementById("cartridge-shelf");
   const consoleEl = document.getElementById("console");
-  const controlsHint = document.getElementById("controls-hint");
-  const defaultControlsHint = controlsHint.textContent;
 
   // Plays once per successful cartridge insertion, regardless of which game.
   // Cloned per play (same pattern as cool-cars.js's honk/animal sounds) so
@@ -133,7 +131,7 @@
       window.speechSynthesis.cancel();
       const utter = new SpeechSynthesisUtterance("Hop on the byte");
       utter.pitch = 0.3;
-      utter.rate = 0.85;
+      utter.rate = 1.05;
       window.speechSynthesis.speak(utter);
     }
   }
@@ -192,7 +190,6 @@
     placeholder.hidden = true;
     screenBlank.hidden = false;
     stopStatic();
-    controlsHint.textContent = defaultControlsHint;
     consoleEl.classList.remove("powered-on");
 
     pendingInsertTimeoutId = setTimeout(() => {
@@ -203,7 +200,6 @@
       canvas.hidden = false;
       hud.hidden = false;
       hudTitle.textContent = game.title;
-      controlsHint.textContent = game.controlsHint || defaultControlsHint;
       consoleEl.classList.add("powered-on");
 
       const controller = game.start(canvas);
@@ -232,7 +228,6 @@
     placeholder.hidden = false;
     placeholderBoot.hidden = true;
     placeholderOff.hidden = false;
-    controlsHint.textContent = defaultControlsHint;
     consoleEl.classList.remove("powered-on");
     startStatic();
   }
