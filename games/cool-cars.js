@@ -428,6 +428,16 @@
         const play = ANIMAL_SOUNDS[id];
         if (play) play(c.currentTime);
       },
+      // Only the Robot driver talks — pitched way down for a robotic read.
+      // Same technique as the console's own boot-up voice line.
+      speakRobot(text) {
+        if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.pitch = 0.2;
+        utter.rate = 1.1;
+        window.speechSynthesis.speak(utter);
+      },
     };
   }
 
@@ -594,6 +604,7 @@
             popText = { text: `${nextNumber}!`, life: 45 };
             sound.coinPickup();
             sound.animalSound(selection.animal.id);
+            if (selection.animal.id === "robot") sound.speakRobot(String(nextNumber));
             nextNumber++;
             if (nextNumber > 10) {
               state = "won";
@@ -906,6 +917,7 @@
         button(x + 10, y, cellW - 20, cellH - 16, () => {
           selection.animal = a;
           sound.animalSound(a.id);
+          if (a.id === "robot") sound.speakRobot("Hop on the byte");
           state = "chooseVehicle";
         });
         emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
