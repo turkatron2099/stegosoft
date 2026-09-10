@@ -19,9 +19,88 @@
       // Storage unavailable — the unlock just won't persist this time.
     }
   }
-  function isLocked(entry) {
-    return !!entry.requiresWins && getWinCount() < entry.requiresWins;
+  // The Konami code (same sequence as the homepage's matrix-mode easter
+  // egg) is a permanent shortcut past the win requirement, for anyone who'd
+  // rather cheat than grind out 3 wins.
+  const CHEAT_UNLOCK_KEY = "coolCarsCheatUnlock";
+  function isCheatUnlocked() {
+    try {
+      return localStorage.getItem(CHEAT_UNLOCK_KEY) === "1";
+    } catch (e) {
+      return false;
+    }
   }
+  function setCheatUnlocked() {
+    try {
+      localStorage.setItem(CHEAT_UNLOCK_KEY, "1");
+    } catch (e) {
+      // Storage unavailable — the unlock just won't persist this time.
+    }
+  }
+  function isLocked(entry) {
+    return !!entry.requiresWins && getWinCount() < entry.requiresWins && !isCheatUnlocked();
+  }
+
+  const KONAMI_SEQUENCE = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", " "];
+  let konamiProgress = 0;
+
+  function showCheatUnlockToast() {
+    const toast = document.createElement("div");
+    toast.className = "cheat-unlock-toast";
+    toast.textContent = "🤖🌈 Cheat activated — Robot & Rainbow unlocked!";
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add("is-visible"));
+    setTimeout(() => {
+      toast.classList.remove("is-visible");
+      setTimeout(() => toast.remove(), 350);
+    }, 2400);
+
+    // A quick ascending chime — same "ephemeral AudioContext" approach as
+    // the console's own boot jingle, so this works even before any Cool
+    // Cars-specific audio has been touched.
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const now = ctx.currentTime;
+      [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        osc.type = "square";
+        osc.frequency.value = freq;
+        const gain = ctx.createGain();
+        const when = now + i * 0.09;
+        gain.gain.setValueAtTime(0.0001, when);
+        gain.gain.exponentialRampToValueAtTime(0.18, when + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, when + 0.15);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(when);
+        osc.stop(when + 0.17);
+      });
+    } catch (e) {
+      // Web Audio unavailable — the toast alone still confirms the unlock.
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    const target = e.target;
+    if (target instanceof HTMLElement && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
+      return;
+    }
+
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    if (key === KONAMI_SEQUENCE[konamiProgress]) {
+      e.preventDefault(); // arrows/space would otherwise scroll the page mid-sequence
+      konamiProgress++;
+      if (konamiProgress === KONAMI_SEQUENCE.length) {
+        konamiProgress = 0;
+        if (!isCheatUnlocked()) {
+          setCheatUnlocked();
+          showCheatUnlockToast();
+        }
+      }
+    } else {
+      konamiProgress = key === KONAMI_SEQUENCE[0] ? 1 : 0;
+    }
+  });
 
   const ANIMALS = [
     { id: "dog", emoji: "🐶", label: "Dog" },

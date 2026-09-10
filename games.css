@@ -495,3 +495,29 @@ button.console-btn:active {
 .cartridge-lavalamp {
   --label-border: var(--cyan);
 }
+
+/* --- Cool Cars Konami-code cheat-unlock toast --- */
+
+.cheat-unlock-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  z-index: 1000;
+  padding: 14px 22px;
+  background: var(--lighter-background);
+  color: var(--foreground);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cheat-unlock-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
