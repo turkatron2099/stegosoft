@@ -1,93 +1,13 @@
 {
-  "generatedAt": "2026-09-10T04:46:50.465Z",
+  "generatedAt": "2026-09-10T12:56:31.656Z",
   "items": [
     {
-      "title": "Skyrim’s Wildest New Character Is a Talking Ikea Shelf, Voiced by Matt Berry",
-      "link": "https://www.polygon.com/skyrim-ikea-mod-shelf-matt-berry/",
-      "summary": "A new Skyrim mod from IKEA adds a talking shelf, giving players a bizarre new companion and some very strange loot.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-10T00:43:38.000Z"
-    },
-    {
-      "title": "Mare of Easttown Meets Killing Eve in Hulu's 8-Part Crime Thriller Series",
-      "link": "https://www.polygon.com/furious-hulu-crime-drama/",
-      "summary": "Explore Hulu's Furious, a crime drama blending female empowerment and rage through Alice and Catherine's gripping story.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-10T04:00:19.000Z"
-    },
-    {
-      "title": "31 Years Later, Matthew Lillard’s Fan-Favorite Techno-Thriller Is Officially Free on Streaming",
-      "link": "https://www.polygon.com/one-of-matthew-lillards-wildest-movies-is-free-right-now-on-pluto-tv/",
-      "summary": "Matthew Lillard steals the spotlight in this wildly stylish ’90s cyber-thriller, now free to watch on Pluto TV.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-10T04:30:14.000Z"
-    },
-    {
-      "title": "Identity-Based AI Attack Threatens Security of Enterprise Data",
-      "link": "https://www.darkreading.com/threat-intelligence/identity-based-ai-attack-security-enterprise-data",
-      "summary": "\"Workflow identity hijacking\" can bypass standard security controls and hijack an organization's data by sending a basic request through an unauthenticated entry point.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T14:39:44.000Z"
-    },
-    {
-      "title": "Anthropic Researcher Believes More Than 10% Chance AI 'Could Kill All Humans'",
-      "link": "https://slashdot.org/story/26/09/09/1943258/anthropic-researcher-believes-more-than-10-chance-ai-could-kill-all-humans?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Longtime Slashdot reader fahrbot-bot shares a report from the BBC: A top safety researcher at Anthropic has warned AI is advancing so quickly he believes there is a greater than 10% chance it \"could kill all humans\"…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T21:00:00.000Z"
-    },
-    {
-      "title": "Russia outpacing Ukraine's air defences with daily use of new jet-powered drones",
-      "link": "https://www.bbc.co.uk/news/articles/c804d9lyj2jo?at_medium=RSS&at_campaign=rss",
-      "summary": "The new models can travel at speeds of up to 300mph, faster than Ukraine's air defence interceptors.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-10T04:43:54.000Z"
-    },
-    {
-      "title": "SNL UK Host Jeff Goldblum on Why He's Hosting; Table Read Check-In",
-      "link": "https://bleedingcool.com/tv/snl-uk-host-jeff-goldblum-on-why-hes-hosting-table-read-check-in/",
-      "summary": "The SNL UK cast checks in from table read, and Jeff Goldblum discusses why he's hosting and what it was like hosting the US version.",
+      "title": "Law & Order: SVU, Avatar: Seven Havens & Carrie: BCTV Daily Dispatch",
+      "link": "https://bleedingcool.com/tv/law-order-svu-avatar-seven-havens-carrie-bctv-daily-dispatch/",
+      "summary": "In today's BCTV Daily Dispatch: SNL UK/SNL, NCIS, Best Medicine, AHS 13, Law & Order: SVU, Avatar: Seven Havens, Tracker, Carrie, and more!",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-10T04:37:09.000Z"
-    },
-    {
-      "title": "U.S. Disrupts Xinbi Guarantee Scam Marketplace, Freezes $52.8 Million in Crypto",
-      "link": "https://thehackernews.com/2026/09/us-disrupts-xinbi-guarantee-scam.html",
-      "summary": "The U.S. Department of Justice (DoJ) on Wednesday announced coordinated actions aimed at an illicit online marketplace called Xinbi Guarantee that offered scam services, including seizing Telegram channels used to run…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T18:26:05.000Z"
-    },
-    {
-      "title": "NCIS Showrunner on How Much Tony DiNozzo We're Getting in Season 24",
-      "link": "https://bleedingcool.com/tv/ncis-showrunner-on-how-much-tony-dinozzo-were-getting-in-season-24/",
-      "summary": "CBS's NCIS Showrunner Steven D. Binder discusses exactly how much of Michael Weatherly's Tony DiNozzo we're getting during Season 24.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-10T03:38:10.000Z"
-    },
-    {
-      "title": "61 Years Later, John Mulaney in Talks for a Major Mel Brooks Reboot, And the Timing Is Perfect",
-      "link": "https://comicbook.com/movies/news/61-years-later-john-mulaney-in-talks-for-a-major-mel-brooks-reboot-and-the-timing-is-perfect/",
-      "summary": "IMAGE COURTESY OF NBC It’s not uncommon to hear people opine of Mel Brooks’ classic comedies that they couldn’t be made today. Yet The Producers was remade as a successful musical and movie adaptation, a Spaceballs…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-10T03:10:11.000Z"
-    },
-    {
-      "title": "Four Spy Groups Used the Same Chrome and Windows Exploit Kit Within a Week",
-      "link": "https://thehackernews.com/2026/09/four-spy-groups-used-same-chrome-and.html",
-      "summary": "Multiple espionage-motivated threat activity clusters have been found deploying a previously undocumented exploit kit called BlueMoon that chains together multiple vulnerabilities in Microsoft Windows and Google Chrome.…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T16:34:05.000Z"
+      "date": "2026-09-10T11:37:09.000Z"
     },
     {
       "title": "Anthropic Reveals Fourth Likely Crime Committed By Its AI",
@@ -98,92 +18,12 @@
       "date": "2026-09-10T03:30:00.000Z"
     },
     {
-      "title": "Funeral for second officer killed in A66 crash to be held",
-      "link": "https://www.bbc.co.uk/news/articles/cnvl72e57yeo?at_medium=RSS&at_campaign=rss",
-      "summary": "PC Tom Clough's family say they are grateful for the public's support.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-10T04:30:00.000Z"
-    },
-    {
-      "title": "Forgotten Island: BTS Featurette Spotlights The Power of Friendship",
-      "link": "https://bleedingcool.com/movies/forgotten-island-bts-featurette-spotlights-the-power-of-friendship/",
-      "summary": "DreamWorks has released a new A Look Inside behind-the-scenes featurette that spotlights how friendship is the heart of the film.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-10T02:47:09.000Z"
-    },
-    {
-      "title": "Liam Neeson's Non-Stop Action Thriller Has One Crazy Twist — It's Director",
-      "link": "https://www.polygon.com/liam-neeson-mongoose-director-interview/",
-      "summary": "3 questions with Mark Vanselow about his new movie, The Mongoose, starring Liam Neeson",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-10T03:00:14.000Z"
-    },
-    {
-      "title": "US Government Accuses Chinese AI Firms of Distilling Frontier Models",
-      "link": "https://www.darkreading.com/application-security/us-government-chinese-ai-firms-distilling-frontier-models",
-      "summary": "US agencies claim Chinese companies covertly extracted billions of tokens from OpenAI, Anthropic, Google Gemini, and SpaceX's Grok to reduce development costs.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T19:47:50.000Z"
-    },
-    {
-      "title": "Europe may finally have found a space entrepreneur who is meeting the moment",
-      "link": "https://arstechnica.com/space/2026/09/as-europe-flounders-in-space-a-rising-french-star-may-show-the-way/",
-      "summary": "\"We will not be relevant without a massive rocket at a massive cadence.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-09T20:27:40.000Z"
-    },
-    {
-      "title": "Sacred Circles in Christianity and Buddhism",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/sacred-circles-in-christianity-and-buddhism/",
-      "summary": "Archaeologists have discovered dozens of eight-spoked wheels scratched into the floors, walls, and architectural elements of Greco-Roman temples, fountains, and street intersections. A circle divided…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-09T10:45:42.000Z"
-    },
-    {
-      "title": "4 groups caught using the same Chrome and Windows exploit kit",
-      "link": "https://arstechnica.com/information-technology/2026/09/4-groups-caught-using-the-same-chrome-and-windows-exploit-kit/",
-      "summary": "A patch gap and the hastened pace of AI-based vulnerability discovery are likely contributors.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-09T20:55:02.000Z"
-    },
-    {
-      "title": "The Temple on Mount Gerizim—In the Bible and Archaeology",
-      "link": "https://www.biblicalarchaeology.org/daily/the-temple-on-mount-gerizim-in-the-bible-and-archaeology/",
-      "summary": "Temples have been found throughout the ancient Near East. What went on at these sites? Along with reconstructing architectural remains, can scholars piece together ancient worship practices?",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-08T11:00:05.000Z"
-    },
-    {
-      "title": "Hideo Kojima's Metal Gear Solid Spiritual Successor Physint Will Now Be Published by Xbox Instead of Sony",
-      "link": "https://www.ign.com/articles/hideo-kojimas-metal-gear-solid-spiritual-successor-physint-will-now-be-published-by-xbox-instead-of-sony",
-      "summary": "Renowned video game director Hideo Kojima's upcoming project Physint, which could fairly be described as a spiritual successor to Metal Gear Solid, will now be published by Xbox instead of Sony, Microsoft announced…",
+      "title": "Final Fantasy 7 Revelation: Our Big Interview with Director Naoki Hamaguchi and Battle Director Teruki Endo",
+      "link": "https://www.ign.com/articles/final-fantasy-7-revelation-our-big-interview-with-director-naoki-hamaguchi-and-battle-director-teruki-endo",
+      "summary": "We asked the directors about physical media, how they chose the finale's subtitle, and more.",
       "source": "IGN",
       "topic": "Gaming",
-      "date": "2026-09-10T02:35:38.000Z"
-    },
-    {
-      "title": "Deciphered Dead Sea Scroll Reveals 364-Day Calendar",
-      "link": "https://www.biblicalarchaeology.org/daily/news/qumran-community-364-day-calendar/",
-      "summary": "Researchers recently deciphered one of the last two remaining Dead Sea Scrolls. Written in code, the scroll describes a 364-day calendar used by the Qumran community that lived in the Judean Desert.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-08T11:00:19.000Z"
-    },
-    {
-      "title": "Infostealer Logs Expose Replayable AI Tokens That Can Bypass MFA",
-      "link": "https://thehackernews.com/2026/09/infostealer-logs-expose-replayable-ai.html",
-      "summary": "Cybercriminals are hijacking artificial intelligence (AI) user accounts via information stealer logs to create \"stolen keys\" that grant illicit access to tools from model providers like Google, Anthropic, and others.…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T14:23:55.000Z"
+      "date": "2026-09-10T12:00:00.000Z"
     },
     {
       "title": "Paul and the Slave Girl in Philippi",
@@ -194,52 +34,12 @@
       "date": "2026-09-06T11:00:21.000Z"
     },
     {
-      "title": "Apple's New iPhone Camera Mode Promises to Prove Your Photo Isn't AI",
-      "link": "https://mobile.slashdot.org/story/26/09/09/2144238/apples-new-iphone-camera-mode-promises-to-prove-your-photo-isnt-ai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Apple is introducing a new \"Reference Image\" mode on the iPhone 18 Pro and Pro Max that uses the camera sensor to digitally sign captured data and create an \"unalterable\" version of a photo, giving users a way to verify…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T22:00:00.000Z"
-    },
-    {
-      "title": "Mythos Vulnerability Firehose Hits a Human Bottleneck",
-      "link": "https://www.darkreading.com/application-security/mythos-vulnerability-firehose-hits-human-bottleneck",
-      "summary": "An analysis of Project Glasswing findings shows only a fraction have reached disclosure, and an even smaller number have been fixed.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-09T21:19:55.000Z"
-    },
-    {
-      "title": "First Look: The Wandering Earth: The Last Full Moon",
-      "link": "https://www.ign.com/articles/first-look-the-wandering-earth-the-last-full-moon",
-      "summary": "First Look: The Wandering Earth: The Last Full Moon",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-10T03:05:00.000Z"
-    },
-    {
-      "title": "Were the Greek Gods Actually Minoan?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/were-greek-gods-actually-minoan/",
-      "summary": "Long before the world of classical Greece, the island of Crete was home to the Minoans, one of the great civilizations of the Bronze Age Mediterranean.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-07T10:45:16.000Z"
-    },
-    {
-      "title": "Heart of the Beast: Filming In The Wild Behind-The-Scenes Featurette",
-      "link": "https://bleedingcool.com/movies/heart-of-the-beast-filming-in-the-wild-behind-the-scenes-featurette/",
-      "summary": "A new behind-the-scenes featurette for Heart of the Beast spotlights the lengths to which director David Ayer and his crew went to shoot this film in the wilderness.",
+      "title": "Aunt May Has Forgotten Peter Parker? Amazing Spider-Man #1000 Preview",
+      "link": "https://bleedingcool.com/comics/aunt-may-has-forgotten-peter-parker-amazing-spider-man-1000-preview/",
+      "summary": "Has Aunt May Forgotten Peter Parker As Well? Amazing Spider-Man #1000 by Joe Kelly and Pepe Larraz gets a preview",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-10T02:57:09.000Z"
-    },
-    {
-      "title": "Google to Invest Record $15 Billion In AI Infrastructure In Finland",
-      "link": "https://hardware.slashdot.org/story/26/09/09/2151202/google-to-invest-record-15-billion-in-ai-infrastructure-in-finland?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Google plans to invest at least $15 billion in AI infrastructure in Finland through 2028, its largest single investment in Europe. The company also signed a 22-year power agreement with Finnish utility Fortum and said…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-09T23:00:00.000Z"
+      "date": "2026-09-10T09:57:11.000Z"
     },
     {
       "title": "Tracing the Justinian Plague",
@@ -250,12 +50,212 @@
       "date": "2026-09-09T10:00:08.000Z"
     },
     {
-      "title": "Samurai Pizza Cats: Blast From The Past To Hold TGS 2026 Demo",
-      "link": "https://bleedingcool.com/games/samurai-pizza-cats-blast-from-the-past-to-hold-tgs-2026-demo/",
-      "summary": "Those attending Tokyo Game Show 2026 will have a chance to try out a demo of Samurai Pizza Cats: Blast From The Past at the event",
+      "title": "The Developers of Upcoming 'Espresso MOBA' Project Zeta Want It to Feel Like a Formula 1 Race",
+      "link": "https://www.ign.com/articles/the-developers-of-upcoming-espresso-moba-project-zeta-want-it-to-feel-like-a-formula-1-race",
+      "summary": "Project Zeta is a mashup of multiple live-service genres, but for developer Nirvanana, it’s best described as an “espresso MOBA.”",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-10T11:02:58.000Z"
+    },
+    {
+      "title": "Were the Greek Gods Actually Minoan?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/were-greek-gods-actually-minoan/",
+      "summary": "Long before the world of classical Greece, the island of Crete was home to the Minoans, one of the great civilizations of the Bronze Age Mediterranean.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-07T10:45:16.000Z"
+    },
+    {
+      "title": "Sacred Circles in Christianity and Buddhism",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/sacred-circles-in-christianity-and-buddhism/",
+      "summary": "Archaeologists have discovered dozens of eight-spoked wheels scratched into the floors, walls, and architectural elements of Greco-Roman temples, fountains, and street intersections. A circle divided…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-09T10:45:42.000Z"
+    },
+    {
+      "title": "Deciphered Dead Sea Scroll Reveals 364-Day Calendar",
+      "link": "https://www.biblicalarchaeology.org/daily/news/qumran-community-364-day-calendar/",
+      "summary": "Researchers recently deciphered one of the last two remaining Dead Sea Scrolls. Written in code, the scroll describes a 364-day calendar used by the Qumran community that lived in the Judean Desert.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-08T11:00:19.000Z"
+    },
+    {
+      "title": "England's mayors to get power to impose tourist tax",
+      "link": "https://www.bbc.co.uk/news/articles/c3wjnv3z8nxo?at_medium=RSS&at_campaign=rss",
+      "summary": "Hospitality leaders warn the uncapped levy would risk jobs and push prices up for families holidaying in England.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-10T12:33:48.000Z"
+    },
+    {
+      "title": "Mythos Vulnerability Firehose Hits a Human Bottleneck",
+      "link": "https://www.darkreading.com/application-security/mythos-vulnerability-firehose-hits-human-bottleneck",
+      "summary": "An analysis of Project Glasswing findings shows only a fraction have reached disclosure, and an even smaller number have been fixed.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T21:19:55.000Z"
+    },
+    {
+      "title": "Marvel’s Best Villain Peaked 35 Years Ago, and Nothing Since Has Come Close",
+      "link": "https://comicbook.com/comics/feature/marvels-best-villain-peaked-35-years-ago-and-nothing-since-has-come-close/",
+      "summary": "Image Courtesy of Marvel Comics Marvel Comics is home to many amazing villains, but there are few of them with the history, or the power, of Apocalypse. The X-Men have battling En Sabah Nur since X-Factor (Vol. 1) #5,…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-10T10:30:00.000Z"
+    },
+    {
+      "title": "Google to Invest Record $15 Billion In AI Infrastructure In Finland",
+      "link": "https://hardware.slashdot.org/story/26/09/09/2151202/google-to-invest-record-15-billion-in-ai-infrastructure-in-finland?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Google plans to invest at least $15 billion in AI infrastructure in Finland through 2028, its largest single investment in Europe. The company also signed a 22-year power agreement with Finnish utility Fortum and said…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T23:00:00.000Z"
+    },
+    {
+      "title": "Playing Final Fantasy 7 Revelation Reminded Me of Its Best-in-Class Combat, But It Needs to Stay Focused | IGN Preview",
+      "link": "https://www.ign.com/articles/final-fantasy-7-revelation-hands-on-preview-best-in-class-combat-but-needs-to-stay-focused-why-we-love-ff7",
+      "summary": "The predominant feeling I came away with, however, is that maybe Revelation is getting carried away with stuffing its world with side content for the sake of it. Perhaps that's a symptom of trying to pack as much as…",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-10T12:00:00.000Z"
+    },
+    {
+      "title": "Artemis II commander and pilot become NASA's first astronaut emeriti",
+      "link": "https://arstechnica.com/space/2026/09/artemis-ii-commander-and-pilot-become-nasas-first-astronaut-emeriti/",
+      "summary": "\"Artemis II is done.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-10T11:30:42.000Z"
+    },
+    {
+      "title": "Apple's New iPhone Camera Mode Promises to Prove Your Photo Isn't AI",
+      "link": "https://mobile.slashdot.org/story/26/09/09/2144238/apples-new-iphone-camera-mode-promises-to-prove-your-photo-isnt-ai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Apple is introducing a new \"Reference Image\" mode on the iPhone 18 Pro and Pro Max that uses the camera sensor to digitally sign captured data and create an \"unalterable\" version of a photo, giving users a way to verify…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-09T22:00:00.000Z"
+    },
+    {
+      "title": "Final Fantasy VII Revelation Director Explains Why the Physical Disc Version Requires a Download to Play",
+      "link": "https://www.ign.com/articles/final-fantasy-vii-revelation-director-explains-why-the-physical-disc-version-requires-a-download-to-play",
+      "summary": "Final Fantasy VII Revelation director Naoki Hamaguchi has offered an explanation for why the physical disc version of the game on PlayStation 5 and Xbox requires a download to play.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-10T12:00:00.000Z"
+    },
+    {
+      "title": "Nintendo Switch Online Makes New 2026 Game Available for Free Less Than 1 Month After Launch",
+      "link": "https://comicbook.com/gaming/news/nintendo-switch-online-free-game-new-2026/",
+      "summary": "Nintendo Switch Online has made a new 2026 game available for free to subscribers on Nintendo Switch 2. The offer is not available to NSO subscribers on Nintendo Switch — or Switch Lite or Switch OLED — because the game…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-10T12:07:20.000Z"
+    },
+    {
+      "title": "Nearly 1 in 10 Exposed LiteLLM Gateways Accepted the Example \"sk-1234\" Admin Key",
+      "link": "https://thehackernews.com/2026/09/nearly-1-in-10-exposed-litellm-gateways.html",
+      "summary": "Nearly one in ten of the internet-facing LiteLLM servers that Wiz Research scanned in February accepted sk-1234, the example admin key in LiteLLM's own setup guide. LiteLLM is an open-source AI gateway, the software a…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-10T07:12:55.000Z"
+    },
+    {
+      "title": "We spent £23,000 on fertility treatment - now our embryos will be destroyed",
+      "link": "https://www.bbc.co.uk/news/articles/cr5035eldr3o?at_medium=RSS&at_campaign=rss",
+      "summary": "Nat and Nik Fraser-Edwards want a change in the law so once an embryo has been made, a donor can't withdraw consent.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-10T12:23:45.000Z"
+    },
+    {
+      "title": "Here's Why Those Doctor Who AI Videos Suck Across All of Time & Space",
+      "link": "https://bleedingcool.com/tv/heres-why-those-doctor-who-ai-videos-suck-across-all-of-time-space/",
+      "summary": "After watching the fanbase debate (and rip them apart) on social media, we have some not-so-positive thoughts on those Doctor Who AI videos.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-10T02:46:10.000Z"
+      "date": "2026-09-10T12:37:10.000Z"
+    },
+    {
+      "title": "Europe May Finally Have Found a Space Entrepreneur Who Is Meeting the Moment",
+      "link": "https://science.slashdot.org/story/26/09/10/0236233/europe-may-finally-have-found-a-space-entrepreneur-who-is-meeting-the-moment?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "French entrepreneur Helene Huby is emerging as one of Europe's most ambitious space leaders, with The Exploration Company raising a record $450 million Series C as it develops the Nyx cargo capsule, a crewed spacecraft,…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-10T11:00:00.000Z"
+    },
+    {
+      "title": "The Temple on Mount Gerizim—In the Bible and Archaeology",
+      "link": "https://www.biblicalarchaeology.org/daily/the-temple-on-mount-gerizim-in-the-bible-and-archaeology/",
+      "summary": "Temples have been found throughout the ancient Near East. What went on at these sites? Along with reconstructing architectural remains, can scholars piece together ancient worship practices?",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-08T11:00:05.000Z"
+    },
+    {
+      "title": "EU Cyber Resilience Act to Enforce New Reporting Requirements",
+      "link": "https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements",
+      "summary": "Starting Friday, businesses operating in the EU will have just 24 hours to notify the government any time they discover serious product security incidents.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-10T07:00:00.000Z"
+    },
+    {
+      "title": "Anthropic Discloses Fourth AI Hacking Incident Involving Claude Opus 4.6",
+      "link": "https://thehackernews.com/2026/09/anthropic-ai-models-breached-real.html",
+      "summary": "Anthropic on Wednesday disclosed a fourth incident in which its artificial intelligence (AI) model broke into real third-party systems, marking the latest in a growing list of cases that have raised concerns about the…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-10T07:04:01.000Z"
+    },
+    {
+      "title": "Metroid Ravenous UK Preorders Are Live in the UK, Including the £100 Special Edition",
+      "link": "https://www.ign.com/articles/metroid-ravenous-uk-preorder-guide",
+      "summary": "Metroid Ravenous UK preorders are now live on Nintendo Switch 2. Here is where to secure the physical Special Edition, new amiibo figures, and standard copies.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-10T12:10:54.000Z"
+    },
+    {
+      "title": "CISA Flags Exploited Cisco, Citrix, Fortinet Flaws, Sets Sept. 12 Federal Patch Deadline",
+      "link": "https://thehackernews.com/2026/09/cisa-flags-exploited-cisco-citrix.html",
+      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Wednesday added three flaws, each impacting Cisco, Citrix, and Fortinet, to its Known Exploited Vulnerabilities (KEV) catalog, requiring Federal…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-10T10:36:46.000Z"
+    },
+    {
+      "title": "Dark Energy Debunked? Cosmic Acceleration May Be an Illusion",
+      "link": "https://science.slashdot.org/story/26/09/10/0230225/dark-energy-debunked-cosmic-acceleration-may-be-an-illusion?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "alternative_right shares a report from ScienceDaily: A new analysis of more than 1,700 supernovae is questioning whether the universe is really accelerating at all. After accounting for the ages of the stars that…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-10T07:00:00.000Z"
+    },
+    {
+      "title": "FF7 Revelation Is Approximately 500,000 Times the Size of FF7 Rebirth | Preview",
+      "link": "https://www.polygon.com/final-fantasy-7-revelation-preview-gamescom-2026/",
+      "summary": "Final Fantasy 7 Revelation, the finale to Square Enix's FF7 remake trilogy, has a staggering open world. Read Polygon's new hands-on preview for more.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-10T12:00:14.000Z"
+    },
+    {
+      "title": "US Government Accuses Chinese AI Firms of Distilling Frontier Models",
+      "link": "https://www.darkreading.com/application-security/us-government-chinese-ai-firms-distilling-frontier-models",
+      "summary": "US agencies claim Chinese companies covertly extracted billions of tokens from OpenAI, Anthropic, Google Gemini, and SpaceX's Grok to reduce development costs.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-09T19:47:50.000Z"
+    },
+    {
+      "title": "Now Fury Of Firestorm By Jeff Lemire & Rafael de Latorre Goes To #15",
+      "link": "https://bleedingcool.com/comics/now-fury-of-firestorm-by-jeff-lemire-rafael-de-latorre-goes-to-15/",
+      "summary": "First, it was a six-issue series. Then an eight-issue series. Then nine. And now it's a fifteen-issue series. DC Comics Next Level title The Fury Of",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-10T12:13:10.000Z"
     }
   ]
 }
