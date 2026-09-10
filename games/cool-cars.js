@@ -115,6 +115,12 @@
   CLOUD_IMAGE.src = "games/images/cloud.png";
   const SUN_IMAGE = new Image();
   SUN_IMAGE.src = "games/images/sun.png";
+  // Two flap frames (wings up / wings down) for the birds that occasionally
+  // cross the sky scene — see drawBirds.
+  const BIRD1_IMAGE = new Image();
+  BIRD1_IMAGE.src = "games/images/bird1.png";
+  const BIRD2_IMAGE = new Image();
+  BIRD2_IMAGE.src = "games/images/bird2.png";
 
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
@@ -632,6 +638,8 @@
       cloud(420, 60, 24, 1.4);
       cloud(300, 140, 20, 2.7);
 
+      drawBirds(useSprites);
+
       ctx.fillStyle = "#6cb84a";
       ctx.fillRect(0, H * 0.72, W, H * 0.28);
 
@@ -688,6 +696,35 @@
       }
     }
 
+    // Small birds that occasionally flap across the sky scene. Purely a
+    // function of animFrame (same idiom as the cloud bob/tree scroll above)
+    // rather than tracked state updated in update() — update() only runs
+    // during state==="playing" (see its early return), but this needs to
+    // animate on the start/win screens too, where animFrame still advances
+    // every frame regardless of state.
+    const BIRD_FLAP_INTERVAL = 10; // animFrame units per wing-flap frame
+    const BIRDS = [
+      { cycle: 640, flight: 220, phase: 60, y: 65, dir: 1, width: 24 },
+      { cycle: 910, flight: 190, phase: 420, y: 128, dir: -1, width: 20 },
+    ];
+    function drawBirds(useSprites) {
+      const useBirdSprites = useSprites && BIRD1_IMAGE.complete && BIRD1_IMAGE.naturalWidth && BIRD2_IMAGE.complete && BIRD2_IMAGE.naturalWidth;
+      for (const bird of BIRDS) {
+        const t = (animFrame + bird.phase) % bird.cycle;
+        if (t >= bird.flight) continue; // most of the cycle, the bird's off having flown away already
+        const progress = t / bird.flight;
+        const span = W + 80;
+        const x = bird.dir === 1 ? -40 + progress * span : W + 40 - progress * span;
+        const flapUp = Math.floor(t / BIRD_FLAP_INTERVAL) % 2 === 0;
+
+        if (useBirdSprites) {
+          drawCroppedSprite(flapUp ? BIRD1_IMAGE : BIRD2_IMAGE, BIRD_CONTENT, x, bird.y, bird.width);
+        } else {
+          emoji("🐦", x, bird.y, bird.width);
+        }
+      }
+    }
+
     // Both picker sprites are exported as 32x32 canvases with the actual art
     // only filling a thin horizontal band — crop to that content box so
     // scaling doesn't offset the visible art from where it's centered.
@@ -703,6 +740,13 @@
     const TREE_SCROLL_SPEED = 1.6; // px per animFrame unit (1.0 == a 60Hz frame)
     const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
     const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
+    // bird1's own content is {sx:0,sy:10,sw:32,sh:12} and bird2's is
+    // {sx:3,sy:1,sw:27,sh:14} — wings-up vs. wings-down naturally occupy
+    // different bounding boxes. Sharing one box (their union) instead of
+    // cropping each tightly to its own means both flap frames draw at the
+    // exact same on-screen rect, so the bird's position/size don't jump
+    // between frames — only the wing pixels change.
+    const BIRD_CONTENT = { sx: 0, sy: 1, sw: 32, sh: 21 };
 
     function drawSideCarSprite(cx, cy, w) {
       drawCroppedSprite(TITLE_CAR_IMAGE, TITLE_CAR_CONTENT, cx, cy, w);
