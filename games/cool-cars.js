@@ -1,41 +1,27 @@
 (function () {
-  // Wins are tracked in localStorage (not just this session) so unlocks
-  // persist across visits. A missing/unreadable value just reads as 0
-  // wins rather than throwing, in case storage is unavailable (private
-  // browsing, etc.).
-  const WIN_COUNT_KEY = "coolCarsWinCount";
+  // Wins (and the Konami cheat) are tracked in plain memory, not
+  // localStorage — deliberately session-only, like a cartridge with no
+  // battery save. Resetting/power-cycling the console or reloading the
+  // page all re-run this whole script (or, for Reset/re-insert, call
+  // startCoolCars fresh), so re-zeroing winCount/cheatUnlocked at the top
+  // of startCoolCars is enough to make Robot and Rainbow re-lock on any
+  // of those. The Konami listener below stays registered at module scope
+  // so the code can be entered anytime, not just while Cool Cars is the
+  // active cartridge.
   const UNLOCK_WINS = 3;
+  let winCount = 0;
+  let cheatUnlocked = false;
   function getWinCount() {
-    try {
-      return parseInt(localStorage.getItem(WIN_COUNT_KEY), 10) || 0;
-    } catch (e) {
-      return 0;
-    }
+    return winCount;
   }
   function recordWin() {
-    try {
-      localStorage.setItem(WIN_COUNT_KEY, String(getWinCount() + 1));
-    } catch (e) {
-      // Storage unavailable — the unlock just won't persist this time.
-    }
+    winCount++;
   }
-  // The Konami code (same sequence as the homepage's matrix-mode easter
-  // egg) is a permanent shortcut past the win requirement, for anyone who'd
-  // rather cheat than grind out 3 wins.
-  const CHEAT_UNLOCK_KEY = "coolCarsCheatUnlock";
   function isCheatUnlocked() {
-    try {
-      return localStorage.getItem(CHEAT_UNLOCK_KEY) === "1";
-    } catch (e) {
-      return false;
-    }
+    return cheatUnlocked;
   }
   function setCheatUnlocked() {
-    try {
-      localStorage.setItem(CHEAT_UNLOCK_KEY, "1");
-    } catch (e) {
-      // Storage unavailable — the unlock just won't persist this time.
-    }
+    cheatUnlocked = true;
   }
   function isLocked(entry) {
     return !!entry.requiresWins && getWinCount() < entry.requiresWins && !isCheatUnlocked();
@@ -523,16 +509,6 @@
         const play = ANIMAL_SOUNDS[id];
         if (play) play(c.currentTime);
       },
-      // Only the Robot driver talks — pitched way down for a robotic read.
-      // Same technique as the console's own boot-up voice line.
-      speakRobot(text) {
-        if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.pitch = 0.2;
-        utter.rate = 1.1;
-        window.speechSynthesis.speak(utter);
-      },
       // Robot calling out the number it just picked up, using the real
       // recorded clip for that value instead of synthesized speech.
       playRobotNumber(n) {
@@ -543,6 +519,13 @@
   }
 
   function startCoolCars(canvas) {
+    // Every fresh (re)insert — initial load, Reset, or eject/power-off then
+    // back on — runs this function again, so re-zeroing here is what makes
+    // Robot and Rainbow re-lock on any of those instead of staying unlocked
+    // forever.
+    winCount = 0;
+    cheatUnlocked = false;
+
     // Render at a higher backing-store resolution than the canvas's logical
     // 720x480 size so content (especially the number pickups' text) stays
     // crisp when CSS stretches the canvas much larger, e.g. fullscreen.
@@ -1059,7 +1042,6 @@
         button(x + 10, y, cellW - 20, cellH - 16, () => {
           selection.animal = a;
           sound.animalSound(a.id);
-          if (a.id === "robot") sound.speakRobot("Hop on the byte");
           state = "chooseVehicle";
         });
         emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
