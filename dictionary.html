@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dictionary — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dictionary.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="dictionary-intro">
+    <div class="wrap">
+      <h1>Dictionary</h1>
+      <p class="tagline">Look up a word for definitions and synonyms, right here, without leaving Thagobyte.</p>
+    </div>
+  </section>
+
+  <section class="dictionary-panel">
+    <div class="wrap">
+
+      <div class="dictionary-form">
+        <input type="text" id="word-input" placeholder="Look up a word..." autocomplete="off">
+        <button type="button" id="lookup-btn">Look Up</button>
+      </div>
+
+      <p class="dictionary-status" id="status-text" hidden></p>
+
+      <div class="dictionary-result" id="result-box" hidden>
+        <div class="word-header">
+          <h2 class="word-title" id="word-title"></h2>
+          <span class="word-phonetic" id="word-phonetic" hidden></span>
+          <button type="button" class="play-btn" id="play-btn" hidden aria-label="Play pronunciation">&#9658;</button>
+        </div>
+        <div class="meanings" id="meanings-list"></div>
+      </div>
+
+      <p class="dictionary-note">
+        Definitions and synonyms from <a href="https://www.wiktionary.org" target="_blank" rel="noopener">Wiktionary</a>, via the
+        <a href="https://dictionaryapi.dev" target="_blank" rel="noopener">Free Dictionary API</a>, licensed under
+        <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte</span>
+  </div>
+</footer>
+
+<script src="dictionary.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
