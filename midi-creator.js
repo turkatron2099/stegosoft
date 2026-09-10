@@ -1,17 +1,24 @@
 // A step-sequencer that exports a real Standard MIDI File — hand-rolled
 // byte writer, no library, since the format itself is small: a header
 // chunk plus one track chunk per instrument, each a stream of delta-time-
-// prefixed events. Multiple instrument tracks share one tempo/step grid
+// prefixed events. Multiple instrument tracks share one tempo/length grid
 // so they play together as a single arrangement (format 1: a tempo-only
 // conductor track, then one track per instrument, each on its own MIDI
 // channel so a real player can mix/mute them independently).
+//
+// Each cell is either off, an independent one-step note ("active" only),
+// or tied to the step before it ("active" + "tie") — a Shift+drag paints
+// tied cells, which the exporter and preview both collapse into a single
+// held note spanning the whole run, rather than re-triggering every step.
 (() => {
-  const STEPS = 48; // 3 bars of 16th notes at 4/4 — three times the original length
+  const STEPS_PER_BAR = 16;
   const LOW_NOTE = 48; // C3
   const HIGH_NOTE = 71; // B4 — two octaves, low to high
   const NOTE_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
   const TICKS_PER_QUARTER = 480;
   const TICKS_PER_STEP = TICKS_PER_QUARTER / 4; // 16th notes
+  const MIN_BARS = 1;
+  const MAX_BARS = 16;
 
   // Channel 9 is skipped — General MIDI reserves it for drums regardless
   // of Program Change, so a melodic track landed there would misbehave in
@@ -32,6 +39,7 @@
   ];
 
   const tempoInput = document.getElementById("tempo-input");
+  const lengthInput = document.getElementById("length-input");
   const filenameInput = document.getElementById("filename-input");
   const playBtn = document.getElementById("play-btn");
   const addTrackBtn = document.getElementById("add-track-btn");
@@ -39,25 +47,48 @@
   const downloadLink = document.getElementById("download-link");
   const tracksContainer = document.getElementById("tracks-container");
 
+  let bars = 3;
+  function getSteps() {
+    return bars * STEPS_PER_BAR;
+  }
+
   function noteLabel(note) {
     const name = NOTE_NAMES[note % 12];
     const octave = Math.floor(note / 12) - 1;
     return `${name}${octave}`;
   }
 
-  function newActiveGrid() {
+  function newTrackGrids() {
     const active = {};
-    for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) active[note] = new Array(STEPS).fill(false);
-    return active;
+    const tie = {};
+    const steps = getSteps();
+    for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) {
+      active[note] = new Array(steps).fill(false);
+      tie[note] = new Array(steps).fill(false);
+    }
+    return { active, tie };
+  }
+
+  function resizeTrackGrids(track, newSteps) {
+    for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) {
+      const a = track.active[note];
+      const t = track.tie[note];
+      while (a.length < newSteps) {
+        a.push(false);
+        t.push(false);
+      }
+      a.length = newSteps;
+      t.length = newSteps;
+    }
   }
 
   // --- track state ---
   let nextTrackId = 0;
-  const tracks = []; // { id, instrumentIndex, active }
+  const tracks = []; // { id, instrumentIndex, active, tie, cellEls }
 
   function addTrack() {
     if (tracks.length >= MAX_TRACKS) return;
-    tracks.push({ id: nextTrackId++, instrumentIndex: 0, active: newActiveGrid() });
+    tracks.push({ id: nextTrackId++, instrumentIndex: 0, cellEls: new Map(), ...newTrackGrids() });
     renderTracks();
   }
 
@@ -69,7 +100,7 @@
   }
 
   function clearTrack(track) {
-    track.active = newActiveGrid();
+    Object.assign(track, newTrackGrids());
     renderTracks();
   }
 
@@ -82,6 +113,72 @@
       selectEl.appendChild(opt);
     });
   }
+
+  // --- cell state + visuals ---
+  // A cell "merges right" when the *next* step ties back to it, so the
+  // border between them disappears and the run reads as one bar.
+  function refreshCellVisual(track, note, step) {
+    const steps = getSteps();
+    if (step < 0 || step >= steps) return;
+    const el = track.cellEls.get(`${note}:${step}`);
+    if (!el) return;
+    el.classList.toggle("active", track.active[note][step]);
+    const mergesRight = step + 1 < steps && track.active[note][step + 1] && track.tie[note][step + 1];
+    el.classList.toggle("merge-right", !!mergesRight);
+  }
+
+  function setCellValue(track, note, step, value, tie) {
+    track.active[note][step] = value;
+    track.tie[note][step] = value ? tie : false;
+    // Turning a cell off also breaks whatever the *next* step was tied to
+    // it — otherwise that step would silently keep claiming a connection
+    // to a note that no longer exists.
+    if (!value && step + 1 < getSteps()) track.tie[note][step + 1] = false;
+    refreshCellVisual(track, note, step - 1);
+    refreshCellVisual(track, note, step);
+    refreshCellVisual(track, note, step + 1);
+  }
+
+  // --- click-and-drag painting, Shift held = tie into one note ---
+  // dragState.paintValue is fixed for the whole gesture (from the first
+  // cell's *new* state) so sweeping back over already-painted cells can't
+  // flicker them back off. dragState.tieRow restricts tying to the row the
+  // drag started on — connecting different pitches into "one tone" isn't
+  // meaningful, so a drag that wanders into another row just paints there.
+  let dragState = null;
+
+  function pointerEnterCell(track, note, step) {
+    if (!dragState || dragState.track !== track) return;
+    const tie = !dragState.isFirst && dragState.shiftTie && note === dragState.tieRow;
+    setCellValue(track, note, step, dragState.paintValue, tie);
+    dragState.isFirst = false;
+  }
+
+  function pointerDownCell(e, track, note, step) {
+    if (e.button !== undefined && e.button !== 0) return;
+    e.preventDefault();
+    const cell = e.currentTarget;
+    try {
+      if (cell.hasPointerCapture(e.pointerId)) cell.releasePointerCapture(e.pointerId);
+    } catch (err) {
+      /* not captured — nothing to release */
+    }
+    dragState = {
+      track,
+      tieRow: note,
+      shiftTie: e.shiftKey,
+      paintValue: !track.active[note][step],
+      isFirst: true,
+    };
+    pointerEnterCell(track, note, step);
+  }
+
+  window.addEventListener("pointerup", () => {
+    dragState = null;
+  });
+  window.addEventListener("pointercancel", () => {
+    dragState = null;
+  });
 
   function buildTrackEl(track, index) {
     const el = document.createElement("div");
@@ -130,6 +227,8 @@
     grid.className = "midi-grid";
     grid.dataset.trackId = track.id;
 
+    track.cellEls.clear();
+    const steps = getSteps();
     for (let note = HIGH_NOTE; note >= LOW_NOTE; note--) {
       const row = document.createElement("div");
       row.className = "midi-row";
@@ -139,21 +238,24 @@
       rowLabel.textContent = noteLabel(note);
       row.appendChild(rowLabel);
 
-      for (let step = 0; step < STEPS; step++) {
+      for (let step = 0; step < steps; step++) {
         const cell = document.createElement("div");
         cell.className = "midi-cell" + (step % 4 === 0 ? " beat-start" : "");
         cell.dataset.note = note;
         cell.dataset.step = step;
-        if (track.active[note][step]) cell.classList.add("active");
-        cell.addEventListener("click", () => {
-          const on = !track.active[note][step];
-          track.active[note][step] = on;
-          cell.classList.toggle("active", on);
-        });
+        cell.addEventListener("pointerdown", (e) => pointerDownCell(e, track, note, step));
+        cell.addEventListener("pointerenter", () => pointerEnterCell(track, note, step));
         row.appendChild(cell);
+        track.cellEls.set(`${note}:${step}`, cell);
       }
 
       grid.appendChild(row);
+    }
+
+    // Set initial classes from state now that every cell exists (merge-right
+    // depends on a neighboring cell, so this has to happen after the loop).
+    for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) {
+      for (let step = 0; step < steps; step++) refreshCellVisual(track, note, step);
     }
 
     gridWrap.appendChild(grid);
@@ -169,6 +271,42 @@
   }
 
   addTrackBtn.addEventListener("click", addTrack);
+
+  function clampBars() {
+    const v = parseInt(lengthInput.value, 10);
+    return Math.max(MIN_BARS, Math.min(MAX_BARS, isNaN(v) ? bars : v));
+  }
+
+  lengthInput.addEventListener("change", () => {
+    const newBars = clampBars();
+    lengthInput.value = newBars;
+    if (newBars === bars) return;
+    bars = newBars;
+    tracks.forEach((track) => resizeTrackGrids(track, getSteps()));
+    renderTracks();
+  });
+
+  // --- segments: collapse each note row's active+tied runs into single
+  // (startStep, endStep) spans — shared by both export and preview so
+  // they always agree on what "one held note" means. ---
+  function trackSegments(track) {
+    const steps = getSteps();
+    const segments = [];
+    for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) {
+      let step = 0;
+      while (step < steps) {
+        if (!track.active[note][step]) {
+          step++;
+          continue;
+        }
+        const startStep = step;
+        step++;
+        while (step < steps && track.active[note][step] && track.tie[note][step]) step++;
+        segments.push({ note, startStep, endStep: step });
+      }
+    }
+    return segments;
+  }
 
   // --- preview playback (Web Audio, not a real synth — see the page note) ---
   let previewTimer = null;
@@ -193,8 +331,16 @@
       const gridEl = tracksContainer.querySelector(`.midi-grid[data-track-id="${track.id}"]`);
       for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) {
         if (!track.active[note][step]) continue;
+
         const cell = gridEl && gridEl.querySelector(`.midi-cell[data-note="${note}"][data-step="${step}"]`);
         if (cell) cell.classList.add("playhead");
+
+        if (track.tie[note][step]) continue; // already sounding, started at the segment's first step
+
+        let len = 1;
+        const steps = getSteps();
+        while (step + len < steps && track.active[note][step + len] && track.tie[note][step + len]) len++;
+        const durationSec = stepDurationSec * len;
 
         const osc = audioCtx.createOscillator();
         osc.type = wave;
@@ -203,11 +349,12 @@
         const now = audioCtx.currentTime;
         gain.gain.setValueAtTime(0.0001, now);
         gain.gain.exponentialRampToValueAtTime(0.18, now + 0.01);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + stepDurationSec * 0.95);
+        gain.gain.setValueAtTime(0.18, Math.max(now + 0.01, now + durationSec - 0.03));
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + durationSec);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         osc.start(now);
-        osc.stop(now + stepDurationSec);
+        osc.stop(now + durationSec + 0.02);
       }
     }
   }
@@ -225,7 +372,7 @@
     playPreviewStep(previewStep);
     const stepMs = 60000 / clampTempo() / 4;
     previewTimer = setInterval(() => {
-      previewStep = (previewStep + 1) % STEPS;
+      previewStep = (previewStep + 1) % getSteps();
       playPreviewStep(previewStep);
     }, stepMs);
     playBtn.textContent = "■ Stop";
@@ -258,13 +405,9 @@
   function buildInstrumentTrack(track, channel) {
     const program = INSTRUMENTS[track.instrumentIndex].program;
     const events = [];
-    for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) {
-      for (let step = 0; step < STEPS; step++) {
-        if (!track.active[note][step]) continue;
-        const onTick = step * TICKS_PER_STEP;
-        events.push({ tick: onTick, bytes: [0x90 | channel, note, 100] });
-        events.push({ tick: onTick + TICKS_PER_STEP, bytes: [0x80 | channel, note, 64] });
-      }
+    for (const seg of trackSegments(track)) {
+      events.push({ tick: seg.startStep * TICKS_PER_STEP, bytes: [0x90 | channel, seg.note, 100] });
+      events.push({ tick: seg.endStep * TICKS_PER_STEP, bytes: [0x80 | channel, seg.note, 64] });
     }
     events.sort((a, b) => a.tick - b.tick);
 

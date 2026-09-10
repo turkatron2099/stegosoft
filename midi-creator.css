@@ -60,7 +60,8 @@
   gap: 6px;
 }
 
-#tempo-input {
+#tempo-input,
+#length-input {
   width: 70px;
 }
 
@@ -174,17 +175,17 @@
 .midi-grid {
   display: inline-flex;
   flex-direction: column;
-  gap: 1px;
   margin: 0 auto;
-  background: var(--muted);
-  border: 1px solid var(--muted);
+  border-top: 1px solid var(--muted);
+  border-left: 1px solid var(--muted);
   border-radius: 6px;
   overflow: hidden;
+  user-select: none; /* dragging across cells shouldn't select page text */
+  touch-action: none; /* let pointer events drive dragging, not scrolling */
 }
 
 .midi-row {
   display: flex;
-  gap: 1px;
 }
 
 .midi-row-label {
@@ -197,6 +198,7 @@
   color: var(--muted);
   font-size: 0.75rem;
   font-family: monospace;
+  border-bottom: 1px solid var(--muted);
 }
 
 .midi-row-label.is-c {
@@ -209,6 +211,8 @@
   background: var(--background);
   cursor: pointer;
   flex: 0 0 auto;
+  border-right: 1px solid var(--muted);
+  border-bottom: 1px solid var(--muted);
 }
 
 .midi-cell:hover {
@@ -225,6 +229,13 @@
 
 .midi-cell.active:hover {
   background: var(--cyan);
+}
+
+/* A cell tied to the one after it (Shift+drag) reads as one continuous
+   bar, not separate re-triggered notes — drop the shared edge between
+   them so nothing breaks up the run visually. */
+.midi-cell.merge-right {
+  border-right: none;
 }
 
 .midi-cell.playhead {
