@@ -97,28 +97,6 @@
   text-transform: capitalize;
 }
 
-.word-phonetic {
-  color: var(--accent);
-  font-size: 0.95rem;
-}
-
-.play-btn {
-  background: var(--dark-background);
-  color: var(--accent);
-  border: 1px solid var(--muted);
-  border-radius: 999px;
-  width: 30px;
-  height: 30px;
-  line-height: 1;
-  font-size: 0.75rem;
-  cursor: pointer;
-}
-
-.play-btn:hover {
-  color: var(--cyan);
-  border-color: var(--accent);
-}
-
 .meaning-block {
   margin-bottom: 20px;
 }
@@ -152,11 +130,13 @@
   margin-bottom: 6px;
 }
 
-.definition-example {
-  color: var(--muted);
-  font-style: italic;
-  font-size: 0.9rem;
-  margin: 2px 0 0;
+.word-relations-box {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .word-relations {
