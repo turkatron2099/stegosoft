@@ -161,8 +161,11 @@
     });
   });
 
-  function insertCartridge(gameId) {
-    if (current && current.id === gameId) {
+  // silent skips the cartridge-click sound and the gray "in progress"
+  // blank, restarting the game immediately instead — used by Reset, which
+  // is reloading whatever's already inserted, not swapping cartridges.
+  function insertCartridge(gameId, { silent = false } = {}) {
+    if (!silent && current && current.id === gameId) {
       canvas.focus();
       return;
     }
@@ -171,7 +174,7 @@
     if (!game) return;
 
     cancelPendingInsert();
-    CARTRIDGE_CLICK_AUDIO.cloneNode().play().catch(() => {});
+    if (!silent) CARTRIDGE_CLICK_AUDIO.cloneNode().play().catch(() => {});
 
     if (current) {
       current.controller.stop();
@@ -180,21 +183,7 @@
     poweredOnIdle = false;
     if (window.SomaFMPlayer) window.SomaFMPlayer.pause();
 
-    // Blank to a solid gray for a beat instead of cutting straight to the
-    // game, so the click sound above finishes before the game's own
-    // start-up music/audio comes in rather than the two overlapping. Gray
-    // (not the NO SIGNAL static, and not just plain black) reads clearly as
-    // "in progress" rather than looking like the console is off.
-    canvas.hidden = true;
-    hud.hidden = true;
-    placeholder.hidden = true;
-    screenBlank.hidden = false;
-    stopStatic();
-    consoleEl.classList.remove("powered-on");
-
-    pendingInsertTimeoutId = setTimeout(() => {
-      pendingInsertTimeoutId = null;
-
+    function startGame() {
       screenBlank.hidden = true;
       placeholder.hidden = true;
       canvas.hidden = false;
@@ -211,6 +200,28 @@
         document.activeElement.blur();
       }
       canvas.focus();
+    }
+
+    if (silent) {
+      startGame();
+      return;
+    }
+
+    // Blank to a solid gray for a beat instead of cutting straight to the
+    // game, so the click sound above finishes before the game's own
+    // start-up music/audio comes in rather than the two overlapping. Gray
+    // (not the NO SIGNAL static, and not just plain black) reads clearly as
+    // "in progress" rather than looking like the console is off.
+    canvas.hidden = true;
+    hud.hidden = true;
+    placeholder.hidden = true;
+    screenBlank.hidden = false;
+    stopStatic();
+    consoleEl.classList.remove("powered-on");
+
+    pendingInsertTimeoutId = setTimeout(() => {
+      pendingInsertTimeoutId = null;
+      startGame();
     }, 1000);
   }
 
@@ -258,7 +269,7 @@
     const gameId = current.id;
     current.controller.stop();
     current = null;
-    insertCartridge(gameId);
+    insertCartridge(gameId, { silent: true });
   });
 
   fullscreenBtn.addEventListener("click", () => {
