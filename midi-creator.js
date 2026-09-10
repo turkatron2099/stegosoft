@@ -26,16 +26,51 @@
   const CHANNELS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15];
   const MAX_TRACKS = CHANNELS.length;
 
+  // Only 4 raw oscillator waveforms exist to approximate 9 GM instruments
+  // with, so several necessarily share a wave (sawtooth: violin/trumpet/
+  // synth saw; sine: e-piano/bass/flute; triangle: piano/guitar) — the
+  // *exported* .mid file already sends the correct distinct GM program
+  // per instrument regardless, this only affects the in-browser preview.
+  // Attack/decay shape, vibrato, and a detuned second voice differentiate
+  // same-wave instruments from each other (bowed vs. brassy vs. plucked,
+  // etc.) so the preview doesn't collapse them into one sound.
   const INSTRUMENTS = [
-    { name: "Acoustic Grand Piano", program: 0, previewWave: "triangle" },
-    { name: "Electric Piano", program: 4, previewWave: "sine" },
-    { name: "Acoustic Guitar (Nylon)", program: 24, previewWave: "triangle" },
-    { name: "Electric Bass", program: 33, previewWave: "sine" },
-    { name: "Violin", program: 40, previewWave: "sawtooth" },
-    { name: "Trumpet", program: 56, previewWave: "sawtooth" },
-    { name: "Flute", program: 73, previewWave: "sine" },
-    { name: "Synth Lead (Square)", program: 80, previewWave: "square" },
-    { name: "Synth Lead (Saw)", program: 81, previewWave: "sawtooth" },
+    {
+      name: "Acoustic Grand Piano", program: 0,
+      preview: { wave: "triangle", attack: 0.004, decayTo: 0.35 }, // percussive hit, decays under a held note
+    },
+    {
+      name: "Electric Piano", program: 4,
+      preview: { wave: "sine", attack: 0.01, decayTo: 0.6 }, // softer onset, mellower decay than piano
+    },
+    {
+      name: "Acoustic Guitar (Nylon)", program: 24,
+      preview: { wave: "triangle", attack: 0.002, decayTo: 0.25 }, // sharper pluck, decays faster than piano
+    },
+    {
+      name: "Electric Bass", program: 33,
+      preview: { wave: "sine", attack: 0.005, decayTo: 0.8, detuneVoice: -1200, voiceGain: 0.5 }, // + an octave-down layer for weight
+    },
+    {
+      name: "Violin", program: 40,
+      preview: { wave: "sawtooth", attack: 0.09, decayTo: 1, vibrato: { rate: 5.5, depth: 15 } }, // slow bowed swell
+    },
+    {
+      name: "Trumpet", program: 56,
+      preview: { wave: "sawtooth", attack: 0.02, decayTo: 1, vibrato: { rate: 6, depth: 8 } }, // brighter/faster attack than violin
+    },
+    {
+      name: "Flute", program: 73,
+      preview: { wave: "sine", attack: 0.05, decayTo: 1, vibrato: { rate: 5, depth: 10 } }, // breathy onset, sustained
+    },
+    {
+      name: "Synth Lead (Square)", program: 80,
+      preview: { wave: "square", attack: 0.003, decayTo: 0.85 },
+    },
+    {
+      name: "Synth Lead (Saw)", program: 81,
+      preview: { wave: "sawtooth", attack: 0.003, decayTo: 0.85, detuneVoice: 10, voiceGain: 0.6 }, // detuned unison layer = classic synth-lead thickness
+    },
   ];
 
   const tempoInput = document.getElementById("tempo-input");
@@ -322,12 +357,55 @@
     return Math.max(40, Math.min(300, isNaN(v) ? 120 : v));
   }
 
+  // One oscillator+gain "voice" with its own attack/decay envelope and
+  // optional vibrato; triggerPreviewNote calls this once (plainly) or
+  // twice (base + a detuned layer) per instrument.preview recipe.
+  function playPreviewVoice(preview, freq, startTime, durationSec, peakGain, detuneCents) {
+    const osc = audioCtx.createOscillator();
+    osc.type = preview.wave;
+    osc.frequency.value = freq;
+    if (detuneCents) osc.detune.value = detuneCents;
+
+    if (preview.vibrato) {
+      const lfo = audioCtx.createOscillator();
+      lfo.frequency.value = preview.vibrato.rate;
+      const lfoGain = audioCtx.createGain();
+      lfoGain.gain.value = preview.vibrato.depth;
+      lfo.connect(lfoGain);
+      lfoGain.connect(osc.detune);
+      lfo.start(startTime);
+      lfo.stop(startTime + durationSec + 0.05);
+    }
+
+    const attack = Math.min(preview.attack, durationSec * 0.5);
+    const releaseStart = Math.max(startTime + attack, startTime + durationSec - 0.03);
+    const gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.0001, startTime);
+    gain.gain.exponentialRampToValueAtTime(peakGain, startTime + attack);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.0001, peakGain * preview.decayTo), releaseStart);
+    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + durationSec);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(startTime);
+    osc.stop(startTime + durationSec + 0.05);
+  }
+
+  function triggerPreviewNote(instrument, note, startTime, durationSec) {
+    const preview = instrument.preview;
+    const freq = noteFreq(note);
+    playPreviewVoice(preview, freq, startTime, durationSec, 0.18, 0);
+    if (preview.detuneVoice) {
+      playPreviewVoice(preview, freq, startTime, durationSec, 0.18 * preview.voiceGain, preview.detuneVoice);
+    }
+  }
+
   function playPreviewStep(step) {
     document.querySelectorAll(".midi-cell.playhead").forEach((c) => c.classList.remove("playhead"));
     const stepDurationSec = 60 / clampTempo() / 4;
 
     for (const track of tracks) {
-      const wave = INSTRUMENTS[track.instrumentIndex].previewWave;
+      const instrument = INSTRUMENTS[track.instrumentIndex];
       const gridEl = tracksContainer.querySelector(`.midi-grid[data-track-id="${track.id}"]`);
       for (let note = LOW_NOTE; note <= HIGH_NOTE; note++) {
         if (!track.active[note][step]) continue;
@@ -342,19 +420,7 @@
         while (step + len < steps && track.active[note][step + len] && track.tie[note][step + len]) len++;
         const durationSec = stepDurationSec * len;
 
-        const osc = audioCtx.createOscillator();
-        osc.type = wave;
-        osc.frequency.value = noteFreq(note);
-        const gain = audioCtx.createGain();
-        const now = audioCtx.currentTime;
-        gain.gain.setValueAtTime(0.0001, now);
-        gain.gain.exponentialRampToValueAtTime(0.18, now + 0.01);
-        gain.gain.setValueAtTime(0.18, Math.max(now + 0.01, now + durationSec - 0.03));
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + durationSec);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(now);
-        osc.stop(now + durationSec + 0.02);
+        triggerPreviewNote(instrument, note, audioCtx.currentTime, durationSec);
       }
     }
   }
