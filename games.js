@@ -77,9 +77,13 @@
   // it back out scaled with smoothing off, for a blocky "8-bit" look. Built
   // once and cached, same lazy-build-once pattern as cool-cars.js's grass
   // pattern.
+  // A dedicated, simplified mark for the boot screen: the full site logo's
+  // fine linework/gradients turn to mush at this pixel count, so this is
+  // just the back line, plates, and thagomizer tail spikes over the
+  // wordmark — bold shapes that hold up under heavy pixelation.
   const BOOT_LOGO_IMAGE = new Image();
-  BOOT_LOGO_IMAGE.src = "images/thagobyte_logo.png";
-  const PIXEL_GRID = 40;
+  BOOT_LOGO_IMAGE.src = "images/thagobyte_boot_logo.png";
+  const PIXEL_GRID = 56;
   let pixelLogoCanvas = null;
 
   function getPixelLogo() {
@@ -109,7 +113,7 @@
   // Synthesized boot chime + a slow, low-pitched voice line, evoking a
   // classic console startup jingle without reusing anyone else's actual
   // audio.
-  function playStegoBoot() {
+  function playBootJingle() {
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       const now = ctx.currentTime;
@@ -131,13 +135,7 @@
 
     if (window.speechSynthesis && window.SpeechSynthesisUtterance) {
       window.speechSynthesis.cancel();
-      // "eh" survives trailing h's fine (it's a recognized interjection
-      // spelling either way), but "go" does not: a trailing consonant closes
-      // the syllable, which flips English letter-to-sound rules from long o
-      // ("go") to short o ("got") — hence "goh" reading as "gah". "go" has
-      // to stay bare/open to keep the long-o sound, so the drag comes
-      // entirely from the slow rate below instead of the spelling.
-      const utter = new SpeechSynthesisUtterance("Stehhh go");
+      const utter = new SpeechSynthesisUtterance("Hop on the byte");
       utter.pitch = 0.3;
       utter.rate = 0.5;
       window.speechSynthesis.speak(utter);
@@ -250,7 +248,7 @@
     consoleEl.classList.add("powered-on");
     stopStatic();
     drawBootLogo();
-    playStegoBoot();
+    playBootJingle();
   }
 
   powerBtn.addEventListener("click", () => {
