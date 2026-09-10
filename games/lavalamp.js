@@ -307,11 +307,24 @@
       }
     }
 
+    // Easy mode keeps an exact-multiset match (its targets are always
+    // exactly 2 picks anyway, so there's no room for this to matter). Hard
+    // mode instead only requires the *set* of colors used to match the
+    // target's — any ratio counts, so a dark-blue target (blue + black)
+    // accepts 1-blue-2-black, 2-blue-1-black, or 1-of-each alike, not just
+    // the one exact combination.
     function startMerge() {
       const resultHex = blendIds(picks);
-      const sortedPicks = [...picks].sort().join(",");
-      const sortedTarget = [...target.pair].sort().join(",");
-      const correct = sortedPicks === sortedTarget;
+      let correct;
+      if (mode === "hard") {
+        const uniquePicks = [...new Set(picks)].sort().join(",");
+        const uniqueTarget = [...new Set(target.pair)].sort().join(",");
+        correct = uniquePicks === uniqueTarget;
+      } else {
+        const sortedPicks = [...picks].sort().join(",");
+        const sortedTarget = [...target.pair].sort().join(",");
+        correct = sortedPicks === sortedTarget;
+      }
       merge = { t: 0, duration: 36, from: blobs.map((b) => ({ ...b })), resultHex, correct };
       sound.mix();
     }
