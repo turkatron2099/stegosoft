@@ -1,4 +1,4 @@
-// Stegosoft service worker — makes the site installable as a PWA and lets
+// Thagobyte service worker — makes the site installable as a PWA and lets
 // pages you've already visited keep working offline. Strategy is
 // stale-while-revalidate for same-origin GETs only: serve straight from
 // cache when we have it (instant, and works with no connection), while
@@ -10,7 +10,7 @@
 // Cross-origin requests (archive.org video streams, the weather/geocoding
 // APIs, CDN libraries) are left alone — those need a live network anyway,
 // and the video files are far too large to want in a browser cache.
-const CACHE_NAME = "stegosoft-v1";
+const CACHE_NAME = "thagobyte-v1";
 
 self.addEventListener("install", () => {
   self.skipWaiting();

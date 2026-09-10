@@ -23,7 +23,7 @@ jobs:
 
       - name: Commit digest.json if changed
         run: |
-          git config user.name "stegosoft-bot"
+          git config user.name "thagobyte-bot"
           git config user.email "actions@users.noreply.github.com"
           git add digest.json
           git diff --cached --quiet || git commit -m "Update news digest"

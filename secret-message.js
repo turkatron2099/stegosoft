@@ -167,7 +167,7 @@
     }
 
     const fragment = hash.slice(1);
-    const viewedKey = "stegosoft-secret-viewed:" + (await sha256Hex(fragment));
+    const viewedKey = "thagobyte-secret-viewed:" + (await sha256Hex(fragment));
 
     if (localStorage.getItem(viewedKey)) {
       revealPrompt.hidden = true;

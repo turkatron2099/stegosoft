@@ -118,7 +118,7 @@ function parseRssItems(xml) {
 async function fetchFeed(feed) {
   try {
     const res = await fetch(feed.url, {
-      headers: { "User-Agent": "StegosoftDigestBot/1.0 (+https://stegosoft.com)" },
+      headers: { "User-Agent": "ThagobyteDigestBot/1.0 (+https://thagobyte.com)" },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const xml = await res.text();

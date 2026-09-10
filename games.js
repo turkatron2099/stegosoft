@@ -78,7 +78,7 @@
   // once and cached, same lazy-build-once pattern as cool-cars.js's grass
   // pattern.
   const BOOT_LOGO_IMAGE = new Image();
-  BOOT_LOGO_IMAGE.src = "images/stegosoft-logo.jpg";
+  BOOT_LOGO_IMAGE.src = "images/thagobyte_logo.png";
   const PIXEL_GRID = 40;
   let pixelLogoCanvas = null;
 

@@ -2,7 +2,7 @@
 // Space. On success, a full-screen digital-rain takeover flashes "WAKE UP
 // STEGO", then fades back to the homepage — permanently swapping the hero's
 // starship-dogfight scene (starship-dogfight.js) for matrix rain via the
-// "stegosoft-matrix-mode" localStorage flag both scripts share.
+// "thagobyte-matrix-mode" localStorage flag both scripts share.
 (function () {
   const SEQUENCE = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", " "];
   let progress = 0;
@@ -88,8 +88,8 @@
       window.removeEventListener("resize", setup);
 
       // Swap the hero's space scene for matrix rain, now and on future loads.
-      localStorage.setItem("stegosoft-matrix-mode", "1");
-      window.dispatchEvent(new Event("stegosoft:matrix-mode-on"));
+      localStorage.setItem("thagobyte-matrix-mode", "1");
+      window.dispatchEvent(new Event("thagobyte:matrix-mode-on"));
 
       setTimeout(() => overlay.remove(), 500); // let the fade-out transition finish
     }, HOLD_MS);

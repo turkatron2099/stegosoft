@@ -63,7 +63,7 @@
   // triggered, this replaces the starfield/dogfight scene with digital rain,
   // both immediately (via the event) and on every future page load (via the
   // shared localStorage flag).
-  const MATRIX_STORAGE_KEY = "stegosoft-matrix-mode";
+  const MATRIX_STORAGE_KEY = "thagobyte-matrix-mode";
   const MATRIX_CHARS = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
   const MATRIX_FONT_SIZE = 16;
   let matrixMode = localStorage.getItem(MATRIX_STORAGE_KEY) === "1";
@@ -96,26 +96,26 @@
   // above, just triggered from that other script instead of this one).
   // Unlike matrix mode this doesn't replace the scene, just how it's
   // rendered — see drawAnaglyphFrame.
-  const ANAGLYPH_MODE_KEY = "stegosoft-anaglyph-mode";
+  const ANAGLYPH_MODE_KEY = "thagobyte-anaglyph-mode";
   let anaglyphMode = localStorage.getItem(ANAGLYPH_MODE_KEY) === "1";
 
-  window.addEventListener("stegosoft:anaglyph-mode-on", () => {
+  window.addEventListener("thagobyte:anaglyph-mode-on", () => {
     anaglyphMode = true;
   });
-  window.addEventListener("stegosoft:anaglyph-mode-off", () => {
+  window.addEventListener("thagobyte:anaglyph-mode-off", () => {
     anaglyphMode = false;
   });
 
   // Virtual Boy: set by hero-logo.js once the logo re-skins again at 400
   // clicks, superseding the anaglyph mode above (hero-logo.js turns
   // anaglyphMode off before turning this on, so the two never overlap).
-  const VIRTUALBOY_MODE_KEY = "stegosoft-virtualboy-mode";
+  const VIRTUALBOY_MODE_KEY = "thagobyte-virtualboy-mode";
   let virtualBoyMode = localStorage.getItem(VIRTUALBOY_MODE_KEY) === "1";
 
-  window.addEventListener("stegosoft:virtualboy-mode-on", () => {
+  window.addEventListener("thagobyte:virtualboy-mode-on", () => {
     virtualBoyMode = true;
   });
-  window.addEventListener("stegosoft:virtualboy-mode-off", () => {
+  window.addEventListener("thagobyte:virtualboy-mode-off", () => {
     virtualBoyMode = false;
   });
 
@@ -507,7 +507,7 @@
     else if (hasSat) start();
   });
 
-  window.addEventListener("stegosoft:matrix-mode-on", () => {
+  window.addEventListener("thagobyte:matrix-mode-on", () => {
     if (matrixMode) return;
     matrixMode = true;
     setupMatrixRain();
