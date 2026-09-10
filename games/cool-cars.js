@@ -888,40 +888,31 @@
 
     function drawAnimalScreen() {
       drawHeading("Choose your driver!");
-      const cols = 3; // 9 animals now (Robot's the unlockable 9th) — a clean 3x3
+      // Locked entries (e.g. the win-unlocked Robot) are left out of this
+      // list entirely rather than shown grayed-out — the unlock should be a
+      // surprise, not a visible checklist. The grid just grows a row once
+      // there's a 9th driver to show.
+      const visible = ANIMALS.filter((a) => !isLocked(a));
+      const cols = visible.length > 8 ? 3 : 4;
       const cellW = 150;
-      const cellH = 120;
+      const cellH = cols === 3 ? 120 : 130;
       const startX = (W - cols * cellW) / 2;
-      const startY = 95;
-      ANIMALS.forEach((a, i) => {
+      const startY = cols === 3 ? 95 : 100;
+      visible.forEach((a, i) => {
         const col = i % cols;
         const row = Math.floor(i / cols);
         const x = startX + col * cellW;
         const y = startY + row * cellH;
-        const locked = isLocked(a);
         button(x + 10, y, cellW - 20, cellH - 16, () => {
-          if (locked) return;
           selection.animal = a;
           sound.animalSound(a.id);
           state = "chooseVehicle";
         });
-        if (locked) {
-          ctx.save();
-          ctx.globalAlpha = 0.3;
-          emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
-          ctx.restore();
-          emoji("🔒", x + cellW / 2, y + (cellH - 16) / 2 - 14, 28);
-          ctx.fillStyle = "#a7c9c6";
-          ctx.font = "13px sans-serif";
-          ctx.textAlign = "center";
-          ctx.fillText(`Win ${a.requiresWins}x to unlock`, x + cellW / 2, y + cellH - 34);
-        } else {
-          emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
-          ctx.fillStyle = "#f6dcac";
-          ctx.font = "16px sans-serif";
-          ctx.textAlign = "center";
-          ctx.fillText(a.label, x + cellW / 2, y + cellH - 34);
-        }
+        emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
+        ctx.fillStyle = "#f6dcac";
+        ctx.font = "16px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(a.label, x + cellW / 2, y + cellH - 34);
       });
     }
 
@@ -956,6 +947,11 @@
 
     function drawColorScreen() {
       drawHeading("Choose a color!");
+      // Locked colors (e.g. the win-unlocked Rainbow) are left out of this
+      // list entirely rather than shown grayed-out — the unlock should be a
+      // surprise, not a visible checklist. The existing row-2 centering math
+      // already adapts to however many colors end up visible.
+      const visible = COLORS.filter((c) => !isLocked(c));
       const cols = 4;
       const size = 110;
       const gap = 20;
@@ -968,28 +964,26 @@
       const previewH = 74;
       const previewW = previewH * (baseW / baseH);
 
-      COLORS.forEach((c, i) => {
+      visible.forEach((c, i) => {
         const col = i % cols;
         const row = Math.floor(i / cols);
-        const itemsInRow = row === 1 ? COLORS.length - cols : cols;
+        const itemsInRow = row === 1 ? visible.length - cols : cols;
         const rowOffset = row === 1 ? (W - (itemsInRow * size + (itemsInRow - 1) * gap)) / 2 - startX : 0;
         const x = startX + col * (size + gap) + rowOffset;
         const y = 110 + row * (size + 50);
-        const locked = isLocked(c);
         clickTargets.push({
           x,
           y,
           w: size,
           h: size,
           action: () => {
-            if (locked) return;
             selection.color = c;
             state = "playing";
             resetGameplay();
             sound.startMusic();
           },
         });
-        const isHover = !locked && hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + size && hoverPoint.y >= y && hoverPoint.y <= y + size;
+        const isHover = hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + size && hoverPoint.y >= y && hoverPoint.y <= y + size;
 
         roundRect(ctx, x, y, size, size, 14);
         ctx.fillStyle = "#0a2540";
@@ -1006,29 +1000,13 @@
           ctx.scale(1.08, 1.08);
           ctx.translate(-cx, -cy);
         }
-        if (locked) {
-          ctx.globalAlpha = 0.3;
-          // Show it as a plain gray silhouette rather than the real
-          // (possibly animated-rainbow) preview — keeps it a mystery
-          // until it's actually unlocked.
-          drawPlayerVehicle(cx, cy, "#8d8f92", selection.animal.emoji, previewW, previewH, selection.vehicle.id);
-        } else {
-          drawPlayerVehicle(cx, cy, c.hex, selection.animal.emoji, previewW, previewH, selection.vehicle.id);
-        }
+        drawPlayerVehicle(cx, cy, c.hex, selection.animal.emoji, previewW, previewH, selection.vehicle.id);
         ctx.restore();
 
-        if (locked) {
-          emoji("🔒", cx, cy, 26);
-          ctx.fillStyle = "#a7c9c6";
-          ctx.font = "13px sans-serif";
-          ctx.textAlign = "center";
-          ctx.fillText(`Win ${c.requiresWins}x to unlock`, x + size / 2, y + size + 18);
-        } else {
-          ctx.fillStyle = "#f6dcac";
-          ctx.font = "15px sans-serif";
-          ctx.textAlign = "center";
-          ctx.fillText(c.label, x + size / 2, y + size + 18);
-        }
+        ctx.fillStyle = "#f6dcac";
+        ctx.font = "15px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(c.label, x + size / 2, y + size + 18);
       });
     }
 
