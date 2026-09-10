@@ -1,4 +1,28 @@
 (function () {
+  // Wins are tracked in localStorage (not just this session) so unlocks
+  // persist across visits. A missing/unreadable value just reads as 0
+  // wins rather than throwing, in case storage is unavailable (private
+  // browsing, etc.).
+  const WIN_COUNT_KEY = "coolCarsWinCount";
+  const UNLOCK_WINS = 3;
+  function getWinCount() {
+    try {
+      return parseInt(localStorage.getItem(WIN_COUNT_KEY), 10) || 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+  function recordWin() {
+    try {
+      localStorage.setItem(WIN_COUNT_KEY, String(getWinCount() + 1));
+    } catch (e) {
+      // Storage unavailable — the unlock just won't persist this time.
+    }
+  }
+  function isLocked(entry) {
+    return !!entry.requiresWins && getWinCount() < entry.requiresWins;
+  }
+
   const ANIMALS = [
     { id: "dog", emoji: "🐶", label: "Dog" },
     { id: "cat", emoji: "🐱", label: "Cat" },
@@ -8,6 +32,7 @@
     { id: "tiger", emoji: "🐯", label: "Tiger" },
     { id: "monkey", emoji: "🐵", label: "Monkey" },
     { id: "bear", emoji: "🐻", label: "Bear" },
+    { id: "robot", emoji: "🤖", label: "Robot", requiresWins: UNLOCK_WINS },
   ];
 
   const VEHICLES = [
@@ -23,6 +48,10 @@
     { id: "blue", hex: "#3a86ff", label: "Blue" },
     { id: "purple", hex: "#8338ec", label: "Purple" },
     { id: "pink", hex: "#ff5fa2", label: "Pink" },
+    // "rainbow" is a sentinel, not a real color — every place that draws a
+    // vehicle checks for it and applies a live animated hue-rotate instead
+    // of a flat tint. See drawTintedVehicleImage.
+    { id: "rainbow", hex: "rainbow", label: "Rainbow", requiresWins: UNLOCK_WINS },
   ];
 
   // Real recorded animal clips, keyed by animal id. animalSound() below
@@ -301,6 +330,11 @@
       bear(now) {
         curveTone((t) => 85 - 20 * t + 14 * Math.sin(t * 6), 0.6, now, "sawtooth", 0.22);
       },
+      robot(now) {
+        [0, 0.09, 0.18, 0.27].forEach((dt, i) => {
+          tone(i % 2 === 0 ? 880 : 660, 0.07, now + dt, "square", 0.16);
+        });
+      },
     };
 
     function scheduleMusicStep() {
@@ -563,6 +597,7 @@
             nextNumber++;
             if (nextNumber > 10) {
               state = "won";
+              recordWin();
               sound.startVictoryMusic();
             }
           }
@@ -752,6 +787,44 @@
       drawCroppedSprite(TITLE_CAR_IMAGE, TITLE_CAR_CONTENT, cx, cy, w);
     }
 
+    // "rainbow" can't be pre-baked into the getRecoloredSprite cache — it's
+    // a continuously-shifting hue, not a fixed one, so caching one filtered
+    // frame would just freeze it at whatever hue it happened to be on the
+    // first draw. Instead it applies a live filter straight to ctx and
+    // draws the *untinted* source image through that, every frame; a real
+    // color still goes through the normal cache as before. drawFn does the
+    // actual drawImage/slice-drawing so this works for both the plain car
+    // sprite and the truck's row-sliced one.
+    const RAINBOW_HUE_SPEED = 2.2; // degrees per animFrame unit
+    function drawTintedVehicleImage(image, color, baseHue, extraFilterMap, drawFn) {
+      if (color === "rainbow") {
+        if (!image.complete || image.naturalWidth === 0) return false;
+        ctx.save();
+        ctx.filter = `hue-rotate(${(animFrame * RAINBOW_HUE_SPEED) % 360}deg) saturate(1.3)`;
+        drawFn(image);
+        ctx.restore();
+        return true;
+      }
+      const sprite = getRecoloredSprite(image, color, baseHue, extraFilterMap);
+      if (!sprite) return false;
+      drawFn(sprite);
+      return true;
+    }
+
+    // A flat, non-animated rainbow gradient for the vector-drawn fallback
+    // shapes (only used if a sprite image somehow fails to load) — those
+    // don't need to animate, just needs to visibly read as "rainbow".
+    function rainbowGradient(x0, y0, x1, y1) {
+      const g = ctx.createLinearGradient(x0, y0, x1, y1);
+      ["#ff3b30", "#ff9500", "#ffd60a", "#34c759", "#0a84ff", "#5e5ce6", "#ff3b30"].forEach((c, i, arr) =>
+        g.addColorStop(i / (arr.length - 1), c)
+      );
+      return g;
+    }
+    function vehicleFillStyle(color, x0, y0, x1, y1) {
+      return color === "rainbow" ? rainbowGradient(x0, y0, x1, y1) : color;
+    }
+
     // Side-view car/truck recolored to a player's actual color pick, for the
     // win screen's background car — same hue-rotate machinery already used
     // to recolor player sprites and the blue Truck picker icon.
@@ -760,15 +833,15 @@
       const image = isTruck ? TRUCK_OPTION_IMAGE : TITLE_CAR_IMAGE;
       const content = isTruck ? TRUCK_OPTION_CONTENT : TITLE_CAR_CONTENT;
       const baseHue = isTruck ? TRUCK_OPTION_BASE_HUE : TITLE_CAR_BASE_HUE;
-      const sprite = getRecoloredSprite(image, colorHex, baseHue, {}) || image;
-      drawCroppedSprite(sprite, content, cx, cy, w);
+      const drew = drawTintedVehicleImage(image, colorHex, baseHue, {}, (img) => drawCroppedSprite(img, content, cx, cy, w));
+      if (!drew) drawCroppedSprite(image, content, cx, cy, w);
     }
 
     function drawSideCar(cx, cy, color, driverEmoji) {
       ctx.save();
       ctx.translate(cx, cy);
       roundRect(ctx, -70, -22, 140, 44, 16);
-      ctx.fillStyle = color;
+      ctx.fillStyle = vehicleFillStyle(color, -70, 0, 70, 0);
       ctx.fill();
       roundRect(ctx, -34, -38, 62, 30, 10);
       ctx.fillStyle = "rgba(255,255,255,0.85)";
@@ -815,26 +888,40 @@
 
     function drawAnimalScreen() {
       drawHeading("Choose your driver!");
-      const cols = 4;
+      const cols = 3; // 9 animals now (Robot's the unlockable 9th) — a clean 3x3
       const cellW = 150;
-      const cellH = 130;
+      const cellH = 120;
       const startX = (W - cols * cellW) / 2;
-      const startY = 100;
+      const startY = 95;
       ANIMALS.forEach((a, i) => {
         const col = i % cols;
         const row = Math.floor(i / cols);
         const x = startX + col * cellW;
         const y = startY + row * cellH;
+        const locked = isLocked(a);
         button(x + 10, y, cellW - 20, cellH - 16, () => {
+          if (locked) return;
           selection.animal = a;
           sound.animalSound(a.id);
           state = "chooseVehicle";
         });
-        emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
-        ctx.fillStyle = "#f6dcac";
-        ctx.font = "16px sans-serif";
-        ctx.textAlign = "center";
-        ctx.fillText(a.label, x + cellW / 2, y + cellH - 34);
+        if (locked) {
+          ctx.save();
+          ctx.globalAlpha = 0.3;
+          emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
+          ctx.restore();
+          emoji("🔒", x + cellW / 2, y + (cellH - 16) / 2 - 14, 28);
+          ctx.fillStyle = "#a7c9c6";
+          ctx.font = "13px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(`Win ${a.requiresWins}x to unlock`, x + cellW / 2, y + cellH - 34);
+        } else {
+          emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
+          ctx.fillStyle = "#f6dcac";
+          ctx.font = "16px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(a.label, x + cellW / 2, y + cellH - 34);
+        }
       });
     }
 
@@ -888,19 +975,21 @@
         const rowOffset = row === 1 ? (W - (itemsInRow * size + (itemsInRow - 1) * gap)) / 2 - startX : 0;
         const x = startX + col * (size + gap) + rowOffset;
         const y = 110 + row * (size + 50);
+        const locked = isLocked(c);
         clickTargets.push({
           x,
           y,
           w: size,
           h: size,
           action: () => {
+            if (locked) return;
             selection.color = c;
             state = "playing";
             resetGameplay();
             sound.startMusic();
           },
         });
-        const isHover = hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + size && hoverPoint.y >= y && hoverPoint.y <= y + size;
+        const isHover = !locked && hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + size && hoverPoint.y >= y && hoverPoint.y <= y + size;
 
         roundRect(ctx, x, y, size, size, 14);
         ctx.fillStyle = "#0a2540";
@@ -917,13 +1006,29 @@
           ctx.scale(1.08, 1.08);
           ctx.translate(-cx, -cy);
         }
-        drawPlayerVehicle(cx, cy, c.hex, selection.animal.emoji, previewW, previewH, selection.vehicle.id);
+        if (locked) {
+          ctx.globalAlpha = 0.3;
+          // Show it as a plain gray silhouette rather than the real
+          // (possibly animated-rainbow) preview — keeps it a mystery
+          // until it's actually unlocked.
+          drawPlayerVehicle(cx, cy, "#8d8f92", selection.animal.emoji, previewW, previewH, selection.vehicle.id);
+        } else {
+          drawPlayerVehicle(cx, cy, c.hex, selection.animal.emoji, previewW, previewH, selection.vehicle.id);
+        }
         ctx.restore();
 
-        ctx.fillStyle = "#f6dcac";
-        ctx.font = "15px sans-serif";
-        ctx.textAlign = "center";
-        ctx.fillText(c.label, x + size / 2, y + size + 18);
+        if (locked) {
+          emoji("🔒", cx, cy, 26);
+          ctx.fillStyle = "#a7c9c6";
+          ctx.font = "13px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(`Win ${c.requiresWins}x to unlock`, x + size / 2, y + size + 18);
+        } else {
+          ctx.fillStyle = "#f6dcac";
+          ctx.font = "15px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(c.label, x + size / 2, y + size + 18);
+        }
       });
     }
 
@@ -989,7 +1094,7 @@
       ctx.lineTo(cx - hw, cy - h * 0.05);
       ctx.lineTo(cx - hw * 0.45, cy - h / 2 + 12);
       ctx.closePath();
-      ctx.fillStyle = color;
+      ctx.fillStyle = vehicleFillStyle(color, cx - hw, cy, cx + hw, cy);
       ctx.fill();
       ctx.strokeStyle = "rgba(0,0,0,0.35)";
       ctx.lineWidth = 2;
@@ -1016,7 +1121,7 @@
       const cabH = h * 0.34;
 
       roundRect(ctx, cx - w / 2, cy - h / 2 + cabH - 4, w, h - cabH + 4, 6);
-      ctx.fillStyle = color;
+      ctx.fillStyle = vehicleFillStyle(color, cx - w / 2, cy, cx + w / 2, cy);
       ctx.fill();
       ctx.strokeStyle = "rgba(0,0,0,0.35)";
       ctx.lineWidth = 2;
@@ -1031,7 +1136,7 @@
       }
 
       roundRect(ctx, cx - w / 2, cy - h / 2, w, cabH, 8);
-      ctx.fillStyle = color;
+      ctx.fillStyle = vehicleFillStyle(color, cx - w / 2, cy, cx + w / 2, cy);
       ctx.fill();
       ctx.strokeStyle = "rgba(0,0,0,0.35)";
       ctx.stroke();
@@ -1100,14 +1205,15 @@
       const baseHue = isTruck ? PLAYER_TRUCK_BASE_HUE : PLAYER_CAR_BASE_HUE;
       const extraFilter = isTruck ? PLAYER_TRUCK_EXTRA_FILTER : PLAYER_CAR_EXTRA_FILTER;
 
-      const sprite = getRecoloredSprite(image, color, baseHue, extraFilter);
-      if (sprite) {
+      const drew = drawTintedVehicleImage(image, color, baseHue, extraFilter, (img) => {
         if (isTruck) {
-          drawTruckSprite(sprite, cx, cy, w, h);
+          drawTruckSprite(img, cx, cy, w, h);
         } else {
-          ctx.drawImage(sprite, cx - w / 2, cy - h / 2, w, h);
+          ctx.drawImage(img, cx - w / 2, cy - h / 2, w, h);
         }
-      } else if (isTruck) {
+      });
+      if (drew) return;
+      if (isTruck) {
         drawTruckTopDown(cx, cy, color, driverEmoji, w, h);
       } else {
         drawSportsCarTopDown(cx, cy, color, driverEmoji, w, h);
