@@ -92,10 +92,78 @@
   transform: scale(1.05);
 }
 
-#clear-btn {
+#add-track-btn {
   background: var(--dark-background);
   color: var(--light-foreground);
   border: 1px solid var(--muted);
+}
+
+#tracks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.midi-track {
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  padding: 14px;
+  background: var(--lighter-background);
+}
+
+.midi-track-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.midi-track-label {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex: 0 0 auto;
+}
+
+.midi-track-instrument {
+  background: var(--dark-background);
+  color: var(--foreground);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.midi-track-instrument:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.midi-track-header-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.midi-track-header-actions button {
+  background: var(--dark-background);
+  color: var(--light-foreground);
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.midi-track-header-actions button:hover {
+  color: var(--foreground);
+  border-color: var(--accent);
+}
+
+.midi-track-remove:hover {
+  color: var(--accent);
 }
 
 .midi-grid-wrap {
