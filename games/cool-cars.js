@@ -67,6 +67,7 @@
     tiger: "games/sounds/tiger.mp3",
     monkey: "games/sounds/monkey.mp3",
     bear: "games/sounds/bear.mp3",
+    robot: "games/sounds/robot.wav",
   };
   const ANIMAL_AUDIO = {};
   Object.entries(ANIMAL_SOUND_FILES).forEach(([id, src]) => {
@@ -74,6 +75,16 @@
     audio.preload = "auto";
     ANIMAL_AUDIO[id] = audio;
   });
+
+  // Robot's number call-outs during gameplay — one real recorded clip per
+  // pickup value (1-10), keyed by number rather than animal id since this
+  // is specific to the Robot driver only.
+  const ROBOT_NUMBER_AUDIO = {};
+  for (let n = 1; n <= 10; n++) {
+    const audio = new Audio(`games/sounds/robot_${n}.mp3`);
+    audio.preload = "auto";
+    ROBOT_NUMBER_AUDIO[n] = audio;
+  }
 
   // Real background music per screen. makeSound()'s startCruiseMusic/
   // startMusic/startVictoryMusic play these directly, falling back to the
@@ -438,6 +449,12 @@
         utter.rate = 1.1;
         window.speechSynthesis.speak(utter);
       },
+      // Robot calling out the number it just picked up, using the real
+      // recorded clip for that value instead of synthesized speech.
+      playRobotNumber(n) {
+        const clip = ROBOT_NUMBER_AUDIO[n];
+        if (clip) clip.cloneNode().play().catch(() => {});
+      },
     };
   }
 
@@ -603,8 +620,11 @@
             o.collected = true;
             popText = { text: `${nextNumber}!`, life: 45 };
             sound.coinPickup();
-            sound.animalSound(selection.animal.id);
-            if (selection.animal.id === "robot") sound.speakRobot(String(nextNumber));
+            if (selection.animal.id === "robot") {
+              sound.playRobotNumber(nextNumber);
+            } else {
+              sound.animalSound(selection.animal.id);
+            }
             nextNumber++;
             if (nextNumber > 10) {
               state = "won";
