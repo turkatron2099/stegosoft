@@ -241,6 +241,11 @@
   const BIRD2_IMAGE = new Image();
   BIRD2_IMAGE.src = "games/images/bird2.png";
 
+  // A turtle that occasionally ambles along the roadside during gameplay —
+  // see the turtles array in startCoolCars.
+  const TURTLE_IMAGE = new Image();
+  TURTLE_IMAGE.src = "games/images/turtle.png";
+
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
   GRASS_IMAGE.src = "games/images/grass.png";
@@ -564,6 +569,7 @@
     const sound = makeSound();
 
     let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, roadsideTimer, popText, roadScroll;
+    let turtles, turtleTimer;
 
     function resetGameplay() {
       const isTruck = selection.vehicle.id === "truck";
@@ -589,6 +595,23 @@
         { side: "right", y: -80, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
       ];
       roadsideTimer = 30;
+      // A turtle is a rare treat, not roadside furniture — long, randomized
+      // gap before the first one, and only ever one on screen at a time.
+      turtles = [];
+      turtleTimer = randInt(600, 1000);
+    }
+
+    function spawnTurtle() {
+      const side = Math.random() < 0.5 ? "left" : "right";
+      turtles.push({
+        side,
+        y: -40,
+        // Ambles slowly back and forth within the grass strip, well clear
+        // of the road on either side — see the drift clamp in update().
+        xJitter: rand(-10, 10),
+        driftSpeed: rand(0.12, 0.22) * (Math.random() < 0.5 ? -1 : 1),
+        size: 34,
+      });
     }
 
     function spawnRoadsideItem() {
@@ -674,6 +697,25 @@
       roadside.forEach((t) => (t.y += SCROLL_SPEED * dt));
       roadside = roadside.filter((t) => t.y < H + 60);
       roadScroll += SCROLL_SPEED * dt;
+
+      turtleTimer -= dt;
+      if (turtleTimer <= 0) {
+        if (turtles.length === 0) {
+          spawnTurtle();
+          turtleTimer = randInt(600, 1000);
+        } else {
+          turtleTimer = 60; // one's already out there — check back shortly
+        }
+      }
+      turtles.forEach((t) => {
+        // Scrolls past with the rest of the roadside, plus a slow side-to-side
+        // amble within the grass strip — xJitter never approaches the road,
+        // so it never has a chance to wander into traffic.
+        t.y += SCROLL_SPEED * dt;
+        t.xJitter += t.driftSpeed * dt;
+        if (t.xJitter > 30 || t.xJitter < -30) t.driftSpeed *= -1;
+      });
+      turtles = turtles.filter((t) => t.y < H + 60);
 
       spawnTimer -= dt;
       if (spawnTimer <= 0) {
@@ -883,6 +925,7 @@
     const TRUCK_OPTION_CONTENT = { sx: 0, sy: 10, sw: 32, sh: 12 };
     const TREE_CONTENT = { sx: 4, sy: 1, sw: 24, sh: 30 };
     const TREE_SCROLL_SPEED = 1.6; // px per animFrame unit (1.0 == a 60Hz frame)
+    const TURTLE_CONTENT = { sx: 0, sy: 1, sw: 32, sh: 15 };
     const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
     const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
     // bird1's own content is {sx:0,sy:10,sw:32,sh:12} and bird2's is
@@ -1338,6 +1381,15 @@
           drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, baseX + t.xJitter, t.y, t.size * 1.15);
         } else {
           emoji(t.emoji, baseX + t.xJitter, t.y, t.size);
+        }
+      });
+
+      turtles.forEach((t) => {
+        const baseX = t.side === "left" ? ROAD_LEFT - 50 : ROAD_RIGHT + 50;
+        if (TURTLE_IMAGE.complete && TURTLE_IMAGE.naturalWidth) {
+          drawCroppedSprite(TURTLE_IMAGE, TURTLE_CONTENT, baseX + t.xJitter, t.y, t.size);
+        } else {
+          emoji("🐢", baseX + t.xJitter, t.y, t.size);
         }
       });
 
