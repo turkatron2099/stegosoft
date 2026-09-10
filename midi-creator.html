@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIDI Creator — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="midi-creator.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="midi-intro">
+    <div class="wrap">
+      <h1>MIDI Creator</h1>
+      <p class="tagline">Click in a tune, two octaves by sixteen steps, and download a real .mid file — right here, without leaving Thagobyte.</p>
+    </div>
+  </section>
+
+  <section class="midi-panel">
+    <div class="wrap">
+
+      <div class="midi-controls">
+        <label class="midi-field">
+          Tempo
+          <span class="midi-field-row">
+            <input type="number" id="tempo-input" min="40" max="300" value="120">
+            <span class="midi-field-unit">BPM</span>
+          </span>
+        </label>
+        <label class="midi-field">
+          Instrument
+          <select id="instrument-select"></select>
+        </label>
+        <label class="midi-field">
+          File name
+          <input type="text" id="filename-input" value="my-tune" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="midi-actions">
+        <button type="button" id="play-btn">▶ Play</button>
+        <button type="button" id="clear-btn">Clear</button>
+        <button type="button" id="download-btn">Download .mid</button>
+        <a id="download-link" hidden></a>
+      </div>
+
+      <div class="midi-grid-wrap">
+        <div class="midi-grid" id="midi-grid"></div>
+      </div>
+
+      <p class="midi-note">
+        Playback here is an approximation (a plain oscillator per note) so you can hear what
+        you're composing — the instrument you pick only changes the tone color slightly during
+        preview. The actual General MIDI instrument plays correctly once you download the file
+        and open it in a real MIDI player or DAW.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte</span>
+  </div>
+</footer>
+
+<script src="midi-creator.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
