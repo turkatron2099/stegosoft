@@ -185,3 +185,153 @@
   renderGrid();
   renderAgenda();
 })();
+
+// Timezone converter. Pure Intl.DateTimeFormat — no library, no API call.
+// Converting a naive "wall-clock" datetime-local value into a real instant
+// for an arbitrary IANA zone (correctly, across DST) isn't something Intl
+// exposes directly, so zonedTimeToUtc uses the standard trick: read the
+// input's digits as if they were UTC to get a reference instant, then
+// compare how that SAME instant's clock face reads in the target zone vs.
+// UTC — the difference is exactly that zone's offset at that moment
+// (DST-correct, since Intl resolves it for the real date) — and shifting
+// the reference instant by that difference lands on the true UTC instant
+// for the original wall-clock reading.
+(() => {
+  const datetimeInput = document.getElementById("tc-datetime");
+  const nowBtn = document.getElementById("tc-now");
+  const fromSelect = document.getElementById("tc-from");
+  const toSelect = document.getElementById("tc-to");
+  const swapBtn = document.getElementById("tc-swap");
+  const resultEl = document.getElementById("tc-result");
+
+  const FALLBACK_ZONES = [
+    "UTC", "Pacific/Honolulu", "America/Anchorage", "America/Los_Angeles", "America/Denver",
+    "America/Chicago", "America/New_York", "America/Sao_Paulo", "Atlantic/Azores",
+    "Europe/London", "Europe/Paris", "Europe/Berlin", "Europe/Moscow", "Africa/Cairo",
+    "Africa/Johannesburg", "Asia/Dubai", "Asia/Karachi", "Asia/Kolkata", "Asia/Dhaka",
+    "Asia/Bangkok", "Asia/Shanghai", "Asia/Tokyo", "Asia/Seoul", "Australia/Sydney",
+    "Pacific/Auckland",
+  ];
+
+  function getZoneList() {
+    try {
+      const zones = Intl.supportedValuesOf("timeZone");
+      if (zones && zones.length) return zones;
+    } catch (e) {
+      // Older browser without Intl.supportedValuesOf — use the fallback list.
+    }
+    return FALLBACK_ZONES;
+  }
+
+  function zoneLabel(zone) {
+    return zone.replace(/_/g, " ").replace(/\//g, " / ");
+  }
+
+  function populateSelect(select, zones, defaultZone) {
+    zones.forEach((zone) => {
+      const opt = document.createElement("option");
+      opt.value = zone;
+      opt.textContent = zoneLabel(zone);
+      select.appendChild(opt);
+    });
+    if (zones.includes(defaultZone)) select.value = defaultZone;
+  }
+
+  function toDatetimeLocalValue(date) {
+    const pad = (n) => String(n).padStart(2, "0");
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  }
+
+  // The offset (ms) between how `date` reads in `zone` vs. how it reads in
+  // UTC — i.e. zone's real UTC offset at that instant.
+  function offsetMsAt(date, zone) {
+    const zoned = new Date(date.toLocaleString("en-US", { timeZone: zone }));
+    const utc = new Date(date.toLocaleString("en-US", { timeZone: "UTC" }));
+    return utc.getTime() - zoned.getTime();
+  }
+
+  function zonedTimeToUtc(datetimeLocalStr, zone) {
+    const naiveAsUtc = new Date(datetimeLocalStr + "Z");
+    const offset = offsetMsAt(naiveAsUtc, zone);
+    return new Date(naiveAsUtc.getTime() + offset);
+  }
+
+  function formatOffset(ms) {
+    const totalMinutes = Math.round(ms / 60000);
+    const sign = totalMinutes >= 0 ? "+" : "-";
+    const abs = Math.abs(totalMinutes);
+    const h = Math.floor(abs / 60);
+    const m = abs % 60;
+    return `UTC${sign}${h}${m ? ":" + String(m).padStart(2, "0") : ""}`;
+  }
+
+  function render() {
+    if (!datetimeInput.value) return;
+    const fromZone = fromSelect.value;
+    const toZone = toSelect.value;
+    if (!fromZone || !toZone) return;
+
+    let utcInstant;
+    try {
+      utcInstant = zonedTimeToUtc(datetimeInput.value, fromZone);
+    } catch (e) {
+      resultEl.textContent = "Couldn't convert that date/time.";
+      return;
+    }
+
+    const timeText = new Intl.DateTimeFormat("en-US", {
+      timeZone: toZone,
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    }).format(utcInstant);
+
+    const fromOffset = -offsetMsAt(utcInstant, fromZone);
+    const toOffset = -offsetMsAt(utcInstant, toZone);
+
+    resultEl.innerHTML = "";
+    const timeEl = document.createElement("div");
+    timeEl.className = "tc-result-time";
+    timeEl.textContent = timeText;
+    resultEl.appendChild(timeEl);
+
+    const zoneEl = document.createElement("div");
+    zoneEl.className = "tc-result-zone";
+    zoneEl.textContent = zoneLabel(toZone);
+    resultEl.appendChild(zoneEl);
+
+    const offsetEl = document.createElement("div");
+    offsetEl.className = "tc-result-offset";
+    offsetEl.textContent = `${zoneLabel(fromZone)} is ${formatOffset(fromOffset)}, ${zoneLabel(toZone)} is ${formatOffset(toOffset)}`;
+    resultEl.appendChild(offsetEl);
+  }
+
+  // "UTC" is always a valid Intl timeZone identifier even on browsers whose
+  // supportedValuesOf("timeZone") enumeration omits it (seen in the wild) —
+  // guarantee it's selectable, and pin it first rather than wherever it'd
+  // fall alphabetically, since it's the most common reference zone.
+  const zones = ["UTC", ...getZoneList().filter((z) => z !== "UTC").sort()];
+  const localZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+  populateSelect(fromSelect, zones, localZone);
+  populateSelect(toSelect, zones, "UTC");
+  datetimeInput.value = toDatetimeLocalValue(new Date());
+
+  nowBtn.addEventListener("click", () => {
+    datetimeInput.value = toDatetimeLocalValue(new Date());
+    render();
+  });
+  swapBtn.addEventListener("click", () => {
+    const tmp = fromSelect.value;
+    fromSelect.value = toSelect.value;
+    toSelect.value = tmp;
+    render();
+  });
+  datetimeInput.addEventListener("input", render);
+  fromSelect.addEventListener("change", render);
+  toSelect.addEventListener("change", render);
+
+  render();
+})();

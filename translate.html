@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Translate — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="translate.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="translate-intro">
+    <div class="wrap">
+      <h1>Translate</h1>
+      <p class="tagline">Quick text translation, right here, without leaving Thagobyte.</p>
+    </div>
+  </section>
+
+  <section class="translate-panel">
+    <div class="wrap">
+
+      <div class="translate-langbar">
+        <select id="translate-from" class="translate-lang"></select>
+        <button type="button" id="translate-swap" class="translate-swap" aria-label="Swap languages">&#8644;</button>
+        <select id="translate-to" class="translate-lang"></select>
+      </div>
+
+      <div class="translate-panes">
+        <div class="translate-pane">
+          <textarea id="translate-input" class="translate-textarea" placeholder="Type something to translate..." maxlength="500"></textarea>
+          <div class="translate-pane-footer">
+            <span class="translate-count" id="translate-count">0 / 500</span>
+          </div>
+        </div>
+        <div class="translate-pane">
+          <div class="translate-textarea translate-output" id="translate-output" aria-live="polite"></div>
+          <div class="translate-pane-footer">
+            <button type="button" class="translate-copy" id="translate-copy" hidden>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="translate-actions">
+        <button type="button" id="translate-btn">Translate</button>
+      </div>
+
+      <p class="translate-status" id="status-text" hidden></p>
+
+      <p class="translate-note">
+        Powered by the free <a href="https://mymemory.translated.net/" target="_blank" rel="noopener">MyMemory Translation API</a>.
+        Machine-translated, so double-check anything important — and long or heavily-used days may hit its free usage limit.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte</span>
+  </div>
+</footer>
+
+<script src="translate.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>

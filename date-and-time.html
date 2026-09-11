@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calendar — Thagobyte</title>
+<title>Date and Time — Thagobyte</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="calendar.css">
+<link rel="stylesheet" href="date-and-time.css">
 <link rel="icon" href="images/thagobyte_logo.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -28,7 +28,7 @@
 <main>
   <section class="calendar-intro">
     <div class="wrap">
-      <h1>Calendar</h1>
+      <h1>Date and Time</h1>
     </div>
   </section>
 
@@ -62,6 +62,35 @@
 
     </div>
   </section>
+
+  <section class="timeconvert-section">
+    <div class="wrap">
+      <h2 class="timeconvert-heading">Time Conversion</h2>
+      <div class="timeconvert-card">
+        <div class="timeconvert-row">
+          <label class="timeconvert-field" for="tc-datetime">
+            Date &amp; time
+            <input type="datetime-local" id="tc-datetime">
+          </label>
+          <button type="button" class="timeconvert-now" id="tc-now">Now</button>
+        </div>
+
+        <div class="timeconvert-row timeconvert-zones">
+          <label class="timeconvert-field" for="tc-from">
+            From
+            <select id="tc-from"></select>
+          </label>
+          <button type="button" class="timeconvert-swap" id="tc-swap" aria-label="Swap timezones">&#8644;</button>
+          <label class="timeconvert-field" for="tc-to">
+            To
+            <select id="tc-to"></select>
+          </label>
+        </div>
+
+        <div class="timeconvert-result" id="tc-result" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -70,7 +99,7 @@
   </div>
 </footer>
 
-<script src="calendar.js"></script>
+<script src="date-and-time.js"></script>
 <script src="pwa.js"></script>
 <script src="somafm-player.js"></script>
 </body>
