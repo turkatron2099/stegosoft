@@ -526,13 +526,13 @@
   const DG_ENEMY_ACCEL = 0.12;
   const DG_ENEMY_DRAG = 0.99;
   const DG_ENEMY_MAX_SPEED = 3.0;
-  const DG_PLAYER_COLOR = SHIP_COLOR; // same plain hull color as the ambient ships — "colors revert to original"
+  const DG_PLAYER_COLOR = "#faa968"; // Thagobyte's own accent orange (same as .quote-author's color) — makes the player's ship stand out from the enemies
+  const DG_ENEMY_COLOR = SHIP_COLOR; // enemies keep the ambient ships' plain hull color
   const DG_FIRE_COOLDOWN_MS = 320;
   const DG_BOLT_SPEED = 6.5;
   const DG_HIT_RADIUS = 11;
   const DG_START_FLASH_MS = 1800;
-  const DG_HIT_POINTS = 25;
-  const DG_KILL_POINTS = 100;
+  const DG_SCORE_PER_SEC = 1; // base rate; the streak multiplier scales this directly, so a hot streak earns points faster rather than paying out in one-off bonuses
   const DG_LEADERBOARD_SIZE = 10;
   const DG_SPAWN_MARGIN = 30;
   const DG_PLAYER_HEALTH = 3;
@@ -549,11 +549,9 @@
   let dgKeys = Object.create(null);
   let dgLastShotAt = 0;
 
-  let dgHitPoints = 0; // cumulative points from landed hits this run
-  let dgKillPoints = 0; // cumulative points from kills (post-multiplier) this run
+  let dgScore = 0; // accumulates every "playing" frame at DG_SCORE_PER_SEC * (streak + 1) — no separate hit/kill bonuses
   let dgKillCount = 0;
-  let dgStreak = 0; // kills since the player was last hit
-  let dgSurvivalStart = 0;
+  let dgStreak = 0; // kills since the player was last hit; drives the score-rate multiplier
   let dgFinalBreakdown = null;
   let dgInitials = "";
   let dgLeaderboard = [];
@@ -689,13 +687,18 @@
     dgPlayerBolts = [];
     dgEnemyBolts = [];
     dgExplosions = [];
-    dgHitPoints = 0;
-    dgKillPoints = 0;
+    dgScore = 0;
     dgKillCount = 0;
     dgStreak = 0;
-    dgSurvivalStart = performance.now();
     dgFinalBreakdown = null;
     dgInitials = "";
+  }
+
+  // Runs every "playing" frame — base rate scaled by the current streak
+  // multiplier, so a hot streak earns points faster rather than the old
+  // flat per-hit/per-kill bonuses.
+  function dgStepScore(dtScale) {
+    dgScore += DG_SCORE_PER_SEC * (dgStreak + 1) * (dtScale / 60);
   }
 
   // Hidden for the whole active play session (start/playing/gameover) —
@@ -866,13 +869,9 @@
   }
 
   function dgGameOver(now) {
-    const timeScore = Math.floor((now - dgSurvivalStart) / 1000);
     dgFinalBreakdown = {
-      timeScore,
-      hitPoints: dgHitPoints,
-      killPoints: dgKillPoints,
       kills: dgKillCount,
-      total: timeScore + dgHitPoints + dgKillPoints,
+      total: Math.floor(dgScore),
     };
     dgMode = "gameover";
     dgStateStartedAt = now;
@@ -910,11 +909,11 @@
         dgPlayerBolts.splice(i, 1);
         const enemy = dgEnemies[hitIndex];
         // One hit is lethal (DG_ENEMY_HEALTH = 1) — every landed hit is a kill.
+        // No flat point award here — the kill just raises the streak, which
+        // dgStepScore is already turning into a faster scoring rate.
         dgExplode(enemy.x, enemy.y, true);
-        dgHitPoints += DG_HIT_POINTS;
         dgEnemies.splice(hitIndex, 1);
         dgStreak++;
-        dgKillPoints += DG_KILL_POINTS * dgStreak;
         dgKillCount++;
         // Endless mode: every kill spawns two more in its place, after a
         // beat of calm (see dgSpawnEnemy's stillUntil).
@@ -939,6 +938,20 @@
     ctx.translate(x, y);
     ctx.rotate(angle);
     ctx.scale(scale, scale);
+
+    // Same art as the ambient background ships' drawShip(): flickering
+    // engine flame first (so the hull overlaps its base), then the hull,
+    // then the cockpit dot.
+    const flame = 0.6 + Math.random() * 0.4;
+    const flameLen = 6 + flame * 5;
+    ctx.beginPath();
+    ctx.moveTo(-8, 3);
+    ctx.lineTo(-8 - flameLen, 0);
+    ctx.lineTo(-8, -3);
+    ctx.closePath();
+    ctx.fillStyle = "rgba(250, 209, 102, " + (0.5 + flame * 0.4) + ")";
+    ctx.fill();
+
     ctx.beginPath();
     ctx.moveTo(14, 0);
     ctx.lineTo(-8, 6);
@@ -952,6 +965,12 @@
     ctx.strokeStyle = STAR_COLOR;
     ctx.lineWidth = 1;
     ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(4, 0, 2, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(246, 220, 172, 0.9)";
+    ctx.fill();
+
     ctx.restore();
   }
 
@@ -962,7 +981,7 @@
   function dgDrawEnemies(now) {
     dgEnemies.forEach((en) => {
       if (now < en.stillUntil && Math.floor(now / 150) % 2 !== 0) return;
-      dgDrawShipAt(en.x, en.y, en.angle, DG_PLAYER_COLOR, 1);
+      dgDrawShipAt(en.x, en.y, en.angle, DG_ENEMY_COLOR, 1);
     });
   }
 
@@ -1016,14 +1035,12 @@
   }
 
   // Live score readout + current streak multiplier, top-right.
-  function dgDrawScore(now) {
-    const timeScore = Math.floor((now - dgSurvivalStart) / 1000);
-    const total = timeScore + dgHitPoints + dgKillPoints;
+  function dgDrawScore() {
     ctx.save();
     ctx.fillStyle = STAR_COLOR;
     ctx.textAlign = "right";
     ctx.font = "bold 14px sans-serif";
-    ctx.fillText(`Score: ${total}`, W - 12, 26);
+    ctx.fillText(`Score: ${Math.floor(dgScore)}`, W - 12, 26);
     ctx.font = "12px sans-serif";
     ctx.fillText(`Multiplier: x${dgStreak + 1}`, W - 12, 44);
     ctx.restore();
@@ -1042,15 +1059,12 @@
   function dgDrawGameOver() {
     const b = dgFinalBreakdown;
     dgDrawCenteredText("GAME OVER", H / 2 - 130, 46);
-    dgDrawCenteredText(`Ships destroyed: ${b.kills}`, H / 2 - 68, 13);
-    dgDrawCenteredText(`Time bonus: ${b.timeScore}`, H / 2 - 50, 13);
-    dgDrawCenteredText(`Hit bonus: ${b.hitPoints}`, H / 2 - 32, 13);
-    dgDrawCenteredText(`Kill bonus: ${b.killPoints}`, H / 2 - 14, 13);
-    dgDrawCenteredText(`TOTAL: ${b.total}`, H / 2 + 12, 19);
-    dgDrawCenteredText("Enter your initials:", H / 2 + 44, 13);
+    dgDrawCenteredText(`Ships destroyed: ${b.kills}`, H / 2 - 60, 13);
+    dgDrawCenteredText(`TOTAL: ${b.total}`, H / 2 - 34, 19);
+    dgDrawCenteredText("Enter your initials:", H / 2 + 4, 13);
     const shown = dgInitials.padEnd(3, "_").split("").join(" ");
-    dgDrawCenteredText(shown, H / 2 + 68, 22);
-    dgDrawCenteredText("Type 3 letters, then press ENTER", H / 2 + 92, 11, 0.7);
+    dgDrawCenteredText(shown, H / 2 + 28, 22);
+    dgDrawCenteredText("Type 3 letters, then press ENTER", H / 2 + 52, 11, 0.7);
   }
 
   // Leaderboard stays up indefinitely with a blinking "PRESS SPACE" prompt —
@@ -1081,15 +1095,16 @@
       dgStepPlayer(dtScale);
       dgStepBolts(dgPlayerBolts, dtScale);
       dgStepExplosions(dtScale);
+      dgStepScore(dtScale);
       dgDrawBolts(dgPlayerBolts);
       const flashOn = Math.floor(now / 150) % 2 === 0;
       if (flashOn) dgDrawShipAt(dgPlayer.x, dgPlayer.y, dgPlayer.angle, DG_PLAYER_COLOR, 1);
       dgDrawEnemies(now);
       dgDrawExplosions();
       dgDrawHealth();
-      dgDrawScore(now);
-      dgDrawCenteredText("GAME START", H / 2 - 40, 22);
-      dgDrawCenteredText("Arrows/WASD to rotate + thrust — Space to fire", H / 2 - 16, 13);
+      dgDrawScore();
+      dgDrawCenteredText("GAME START", H / 2 - 70, 22);
+      dgDrawCenteredText("Arrows/WASD to rotate + thrust — Space to fire", H / 2 - 46, 13);
       if (now - dgStateStartedAt > DG_START_FLASH_MS) {
         dgMode = "playing";
       }
@@ -1103,6 +1118,7 @@
       dgStepBolts(dgEnemyBolts, dtScale);
       dgCheckHits(now);
       dgStepExplosions(dtScale);
+      dgStepScore(dtScale);
 
       if (dgMode !== "playing") return; // dgCheckHits may have just ended the run
 
@@ -1113,7 +1129,7 @@
       dgDrawEnemies(now);
       dgDrawExplosions();
       dgDrawHealth();
-      dgDrawScore(now);
+      dgDrawScore();
       return;
     }
 
