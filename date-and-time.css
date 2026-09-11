@@ -302,3 +302,77 @@
   font-size: 0.8rem;
   margin-top: 10px;
 }
+
+/* --- What Day Was It? --- */
+
+.dayfinder-section {
+  padding: 0 0 80px;
+}
+
+.dayfinder-heading {
+  text-align: center;
+  color: var(--foreground);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.dayfinder-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dayfinder-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--light-foreground);
+}
+
+.dayfinder-field input {
+  background: var(--background);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.dayfinder-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.dayfinder-result {
+  background: var(--background);
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.dayfinder-result .df-result-weekday {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.dayfinder-result .df-result-date {
+  color: var(--light-foreground);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.dayfinder-result .df-result-relative {
+  color: var(--cyan);
+  font-size: 0.8rem;
+  margin-top: 10px;
+}

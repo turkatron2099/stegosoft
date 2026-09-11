@@ -312,3 +312,66 @@
 
   render();
 })();
+
+// "What day was it?" — parses the date input's Y/M/D as plain local
+// calendar components (never through a UTC-parsed string), so there's no
+// chance of a timezone shift landing on the wrong weekday. Like every other
+// "what day of the week" tool, this projects the modern Gregorian calendar
+// backward/forward indefinitely (proleptic Gregorian) rather than
+// accounting for pre-1582 calendar reform.
+(() => {
+  const dateInput = document.getElementById("df-date");
+  const resultEl = document.getElementById("df-result");
+
+  const WEEKDAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const MONTH_NAMES = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+  ];
+
+  function relativeLabel(diffDays) {
+    if (diffDays === 0) return "Today";
+    const suffix = diffDays > 0 ? "from now" : "ago";
+    const abs = Math.abs(diffDays);
+    if (abs < 60) return `${abs} day${abs === 1 ? "" : "s"} ${suffix}`;
+    if (abs < 730) {
+      const months = Math.round(abs / 30.44);
+      return `${months} month${months === 1 ? "" : "s"} ${suffix}`;
+    }
+    const years = Math.round(abs / 365.25);
+    return `${years} year${years === 1 ? "" : "s"} ${suffix}`;
+  }
+
+  function render() {
+    const val = dateInput.value; // "YYYY-MM-DD" from the date input, or ""
+    resultEl.innerHTML = "";
+    if (!val) return;
+
+    const [y, m, d] = val.split("-").map(Number);
+    const date = new Date(y, m - 1, d);
+
+    const today = new Date();
+    const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const diffDays = Math.round((date - todayMidnight) / 86400000);
+
+    const weekdayEl = document.createElement("div");
+    weekdayEl.className = "df-result-weekday";
+    weekdayEl.textContent = WEEKDAY_NAMES[date.getDay()];
+    resultEl.appendChild(weekdayEl);
+
+    const dateEl = document.createElement("div");
+    dateEl.className = "df-result-date";
+    dateEl.textContent = `${MONTH_NAMES[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+    resultEl.appendChild(dateEl);
+
+    const relEl = document.createElement("div");
+    relEl.className = "df-result-relative";
+    relEl.textContent = relativeLabel(diffDays);
+    resultEl.appendChild(relEl);
+  }
+
+  const t = new Date();
+  dateInput.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+  dateInput.addEventListener("input", render);
+  render();
+})();
