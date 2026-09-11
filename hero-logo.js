@@ -39,6 +39,14 @@
   const VIRTUALBOY_AT = 400; // reskinned again — flat red-on-black, Virtual Boy style
   const DOGFIGHT_AT = 500; // colors revert to normal, and the ambient starship-dogfight.js scene becomes a playable game
 
+  // Konami-code Matrix mode is its own easter egg (matrix-mode.js), but once
+  // it's on, the next logo click short-circuits straight into the dogfight —
+  // a one-time shortcut that bypasses the normal 500-click requirement.
+  let matrixDogfightArmed = false;
+  window.addEventListener("thagobyte:matrix-mode-on", () => {
+    matrixDogfightArmed = true;
+  });
+
   // Shared with starship-dogfight.js (same pattern as matrix-mode.js's own
   // flag/event pair) so the dogfight scene switches into its own red/cyan
   // anaglyph render style in lockstep with the logo, both immediately and on
@@ -462,6 +470,13 @@
     localStorage.setItem(STORAGE_KEY, String(clicks));
     renderCounter();
     playCoinPickup();
+
+    if (matrixDogfightArmed) {
+      matrixDogfightArmed = false;
+      settleAsOriginal();
+      window.dispatchEvent(new Event("thagobyte:dogfight-start"));
+      return;
+    }
 
     if (clicks >= DOGFIGHT_AT) {
       settleAsOriginal();

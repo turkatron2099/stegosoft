@@ -532,7 +532,8 @@
   const DG_BOLT_SPEED = 6.5;
   const DG_HIT_RADIUS = 11;
   const DG_START_FLASH_MS = 1800;
-  const DG_SCORE_PER_SEC = 1; // base rate; the streak multiplier scales this directly, so a hot streak earns points faster rather than paying out in one-off bonuses
+  const DG_SCORE_PER_SEC = 1; // "Time Alive" base rate; the streak multiplier scales this directly, so a hot streak earns points faster
+  const DG_KILL_POINTS = 100; // flat Kill Bonus per ship destroyed, on top of Time Alive — not scaled by the multiplier
   const DG_LEADERBOARD_SIZE = 10;
   const DG_SPAWN_MARGIN = 30;
   const DG_PLAYER_HEALTH = 3;
@@ -869,9 +870,14 @@
   }
 
   function dgGameOver(now) {
+    const timeAlive = Math.floor(dgScore);
+    const killBonus = DG_KILL_POINTS * dgKillCount;
     dgFinalBreakdown = {
       kills: dgKillCount,
-      total: Math.floor(dgScore),
+      timeAlive,
+      killBonus,
+      multiplier: dgStreak + 1,
+      total: timeAlive + killBonus,
     };
     dgMode = "gameover";
     dgStateStartedAt = now;
@@ -1040,9 +1046,10 @@
     ctx.fillStyle = STAR_COLOR;
     ctx.textAlign = "right";
     ctx.font = "bold 14px sans-serif";
-    ctx.fillText(`Score: ${Math.floor(dgScore)}`, W - 12, 26);
+    const liveTotal = Math.floor(dgScore) + DG_KILL_POINTS * dgKillCount;
+    ctx.fillText(`Score: ${liveTotal}`, W - 12, 26);
     ctx.font = "12px sans-serif";
-    ctx.fillText(`Multiplier: x${dgStreak + 1}`, W - 12, 44);
+    ctx.fillText(`Hit Multiplier: x${dgStreak + 1}`, W - 12, 44);
     ctx.restore();
   }
 
@@ -1059,12 +1066,15 @@
   function dgDrawGameOver() {
     const b = dgFinalBreakdown;
     dgDrawCenteredText("GAME OVER", H / 2 - 130, 46);
-    dgDrawCenteredText(`Ships destroyed: ${b.kills}`, H / 2 - 60, 13);
-    dgDrawCenteredText(`TOTAL: ${b.total}`, H / 2 - 34, 19);
-    dgDrawCenteredText("Enter your initials:", H / 2 + 4, 13);
+    dgDrawCenteredText(`Ships destroyed: ${b.kills}`, H / 2 - 84, 13);
+    dgDrawCenteredText(`Time Alive: ${b.timeAlive}`, H / 2 - 64, 13);
+    dgDrawCenteredText(`Hit Multiplier: x${b.multiplier}`, H / 2 - 44, 13);
+    dgDrawCenteredText(`Kill Bonus: ${b.killBonus}`, H / 2 - 24, 13);
+    dgDrawCenteredText(`TOTAL: ${b.total}`, H / 2 + 4, 19);
+    dgDrawCenteredText("Enter your initials:", H / 2 + 34, 13);
     const shown = dgInitials.padEnd(3, "_").split("").join(" ");
-    dgDrawCenteredText(shown, H / 2 + 28, 22);
-    dgDrawCenteredText("Type 3 letters, then press ENTER", H / 2 + 52, 11, 0.7);
+    dgDrawCenteredText(shown, H / 2 + 58, 22);
+    dgDrawCenteredText("Type 3 letters, then press ENTER", H / 2 + 82, 11, 0.7);
   }
 
   // Leaderboard stays up indefinitely with a blinking "PRESS SPACE" prompt —
