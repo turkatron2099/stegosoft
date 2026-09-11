@@ -549,13 +549,14 @@
     // whichever clickTargets this frame's screen pushed, in the same order
     // they were drawn, so Space just re-fires that button's existing
     // click-action callback.
-    const MENU_KEY_NAV_STATES = ["start", "chooseAnimal", "chooseVehicle", "won"];
+    const MENU_KEY_NAV_STATES = ["start", "chooseAnimal", "chooseVehicle", "chooseColor", "won"];
     let menuCursor = 0;
     function menuCols() {
       if (state === "chooseAnimal") {
         return ANIMALS.filter((a) => !isLocked(a)).length > 8 ? 3 : 4;
       }
       if (state === "chooseVehicle") return 2;
+      if (state === "chooseColor") return 4;
       return 1;
     }
     let running = true;
@@ -769,7 +770,10 @@
       ctx.fillText(text, x, y);
     }
 
-    function button(x, y, w, h, action, fill) {
+    // content, if given, is called with the scale-up transform for this
+    // button still active — draw the picture at its normal (unscaled)
+    // coordinates and it grows right along with the box on hover/focus.
+    function button(x, y, w, h, action, fill, content) {
       const index = clickTargets.length;
       clickTargets.push({ x, y, w, h, action });
       const isKeyboardFocused = MENU_KEY_NAV_STATES.includes(state) && index === menuCursor;
@@ -779,7 +783,7 @@
       ctx.save();
       if (isHover) {
         ctx.translate(x + w / 2, y + h / 2);
-        ctx.scale(1.04, 1.04);
+        ctx.scale(1.12, 1.12);
         ctx.translate(-(x + w / 2), -(y + h / 2));
       }
       roundRect(ctx, x, y, w, h, 14);
@@ -788,6 +792,7 @@
       ctx.lineWidth = isHover ? 3 : 2;
       ctx.strokeStyle = "#f6dcac";
       ctx.stroke();
+      if (content) content();
       ctx.restore();
     }
 
@@ -1058,13 +1063,20 @@
         const row = Math.floor(i / cols);
         const x = startX + col * cellW;
         const y = startY + row * cellH;
-        button(x + 10, y, cellW - 20, cellH - 16, () => {
-          selection.animal = a;
-          sound.animalSound(a.id);
-          state = "chooseVehicle";
-          menuCursor = 0;
-        });
-        emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
+        button(
+          x + 10,
+          y,
+          cellW - 20,
+          cellH - 16,
+          () => {
+            selection.animal = a;
+            sound.animalSound(a.id);
+            state = "chooseVehicle";
+            menuCursor = 0;
+          },
+          undefined,
+          () => emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46)
+        );
         ctx.fillStyle = "#f6dcac";
         ctx.font = "16px sans-serif";
         ctx.textAlign = "center";
@@ -1081,20 +1093,29 @@
       VEHICLES.forEach((v, i) => {
         const x = startX + i * (w + gap);
         const y = 140;
-        button(x, y, w, h, () => {
-          selection.vehicle = v;
-          sound.honk(v.id === "truck");
-          state = "chooseColor";
-          menuCursor = 0;
-        });
-        if (v.id === "sports" && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
-          drawSideCarSprite(x + w / 2, y + h / 2 - 20, 115);
-        } else if (v.id === "truck" && TRUCK_OPTION_IMAGE.complete && TRUCK_OPTION_IMAGE.naturalWidth) {
-          const blueTruck = getRecoloredSprite(TRUCK_OPTION_IMAGE, "#3a86ff", TRUCK_OPTION_BASE_HUE, {});
-          drawCroppedSprite(blueTruck || TRUCK_OPTION_IMAGE, TRUCK_OPTION_CONTENT, x + w / 2, y + h / 2 - 20, 150);
-        } else {
-          emoji(v.emoji, x + w / 2, y + h / 2 - 20, 72);
-        }
+        button(
+          x,
+          y,
+          w,
+          h,
+          () => {
+            selection.vehicle = v;
+            sound.honk(v.id === "truck");
+            state = "chooseColor";
+            menuCursor = 0;
+          },
+          undefined,
+          () => {
+            if (v.id === "sports" && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
+              drawSideCarSprite(x + w / 2, y + h / 2 - 20, 115);
+            } else if (v.id === "truck" && TRUCK_OPTION_IMAGE.complete && TRUCK_OPTION_IMAGE.naturalWidth) {
+              const blueTruck = getRecoloredSprite(TRUCK_OPTION_IMAGE, "#3a86ff", TRUCK_OPTION_BASE_HUE, {});
+              drawCroppedSprite(blueTruck || TRUCK_OPTION_IMAGE, TRUCK_OPTION_CONTENT, x + w / 2, y + h / 2 - 20, 150);
+            } else {
+              emoji(v.emoji, x + w / 2, y + h / 2 - 20, 72);
+            }
+          }
+        );
         ctx.fillStyle = "#f6dcac";
         ctx.font = "bold 20px sans-serif";
         ctx.textAlign = "center";
@@ -1128,37 +1149,22 @@
         const rowOffset = row === 1 ? (W - (itemsInRow * size + (itemsInRow - 1) * gap)) / 2 - startX : 0;
         const x = startX + col * (size + gap) + rowOffset;
         const y = 110 + row * (size + 50);
-        clickTargets.push({
+        const cx = x + size / 2;
+        const cy = y + size / 2;
+        button(
           x,
           y,
-          w: size,
-          h: size,
-          action: () => {
+          size,
+          size,
+          () => {
             selection.color = c;
             state = "playing";
             resetGameplay();
             sound.startMusic();
           },
-        });
-        const isHover = hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + size && hoverPoint.y >= y && hoverPoint.y <= y + size;
-
-        roundRect(ctx, x, y, size, size, 14);
-        ctx.fillStyle = "#0a2540";
-        ctx.fill();
-        ctx.lineWidth = isHover ? 3 : 2;
-        ctx.strokeStyle = "#f6dcac";
-        ctx.stroke();
-
-        const cx = x + size / 2;
-        const cy = y + size / 2;
-        ctx.save();
-        if (isHover) {
-          ctx.translate(cx, cy);
-          ctx.scale(1.08, 1.08);
-          ctx.translate(-cx, -cy);
-        }
-        drawPlayerVehicle(cx, cy, c.hex, selection.animal.emoji, previewW, previewH, selection.vehicle.id);
-        ctx.restore();
+          undefined,
+          () => drawPlayerVehicle(cx, cy, c.hex, selection.animal.emoji, previewW, previewH, selection.vehicle.id)
+        );
 
         ctx.fillStyle = "#f6dcac";
         ctx.font = "15px sans-serif";
