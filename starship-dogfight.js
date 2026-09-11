@@ -697,7 +697,7 @@
   function dgUpdateLogoVisibility() {
     const logo = document.querySelector(".hero-logo");
     if (!logo) return;
-    const hide = dgMode === "start" || dgMode === "playing" || dgMode === "gameover";
+    const hide = dgMode !== "ambient"; // hidden for the whole dogfight session, including the leaderboard
     logo.style.visibility = hide ? "hidden" : "";
   }
 
