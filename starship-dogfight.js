@@ -535,6 +535,9 @@
   const DG_KILL_POINTS = 100;
   const DG_LEADERBOARD_SIZE = 10;
   const DG_SPAWN_MARGIN = 30;
+  const DG_PLAYER_HEALTH = 3;
+  const DG_ENEMY_HEALTH = 1; // one shot kills
+  const DG_ENEMY_SPAWN_STILL_MS = 2000; // freshly spawned enemies hold still and flash before joining the fight
 
   let dgMode = "ambient"; // ambient | start | playing | gameover | leaderboard
   let dgStateStartedAt = 0;
@@ -659,23 +662,27 @@
     return dgLoadLeaderboard();
   }
 
-  function dgMakeShip() {
-    return { x: W / 2, y: H / 2, vx: 0, vy: 0, angle: -Math.PI / 2, health: 3, invincibleUntil: 0, lastShotAt: 0 };
+  function dgMakeShip(health) {
+    return { x: W / 2, y: H / 2, vx: 0, vy: 0, angle: -Math.PI / 2, health, invincibleUntil: 0, lastShotAt: 0, stillUntil: 0 };
   }
 
+  // New enemies spawn stationary and flashing for DG_ENEMY_SPAWN_STILL_MS —
+  // a beat of calm after a kill before they join the fight — then start
+  // moving/shooting on their own. One hit is now lethal (DG_ENEMY_HEALTH).
   function dgSpawnEnemy() {
-    const e = dgMakeShip();
+    const e = dgMakeShip(DG_ENEMY_HEALTH);
     const edge = Math.floor(Math.random() * 4);
     if (edge === 0) { e.x = DG_SPAWN_MARGIN; e.y = rand(DG_SPAWN_MARGIN, H - DG_SPAWN_MARGIN); }
     else if (edge === 1) { e.x = W - DG_SPAWN_MARGIN; e.y = rand(DG_SPAWN_MARGIN, H - DG_SPAWN_MARGIN); }
     else if (edge === 2) { e.x = rand(DG_SPAWN_MARGIN, W - DG_SPAWN_MARGIN); e.y = DG_SPAWN_MARGIN; }
     else { e.x = rand(DG_SPAWN_MARGIN, W - DG_SPAWN_MARGIN); e.y = H - DG_SPAWN_MARGIN; }
     e.angle = Math.atan2(H / 2 - e.y, W / 2 - e.x);
+    e.stillUntil = performance.now() + DG_ENEMY_SPAWN_STILL_MS;
     dgEnemies.push(e);
   }
 
   function dgResetGame() {
-    dgPlayer = dgMakeShip();
+    dgPlayer = dgMakeShip(DG_PLAYER_HEALTH);
     dgPlayer.invincibleUntil = performance.now() + DG_START_FLASH_MS;
     dgEnemies = [];
     dgSpawnEnemy();
@@ -803,6 +810,7 @@
 
   function dgStepEnemies(dtScale, now) {
     dgEnemies.forEach((enemy) => {
+      if (now < enemy.stillUntil) return; // holding still/flashing after spawn — no movement or fire yet
       const dx = dgPlayer.x - enemy.x, dy = dgPlayer.y - enemy.y;
       const dist = Math.hypot(dx, dy) || 1;
       const desired = Math.atan2(dy, dx);
@@ -852,8 +860,8 @@
     }
   }
 
-  function dgExplode(x, y) {
-    dgExplosions.push({ x, y, life: 1 });
+  function dgExplode(x, y, big) {
+    dgExplosions.push({ x, y, life: 1, big: !!big, decay: big ? 0.035 : 0.05 });
     playExplosionSound();
   }
 
@@ -901,26 +909,24 @@
       if (hitIndex >= 0) {
         dgPlayerBolts.splice(i, 1);
         const enemy = dgEnemies[hitIndex];
-        dgExplode(enemy.x, enemy.y);
-        enemy.health--;
+        // One hit is lethal (DG_ENEMY_HEALTH = 1) — every landed hit is a kill.
+        dgExplode(enemy.x, enemy.y, true);
         dgHitPoints += DG_HIT_POINTS;
-        if (enemy.health <= 0) {
-          dgExplode(enemy.x, enemy.y);
-          dgEnemies.splice(hitIndex, 1);
-          dgStreak++;
-          dgKillPoints += DG_KILL_POINTS * dgStreak;
-          dgKillCount++;
-          // Endless mode: every kill spawns two more in its place.
-          dgSpawnEnemy();
-          dgSpawnEnemy();
-        }
+        dgEnemies.splice(hitIndex, 1);
+        dgStreak++;
+        dgKillPoints += DG_KILL_POINTS * dgStreak;
+        dgKillCount++;
+        // Endless mode: every kill spawns two more in its place, after a
+        // beat of calm (see dgSpawnEnemy's stillUntil).
+        dgSpawnEnemy();
+        dgSpawnEnemy();
       }
     }
   }
 
   function dgStepExplosions(dtScale) {
     for (let i = dgExplosions.length - 1; i >= 0; i--) {
-      dgExplosions[i].life -= 0.05 * dtScale;
+      dgExplosions[i].life -= dgExplosions[i].decay * dtScale;
       if (dgExplosions[i].life <= 0) dgExplosions.splice(i, 1);
     }
   }
@@ -949,14 +955,33 @@
     ctx.restore();
   }
 
+  // Freshly spawned enemies (still within their stillUntil window) flash
+  // in place instead of drawing solid every frame — the same blink cadence
+  // as the player's own post-spawn invincibility flash — so it reads as
+  // "not attacking yet," not just invisible half the time.
+  function dgDrawEnemies(now) {
+    dgEnemies.forEach((en) => {
+      if (now < en.stillUntil && Math.floor(now / 150) % 2 !== 0) return;
+      dgDrawShipAt(en.x, en.y, en.angle, DG_PLAYER_COLOR, 1);
+    });
+  }
+
   function dgDrawExplosions() {
     dgExplosions.forEach((ex) => {
       ctx.save();
       ctx.translate(ex.x, ex.y);
+      if (ex.big) {
+        // Bright flash core, fading fast, under the radiating debris lines —
+        // reads as a full ship blowing up rather than a graze.
+        ctx.beginPath();
+        ctx.arc(0, 0, 10 * ex.life, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(250, 209, 102, " + ex.life * 0.6 + ")";
+        ctx.fill();
+      }
       ctx.strokeStyle = "rgba(250, 209, 102, " + ex.life + ")";
-      ctx.lineWidth = 2;
-      const spokes = 7;
-      const r1 = 3, r2 = 3 + (1 - ex.life) * 16;
+      ctx.lineWidth = ex.big ? 2.5 : 2;
+      const spokes = ex.big ? 10 : 7;
+      const r1 = 3, r2 = ex.big ? 3 + (1 - ex.life) * 30 : 3 + (1 - ex.life) * 16;
       for (let i = 0; i < spokes; i++) {
         const a = (i / spokes) * Math.PI * 2;
         ctx.beginPath();
@@ -1059,7 +1084,7 @@
       dgDrawBolts(dgPlayerBolts);
       const flashOn = Math.floor(now / 150) % 2 === 0;
       if (flashOn) dgDrawShipAt(dgPlayer.x, dgPlayer.y, dgPlayer.angle, DG_PLAYER_COLOR, 1);
-      dgEnemies.forEach((en) => dgDrawShipAt(en.x, en.y, en.angle, DG_PLAYER_COLOR, 1));
+      dgDrawEnemies(now);
       dgDrawExplosions();
       dgDrawHealth();
       dgDrawScore(now);
@@ -1085,7 +1110,7 @@
       dgDrawBolts(dgEnemyBolts);
       const playerVisible = dgPlayer.invincibleUntil < now || Math.floor(now / 100) % 2 === 0;
       if (playerVisible) dgDrawShipAt(dgPlayer.x, dgPlayer.y, dgPlayer.angle, DG_PLAYER_COLOR, 1);
-      dgEnemies.forEach((en) => dgDrawShipAt(en.x, en.y, en.angle, DG_PLAYER_COLOR, 1));
+      dgDrawEnemies(now);
       dgDrawExplosions();
       dgDrawHealth();
       dgDrawScore(now);
