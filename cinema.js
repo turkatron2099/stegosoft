@@ -64,7 +64,7 @@
       title: "White Zombie",
       year: 1932,
       blurb: "A young woman is turned into a mindless zombie slave by a voodoo master on a Haitian sugar plantation, and her fiancé must brave his lair to save her. Bela Lugosi stars in the film that invented the zombie genre on screen.",
-      ...IA("turner_video_27", "27.ia.mp4"),
+      ...IA("White_Zombie_1932", "White_Zombie_512kb.mp4"),
     },
     {
       title: "House on Haunted Hill",
@@ -89,6 +89,30 @@
       year: 1956,
       blurb: "A disillusioned scientist helps guide a cone-shaped alien invader to Earth, convinced it means to save humanity from itself — only to watch it start enslaving the town's minds with flying, bat-like control devices. Roger Corman directed this cheap-and-cheerful Cold War creature feature, one of many drive-in staples he cranked out on a shoestring budget.",
       ...IA("HowItConqueredTheWorld", "IT_Conquered_The_World_1956.mp4"),
+    },
+    {
+      title: "Nosferatu",
+      year: 1922,
+      blurb: "A young estate agent travels to a remote Transylvanian castle to close a property sale with the sinister Count Orlok — who follows him home by ship, bringing plague and death in his wake. F.W. Murnau's unlicensed, unauthorized take on Dracula: a German court ordered every print destroyed after Bram Stoker's estate sued, but a handful survived, letting Max Schreck's rat-like Orlok become one of cinema's most enduring monsters.",
+      ...IA("nosferatu-1922_202504", "Nosferatu (1922).mp4"),
+    },
+    {
+      title: "The Little Shop of Horrors",
+      year: 1960,
+      blurb: "A hapless flower-shop clerk raises a strange plant that turns out to crave human blood — and the more people it eats, the more famous it makes him. Roger Corman shot this gleefully cheap horror-comedy in about two days on a bet, with a young, then-unknown Jack Nicholson stealing scenes as a pain-loving dental patient.",
+      ...IA("the-little-shop-of-horrors", "The Little Shop Of Horrors.mp4"),
+    },
+    {
+      title: "Robot Monster",
+      year: 1953,
+      blurb: "An alien invader wipes out nearly all of humanity from a cave in the hills, reporting back to his superiors through a bubble-blowing machine — his disguise, memorably, is a gorilla suit topped with a diving helmet. Shot in four days on a shoestring budget, it's often named right alongside Plan 9 from Outer Space as one of the great best-worst movies.",
+      ...IA("robot-monster-1953", "Robot Monster (1953).mp4"),
+    },
+    {
+      title: "Radar Men from the Moon",
+      year: 1952,
+      blurb: "Jet-suited hero Commando Cody battles Retik, ruler of the Moon, who's plotting to conquer Earth with a mineral that can level mountains. A pulpy Republic Pictures serial, all 12 chapters back to back, whose rocket-pack hero set the template countless later sci-fi and superhero serials would borrow from.",
+      ...IA("radar-men-from-the-moon-1952", "Radar Men From The Moon 1952.mp4"),
     },
   ];
 
