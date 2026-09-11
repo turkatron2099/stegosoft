@@ -544,6 +544,20 @@
     let state = "start"; // start, chooseAnimal, chooseVehicle, chooseColor, playing, won
     let selection = { animal: ANIMALS[0], vehicle: VEHICLES[0], color: COLORS[0] };
     let clickTargets = [];
+    // Keyboard menu navigation (Start/driver/vehicle/win screens only — the
+    // color grid is still mouse/touch-only). menuCursor indexes into
+    // whichever clickTargets this frame's screen pushed, in the same order
+    // they were drawn, so Space just re-fires that button's existing
+    // click-action callback.
+    const MENU_KEY_NAV_STATES = ["start", "chooseAnimal", "chooseVehicle", "won"];
+    let menuCursor = 0;
+    function menuCols() {
+      if (state === "chooseAnimal") {
+        return ANIMALS.filter((a) => !isLocked(a)).length > 8 ? 3 : 4;
+      }
+      if (state === "chooseVehicle") return 2;
+      return 1;
+    }
     let running = true;
     let rafId;
     let hoverPoint = null;
@@ -593,7 +607,7 @@
         // of the road on either side — see the drift clamp in update().
         xJitter: rand(-10, 10),
         driftSpeed: rand(0.12, 0.22) * (Math.random() < 0.5 ? -1 : 1),
-        size: 34,
+        size: 26,
       });
     }
 
@@ -756,8 +770,12 @@
     }
 
     function button(x, y, w, h, action, fill) {
+      const index = clickTargets.length;
       clickTargets.push({ x, y, w, h, action });
-      const isHover = hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + w && hoverPoint.y >= y && hoverPoint.y <= y + h;
+      const isKeyboardFocused = MENU_KEY_NAV_STATES.includes(state) && index === menuCursor;
+      const isHover =
+        isKeyboardFocused ||
+        (hoverPoint && hoverPoint.x >= x && hoverPoint.x <= x + w && hoverPoint.y >= y && hoverPoint.y <= y + h);
       ctx.save();
       if (isHover) {
         ctx.translate(x + w / 2, y + h / 2);
@@ -1005,6 +1023,7 @@
 
       button(W / 2 - 90, 155, 180, 56, () => {
         state = "chooseAnimal";
+        menuCursor = 0;
       }, "#e63946");
       ctx.fillStyle = "#fff";
       ctx.font = "bold 26px sans-serif";
@@ -1043,6 +1062,7 @@
           selection.animal = a;
           sound.animalSound(a.id);
           state = "chooseVehicle";
+          menuCursor = 0;
         });
         emoji(a.emoji, x + cellW / 2, y + (cellH - 16) / 2 - 14, 46);
         ctx.fillStyle = "#f6dcac";
@@ -1065,6 +1085,7 @@
           selection.vehicle = v;
           sound.honk(v.id === "truck");
           state = "chooseColor";
+          menuCursor = 0;
         });
         if (v.id === "sports" && TITLE_CAR_IMAGE.complete && TITLE_CAR_IMAGE.naturalWidth) {
           drawSideCarSprite(x + w / 2, y + h / 2 - 20, 115);
@@ -1368,10 +1389,22 @@
 
       turtles.forEach((t) => {
         const baseX = t.side === "left" ? ROAD_LEFT - 50 : ROAD_RIGHT + 50;
+        const cx = baseX + t.xJitter;
         if (TURTLE_IMAGE.complete && TURTLE_IMAGE.naturalWidth) {
-          drawCroppedSprite(TURTLE_IMAGE, TURTLE_CONTENT, baseX + t.xJitter, t.y, t.size);
+          if (t.driftSpeed > 0) {
+            // The sprite's art faces left by default — mirror it around its
+            // own center so the head actually points wherever it's ambling.
+            ctx.save();
+            ctx.translate(cx, 0);
+            ctx.scale(-1, 1);
+            ctx.translate(-cx, 0);
+            drawCroppedSprite(TURTLE_IMAGE, TURTLE_CONTENT, cx, t.y, t.size);
+            ctx.restore();
+          } else {
+            drawCroppedSprite(TURTLE_IMAGE, TURTLE_CONTENT, cx, t.y, t.size);
+          }
         } else {
-          emoji("🐢", baseX + t.xJitter, t.y, t.size);
+          emoji("🐢", cx, t.y, t.size);
         }
       });
 
@@ -1442,6 +1475,7 @@
 
       button(W / 2 - 100, 155, 200, 56, () => {
         state = "start";
+        menuCursor = 0;
         sound.startCruiseMusic();
       }, "#e63946");
       ctx.fillStyle = "#fff";
@@ -1478,6 +1512,22 @@
 
     const keys = {};
     function onKeyDown(e) {
+      if (MENU_KEY_NAV_STATES.includes(state)) {
+        if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(e.key)) {
+          e.preventDefault();
+          const count = clickTargets.length;
+          const cols = menuCols();
+          if (e.key === "ArrowLeft") menuCursor = Math.max(0, menuCursor - 1);
+          else if (e.key === "ArrowRight") menuCursor = Math.min(count - 1, menuCursor + 1);
+          else if (e.key === "ArrowUp") menuCursor = Math.max(0, menuCursor - cols);
+          else if (e.key === "ArrowDown") menuCursor = Math.min(count - 1, menuCursor + cols);
+          else if (e.key === " ") {
+            const target = clickTargets[menuCursor];
+            if (target) target.action();
+          }
+        }
+        return;
+      }
       if (["ArrowLeft", "ArrowRight", " ", "a", "d", "A", "D"].includes(e.key)) {
         e.preventDefault();
       }
