@@ -5,6 +5,7 @@
 (() => {
   const monthYearEl = document.getElementById("calendar-month-year");
   const gridEl = document.getElementById("calendar-grid");
+  const holidaysEl = document.getElementById("calendar-holidays");
   const prevBtn = document.getElementById("calendar-prev");
   const nextBtn = document.getElementById("calendar-next");
   const todayBtn = document.getElementById("calendar-today");
@@ -23,9 +24,53 @@
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   }
 
+  // U.S. federal holidays — a fixed, known dataset, so (unlike user events)
+  // there's no "where would this even be saved" problem baking it in here.
+  // Shown on the actual calendar date, not the Mon/Fri-shifted day some of
+  // these get observed on when they land on a weekend.
+  function nthWeekdayOfMonth(year, month, weekday, n) {
+    const firstWeekday = new Date(year, month, 1).getDay();
+    const day = 1 + ((weekday - firstWeekday + 7) % 7) + (n - 1) * 7;
+    return new Date(year, month, day);
+  }
+
+  function lastWeekdayOfMonth(year, month, weekday) {
+    const last = new Date(year, month + 1, 0);
+    const day = last.getDate() - ((last.getDay() - weekday + 7) % 7);
+    return new Date(year, month, day);
+  }
+
+  function holidaysForYear(year) {
+    return [
+      { name: "New Year's Day", date: new Date(year, 0, 1) },
+      { name: "Martin Luther King Jr. Day", date: nthWeekdayOfMonth(year, 0, 1, 3) },
+      { name: "Presidents' Day", date: nthWeekdayOfMonth(year, 1, 1, 3) },
+      { name: "Memorial Day", date: lastWeekdayOfMonth(year, 4, 1) },
+      { name: "Juneteenth", date: new Date(year, 5, 19) },
+      { name: "Independence Day", date: new Date(year, 6, 4) },
+      { name: "Labor Day", date: nthWeekdayOfMonth(year, 8, 1, 1) },
+      { name: "Columbus Day", date: nthWeekdayOfMonth(year, 9, 1, 2) },
+      { name: "Veterans Day", date: new Date(year, 10, 11) },
+      { name: "Thanksgiving Day", date: nthWeekdayOfMonth(year, 10, 4, 4) },
+      { name: "Christmas Day", date: new Date(year, 11, 25) },
+    ];
+  }
+
+  // Covers the adjacent-month lead/trail days a grid can show near a year
+  // boundary (e.g. a January view's last row spilling into February, or its
+  // first row showing late December).
+  function holidayMapFor(year) {
+    const map = new Map();
+    [year - 1, year, year + 1].forEach((y) => {
+      holidaysForYear(y).forEach((h) => map.set(dateKey(h.date), h.name));
+    });
+    return map;
+  }
+
   function renderGrid() {
     monthYearEl.textContent = `${MONTH_NAMES[viewMonth]} ${viewYear}`;
     gridEl.innerHTML = "";
+    holidaysEl.innerHTML = "";
 
     const firstOfMonth = new Date(viewYear, viewMonth, 1);
     const startWeekday = firstOfMonth.getDay(); // 0 = Sunday
@@ -34,6 +79,8 @@
     const totalCells = Math.ceil((startWeekday + daysInMonth) / 7) * 7;
 
     const todayKey = dateKey(today);
+    const holidayMap = holidayMapFor(viewYear);
+    const monthHolidays = [];
 
     for (let i = 0; i < totalCells; i++) {
       const dayNum = i - startWeekday + 1;
@@ -49,23 +96,48 @@
         isOutside = false;
       }
       const key = dateKey(cellDate);
+      const holidayName = holidayMap.get(key);
+      if (holidayName && !isOutside) monthHolidays.push({ name: holidayName, date: cellDate });
 
       const cell = document.createElement("div");
       cell.className = "calendar-day";
       if (isOutside) cell.classList.add("is-outside");
       if (key === todayKey) cell.classList.add("is-today");
-      cell.setAttribute(
-        "aria-label",
-        `${WEEKDAY_NAMES[cellDate.getDay()]}, ${MONTH_NAMES[cellDate.getMonth()]} ${cellDate.getDate()}, ${cellDate.getFullYear()}`
-      );
+      if (holidayName) cell.classList.add("has-holiday");
+      const label = `${WEEKDAY_NAMES[cellDate.getDay()]}, ${MONTH_NAMES[cellDate.getMonth()]} ${cellDate.getDate()}, ${cellDate.getFullYear()}`;
+      cell.setAttribute("aria-label", holidayName ? `${label} — ${holidayName}` : label);
+      if (holidayName) cell.title = holidayName;
 
       const numEl = document.createElement("span");
       numEl.className = "calendar-day-number";
       numEl.textContent = cellDate.getDate();
       cell.appendChild(numEl);
 
+      if (holidayName) {
+        const dot = document.createElement("span");
+        dot.className = "calendar-day-holiday-dot";
+        cell.appendChild(dot);
+      }
+
       gridEl.appendChild(cell);
     }
+
+    monthHolidays.forEach((h) => {
+      const li = document.createElement("li");
+      li.className = "calendar-holiday-item";
+
+      const dateEl = document.createElement("span");
+      dateEl.className = "calendar-holiday-date";
+      dateEl.textContent = `${MONTH_NAMES[h.date.getMonth()].slice(0, 3)} ${h.date.getDate()}`;
+      li.appendChild(dateEl);
+
+      const nameEl = document.createElement("span");
+      nameEl.className = "calendar-holiday-name";
+      nameEl.textContent = h.name;
+      li.appendChild(nameEl);
+
+      holidaysEl.appendChild(li);
+    });
   }
 
   function changeMonth(delta) {

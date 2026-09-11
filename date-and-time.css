@@ -130,6 +130,53 @@
   font-weight: 600;
 }
 
+.calendar-day.has-holiday {
+  border-color: var(--teal);
+}
+
+.calendar-day-holiday-dot {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--cyan);
+}
+
+.calendar-holidays {
+  list-style: none;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calendar-holidays:empty {
+  display: none;
+}
+
+.calendar-holiday-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.calendar-holiday-date {
+  color: var(--cyan);
+  font-weight: 600;
+  flex: 0 0 auto;
+  min-width: 34px;
+}
+
+.calendar-holiday-name {
+  color: var(--light-foreground);
+}
+
 /* --- Time Conversion --- */
 
 .timeconvert-section {
