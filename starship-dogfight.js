@@ -468,7 +468,9 @@
     lastTime = now;
     const dtScale = dt / REFERENCE_FRAME_MS; // >1 on slower displays, <1 on faster ones (e.g. 240Hz)
 
-    if (matrixMode) {
+    if (dgMode !== "ambient") {
+      dgFrame(now, dtScale);
+    } else if (matrixMode) {
       drawMatrixRain(dtScale);
     } else if (virtualBoyMode) {
       drawVirtualBoyFrame(now, dtScale);
@@ -500,6 +502,609 @@
     rafId = null;
   }
 
+  // ============================================================
+  // Playable dogfight — unlocked at 500 logo clicks. hero-logo.js dispatches
+  // "thagobyte:dogfight-start" once the click count crosses that threshold,
+  // and again on every click after (so clicking the logo once you've
+  // unlocked it just replays the fight). Takes over this same canvas and
+  // animation loop; frame() checks dgMode first and only falls through to
+  // the ambient/matrix/anaglyph/virtualboy paths above when it's "ambient".
+  //
+  // Endless survival mode: one enemy to start, and destroying any enemy
+  // spawns two more in its place — the fight only ends when the player is
+  // destroyed. Score = 1 point/second survived + 25 per landed hit + 100 per
+  // kill, with a streak multiplier (x1, x2, x3, ...) on the kill bonus that
+  // climbs with consecutive kills and resets whenever the player is hit —
+  // not on the whole run, so a player who's been hit once still builds a
+  // multiplier on whatever kill streak they string together afterward.
+  // ============================================================
+  const DG_PLAYER_TURN_RATE = 0.07; // rad per 60fps-equivalent frame
+  const DG_PLAYER_THRUST = 0.16;
+  const DG_PLAYER_DRAG = 0.995; // light drag — coasts a long time, Asteroids-style
+  const DG_PLAYER_MAX_SPEED = 4.4;
+  const DG_ENEMY_TURN_RATE = 0.045;
+  const DG_ENEMY_ACCEL = 0.12;
+  const DG_ENEMY_DRAG = 0.99;
+  const DG_ENEMY_MAX_SPEED = 3.0;
+  const DG_PLAYER_COLOR = SHIP_COLOR; // same plain hull color as the ambient ships — "colors revert to original"
+  const DG_FIRE_COOLDOWN_MS = 320;
+  const DG_BOLT_SPEED = 6.5;
+  const DG_HIT_RADIUS = 11;
+  const DG_START_FLASH_MS = 1800;
+  const DG_HIT_POINTS = 25;
+  const DG_KILL_POINTS = 100;
+  const DG_LEADERBOARD_SIZE = 10;
+  const DG_SPAWN_MARGIN = 30;
+
+  let dgMode = "ambient"; // ambient | start | playing | gameover | leaderboard
+  let dgStateStartedAt = 0;
+  let dgPlayer = null;
+  let dgEnemies = [];
+  let dgPlayerBolts = [];
+  let dgEnemyBolts = [];
+  let dgExplosions = [];
+  let dgKeys = Object.create(null);
+  let dgLastShotAt = 0;
+
+  let dgHitPoints = 0; // cumulative points from landed hits this run
+  let dgKillPoints = 0; // cumulative points from kills (post-multiplier) this run
+  let dgKillCount = 0;
+  let dgStreak = 0; // kills since the player was last hit
+  let dgSurvivalStart = 0;
+  let dgFinalBreakdown = null;
+  let dgInitials = "";
+  let dgLeaderboard = [];
+
+  // --- sound effects (synthesized, same Web Audio approach as hero-logo.js's
+  // coin-pickup chime — no audio files) ---
+  let dgAudioCtx = null;
+  function dgAudio() {
+    dgAudioCtx = dgAudioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    return dgAudioCtx;
+  }
+  function playLaserSound() {
+    const actx = dgAudio();
+    const now = actx.currentTime;
+    const osc = actx.createOscillator();
+    osc.type = "square";
+    osc.frequency.setValueAtTime(1200, now);
+    osc.frequency.exponentialRampToValueAtTime(300, now + 0.12);
+    const gain = actx.createGain();
+    gain.gain.setValueAtTime(0.15, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.13);
+    osc.connect(gain);
+    gain.connect(actx.destination);
+    osc.start(now);
+    osc.stop(now + 0.15);
+  }
+  function playExplosionSound() {
+    const actx = dgAudio();
+    const now = actx.currentTime;
+    const dur = 0.35;
+    const bufferSize = Math.floor(actx.sampleRate * dur);
+    const buffer = actx.createBuffer(1, bufferSize, actx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+    }
+    const noise = actx.createBufferSource();
+    noise.buffer = buffer;
+    const filter = actx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(1800, now);
+    filter.frequency.exponentialRampToValueAtTime(120, now + dur);
+    const gain = actx.createGain();
+    gain.gain.setValueAtTime(0.35, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(actx.destination);
+    noise.start(now);
+    noise.stop(now + dur);
+  }
+
+  // --- shared leaderboard storage ---
+  // Backed by a public Firebase Realtime Database (rules scope open read/
+  // write to just the dogfightLeaderboard path — see docs/dogfight-leaderboard
+  // setup) so every visitor sees the same top 10. Each finished game POSTs a
+  // new entry (Firebase assigns it a push key); reads fetch the whole
+  // collection and sort client-side, since RTDB doesn't sort by value.
+  // localStorage is kept only as an offline fallback — if Firebase can't be
+  // reached, the game still works and at least remembers this browser's own
+  // scores locally.
+  const DG_FIREBASE_URL = "https://thagobyte-dogfight-default-rtdb.firebaseio.com";
+  const DG_LEADERBOARD_PATH = "dogfightLeaderboard";
+  const DG_LEADERBOARD_KEY = "thagobyte-dogfight-leaderboard"; // localStorage fallback cache
+
+  function dgLocalLeaderboard() {
+    try {
+      const raw = localStorage.getItem(DG_LEADERBOARD_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  async function dgLoadLeaderboard() {
+    try {
+      const res = await fetch(`${DG_FIREBASE_URL}/${DG_LEADERBOARD_PATH}.json`);
+      const data = await res.json();
+      const list = data ? Object.values(data) : [];
+      list.sort((a, b) => b.score - a.score);
+      return list.slice(0, DG_LEADERBOARD_SIZE);
+    } catch (e) {
+      return dgLocalLeaderboard().slice(0, DG_LEADERBOARD_SIZE);
+    }
+  }
+
+  async function dgSaveScore(initials, score) {
+    const entry = { initials, score, at: Date.now() };
+    try {
+      await fetch(`${DG_FIREBASE_URL}/${DG_LEADERBOARD_PATH}.json`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(entry),
+      });
+    } catch (e) {
+      // couldn't reach Firebase — the local cache below still remembers it
+    }
+    try {
+      const local = dgLocalLeaderboard();
+      local.push(entry);
+      local.sort((a, b) => b.score - a.score);
+      localStorage.setItem(DG_LEADERBOARD_KEY, JSON.stringify(local.slice(0, DG_LEADERBOARD_SIZE)));
+    } catch (e) {
+      // no persistence available at all — the score still made it to Firebase above, if that succeeded
+    }
+    return dgLoadLeaderboard();
+  }
+
+  function dgMakeShip() {
+    return { x: W / 2, y: H / 2, vx: 0, vy: 0, angle: -Math.PI / 2, health: 3, invincibleUntil: 0, lastShotAt: 0 };
+  }
+
+  function dgSpawnEnemy() {
+    const e = dgMakeShip();
+    const edge = Math.floor(Math.random() * 4);
+    if (edge === 0) { e.x = DG_SPAWN_MARGIN; e.y = rand(DG_SPAWN_MARGIN, H - DG_SPAWN_MARGIN); }
+    else if (edge === 1) { e.x = W - DG_SPAWN_MARGIN; e.y = rand(DG_SPAWN_MARGIN, H - DG_SPAWN_MARGIN); }
+    else if (edge === 2) { e.x = rand(DG_SPAWN_MARGIN, W - DG_SPAWN_MARGIN); e.y = DG_SPAWN_MARGIN; }
+    else { e.x = rand(DG_SPAWN_MARGIN, W - DG_SPAWN_MARGIN); e.y = H - DG_SPAWN_MARGIN; }
+    e.angle = Math.atan2(H / 2 - e.y, W / 2 - e.x);
+    dgEnemies.push(e);
+  }
+
+  function dgResetGame() {
+    dgPlayer = dgMakeShip();
+    dgPlayer.invincibleUntil = performance.now() + DG_START_FLASH_MS;
+    dgEnemies = [];
+    dgSpawnEnemy();
+    dgPlayerBolts = [];
+    dgEnemyBolts = [];
+    dgExplosions = [];
+    dgHitPoints = 0;
+    dgKillPoints = 0;
+    dgKillCount = 0;
+    dgStreak = 0;
+    dgSurvivalStart = performance.now();
+    dgFinalBreakdown = null;
+    dgInitials = "";
+  }
+
+  // Hidden for the whole active play session (start/playing/gameover) —
+  // reappears once the fight ends and the leaderboard is up, or back on the
+  // ambient scene.
+  function dgUpdateLogoVisibility() {
+    const logo = document.querySelector(".hero-logo");
+    if (!logo) return;
+    const hide = dgMode === "start" || dgMode === "playing" || dgMode === "gameover";
+    logo.style.visibility = hide ? "hidden" : "";
+  }
+
+  function startDogfight() {
+    dgMode = "start";
+    dgStateStartedAt = performance.now();
+    dgResetGame();
+    dgUpdateLogoVisibility();
+    hasSat = true;
+    start();
+  }
+  window.addEventListener("thagobyte:dogfight-start", startDogfight);
+
+  // Movement/fire input while playing; a separate branch below handles
+  // letter/backspace/enter for the initials-entry screen. Only ever
+  // captured (and only ever preventDefault'd, so normal page
+  // scrolling/navigation is untouched otherwise) while a dogfight is
+  // actually on screen.
+  window.addEventListener("keydown", (e) => {
+    if (dgMode === "leaderboard") {
+      if (e.code === "Space" || e.key === " ") {
+        dgMode = "ambient";
+        dgUpdateLogoVisibility();
+        window.dispatchEvent(new Event("thagobyte:dogfight-continue"));
+        e.preventDefault();
+      }
+      return;
+    }
+    if (dgMode === "gameover") {
+      if (/^[a-z0-9]$/i.test(e.key) && dgInitials.length < 3) {
+        dgInitials += e.key.toUpperCase();
+        e.preventDefault();
+      } else if (e.key === "Backspace") {
+        dgInitials = dgInitials.slice(0, -1);
+        e.preventDefault();
+      } else if (e.key === "Enter" && dgInitials.length > 0) {
+        dgSubmitScore();
+        e.preventDefault();
+      }
+      return;
+    }
+    if (dgMode === "ambient") return;
+    const k = e.code === "Space" ? "space" : e.key.toLowerCase();
+    if (["w", "a", "s", "d", "arrowup", "arrowdown", "arrowleft", "arrowright", "space"].includes(k)) {
+      dgKeys[k] = true;
+      e.preventDefault();
+    }
+  });
+  window.addEventListener("keyup", (e) => {
+    const k = e.code === "Space" ? "space" : e.key.toLowerCase();
+    dgKeys[k] = false;
+  });
+
+  function dgSubmitScore() {
+    const initials = dgInitials.padEnd(3, " ").slice(0, 3);
+    dgMode = "leaderboard";
+    dgUpdateLogoVisibility();
+    dgSaveScore(initials, dgFinalBreakdown.total).then((list) => {
+      dgLeaderboard = list;
+    });
+  }
+
+  // Classic Asteroids-style rotate + thrust: A/D (or Left/Right) turn the
+  // ship, W/Up burns forward along whatever direction it's currently facing,
+  // and light drag lets it coast rather than snapping to a stop — smoother
+  // and more physical than "hold a direction to move that way."
+  function dgStepPlayer(dtScale) {
+    if (dgKeys.a || dgKeys.arrowleft) dgPlayer.angle -= DG_PLAYER_TURN_RATE * dtScale;
+    if (dgKeys.d || dgKeys.arrowright) dgPlayer.angle += DG_PLAYER_TURN_RATE * dtScale;
+    if (dgKeys.w || dgKeys.arrowup) {
+      dgPlayer.vx += Math.cos(dgPlayer.angle) * DG_PLAYER_THRUST * dtScale;
+      dgPlayer.vy += Math.sin(dgPlayer.angle) * DG_PLAYER_THRUST * dtScale;
+    }
+    dgPlayer.vx *= Math.pow(DG_PLAYER_DRAG, dtScale);
+    dgPlayer.vy *= Math.pow(DG_PLAYER_DRAG, dtScale);
+    const speed = Math.hypot(dgPlayer.vx, dgPlayer.vy);
+    if (speed > DG_PLAYER_MAX_SPEED) {
+      dgPlayer.vx = (dgPlayer.vx / speed) * DG_PLAYER_MAX_SPEED;
+      dgPlayer.vy = (dgPlayer.vy / speed) * DG_PLAYER_MAX_SPEED;
+    }
+    dgPlayer.x += dgPlayer.vx * dtScale;
+    dgPlayer.y += dgPlayer.vy * dtScale;
+    // Asteroids-style screen wrap.
+    if (dgPlayer.x < 0) dgPlayer.x += W;
+    if (dgPlayer.x > W) dgPlayer.x -= W;
+    if (dgPlayer.y < 0) dgPlayer.y += H;
+    if (dgPlayer.y > H) dgPlayer.y -= H;
+
+    const now = performance.now();
+    if (dgKeys.space && now - dgLastShotAt > DG_FIRE_COOLDOWN_MS) {
+      dgLastShotAt = now;
+      const nx = dgPlayer.x + Math.cos(dgPlayer.angle) * NOSE_LENGTH;
+      const ny = dgPlayer.y + Math.sin(dgPlayer.angle) * NOSE_LENGTH;
+      dgPlayerBolts.push({
+        x: nx, y: ny,
+        vx: Math.cos(dgPlayer.angle) * DG_BOLT_SPEED,
+        vy: Math.sin(dgPlayer.angle) * DG_BOLT_SPEED,
+        life: 60,
+      });
+      playLaserSound();
+    }
+  }
+
+  function dgStepEnemies(dtScale, now) {
+    dgEnemies.forEach((enemy) => {
+      const dx = dgPlayer.x - enemy.x, dy = dgPlayer.y - enemy.y;
+      const dist = Math.hypot(dx, dy) || 1;
+      const desired = Math.atan2(dy, dx);
+      const turn = DG_ENEMY_TURN_RATE * dtScale;
+      enemy.angle += Math.max(-turn, Math.min(turn, angleDiff(enemy.angle, desired)));
+      // Close in when far, back off a little when right on top of the player.
+      const thrust = dist > 160 ? 1 : dist < 90 ? -0.4 : 0;
+      enemy.vx += Math.cos(enemy.angle) * DG_ENEMY_ACCEL * thrust * dtScale;
+      enemy.vy += Math.sin(enemy.angle) * DG_ENEMY_ACCEL * thrust * dtScale;
+      enemy.vx *= Math.pow(DG_ENEMY_DRAG, dtScale);
+      enemy.vy *= Math.pow(DG_ENEMY_DRAG, dtScale);
+      const speed = Math.hypot(enemy.vx, enemy.vy);
+      if (speed > DG_ENEMY_MAX_SPEED) {
+        enemy.vx = (enemy.vx / speed) * DG_ENEMY_MAX_SPEED;
+        enemy.vy = (enemy.vy / speed) * DG_ENEMY_MAX_SPEED;
+      }
+      enemy.x += enemy.vx * dtScale;
+      enemy.y += enemy.vy * dtScale;
+      if (enemy.x < 0) enemy.x += W;
+      if (enemy.x > W) enemy.x -= W;
+      if (enemy.y < 0) enemy.y += H;
+      if (enemy.y > H) enemy.y -= H;
+
+      const facingOff = Math.abs(angleDiff(enemy.angle, desired));
+      if (facingOff < FIRING_CONE && dist < 260 && now - enemy.lastShotAt > 900 + Math.random() * 700) {
+        enemy.lastShotAt = now;
+        const nx = enemy.x + Math.cos(enemy.angle) * NOSE_LENGTH;
+        const ny = enemy.y + Math.sin(enemy.angle) * NOSE_LENGTH;
+        dgEnemyBolts.push({
+          x: nx, y: ny,
+          vx: Math.cos(enemy.angle) * DG_BOLT_SPEED,
+          vy: Math.sin(enemy.angle) * DG_BOLT_SPEED,
+          life: 60,
+        });
+        playLaserSound();
+      }
+    });
+  }
+
+  function dgStepBolts(list, dtScale) {
+    for (let i = list.length - 1; i >= 0; i--) {
+      const b = list[i];
+      b.x += b.vx * dtScale;
+      b.y += b.vy * dtScale;
+      b.life -= dtScale;
+      if (b.life <= 0 || b.x < -20 || b.x > W + 20 || b.y < -20 || b.y > H + 20) list.splice(i, 1);
+    }
+  }
+
+  function dgExplode(x, y) {
+    dgExplosions.push({ x, y, life: 1 });
+    playExplosionSound();
+  }
+
+  function dgGameOver(now) {
+    const timeScore = Math.floor((now - dgSurvivalStart) / 1000);
+    dgFinalBreakdown = {
+      timeScore,
+      hitPoints: dgHitPoints,
+      killPoints: dgKillPoints,
+      kills: dgKillCount,
+      total: timeScore + dgHitPoints + dgKillPoints,
+    };
+    dgMode = "gameover";
+    dgStateStartedAt = now;
+    dgInitials = "";
+    dgUpdateLogoVisibility();
+  }
+
+  function dgCheckHits(now) {
+    if (dgPlayer.invincibleUntil < now) {
+      for (let i = dgEnemyBolts.length - 1; i >= 0; i--) {
+        const b = dgEnemyBolts[i];
+        if (Math.hypot(b.x - dgPlayer.x, b.y - dgPlayer.y) < DG_HIT_RADIUS) {
+          dgEnemyBolts.splice(i, 1);
+          dgExplode(dgPlayer.x, dgPlayer.y);
+          dgPlayer.health--;
+          dgStreak = 0; // hit resets the multiplier streak, not the run
+          if (dgPlayer.health <= 0) {
+            dgGameOver(now);
+            return;
+          }
+          break;
+        }
+      }
+    }
+    for (let i = dgPlayerBolts.length - 1; i >= 0; i--) {
+      const b = dgPlayerBolts[i];
+      let hitIndex = -1;
+      for (let j = 0; j < dgEnemies.length; j++) {
+        if (Math.hypot(b.x - dgEnemies[j].x, b.y - dgEnemies[j].y) < DG_HIT_RADIUS) {
+          hitIndex = j;
+          break;
+        }
+      }
+      if (hitIndex >= 0) {
+        dgPlayerBolts.splice(i, 1);
+        const enemy = dgEnemies[hitIndex];
+        dgExplode(enemy.x, enemy.y);
+        enemy.health--;
+        dgHitPoints += DG_HIT_POINTS;
+        if (enemy.health <= 0) {
+          dgExplode(enemy.x, enemy.y);
+          dgEnemies.splice(hitIndex, 1);
+          dgStreak++;
+          dgKillPoints += DG_KILL_POINTS * dgStreak;
+          dgKillCount++;
+          // Endless mode: every kill spawns two more in its place.
+          dgSpawnEnemy();
+          dgSpawnEnemy();
+        }
+      }
+    }
+  }
+
+  function dgStepExplosions(dtScale) {
+    for (let i = dgExplosions.length - 1; i >= 0; i--) {
+      dgExplosions[i].life -= 0.05 * dtScale;
+      if (dgExplosions[i].life <= 0) dgExplosions.splice(i, 1);
+    }
+  }
+
+  // Same hull shape as the ambient ships' drawShip(), factored out so both
+  // the game ships and the small health-readout icons can use it at any
+  // position/angle/scale.
+  function dgDrawShipAt(x, y, angle, color, scale) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.scale(scale, scale);
+    ctx.beginPath();
+    ctx.moveTo(14, 0);
+    ctx.lineTo(-8, 6);
+    ctx.lineTo(-4, 3);
+    ctx.lineTo(-6, 0);
+    ctx.lineTo(-4, -3);
+    ctx.lineTo(-8, -6);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.strokeStyle = STAR_COLOR;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function dgDrawExplosions() {
+    dgExplosions.forEach((ex) => {
+      ctx.save();
+      ctx.translate(ex.x, ex.y);
+      ctx.strokeStyle = "rgba(250, 209, 102, " + ex.life + ")";
+      ctx.lineWidth = 2;
+      const spokes = 7;
+      const r1 = 3, r2 = 3 + (1 - ex.life) * 16;
+      for (let i = 0; i < spokes; i++) {
+        const a = (i / spokes) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(a) * r1, Math.sin(a) * r1);
+        ctx.lineTo(Math.cos(a) * r2, Math.sin(a) * r2);
+        ctx.stroke();
+      }
+      ctx.restore();
+    });
+  }
+
+  function dgDrawBolts(list) {
+    list.forEach((b) => {
+      ctx.beginPath();
+      ctx.moveTo(b.x - b.vx * 1.5, b.y - b.vy * 1.5);
+      ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = STAR_COLOR;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    });
+  }
+
+  // Player health, top-left — three small ship icons, dimmed as they're lost.
+  function dgDrawHealth() {
+    for (let i = 0; i < 3; i++) {
+      const alive = i < dgPlayer.health;
+      ctx.save();
+      ctx.globalAlpha = alive ? 1 : 0.2;
+      dgDrawShipAt(24 + i * 26, 22, -Math.PI / 2, DG_PLAYER_COLOR, 0.8);
+      ctx.restore();
+    }
+  }
+
+  // Live score readout + current streak multiplier, top-right.
+  function dgDrawScore(now) {
+    const timeScore = Math.floor((now - dgSurvivalStart) / 1000);
+    const total = timeScore + dgHitPoints + dgKillPoints;
+    ctx.save();
+    ctx.fillStyle = STAR_COLOR;
+    ctx.textAlign = "right";
+    ctx.font = "bold 14px sans-serif";
+    ctx.fillText(`Score: ${total}`, W - 12, 26);
+    ctx.font = "12px sans-serif";
+    ctx.fillText(`Multiplier: x${dgStreak + 1}`, W - 12, 44);
+    ctx.restore();
+  }
+
+  function dgDrawCenteredText(text, y, size, alpha) {
+    ctx.save();
+    ctx.globalAlpha = alpha === undefined ? 1 : alpha;
+    ctx.fillStyle = STAR_COLOR;
+    ctx.font = `bold ${size}px sans-serif`;
+    ctx.textAlign = "center";
+    ctx.fillText(text, W / 2, y);
+    ctx.restore();
+  }
+
+  function dgDrawGameOver() {
+    const b = dgFinalBreakdown;
+    dgDrawCenteredText("GAME OVER", H / 2 - 130, 46);
+    dgDrawCenteredText(`Ships destroyed: ${b.kills}`, H / 2 - 68, 13);
+    dgDrawCenteredText(`Time bonus: ${b.timeScore}`, H / 2 - 50, 13);
+    dgDrawCenteredText(`Hit bonus: ${b.hitPoints}`, H / 2 - 32, 13);
+    dgDrawCenteredText(`Kill bonus: ${b.killPoints}`, H / 2 - 14, 13);
+    dgDrawCenteredText(`TOTAL: ${b.total}`, H / 2 + 12, 19);
+    dgDrawCenteredText("Enter your initials:", H / 2 + 44, 13);
+    const shown = dgInitials.padEnd(3, "_").split("").join(" ");
+    dgDrawCenteredText(shown, H / 2 + 68, 22);
+    dgDrawCenteredText("Type 3 letters, then press ENTER", H / 2 + 92, 11, 0.7);
+  }
+
+  // Leaderboard stays up indefinitely with a blinking "PRESS SPACE" prompt —
+  // pressing it hands off to hero-logo.js's post-game flourish (randomized
+  // logo colors + click count set to 501, so clicking the logo again
+  // immediately replays the fight) via dgSubmitScore's caller in the
+  // keydown handler below.
+  function dgDrawLeaderboard(now) {
+    const rowH = 18;
+    const top = H / 2 - (dgLeaderboard.length * rowH) / 2 - 30;
+    dgDrawCenteredText("TOP 10", top - 24, 20);
+    if (!dgLeaderboard.length) {
+      dgDrawCenteredText("Loading…", top, 13, 0.7);
+    }
+    dgLeaderboard.forEach((row, i) => {
+      dgDrawCenteredText(`${i + 1}.  ${row.initials}  ${row.score}`, top + i * rowH, 14);
+    });
+    const blinkOn = Math.floor(now / 500) % 2 === 0;
+    dgDrawCenteredText("PRESS SPACE", top + dgLeaderboard.length * rowH + 30, 16, blinkOn ? 1 : 0);
+  }
+
+  function dgFrame(now, dtScale) {
+    dgUpdateLogoVisibility();
+    ctx.clearRect(0, 0, W, H);
+    drawStars(now);
+
+    if (dgMode === "start") {
+      dgStepPlayer(dtScale);
+      dgStepBolts(dgPlayerBolts, dtScale);
+      dgStepExplosions(dtScale);
+      dgDrawBolts(dgPlayerBolts);
+      const flashOn = Math.floor(now / 150) % 2 === 0;
+      if (flashOn) dgDrawShipAt(dgPlayer.x, dgPlayer.y, dgPlayer.angle, DG_PLAYER_COLOR, 1);
+      dgEnemies.forEach((en) => dgDrawShipAt(en.x, en.y, en.angle, DG_PLAYER_COLOR, 1));
+      dgDrawExplosions();
+      dgDrawHealth();
+      dgDrawScore(now);
+      dgDrawCenteredText("GAME START", H / 2 - 40, 22);
+      dgDrawCenteredText("Arrows/WASD to rotate + thrust — Space to fire", H / 2 - 16, 13);
+      if (now - dgStateStartedAt > DG_START_FLASH_MS) {
+        dgMode = "playing";
+      }
+      return;
+    }
+
+    if (dgMode === "playing") {
+      dgStepPlayer(dtScale);
+      dgStepEnemies(dtScale, now);
+      dgStepBolts(dgPlayerBolts, dtScale);
+      dgStepBolts(dgEnemyBolts, dtScale);
+      dgCheckHits(now);
+      dgStepExplosions(dtScale);
+
+      if (dgMode !== "playing") return; // dgCheckHits may have just ended the run
+
+      dgDrawBolts(dgPlayerBolts);
+      dgDrawBolts(dgEnemyBolts);
+      const playerVisible = dgPlayer.invincibleUntil < now || Math.floor(now / 100) % 2 === 0;
+      if (playerVisible) dgDrawShipAt(dgPlayer.x, dgPlayer.y, dgPlayer.angle, DG_PLAYER_COLOR, 1);
+      dgEnemies.forEach((en) => dgDrawShipAt(en.x, en.y, en.angle, DG_PLAYER_COLOR, 1));
+      dgDrawExplosions();
+      dgDrawHealth();
+      dgDrawScore(now);
+      return;
+    }
+
+    if (dgMode === "gameover") {
+      dgStepExplosions(dtScale);
+      dgDrawExplosions();
+      dgDrawGameOver();
+      return;
+    }
+
+    if (dgMode === "leaderboard") {
+      dgDrawLeaderboard(now);
+      return;
+    }
+  }
+
   let hasSat = matrixMode; // matrix rain shows immediately; the dogfight still waits its 10s
 
   document.addEventListener("visibilitychange", () => {
@@ -516,15 +1121,21 @@
   });
 
   // Same "r" reset key as hero-logo.js's click-counter reset — pressing it
-  // also clears the matrix takeover back to the starfield/dogfight scene.
+  // also clears the matrix takeover back to the starfield/dogfight scene,
+  // and bails out of an active dogfight (any state — mid-fight, game over,
+  // initials entry, leaderboard) back to that same ambient scene.
   document.addEventListener("keydown", (e) => {
-    if (e.key.toLowerCase() !== "r" || !matrixMode) return;
+    if (e.key.toLowerCase() !== "r" || (!matrixMode && dgMode === "ambient")) return;
     const target = e.target;
     if (target instanceof HTMLElement && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
       return;
     }
-    matrixMode = false;
-    localStorage.removeItem(MATRIX_STORAGE_KEY);
+    if (matrixMode) {
+      matrixMode = false;
+      localStorage.removeItem(MATRIX_STORAGE_KEY);
+    }
+    dgMode = "ambient";
+    dgUpdateLogoVisibility();
   });
 
   if (matrixMode) {

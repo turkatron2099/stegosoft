@@ -37,6 +37,7 @@
   const FALL_AT = 200; // logo starts falling under gravity — click it to keep it up
   const ANAGLYPH_AT = 300; // the chaos stops — logo settles back in place, reskinned in anaglyph
   const VIRTUALBOY_AT = 400; // reskinned again — flat red-on-black, Virtual Boy style
+  const DOGFIGHT_AT = 500; // colors revert to normal, and the ambient starship-dogfight.js scene becomes a playable game
 
   // Shared with starship-dogfight.js (same pattern as matrix-mode.js's own
   // flag/event pair) so the dogfight scene switches into its own red/cyan
@@ -335,6 +336,39 @@
     return virtualBoyLogoSrc;
   }
 
+  // Randomized recolor of the same traced line art, for the post-dogfight
+  // flourish below — a fresh random hue every time it's built, unlike the
+  // anaglyph/Virtual Boy skins above (which are fixed, permanent looks and
+  // so get cached).
+  function buildRandomColorLogoSrc() {
+    const { canvas: scene, w, h } = getLineArtCanvas();
+    const hue = Math.floor(Math.random() * 360);
+    const color = `hsl(${hue}, 85%, 60%)`;
+
+    const out = document.createElement("canvas");
+    out.width = w;
+    out.height = h;
+    const outCtx = out.getContext("2d");
+    outCtx.fillStyle = color;
+    outCtx.fillRect(0, 0, w, h);
+    outCtx.globalCompositeOperation = "destination-in";
+    outCtx.drawImage(scene, 0, 0, w, h);
+
+    return out.toDataURL("image/png");
+  }
+
+  // starship-dogfight.js dispatches this once the player presses Space on
+  // the post-game leaderboard screen: a celebratory recolor of the logo,
+  // and the click count set to 501 so the very next click on the logo
+  // immediately relaunches the dogfight (same "every click past the
+  // threshold replays it" rule the normal click handler already applies).
+  window.addEventListener("thagobyte:dogfight-continue", () => {
+    logo.src = buildRandomColorLogoSrc();
+    clicks = 501;
+    localStorage.setItem(STORAGE_KEY, String(clicks));
+    renderCounter();
+  });
+
   // Ends the roam/fall chaos for good and puts the logo back exactly where
   // it started in the page flow — just wearing the anaglyph skin now.
   function settleAsAnaglyph() {
@@ -397,13 +431,45 @@
     }
   }
 
+  // Ends every skin/chaos tier for good and puts the logo back exactly as
+  // it started — the "colors revert to original" step before the dogfight
+  // game (starship-dogfight.js) takes over. Unlike resetLogo() below, this
+  // does NOT touch the click count, so it stays reachable/replayable.
+  function settleAsOriginal() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    roaming = false;
+    falling = false;
+    logo.classList.remove("logo-roaming");
+    logo.style.transform = "";
+    heroHeading.style.minHeight = "";
+    logo.src = ORIGINAL_SRC;
+
+    if (localStorage.getItem(ANAGLYPH_MODE_KEY) === "1") {
+      localStorage.removeItem(ANAGLYPH_MODE_KEY);
+      window.dispatchEvent(new Event("thagobyte:anaglyph-mode-off"));
+    }
+    if (localStorage.getItem(VIRTUALBOY_MODE_KEY) === "1") {
+      localStorage.removeItem(VIRTUALBOY_MODE_KEY);
+      window.dispatchEvent(new Event("thagobyte:virtualboy-mode-off"));
+    }
+  }
+
   logo.addEventListener("click", () => {
     clicks++;
     localStorage.setItem(STORAGE_KEY, String(clicks));
     renderCounter();
     playCoinPickup();
 
-    if (clicks >= VIRTUALBOY_AT) {
+    if (clicks >= DOGFIGHT_AT) {
+      settleAsOriginal();
+      // Every click past the threshold (re)starts a fresh dogfight — the
+      // way back in once you've already unlocked it, without needing to
+      // reset and click 500 more times.
+      window.dispatchEvent(new Event("thagobyte:dogfight-start"));
+    } else if (clicks >= VIRTUALBOY_AT) {
       settleAsVirtualBoy();
     } else if (clicks >= ANAGLYPH_AT) {
       settleAsAnaglyph();
@@ -454,7 +520,12 @@
   // Enters whichever state the current click count corresponds to — shared
   // by the reload-resume check below and the testing shortcut further down.
   function applyClickState() {
-    if (clicks >= VIRTUALBOY_AT) {
+    if (clicks >= DOGFIGHT_AT) {
+      // Reload just settles colors back to normal — it does NOT relaunch
+      // the game (that would hijack arrow-key/space scrolling on every
+      // visit). Click the logo once more to actually play.
+      settleAsOriginal();
+    } else if (clicks >= VIRTUALBOY_AT) {
       settleAsVirtualBoy();
     } else if (clicks >= ANAGLYPH_AT) {
       settleAsAnaglyph();
@@ -480,6 +551,7 @@
     localStorage.setItem(STORAGE_KEY, String(clicks));
     renderCounter();
     applyClickState();
+    if (clicks >= DOGFIGHT_AT) window.dispatchEvent(new Event("thagobyte:dogfight-start"));
   });
   // end TODO(testing) block
 

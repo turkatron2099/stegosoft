@@ -17,6 +17,15 @@
     detailsUrl: `https://archive.org/details/${identifier}`,
   });
 
+  // Closed captions: WebVTT files, converted ahead of time from subtitle
+  // files Internet Archive hosts for these titles (auto-generated for some,
+  // fan-made for others) and checked into captions/ ourselves — Archive.org's
+  // download endpoint doesn't send CORS headers on .srt files, so a
+  // client-side fetch-and-convert can't work, and .srt itself isn't a format
+  // <track> understands anyway. Only entries below with a `captions` field
+  // get a track; the rest simply have none available yet.
+  const CC = (file, auto) => ({ src: `captions/${file}`, auto: !!auto });
+
   const PLAYLIST = [
     {
       title: "A Trip to the Moon",
@@ -47,6 +56,7 @@
       year: 1962,
       blurb: "The lone survivor of a car accident drifts to a new town, drawn again and again toward an abandoned lakeside pavilion — and pursued by a ghoulish figure only she can see. A low-budget indie horror with a dreamlike, unsettling atmosphere way ahead of its time.",
       ...IA("carnival_of_souls", "carnival_of_souls_512kb.mp4"),
+      captions: CC("carnival_of_souls.vtt", true),
     },
     {
       title: "The Last Man on Earth",
@@ -71,12 +81,14 @@
       year: 1959,
       blurb: "An eccentric millionaire offers five strangers $10,000 each to survive one night locked inside a haunted house with him and his estranged wife. Vincent Price headlines this William Castle chiller, famous for its theatrical \"Emergo\" gimmick — a glow-in-the-dark skeleton rigged to fly out over opening-night audiences.",
       ...IA("The_House_On_Haunted_Hill", "The_House_On_Haunted_Hill_512kb.mp4"),
+      captions: CC("The_House_On_Haunted_Hill.vtt", true),
     },
     {
       title: "The Brain That Wouldn't Die",
       year: 1962,
       blurb: "After a car crash decapitates his fiancée, a surgeon keeps her severed head alive in his lab and scours strip clubs for a body to transplant it onto — while the failed experiment he's locked in the closet grows restless. A gleefully tasteless slice of drive-in horror, shot in 1959 but held back from release for three years.",
       ...IA("the_brain_that_wouldnt_die", "the_brain_that_wouldnt_die_512kb.mp4"),
+      captions: CC("the_brain_that_wouldnt_die.vtt", true),
     },
     {
       title: "The Ape Man",
@@ -101,6 +113,7 @@
       year: 1960,
       blurb: "A hapless flower-shop clerk raises a strange plant that turns out to crave human blood — and the more people it eats, the more famous it makes him. Roger Corman shot this gleefully cheap horror-comedy in about two days on a bet, with a young, then-unknown Jack Nicholson stealing scenes as a pain-loving dental patient.",
       ...IA("the-little-shop-of-horrors", "The Little Shop Of Horrors.mp4"),
+      captions: CC("the-little-shop-of-horrors.vtt", false),
     },
     {
       title: "Robot Monster",
@@ -113,6 +126,7 @@
       year: 1952,
       blurb: "Jet-suited hero Commando Cody battles Retik, ruler of the Moon, who's plotting to conquer Earth with a mineral that can level mountains. A pulpy Republic Pictures serial, all 12 chapters back to back, whose rocket-pack hero set the template countless later sci-fi and superhero serials would borrow from.",
       ...IA("radar-men-from-the-moon-1952", "Radar Men From The Moon 1952.mp4"),
+      captions: CC("radar-men-from-the-moon-1952.vtt", false),
     },
   ];
 
@@ -135,6 +149,7 @@
   const titleEl = document.getElementById("cinema-title");
   const blurbEl = document.getElementById("cinema-blurb");
   const sourceLink = document.getElementById("cinema-source-link");
+  const ccNoteEl = document.getElementById("cinema-cc-note");
   const playlistEl = document.getElementById("cinema-playlist");
 
   let currentIndex = 0;
@@ -157,11 +172,27 @@
 
     player.poster = movie.poster;
     player.src = movie.src;
+
+    // <track> elements don't follow a src swap on their own — remove
+    // whatever caption track the previous movie had (if any) and add this
+    // one's (if it has one) fresh, off by default (the player's native CC
+    // button toggles it on, same as any other <track>).
+    player.querySelectorAll("track").forEach((t) => t.remove());
+    if (movie.captions) {
+      const track = document.createElement("track");
+      track.kind = "captions";
+      track.label = movie.captions.auto ? "English (auto-generated)" : "English";
+      track.srclang = "en";
+      track.src = movie.captions.src;
+      player.appendChild(track);
+    }
+
     player.play().catch(() => {}); // ignore autoplay rejection; controls still let the user press play
 
     titleEl.innerHTML = `${movie.title} <span class="cinema-year">(${movie.year})</span>`;
     blurbEl.textContent = movie.blurb;
     sourceLink.href = movie.detailsUrl;
+    ccNoteEl.hidden = !movie.captions;
 
     renderPlaylist();
   }
