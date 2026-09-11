@@ -322,6 +322,7 @@
 (() => {
   const dateInput = document.getElementById("df-date");
   const resultEl = document.getElementById("df-result");
+  const eventsEl = document.getElementById("df-events");
 
   const WEEKDAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const MONTH_NAMES = [
@@ -342,9 +343,79 @@
     return `${years} year${years === 1 ? "" : "s"} ${suffix}`;
   }
 
+  function formatYear(year) {
+    return year < 0 ? `${-year} BC` : String(year);
+  }
+
+  function showEventsStatus(message) {
+    eventsEl.innerHTML = "";
+    const statusEl = document.createElement("div");
+    statusEl.className = "dayfinder-events-status";
+    statusEl.textContent = message;
+    eventsEl.appendChild(statusEl);
+  }
+
+  // Ignores year (the API only takes month/day), so results are the same
+  // for e.g. any July 4th — actual historical events on that calendar date
+  // across all recorded years, not tied to the specific year picked.
+  let requestToken = 0;
+  async function loadEvents(month, day) {
+    const token = ++requestToken;
+    showEventsStatus("Loading historical events…");
+
+    try {
+      const mm = String(month).padStart(2, "0");
+      const dd = String(day).padStart(2, "0");
+      const res = await fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/events/${mm}/${dd}`);
+      if (token !== requestToken) return; // a newer date was picked meanwhile
+      if (!res.ok) throw new Error("Request failed");
+      const data = await res.json();
+      if (token !== requestToken) return;
+
+      const events = data.events || [];
+      if (!events.length) {
+        showEventsStatus("No historical events found for this date.");
+        return;
+      }
+
+      eventsEl.innerHTML = "";
+      events.forEach((ev) => {
+        const item = document.createElement("div");
+        item.className = "dayfinder-event";
+
+        const yearEl = document.createElement("span");
+        yearEl.className = "dayfinder-event-year";
+        yearEl.textContent = formatYear(ev.year);
+        item.appendChild(yearEl);
+
+        const textEl = document.createElement("span");
+        textEl.className = "dayfinder-event-text";
+        const page = ev.pages && ev.pages[0];
+        const pageUrl = page && page.content_urls && page.content_urls.desktop && page.content_urls.desktop.page;
+        if (pageUrl) {
+          const a = document.createElement("a");
+          a.href = pageUrl;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = ev.text;
+          textEl.appendChild(a);
+        } else {
+          textEl.textContent = ev.text;
+        }
+        item.appendChild(textEl);
+
+        eventsEl.appendChild(item);
+      });
+    } catch (e) {
+      if (token !== requestToken) return;
+      showEventsStatus("Couldn't load historical events — try again later.");
+    }
+  }
+
   function render() {
     const val = dateInput.value; // "YYYY-MM-DD" from the date input, or ""
     resultEl.innerHTML = "";
+    eventsEl.innerHTML = "";
     if (!val) return;
 
     const [y, m, d] = val.split("-").map(Number);
@@ -368,6 +439,8 @@
     relEl.className = "df-result-relative";
     relEl.textContent = relativeLabel(diffDays);
     resultEl.appendChild(relEl);
+
+    loadEvents(m, d);
   }
 
   const t = new Date();

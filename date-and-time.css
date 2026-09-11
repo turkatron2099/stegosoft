@@ -376,3 +376,62 @@
   font-size: 0.8rem;
   margin-top: 10px;
 }
+
+.dayfinder-events {
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+.dayfinder-events:empty {
+  display: none;
+}
+
+.dayfinder-event {
+  display: flex;
+  gap: 10px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.dayfinder-event-year {
+  flex: 0 0 auto;
+  min-width: 52px;
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.dayfinder-event-text {
+  color: var(--light-foreground);
+}
+
+.dayfinder-event-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+}
+
+.dayfinder-event-text a:hover {
+  color: var(--foreground);
+}
+
+.dayfinder-events-status {
+  color: var(--light-foreground);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.dayfinder-note {
+  max-width: 500px;
+  margin: 4px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.dayfinder-note a {
+  color: var(--muted);
+}
