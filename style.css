@@ -135,11 +135,9 @@ a:hover {
 }
 
 .visitor-counter {
-  position: fixed;
-  top: 80px; /* fallback if JS can't measure the header; visitor-counter.js
-                repositions this just below it so it never overlaps the nav */
-  right: 12px;
-  z-index: 9999;
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
   background: rgba(2, 12, 23, 0.7);
   color: var(--light-foreground);
   font-family: monospace;
@@ -225,6 +223,7 @@ a:hover {
 .contact {
   padding: 80px 0;
   border-top: 1px solid var(--muted);
+  position: relative;
 }
 
 .about {

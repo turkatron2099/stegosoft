@@ -14,21 +14,17 @@
   const SEEN_KEY = "thagobyte-visitor-counted";
   const BASE = "https://abacus.jasoncameron.dev";
 
+  // Lives inside the Contact section (bottom-right corner of it), not as a
+  // fixed viewport overlay — it scrolls normally with the page and is only
+  // on screen once you've scrolled down that far, rather than following you
+  // around the whole time like the click counter does.
+  const contact = document.querySelector(".contact");
+  if (!contact) return;
+
   const counter = document.createElement("div");
   counter.className = "visitor-counter";
   counter.textContent = "Visitors: …";
-  document.body.appendChild(counter);
-
-  // Sits below the site header rather than a hardcoded pixel offset, so it
-  // stays clear of the nav links (which occupy the header's top-right) even
-  // if the header's height ever changes.
-  function positionBelowHeader() {
-    const header = document.querySelector(".site-header");
-    if (!header) return;
-    counter.style.top = `${header.getBoundingClientRect().bottom + 12}px`;
-  }
-  positionBelowHeader();
-  window.addEventListener("resize", positionBelowHeader);
+  contact.appendChild(counter);
 
   let alreadyCounted = false;
   try {
