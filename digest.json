@@ -1,30 +1,6 @@
 {
-  "generatedAt": "2026-09-12T18:25:53.676Z",
+  "generatedAt": "2026-09-12T22:20:16.450Z",
   "items": [
-    {
-      "title": "When the Whole Company Adopts AI: What It Does to Your SOC",
-      "link": "https://thehackernews.com/2026/09/when-whole-company-adopts-ai-what-it.html",
-      "summary": "Over the past year, we watched a new class of alert appear in enterprise security operations centers and grow faster than anything else in the stream: alerts that were triggered by AI tools and agents. Not attacks…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-12T10:24:44.000Z"
-    },
-    {
-      "title": "Why AI Is So Good at Scamming Humans",
-      "link": "https://www.darkreading.com/cyber-risk/ai-scamming-humans",
-      "summary": "Fred Heiding of Menlo Park Intelligence talks with the Dark Reading News Desk about his research on frontier models, and their ability to influence human behavior and create emotional dependency.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-11T18:14:06.000Z"
-    },
-    {
-      "title": "Tracing the Justinian Plague",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/tracing-the-justinian-plague/",
-      "summary": "The Justinian Plague (c. 541–750 CE) was one of the deadliest pandemics in human history. The Byzantine chronicler Procopius recorded that the plague claimed the…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-09T10:00:08.000Z"
-    },
     {
       "title": "Can Red-Light Therapy Treat Brain Injuries?",
       "link": "https://science.slashdot.org/story/26/09/11/2037218/can-red-light-therapy-treat-brain-injuries?utm_source=rss1.0mainlinkanon&utm_medium=feed",
@@ -32,198 +8,6 @@
       "source": "Slashdot",
       "topic": "Technology",
       "date": "2026-09-12T05:00:00.000Z"
-    },
-    {
-      "title": "OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers",
-      "link": "https://thehackernews.com/2026/09/openai-agents-linked-to-rubygems.html",
-      "summary": "The \"major malicious attack\" that targeted RubyGems in May 2026 was the work of a swarm of OpenAI agents, according to a new report published by researchers Spencer Kitts, Thomas Larsen, and Sydney Von Arx. On May 12,…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-12T09:07:56.000Z"
-    },
-    {
-      "title": "10 Great Biblical Artifacts at the Bible Lands Museum Jerusalem",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-artifacts/artifacts-and-the-bible/10-great-biblical-artifacts-at-the-bible-lands-museum-jerusalem/",
-      "summary": "10 The Bible Lands Museum Jerusalem houses one of the world’s most important collections of Biblical artifacts.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-10T11:00:38.000Z"
-    },
-    {
-      "title": "Blizzard Officially Announces Diablo 5 at BlizzCon 2026",
-      "link": "https://www.polygon.com/diablo-5-announced-release-date-blizzcon-2026/",
-      "summary": "Diablo 5 is in development and will be released in spring 2029, Blizzard Entertainment announced at BlizzCon 2026's opening ceremony.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-12T18:22:13.000Z"
-    },
-    {
-      "title": "Scientists Create a New Form of Ice At 2,357 Degrees Celsius",
-      "link": "https://science.slashdot.org/story/26/09/11/2249242/scientists-create-a-new-form-of-ice-at-2357-degrees-celsius?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Longtime Slashdot reader fahrbot-bot shares a report from ScienceAlert: Scientists have now demonstrated one of the weirdest forms of ice yet -- under preposterous pressures up to 2.3 million atmospheres, and tremendous…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-12T13:00:00.000Z"
-    },
-    {
-      "title": "CISA Adds 5 Actively Exploited Artifactory, ScreenConnect, and RouterOS Flaws to KEV",
-      "link": "https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html",
-      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has added five security flaws impacting JFrog Artifactory, ConnectWise ScreenConnect, and MikroTik RouterOS to its Known Exploited Vulnerabilities (KEV)…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-12T15:54:45.000Z"
-    },
-    {
-      "title": "The Expanding World of Biblical Archaeology",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/the-expanding-world-of-biblical-archaeology/",
-      "summary": "Since the first issue of Biblical Archaeology Review was published 50 years ago, the landscape of biblical archaeology—both literal and figurative—has expanded in remarkable ways.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-11T10:00:06.000Z"
-    },
-    {
-      "title": "New Horror Movie Never After Dark Does What The Conjuring Never Could",
-      "link": "https://www.polygon.com/never-after-dark-the-years-best-haunted-house-movie/",
-      "summary": "Dave Boyle lives his dream with Never After Dark, crafting a delicate and surprising nightmare",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-12T18:00:14.000Z"
-    },
-    {
-      "title": "Diablo TV Series Announced for Netflix",
-      "link": "https://comicbook.com/tv-shows/news/diablo-tv-series-announced-for-netflix/",
-      "summary": "Image Courtesy of Blizzard Entertainment BlizzCon 2026 has only just kicked off and while it will mainly be strictly about video games, Blizzard Entertainment’s second announcement of the show was about television. The…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-12T18:05:52.000Z"
-    },
-    {
-      "title": "Overwatch Confirms Major Reworks That No One Predicted, And Next Vampire-Inspired Hero",
-      "link": "https://comicbook.com/gaming/news/overwatch-confirms-major-reworks-that-no-one-predicted-and-next-vampire-inspired-hero/",
-      "summary": "All eyes have been on BlizzCon this year, as it marks the first time the event has been held in three years. Overwatch players have been well fed in the absence of the con, though, with the annual Spotlight events that…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-12T18:10:23.000Z"
-    },
-    {
-      "title": "Male Fruit Fly Brain Trained to Play Doom",
-      "link": "https://games.slashdot.org/story/26/09/11/2022239/male-fruit-fly-brain-trained-to-play-doom?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Last week, Google announced that it managed to produce a detailed 3D reconstruction of an adult male fruit fly's brain and central nervous system. A few days later a software engineer at Coinbase said the fly brain was…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-12T01:00:00.000Z"
-    },
-    {
-      "title": "25 Years Ago Today, DC Comics Published Its Most Controversial Comic, & It Wasn’t Meant to Be",
-      "link": "https://comicbook.com/comics/feature/25-years-ago-today-dc-comics-published-its-most-controversial-comic-it-wasnt-meant-to-be/",
-      "summary": "Image Courtesy of DC Comics DC Comics released a comic book 25 years ago today, and the timing couldn’t have been worse for the company. It is important to understand that comic books are written and penciled in…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-12T18:00:00.000Z"
-    },
-    {
-      "title": "After Nearly 4 Decades, This 3-Word Princess Bride Quote Is Still Fantasy’s Most Romantic Line",
-      "link": "https://comicbook.com/movies/feature/after-nearly-4-decades-this-3-word-princess-bride-quote-is-still-fantasys-most-romantic-line/",
-      "summary": "Wesley & Buttercup Reunited In 1973, William Goldman (presenting the story as an abridged version of a longer work by the fictitious S. Morgenstern) published his hit fantasy-romance-comedy novel The Princess Bride.…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-12T18:06:00.000Z"
-    },
-    {
-      "title": "Diablo 5 Announced With Stunning First Trailer and Distant Release Window",
-      "link": "https://comicbook.com/gaming/news/diablo-5-blizzcon-trailer-release-2029/",
-      "summary": "Diablo fans have been eating well in 2026. The long-running franchise saw new expansions for Diablo 4 that carried on the narratives centered around the Lords of Hatred, along with the enduring popularity of Diablo…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-12T18:23:54.000Z"
-    },
-    {
-      "title": "LG Responds to TV Spying Allegations",
-      "link": "https://yro.slashdot.org/story/26/09/12/1652215/lg-responds-to-tv-spying-allegations?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "LG is pushing back against reports that its smart TVs are \"spying\" on users, saying wake-word detection happens locally and that features such as Automatic Content Recognition, voice recognition, and interest-based ads…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-12T17:00:00.000Z"
-    },
-    {
-      "title": "King Hezekiah in the Bible: Royal Seal of Hezekiah Comes to Light",
-      "link": "https://www.biblicalarchaeology.org/daily/news/king-hezekiah-in-the-bible-royal-seal-of-hezekiah-comes-to-light/",
-      "summary": "For the first time, the royal seal of King Hezekiah in the Bible has been found in an archaeological excavation.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-10T11:00:28.000Z"
-    },
-    {
-      "title": "StarCraft Officially Returns In 2030, Blizzard Confirms at BlizzCon",
-      "link": "https://www.polygon.com/starcraft-new-shooter-announcement-blizzard-blizzcon-2026/",
-      "summary": "A new StarCraft game, simply titled StarCraft, is an open-world shooter launching in 2030",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-12T17:55:38.000Z"
-    },
-    {
-      "title": "Who Was Cornelius the Centurion?",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/who-was-cornelius-centurion/",
-      "summary": "Luke, the traditionally accepted author of Acts and the gospel bearing his name, often expanded and further developed theology through the story of a named…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-11T13:18:15.000Z"
-    },
-    {
-      "title": "Overwatch's Most Divisive Heroes Are Getting Game-Changing Reworks",
-      "link": "https://www.polygon.com/overwatch-hero-reworks-roadhog-sombra-blizzcon-2026/",
-      "summary": "Blizzard reveals big changes are coming to Overwatch's Roadhog and Sombra at BlizzCon 2026.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-12T18:08:05.000Z"
-    },
-    {
-      "title": "Anthropic boss Dario Amodei calls for AI development to slow down",
-      "link": "https://www.bbc.co.uk/news/articles/c14dpgm0rg4o?at_medium=RSS&at_campaign=rss",
-      "summary": "The call comes amid growing concerns that AI models may become able to inflict serious damage worldwide.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-12T17:42:38.000Z"
-    },
-    {
-      "title": "CISA Calls for More Guidance, Less Spin, as Cyber Outages Escalate",
-      "link": "https://www.darkreading.com/cyber-risk/cisa-calls-for-more-guidance-less-spin-as-cyber-outages-escalate",
-      "summary": "A new joint government advisory signals a regulatory shift, pressing organizations to adopt more transparent breach notification and incident response protocols.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-11T18:44:03.000Z"
-    },
-    {
-      "title": "Blizzard and Netflix Officially Reveal Diablo Animated Series in the Works",
-      "link": "https://www.polygon.com/blizzard-netflix-diablo-animated-series-blizzcon-2026/",
-      "summary": "A Diablo animated series is coming to Netflix, Blizzard president Johanna Faries announced at BlizzCon 2026",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-12T17:50:47.000Z"
-    },
-    {
-      "title": "Threat Actor Generates 1M Personalized Fraud Emails in 3 Days",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/1m-personalized-fraud-emails-3-days",
-      "summary": "Cybercriminals behind malicious email campaigns no longer have to compromise volume for credibility, or vice versa, thanks to AI.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-11T19:21:08.000Z"
-    },
-    {
-      "title": "Hiya Toys Unveils New Exquisite Godzilla vs. Megaguirus (2000) Figure",
-      "link": "https://bleedingcool.com/collectibles/hiya-toys-unveils-new-exquisite-godzilla-vs-megaguirus-2000-figure/",
-      "summary": "The battle of iconic kaijus continues at Hiya Toys as they unveil their new Exquisite Basic Series figure from Godzilla vs. Megaguirus",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-12T18:22:08.000Z"
-    },
-    {
-      "title": "I spent $4,000 on a robot dog from China",
-      "link": "https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/",
-      "summary": "Unitree might be the world’s most important robotics company.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-12T11:00:53.000Z"
     },
     {
       "title": "Sacred Circles in Christianity and Buddhism",
@@ -234,6 +18,118 @@
       "date": "2026-09-09T10:45:42.000Z"
     },
     {
+      "title": "Why AI Is So Good at Scamming Humans",
+      "link": "https://www.darkreading.com/cyber-risk/ai-scamming-humans",
+      "summary": "Fred Heiding of Menlo Park Intelligence talks with the Dark Reading News Desk about his research on frontier models, and their ability to influence human behavior and create emotional dependency.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-11T18:14:06.000Z"
+    },
+    {
+      "title": "Diablo 5 Forging the Next Era Panel: Everything Announced (Updating Live)",
+      "link": "https://www.ign.com/articles/diablo-5-forging-the-next-era-panel-everything-announced",
+      "summary": "Blizzard has revealed three classes for Diablo 5, a first look at its UI, and even more as part of its Forging the Next Era panel at BlizzCon 2026.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-12T19:56:50.000Z"
+    },
+    {
+      "title": "CISA Adds 5 Actively Exploited Artifactory, ScreenConnect, and RouterOS Flaws to KEV",
+      "link": "https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html",
+      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has added five security flaws impacting JFrog Artifactory, ConnectWise ScreenConnect, and MikroTik RouterOS to its Known Exploited Vulnerabilities (KEV)…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-12T15:54:45.000Z"
+    },
+    {
+      "title": "King Hezekiah in the Bible: Royal Seal of Hezekiah Comes to Light",
+      "link": "https://www.biblicalarchaeology.org/daily/news/king-hezekiah-in-the-bible-royal-seal-of-hezekiah-comes-to-light/",
+      "summary": "For the first time, the royal seal of King Hezekiah in the Bible has been found in an archaeological excavation.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-10T11:00:28.000Z"
+    },
+    {
+      "title": "Warcraft 3 Reforged: Forsaken Kingdom Review So Far",
+      "link": "https://www.ign.com/articles/warcraft-3-forsaken-kingdom-review",
+      "summary": "A surprise single-player campaign that maintains the feel of classic Warcraft 3 while mixing in some new ideas.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-12T21:05:26.000Z"
+    },
+    {
+      "title": "3 Classic Nickelodeon Cartoons That Should Be Rebooted With Adult Characters For All the ’90s Kids",
+      "link": "https://comicbook.com/tv-shows/list/3-classic-nickelodeon-cartoons-that-should-be-rebooted-with-adult-characters-for-all-the-90s-kids/",
+      "summary": "Paramount If you grew up watching Nickelodeon in the ’90s, chances are some of its cartoon characters practically raised you. You also watched them go to school, get into trouble, fall in love, have ridiculous…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-12T21:16:00.000Z"
+    },
+    {
+      "title": "Tracing the Justinian Plague",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/tracing-the-justinian-plague/",
+      "summary": "The Justinian Plague (c. 541–750 CE) was one of the deadliest pandemics in human history. The Byzantine chronicler Procopius recorded that the plague claimed the…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-09T10:00:08.000Z"
+    },
+    {
+      "title": "Overwatch Reveals First Look at New Omnic Hero Coming Later This Year",
+      "link": "https://www.ign.com/articles/overwatch-reveals-first-look-at-new-omnic-hero-coming-later-this-year",
+      "summary": "Blizzard has teased another new Overwatch Hero after revealing Doctrine just moments ago.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-12T20:28:58.000Z"
+    },
+    {
+      "title": "10 Great Biblical Artifacts at the Bible Lands Museum Jerusalem",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-artifacts/artifacts-and-the-bible/10-great-biblical-artifacts-at-the-bible-lands-museum-jerusalem/",
+      "summary": "10 The Bible Lands Museum Jerusalem houses one of the world’s most important collections of Biblical artifacts.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-10T11:00:38.000Z"
+    },
+    {
+      "title": "Who Was Cornelius the Centurion?",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/who-was-cornelius-centurion/",
+      "summary": "Luke, the traditionally accepted author of Acts and the gospel bearing his name, often expanded and further developed theology through the story of a named…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-11T13:18:15.000Z"
+    },
+    {
+      "title": "When the Whole Company Adopts AI: What It Does to Your SOC",
+      "link": "https://thehackernews.com/2026/09/when-whole-company-adopts-ai-what-it.html",
+      "summary": "Over the past year, we watched a new class of alert appear in enterprise security operations centers and grow faster than anything else in the stream: alerts that were triggered by AI tools and agents. Not attacks…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-12T10:24:44.000Z"
+    },
+    {
+      "title": "7 Frieren: Beyond Journey’s End Quotes That Will Change Your Life",
+      "link": "https://comicbook.com/anime/list/7-frieren-beyond-journeys-end-quotes-that-will-change-your-life/",
+      "summary": "Image Courtesy of Madhouse Frieren: Beyond Journey’s End is one of the most bittersweet series to hit the mainstream anime community in years. Following the titular Frieren, who is initially portrayed as having an air…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-12T22:00:00.000Z"
+    },
+    {
+      "title": "Dwayne Johnson & Jason Statham’s Action Team-Up Gets New Streaming Home, And the Franchise Is Officially in Trouble",
+      "link": "https://comicbook.com/movies/news/dwayne-johnson-jason-stathams-action-team-up-gets-new-streaming-home-and-the-franchise-is-officially-in-trouble/",
+      "summary": "It’s been a long wait for the next and final Fast & Furious movie. And as it’s been drawn out over the last few decades, the quality of the franchise has been hotly debated, with some fans claiming it remains one of the…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-12T20:51:45.000Z"
+    },
+    {
+      "title": "50 Years Later, Star Wars Is Officially Remaking the Original Trilogy in a Shocking New Style",
+      "link": "https://www.polygon.com/star-wars-original-trilogy-graphic-novel/",
+      "summary": "A new take on the classic Star Wars story of A New Hope, The Empire Strikes Back, and Return of the Jedi.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-12T19:33:14.000Z"
+    },
+    {
       "title": "Little Mercury May Be Shrinking Faster Than Scientists Expected",
       "link": "https://science.slashdot.org/story/26/09/11/2050204/little-mercury-may-be-shrinking-faster-than-scientists-expected?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "summary": "A new study suggests Mercury may have shrunk about 30% more than scientists previously thought, losing as much as 14 miles in diameter as its interior cooled and contracted over billions of years. \"That's significant…",
@@ -242,20 +138,124 @@
       "date": "2026-09-12T09:00:00.000Z"
     },
     {
-      "title": "New system, same problems - Alonso not happy with 'soft' Chelsea",
-      "link": "https://www.bbc.co.uk/sport/football/articles/c1l6qd2qvyzo?at_medium=RSS&at_campaign=rss",
-      "summary": "It was subdued at Stamford Bridge after Chelsea's 2-2 draw with newly promoted Hull City.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-12T18:22:46.000Z"
+      "title": "Scientists Create a New Form of Ice At 2,357 Degrees Celsius",
+      "link": "https://science.slashdot.org/story/26/09/11/2249242/scientists-create-a-new-form-of-ice-at-2357-degrees-celsius?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Longtime Slashdot reader fahrbot-bot shares a report from ScienceAlert: Scientists have now demonstrated one of the weirdest forms of ice yet -- under preposterous pressures up to 2.3 million atmospheres, and tremendous…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-12T13:00:00.000Z"
     },
     {
-      "title": "Overwatch's Next Hero, Doctrine, Officially Revealed at BlizzCon 2026",
-      "link": "https://www.polygon.com/overwatch-new-hero-54-doctrine-blizzcon-2026/",
-      "summary": "Blizzard confirms hero 54 for Overwatch, the vampiric support hero Doctrine, alongside a new map, the return of Dokiwatch, and more.",
+      "title": "The Expanding World of Biblical Archaeology",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/the-expanding-world-of-biblical-archaeology/",
+      "summary": "Since the first issue of Biblical Archaeology Review was published 50 years ago, the landscape of biblical archaeology—both literal and figurative—has expanded in remarkable ways.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-11T10:00:06.000Z"
+    },
+    {
+      "title": "Overwatch's New Hero Doctrine: Full Ability Kit and Perks Revealed at BlizzCon",
+      "link": "https://www.polygon.com/overwatch-doctrine-abilities-kit-new-hero-54-blizzcon-2026/",
+      "summary": "Overwatch's 54th hero Doctrine is here and playable ahead of season 5. Here's Doctrine's full kit and ability suite.",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-12T18:13:42.000Z"
+      "date": "2026-09-12T21:33:26.000Z"
+    },
+    {
+      "title": "LG Responds to TV Spying Allegations",
+      "link": "https://yro.slashdot.org/story/26/09/12/1652215/lg-responds-to-tv-spying-allegations?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "LG is pushing back against reports that its smart TVs are \"spying\" on users, saying wake-word detection happens locally and that features such as Automatic Content Recognition, voice recognition, and interest-based ads…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-12T17:00:00.000Z"
+    },
+    {
+      "title": "I spent $4,000 on a robot dog from China",
+      "link": "https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/",
+      "summary": "Unitree might be the world’s most important robotics company.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-12T11:00:53.000Z"
+    },
+    {
+      "title": "Diablo 5 Shows Off Its Brand New Plague Knight Class",
+      "link": "https://www.polygon.com/diablo-5-plague-knight/",
+      "summary": "The Plague Knight and more new Diablo 5 classes are on the way in the 2029 sequel, Blizzard confirmed during a BlizzCon panel",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-12T22:01:23.000Z"
+    },
+    {
+      "title": "CISA Calls for More Guidance, Less Spin, as Cyber Outages Escalate",
+      "link": "https://www.darkreading.com/cyber-risk/cisa-calls-for-more-guidance-less-spin-as-cyber-outages-escalate",
+      "summary": "A new joint government advisory signals a regulatory shift, pressing organizations to adopt more transparent breach notification and incident response protocols.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-11T18:44:03.000Z"
+    },
+    {
+      "title": "Star Wars Open-World Game Now Free for Some",
+      "link": "https://comicbook.com/gaming/news/star-wars-outlaws-open-world-game-free/",
+      "summary": "A Star Wars open-world game is now free for some. The Star Wars game in question is specifically an open-world action-adventure game from 2024, and it’s one that divided many at the time. And it’s one that costs $70, so…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-12T21:37:01.000Z"
+    },
+    {
+      "title": "The DCU Gorilla Grodd TV Show Has Me Questioning What James Gunn’s Plan for One Hero Really Is",
+      "link": "https://comicbook.com/tv-shows/feature/the-dcu-gorilla-grodd-tv-show-has-me-questioning-what-james-gunns-plan-for-one-hero-really-is/",
+      "summary": "The DC Universe franchise is breaking through in a major way with HBO’s Lanterns, but the next upcoming show in the franchise has people scratching their heads. The People v. Gorilla Grodd is currently in production;…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-12T22:00:00.000Z"
+    },
+    {
+      "title": "Anthropic boss Dario Amodei calls for AI development to slow down",
+      "link": "https://www.bbc.co.uk/news/articles/c14dpgm0rg4o?at_medium=RSS&at_campaign=rss",
+      "summary": "The call comes amid growing concerns that AI models may become able to inflict serious damage worldwide.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-12T21:16:47.000Z"
+    },
+    {
+      "title": "Threat Actor Generates 1M Personalized Fraud Emails in 3 Days",
+      "link": "https://www.darkreading.com/cyberattacks-data-breaches/1m-personalized-fraud-emails-3-days",
+      "summary": "Cybercriminals behind malicious email campaigns no longer have to compromise volume for credibility, or vice versa, thanks to AI.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-11T19:21:08.000Z"
+    },
+    {
+      "title": "OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers",
+      "link": "https://thehackernews.com/2026/09/openai-agents-linked-to-rubygems.html",
+      "summary": "The \"major malicious attack\" that targeted RubyGems in May 2026 was the work of a swarm of OpenAI agents, according to a new report published by researchers Spencer Kitts, Thomas Larsen, and Sydney Von Arx. On May 12,…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-12T09:07:56.000Z"
+    },
+    {
+      "title": "Automattic's Matt Mullenweg Claims He's Back 'In Control'",
+      "link": "https://slashdot.org/story/26/09/12/1751208/automattics-matt-mullenweg-claims-hes-back-in-control?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Less than 48 hours after Automattic's board placed Matt Mullenweg on leave, Mullenweg told employees he was back \"in control\" of the company and that the board was again in agreement. 404 Media cited Slack screenshots…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-12T21:00:00.000Z"
+    },
+    {
+      "title": "Trump's comments on a united Ireland may have targeted audience across the Atlantic",
+      "link": "https://www.bbc.co.uk/news/articles/cwyzppd1d5lo?at_medium=RSS&at_campaign=rss",
+      "summary": "Nobody could have predicted that today's main global headline would be Trump's desire to see a unified Ireland.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-12T21:25:28.000Z"
+    },
+    {
+      "title": "Sami Zayn Winning the WWE Championship Proves WWE is Always Right",
+      "link": "https://bleedingcool.com/tv/sami-zayn-winning-the-wwe-championship-proves-wwe-is-always-right/",
+      "summary": "Sami Zayn's second WWE Title win in 2026 proves WWE was right to end his first reign after 9 days! Fans owe WWE an apology! 🏆😤🦝",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-12T20:36:11.000Z"
     }
   ]
 }
