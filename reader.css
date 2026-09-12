@@ -1,0 +1,603 @@
+/* Reader — article view in the Thagobyte navy/amber theme.
+   Tokens (--background, --foreground, --accent, ...) come from style.css. */
+
+/* ------------------------------------------------------------ landing --- */
+
+.reader-intro {
+  padding: 48px 0 8px;
+}
+
+.reader-intro h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.01em;
+}
+
+.reader-intro .tagline {
+  color: var(--light-foreground);
+  margin-top: 8px;
+  max-width: 46ch;
+}
+
+.reader-panel {
+  padding: 16px 0 64px;
+}
+
+.reader-form {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.reader-form input[type="url"] {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--muted);
+  background: var(--dark-background);
+  color: var(--foreground);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.reader-form input[type="url"]::placeholder {
+  color: var(--muted);
+}
+
+.reader-form input[type="url"]:focus,
+.reader-settings input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(250, 169, 104, 0.18);
+}
+
+.reader-form button,
+.reader-settings-actions button:not(.reader-linkbtn) {
+  padding: 13px 26px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: var(--dark-background);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.reader-form button:hover,
+.reader-settings-actions button:not(.reader-linkbtn):hover {
+  background: var(--foreground);
+}
+
+.reader-form button:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.reader-formrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  min-height: 24px;
+}
+
+.reader-status {
+  color: var(--light-foreground);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.reader-status.is-error {
+  color: var(--red);
+}
+
+.reader-linkbtn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.reader-linkbtn:hover {
+  color: var(--cyan);
+}
+
+/* ----------------------------------------------------------- settings --- */
+
+.reader-settings {
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  background: var(--lighter-background);
+}
+
+.reader-settings-note {
+  color: var(--light-foreground);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  max-width: 62ch;
+}
+
+.reader-settings label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+
+.reader-optional {
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.reader-settings input {
+  width: 100%;
+  padding: 11px 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--muted);
+  background: var(--dark-background);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.reader-settings-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.reader-settings-result {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: var(--teal);
+}
+
+.reader-settings-result.is-error {
+  color: var(--red);
+}
+
+/* ------------------------------------------------------------ library --- */
+
+.reader-library {
+  margin-top: 40px;
+}
+
+.reader-library-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+}
+
+.reader-library-head h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.reader-library-list {
+  list-style: none;
+}
+
+.reader-library-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(42, 107, 120, 0.4);
+}
+
+.reader-library-main {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.reader-library-title {
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--foreground);
+  line-height: 1.35;
+}
+
+.reader-library-main:hover .reader-library-title {
+  color: var(--accent);
+}
+
+.reader-library-meta {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.reader-library-progress {
+  color: var(--teal);
+}
+
+.reader-library-remove {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.reader-library-remove:hover {
+  color: var(--red);
+}
+
+.reader-library-empty {
+  color: var(--muted);
+  padding: 20px 0;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------------------------------------ toolbar --- */
+
+.reader-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--dark-background);
+  border-bottom: 1px solid var(--muted);
+}
+
+.reader-toolbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.reader-tool-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.reader-tool {
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  color: var(--foreground);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.reader-tool:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.reader-tool[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--dark-background);
+  font-weight: 700;
+}
+
+.reader-progress {
+  height: 3px;
+  background: rgba(42, 107, 120, 0.35);
+}
+
+.reader-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.12s linear;
+}
+
+/* -------------------------------------------------------------- marks --- */
+
+.reader-marks {
+  background: var(--lighter-background);
+  border-bottom: 1px solid var(--muted);
+  padding: 22px 0;
+}
+
+.reader-marks h3 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 10px;
+}
+
+.reader-marks h3:not(:first-child) {
+  margin-top: 24px;
+}
+
+.reader-marks-list {
+  list-style: none;
+}
+
+.reader-marks-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(42, 107, 120, 0.3);
+}
+
+.reader-marks-jump {
+  flex: 1;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.93rem;
+  line-height: 1.5;
+  cursor: pointer;
+  padding: 0;
+}
+
+.reader-marks-jump:hover {
+  color: var(--accent);
+}
+
+.reader-marks-remove {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.reader-marks-remove:hover {
+  color: var(--red);
+}
+
+.reader-marks-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+
+/* ------------------------------------------------------------ article --- */
+
+.reader-article {
+  padding: 40px 0 90px;
+}
+
+.reader-article .wrap {
+  max-width: 720px;
+}
+
+.reader-article-head {
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 22px;
+  margin-bottom: 32px;
+}
+
+.reader-article-head h1 {
+  font-size: 2.3rem;
+  line-height: 1.2;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+}
+
+.reader-article-meta {
+  margin-top: 12px;
+  color: var(--cyan);
+  font-size: 0.92rem;
+}
+
+.reader-article-source {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.reader-article-foot {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--muted);
+}
+
+/* Reading column. --reader-size is nudged by the A-/A+ buttons. */
+.reader-content {
+  font-size: var(--reader-size, 1.12rem);
+  line-height: 1.75;
+}
+
+.reader-content p,
+.reader-content li {
+  margin-bottom: 1.15em;
+  color: var(--foreground);
+}
+
+.reader-content h2,
+.reader-content h3 {
+  color: var(--accent);
+  line-height: 1.3;
+  margin: 1.8em 0 0.6em;
+}
+
+.reader-content h2 { font-size: 1.45em; }
+.reader-content h3 { font-size: 1.18em; }
+
+.reader-content ul {
+  padding-left: 1.3em;
+  margin-bottom: 1.15em;
+}
+
+.reader-content blockquote {
+  margin: 1.5em 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--accent);
+  color: var(--light-foreground);
+  font-style: italic;
+}
+
+.reader-content pre {
+  background: var(--dark-background);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 0.88em;
+  margin-bottom: 1.3em;
+}
+
+/* Images get an amber frame so photos sit inside the theme rather than
+   fighting it — the picture itself is left untouched. */
+.reader-content figure {
+  margin: 2em 0;
+}
+
+.reader-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--dark-background);
+}
+
+.reader-content figcaption,
+.reader-content .reader-caption {
+  margin-top: 9px;
+  font-size: 0.86em;
+  color: var(--cyan);
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------- bookmarks + underlines --- */
+
+.reader-block {
+  position: relative;
+}
+
+/* Gutter dot: invisible until you hover the paragraph, solid once bookmarked. */
+.reader-mark-dot {
+  position: absolute;
+  left: -30px;
+  top: 0.45em;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid var(--muted);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.reader-block:hover .reader-mark-dot {
+  opacity: 1;
+}
+
+.reader-mark-dot:hover {
+  border-color: var(--accent);
+}
+
+.reader-block.is-bookmarked .reader-mark-dot {
+  opacity: 1;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.reader-block.is-bookmarked {
+  box-shadow: -18px 0 0 -16px var(--accent);
+}
+
+.reader-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* While the underline tool is armed, make the column feel like a pen is out. */
+.reader-content.tool-underline {
+  cursor: text;
+}
+
+.reader-content.tool-underline .reader-underline {
+  cursor: pointer;
+  background: rgba(250, 169, 104, 0.12);
+}
+
+.reader-flash {
+  animation: reader-flash 1.1s ease-out;
+}
+
+@keyframes reader-flash {
+  0%   { background: rgba(250, 169, 104, 0.28); }
+  100% { background: transparent; }
+}
+
+/* --------------------------------------------------------- resume pill --- */
+
+.reader-resume {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 26px;
+  z-index: 30;
+  background: var(--accent);
+  color: var(--dark-background);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 22px rgba(3, 18, 34, 0.6);
+}
+
+.reader-resume:hover {
+  background: var(--foreground);
+}
+
+/* ------------------------------------------------------------- mobile --- */
+
+@media (max-width: 680px) {
+  .reader-intro { padding-top: 32px; }
+  .reader-intro h1 { font-size: 1.9rem; }
+  .reader-article-head h1 { font-size: 1.6rem; }
+  .reader-form { flex-direction: column; }
+  .reader-form button { width: 100%; }
+  .reader-toolbar-inner { justify-content: center; }
+  .reader-tool { padding: 7px 11px; font-size: 0.83rem; }
+
+  /* No gutter room on a phone — put the dot inline at the paragraph edge. */
+  .reader-mark-dot { left: -20px; width: 11px; height: 11px; }
+  .reader-article .wrap { padding-left: 30px; }
+}

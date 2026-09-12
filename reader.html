@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reader — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="reader.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ Landing: paste a link, or pick something saved ========= -->
+  <div id="reader-home">
+    <section class="reader-intro">
+      <div class="wrap">
+        <h1>Reader</h1>
+        <p class="tagline">Paste a link to any article and read it here — stripped of everything but the words and pictures.</p>
+      </div>
+    </section>
+
+    <section class="reader-panel">
+      <div class="wrap">
+
+        <form class="reader-form" id="reader-form" autocomplete="off">
+          <input type="url" id="url-input" placeholder="Paste an article link..." spellcheck="false" required>
+          <button type="submit" id="read-btn">Read</button>
+        </form>
+
+        <div class="reader-formrow">
+          <p class="reader-status" id="status-text" hidden></p>
+          <button type="button" class="reader-linkbtn" id="settings-toggle" aria-expanded="false">Relay settings</button>
+        </div>
+
+        <div class="reader-settings" id="settings-panel" hidden>
+          <p class="reader-settings-note">
+            Thagobyte is a static site, so it can't fetch other people's pages by itself —
+            a small relay of your own does the fetching. Paste its address here; it's stored
+            only in this browser.
+          </p>
+          <label for="relay-input">Relay URL</label>
+          <input type="url" id="relay-input" placeholder="https://thagobyte-reader.YOURNAME.workers.dev" spellcheck="false">
+          <label for="token-input">Relay token <span class="reader-optional">(optional)</span></label>
+          <input type="password" id="token-input" placeholder="Leave blank if you didn't set one" spellcheck="false">
+          <div class="reader-settings-actions">
+            <button type="button" id="save-settings">Save</button>
+            <button type="button" class="reader-linkbtn" id="test-relay">Test connection</button>
+          </div>
+          <p class="reader-settings-result" id="settings-result" hidden></p>
+        </div>
+
+        <div class="reader-library" id="library-box" hidden>
+          <div class="reader-library-head">
+            <h2>Saved to read</h2>
+            <button type="button" class="reader-linkbtn" id="clear-library">Clear all</button>
+          </div>
+          <ul class="reader-library-list" id="library-list"></ul>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== Article view ================================== -->
+  <div id="reader-article" hidden>
+
+    <div class="reader-toolbar">
+      <div class="wrap reader-toolbar-inner">
+        <button type="button" class="reader-tool" id="back-btn" title="Back to list">&larr; List</button>
+        <div class="reader-tool-group">
+          <button type="button" class="reader-tool" id="underline-btn" aria-pressed="false" title="Underline tool — select text to underline it">Underline</button>
+          <button type="button" class="reader-tool" id="bookmark-btn" title="Bookmark where you are now">Bookmark</button>
+          <button type="button" class="reader-tool" id="marks-btn" aria-expanded="false" title="Show bookmarks and underlines">Marks <span id="marks-count"></span></button>
+          <button type="button" class="reader-tool" id="smaller-btn" title="Smaller text">A&minus;</button>
+          <button type="button" class="reader-tool" id="larger-btn" title="Larger text">A+</button>
+        </div>
+      </div>
+      <div class="reader-progress" id="reader-progress"><span id="reader-progress-bar"></span></div>
+    </div>
+
+    <aside class="reader-marks" id="marks-panel" hidden>
+      <div class="wrap">
+        <h3>Bookmarks</h3>
+        <ul class="reader-marks-list" id="bookmark-list"></ul>
+        <h3>Underlines</h3>
+        <ul class="reader-marks-list" id="underline-list"></ul>
+      </div>
+    </aside>
+
+    <article class="reader-article">
+      <div class="wrap">
+        <header class="reader-article-head">
+          <h1 id="article-title"></h1>
+          <p class="reader-article-meta" id="article-meta"></p>
+          <a class="reader-article-source" id="article-source" target="_blank" rel="noopener noreferrer">View original &rarr;</a>
+        </header>
+        <div class="reader-content" id="article-content"></div>
+        <footer class="reader-article-foot">
+          <a class="reader-article-source" id="article-source-foot" target="_blank" rel="noopener noreferrer">View original &rarr;</a>
+        </footer>
+      </div>
+    </article>
+
+    <button type="button" class="reader-resume" id="resume-pill" hidden></button>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte</span>
+  </div>
+</footer>
+
+<script src="reader.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
