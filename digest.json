@@ -1,149 +1,13 @@
 {
-  "generatedAt": "2026-09-13T13:19:46.869Z",
+  "generatedAt": "2026-09-13T18:48:33.130Z",
   "items": [
     {
-      "title": "10 Great Biblical Artifacts at the Bible Lands Museum Jerusalem",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-artifacts/artifacts-and-the-bible/10-great-biblical-artifacts-at-the-bible-lands-museum-jerusalem/",
-      "summary": "10 The Bible Lands Museum Jerusalem houses one of the world’s most important collections of Biblical artifacts.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-10T11:00:38.000Z"
-    },
-    {
-      "title": "Marvel's Wolverine Set To End Sony's Historic 11-Year GOTY Run",
-      "link": "https://www.polygon.com/marvels-wolverine-sony-goty-run/",
-      "summary": "Marvel's Wolverine on PS5 looks unlikely to nab a GOTY nomination at the 2026 Game Awards, the first time for a PlayStation exclusive since 2014.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-13T13:00:14.000Z"
-    },
-    {
-      "title": "CISA Adds 5 Actively Exploited Artifactory, ScreenConnect, and RouterOS Flaws to KEV",
-      "link": "https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html",
-      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has added five security flaws impacting JFrog Artifactory, ConnectWise ScreenConnect, and MikroTik RouterOS to its Known Exploited Vulnerabilities (KEV)…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-12T15:54:45.000Z"
-    },
-    {
-      "title": "Sacred Circles in Christianity and Buddhism",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/sacred-circles-in-christianity-and-buddhism/",
-      "summary": "Archaeologists have discovered dozens of eight-spoked wheels scratched into the floors, walls, and architectural elements of Greco-Roman temples, fountains, and street intersections. A circle divided…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-09T10:45:42.000Z"
-    },
-    {
-      "title": "CISA Calls for More Guidance, Less Spin, as Cyber Outages Escalate",
-      "link": "https://www.darkreading.com/cyber-risk/cisa-calls-for-more-guidance-less-spin-as-cyber-outages-escalate",
-      "summary": "A new joint government advisory signals a regulatory shift, pressing organizations to adopt more transparent breach notification and incident response protocols.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-11T18:44:03.000Z"
-    },
-    {
-      "title": "Spa Weekend Composer on Infusing Chaos, 'Beverly Hills Cop' Vibes",
-      "link": "https://bleedingcool.com/movies/spa-weekend-composer-on-infusing-chaos-beverly-hills-cop-vibes/",
-      "summary": "Composer Philip White (Supernatural) spoke to us about scoring the Black Bear comedy Spa Weekend, playing into scenarios, and more.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-13T13:16:08.000Z"
-    },
-    {
-      "title": "Flock Worker Calls Police On Reporter - For Filming Them in Public",
-      "link": "https://yro.slashdot.org/story/26/09/13/0650227/flock-worker-calls-police-on-reporter---for-filming-them-in-public?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"This is what happened when we tried to record Flock installing a new camera on public roads,\" says Emmy award-winning reporter Brendan Keefe in a new video for InvestigateTV. In an accompanying article, InvestigateTV…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-13T13:00:00.000Z"
-    },
-    {
-      "title": "$40 PS5 Game Now Available for $4 on PS Store",
-      "link": "https://comicbook.com/gaming/news/ps5-game-open-world-action-rpg-sale/",
-      "summary": "A popular PS5 game that normally costs $40 on the PlayStation Store is now available for $4 on the PS Store. There is also a PS4 version of the game in quesiton, with the same exact pricing. In fact, the game originally…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-13T13:07:07.000Z"
-    },
-    {
-      "title": "Anthropic CEO Dario Amodei Calls For AI Slowdown",
-      "link": "https://slashdot.org/story/26/09/12/1738240/anthropic-ceo-dario-amodei-calls-for-ai-slowdown?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from The New York Times: The chief executive of Anthropic called for a global slowdown of artificial intelligence development in a 3,800-word essay on Saturday, just days after one of…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-13T01:00:00.000Z"
-    },
-    {
-      "title": "Threat Actor Generates 1M Personalized Fraud Emails in 3 Days",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/1m-personalized-fraud-emails-3-days",
-      "summary": "Cybercriminals behind malicious email campaigns no longer have to compromise volume for credibility, or vice versa, thanks to AI.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-11T19:21:08.000Z"
-    },
-    {
-      "title": "I fixed a tractor using John Deere’s self-repair service. Farmers aren’t sold on it.",
-      "link": "https://arstechnica.com/gadgets/2026/09/i-fixed-a-tractor-using-john-deeres-self-repair-service-farmers-arent-sold-on-it/",
-      "summary": "The manufacturer has a service that lets owners repair their own equipment.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-13T11:00:41.000Z"
-    },
-    {
-      "title": "DC Vertigo, Black Label, Absolute, YA & Next Level NYCC Announcements",
-      "link": "https://bleedingcool.com/comics/dc-vertigo-black-label-absolute-ya-next-level-nycc-announcements/",
-      "summary": "DC Vertigo, Black Label, Absolute, YA Graphic Novel and DC Next Level announcements being made at New York Comic Con",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-13T12:58:16.000Z"
-    },
-    {
-      "title": "The Expanding World of Biblical Archaeology",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/the-expanding-world-of-biblical-archaeology/",
-      "summary": "Since the first issue of Biblical Archaeology Review was published 50 years ago, the landscape of biblical archaeology—both literal and figurative—has expanded in remarkable ways.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-11T10:00:06.000Z"
-    },
-    {
-      "title": "Will Reform Have To Give Their Mega Donations Back?",
-      "link": "https://www.bbc.co.uk/sounds/play/p0p8r5y6?at_medium=RSS&at_campaign=rss",
-      "summary": "The government is trying to change the law but will it affect Reform’s record donations?",
+      "title": "Questions mount over what an AI 'slowdown' would look like",
+      "link": "https://www.bbc.co.uk/news/articles/cwyzp47py48o?at_medium=RSS&at_campaign=rss",
+      "summary": "While pacing AI development might sound like a quick fix, it is far from an easy solution.",
       "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-09-13T11:35:00.000Z"
-    },
-    {
-      "title": "Reform's £72m donations 'entirely in line with law', Jenrick says",
-      "link": "https://www.bbc.co.uk/news/articles/ckgwkeg1vy8o?at_medium=RSS&at_campaign=rss",
-      "summary": "The government is trying to change the law on donations to UK political parties from British expats.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-13T12:05:43.000Z"
-    },
-    {
-      "title": "5 Near-Perfect Action Shows That Are Streaming Online for Free",
-      "link": "https://www.polygon.com/best-action-shows-free-online-streaming/",
-      "summary": "Some of the best entries in the genre don't require a paid subscription to be enjoyed.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-13T08:30:14.000Z"
-    },
-    {
-      "title": "Prime Video's Reacher Is Officially Returning Next Month After a Stellar Season 4",
-      "link": "https://www.polygon.com/reacher-fans-wont-have-to-wait-long-for-his-next-adventure/",
-      "summary": "Reacher season 4 may be ending, but Jack Reacher is already returning this October in a new book by Lee Child.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-13T08:00:14.000Z"
-    },
-    {
-      "title": "OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers",
-      "link": "https://thehackernews.com/2026/09/openai-agents-linked-to-rubygems.html",
-      "summary": "The \"major malicious attack\" that targeted RubyGems in May 2026 was the work of a swarm of OpenAI agents, according to a new report published by researchers Spencer Kitts, Thomas Larsen, and Sydney Von Arx. On May 12,…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-12T09:07:56.000Z"
+      "date": "2026-09-13T18:20:22.000Z"
     },
     {
       "title": "Who Was Cornelius the Centurion?",
@@ -154,52 +18,20 @@
       "date": "2026-09-11T13:18:15.000Z"
     },
     {
-      "title": "Attackers Use Passkey Phishing to Hijack Microsoft Cloud Accounts and Exfiltrate Data",
-      "link": "https://thehackernews.com/2026/09/attackers-use-passkey-phishing-to.html",
-      "summary": "Microsoft has disclosed details of two campaigns in which threat actors are abusing third-party email delivery infrastructure to blast financial fraud scam messages and using passkey-themed social engineering to breach…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-13T10:11:48.000Z"
-    },
-    {
-      "title": "5 Reasons Multiverses Are Bad for Comics",
-      "link": "https://comicbook.com/comics/list/5-reasons-multiverses-are-bad-for-comics/",
-      "summary": "Image Courtesy of Marvel Comics The multiverse has become one of the most talked about aspects of superhero universes, especially in recent years. While the idea has been around in science fiction for decades, it was…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-13T13:00:00.000Z"
-    },
-    {
-      "title": "Vivienne Medrano reveals her plan for Helluva Boss / Hazbin Hotel crossovers",
-      "link": "https://www.polygon.com/vivziepop-interview-helluva-boss-hazbin-hotel-crossover/",
-      "summary": "Vivziepop says Helluva Boss season 3 will feature at least one Hazbin Hotel Easter egg. The new season launches Oct. 14, with part one of two.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-13T12:00:14.000Z"
-    },
-    {
-      "title": "Doctor Who: SNL UK's George Fouracres Discusses Growing Casting Buzz",
-      "link": "https://bleedingcool.com/tv/doctor-who-snl-uks-george-fouracres-discusses-growing-casting-buzz/",
-      "summary": "Richard Osman and a growing number of Doctor Who fans online wouldn't mind seeing SNL UK's George Fouracres get a shot at being the Doctor.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-13T12:37:09.000Z"
-    },
-    {
-      "title": "'Godzilla Minus Zero' Director Reveals How Steven Spielberg Inspired the Sci-Fi Sequel",
-      "link": "https://www.polygon.com/godzilla-minus-zero-director-interview/",
-      "summary": "Takashi Yamazaki talks Godzilla Minus Zero for Polygon's 2026 Fall Preview",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-13T11:00:14.000Z"
-    },
-    {
-      "title": "Automattic's Matt Mullenweg Claims He's Back 'In Control'",
-      "link": "https://slashdot.org/story/26/09/12/1751208/automattics-matt-mullenweg-claims-hes-back-in-control?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Less than 48 hours after Automattic's board placed Matt Mullenweg on leave, Mullenweg told employees he was back \"in control\" of the company and that the board was again in agreement. 404 Media cited Slack screenshots…",
+      "title": "Malicious OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers in May",
+      "link": "https://slashdot.org/story/26/09/12/2318204/malicious-openai-agents-linked-to-rubygems-campaign-that-gained-rce-on-rubydoc-servers-in-may?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A swarm of OpenAI agents launched a \"major malicious attack\" against RubyGems last May, according to a new report. That coordinated attack hit Ruby's package manager \"with hundreds of junk gems, prompting the…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-12T21:00:00.000Z"
+      "date": "2026-09-13T09:00:00.000Z"
+    },
+    {
+      "title": "California's Gig Drivers Just Secured Collective Bargaining Power with Newly Certified Union",
+      "link": "https://yro.slashdot.org/story/26/09/13/0245218/californias-gig-drivers-just-secured-collective-bargaining-power-with-newly-certified-union?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A union representing Uber and Lyft drivers was just certified by California's Public Employment Relations Board, officially recognizing them as the drivers' bargaining organization. The Sacramento Bee reports that this…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-13T17:34:00.000Z"
     },
     {
       "title": "King Hezekiah in the Bible: Royal Seal of Hezekiah Comes to Light",
@@ -210,6 +42,142 @@
       "date": "2026-09-10T11:00:28.000Z"
     },
     {
+      "title": "5 Great Sigourney Weaver Performances Outside of Ripley, & 2 Nearly Earned Her A Pair of Academy Awards in 1 Year",
+      "link": "https://comicbook.com/movies/list/5-great-sigourney-weaver-performances-outside-of-ripley-2-nearly-earned-her-a-pair-of-academy-awards-in-1-year/",
+      "summary": "There are a few actresses who can disappear into a role while somehow remaining the most interesting person in the room. Sigourney Weaver is one of them. For many moviegoers, she’ll always be Ellen Ripley, the ultimate…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-13T18:30:00.000Z"
+    },
+    {
+      "title": "Tracing the Justinian Plague",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/tracing-the-justinian-plague/",
+      "summary": "The Justinian Plague (c. 541–750 CE) was one of the deadliest pandemics in human history. The Byzantine chronicler Procopius recorded that the plague claimed the…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-09T10:00:08.000Z"
+    },
+    {
+      "title": "Peacock’s Friday the 13th Prequel Is Already Looking Like a Must-Watch",
+      "link": "https://www.polygon.com/peacock-tv-friday-the-13th-prequel-halloween-trailer/",
+      "summary": "Peacock has released a new official trailer for Crystal Lake, the Friday the 13th prequel series starring Linda Cardellini",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-13T15:30:14.000Z"
+    },
+    {
+      "title": "'Buddy' is Totally Bonkers, But it Will Never Eclipse My Favorite “I Hate Barney” Thriller",
+      "link": "https://www.polygon.com/buddy-vs-death-to-smoochy/",
+      "summary": "The best anti-Barney movie isn't Buddy, its the 2002 comedy Death to Smoochy starring Robin Williams and Edward Norton with director Danny DeVito",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-13T18:00:14.000Z"
+    },
+    {
+      "title": "Cyberpunk: Edgerunners Is Overwatch's Next Big Anime Collaboration",
+      "link": "https://www.polygon.com/cyberpunk-edgerunners-overwatch/",
+      "summary": "Cyberpunk 2077: Ultimate Edition will also come to Battle.net later this year",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-13T17:28:43.000Z"
+    },
+    {
+      "title": "I fixed a tractor using John Deere’s self-repair service. Farmers aren’t sold on it.",
+      "link": "https://arstechnica.com/gadgets/2026/09/i-fixed-a-tractor-using-john-deeres-self-repair-service-farmers-arent-sold-on-it/",
+      "summary": "The manufacturer has a service that lets owners repair their own equipment.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-13T11:00:41.000Z"
+    },
+    {
+      "title": "CISA Adds 5 Actively Exploited Artifactory, ScreenConnect, and RouterOS Flaws to KEV",
+      "link": "https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html",
+      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has added five security flaws impacting JFrog Artifactory, ConnectWise ScreenConnect, and MikroTik RouterOS to its Known Exploited Vulnerabilities (KEV)…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-12T15:54:45.000Z"
+    },
+    {
+      "title": "AEW Collision Review: Tribute Episode Honors The Butcher",
+      "link": "https://bleedingcool.com/tv/aew-collision-review-tribute-episode-honors-the-butcher/",
+      "summary": "Greetings, comrades! El Presidente reviews AEW Collision's emotional tribute to The Butcher, featuring Death Riders dominance and Daniel Garcia's charity victory.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-13T18:37:10.000Z"
+    },
+    {
+      "title": "Anthropic CEO Dario Amodei Calls For AI Slowdown",
+      "link": "https://slashdot.org/story/26/09/12/1738240/anthropic-ceo-dario-amodei-calls-for-ai-slowdown?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from The New York Times: The chief executive of Anthropic called for a global slowdown of artificial intelligence development in a 3,800-word essay on Saturday, just days after one of…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-13T01:00:00.000Z"
+    },
+    {
+      "title": "Flock Worker Calls Police On Reporter - For Filming Them in Public",
+      "link": "https://yro.slashdot.org/story/26/09/13/0650227/flock-worker-calls-police-on-reporter---for-filming-them-in-public?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "\"This is what happened when we tried to record Flock installing a new camera on public roads,\" says Emmy award-winning reporter Brendan Keefe in a new video for InvestigateTV. In an accompanying article, InvestigateTV…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-13T13:00:00.000Z"
+    },
+    {
+      "title": "Sony is the Bad Guy of 2026, but it’s Going to Win Anyway",
+      "link": "https://www.polygon.com/patch-notes-fall-preview-nintendo-sony-bad-guy/",
+      "summary": "Polygon previews an exciting but lopsided fall, dominated by GTA 6 and Zelda, with PlayStation playing the role of villain",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-13T14:14:58.000Z"
+    },
+    {
+      "title": "Deathstroke: The Terminator #7 Preview: Mom's the Word",
+      "link": "https://bleedingcool.com/comics/deathstroke-the-terminator-7-preview-moms-the-word/",
+      "summary": "Deathstroke: The Terminator #7 reveals how Adeline traded motherhood for military ranks and became the deadliest Deathstroke the DCU has ever crossed paths with.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-13T18:26:09.000Z"
+    },
+    {
+      "title": "10 Near-Perfect GameCube Games Nobody Played",
+      "link": "https://www.polygon.com/most-underrated-nintendo-gamecube-games/",
+      "summary": "The GameCube hosted an assortment of unique and rewarding games that didn't get the response they deserved.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-13T17:00:14.000Z"
+    },
+    {
+      "title": "Sacred Circles in Christianity and Buddhism",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/sacred-circles-in-christianity-and-buddhism/",
+      "summary": "Archaeologists have discovered dozens of eight-spoked wheels scratched into the floors, walls, and architectural elements of Greco-Roman temples, fountains, and street intersections. A circle divided…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-09T10:45:42.000Z"
+    },
+    {
+      "title": "Spooky Crunchyroll Anime Confirms Release Date With New Trailer – Watch",
+      "link": "https://comicbook.com/anime/news/spooky-crunchyroll-anime-confirms-release-date-with-new-trailer-watch/",
+      "summary": "© Nabana Naba,Dr.Poro,SHONENGAHOSHA/ “The Vermilion Mask” Production Committee There’s a spooky looking new action anime hit coming to Crunchyroll this Fall, and has officially set its release date with a new trailer…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-13T18:29:34.000Z"
+    },
+    {
+      "title": "Trump doubles down on united Ireland comments on day two of visit",
+      "link": "https://www.bbc.co.uk/news/articles/cx2z79n0eeno?at_medium=RSS&at_campaign=rss",
+      "summary": "The US president was speaking at the Irish Open on Sunday and said \"many people agree\" with his comments.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-13T18:09:56.000Z"
+    },
+    {
+      "title": "CISA Calls for More Guidance, Less Spin, as Cyber Outages Escalate",
+      "link": "https://www.darkreading.com/cyber-risk/cisa-calls-for-more-guidance-less-spin-as-cyber-outages-escalate",
+      "summary": "A new joint government advisory signals a regulatory shift, pressing organizations to adopt more transparent breach notification and incident response protocols.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-11T18:44:03.000Z"
+    },
+    {
       "title": "Sam Bankman-Fried, Former Crypto Billionaire, Appeals His Conviction To the US Supreme Court",
       "link": "https://yro.slashdot.org/story/26/09/12/2151206/sam-bankman-fried-former-crypto-billionaire-appeals-his-conviction-to-the-us-supreme-court?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "summary": "America's highest court heard Sam Bankman-Fried's request for a new trial on Thursday, CNN reports. But they add that \"the former crypto mogul who was convicted of defrauding investors by secretly diverting billions of…",
@@ -218,28 +186,28 @@
       "date": "2026-09-13T05:00:00.000Z"
     },
     {
-      "title": "Malicious OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers in May",
-      "link": "https://slashdot.org/story/26/09/12/2318204/malicious-openai-agents-linked-to-rubygems-campaign-that-gained-rce-on-rubydoc-servers-in-may?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "A swarm of OpenAI agents launched a \"major malicious attack\" against RubyGems last May, according to a new report. That coordinated attack hit Ruby's package manager \"with hundreds of junk gems, prompting the…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-13T09:00:00.000Z"
-    },
-    {
-      "title": "These 4 Great Horror Movies Are Free to Stream (But Not For Much Longer)",
-      "link": "https://comicbook.com/movies/list/these-4-great-horror-movies-are-free-to-stream-but-not-for-much-longer/",
-      "summary": "September is officially here, and that means autumn is right around the corner, which brings spooky season with it. The leaves are changing colors, the days are getting shorter, and there’s a sudden urge to watch a…",
-      "source": "ComicBook.com",
+      "title": "Bobiverse Author & Narrator Discuss Book 6: \"The Infinite Extent\"",
+      "link": "https://bleedingcool.com/tv/bobiverse-author-narrator-discuss-book-6-the-infinite-extent/",
+      "summary": "Bobiverse author Dennis E. Taylor and narrator Ray Porter spoke with us about Book 6: \"The Infinite Extent\" and the future of the franchise.",
+      "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-13T13:00:00.000Z"
+      "date": "2026-09-13T18:07:07.000Z"
     },
     {
-      "title": "75 Years Later, Disney's Bonkers Fantasy Masterpiece Officially Gets a New Sequel",
-      "link": "https://www.polygon.com/wondrous-exclusive-excerpt/",
-      "summary": "‘Wondrous’ sends Alice on a strange new adventure",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-13T10:00:14.000Z"
+      "title": "Threat Actor Generates 1M Personalized Fraud Emails in 3 Days",
+      "link": "https://www.darkreading.com/cyberattacks-data-breaches/1m-personalized-fraud-emails-3-days",
+      "summary": "Cybercriminals behind malicious email campaigns no longer have to compromise volume for credibility, or vice versa, thanks to AI.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-11T19:21:08.000Z"
+    },
+    {
+      "title": "The Expanding World of Biblical Archaeology",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/the-expanding-world-of-biblical-archaeology/",
+      "summary": "Since the first issue of Biblical Archaeology Review was published 50 years ago, the landscape of biblical archaeology—both literal and figurative—has expanded in remarkable ways.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-11T10:00:06.000Z"
     },
     {
       "title": "When the Whole Company Adopts AI: What It Does to Your SOC",
@@ -250,12 +218,44 @@
       "date": "2026-09-12T10:24:44.000Z"
     },
     {
-      "title": "Tracing the Justinian Plague",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/tracing-the-justinian-plague/",
-      "summary": "The Justinian Plague (c. 541–750 CE) was one of the deadliest pandemics in human history. The Byzantine chronicler Procopius recorded that the plague claimed the…",
+      "title": "OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers",
+      "link": "https://thehackernews.com/2026/09/openai-agents-linked-to-rubygems.html",
+      "summary": "The \"major malicious attack\" that targeted RubyGems in May 2026 was the work of a swarm of OpenAI agents, according to a new report published by researchers Spencer Kitts, Thomas Larsen, and Sydney Von Arx. On May 12,…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-12T09:07:56.000Z"
+    },
+    {
+      "title": "Attackers Use Passkey Phishing to Hijack Microsoft Cloud Accounts and Exfiltrate Data",
+      "link": "https://thehackernews.com/2026/09/attackers-use-passkey-phishing-to.html",
+      "summary": "Microsoft has disclosed details of two campaigns in which threat actors are abusing third-party email delivery infrastructure to blast financial fraud scam messages and using passkey-themed social engineering to breach…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-13T10:11:48.000Z"
+    },
+    {
+      "title": "10 Great Biblical Artifacts at the Bible Lands Museum Jerusalem",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-artifacts/artifacts-and-the-bible/10-great-biblical-artifacts-at-the-bible-lands-museum-jerusalem/",
+      "summary": "10 The Bible Lands Museum Jerusalem houses one of the world’s most important collections of Biblical artifacts.",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
-      "date": "2026-09-09T10:00:08.000Z"
+      "date": "2026-09-10T11:00:38.000Z"
+    },
+    {
+      "title": "Netflix’s Biggest Cyberpunk Series Is Doing Something Completely Different in Season 2",
+      "link": "https://www.polygon.com/cyberpunk-edgerunners-2-new-director-interview/",
+      "summary": "Cyberpunk: Edgerunners 2 director Kai Ikarashi explains how light, music, and a fallen legend give the Netflix series a striking new identity.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-13T15:00:14.000Z"
+    },
+    {
+      "title": "McFarlane Toys Brings Back Sinestro (Green Lantern Corps) Figure",
+      "link": "https://bleedingcool.com/collectibles/mcfarlane-toys-brings-back-sinestro-green-lantern-corps-figure/",
+      "summary": "McFarlane Toys brings back Sinestro (Green Lantern Corps) with a 7\" DC Multiverse figure — pre-orders are live.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-13T18:22:08.000Z"
     }
   ]
 }
