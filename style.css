@@ -241,6 +241,12 @@ a:hover {
   max-width: 640px;
 }
 
+.contact-social {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+}
+
 .quote {
   max-width: 640px;
   margin: 0 auto;
