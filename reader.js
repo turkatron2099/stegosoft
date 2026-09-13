@@ -97,6 +97,7 @@ const marksPanel = $("marks-panel");
 const marksCount = $("marks-count");
 const underlineBtn = $("underline-btn");
 const progressBar = $("reader-progress-bar");
+const toolbarEl = document.querySelector(".reader-toolbar");
 const resumePill = $("resume-pill");
 
 let underlineMode = false;
@@ -275,7 +276,10 @@ function toggleBookmark(index) {
 
 function topVisibleBlockIndex() {
   const blocks = contentEl.querySelectorAll(".reader-block");
-  const threshold = 90; // below the sticky toolbar
+  // The toolbar's actual height varies (mobile vs. desktop, font size, etc.),
+  // so measure it live rather than assume a fixed pixel value — a stale
+  // guess here previously caused the wrong block to be picked as "current".
+  const threshold = (toolbarEl ? toolbarEl.getBoundingClientRect().bottom : 90) + 8;
   let best = 0;
   for (const block of blocks) {
     const rect = block.getBoundingClientRect();
@@ -341,7 +345,8 @@ function markRow(label, onJump, onRemove) {
 function jumpToBlock(index) {
   const el = contentEl.querySelector(`.reader-block[data-i="${index}"]`);
   if (!el) return;
-  const y = el.getBoundingClientRect().top + window.scrollY - 100;
+  const offset = (toolbarEl ? toolbarEl.getBoundingClientRect().height : 90) + 10;
+  const y = el.getBoundingClientRect().top + window.scrollY - offset;
   window.scrollTo({ top: y, behavior: "smooth" });
   el.classList.remove("reader-flash");
   void el.offsetWidth; // restart the animation
@@ -488,7 +493,8 @@ function restorePosition() {
   }
   const el = contentEl.querySelector(`.reader-block[data-i="${state.block}"]`);
   if (el) {
-    window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 100);
+    const offset = (toolbarEl ? toolbarEl.getBoundingClientRect().height : 90) + 10;
+    window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - offset);
   }
   resumePill.hidden = false;
   resumePill.textContent = `Resumed at ${Math.round(state.pct * 100)}% · Start from the top`;
