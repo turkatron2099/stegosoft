@@ -172,6 +172,13 @@ a:hover {
   color: var(--accent);
 }
 
+/* Touch devices always get it (no keyboard to press "r" on); on a
+   fine-pointer device it also appears once dogfightPlayed is true — see
+   updateResetBtnVisibility() in hero-logo.js. */
+.logo-reset-btn.is-visible {
+  display: flex;
+}
+
 @media (pointer: coarse) {
   .logo-reset-btn {
     display: flex;

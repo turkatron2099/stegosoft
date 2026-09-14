@@ -92,6 +92,19 @@
     document.dispatchEvent(new KeyboardEvent("keydown", { key: "r" }));
   });
 
+  // On a fine-pointer (desktop) device the button stays hidden — pressing
+  // "r" is the normal way to reset there — until the dogfight's actually
+  // been played through once and the counter's back to just counting up
+  // again from 501: at that point clicking the logo no longer does
+  // anything dramatic, so a plain "r" keypress isn't very discoverable
+  // anymore and the button surfaces as the obvious way back to a clean
+  // slate. Touch devices show it unconditionally (see the CSS), since they
+  // have no keyboard to reset from at all.
+  function updateResetBtnVisibility() {
+    resetBtn.classList.toggle("is-visible", dogfightPlayed);
+  }
+  updateResetBtnVisibility();
+
   // --- DVD-bounce / keepy-uppy physics ---
   // SPEED/GRAVITY/CLICK_IMPULSE/MAX_FALL_SPEED are all tuned per 60fps-equivalent
   // frame; tick() scales position/velocity updates by dtScale (real elapsed time
@@ -387,6 +400,7 @@
     renderCounter();
     dogfightPlayed = true;
     localStorage.setItem(DOGFIGHT_PLAYED_KEY, "1");
+    updateResetBtnVisibility();
   });
 
   // Ends the roam/fall chaos for good and puts the logo back exactly where
@@ -520,6 +534,7 @@
     renderCounter();
     dogfightPlayed = false;
     localStorage.removeItem(DOGFIGHT_PLAYED_KEY);
+    updateResetBtnVisibility();
 
     if (rafId) {
       cancelAnimationFrame(rafId);
