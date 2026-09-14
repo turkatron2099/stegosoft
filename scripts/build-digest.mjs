@@ -18,6 +18,7 @@ const FEEDS = [
   { topic: "Comics", source: "ComicBook.com", url: "https://comicbook.com/feed/" },
   { topic: "Cybersecurity", source: "Krebs on Security", url: "https://krebsonsecurity.com/feed/" },
   { topic: "Cybersecurity", source: "The Hacker News", url: "https://feeds.feedburner.com/TheHackersNews" },
+  { topic: "Cybersecurity", source: "Simply Cyber (Gerald Auger)", url: "https://feeds.transistor.fm/simply-cyber" },
   { topic: "Cybersecurity", source: "Dark Reading", url: "https://www.darkreading.com/rss.xml" },
   { topic: "Top News", source: "NPR", url: "https://feeds.npr.org/1001/rss.xml" },
   { topic: "Top News", source: "BBC News", url: "http://feeds.bbci.co.uk/news/rss.xml" },
@@ -30,7 +31,11 @@ const TOPIC_LIMITS = {
   Gaming: 6,
   "Biblical Archaeology": 6,
   Comics: 6,
-  Cybersecurity: 6,
+  // Bumped from 6 now that there are 4 sources sharing this topic — at 6,
+  // The Hacker News's high posting frequency alone filled every slot with
+  // its own last ~3 days of posts, before Krebs, Dark Reading, or Simply
+  // Cyber ever got ranked by recency.
+  Cybersecurity: 9,
   "Top News": 2,
 };
 const DEFAULT_TOPIC_LIMIT = 6;
@@ -157,7 +162,24 @@ async function main() {
   const finalItems = [];
   for (const [topic, items] of byTopic.entries()) {
     items.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-    finalItems.push(...items.slice(0, TOPIC_LIMITS[topic] ?? DEFAULT_TOPIC_LIMIT));
+    const limit = TOPIC_LIMITS[topic] ?? DEFAULT_TOPIC_LIMIT;
+
+    // Pure cross-source recency would let a high-frequency source (several
+    // posts/day) fill every slot in a topic before a lower-frequency one
+    // (e.g. a once-a-weekday show) ever got ranked in, even though both
+    // belong there. Guarantee each source's single most recent item a
+    // slot first, then fill whatever's left by recency across the rest.
+    const mostRecentBySource = new Map();
+    for (const item of items) {
+      if (!mostRecentBySource.has(item.source)) mostRecentBySource.set(item.source, item);
+    }
+    const guaranteed = [...mostRecentBySource.values()];
+    const guaranteedSet = new Set(guaranteed);
+    const rest = items.filter((item) => !guaranteedSet.has(item));
+    const picked = [...guaranteed, ...rest].slice(0, limit);
+    picked.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+    finalItems.push(...picked);
   }
 
   if (finalItems.length === 0) {
