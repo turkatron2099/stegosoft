@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprite Creator — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="sprite-creator.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="sprite-intro">
+    <div class="wrap">
+      <h1>Sprite Creator</h1>
+      <p class="tagline">
+        Draw a 1-bit sprite the same way the Thagomizer VM stores one — every pixel is just on
+        or off, and the color gets picked in-game with <code>SET_COLOR</code> right before
+        <code>SPRITE</code> draws it, so what you paint here is shape only. Pick a preview color
+        below just to see it clearly while you work.
+      </p>
+    </div>
+  </section>
+
+  <section class="sprite-panel">
+    <div class="wrap">
+
+      <div class="sprite-controls">
+        <label class="sprite-field">
+          Name
+          <input type="text" id="name-input" value="my_sprite" autocomplete="off" spellcheck="false">
+        </label>
+        <label class="sprite-field">
+          Width
+          <span class="sprite-field-row">
+            <input type="number" id="width-input" min="1" max="64" value="16">
+            <span class="sprite-field-unit">px</span>
+          </span>
+        </label>
+        <label class="sprite-field">
+          Height
+          <span class="sprite-field-row">
+            <input type="number" id="height-input" min="1" max="64" value="16">
+            <span class="sprite-field-unit">px</span>
+          </span>
+        </label>
+      </div>
+
+      <div class="sprite-workspace">
+        <div class="sprite-canvas-col">
+          <div class="sprite-canvas-wrap">
+            <canvas id="grid-canvas"></canvas>
+          </div>
+          <div class="sprite-actions">
+            <button type="button" id="erase-toggle" class="sprite-toggle" aria-pressed="false">Eraser</button>
+            <button type="button" id="clear-btn">Clear</button>
+            <button type="button" id="invert-btn">Invert</button>
+          </div>
+        </div>
+
+        <div class="sprite-side-col">
+          <div class="sprite-preview-block">
+            <span class="sprite-side-label">Preview color (display only)</span>
+            <div class="palette-grid" id="palette-grid"></div>
+          </div>
+
+          <div class="sprite-preview-block">
+            <span class="sprite-side-label">Actual size</span>
+            <div class="sprite-truesize-wrap">
+              <canvas id="truesize-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sprite-output">
+        <span class="sprite-side-label">.sprite line — paste directly into a .asm file</span>
+        <textarea id="output-line" readonly rows="3" spellcheck="false"></textarea>
+        <div class="sprite-output-actions">
+          <button type="button" id="copy-btn">Copy</button>
+          <button type="button" id="download-btn">Download .txt</button>
+          <a id="download-link" hidden></a>
+        </div>
+        <p class="sprite-output-status" id="copy-status" hidden></p>
+      </div>
+
+      <p class="sprite-note">
+        Matches <code>docs/vm-spec.md</code>'s sprite format exactly: row-major, MSB-first,
+        each row padded to a whole byte (<code>ceil(width/8)</code> bytes/row) — the same packing
+        <code>toolchain/text-to-sprite.js</code> produces. Width and height are capped at 64px
+        here since the product target screen is only 160&times;128 and the Gamebuino profile
+        80&times;64 — the format itself allows up to 255 either way, per the VM spec's sprite
+        table. Palette indices 9 and 11 (marked here) are reserved for boot/menu chrome and
+        shouldn't be used to color a sprite drawn inside a game.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte</span>
+  </div>
+</footer>
+
+<script src="sprite-creator.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>

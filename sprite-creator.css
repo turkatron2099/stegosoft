@@ -1,0 +1,257 @@
+.sprite-intro {
+  padding: 56px 0 8px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, var(--lighter-background), var(--background) 70%);
+}
+
+.sprite-intro h1 {
+  color: var(--foreground);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.sprite-intro .tagline {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--light-foreground);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sprite-intro .tagline code,
+.sprite-note code {
+  background: var(--dark-background);
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.85em;
+}
+
+.sprite-panel {
+  padding: 40px 0 80px;
+}
+
+.sprite-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sprite-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--light-foreground);
+  font-size: 0.85rem;
+}
+
+.sprite-field input[type="text"],
+.sprite-field input[type="number"] {
+  background: var(--dark-background);
+  color: var(--foreground);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.sprite-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#name-input {
+  width: 220px;
+}
+
+.sprite-field-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sprite-field-row input[type="number"] {
+  width: 80px;
+}
+
+.sprite-field-unit {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.sprite-workspace {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.sprite-canvas-col {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.sprite-canvas-wrap {
+  background: #000;
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  padding: 10px;
+  overflow: auto;
+  max-width: 100%;
+}
+
+#grid-canvas {
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.sprite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.sprite-actions button,
+.sprite-output-actions button {
+  background: var(--lighter-background);
+  color: var(--foreground);
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.sprite-actions button:hover,
+.sprite-output-actions button:hover {
+  border-color: var(--accent);
+  transform: scale(1.04);
+}
+
+.sprite-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--dark-background);
+  border-color: var(--accent);
+}
+
+.sprite-side-col {
+  flex: 0 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sprite-side-label {
+  display: block;
+  color: var(--light-foreground);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+
+.palette-swatch {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  border: 2px solid var(--muted);
+  cursor: pointer;
+  padding: 0;
+}
+
+.palette-swatch:hover {
+  border-color: var(--light-foreground);
+}
+
+.palette-swatch.is-selected {
+  border-color: var(--foreground);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.palette-swatch.is-reserved::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  background:
+    linear-gradient(45deg, transparent 46%, rgba(0, 0, 0, 0.55) 46%, rgba(0, 0, 0, 0.55) 54%, transparent 54%);
+}
+
+.sprite-truesize-wrap {
+  background: #000;
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+#truesize-canvas {
+  image-rendering: pixelated;
+}
+
+.sprite-output {
+  margin-top: 32px;
+}
+
+#output-line {
+  width: 100%;
+  resize: vertical;
+  background: var(--dark-background);
+  color: var(--foreground);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+#output-line:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.sprite-output-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.sprite-output-status {
+  margin-top: 10px;
+  color: var(--teal);
+  font-size: 0.85rem;
+}
+
+.sprite-note {
+  max-width: 640px;
+  margin: 32px auto 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .sprite-side-col {
+    flex: 1 1 100%;
+  }
+}
