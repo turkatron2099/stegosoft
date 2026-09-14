@@ -659,7 +659,7 @@
           type: "flamingo",
           flipped: Math.random() < 0.5,
           emoji: "🦩",
-          size: 18,
+          size: 24,
         });
       } else {
         roadside.push({
