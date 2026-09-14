@@ -579,7 +579,7 @@
 
     let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, roadsideTimer, popText, roadScroll;
     let turtles, turtleTimer;
-    let coconutTimer;
+    let treesSinceCoconut, coconutEvery;
 
     function resetGameplay() {
       const isTruck = selection.vehicle.id === "truck";
@@ -609,28 +609,45 @@
       // gap before the first one, and only ever one on screen at a time.
       turtles = [];
       turtleTimer = randInt(600, 1000);
-      // Occasional, not constant — see trySpawnCoconut.
-      coconutTimer = randInt(150, 300);
+      // Counts trees (not flamingos) spawned since the last coconut, so a
+      // new one is due roughly once every coconutEvery trees rather than
+      // on a fixed clock — see spawnRoadsideItem and the update() check
+      // below.
+      treesSinceCoconut = 0;
+      coconutEvery = randInt(12, 18);
     }
 
     function spawnTurtle() {
       const side = Math.random() < 0.5 ? "left" : "right";
+      const y = -40;
+      // Steer clear of a tree/flamingo already at a similar depth on that
+      // side — both scroll at the same SCROLL_SPEED afterward, so a safe
+      // gap here (same trick as ROADSIDE_MIN_GAP) stays safe for as long as
+      // the turtle's on screen, instead of it visually crawling across a
+      // tree's canopy for its whole trip down.
+      const blocked = roadside.some((r) => r.side === side && Math.abs(r.y - y) < ROADSIDE_MIN_GAP);
+      if (blocked) return false;
       turtles.push({
         side,
-        y: -40,
+        y,
         // Ambles slowly back and forth within the grass strip, well clear
         // of the road on either side — see the drift clamp in update().
         xJitter: rand(-10, 10),
         driftSpeed: rand(0.12, 0.22) * (Math.random() < 0.5 ? -1 : 1),
         size: 26,
       });
+      return true;
     }
 
     function spawnRoadsideItem() {
       const side = Math.random() < 0.5 ? "left" : "right";
       const y = -60;
-      const blocked = roadside.some((r) => r.side === side && Math.abs(r.y - y) < ROADSIDE_MIN_GAP);
-      if (blocked) return false;
+      const blockedByRoadside = roadside.some((r) => r.side === side && Math.abs(r.y - y) < ROADSIDE_MIN_GAP);
+      // Also steer clear of a turtle already ambling on that side, so a
+      // fresh tree can't spawn right where it is and end up scrolling down
+      // in lockstep with it — same reasoning as spawnTurtle's own check.
+      const blockedByTurtle = turtles.some((t) => t.side === side && Math.abs(t.y - y) < ROADSIDE_MIN_GAP);
+      if (blockedByRoadside || blockedByTurtle) return false;
       // Mostly palm trees, with an occasional flamingo standing still in the
       // grass — facing direction is picked once here and never changes,
       // independent of which side of the road it landed on.
@@ -653,6 +670,7 @@
           emoji: "🌴",
           size: 40,
         });
+        treesSinceCoconut++;
       }
       return true;
     }
@@ -664,18 +682,31 @@
     // not instead of, the roadside's usual downward scroll.
     function trySpawnCoconut() {
       const candidates = roadside.filter((t) => t.type === "tree" && !t.coconut && t.y > 0 && t.y < H - 40);
-      if (!candidates.length) return;
+      if (!candidates.length) return false;
       const tree = candidates[randInt(0, candidates.length - 1)];
-      tree.coconut = { offset: 0, vy: 0 };
+      // dir picks which way it drifts away from the trunk as it falls —
+      // see COCONUT_DRIFT_FRAC and the draw-side code below.
+      tree.coconut = { offset: 0, vy: 0, dir: Math.random() < 0.5 ? -1 : 1, landed: false };
+      return true;
     }
 
     function updateCoconuts(dt) {
       roadside.forEach((t) => {
-        if (!t.coconut) return;
+        if (!t.coconut || t.coconut.landed) return;
         t.coconut.vy += COCONUT_GRAVITY * dt;
         t.coconut.offset += t.coconut.vy * dt;
         const treeH = (TREE_CONTENT.sh / TREE_CONTENT.sw) * (t.size * 1.15);
-        if (t.coconut.offset >= COCONUT_GROUND_FRAC * treeH) t.coconut = null;
+        // Total fall distance is from the start point down to ground level,
+        // both measured the same way (see COCONUT_START_FRAC/GROUND_FRAC's
+        // comment) — not just COCONUT_GROUND_FRAC alone, which would stop
+        // it well short of the actual ground.
+        const fallDistance = (COCONUT_GROUND_FRAC - COCONUT_START_FRAC) * treeH;
+        if (t.coconut.offset >= fallDistance) {
+          // Stays right here (with the tree, so it keeps scrolling with
+          // it) instead of disappearing — it's landed, not gone.
+          t.coconut.offset = fallDistance;
+          t.coconut.landed = true;
+        }
       });
     }
 
@@ -748,18 +779,22 @@
       roadside = roadside.filter((t) => t.y < H + 60);
       roadScroll += SCROLL_SPEED * dt;
 
-      coconutTimer -= dt;
-      if (coconutTimer <= 0) {
-        trySpawnCoconut();
-        coconutTimer = randInt(150, 300);
+      if (treesSinceCoconut >= coconutEvery) {
+        // Only resets the count once a tree was actually available to drop
+        // from — if none is on screen right now, this just tries again
+        // next frame instead of silently skipping this cycle.
+        if (trySpawnCoconut()) {
+          treesSinceCoconut = 0;
+          coconutEvery = randInt(12, 18);
+        }
       }
       updateCoconuts(dt);
 
       turtleTimer -= dt;
       if (turtleTimer <= 0) {
         if (turtles.length === 0) {
-          spawnTurtle();
-          turtleTimer = randInt(600, 1000);
+          const spawned = spawnTurtle();
+          turtleTimer = spawned ? randInt(600, 1000) : 30; // blocked — try again shortly
         } else {
           turtleTimer = 60; // one's already out there — check back shortly
         }
@@ -1001,8 +1036,14 @@
     // is the bottom of the trunk, i.e. ground level.
     const COCONUT_START_FRAC = -0.2;
     const COCONUT_GROUND_FRAC = 0.5;
-    const COCONUT_GRAVITY = 0.08;
+    const COCONUT_GRAVITY = 0.025;
     const COCONUT_SIZE_FRAC = 0.32; // of the tree's own drawn width
+    // How far a falling coconut drifts sideways, away from the trunk, by
+    // the time it lands — fraction of the tree's own drawn width. Left or
+    // right is picked once at spawn; the drift itself grows in step with
+    // how far it's fallen, so it reads as tumbling away from the tree
+    // rather than sliding straight down through the trunk.
+    const COCONUT_DRIFT_FRAC = 0.35;
     const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
     const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
     // bird1's own content is {sx:0,sy:10,sw:32,sh:12} and bird2's is
@@ -1480,8 +1521,11 @@
           drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, cx, t.y, treeW);
           if (t.coconut && COCONUT_IMAGE.complete && COCONUT_IMAGE.naturalWidth) {
             const treeH = (TREE_CONTENT.sh / TREE_CONTENT.sw) * treeW;
+            const fallDistance = (COCONUT_GROUND_FRAC - COCONUT_START_FRAC) * treeH;
+            const progress = fallDistance > 0 ? t.coconut.offset / fallDistance : 0;
             const coconutY = t.y + COCONUT_START_FRAC * treeH + t.coconut.offset;
-            drawCroppedSprite(COCONUT_IMAGE, COCONUT_CONTENT, cx, coconutY, treeW * COCONUT_SIZE_FRAC);
+            const coconutX = cx + t.coconut.dir * COCONUT_DRIFT_FRAC * treeW * progress;
+            drawCroppedSprite(COCONUT_IMAGE, COCONUT_CONTENT, coconutX, coconutY, treeW * COCONUT_SIZE_FRAC);
           }
         } else {
           emoji(t.emoji, cx, t.y, t.size);
