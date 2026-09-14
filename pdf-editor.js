@@ -459,17 +459,48 @@
     sigSensitivityWrap.hidden = true;
 
     try {
-      sigStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+      sigStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "environment",
+          // Left unconstrained, a lot of cameras default to something
+          // like 640x480 — plenty for a video call, not for reading fine
+          // pen strokes. "ideal" asks for as much as the camera actually
+          // supports without failing the request if it can't go this high.
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
+        },
+      });
       sigVideo.srcObject = sigStream;
       // The `autoplay` attribute alone isn't reliable once srcObject is
       // assigned from script rather than set at parse time — play()
       // explicitly so the feed actually starts instead of sitting paused
       // on its first (black) frame.
       await sigVideo.play().catch(() => {});
+      await requestContinuousFocus(sigStream);
     } catch (err) {
       console.error(err);
       sigHint.textContent = "Couldn't access the camera — check permissions and try again.";
       sigCaptureBtn.disabled = true;
+    }
+  }
+
+  // Best-effort only: the focusMode constraint is part of the Image Capture
+  // API, which only a subset of Chromium-based browsers (mostly Android)
+  // expose on getCapabilities() — most laptop/desktop webcams give the OS,
+  // not the page, control of autofocus, so this quietly no-ops there rather
+  // than erroring. Where it *is* available, forcing "continuous" stops the
+  // camera settling on a stale focus point from before the paper was held
+  // up to it.
+  async function requestContinuousFocus(stream) {
+    const [track] = stream.getVideoTracks();
+    if (!track || !track.getCapabilities) return;
+    const caps = track.getCapabilities();
+    if (caps.focusMode && caps.focusMode.includes("continuous")) {
+      try {
+        await track.applyConstraints({ advanced: [{ focusMode: "continuous" }] });
+      } catch {
+        // unsupported in practice despite advertising the capability — fine, ignore
+      }
     }
   }
 
