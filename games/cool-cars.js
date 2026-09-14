@@ -1414,7 +1414,7 @@
     const PLAYER_CAR_EXTRA_FILTER = {
       "#f3922b": "saturate(1.6) brightness(1.2)", // orange
       "#ffd166": "saturate(1.6) brightness(2.5)", // yellow
-      "#ff5fa2": "saturate(1.3) brightness(1.1)", // pink
+      "#ff5fa2": "saturate(0.7) brightness(2.8)", // pink
     };
 
     // Same idea for the NPC sprite — its red base is brighter than the
@@ -1424,6 +1424,7 @@
     const NPC_CAR_EXTRA_FILTER = {
       "#f3922b": "saturate(1.4) brightness(1.4)", // orange
       "#ffd166": "saturate(1.5) brightness(1.8)", // yellow
+      "#ff5fa2": "saturate(0.5) brightness(2.7)", // pink
     };
     const PLAYER_TRUCK_EXTRA_FILTER = NPC_CAR_EXTRA_FILTER;
 
