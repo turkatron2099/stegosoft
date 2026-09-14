@@ -54,6 +54,16 @@
   const ANAGLYPH_MODE_KEY = "thagobyte-anaglyph-mode";
   // Same pattern again for the Virtual Boy tier at 400 clicks.
   const VIRTUALBOY_MODE_KEY = "thagobyte-virtualboy-mode";
+  // Set once a dogfight session has actually been played through to the
+  // leaderboard's "continue" (see the thagobyte:dogfight-continue listener
+  // below). Once true, a plain logo click past DOGFIGHT_AT no longer
+  // re-launches the game — it's already been unlocked and played, so from
+  // here on a click is just the normal "keep clicking the logo" gesture
+  // again: a random recolor, counting on up past 501. Launching the game
+  // again is still reachable through the deliberate shortcuts (Konami code,
+  // the 1-9 testing keys) — this only changes what a plain click does.
+  const DOGFIGHT_PLAYED_KEY = "thagobyte-dogfight-played";
+  let dogfightPlayed = localStorage.getItem(DOGFIGHT_PLAYED_KEY) === "1";
 
   let clicks = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
 
@@ -375,6 +385,8 @@
     clicks = 501;
     localStorage.setItem(STORAGE_KEY, String(clicks));
     renderCounter();
+    dogfightPlayed = true;
+    localStorage.setItem(DOGFIGHT_PLAYED_KEY, "1");
   });
 
   // Ends the roam/fall chaos for good and puts the logo back exactly where
@@ -479,11 +491,16 @@
     }
 
     if (clicks >= DOGFIGHT_AT) {
-      settleAsOriginal();
-      // Every click past the threshold (re)starts a fresh dogfight — the
-      // way back in once you've already unlocked it, without needing to
-      // reset and click 500 more times.
-      window.dispatchEvent(new Event("thagobyte:dogfight-start"));
+      if (dogfightPlayed) {
+        // Already played through at least once — a plain click here is
+        // back to just being a click, not a re-entry into the game. Same
+        // recolor flourish thagobyte:dogfight-continue itself uses.
+        logo.src = buildRandomColorLogoSrc();
+      } else {
+        // First time crossing the threshold — this is the actual unlock.
+        settleAsOriginal();
+        window.dispatchEvent(new Event("thagobyte:dogfight-start"));
+      }
     } else if (clicks >= VIRTUALBOY_AT) {
       settleAsVirtualBoy();
     } else if (clicks >= ANAGLYPH_AT) {
@@ -501,6 +518,8 @@
     clicks = 0;
     localStorage.removeItem(STORAGE_KEY);
     renderCounter();
+    dogfightPlayed = false;
+    localStorage.removeItem(DOGFIGHT_PLAYED_KEY);
 
     if (rafId) {
       cancelAnimationFrame(rafId);
