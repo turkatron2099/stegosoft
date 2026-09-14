@@ -38,6 +38,12 @@
   const sigCancelBtn = document.getElementById("sig-cancel-btn");
   const sigSensitivityWrap = document.getElementById("sig-sensitivity-wrap");
   const sigSensitivity = document.getElementById("sig-sensitivity");
+  const sigSavedBlock = document.getElementById("sig-saved-block");
+  const sigSavedThumb = document.getElementById("sig-saved-thumb");
+  const sigCameraBlock = document.getElementById("sig-camera-block");
+  const sigUseSavedBtn = document.getElementById("sig-use-saved-btn");
+  const sigCaptureNewBtn = document.getElementById("sig-capture-new-btn");
+  const sigForgetBtn = document.getElementById("sig-forget-btn");
 
   const THUMB_TARGET_WIDTH = 240; // px, rendered once and reused at whatever CSS size the grid displays it
   const EDITOR_TARGET_WIDTH = 700; // px, the big page-editor background render
@@ -394,11 +400,55 @@
 
   // --- signature capture: webcam -> thresholded, cropped, transparent PNG ---
 
+  const SIGNATURE_STORAGE_KEY = "thagobyte-pdfeditor-signature";
+
+  function getSavedSignature() {
+    try {
+      return localStorage.getItem(SIGNATURE_STORAGE_KEY);
+    } catch {
+      return null; // storage disabled (private browsing etc.) — just act as if nothing's saved
+    }
+  }
+
+  function saveSignatureLocally(dataUrl) {
+    try {
+      localStorage.setItem(SIGNATURE_STORAGE_KEY, dataUrl);
+    } catch {
+      // storage full/unavailable — the signature still works for this
+      // session, it just won't be remembered next time
+    }
+  }
+
+  function clearSavedSignature() {
+    try {
+      localStorage.removeItem(SIGNATURE_STORAGE_KEY);
+    } catch {
+      // nothing to do — if it couldn't be read/written, there's nothing stored to clear either
+    }
+  }
+
   let sigStream = null;
   let sigRawCanvas = null; // full-res captured frame, before threshold/crop
+  let sigBackgroundLum = 255; // this capture's measured paper brightness — see sampleBackgroundLuminance
 
   async function openSignatureCapture() {
+    sigBackdrop.hidden = false;
+
+    const saved = getSavedSignature();
+    if (saved) {
+      sigSavedThumb.src = saved;
+      sigSavedBlock.hidden = false;
+      sigCameraBlock.hidden = true;
+      sigHint.textContent = "Use your saved signature, or capture a new one.";
+      return;
+    }
+    await startCamera();
+  }
+
+  async function startCamera() {
     sigRawCanvas = null;
+    sigSavedBlock.hidden = true;
+    sigCameraBlock.hidden = false;
     sigHint.textContent = "Sign on white paper and hold it up to your camera, then capture.";
     sigVideo.hidden = false;
     sigPreviewCanvas.hidden = true;
@@ -407,7 +457,6 @@
     sigRetakeBtn.hidden = true;
     sigUseBtn.hidden = true;
     sigSensitivityWrap.hidden = true;
-    sigBackdrop.hidden = false;
 
     try {
       sigStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
@@ -434,6 +483,33 @@
     sigBackdrop.hidden = true;
   }
 
+  // Assumes the frame's corners are background paper rather than ink — true
+  // for basically any normal "hold the signed paper up to the camera"
+  // framing, since a signature naturally lands somewhere near the middle.
+  // Measuring each capture's own corner brightness (instead of assuming a
+  // fixed pure white) is what lets signatureToAlpha crop out all of the
+  // background regardless of the camera's actual exposure or lighting.
+  function sampleBackgroundLuminance(canvas) {
+    const w = canvas.width, h = canvas.height;
+    const ctx = canvas.getContext("2d");
+    const size = Math.max(4, Math.round(Math.min(w, h) * 0.05));
+    const corners = [
+      [0, 0],
+      [w - size, 0],
+      [0, h - size],
+      [w - size, h - size],
+    ];
+    let total = 0, count = 0;
+    for (const [cx, cy] of corners) {
+      const data = ctx.getImageData(cx, cy, size, size).data;
+      for (let i = 0; i < data.length; i += 4) {
+        total += 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+        count++;
+      }
+    }
+    return count ? total / count : 255;
+  }
+
   function captureSignatureFrame() {
     const w = sigVideo.videoWidth, h = sigVideo.videoHeight;
     if (!w || !h) return;
@@ -441,6 +517,7 @@
     sigRawCanvas.width = w;
     sigRawCanvas.height = h;
     sigRawCanvas.getContext("2d").drawImage(sigVideo, 0, 0, w, h);
+    sigBackgroundLum = sampleBackgroundLuminance(sigRawCanvas);
 
     sigVideo.hidden = true;
     sigPreviewCanvas.hidden = false;
@@ -474,20 +551,24 @@
   }
 
   // Turns a photographed signature into a transparent-background image:
-  // pixels near white become fully transparent, dark ink stays opaque, with
-  // a soft ramp between the two so anti-aliased pen strokes don't look
-  // jagged — then crops to the ink's own bounding box (plus a small margin)
-  // so what gets placed on the page is just the signature, not a big white
-  // rectangle around it.
-  function signatureToAlpha(sourceCanvas, sensitivity) {
+  // pixels near the measured background brightness become fully
+  // transparent, dark ink stays opaque, with a soft ramp between the two so
+  // anti-aliased pen strokes don't look jagged — then crops to the ink's own
+  // bounding box (plus a small margin) so what gets placed on the page is
+  // just the signature, not a rectangle of (now-transparent, but still
+  // there) background around it.
+  function signatureToAlpha(sourceCanvas, sensitivity, backgroundLum) {
     const w = sourceCanvas.width, h = sourceCanvas.height;
     const imageData = sourceCanvas.getContext("2d").getImageData(0, 0, w, h);
     const data = imageData.data;
 
-    // sensitivity 0-100 shifts how light a pixel can be and still count as
-    // ink — higher picks up fainter/lighter strokes but risks keeping more
-    // background shadow along with them.
-    const bright = 255 - sensitivity * 1.2; // at/above this luminance: fully transparent
+    // Anchored to this capture's own measured background brightness (see
+    // sampleBackgroundLuminance) rather than an assumed pure white — that's
+    // what makes this work regardless of the actual paper/lighting.
+    // sensitivity 0-100 shifts how far below that brightness a pixel can be
+    // and still count as background: higher picks up fainter/lighter
+    // strokes but risks keeping more background shadow along with them.
+    const bright = backgroundLum - (100 - sensitivity) * 0.6;
     const dark = bright - 60; // at/below this luminance: fully opaque
 
     let minX = w, minY = h, maxX = -1, maxY = -1;
@@ -528,7 +609,7 @@
 
   function renderSignaturePreview() {
     if (!sigRawCanvas) return;
-    const processed = signatureToAlpha(sigRawCanvas, parseInt(sigSensitivity.value, 10));
+    const processed = signatureToAlpha(sigRawCanvas, parseInt(sigSensitivity.value, 10), sigBackgroundLum);
     sigPreviewCanvas.width = processed.width;
     sigPreviewCanvas.height = processed.height;
     const ctx = sigPreviewCanvas.getContext("2d");
@@ -538,28 +619,51 @@
     ctx.drawImage(processed, 0, 0);
   }
 
-  function useSignature() {
-    if (!sigRawCanvas) return;
-    const processed = signatureToAlpha(sigRawCanvas, parseInt(sigSensitivity.value, 10));
-    const dataUrl = processed.toDataURL("image/png");
+  function loadDataUrlImage(dataUrl) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+      img.src = dataUrl;
+    });
+  }
+
+  // Shared by both the "just captured" and "reused a saved one" paths —
+  // knownW/knownH skip the extra image decode when the caller already has
+  // the pixel size on hand (a freshly processed canvas does).
+  async function addSignatureAnnotation(dataUrl, knownW, knownH) {
+    let w = knownW, h = knownH;
+    if (!w || !h) {
+      const img = await loadDataUrlImage(dataUrl);
+      w = img.naturalWidth;
+      h = img.naturalHeight;
+    }
     const bytes = dataUrlToBytes(dataUrl);
 
     const maxW = 200; // pt — signatures read best kept modest by default
-    const ratio = Math.min(1, maxW / processed.width);
-    const w = processed.width * ratio;
-    const h = processed.height * ratio;
+    const ratio = Math.min(1, maxW / w);
+    const outW = w * ratio;
+    const outH = h * ratio;
 
     currentAnnotations().push({
       type: "image",
-      x: clamp((editorPageW - w) / 2, 0, Math.max(0, editorPageW - w)),
-      y: clamp((editorPageH - h) / 2, 0, Math.max(0, editorPageH - h)),
-      w,
-      h,
+      x: clamp((editorPageW - outW) / 2, 0, Math.max(0, editorPageW - outW)),
+      y: clamp((editorPageH - outH) / 2, 0, Math.max(0, editorPageH - outH)),
+      w: outW,
+      h: outH,
       bytes,
       format: "png",
       dataUrl,
     });
     renderAnnotLayer();
+  }
+
+  async function useSignature() {
+    if (!sigRawCanvas) return;
+    const processed = signatureToAlpha(sigRawCanvas, parseInt(sigSensitivity.value, 10), sigBackgroundLum);
+    const dataUrl = processed.toDataURL("image/png");
+    saveSignatureLocally(dataUrl);
+    await addSignatureAnnotation(dataUrl, processed.width, processed.height);
     closeSignatureCapture();
   }
 
@@ -733,6 +837,17 @@
   sigSensitivity.addEventListener("input", renderSignaturePreview);
   sigBackdrop.addEventListener("click", (e) => {
     if (e.target === sigBackdrop) closeSignatureCapture();
+  });
+
+  sigUseSavedBtn.addEventListener("click", async () => {
+    const saved = getSavedSignature();
+    if (saved) await addSignatureAnnotation(saved);
+    closeSignatureCapture();
+  });
+  sigCaptureNewBtn.addEventListener("click", startCamera);
+  sigForgetBtn.addEventListener("click", () => {
+    clearSavedSignature();
+    startCamera();
   });
 
   resetBtn.addEventListener("click", () => {

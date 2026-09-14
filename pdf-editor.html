@@ -65,8 +65,9 @@
         Everything happens right here in your browser — nothing is uploaded to Thagobyte or
         anywhere else. Add more PDFs or images as new pages at any time, reorder or rotate any
         page, remove ones you don't want. Click Edit on any page to drop in text, images, or a
-        signature scanned from your webcam — drag to move, use the corner handle to resize —
-        then export a single combined PDF.
+        signature scanned from your webcam (remembered in this browser, so later PDFs can reuse
+        it without rescanning) — drag to move, use the corner handle to resize — then export a
+        single combined PDF.
       </p>
 
     </div>
@@ -101,18 +102,30 @@
     </div>
     <div class="sig-capture-body">
       <p class="sig-capture-hint" id="sig-hint">Sign on white paper and hold it up to your camera, then capture.</p>
-      <div class="sig-capture-stage">
-        <video id="sig-video" autoplay playsinline muted></video>
-        <canvas id="sig-preview-canvas" hidden></canvas>
+
+      <div class="sig-saved-block" id="sig-saved-block" hidden>
+        <img class="sig-saved-thumb" id="sig-saved-thumb" alt="Saved signature">
+        <div class="sig-capture-actions">
+          <button type="button" class="btn-primary" id="sig-use-saved-btn">Use Saved Signature</button>
+          <button type="button" class="btn-secondary" id="sig-capture-new-btn">Capture New</button>
+          <button type="button" class="btn-secondary" id="sig-forget-btn">Forget Saved</button>
+        </div>
       </div>
-      <label class="sig-sensitivity" id="sig-sensitivity-wrap" hidden>
-        Sensitivity
-        <input type="range" id="sig-sensitivity" min="0" max="100" value="50">
-      </label>
-      <div class="sig-capture-actions">
-        <button type="button" class="btn-primary" id="sig-capture-btn">Capture</button>
-        <button type="button" class="btn-secondary" id="sig-retake-btn" hidden>Retake</button>
-        <button type="button" class="btn-primary" id="sig-use-btn" hidden>Use Signature</button>
+
+      <div class="sig-camera-block" id="sig-camera-block" hidden>
+        <div class="sig-capture-stage">
+          <video id="sig-video" autoplay playsinline muted></video>
+          <canvas id="sig-preview-canvas" hidden></canvas>
+        </div>
+        <label class="sig-sensitivity" id="sig-sensitivity-wrap" hidden>
+          Sensitivity
+          <input type="range" id="sig-sensitivity" min="0" max="100" value="50">
+        </label>
+        <div class="sig-capture-actions">
+          <button type="button" class="btn-primary" id="sig-capture-btn">Capture</button>
+          <button type="button" class="btn-secondary" id="sig-retake-btn" hidden>Retake</button>
+          <button type="button" class="btn-primary" id="sig-use-btn" hidden>Use Signature</button>
+        </div>
       </div>
     </div>
   </div>
