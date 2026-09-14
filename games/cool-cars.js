@@ -232,6 +232,12 @@
   const TURTLE_IMAGE = new Image();
   TURTLE_IMAGE.src = "games/images/turtle.png";
 
+  // A flamingo that occasionally shows up as roadside furniture alongside
+  // the palm trees — see spawnRoadsideItem. Always standing still, unlike
+  // the turtle; only its left/right facing varies, chosen once at spawn.
+  const FLAMINGO_IMAGE = new Image();
+  FLAMINGO_IMAGE.src = "games/images/flamingo.png";
+
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
   GRASS_IMAGE.src = "games/images/grass.png";
@@ -587,10 +593,10 @@
       // Pre-seeded so the roadside isn't empty for the first couple seconds;
       // spacing here already respects ROADSIDE_MIN_GAP.
       roadside = [
-        { side: "left", y: -200, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
-        { side: "left", y: -20, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
-        { side: "right", y: -260, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
-        { side: "right", y: -80, xJitter: rand(-16, 16), emoji: "🌴", size: 40 },
+        { side: "left", y: -200, xJitter: rand(-16, 16), type: "tree", emoji: "🌴", size: 40 },
+        { side: "left", y: -20, xJitter: rand(-16, 16), type: "tree", emoji: "🌴", size: 40 },
+        { side: "right", y: -260, xJitter: rand(-16, 16), type: "tree", emoji: "🌴", size: 40 },
+        { side: "right", y: -80, xJitter: rand(-16, 16), type: "tree", emoji: "🌴", size: 40 },
       ];
       roadsideTimer = 30;
       // A turtle is a rare treat, not roadside furniture — long, randomized
@@ -617,13 +623,29 @@
       const y = -60;
       const blocked = roadside.some((r) => r.side === side && Math.abs(r.y - y) < ROADSIDE_MIN_GAP);
       if (blocked) return false;
-      roadside.push({
-        side,
-        y,
-        xJitter: rand(-16, 16),
-        emoji: "🌴",
-        size: 40,
-      });
+      // Mostly palm trees, with an occasional flamingo standing still in the
+      // grass — facing direction is picked once here and never changes,
+      // independent of which side of the road it landed on.
+      if (Math.random() < 0.15) {
+        roadside.push({
+          side,
+          y,
+          xJitter: rand(-16, 16),
+          type: "flamingo",
+          flipped: Math.random() < 0.5,
+          emoji: "🦩",
+          size: 36,
+        });
+      } else {
+        roadside.push({
+          side,
+          y,
+          xJitter: rand(-16, 16),
+          type: "tree",
+          emoji: "🌴",
+          size: 40,
+        });
+      }
       return true;
     }
 
@@ -932,6 +954,8 @@
     const TREE_CONTENT = { sx: 4, sy: 1, sw: 24, sh: 30 };
     const TREE_SCROLL_SPEED = 1.6; // px per animFrame unit (1.0 == a 60Hz frame)
     const TURTLE_CONTENT = { sx: 0, sy: 1, sw: 32, sh: 15 };
+    // Art faces right by default (beak/head toward the right edge).
+    const FLAMINGO_CONTENT = { sx: 2, sy: 0, sw: 23, sh: 32 };
     const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
     const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
     // bird1's own content is {sx:0,sy:10,sw:32,sh:12} and bird2's is
@@ -1386,10 +1410,28 @@
 
       roadside.forEach((t) => {
         const baseX = t.side === "left" ? ROAD_LEFT - 50 : ROAD_RIGHT + 50;
-        if (TREE_IMAGE.complete && TREE_IMAGE.naturalWidth) {
-          drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, baseX + t.xJitter, t.y, t.size * 1.15);
+        const cx = baseX + t.xJitter;
+        if (t.type === "flamingo") {
+          if (FLAMINGO_IMAGE.complete && FLAMINGO_IMAGE.naturalWidth) {
+            if (t.flipped) {
+              // Art faces right by default — mirror around its own center
+              // for the left-facing half of spawns.
+              ctx.save();
+              ctx.translate(cx, 0);
+              ctx.scale(-1, 1);
+              ctx.translate(-cx, 0);
+              drawCroppedSprite(FLAMINGO_IMAGE, FLAMINGO_CONTENT, cx, t.y, t.size);
+              ctx.restore();
+            } else {
+              drawCroppedSprite(FLAMINGO_IMAGE, FLAMINGO_CONTENT, cx, t.y, t.size);
+            }
+          } else {
+            emoji(t.emoji, cx, t.y, t.size);
+          }
+        } else if (TREE_IMAGE.complete && TREE_IMAGE.naturalWidth) {
+          drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, cx, t.y, t.size * 1.15);
         } else {
-          emoji(t.emoji, baseX + t.xJitter, t.y, t.size);
+          emoji(t.emoji, cx, t.y, t.size);
         }
       });
 
