@@ -238,6 +238,11 @@
   const FLAMINGO_IMAGE = new Image();
   FLAMINGO_IMAGE.src = "games/images/flamingo.png";
 
+  // A coconut that occasionally drops from a palm tree's fronds down to
+  // the ground — see trySpawnCoconut/updateCoconuts.
+  const COCONUT_IMAGE = new Image();
+  COCONUT_IMAGE.src = "games/images/coconut.png";
+
   // Tileable grass texture for the roadside during gameplay.
   const GRASS_IMAGE = new Image();
   GRASS_IMAGE.src = "games/images/grass.png";
@@ -574,6 +579,7 @@
 
     let player, objects, nextNumber, crashTimer, spawnTimer, numberCooldown, roadside, roadsideTimer, popText, roadScroll;
     let turtles, turtleTimer;
+    let coconutTimer;
 
     function resetGameplay() {
       const isTruck = selection.vehicle.id === "truck";
@@ -603,6 +609,8 @@
       // gap before the first one, and only ever one on screen at a time.
       turtles = [];
       turtleTimer = randInt(600, 1000);
+      // Occasional, not constant — see trySpawnCoconut.
+      coconutTimer = randInt(150, 300);
     }
 
     function spawnTurtle() {
@@ -647,6 +655,28 @@
         });
       }
       return true;
+    }
+
+    // Drops a coconut from a random on-screen, not-already-dropping palm
+    // tree. Its fall is tracked as a local offset from that tree's own y
+    // (see COCONUT_START_FRAC/COCONUT_GROUND_FRAC), so it automatically
+    // keeps scrolling with the tree it came from — falling is on top of,
+    // not instead of, the roadside's usual downward scroll.
+    function trySpawnCoconut() {
+      const candidates = roadside.filter((t) => t.type === "tree" && !t.coconut && t.y > 0 && t.y < H - 40);
+      if (!candidates.length) return;
+      const tree = candidates[randInt(0, candidates.length - 1)];
+      tree.coconut = { offset: 0, vy: 0 };
+    }
+
+    function updateCoconuts(dt) {
+      roadside.forEach((t) => {
+        if (!t.coconut) return;
+        t.coconut.vy += COCONUT_GRAVITY * dt;
+        t.coconut.offset += t.coconut.vy * dt;
+        const treeH = (TREE_CONTENT.sh / TREE_CONTENT.sw) * (t.size * 1.15);
+        if (t.coconut.offset >= COCONUT_GROUND_FRAC * treeH) t.coconut = null;
+      });
     }
 
     // x is fixed for the lifetime of every object here (only y scrolls), so
@@ -717,6 +747,13 @@
       roadside.forEach((t) => (t.y += SCROLL_SPEED * dt));
       roadside = roadside.filter((t) => t.y < H + 60);
       roadScroll += SCROLL_SPEED * dt;
+
+      coconutTimer -= dt;
+      if (coconutTimer <= 0) {
+        trySpawnCoconut();
+        coconutTimer = randInt(150, 300);
+      }
+      updateCoconuts(dt);
 
       turtleTimer -= dt;
       if (turtleTimer <= 0) {
@@ -956,6 +993,16 @@
     const TURTLE_CONTENT = { sx: 0, sy: 1, sw: 32, sh: 15 };
     // Art faces right by default (beak/head toward the right edge).
     const FLAMINGO_CONTENT = { sx: 2, sy: 0, sw: 23, sh: 32 };
+    const COCONUT_CONTENT = { sx: 0, sy: 0, sw: 32, sh: 31 };
+    // Fraction of the drawn tree's own height (see TREE_CONTENT above) a
+    // falling coconut starts at and lands at, measured from the tree's
+    // vertical center (t.y) — same reference point drawCroppedSprite uses.
+    // -0.20 sits right where the fronds meet the trunk in tree.png; +0.50
+    // is the bottom of the trunk, i.e. ground level.
+    const COCONUT_START_FRAC = -0.2;
+    const COCONUT_GROUND_FRAC = 0.5;
+    const COCONUT_GRAVITY = 0.08;
+    const COCONUT_SIZE_FRAC = 0.32; // of the tree's own drawn width
     const CLOUD_CONTENT = { sx: 0, sy: 8, sw: 32, sh: 11 };
     const SUN_CONTENT = { sx: 2, sy: 3, sw: 29, sh: 27 };
     // bird1's own content is {sx:0,sy:10,sw:32,sh:12} and bird2's is
@@ -1429,7 +1476,13 @@
             emoji(t.emoji, cx, t.y, t.size);
           }
         } else if (TREE_IMAGE.complete && TREE_IMAGE.naturalWidth) {
-          drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, cx, t.y, t.size * 1.15);
+          const treeW = t.size * 1.15;
+          drawCroppedSprite(TREE_IMAGE, TREE_CONTENT, cx, t.y, treeW);
+          if (t.coconut && COCONUT_IMAGE.complete && COCONUT_IMAGE.naturalWidth) {
+            const treeH = (TREE_CONTENT.sh / TREE_CONTENT.sw) * treeW;
+            const coconutY = t.y + COCONUT_START_FRAC * treeH + t.coconut.offset;
+            drawCroppedSprite(COCONUT_IMAGE, COCONUT_CONTENT, cx, coconutY, treeW * COCONUT_SIZE_FRAC);
+          }
         } else {
           emoji(t.emoji, cx, t.y, t.size);
         }
