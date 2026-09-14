@@ -29,12 +29,6 @@
   <section class="sprite-intro">
     <div class="wrap">
       <h1>Sprite Creator</h1>
-      <p class="tagline">
-        Draw a 1-bit sprite the same way the Thagomizer VM stores one — every pixel is just on
-        or off, and the color gets picked in-game with <code>SET_COLOR</code> right before
-        <code>SPRITE</code> draws it, so what you paint here is shape only. Pick a preview color
-        below just to see it clearly while you work.
-      </p>
     </div>
   </section>
 
@@ -99,16 +93,6 @@
         </div>
         <p class="sprite-output-status" id="copy-status" hidden></p>
       </div>
-
-      <p class="sprite-note">
-        Matches <code>docs/vm-spec.md</code>'s sprite format exactly: row-major, MSB-first,
-        each row padded to a whole byte (<code>ceil(width/8)</code> bytes/row) — the same packing
-        <code>toolchain/text-to-sprite.js</code> produces. Width and height are capped at 64px
-        here since the product target screen is only 160&times;128 and the Gamebuino profile
-        80&times;64 — the format itself allows up to 255 either way, per the VM spec's sprite
-        table. Palette indices 9 and 11 (marked here) are reserved for boot/menu chrome and
-        shouldn't be used to color a sprite drawn inside a game.
-      </p>
 
     </div>
   </section>

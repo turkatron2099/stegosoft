@@ -10,23 +10,6 @@
   margin-bottom: 8px;
 }
 
-.sprite-intro .tagline {
-  max-width: 640px;
-  margin: 0 auto;
-  color: var(--light-foreground);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.sprite-intro .tagline code,
-.sprite-note code {
-  background: var(--dark-background);
-  border: 1px solid var(--muted);
-  border-radius: 4px;
-  padding: 1px 5px;
-  font-size: 0.85em;
-}
-
 .sprite-panel {
   padding: 40px 0 80px;
 }
@@ -187,9 +170,12 @@
   position: absolute;
   inset: 0;
   border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  /* mix-blend-mode inverts the stripe against whatever color sits under it,
+     so it reads clearly on a near-black swatch (navy) and a pale one
+     (yellow) alike, instead of a fixed dark stripe that vanishes on navy. */
+  mix-blend-mode: difference;
   background:
-    linear-gradient(45deg, transparent 46%, rgba(0, 0, 0, 0.55) 46%, rgba(0, 0, 0, 0.55) 54%, transparent 54%);
+    linear-gradient(45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%);
 }
 
 .sprite-truesize-wrap {
@@ -240,14 +226,6 @@
   margin-top: 10px;
   color: var(--teal);
   font-size: 0.85rem;
-}
-
-.sprite-note {
-  max-width: 640px;
-  margin: 32px auto 0;
-  color: var(--muted);
-  font-size: 0.8rem;
-  line-height: 1.6;
 }
 
 @media (max-width: 640px) {
