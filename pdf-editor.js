@@ -27,6 +27,18 @@
   const annotImageInput = document.getElementById("annot-image-input");
   const editorDoneBtn = document.getElementById("page-editor-done-btn");
 
+  const addSignatureBtn = document.getElementById("add-signature-btn");
+  const sigBackdrop = document.getElementById("sig-capture-backdrop");
+  const sigVideo = document.getElementById("sig-video");
+  const sigPreviewCanvas = document.getElementById("sig-preview-canvas");
+  const sigHint = document.getElementById("sig-hint");
+  const sigCaptureBtn = document.getElementById("sig-capture-btn");
+  const sigRetakeBtn = document.getElementById("sig-retake-btn");
+  const sigUseBtn = document.getElementById("sig-use-btn");
+  const sigCancelBtn = document.getElementById("sig-cancel-btn");
+  const sigSensitivityWrap = document.getElementById("sig-sensitivity-wrap");
+  const sigSensitivity = document.getElementById("sig-sensitivity");
+
   const THUMB_TARGET_WIDTH = 240; // px, rendered once and reused at whatever CSS size the grid displays it
   const EDITOR_TARGET_WIDTH = 700; // px, the big page-editor background render
 
@@ -380,6 +392,177 @@
     renderAnnotLayer();
   }
 
+  // --- signature capture: webcam -> thresholded, cropped, transparent PNG ---
+
+  let sigStream = null;
+  let sigRawCanvas = null; // full-res captured frame, before threshold/crop
+
+  async function openSignatureCapture() {
+    sigRawCanvas = null;
+    sigHint.textContent = "Sign on white paper and hold it up to your camera, then capture.";
+    sigVideo.hidden = false;
+    sigPreviewCanvas.hidden = true;
+    sigCaptureBtn.hidden = false;
+    sigCaptureBtn.disabled = false;
+    sigRetakeBtn.hidden = true;
+    sigUseBtn.hidden = true;
+    sigSensitivityWrap.hidden = true;
+    sigBackdrop.hidden = false;
+
+    try {
+      sigStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+      sigVideo.srcObject = sigStream;
+      // The `autoplay` attribute alone isn't reliable once srcObject is
+      // assigned from script rather than set at parse time — play()
+      // explicitly so the feed actually starts instead of sitting paused
+      // on its first (black) frame.
+      await sigVideo.play().catch(() => {});
+    } catch (err) {
+      console.error(err);
+      sigHint.textContent = "Couldn't access the camera — check permissions and try again.";
+      sigCaptureBtn.disabled = true;
+    }
+  }
+
+  function closeSignatureCapture() {
+    if (sigStream) {
+      sigStream.getTracks().forEach((t) => t.stop());
+      sigStream = null;
+    }
+    sigVideo.srcObject = null;
+    sigRawCanvas = null;
+    sigBackdrop.hidden = true;
+  }
+
+  function captureSignatureFrame() {
+    const w = sigVideo.videoWidth, h = sigVideo.videoHeight;
+    if (!w || !h) return;
+    sigRawCanvas = document.createElement("canvas");
+    sigRawCanvas.width = w;
+    sigRawCanvas.height = h;
+    sigRawCanvas.getContext("2d").drawImage(sigVideo, 0, 0, w, h);
+
+    sigVideo.hidden = true;
+    sigPreviewCanvas.hidden = false;
+    sigCaptureBtn.hidden = true;
+    sigRetakeBtn.hidden = false;
+    sigUseBtn.hidden = false;
+    sigSensitivityWrap.hidden = false;
+    sigHint.textContent = "Adjust sensitivity if the background isn't fully clear, then use it.";
+    renderSignaturePreview();
+  }
+
+  function retakeSignature() {
+    sigRawCanvas = null;
+    sigVideo.hidden = false;
+    sigPreviewCanvas.hidden = true;
+    sigCaptureBtn.hidden = false;
+    sigRetakeBtn.hidden = true;
+    sigUseBtn.hidden = true;
+    sigSensitivityWrap.hidden = true;
+    sigHint.textContent = "Sign on white paper and hold it up to your camera, then capture.";
+  }
+
+  function drawCheckerboard(ctx, w, h) {
+    const size = 10;
+    for (let y = 0; y < h; y += size) {
+      for (let x = 0; x < w; x += size) {
+        ctx.fillStyle = (((x / size) | 0) + ((y / size) | 0)) % 2 === 0 ? "#ddd" : "#fff";
+        ctx.fillRect(x, y, size, size);
+      }
+    }
+  }
+
+  // Turns a photographed signature into a transparent-background image:
+  // pixels near white become fully transparent, dark ink stays opaque, with
+  // a soft ramp between the two so anti-aliased pen strokes don't look
+  // jagged — then crops to the ink's own bounding box (plus a small margin)
+  // so what gets placed on the page is just the signature, not a big white
+  // rectangle around it.
+  function signatureToAlpha(sourceCanvas, sensitivity) {
+    const w = sourceCanvas.width, h = sourceCanvas.height;
+    const imageData = sourceCanvas.getContext("2d").getImageData(0, 0, w, h);
+    const data = imageData.data;
+
+    // sensitivity 0-100 shifts how light a pixel can be and still count as
+    // ink — higher picks up fainter/lighter strokes but risks keeping more
+    // background shadow along with them.
+    const bright = 255 - sensitivity * 1.2; // at/above this luminance: fully transparent
+    const dark = bright - 60; // at/below this luminance: fully opaque
+
+    let minX = w, minY = h, maxX = -1, maxY = -1;
+    for (let i = 0; i < data.length; i += 4) {
+      const lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+      const alpha = Math.max(0, Math.min(255, ((bright - lum) / (bright - dark)) * 255));
+      data[i + 3] = alpha;
+      if (alpha > 10) {
+        const p = i / 4;
+        const x = p % w, y = (p / w) | 0;
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      }
+    }
+
+    const full = document.createElement("canvas");
+    full.width = w;
+    full.height = h;
+    full.getContext("2d").putImageData(imageData, 0, 0);
+
+    if (maxX < minX || maxY < minY) return full; // nothing detected as ink — return as-is
+
+    const pad = Math.round(Math.max(w, h) * 0.02);
+    minX = Math.max(0, minX - pad);
+    minY = Math.max(0, minY - pad);
+    maxX = Math.min(w - 1, maxX + pad);
+    maxY = Math.min(h - 1, maxY + pad);
+
+    const cw = maxX - minX + 1, ch = maxY - minY + 1;
+    const out = document.createElement("canvas");
+    out.width = cw;
+    out.height = ch;
+    out.getContext("2d").drawImage(full, minX, minY, cw, ch, 0, 0, cw, ch);
+    return out;
+  }
+
+  function renderSignaturePreview() {
+    if (!sigRawCanvas) return;
+    const processed = signatureToAlpha(sigRawCanvas, parseInt(sigSensitivity.value, 10));
+    sigPreviewCanvas.width = processed.width;
+    sigPreviewCanvas.height = processed.height;
+    const ctx = sigPreviewCanvas.getContext("2d");
+    // Checkerboard first so the transparent background reads clearly
+    // against the modal, same idea as any image editor's transparency view.
+    drawCheckerboard(ctx, processed.width, processed.height);
+    ctx.drawImage(processed, 0, 0);
+  }
+
+  function useSignature() {
+    if (!sigRawCanvas) return;
+    const processed = signatureToAlpha(sigRawCanvas, parseInt(sigSensitivity.value, 10));
+    const dataUrl = processed.toDataURL("image/png");
+    const bytes = dataUrlToBytes(dataUrl);
+
+    const maxW = 200; // pt — signatures read best kept modest by default
+    const ratio = Math.min(1, maxW / processed.width);
+    const w = processed.width * ratio;
+    const h = processed.height * ratio;
+
+    currentAnnotations().push({
+      type: "image",
+      x: clamp((editorPageW - w) / 2, 0, Math.max(0, editorPageW - w)),
+      y: clamp((editorPageH - h) / 2, 0, Math.max(0, editorPageH - h)),
+      w,
+      h,
+      bytes,
+      format: "png",
+      dataUrl,
+    });
+    renderAnnotLayer();
+    closeSignatureCapture();
+  }
+
   function removeAnnotation(annot) {
     const list = currentAnnotations();
     const idx = list.indexOf(annot);
@@ -540,6 +723,16 @@
   editorDoneBtn.addEventListener("click", closeEditor);
   editorBackdrop.addEventListener("click", (e) => {
     if (e.target === editorBackdrop) closeEditor();
+  });
+
+  addSignatureBtn.addEventListener("click", openSignatureCapture);
+  sigCaptureBtn.addEventListener("click", captureSignatureFrame);
+  sigRetakeBtn.addEventListener("click", retakeSignature);
+  sigUseBtn.addEventListener("click", useSignature);
+  sigCancelBtn.addEventListener("click", closeSignatureCapture);
+  sigSensitivity.addEventListener("input", renderSignaturePreview);
+  sigBackdrop.addEventListener("click", (e) => {
+    if (e.target === sigBackdrop) closeSignatureCapture();
   });
 
   resetBtn.addEventListener("click", () => {
