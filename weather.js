@@ -100,6 +100,28 @@
 
   let hourlyData = null; // forecast.hourly from the last fetch, reused for every day clicked
   let selectedDateStr = null;
+  let forecastTimezone = null; // IANA zone Open-Meteo resolved for this location, e.g. "America/Chicago"
+
+  // "YYYY-MM-DDTHH:00" for the current moment in the given IANA timezone,
+  // in the same naive format as the hourly time strings — so hours already
+  // past for that location's clock (not the browser's) can be filtered out
+  // with a plain string comparison. Minutes are floored to 00 so the
+  // in-progress hour itself still counts as "now", not "past".
+  function currentHourStringForTimezone(timezone) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: timezone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      hour12: false,
+    }).formatToParts(new Date());
+    const get = (type) => parts.find((p) => p.type === type).value;
+    // hour12: false can format midnight as "24" instead of "00" in some
+    // engines — normalize so the string still sorts/compares correctly.
+    const hour = get("hour") === "24" ? "00" : get("hour");
+    return `${get("year")}-${get("month")}-${get("day")}T${hour}:00`;
+  }
 
   function showHourly(dateStr, dayLabel) {
     if (selectedDateStr === dateStr) {
@@ -117,8 +139,18 @@
     hourlyTitle.textContent = `Hour by hour — ${dayLabel}`;
     hourlyRow.innerHTML = "";
 
+    let currentHourStr = null;
+    if (forecastTimezone) {
+      try {
+        currentHourStr = currentHourStringForTimezone(forecastTimezone);
+      } catch {
+        currentHourStr = null; // unrecognized zone — fall back to showing every hour
+      }
+    }
+
     time.forEach((dateTimeStr, i) => {
       if (!dateTimeStr.startsWith(dateStr)) return;
+      if (currentHourStr && dateTimeStr < currentHourStr) return; // already passed there
       const [icon] = describeWeather(weather_code[i]);
       const precip = precipitation_probability ? precipitation_probability[i] : null;
 
@@ -147,6 +179,7 @@
     locationName.textContent = parts.join(", ");
 
     hourlyData = forecast.hourly;
+    forecastTimezone = forecast.timezone || place.timezone || null;
     selectedDateStr = null;
     hourlyPanel.hidden = true;
 
