@@ -28,6 +28,62 @@
   max-height: 80vh;
 }
 
+.cinema-bookmark {
+  max-width: 900px;
+  margin: 14px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.cinema-bookmark-label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.cinema-bookmark-resume {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cinema-bookmark-resume:hover {
+  text-decoration: underline;
+}
+
+.cinema-bookmark-remove {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--dark-background);
+  color: var(--light-foreground);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.cinema-bookmark-remove:hover {
+  background: var(--red);
+  color: #fff;
+}
+
 .cinema-info {
   max-width: 900px;
   margin: 20px auto 0;

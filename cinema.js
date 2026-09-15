@@ -151,8 +151,80 @@
   const sourceLink = document.getElementById("cinema-source-link");
   const ccNoteEl = document.getElementById("cinema-cc-note");
   const playlistEl = document.getElementById("cinema-playlist");
+  const bookmarkEl = document.getElementById("cinema-bookmark");
+  const bookmarkResumeBtn = document.getElementById("cinema-bookmark-resume");
+  const bookmarkRemoveBtn = document.getElementById("cinema-bookmark-remove");
 
   let currentIndex = 0;
+
+  // --- resume bookmark: one slot, remembering the last spot in the last
+  // movie that was actually being watched, so a later visit (which opens
+  // on a different, shuffled movie) has an obvious way back rather than
+  // hunting the playlist for where you left off. ---
+  const BOOKMARK_KEY = "thagobyte-cinema-bookmark";
+  const BOOKMARK_MIN_TIME = 15; // seconds — ignore barely-started progress, not worth resuming
+  const BOOKMARK_END_BUFFER = 15; // seconds — ignore progress this close to the end, effectively finished
+
+  function getBookmark() {
+    try {
+      const raw = localStorage.getItem(BOOKMARK_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null; // storage disabled (private browsing etc.) — act as if nothing's saved
+    }
+  }
+
+  function saveBookmark(movie, time) {
+    try {
+      localStorage.setItem(BOOKMARK_KEY, JSON.stringify({
+        identifier: movie.identifier,
+        title: movie.title,
+        year: movie.year,
+        time,
+      }));
+    } catch {
+      // storage full/unavailable — resuming just won't be remembered this time
+    }
+  }
+
+  function clearBookmark() {
+    try {
+      localStorage.removeItem(BOOKMARK_KEY);
+    } catch {
+      // nothing to do — if it couldn't be written, there's nothing stored to clear either
+    }
+  }
+
+  function formatTime(totalSeconds) {
+    const s = Math.floor(totalSeconds);
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    const mm = h > 0 ? String(m).padStart(2, "0") : String(m);
+    const ss = String(sec).padStart(2, "0");
+    return h > 0 ? `${h}:${mm}:${ss}` : `${mm}:${ss}`;
+  }
+
+  function renderBookmark() {
+    const bm = getBookmark();
+    bookmarkEl.hidden = !bm;
+    if (bm) bookmarkResumeBtn.textContent = `${bm.title} (${bm.year}) — ${formatTime(bm.time)}`;
+  }
+
+  // Called often (throttled below) while playing, plus on pause/unload —
+  // not just once at the end, since closing the tab mid-movie shouldn't
+  // lose the spot.
+  let lastBookmarkSaveAt = 0;
+  function maybeSaveBookmark() {
+    const movie = ORDER[currentIndex];
+    if (!movie) return;
+    const t = player.currentTime;
+    const dur = player.duration;
+    if (!isFinite(t) || t < BOOKMARK_MIN_TIME) return;
+    if (isFinite(dur) && dur > 0 && t > dur - BOOKMARK_END_BUFFER) return;
+    saveBookmark(movie, t);
+    renderBookmark();
+  }
 
   function renderPlaylist() {
     playlistEl.innerHTML = "";
@@ -197,7 +269,53 @@
     renderPlaylist();
   }
 
-  player.addEventListener("ended", () => play(currentIndex + 1));
+  player.addEventListener("timeupdate", () => {
+    const now = Date.now();
+    if (now - lastBookmarkSaveAt < 5000) return; // throttle — timeupdate fires several times a second
+    lastBookmarkSaveAt = now;
+    maybeSaveBookmark();
+  });
+  player.addEventListener("pause", maybeSaveBookmark);
+  window.addEventListener("beforeunload", maybeSaveBookmark);
+
+  player.addEventListener("ended", () => {
+    // fully watched — nothing left to resume, so drop the bookmark if
+    // it's for the movie that just finished (leave it alone if it's
+    // pointing at some other movie the user hasn't gotten back to yet).
+    const bm = getBookmark();
+    const movie = ORDER[currentIndex];
+    if (bm && movie && bm.identifier === movie.identifier) {
+      clearBookmark();
+      renderBookmark();
+    }
+    play(currentIndex + 1);
+  });
+
+  bookmarkResumeBtn.addEventListener("click", () => {
+    const bm = getBookmark();
+    if (!bm) return;
+    const idx = ORDER.findIndex((m) => m.identifier === bm.identifier);
+    if (idx === -1) {
+      clearBookmark();
+      renderBookmark();
+      return;
+    }
+    const resumeTime = bm.time;
+    play(idx);
+    player.addEventListener(
+      "loadedmetadata",
+      () => {
+        player.currentTime = resumeTime;
+      },
+      { once: true }
+    );
+  });
+
+  bookmarkRemoveBtn.addEventListener("click", () => {
+    clearBookmark();
+    renderBookmark();
+  });
 
   play(0);
+  renderBookmark();
 })();
