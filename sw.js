@@ -32,6 +32,30 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
+  // digest.json changes throughout the day (the news digest), so it needs
+  // network-first — stale-while-revalidate below would otherwise always
+  // hand back whatever was cached on a *previous* visit first, and only
+  // catch up in the background for the visit after that. news.js already
+  // fetches it with {cache: "no-store"}, but that only controls the
+  // browser's own HTTP cache and does nothing against a service worker
+  // sitting in front of it, so the bypass has to live here instead.
+  if (url.pathname.endsWith("/digest.json")) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        try {
+          const response = await fetch(request);
+          if (response.ok) cache.put(request, response.clone());
+          return response;
+        } catch {
+          const cached = await cache.match(request);
+          if (cached) return cached;
+          throw new Error("digest.json unavailable and not cached");
+        }
+      })
+    );
+    return;
+  }
+
   event.respondWith(
     caches.open(CACHE_NAME).then(async (cache) => {
       const cached = await cache.match(request);
