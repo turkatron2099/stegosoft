@@ -1,141 +1,101 @@
 {
-  "generatedAt": "2026-09-15T04:57:51.365Z",
+  "generatedAt": "2026-09-15T13:35:57.396Z",
   "items": [
     {
-      "title": "All bosses in Marvel's Wolverine",
-      "link": "https://www.polygon.com/marvels-wolverine-bosses-list/",
-      "summary": "Marvel's Wolverine features many bosses and villains from the franchise. Here are all the bosses you'll face off against in order.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-15T04:01:15.000Z"
-    },
-    {
-      "title": "Rocket Lab is seeing red about NASA's decision on a Mars spacecraft",
-      "link": "https://arstechnica.com/space/2026/09/rocket-lab-is-seeing-red-about-nasas-decision-on-a-mars-spacecraft/",
-      "summary": "\"NASA’s award decision appears to be inconsistent with the eligibility criteria.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-14T21:32:22.000Z"
-    },
-    {
-      "title": "Emmys 2026: Here's the list of winners",
-      "link": "https://www.npr.org/2026/09/14/nx-s1-5957565/emmys-2026-winners",
-      "summary": "<em>The Pitt</em> and <em>Widow's Bay</em> took home the top prizes in television at the Emmy Awards on Monday night. And actor Matthew Rhys became the first person to win in two lead acting categories in one night.",
-      "source": "NPR",
+      "title": "Former England footballer Raheem Sterling admits dangerous driving after M3 crash",
+      "link": "https://www.bbc.co.uk/news/articles/c52e01k49e8jo?at_medium=RSS&at_campaign=rss",
+      "summary": "The former England winger crashed his Lamborghini into motorway barriers in May.",
+      "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-09-14T23:55:49.000Z"
+      "date": "2026-09-15T13:34:30.000Z"
     },
     {
-      "title": "Pharaoh’s Brick Makers",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/pharaohs-brick-makers/",
-      "summary": "What does the Bibleclaim about the Israelites’ forced labor for the Pharaoh? Looking for the most plausible match in ancient Egyptian architecture.",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-12T11:00:24.000Z"
-    },
-    {
-      "title": "Reservations Go Live for Valve's Steam Frame VR Headset.  An Experiment in Progress?",
-      "link": "https://games.slashdot.org/story/26/09/14/2019212/reservations-go-live-for-valves-steam-frame-vr-headset-an-experiment-in-progress?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Reservations are now live for Valve's \"Steam Frame\" VR headset (with its Linux-based SteamOS and an ARM CPU). \"It starts at $1,059 for 256GB or $1,299 for 1TB,\" reports CNET, \"and every purchase includes a copy of…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-15T01:04:00.000Z"
-    },
-    {
-      "title": "James Gunn Teases Comic Book Retcon in Man of Tomorrow (& It Could Redeem a Misunderstood Character)",
-      "link": "https://comicbook.com/movies/news/james-gunn-teases-comic-book-retcon-in-man-of-tomorrow-it-could-redeem-a-misunderstood-character/",
-      "summary": "Man of Tomorrow recently wrapped production, and it looks to be setting up one of the greatest superhero team up movies of all time. The characters surrounding Superman are starting to form a pretty specific team from…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-15T03:41:15.000Z"
-    },
-    {
-      "title": "27 Years Later, 1 of the Best Detective Thriller Series of All Time is Officially Free on Streaming",
-      "link": "https://www.polygon.com/angel-streaming-rec-tubi/",
-      "summary": "The Buffy: The Vampire Slay spinoff Angel just keeps getting better over five seasons",
-      "source": "Polygon",
+      "title": "Wolverine Developer Insomniac Promises to 'Further Refine the Player Experience' Based on Feedback",
+      "link": "https://www.ign.com/articles/wolverine-developer-insomniac-promises-to-further-refine-the-player-experience-based-on-feedback",
+      "summary": "Marvel’s Wolverine developer Insomniac has said it’s planning to “further refine the player experience” based on feedback, while insisting it’s “incredibly proud” of the game.",
+      "source": "IGN",
       "topic": "Gaming",
-      "date": "2026-09-15T04:41:14.000Z"
+      "date": "2026-09-15T12:15:21.000Z"
     },
     {
-      "title": "All whisky bottle locations in Marvel's Wolverine",
-      "link": "https://www.polygon.com/marvels-wolverine-whisky-bottle-locations-collectibles-where-to-find/",
-      "summary": "A guide explaining where to find all 20 whisky bottles and their locations in Marvel's Wolverine.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-15T04:01:15.000Z"
-    },
-    {
-      "title": "Maximum Severity GitLab Flaw Puts Supply Chains at Risk",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/maximum-severity-gitlab-flaw-supply-chains-risk",
-      "summary": "CVE-2026-85706 is a path traversal vulnerability with a 10 out of 10 CVSS score, affecting both GitLab Community Edition and Enterprise Edition instances.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-14T20:19:22.000Z"
-    },
-    {
-      "title": "'Sandworm' Chains Cisco Vulnerabilities to Deploy Cyclops Blink",
-      "link": "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
-      "summary": "The notorious Russian threat group is spreading an upgraded version of the botnet malware, which the FBI disrupted in 2022.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-14T21:37:28.000Z"
-    },
-    {
-      "title": "A Visit to San Francisco's AI-run Store: No Customers, Nothing Useful, And Losing Money Fast",
-      "link": "https://slashdot.org/story/26/09/13/0523208/a-visit-to-san-franciscos-ai-run-store-no-customers-nothing-useful-and-losing-money-fast?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Previously Andon Labs handled the hardware and software integration for that AI-powered vending machine that went bankrupt after Wall Street Journal reporters \"systematically manipulated the bot into giving away its…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-14T20:34:00.000Z"
-    },
-    {
-      "title": "Simply Cyber Newsletter #198",
-      "link": "https://simplycyber.beehiiv.com/p/simply-cyber-newsletter-198",
-      "summary": "Will Shiny Hunters' $55 million extortion demand against McKesson succeed? What happened: Shiny Hunters published health data for 6.4 million individuals following a breach of McKesson, a major EHR provider supporting…",
-      "source": "Simply Cyber Newsletter",
-      "topic": "Cybersecurity",
-      "date": "2026-09-14T10:00:00.000Z"
-    },
-    {
-      "title": "RFK Jr. headlines sold-out anti-vaccine conference alongside Andrew Wakefield",
-      "link": "https://arstechnica.com/health/2026/09/rfk-jr-headlines-sold-out-anti-vaccine-conference-alongside-andrew-wakefield/",
-      "summary": "The event is hosted by Kennedy's anti-vaccine group Children's Health Defense.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-14T22:06:24.000Z"
-    },
-    {
-      "title": "Telegram Desktop Flaw Lets Hidden JavaScript Exfiltrate Messages From HTML Exports",
-      "link": "https://thehackernews.com/2026/09/telegram-desktop-flaw-lets-hidden.html",
-      "summary": "A flaw in Telegram Desktop let a bot's message plant hidden JavaScript inside chats that users exported to HTML files, security researchers at ExPatch said in a writeup published on September 12. In Telegram, the…",
+      "title": "China-Linked Hackers Exploit Chrome-Windows Zero-Day Chain to Deploy GRIMWEDGE",
+      "link": "https://thehackernews.com/2026/09/china-linked-hackers-exploit-chrome.html",
+      "summary": "A Chinese threat actor has been attributed to a spear-phishing campaign that exploits recently patched security flaws in Google Chrome and Microsoft Windows to deliver a malicious JavaScript backdoor called GRIMWEDGE.…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-14T17:58:16.000Z"
+      "date": "2026-09-15T05:31:05.000Z"
     },
     {
-      "title": "Who Was Cornelius the Centurion?",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/who-was-cornelius-centurion/",
-      "summary": "Luke, the traditionally accepted author of Acts and the gospel bearing his name, often expanded and further developed theology through the story of a named…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-11T13:18:15.000Z"
+      "title": "Math Professor Accuses OpenAI of Copying His Work, Says AI Compute Power Makes Racing to Publish 'Pointless'",
+      "link": "https://science.slashdot.org/story/26/09/14/2246218/math-professor-accuses-openai-of-copying-his-work-says-ai-compute-power-makes-racing-to-publish-pointless?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "The New York Post wrote that OpenAI \"stunned the mathematics world\" last week when it announced its AI model \"cracked a legendary math problem left unsolved for nearly a century in just 88 hours.\" But a New York…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-15T10:04:00.000Z"
     },
     {
-      "title": "Clayface: New Poster Asks You To Look Fear In The Face",
-      "link": "https://bleedingcool.com/movies/clayface-new-poster-asks-you-to-look-fear-in-the-face/",
-      "summary": "A new poster for Clayface, which will be released in theaters on October 23, 2026, has been released and asks audiences to \"look fear in the face.\"",
+      "title": "This Atlantic hurricane season is about to do something that hasn't happened in 175 years",
+      "link": "https://arstechnica.com/science/2026/09/this-is-by-far-the-most-peaceful-atlantic-hurricane-season-weve-ever-seen/",
+      "summary": "But there may be a price to pay for a quiet Atlantic hurricane season.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-15T12:36:11.000Z"
+    },
+    {
+      "title": "Ofiusa #1 Preview: Love Triangle Gets Tangled in Serpent Secrets",
+      "link": "https://bleedingcool.com/comics/ofiusa-1-preview-love-triangle-gets-tangled-in-serpent-secrets/",
+      "summary": "Guillem March returns solo with Ofiusa #1, a sultry timeline-hopping romance where paradise hides secrets that could sink everyone involved.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-15T03:16:10.000Z"
+      "date": "2026-09-15T12:26:09.000Z"
     },
     {
-      "title": "Roman Sanctuary Hidden in “Cave of the Women”",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/roman-sanctuary-hidden-in-cave-of-women/",
-      "summary": "Recent discoveries at Cova Dones, in Spain’s province of Valencia, offer a fascinating glimpse into Roman religious practice, and potentially women-centered worship. Archaeologists have identified…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-14T12:47:54.000Z"
+      "title": "Geopolitics and grain don't mix, say these Montana farmers",
+      "link": "https://www.npr.org/2026/09/15/nx-s1-5964930/canada-tariffs-hurting-montana-farmers",
+      "summary": "Farmers in states bordering Canada say they are reeling from President Trump's trade wars and resulting retaliatory tariffs. And it's just not neighborly.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-09-15T12:33:19.000Z"
+    },
+    {
+      "title": "LiteSpeed Enterprise Flaw Could Let One Hosting Account Gain Root Access on a Shared Server",
+      "link": "https://thehackernews.com/2026/09/litespeed-enterprise-flaw-could-let-one.html",
+      "summary": "A critical vulnerability in LiteSpeed Web Server Enterprise could let a low-privilege website user gain root access on a shared-hosting server, cPanel warned in an advisory published on September 14. On such servers,…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-15T06:52:16.000Z"
+    },
+    {
+      "title": "Crunchyroll’s Darkest Anime of 2026 Creator Breaks Silence on Finale",
+      "link": "https://comicbook.com/anime/news/crunchyrolls-darkest-anime-of-2026-creator-breaks-silence-on-finale/",
+      "summary": "Image Courtesy of Science SARU As September is the last month of the summer season, new anime that began airing this season are now coming to an end as well. Most of the major anime airing were on Crunchyroll, as it is…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-15T13:00:00.000Z"
+    },
+    {
+      "title": "Attack Chains, Not Just Attack Surfaces: Why Testing Individual Techniques Misses the Point",
+      "link": "https://thehackernews.com/2026/09/attack-chains-not-just-attack-surfaces.html",
+      "summary": "Introduction Security teams have gotten pretty good at testing against what can hurt them. Can this EDR agent catch this payload? Will my organization fail the phishing simulation? Does this SIEM rule fire on this…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-15T11:26:36.000Z"
+    },
+    {
+      "title": "Ghosts: The Possession of Button House Official Trailer Released",
+      "link": "https://bleedingcool.com/tv/ghosts-the-possession-of-button-house-official-trailer-released/",
+      "summary": "Set to premiere on October 23rd, Lionsgate UK released the official trailer for Ghosts: The Possession of Button House - here's a look!",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-15T12:37:09.000Z"
+    },
+    {
+      "title": "PS5 “Blackout” Protest May Have Backfired Against PlayStation Fans Fighting for Physical Games",
+      "link": "https://comicbook.com/gaming/news/ps5-blackout-protest-may-have-backfired-against-playstation-fans-fighting-for-physical-games/",
+      "summary": "Ever since Sony announced it would discontinue physical media for PlayStation 5, fans have been vocal about their frustrations. While modern gaming has been moving more and more toward digital, players have always had…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-15T13:08:53.000Z"
     },
     {
       "title": "Uncovering the UAE’s Early Christian Community",
@@ -146,92 +106,132 @@
       "date": "2026-09-14T10:00:19.000Z"
     },
     {
-      "title": "Marvel's Wolverine mission list and length, explained",
-      "link": "https://www.polygon.com/marvels-wolverine-missions-list-length-how-long/",
-      "summary": "A guide explaining how long Marvel's Wolverine is along with all the missions listed in order.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-15T04:01:15.000Z"
-    },
-    {
-      "title": "Redcoat #20 Preview: Two Immortals Walk Into an Axe Fight",
-      "link": "https://bleedingcool.com/comics/redcoat-20-preview-two-immortals-walk-into-an-axe-fight/",
-      "summary": "Redcoat #20 ends the \"1909\" arc as Simon Pure and Benedict Arnold clash in a bloody battle to determine if an immortal can actually die.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-15T04:27:09.000Z"
-    },
-    {
-      "title": "All suits in Marvel's Wolverine and how to get them",
-      "link": "https://www.polygon.com/marvels-wolverine-suits-list-all-how-to-get/",
-      "summary": "A list of all suits available for Logan in Marvel's Wolverine, along with how to get each one.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-15T04:01:15.000Z"
-    },
-    {
-      "title": "Anthropic CEO: Time to Shift From Improving to Controlling AI",
-      "link": "https://www.darkreading.com/cyber-risk/anthropic-ceo-shift-from-improving-to-controlling-ai",
-      "summary": "Dario Amodei says it's time to slow the pace of frontier AI improvements so that security and risk prevention efforts can catch up. What does this mean for enterprises?",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-14T16:41:10.000Z"
-    },
-    {
-      "title": "Persona Launches New Collab at Round1 Bowling & Arcade",
-      "link": "https://bleedingcool.com/pop-culture/persona-launches-new-collab-at-round1-bowling-arcade/",
-      "summary": "Atlus has teamed with Round1 Bowling & Arcade to celebrate the 30th Anniversary of the Persona series starting on October 1.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-15T02:48:10.000Z"
-    },
-    {
-      "title": "New DDRop Attack Breaks Intel TDX and AMD SEV-SNP Confidential Computing",
-      "link": "https://thehackernews.com/2026/09/new-ddrop-attack-breaks-intel-tdx-and.html",
-      "summary": "Researchers have disclosed a new hardware attack, called DDRop, that breaks the memory protection in Intel and AMD confidential computing by silently dropping writes to a server's memory, so the processor keeps reading…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-14T18:02:13.000Z"
-    },
-    {
-      "title": "AI bots \"Timmy,\" \"Ren,\" and \"Jackie\" are flooding social media with slop",
-      "link": "https://arstechnica.com/ai/2026/09/ai-agents-flood-the-internet-with-slop-infused-spam/",
-      "summary": "“Hello, I'm an Al agent, a few days old, living on a small platform for agents.”",
+      "title": "Volvo increases the batteries for 2028 XC60 and XC90 plug-in refresh",
+      "link": "https://arstechnica.com/cars/2026/09/volvo-bigs-up-the-batteries-for-2028-xc60-and-xc90-plug-in-refresh/",
+      "summary": "The refreshed Volvos also get new infotainment systems with Gemini onboard.",
       "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-09-14T21:04:32.000Z"
+      "date": "2026-09-15T07:00:30.000Z"
     },
     {
-      "title": "Microsoft Plugs Nearly 1,000 Security Holes",
-      "link": "https://krebsonsecurity.com/2026/09/microsoft-plugs-nearly-1000-security-holes/",
-      "summary": "Microsoft Corp. today issued updates to plug at least 974 security holes in its Windows operating systems and other software, by far its biggest single patch batch ever. Microsoft says artificial intelligence is helping…",
-      "source": "Krebs on Security",
-      "topic": "Cybersecurity",
-      "date": "2026-09-08T21:44:22.000Z"
+      "title": "Justice League MOVIE: What Can We Expect?",
+      "link": "https://www.polygon.com/video/justice-league-movie-what-can-we-expect/",
+      "summary": "The first full trailer for Justice League dropped recently, so Polygon's resident comic expert Susana Polo is diving into what it may have revealed about the movie's plot and character appearances.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-15T12:17:02.000Z"
     },
     {
-      "title": "3BB Attacker Used MeshCentral Backdoor for Root Access, Targeted Subscriber Credentials",
-      "link": "https://thehackernews.com/2026/09/3bb-attacker-used-meshcentral-backdoor.html",
-      "summary": "An attacker was operating inside the network of 3BB, one of Thailand's largest broadband providers, and maintained remote control of internal machines using a legitimate management tool called MeshCentral, threat…",
+      "title": "'Slow Horses' Head Writer Promises Not to Kill Your Favorite Character, Unless Mick Herron Does First",
+      "link": "https://www.polygon.com/slow-horses-season-6-gaby-chiappe-interview/",
+      "summary": "“We’re not deviating from the novels for the sake of it.”",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-15T13:00:14.000Z"
+    },
+    {
+      "title": "Exclusive: Paying for frontier AI models buys 4-month head start at 5x the cost",
+      "link": "https://arstechnica.com/ai/2026/09/exclusive-open-chinese-models-close-gap-with-silicon-valleys-frontier-ai-models/",
+      "summary": "Ars previewed Mozilla’s report on how cheap open models caught up on capability.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-15T12:00:41.000Z"
+    },
+    {
+      "title": "Mass-Scanning Campaign Exploits Vite Flaw to Extract Cloud Credentials From Exposed Dev Servers",
+      "link": "https://thehackernews.com/2026/09/mass-scanning-campaign-exploits-vite.html",
+      "summary": "Cybersecurity researchers have disclosed details of a mass-scanning campaign that has targeted Vite deployments siphon sensitive data. The first is an automated effort aimed at internet-exposed Vite development servers…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-14T18:01:49.000Z"
+      "date": "2026-09-15T11:12:32.000Z"
     },
     {
-      "title": "The Expanding World of Biblical Archaeology",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/the-expanding-world-of-biblical-archaeology/",
-      "summary": "Since the first issue of Biblical Archaeology Review was published 50 years ago, the landscape of biblical archaeology—both literal and figurative—has expanded in remarkable ways.",
+      "title": "The Church of Laodicea in the Bible and Archaeology",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/church-of-laodicea-in-the-bible-and-archaeology/",
+      "summary": "Laodicea was a wealthy city in western Turkey that flourished for centuries. Why does the author of the Book of Revelation call the church of Laodicea “lukewarm”—neither hot nor cold? Recent excavations at the site…",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
-      "date": "2026-09-11T10:00:06.000Z"
+      "date": "2026-09-15T11:00:57.000Z"
     },
     {
-      "title": "Red Heron Exploits Gitea RCE to Compromise 13 Organizations Across Six Countries",
-      "link": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html",
-      "summary": "A suspected Chinese threat actor tracked as Red Heron has been attributed to the rapid exploitation of a recently disclosed security vulnerability in Gitea to compromise internet-facing instances as part of a…",
+      "title": "Human Attacker Exploits Marimo RCE, Reaches SSH Bastion in Eight Seconds",
+      "link": "https://thehackernews.com/2026/09/human-attacker-exploits-marimo-rce.html",
+      "summary": "With artificial intelligence (AI) shrinking the window between vulnerability discovery and exploitation and lowering the barrier to entry for bad actors, new findings from Sysdig show that skilled human operators can…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-09-14T16:56:30.000Z"
+      "date": "2026-09-15T11:52:28.000Z"
+    },
+    {
+      "title": "Roman Sanctuary Hidden in “Cave of the Women”",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/roman-sanctuary-hidden-in-cave-of-women/",
+      "summary": "Recent discoveries at Cova Dones, in Spain’s province of Valencia, offer a fascinating glimpse into Roman religious practice, and potentially women-centered worship. Archaeologists have identified…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-14T12:47:54.000Z"
+    },
+    {
+      "title": "Simply Cyber Newsletter #198",
+      "link": "https://simplycyber.beehiiv.com/p/simply-cyber-newsletter-198",
+      "summary": "Will Shiny Hunters' $55 million extortion demand against McKesson succeed? What happened: Shiny Hunters published health data for 6.4 million individuals following a breach of McKesson, a major EHR provider supporting…",
+      "source": "Simply Cyber Newsletter",
+      "topic": "Cybersecurity",
+      "date": "2026-09-14T10:00:00.000Z"
+    },
+    {
+      "title": "Marvel Reveals The Fantastic Four: First Steps Behind The Wizard",
+      "link": "https://bleedingcool.com/comics/marvel-reveals-the-fantastic-four-first-steps-behind-the-wizard/",
+      "summary": "Marvel to reveal the Fantastic Four: First Steps behind that mention of The Wizard and the Frightful Four with Fabian Nicieza and Mark Buckingham",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-15T12:58:12.000Z"
+    },
+    {
+      "title": "ChatGPT-Using Lawyer Cited Its Fake Witnesses and Police Testimony in Court",
+      "link": "https://slashdot.org/story/26/09/14/0611201/chatgpt-using-lawyer-cited-its-fake-witnesses-and-police-testimony-in-court?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Reuters reports: A defense lawyer appealing his client's murder conviction submitted a brief containing made-up police testimony and witnesses fabricated by OpenAI's ChatGPT, New Mexico's highest court said. The New…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-15T05:34:00.000Z"
+    },
+    {
+      "title": "Pharaoh’s Brick Makers",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/pharaohs-brick-makers/",
+      "summary": "What does the Bibleclaim about the Israelites’ forced labor for the Pharaoh? Looking for the most plausible match in ancient Egyptian architecture.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-12T11:00:24.000Z"
+    },
+    {
+      "title": "COSMIC COMICS: Sci-Fi, Romance, and Superheroes in Space!",
+      "link": "https://www.polygon.com/video/cosmic-comics-sci-fi-romance-and-superheroes-in-space/",
+      "summary": "What do Star Wars, Doctor Who, and superheroes all have in common? And why are so many comic book movies heading to space? Susana Polo answers these questions and more on today's episode when she explains the history of…",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-15T12:23:28.000Z"
+    },
+    {
+      "title": "Cisco Secure Email Gateway Flaw Exploited in the Wild, Enables Root Command Execution",
+      "link": "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html",
+      "summary": "Cisco has warned that a new critical vulnerability impacting AsyncOS Software for Cisco Secure Email Gateway has come under active exploitation in the wild. The vulnerability, tracked as CVE-2026-76461, carries a CVSS…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-15T06:11:11.000Z"
+    },
+    {
+      "title": "Why I'll Never Watch GOTHAM",
+      "link": "https://www.polygon.com/video/why-i-ll-never-watch-gotham/",
+      "summary": "The television show Gotham was inspired by Gotham Central, one of the best Batman comic series out there. So what's preventing Susana from simply enjoying it for what it is? She breaks it all down for us in today's…",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-15T12:12:09.000Z"
+    },
+    {
+      "title": "'Sandworm' Chains Cisco Vulnerabilities to Deploy Cyclops Blink",
+      "link": "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
+      "summary": "The notorious Russian threat group is spreading an upgraded version of the botnet malware, which the FBI disrupted in 2022.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-14T21:37:28.000Z"
     },
     {
       "title": "The Cyrus Cylinder",
@@ -242,20 +242,28 @@
       "date": "2026-09-13T11:00:51.000Z"
     },
     {
-      "title": "Marvel's Wolverine Actor Liam McIntyre Isn't Fazed by Players' Brutal Comments About the Game",
-      "link": "https://www.ign.com/articles/marvels-wolverine-actor-liam-mcintyre-isnt-fazed-by-players-brutal-comments-about-the-game",
-      "summary": "Wolverine actor Liam McIntyre has seen what fans are saying about him and Insomniac's latest superhero game, but it's no skin off his nose.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-15T00:21:43.000Z"
+      "title": "5 Iron Man Villains That Would Be Awesome in the MCU Even If They Never Fought the Hero",
+      "link": "https://comicbook.com/comics/list/5-iron-man-villains-that-would-be-awesome-in-the-mcu-even-if-they-never-fought-the-hero/",
+      "summary": "Image Courtesy of Marvel Comics Iron Man helped kick off the MCU, helping make sure it grew into the most popular and successful cinematic universe ever. He became the most popular character, with fans who never read…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-15T13:25:00.000Z"
     },
     {
-      "title": "The Papers: Reform donors 'could face enhanced checks' and 'Sydney Sweeney blasted'",
-      "link": "https://www.bbc.co.uk/news/articles/c6lyedp0y35no?at_medium=RSS&at_campaign=rss",
-      "summary": "Several papers feature actor Sydney Sweeney, who has been criticised by female athletes for posing nude for a sports betting company advert.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-15T04:51:54.000Z"
+      "title": "Microsoft Plugs Nearly 1,000 Security Holes",
+      "link": "https://krebsonsecurity.com/2026/09/microsoft-plugs-nearly-1000-security-holes/",
+      "summary": "Microsoft Corp. today issued updates to plug at least 974 security holes in its Windows operating systems and other software, by far its biggest single patch batch ever. Microsoft says artificial intelligence is helping…",
+      "source": "Krebs on Security",
+      "topic": "Cybersecurity",
+      "date": "2026-09-08T21:44:22.000Z"
+    },
+    {
+      "title": "Jesus Holding a Magic Wand?",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/jesus-holding-a-magic-wand/",
+      "summary": "Did Jesus use a magic wand when performing his miracles? It seems so—if we are to judge by some of the earliest depictions of Jesus…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-15T11:00:36.000Z"
     },
     {
       "title": "For the first time, the US military confirms it has deployed weapons in orbit",
@@ -266,20 +274,12 @@
       "date": "2026-09-15T03:47:36.000Z"
     },
     {
-      "title": "Persona5: The Phantom X Adds Kotone Shiomi of Persona 3 Portable",
-      "link": "https://bleedingcool.com/games/persona5-the-phantom-x-adds-kotone-shiomi-of-persona-3-portable-2/",
-      "summary": "Persona5: The Phantom X will add Kotone Shiomi from Persona 3 Portable on September 24, 2026, as part of a special crossover update.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-15T03:03:10.000Z"
-    },
-    {
-      "title": "Scream Franchise Star Wants to Direct the Next Movie, And It Might Actually Be Perfect",
-      "link": "https://comicbook.com/movies/news/scream-franchise-star-wants-to-direct-the-next-movie-and-it-might-actually-be-perfect/",
-      "summary": "image courtesy of paramount It wouldn’t be unprecedented for an actor to direct a Scream movie. Matt Bettinelli-Olpin, part of the directorial collective Radio Silence, was also an actor in V/H/S and Southbound before…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-15T03:31:34.000Z"
+      "title": "The PlayStation Blackout Protest Didn't Move the Needle",
+      "link": "https://www.polygon.com/playstation-blackout-protest-failure/",
+      "summary": "Data research company reveals that the Sony digital boycott organized by PlayStation owners was not impactful.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-15T13:23:53.000Z"
     }
   ]
 }
