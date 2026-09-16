@@ -1,126 +1,6 @@
 {
-  "generatedAt": "2026-09-16T19:34:52.298Z",
+  "generatedAt": "2026-09-16T22:58:05.740Z",
   "items": [
-    {
-      "title": "Attacker Hijacks AI Coding Assistant Session, Spreads Shai-Hulud Across About 100 Repositories",
-      "link": "https://thehackernews.com/2026/09/attacker-hijacks-ai-coding-assistant.html",
-      "summary": "Mandiant says an attacker hijacked an active AI coding-assistant session at an unnamed software-as-a-service provider and later spread Shai-Hulud across about 100 internal code repositories. Before the repository…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T13:37:07.000Z"
-    },
-    {
-      "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and Wipers",
-      "link": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
-      "summary": "Enterprises in Russia have emerged as the target of three threat activity clusters tracked as NightEagle, Hacking Cat, and Toy Ghouls, according to multiple reports from Kaspersky. The cybersecurity vendor said it has…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T15:27:49.000Z"
-    },
-    {
-      "title": "Pirate Who Cracked Denuvo Games Like Resident Evil Requiem Plans to Keep Doing So Despite Being Sued",
-      "link": "https://www.ign.com/articles/pirate-who-cracked-denuvo-games-like-resident-evil-requiem-plans-to-continue-doing-so-despite-being-sued",
-      "summary": "A pirate known for cracking games that utilize the DRM software Denuvo is being hit with a lawsuit... but that isn't stopping them from continuing on.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-16T18:24:25.000Z"
-    },
-    {
-      "title": "Ahead of Their 50th Anniversary, This Comic is Remembering an Often-Forgotten Era for One of Marvel’s Most Interesting Characters",
-      "link": "https://comicbook.com/comics/feature/ahead-of-their-50th-anniversary-this-comic-is-remembering-an-often-forgotten-era-for-one-of-marvels-most-interesting-characters/",
-      "summary": "As comic book characters Brian Braddock and Betsy Braddock approach their fiftieth anniversary — the comic’s publication dating back to 1976— it has never been a better time to be a Captain Britain fan. The Captain…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-16T19:30:00.000Z"
-    },
-    {
-      "title": "Congress is under pressure to act on AI — here's what that could look like",
-      "link": "https://www.npr.org/2026/09/16/nx-s1-5969933/congress-ai-regulation",
-      "summary": "Lawmakers are expressing broader willingness to regulate AI development, but the path forward may not be a quick one.",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-09-16T17:32:44.000Z"
-    },
-    {
-      "title": "Iran strikes on Amazon data centers caused permanent loss of customer data",
-      "link": "https://arstechnica.com/gadgets/2026/09/iran-strikes-on-amazon-data-centers-caused-permanent-loss-of-customer-data/",
-      "summary": "War damage to data centers exceeded what AWS services are designed to withstand.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T16:40:11.000Z"
-    },
-    {
-      "title": "Data Broker Radaris Loses Domains in Privacy Fight",
-      "link": "https://krebsonsecurity.com/2026/09/data-broker-radaris-loses-domains-in-privacy-fight/",
-      "summary": "The consumer data broker Radaris.com has long had a reputation for ignoring requests to remove personal information from its vast empire of people-search services online. That reputation caught up with the company…",
-      "source": "Krebs on Security",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T18:14:22.000Z"
-    },
-    {
-      "title": "Fighting Your Dragons Through Tough Tech Times",
-      "link": "https://www.darkreading.com/cybersecurity-careers/finding-hope-brutal-job-market",
-      "summary": "Cybersecurity industry veteran Hal Pomeranz gives a pep talk on career anxiety and self-doubt and shares how to build meaningful connections during historical tech industry downturns.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T18:00:54.000Z"
-    },
-    {
-      "title": "Medusa in an Etruscan Tomb",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/medusa-etruscan-tomb/",
-      "summary": "During routine conservation work at the Palazzone necropolis, outside of Perugia in central Italy, archaeologists made a fascinating discovery: a burial urn decorated with the…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-16T10:00:37.000Z"
-    },
-    {
-      "title": "Jesus Holding a Magic Wand?",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/jesus-holding-a-magic-wand/",
-      "summary": "Did Jesus use a magic wand when performing his miracles? It seems so—if we are to judge by some of the earliest depictions of Jesus…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-15T11:00:36.000Z"
-    },
-    {
-      "title": "Canceled WB Kart Racer Revealed in New Leak Featuring Bugs Bunny and More",
-      "link": "https://comicbook.com/gaming/news/canceled-wb-kart-racer-revealed-in-new-leak-featuring-bugs-bunny-and-more/",
-      "summary": "Despite having a multitude of iconic IPs like Looney Tunes and DC, Warner Bros. hasn’t had much success in building it out into gaming. Outside of the once-successful MultiVersus, which shut down last year, there…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-16T19:13:34.000Z"
-    },
-    {
-      "title": "Resident Evil’s Near-Perfect Rotten Tomatoes Score Means Zach Cregger’s Reboot Has Already Achieved One Major Milestone",
-      "link": "https://comicbook.com/movies/news/resident-evils-near-perfect-rotten-tomatoes-score-means-zach-creggers-reboot-has-already-achieved-one-major-milestone/",
-      "summary": "Despite previously being best known as a member of a cult comedy troupe, Zach Cregger has quickly cemented his place in the history of horror after delivering the amazing one-two punch of Barbarian and Weapons.…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-16T19:02:06.000Z"
-    },
-    {
-      "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon and Claude",
-      "link": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
-      "summary": "Security researchers at Forever Security have shown that one ordinary browser extension could take control of the AI assistants built into five Chromium-based products: Gemini Live in Chrome, Perplexity Comet, Microsoft…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T14:36:44.000Z"
-    },
-    {
-      "title": "Heated Rivalry Adds Six to Season 2 Cast as Filming Continues",
-      "link": "https://bleedingcool.com/tv/heated-rivalry-adds-six-to-season-2-cast-as-filming-continues/",
-      "summary": "Brendan Morgan, David Tomlinson, Gerry Dee, Michelle Mylett, Lauren Chan, and Nick Stahl have joined the cast of Heated Rivalry Season 2.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-16T19:22:08.000Z"
-    },
-    {
-      "title": "What happens when neutrinos swap identities inside a supernova?",
-      "link": "https://arstechnica.com/science/2026/09/what-happens-when-neutrinos-swap-identities-inside-a-supernova/",
-      "summary": "Identity-fluid particles may carry some energy out, leading to direct collapse.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T15:17:43.000Z"
-    },
     {
       "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Execution",
       "link": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
@@ -130,84 +10,12 @@
       "date": "2026-09-16T15:50:59.000Z"
     },
     {
-      "title": "It’s OK to tell ICE their actions will haunt them, judge rules in speech fight",
-      "link": "https://arstechnica.com/tech-policy/2026/09/its-ok-to-tell-ice-their-actions-will-haunt-them-judge-rules-in-speech-fight/",
-      "summary": "Man wins fight to block ICE threat over off-the-cuff angry email.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T17:06:06.000Z"
-    },
-    {
-      "title": "Pokémon TCG Launches The 30th Celebration Set",
-      "link": "https://bleedingcool.com/games/pokemon-tcg-launches-the-30th-celebration-set/",
-      "summary": "Pokémon TCG has launched the official 30th Celebration set, which includes a special Mewtwo promo card at select locations.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-16T18:48:10.000Z"
-    },
-    {
-      "title": "Four Early Rabbis You Should Know",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-topics/bible-interpretation/four-early-rabbis-you-should-know/",
-      "summary": "Following the destruction of the Second Temple in 70 CE, Judaism underwent a radical transformation. In the wake of the crisis, a new question loomed…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-16T10:45:31.000Z"
-    },
-    {
-      "title": "Guy Ritchie’s 128-minute Action Movie Is Officially the Biggest Detective Thriller on Streaming",
-      "link": "https://www.polygon.com/guy-ritchie-sherlock-holmes-streaming-hit-apple-tv-september-2026/",
-      "summary": "Sherlock Holmes, Guy Ritchie's action-packed take on the classic detective, is finding a new audience on Apple TV.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-16T19:26:06.000Z"
-    },
-    {
-      "title": "BragJack Attack Can Turn a Browser's Agentic AI Against It",
-      "link": "https://www.darkreading.com/endpoint-security/bragjack-browser-agentic-ai",
-      "summary": "A new type of attack hijacks the AI assistant built directly into various browsers to access sensitive information, execute malicious actions, and exfiltrate data.",
+      "title": "AI Security Spending Jumps as Fear Outpaces Proof of Value",
+      "link": "https://www.darkreading.com/cybersecurity-operations/ai-security-spending-jumps-fear-outpaces-proof-value",
+      "summary": "CISOs are not waiting for AI to prove its cybersecurity value before investing in the technology. Is it the right move?",
       "source": "Dark Reading",
       "topic": "Cybersecurity",
-      "date": "2026-09-16T16:43:37.000Z"
-    },
-    {
-      "title": "Marvel's Wolverine Players Are Testing Its Motorcycle Sequence to See if Logan Can Die if You Don't Touch the Controller",
-      "link": "https://www.ign.com/articles/marvels-wolverine-players-are-testing-its-motorcycle-sequence-to-see-if-logan-can-die-if-you-dont-touch-the-controller",
-      "summary": "Marvel’s Wolverine has kicked off no end of debates on social media, with the latest of these centering around a chase sequence that sees Logan weaving through traffic on a motorcycle.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-16T18:33:21.000Z"
-    },
-    {
-      "title": "Uncovering the UAE’s Early Christian Community",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-near-eastern-world/uncovering-uae-early-christian-community/",
-      "summary": "During renewed excavations at the monastery of Sir Bani Yas Island in the United Arab Emirates, archaeologists made a remarkable find: a plaster plaque of…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-14T10:00:19.000Z"
-    },
-    {
-      "title": "The world’s best racing driver is about to race 100 karts at once",
-      "link": "https://arstechnica.com/cars/2026/09/the-worlds-best-racing-driver-is-about-to-race-100-karts-at-once/",
-      "summary": "Red Bull, Disney+, and ESPN are streaming the race at noon Eastern today.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T14:19:01.000Z"
-    },
-    {
-      "title": "Anthropic Commits to Independent AI Evaluators, Wants Slower Development. Nvidia's CEO Wants It 'As Fast as You Can'",
-      "link": "https://slashdot.org/story/26/09/16/0619212/anthropic-commits-to-independent-ai-evaluators-wants-slower-development-nvidias-ceo-wants-it-as-fast-as-you-can?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"Anthropic's CEO took the stage at a conference in San Francisco on Tuesday to reiterate his call for a slowdown of AI development,\" reports the Guardian, \" while Nvidia's CEO argued against slowing its development.…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-16T17:34:00.000Z"
-    },
-    {
-      "title": "How a wellness craze inspired Pokemon",
-      "link": "https://www.polygon.com/video/how-a-wellness-craze-inspired-pokemon/",
-      "summary": "Pokemon came from a surprisingly sad period of Japan's history — the healing boom following an economic crisis. But that inspiration made the game what it is today. Find out how a late '90s wellness craze created…",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-16T19:06:30.000Z"
+      "date": "2026-09-16T21:26:55.000Z"
     },
     {
       "title": "Simply Cyber Newsletter #198",
@@ -218,36 +26,20 @@
       "date": "2026-09-14T10:00:00.000Z"
     },
     {
-      "title": "The Church of Laodicea in the Bible and Archaeology",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/church-of-laodicea-in-the-bible-and-archaeology/",
-      "summary": "Laodicea was a wealthy city in western Turkey that flourished for centuries. Why does the author of the Book of Revelation call the church of Laodicea “lukewarm”—neither hot nor cold? Recent excavations at the site…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-15T11:00:57.000Z"
+      "title": "New Clayface Update Confirms a DCU First, And Fans Are Here For It: “Not Playing Around”",
+      "link": "https://comicbook.com/movies/news/new-clayface-update-confirms-a-dcu-first-and-fans-are-here-for-it-not-playing-around/",
+      "summary": "DC Studios DC Studios and its DC Universe brand are having a good run into the back half of the year, and it was a much-needed upswing. After successfully launching the franchise on the back of James Gunn’s Superman…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-16T22:02:34.000Z"
     },
     {
-      "title": "US House votes to hold billionaire Epstein associate Leon Black in contempt",
-      "link": "https://www.bbc.co.uk/news/articles/c62l8g8qlr0ko?at_medium=RSS&at_campaign=rss",
-      "summary": "Black - who had business ties to Epstein - declined to appear and provide documents related to the convicted sex offender.",
-      "source": "BBC News",
+      "title": "House passes Russia sanctions, sending bill named for Lindsey Graham to Trump's desk",
+      "link": "https://www.npr.org/2026/09/16/nx-s1-5971289/russia-sanctions-house-vote-lindsey-graham",
+      "summary": "The legislation was named for the late South Carolina Republican. It gives the president authority to impose tariffs on top importers of oil and natural gas from Russia, such as China and India.",
+      "source": "NPR",
       "topic": "Top News",
-      "date": "2026-09-16T19:34:24.000Z"
-    },
-    {
-      "title": "macOS 27 Golden Gate: The Ars Technica review",
-      "link": "https://arstechnica.com/gadgets/2026/09/macos-27-golden-gate-the-ars-technica-review/",
-      "summary": "It's both a \"Snow Leopard update\" and a major leap for Apple Intelligence.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T14:50:06.000Z"
-    },
-    {
-      "title": "Parallels Desktop Flaw Lets Non-Admin Mac Users Gain Root, but Intel Macs Can't Install Fix",
-      "link": "https://thehackernews.com/2026/09/parallels-desktop-flaw-lets-non-admin.html",
-      "summary": "Parallels Desktop for Mac has a flaw that lets an ordinary local account run code as root, the highest level of access on a Mac, software company JFrog said this week. The attack needs code already running on the…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T13:14:05.000Z"
+      "date": "2026-09-16T22:30:46.000Z"
     },
     {
       "title": "Roman Sanctuary Hidden in “Cave of the Women”",
@@ -258,28 +50,236 @@
       "date": "2026-09-14T12:47:54.000Z"
     },
     {
-      "title": "Bloodborne Is Officially Back with a New Release — but There's a Catch",
-      "link": "https://www.polygon.com/bloodborne-sequel-super-groupies-new-collaboration-umbrella-fashion-merchandise/",
-      "summary": "Bloodborne fans still hold out hope for a sequel. Instead, they're getting new Bloodborne merch, like an umbrella and necktie.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-16T19:20:46.000Z"
-    },
-    {
-      "title": "This Signed Star Wars Poster Is an Ultimate Collector’s Grail (and It May be Even More Valuable Than You Think)",
-      "link": "https://comicbook.com/collectibles/news/this-signed-star-wars-poster-is-an-ultimate-collectors-grail-and-it-may-be-even-more-valuable-than-you-think/",
-      "summary": "Courtesy of The Walt Disney Company Movie memorabilia comes in many shapes and sizes for those collectors serious about the hobby. Among some of the most accessible pieces of cinema history are autographs of stars past…",
+      "title": "4 New Co-Op Multiplayer Games That Everyone Should Check Out in Fall 2026",
+      "link": "https://comicbook.com/gaming/list/4-new-co-op-multiplayer-games-that-everyone-should-check-out-in-fall-2026/",
+      "summary": "Courtesy of House House One of the biggest genres of games right now is co-op multiplayer titles, which emphasize collaborative gameplay over competitive or solo experiences. 2026 has seen a variety of great titles…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-16T19:23:00.000Z"
+      "date": "2026-09-16T22:00:00.000Z"
     },
     {
-      "title": "Resident Evil Creator Shinji Mikami to Be Inducted Into D.I.C.E. Hall of Fame",
-      "link": "https://www.ign.com/articles/resident-evil-creator-shinji-mikami-to-be-inducted-into-dice-hall-of-fame",
-      "summary": "Resident Evil creator Shinji Mikami will officially be honored with the Hall of Fame Award at the 30th Annual D.I.C.E. Awards ceremony on February 18, 2027.",
+      "title": "Four Early Rabbis You Should Know",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-topics/bible-interpretation/four-early-rabbis-you-should-know/",
+      "summary": "Following the destruction of the Second Temple in 70 CE, Judaism underwent a radical transformation. In the wake of the crisis, a new question loomed…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-16T10:45:31.000Z"
+    },
+    {
+      "title": "Researchers swap in human brain cells for a mouse's cortex",
+      "link": "https://arstechnica.com/science/2026/09/researchers-swap-in-human-brain-cells-for-a-mouses-cortex/",
+      "summary": "The results are only a slight improvement over missing the entire brain structure.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-16T19:08:34.000Z"
+    },
+    {
+      "title": "Watch: Why has the Federal Reserve raised interest rates?",
+      "link": "https://www.bbc.co.uk/news/videos/cmx2zw08dvk9o?at_medium=RSS&at_campaign=rss",
+      "summary": "The BBC's Samira Hussain looks at the factors considered in the increase and what it could mean for the US economy.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-16T22:26:10.000Z"
+    },
+    {
+      "title": "Attacker Hijacks AI Coding Assistant Session, Spreads Shai-Hulud Across About 100 Repositories",
+      "link": "https://thehackernews.com/2026/09/attacker-hijacks-ai-coding-assistant.html",
+      "summary": "Mandiant says an attacker hijacked an active AI coding-assistant session at an unnamed software-as-a-service provider and later spread Shai-Hulud across about 100 internal code repositories. Before the repository…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T13:37:07.000Z"
+    },
+    {
+      "title": "Jesus Holding a Magic Wand?",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/jesus-holding-a-magic-wand/",
+      "summary": "Did Jesus use a magic wand when performing his miracles? It seems so—if we are to judge by some of the earliest depictions of Jesus…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-15T11:00:36.000Z"
+    },
+    {
+      "title": "Not just Proton: Getting to know Valve's new SteamOS compatibility layers",
+      "link": "https://arstechnica.com/gaming/2026/09/not-just-proton-getting-to-know-valves-new-steamos-compatibility-layers/",
+      "summary": "New system-level tools bring Arm chipsets, Android APKs into the Steam ecosystem.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-16T20:23:16.000Z"
+    },
+    {
+      "title": "Lionsgate releases a new trailer for Sunrise on the Reaping",
+      "link": "https://arstechnica.com/culture/2026/09/haymitch-gets-a-backstory-in-sunrise-on-the-reaping-trailer/",
+      "summary": "Also: Laika Studios debuts a stunning full-length trailer for its stop-motion feature, Wildwood .",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-16T20:44:41.000Z"
+    },
+    {
+      "title": "GPT-6 Astra Plays Minecraft, Gets So Depressed After Creeper Destroys Its Progress That It Farms Potatoes for Hours",
+      "link": "https://www.ign.com/articles/gpt-6-astra-plays-minecraft-gets-so-depressed-after-creeper-destroys-its-progress-that-it-farms-potatoes-for-hours",
+      "summary": "OpenAI’s newest model, GPT-6 Astra, got so depressed after a creeper upended its progress in Minecraft that it listlessly farmed potatoes for hours and grew paranoid of anything green.",
       "source": "IGN",
       "topic": "Gaming",
-      "date": "2026-09-16T18:51:13.000Z"
+      "date": "2026-09-16T22:41:56.000Z"
+    },
+    {
+      "title": "Star Wars Responds to Spider-Man Beating Force Awakens Record By Continuing a Hollywood Tradition",
+      "link": "https://comicbook.com/movies/news/star-wars-responds-to-spider-man-beating-force-awakens-record-by-continuing-a-hollywood-tradition/",
+      "summary": "It’s well established at this point that Spider-Man: Brand New Day was a smash hit, going far beyond just being a success at the box office. After several weeks of incredible turnout, solid reviews, and major broken…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-16T21:33:41.000Z"
+    },
+    {
+      "title": "Backrooms Director Kane Parsons Visits Valve Offices as Portal Movie Rumors Rise",
+      "link": "https://www.ign.com/articles/backrooms-director-kane-parsons-visits-valve-offices-as-portal-movie-rumors-rise",
+      "summary": "Kane Parsons is fueling rumors of a potential Portal movie after he posted photos from his visit to Valve’s offices on his personal Instagram profile.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-16T21:52:28.000Z"
+    },
+    {
+      "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and Wipers",
+      "link": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
+      "summary": "Enterprises in Russia have emerged as the target of three threat activity clusters tracked as NightEagle, Hacking Cat, and Toy Ghouls, according to multiple reports from Kaspersky. The cybersecurity vendor said it has…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T15:27:49.000Z"
+    },
+    {
+      "title": "As Part of California's Coast Begins to Crumble, Is the Clock Ticking on Moving Radioactive Waste?",
+      "link": "https://hardware.slashdot.org/story/26/09/14/0536219/as-part-of-californias-coast-begins-to-crumble-is-the-clock-ticking-on-moving-radioactive-waste?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "\"As parts of the Southern California coastline crumbled into the sea, slammed by intense waves and flooding in recent days, oceanographer Kim McCoy had one thing on his mind,\" reports the Los Angeles Times. He was…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-16T22:04:00.000Z"
+    },
+    {
+      "title": "The Church of Laodicea in the Bible and Archaeology",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/church-of-laodicea-in-the-bible-and-archaeology/",
+      "summary": "Laodicea was a wealthy city in western Turkey that flourished for centuries. Why does the author of the Book of Revelation call the church of Laodicea “lukewarm”—neither hot nor cold? Recent excavations at the site…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-15T11:00:57.000Z"
+    },
+    {
+      "title": "California may gut state net neutrality law to comply with Trump admin demand",
+      "link": "https://arstechnica.com/tech-policy/2026/09/california-may-gut-state-net-neutrality-law-to-comply-with-trump-admin-demand/",
+      "summary": "Trump admin broadband grants forbid states from enforcing net neutrality laws.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-16T19:36:44.000Z"
+    },
+    {
+      "title": "Fighting Your Dragons Through Tough Tech Times",
+      "link": "https://www.darkreading.com/cybersecurity-careers/finding-hope-brutal-job-market",
+      "summary": "Cybersecurity industry veteran Hal Pomeranz gives a pep talk on career anxiety and self-doubt and shares how to build meaningful connections during historical tech industry downturns.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T18:00:54.000Z"
+    },
+    {
+      "title": "Uncovering the UAE’s Early Christian Community",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-near-eastern-world/uncovering-uae-early-christian-community/",
+      "summary": "During renewed excavations at the monastery of Sir Bani Yas Island in the United Arab Emirates, archaeologists made a remarkable find: a plaster plaque of…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-14T10:00:19.000Z"
+    },
+    {
+      "title": "Tracker Season 4: Michael Malarkey Joins Cast in Recurring Role",
+      "link": "https://bleedingcool.com/tv/tracker-season-4-michael-malarkey-joins-cast-in-recurring-role/",
+      "summary": "CBS's Justin Hartley-starring Tracker has cast Michael Malarkey (The Night Agent) in a recurring guest star role with a connection to Reenie.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-16T22:07:09.000Z"
+    },
+    {
+      "title": "BragJack Attack Can Turn a Browser's Agentic AI Against It",
+      "link": "https://www.darkreading.com/endpoint-security/bragjack-browser-agentic-ai",
+      "summary": "A new type of attack hijacks the AI assistant built directly into various browsers to access sensitive information, execute malicious actions, and exfiltrate data.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T16:43:37.000Z"
+    },
+    {
+      "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon and Claude",
+      "link": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
+      "summary": "Security researchers at Forever Security have shown that one ordinary browser extension could take control of the AI assistants built into five Chromium-based products: Gemini Live in Chrome, Perplexity Comet, Microsoft…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T14:36:44.000Z"
+    },
+    {
+      "title": "Data Broker Radaris Loses Domains in Privacy Fight",
+      "link": "https://krebsonsecurity.com/2026/09/data-broker-radaris-loses-domains-in-privacy-fight/",
+      "summary": "The consumer data broker Radaris.com has long had a reputation for ignoring requests to remove personal information from its vast empire of people-search services online. That reputation caught up with the company…",
+      "source": "Krebs on Security",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T18:14:22.000Z"
+    },
+    {
+      "title": "Dumpster Fire Announces Two New Adorably Nihilistic Gifts",
+      "link": "https://bleedingcool.com/pop-culture/dumpster-fire-announces-two-new-adorably-nihilistic-gifts/",
+      "summary": "Do you need more Dumpster Fire in your life? There's an adorably nihilistic journal and a deck of cards coming out on October 6.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-16T22:42:15.000Z"
+    },
+    {
+      "title": "Champs Sports Is Offering a Sweet $20 Bonus FLX Cash Deal on Official NFL Jerseys Right Now, But Only For a Limited Time",
+      "link": "https://www.ign.com/articles/champs-sports-20-dollars-bonus-flx-cash-offer-official-nfl-jerseys",
+      "summary": "If you’ve spent most of August building your franchise around a star quarterback, running back, or defensive standout, grabbing his jersey is a no-brainer.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-16T21:13:15.000Z"
+    },
+    {
+      "title": "Spotify Seems to Be Teasing a GTA 6 Collaboration with Rockstar Games",
+      "link": "https://www.ign.com/articles/spotify-seems-to-be-teasing-a-gta-6-collaboration-with-rockstar-games",
+      "summary": "Spotify appears to be the next big streaming giant to partner with Rockstar Games for GTA 6's marketing.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-16T21:13:38.000Z"
+    },
+    {
+      "title": "South Park’s New Season Is Officially the Biggest Sitcom on Streaming After Just 1 Episode",
+      "link": "https://www.polygon.com/south-park-america-tv-season-29-streaming-success/",
+      "summary": "Season 29 of South Park, recently renamed South America, kicks off with an episode about e-bike gangs, and it's a hit!",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-16T21:35:40.000Z"
+    },
+    {
+      "title": "Boston Blue Season 2: Marg Helgenberger Joins Cast; New S02E01 Images",
+      "link": "https://bleedingcool.com/tv/boston-blue-season-2-marg-helgenberger-joins-cast-new-s02e01-images/",
+      "summary": "Along with new images from CBS's Boston Blue S02E01: \"The Crash,\" check out who Marg Helgenberger has been tapped to play this season.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-16T22:39:10.000Z"
+    },
+    {
+      "title": "Medusa in an Etruscan Tomb",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/medusa-etruscan-tomb/",
+      "summary": "During routine conservation work at the Palazzone necropolis, outside of Perugia in central Italy, archaeologists made a fascinating discovery: a burial urn decorated with the…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-16T10:00:37.000Z"
+    },
+    {
+      "title": "Call of Duty: Black Ops 2 Appears to Be Much More Popular Than Black Ops 7 and Warzone on PS5",
+      "link": "https://www.ign.com/articles/call-of-duty-black-ops-2-appears-to-be-much-more-popular-than-black-ops-7-and-warzone-on-ps5",
+      "summary": "Call of Duty: Black Ops 2 on PS5 appears to be more popular than Call of Duty: Black Ops 7 and Call of Duty: Warzone in the United States.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-16T22:27:57.000Z"
+    },
+    {
+      "title": "Nonprofit that tracks meteors taken down by \"critical blow\" from a cyberattack",
+      "link": "https://arstechnica.com/security/2026/09/nonprofit-that-tracks-meteors-taken-down-by-critical-blow-from-a-cyberattack/",
+      "summary": "Group plans to be largely out of commission for several weeks.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-16T21:08:14.000Z"
     }
   ]
 }
