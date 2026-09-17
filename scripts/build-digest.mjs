@@ -94,14 +94,6 @@ function stripTags(html) {
   return withoutBoilerplate;
 }
 
-function shuffle(items) {
-  for (let i = items.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [items[i], items[j]] = [items[j], items[i]];
-  }
-  return items;
-}
-
 function truncate(text, maxLen) {
   if (text.length <= maxLen) return text;
   const cut = text.slice(0, maxLen);
@@ -217,7 +209,14 @@ async function main() {
     throw new Error("No items fetched from any feed — refusing to overwrite digest.json with an empty digest.");
   }
 
-  shuffle(finalItems);
+  // Each topic's own block above is already recency-sorted, but the
+  // topics themselves were just appended in Map insertion order — sort
+  // the whole combined list by date too, so the page reads most-recent-
+  // first overall instead of one topic's block, then the next's. This
+  // also has the side effect of interleaving topics rather than showing
+  // rigid same-topic blocks, since different topics' stories land at
+  // different times.
+  finalItems.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 
   const digest = {
     generatedAt: new Date().toISOString(),
