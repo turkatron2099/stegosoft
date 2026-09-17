@@ -45,6 +45,12 @@
 
       <div class="weather-result" id="result-box" hidden>
         <h2 class="location-name" id="location-name"></h2>
+
+        <div class="alerts-panel" id="alerts-panel" hidden>
+          <h3 class="alerts-title">Active Alerts</h3>
+          <div class="alerts-list" id="alerts-list"></div>
+        </div>
+
         <div class="forecast-row" id="forecast-row"></div>
 
         <div class="hourly-panel" id="hourly-panel" hidden>
@@ -55,8 +61,9 @@
 
       <p class="weather-note">
         Forecast data from <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a>.
-        Like any 10-day forecast, the later days are a lot less certain than the next couple. Click a
-        day for its hour-by-hour breakdown.
+        Active alerts from the <a href="https://www.weather.gov" target="_blank" rel="noopener">National Weather Service</a>
+        (US locations only). Like any 10-day forecast, the later days are a lot less certain than the
+        next couple. Click a day for its hour-by-hour breakdown.
       </p>
 
     </div>

@@ -9,6 +9,8 @@
   const statusText = document.getElementById("status-text");
   const resultBox = document.getElementById("result-box");
   const locationName = document.getElementById("location-name");
+  const alertsPanel = document.getElementById("alerts-panel");
+  const alertsList = document.getElementById("alerts-list");
   const forecastRow = document.getElementById("forecast-row");
   const hourlyPanel = document.getElementById("hourly-panel");
   const hourlyTitle = document.getElementById("hourly-title");
@@ -84,6 +86,109 @@
     const res = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`);
     if (!res.ok) throw new Error("Couldn't load the forecast — try again.");
     return res.json();
+  }
+
+  // Active watches/warnings/advisories from the National Weather Service —
+  // also free, no API key, CORS-enabled, same as Open-Meteo above. NWS only
+  // covers the US and its territories: a point outside that returns a 400,
+  // which just means "no alerts to show" here rather than a page-breaking
+  // error, since the forecast itself still works fine for other countries.
+  async function fetchAlerts(place) {
+    const url = `https://api.weather.gov/alerts/active?point=${place.latitude},${place.longitude}`;
+    const res = await fetch(url, { headers: { Accept: "application/geo+json" } });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.features
+      .map((f) => f.properties)
+      // "Test" messages are periodic system checks NWS itself issues, not
+      // real alerts — status is the documented way to tell them apart from
+      // "Actual" ones (occasionally show up mixed into a live feed).
+      .filter((p) => p.status === "Actual");
+  }
+
+  const SEVERITY_RANK = { Extreme: 0, Severe: 1, Moderate: 2, Minor: 3, Unknown: 4 };
+
+  function formatAlertTime(iso) {
+    if (!iso) return null;
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return null;
+    const sameDay = date.toDateString() === new Date().toDateString();
+    const time = date.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+    return sameDay ? time : `${date.toLocaleDateString(undefined, { month: "short", day: "numeric" })}, ${time}`;
+  }
+
+  function renderAlerts(alerts) {
+    alertsList.innerHTML = "";
+
+    if (!alerts || alerts.length === 0) {
+      alertsPanel.hidden = true;
+      return;
+    }
+
+    const sorted = [...alerts].sort((a, b) => {
+      const rankDiff = (SEVERITY_RANK[a.severity] ?? 5) - (SEVERITY_RANK[b.severity] ?? 5);
+      if (rankDiff !== 0) return rankDiff;
+      return new Date(a.expires) - new Date(b.expires);
+    });
+
+    sorted.forEach((alert) => {
+      const card = document.createElement("div");
+      card.className = "alert-card";
+      card.dataset.severity = alert.severity || "Unknown";
+
+      const from = formatAlertTime(alert.effective || alert.onset || alert.sent);
+      const until = formatAlertTime(alert.expires || alert.ends);
+      const timeRange = from && until ? `${from} – ${until}` : from || until || "";
+
+      const summary = document.createElement("div");
+      summary.className = "alert-summary";
+
+      const eventEl = document.createElement("span");
+      eventEl.className = "alert-event";
+      eventEl.textContent = alert.event;
+      summary.appendChild(eventEl);
+
+      const areaEl = document.createElement("span");
+      areaEl.className = "alert-area";
+      areaEl.textContent = alert.areaDesc;
+      summary.appendChild(areaEl);
+
+      const timeEl = document.createElement("span");
+      timeEl.className = "alert-time";
+      timeEl.textContent = timeRange;
+      summary.appendChild(timeEl);
+
+      card.appendChild(summary);
+
+      const details = document.createElement("div");
+      details.className = "alert-details";
+
+      if (alert.description) {
+        const desc = document.createElement("p");
+        desc.className = "alert-description";
+        desc.textContent = alert.description.replace(/\n+/g, " ").trim();
+        details.appendChild(desc);
+      }
+
+      if (alert.instruction) {
+        const instr = document.createElement("p");
+        instr.className = "alert-instruction";
+        instr.textContent = alert.instruction.replace(/\n+/g, " ").trim();
+        details.appendChild(instr);
+      }
+
+      const source = document.createElement("p");
+      source.className = "alert-source";
+      source.textContent = alert.senderName || "National Weather Service";
+      details.appendChild(source);
+
+      card.appendChild(details);
+
+      card.addEventListener("click", () => card.classList.toggle("is-expanded"));
+      alertsList.appendChild(card);
+    });
+
+    alertsPanel.hidden = false;
   }
 
   function formatDate(dateStr, index) {
@@ -220,9 +325,19 @@
     try {
       const place = await geocode(query);
       setStatus("Loading forecast…");
-      const forecast = await fetchForecast(place);
+      // Alerts are best-effort: a hiccup fetching them (or a non-US
+      // location, which NWS doesn't cover) shouldn't block the forecast
+      // that's the main point of this page.
+      const [forecast, alerts] = await Promise.all([
+        fetchForecast(place),
+        fetchAlerts(place).catch((err) => {
+          console.error(err);
+          return [];
+        }),
+      ]);
       setStatus(null);
       renderForecast(place, forecast);
+      renderAlerts(alerts);
     } catch (err) {
       console.error(err);
       setStatus(err.message || "Something went wrong — try again.");

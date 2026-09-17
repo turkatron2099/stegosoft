@@ -85,6 +85,91 @@
   margin-bottom: 20px;
 }
 
+.alerts-panel {
+  margin-bottom: 24px;
+}
+
+.alerts-title {
+  color: var(--foreground);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alert-card {
+  background: var(--lighter-background);
+  border: 1px solid var(--muted);
+  border-left: 4px solid var(--teal);
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.alert-card[data-severity="Extreme"],
+.alert-card[data-severity="Severe"] {
+  border-left-color: var(--red);
+}
+
+.alert-card[data-severity="Moderate"] {
+  border-left-color: var(--accent);
+}
+
+.alert-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.alert-event {
+  color: var(--foreground);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.alert-area {
+  color: var(--light-foreground);
+  font-size: 0.8rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-time {
+  color: var(--muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.alert-details {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--muted);
+}
+
+.alert-card.is-expanded .alert-details {
+  display: block;
+}
+
+.alert-description,
+.alert-instruction {
+  color: var(--light-foreground);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.alert-source {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
 .forecast-row {
   display: flex;
   gap: 12px;
