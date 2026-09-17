@@ -1,21 +1,229 @@
 {
-  "generatedAt": "2026-09-17T04:56:50.118Z",
+  "generatedAt": "2026-09-17T13:30:52.389Z",
   "items": [
     {
-      "title": "33 Years Ago, 'X-Files' Introduced Its Weirdest Character in the Most Perfect Way Possible",
-      "link": "https://www.polygon.com/x-files-deep-throat-33-years-later/",
-      "summary": "On the 33rd anniversary of the X-Files episode \"Deep Throat,\" the charcter the episode is named after still has a huge place in the X-Files fandom",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-17T04:02:15.000Z"
+      "title": "Jesus Holding a Magic Wand?",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/jesus-holding-a-magic-wand/",
+      "summary": "Did Jesus use a magic wand when performing his miracles? It seems so—if we are to judge by some of the earliest depictions of Jesus…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-15T11:00:36.000Z"
     },
     {
-      "title": "South Park S29E01: \"South American Biker Gangs\": God, I Hate Randy",
-      "link": "https://bleedingcool.com/tv/south-park-s29e01-south-american-biker-gangs-god-i-hate-randy/",
-      "summary": "For the Season 29 opener, South Park shifted the metaphorical focus from Trump to the damaging impact he's had on small communities.",
+      "title": "AI Security Spending Jumps as Fear Outpaces Proof of Value",
+      "link": "https://www.darkreading.com/cybersecurity-operations/ai-security-spending-jumps-fear-outpaces-proof-value",
+      "summary": "CISOs are not waiting for AI to prove its cybersecurity value before investing in the technology. Is it the right move?",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T21:26:55.000Z"
+    },
+    {
+      "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and Wipers",
+      "link": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
+      "summary": "Enterprises in Russia have emerged as the target of three threat activity clusters tracked as NightEagle, Hacking Cat, and Toy Ghouls, according to multiple reports from Kaspersky. The cybersecurity vendor said it has…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T15:27:49.000Z"
+    },
+    {
+      "title": "This Kenner Boba Fett Action Figure Is Highly Sought After For One Very Small Reason",
+      "link": "https://comicbook.com/collectibles/news/this-kenner-boba-fett-action-figure-is-highly-sought-after-for-one-very-small-reason/",
+      "summary": "Kenner’s Star Wars line is probably among the most famous and most coveted vintage toys for collectors. The manufacturer was one of the first to get a license to create toys for the galaxy far, far away, and absolutely…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-17T12:38:00.000Z"
+    },
+    {
+      "title": "Adafruit's New CircuitPython 'Turbo' Brings Native Code To Tiny Boards",
+      "link": "https://news.slashdot.org/story/26/09/15/0149250/adafruits-new-circuitpython-turbo-brings-native-code-to-tiny-boards?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Targeting students and beginners, Adafruit released \"CircuitPython\" in 2017 (as a derivative of the MicroPython microcontroller-optimized programming language). Now Adafruit managing director Phillip Torrone (also…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-17T02:34:00.000Z"
+    },
+    {
+      "title": "The Church of Laodicea in the Bible and Archaeology",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/church-of-laodicea-in-the-bible-and-archaeology/",
+      "summary": "Laodicea was a wealthy city in western Turkey that flourished for centuries. Why does the author of the Book of Revelation call the church of Laodicea “lukewarm”—neither hot nor cold? Recent excavations at the site…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-15T11:00:57.000Z"
+    },
+    {
+      "title": "U.N.-backed experts cite possible U.S. war crimes in Iran, including a school attack",
+      "link": "https://www.npr.org/2026/09/17/nx-s1-5972934/us-iran-war-un-report-alleged-war-crimes",
+      "summary": "Human rights experts commissioned by the U.N. say they have found \"reasonable grounds\" to believe the U.S. committed war crimes in Iran, including a strike on a school in the southern city of Minab.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-09-17T12:33:36.000Z"
+    },
+    {
+      "title": "Roman Sanctuary Hidden in “Cave of the Women”",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/roman-sanctuary-hidden-in-cave-of-women/",
+      "summary": "Recent discoveries at Cova Dones, in Spain’s province of Valencia, offer a fascinating glimpse into Roman religious practice, and potentially women-centered worship. Archaeologists have identified…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-14T12:47:54.000Z"
+    },
+    {
+      "title": "Stargate: MGM \"Excited\" for Reboot; Amazon? Not So Much: Wright",
+      "link": "https://bleedingcool.com/tv/stargate-mgm-excited-for-reboot-amazon-not-so-much-wright/",
+      "summary": "Stargate's Brad Wright shared some thoughts on Amazon's canceled reboot, which would've continued the series with new and legacy characters.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-17T02:45:10.000Z"
+      "date": "2026-09-17T12:37:08.000Z"
+    },
+    {
+      "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Execution",
+      "link": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
+      "summary": "A critical security flaw in Issabel Framework, a web-based framework for the open-source unified communications PBX software, has come under active exploitation. The vulnerability in question is CVE-2026-89026 (CVSS…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T15:50:59.000Z"
+    },
+    {
+      "title": "Medusa in an Etruscan Tomb",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/medusa-etruscan-tomb/",
+      "summary": "During routine conservation work at the Palazzone necropolis, outside of Perugia in central Italy, archaeologists made a fascinating discovery: a burial urn decorated with the…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-16T10:00:37.000Z"
+    },
+    {
+      "title": "Best armor in The Blood of Dawnwalker",
+      "link": "https://www.polygon.com/blood-of-dawnwalker-best-armor-sets-arbiter-ancient-location/",
+      "summary": "Whether you favor witchcraft, vampirism, or swordmastery, these are the best armor sets in The Blood of Dawnwalker",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-17T13:16:18.000Z"
+    },
+    {
+      "title": "Barclays staff push back at plans to reduce work-from-home days",
+      "link": "https://www.bbc.co.uk/news/articles/cqlym1n9kpyvo?at_medium=RSS&at_campaign=rss",
+      "summary": "Unite union, which represents 36,000 Barclays staff, calls for a one-off payment to offset increased travel and childcare costs.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-09-17T13:18:03.000Z"
+    },
+    {
+      "title": "Grand Theft Auto VI: The Album Is Up for Preorder",
+      "link": "https://www.ign.com/articles/grand-theft-auto-vi-the-album-is-up-for-preorder",
+      "summary": "Preorders are live for Grand Theft Auto VI: The Album, which features 34 tracks and is available in limited-edition vinyl, standard vinyl, and CD.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-17T12:48:46.000Z"
+    },
+    {
+      "title": "OpenAI Admits Six More Instances of AI Models Acting Deceptively",
+      "link": "https://slashdot.org/story/26/09/17/0641223/openai-admits-six-more-instances-of-ai-models-acting-deceptively?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "OpenAI announced Wednesday that \"We do not believe that the AI industry has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.\" But along with the…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-17T07:04:00.000Z"
+    },
+    {
+      "title": "As Part of California's Coast Begins to Crumble, Is the Clock Ticking on Moving Radioactive Waste?",
+      "link": "https://hardware.slashdot.org/story/26/09/14/0536219/as-part-of-californias-coast-begins-to-crumble-is-the-clock-ticking-on-moving-radioactive-waste?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "\"As parts of the Southern California coastline crumbled into the sea, slammed by intense waves and flooding in recent days, oceanographer Kim McCoy had one thing on his mind,\" reports the Los Angeles Times. He was…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-16T22:04:00.000Z"
+    },
+    {
+      "title": "The best ways to make money in Wardogs",
+      "link": "https://www.polygon.com/wardogs-money-how-to-make-quickly-fast-best-way/",
+      "summary": "A guide detailing all the best ways to make money quickly in Wardogs.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-17T13:28:49.000Z"
+    },
+    {
+      "title": "10 Years Later, Jujutsu Kaisen Studio’s Biggest Sports Hit Returns With Big Screen Plans",
+      "link": "https://comicbook.com/anime/news/10-years-later-jujutsu-kaisen-studios-biggest-sports-hit-returns-with-big-screen-plans/",
+      "summary": "MAPPA Jujutsu Kaisen‘s anime studio, MAPPA, has emerged as one of the biggest studios in the anime industry, with fandoms, especially shonen fans, hoping for their new anime to be animated by the studio. The studio has…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-17T13:00:00.000Z"
+    },
+    {
+      "title": "Uncovering the UAE’s Early Christian Community",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-near-eastern-world/uncovering-uae-early-christian-community/",
+      "summary": "During renewed excavations at the monastery of Sir Bani Yas Island in the United Arab Emirates, archaeologists made a remarkable find: a plaster plaque of…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-14T10:00:19.000Z"
+    },
+    {
+      "title": "Epstein had huge cache of child sex pics; victims sue to find out who's in them",
+      "link": "https://arstechnica.com/tech-policy/2026/09/lawsuit-trump-doj-notified-very-few-victims-in-epsteins-stash-of-child-sex-images/",
+      "summary": "Survivors appalled nobody will tell them if they’re in Epstein’s CSAM collection.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-16T21:42:09.000Z"
+    },
+    {
+      "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon and Claude",
+      "link": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
+      "summary": "Security researchers at Forever Security have shown that one ordinary browser extension could take control of the AI assistants built into five Chromium-based products: Gemini Live in Chrome, Perplexity Comet, Microsoft…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T14:36:44.000Z"
+    },
+    {
+      "title": "48 Years Ago, A Sci-fi Franchise Made Its US Premiere and Immediately Sparked a Lawsuit From Star Wars",
+      "link": "https://comicbook.com/tv-shows/feature/48-years-ago-a-sci-fi-franchise-made-its-us-premiere-and-immediately-sparked-a-lawsuit-from-star-wars/",
+      "summary": "After Star Wars became a massive success in 1977, the race was on for the next big sci-fi hit. Universal jumped into the new space race quickly with some assistance from one of the creative forces behind A New Hope.…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-17T12:30:00.000Z"
+    },
+    {
+      "title": "Fighting Your Dragons Through Tough Tech Times",
+      "link": "https://www.darkreading.com/cybersecurity-careers/finding-hope-brutal-job-market",
+      "summary": "Cybersecurity industry veteran Hal Pomeranz gives a pep talk on career anxiety and self-doubt and shares how to build meaningful connections during historical tech industry downturns.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T18:00:54.000Z"
+    },
+    {
+      "title": "Attacker Hijacks AI Coding Assistant Session, Spreads Shai-Hulud Across About 100 Repositories",
+      "link": "https://thehackernews.com/2026/09/attacker-hijacks-ai-coding-assistant.html",
+      "summary": "Mandiant says an attacker hijacked an active AI coding-assistant session at an unnamed software-as-a-service provider and later spread Shai-Hulud across about 100 internal code repositories. Before the repository…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T13:37:07.000Z"
+    },
+    {
+      "title": "34 Years Later, the Most Iconic '90s Series of All Time Officially Free on Streaming",
+      "link": "https://www.polygon.com/sailor-moon-free-to-stream-pluto-tv/",
+      "summary": "One of the definitive '90s anime, exploring queer and surreal themes, is now free to stream on Pluto TV.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-17T12:01:15.000Z"
+    },
+    {
+      "title": "Frankenstein Meets Spielberg in the Most Bonkers Sci-Fi Thriller of 2026",
+      "link": "https://www.polygon.com/shaun-the-sheep-the-beast-of-mossy-bottom-directors-interview/",
+      "summary": "The directors of Shaun the Sheep: The Beast of Mossy Bottom talk about the process of bringing Shaun the Sheep to the big screen",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-17T12:01:15.000Z"
+    },
+    {
+      "title": "BragJack Attack Can Turn a Browser's Agentic AI Against It",
+      "link": "https://www.darkreading.com/endpoint-security/bragjack-browser-agentic-ai",
+      "summary": "A new type of attack hijacks the AI assistant built directly into various browsers to access sensitive information, execute malicious actions, and exfiltrate data.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-16T16:43:37.000Z"
+    },
+    {
+      "title": "'Zuckoff' App Detects Meta Smartglasses, as Meta Plans Camera-Free Version, Loses Money, and Offers Social Media Subscriptions",
+      "link": "https://tech.slashdot.org/story/26/09/17/045246/zuckoff-app-detects-meta-smartglasses-as-meta-plans-camera-free-version-loses-money-and-offers-social-media-subscriptions?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "The New York Post reports: A new app called Zuckoff can detect if a user is near someone with Meta's creepy AI-powered glasses, which have drawn criticism for enabling creeps to record video of women without their…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-17T11:34:00.000Z"
     },
     {
       "title": "Simply Cyber Newsletter #198",
@@ -34,126 +242,6 @@
       "date": "2026-09-16T22:02:46.000Z"
     },
     {
-      "title": "Fighting Your Dragons Through Tough Tech Times",
-      "link": "https://www.darkreading.com/cybersecurity-careers/finding-hope-brutal-job-market",
-      "summary": "Cybersecurity industry veteran Hal Pomeranz gives a pep talk on career anxiety and self-doubt and shares how to build meaningful connections during historical tech industry downturns.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T18:00:54.000Z"
-    },
-    {
-      "title": "Jesus Holding a Magic Wand?",
-      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/jesus-holding-a-magic-wand/",
-      "summary": "Did Jesus use a magic wand when performing his miracles? It seems so—if we are to judge by some of the earliest depictions of Jesus…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-15T11:00:36.000Z"
-    },
-    {
-      "title": "Attacker Hijacks AI Coding Assistant Session, Spreads Shai-Hulud Across About 100 Repositories",
-      "link": "https://thehackernews.com/2026/09/attacker-hijacks-ai-coding-assistant.html",
-      "summary": "Mandiant says an attacker hijacked an active AI coding-assistant session at an unnamed software-as-a-service provider and later spread Shai-Hulud across about 100 internal code repositories. Before the repository…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T13:37:07.000Z"
-    },
-    {
-      "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and Wipers",
-      "link": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
-      "summary": "Enterprises in Russia have emerged as the target of three threat activity clusters tracked as NightEagle, Hacking Cat, and Toy Ghouls, according to multiple reports from Kaspersky. The cybersecurity vendor said it has…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T15:27:49.000Z"
-    },
-    {
-      "title": "As Part of California's Coast Begins to Crumble, Is the Clock Ticking on Moving Radioactive Waste?",
-      "link": "https://hardware.slashdot.org/story/26/09/14/0536219/as-part-of-californias-coast-begins-to-crumble-is-the-clock-ticking-on-moving-radioactive-waste?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"As parts of the Southern California coastline crumbled into the sea, slammed by intense waves and flooding in recent days, oceanographer Kim McCoy had one thing on his mind,\" reports the Los Angeles Times. He was…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-16T22:04:00.000Z"
-    },
-    {
-      "title": "Nonprofit that tracks meteors taken down by \"critical blow\" from a cyberattack",
-      "link": "https://arstechnica.com/security/2026/09/nonprofit-that-tracks-meteors-taken-down-by-critical-blow-from-a-cyberattack/",
-      "summary": "Group plans to be largely out of commission for several weeks.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T21:08:14.000Z"
-    },
-    {
-      "title": "AI Security Spending Jumps as Fear Outpaces Proof of Value",
-      "link": "https://www.darkreading.com/cybersecurity-operations/ai-security-spending-jumps-fear-outpaces-proof-value",
-      "summary": "CISOs are not waiting for AI to prove its cybersecurity value before investing in the technology. Is it the right move?",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T21:26:55.000Z"
-    },
-    {
-      "title": "The Papers: King's 'astonishing outburst' and 'heartbreak' after search for missing Noah",
-      "link": "https://www.bbc.co.uk/news/articles/cm0e3r0j5wgxo?at_medium=RSS&at_campaign=rss",
-      "summary": "Several of today's papers splash on the Palace's response to Earl Spencer's claim in his upcoming book about his sister Diana.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-09-17T04:29:33.000Z"
-    },
-    {
-      "title": "23 Fire Emblem Fortune's Weave beginner tips to help you defy fate",
-      "link": "https://www.polygon.com/fire-emblem-fortunes-weave-beginner-tips-tricks/",
-      "summary": "Our Fire Emblem: Fortune's Weave beginner's guide includes essential tips and tricks to help you start on the right foot",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-17T04:01:15.000Z"
-    },
-    {
-      "title": "Resident Evil Director Reveals His Pick for Live-Action Lady Dimitrescu and It’s Almost Too Perfect",
-      "link": "https://comicbook.com/movies/news/resident-evil-director-reveals-his-pick-for-live-action-lady-dimitrescu-and-its-almost-too-perfect/",
-      "summary": "Zach Cregger’s Resident Evil has finally screened for critics and the director can finally take a victory lap. After months of press that felt more like an apology tour, Cregger can take solace in the fact that the…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-17T02:16:37.000Z"
-    },
-    {
-      "title": "Here's why an Arizona medical examiner is working to track heat-related deaths",
-      "link": "https://www.npr.org/2024/05/30/nx-s1-4854224/death-heat-arizona-climate-change-medical-examiner",
-      "summary": "No one across the U.S. is consistently tracking climate-fueled deaths. One medical examiner has a new protocol on heat-deaths.",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-09-16T23:07:40.000Z"
-    },
-    {
-      "title": "Four Early Rabbis You Should Know",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-topics/bible-interpretation/four-early-rabbis-you-should-know/",
-      "summary": "Following the destruction of the Second Temple in 70 CE, Judaism underwent a radical transformation. In the wake of the crisis, a new question loomed…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-16T10:45:31.000Z"
-    },
-    {
-      "title": "The Church of Laodicea in the Bible and Archaeology",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/church-of-laodicea-in-the-bible-and-archaeology/",
-      "summary": "Laodicea was a wealthy city in western Turkey that flourished for centuries. Why does the author of the Book of Revelation call the church of Laodicea “lukewarm”—neither hot nor cold? Recent excavations at the site…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-15T11:00:57.000Z"
-    },
-    {
-      "title": "Yellowjackets Final Season Images: The Rescue Is Only The Beginning",
-      "link": "https://bleedingcool.com/tv/yellowjackets-final-season-images-the-rescue-is-only-the-beginning/",
-      "summary": "Returning for its final season on November 20th, check out a gallery of first-look images from Paramount+ with Showtime's Yellowjackets.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-17T03:36:11.000Z"
-    },
-    {
-      "title": "Which character should you pick first in Fire Emblem: Fortune's Weave?",
-      "link": "https://www.polygon.com/fire-emblem-fortunes-weave-which-character-route-first/",
-      "summary": "Deciding which character and route to play first in Fire Emblem Fortune's Weave depends on what kind of experience you're after",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-17T04:01:15.000Z"
-    },
-    {
       "title": "Data Broker Radaris Loses Domains in Privacy Fight",
       "link": "https://krebsonsecurity.com/2026/09/data-broker-radaris-loses-domains-in-privacy-fight/",
       "summary": "The consumer data broker Radaris.com has long had a reputation for ignoring requests to remove personal information from its vast empire of people-search services online. That reputation caught up with the company…",
@@ -162,124 +250,36 @@
       "date": "2026-09-16T18:14:22.000Z"
     },
     {
-      "title": "James Gunn, Grant Gustin & The Flash Rumor That Just Won't Die",
-      "link": "https://bleedingcool.com/tv/james-gunn-grant-gustin-the-flash-rumor-that-just-wont-die/",
-      "summary": "Believe it or not, we're nearing the four-year anniversary of James Gunn shooting down Grant Gustin/The Flash/DCU rumors. Here's the latest.",
+      "title": "Is Joanne Starer The New DC Writer For Harley Quinn?",
+      "link": "https://bleedingcool.com/comics/is-joanne-starer-the-new-dc-writer-for-harley-quinn/",
+      "summary": "Is Joanne Starer The New DC Writer For Harley Quinn? Maybe... we'll have to find out...",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-17T01:37:09.000Z"
+      "date": "2026-09-17T12:58:10.000Z"
     },
     {
-      "title": "Medusa in an Etruscan Tomb",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/medusa-etruscan-tomb/",
-      "summary": "During routine conservation work at the Palazzone necropolis, outside of Perugia in central Italy, archaeologists made a fascinating discovery: a burial urn decorated with the…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-16T10:00:37.000Z"
-    },
-    {
-      "title": "Epstein had huge cache of child sex pics; victims sue to find out who's in them",
-      "link": "https://arstechnica.com/tech-policy/2026/09/lawsuit-trump-doj-notified-very-few-victims-in-epsteins-stash-of-child-sex-images/",
-      "summary": "Survivors appalled nobody will tell them if they’re in Epstein’s CSAM collection.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T21:42:09.000Z"
-    },
-    {
-      "title": "Adafruit's New CircuitPython 'Turbo' Brings Native Code To Tiny Boards",
-      "link": "https://news.slashdot.org/story/26/09/15/0149250/adafruits-new-circuitpython-turbo-brings-native-code-to-tiny-boards?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Targeting students and beginners, Adafruit released \"CircuitPython\" in 2017 (as a derivative of the MicroPython microcontroller-optimized programming language). Now Adafruit managing director Phillip Torrone (also…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-17T02:34:00.000Z"
-    },
-    {
-      "title": "LittleBigPlanet Developer Reportedly Working on Animal Crossing-Like Game for 2027 Release",
-      "link": "https://www.ign.com/articles/littlebigplanet-developer-reportedly-working-on-animal-crossing-like-game-for-2027-release",
-      "summary": "LittleBigPlanet developer Media Molecule is reportedly working on a new social-sim game, similar to Animal Crossing, and it may release next year.",
+      "title": "GTA 6 Soundtrack Gets Physical CD and Vinyl Release, Rockstar Confirms",
+      "link": "https://www.ign.com/articles/gta-6-leak-reveals-physical-release-for-its-music-album",
+      "summary": "Rockstar will launch a physical edition of the Grand Theft Auto 6 soundtrack, a new leak has revealed.",
       "source": "IGN",
       "topic": "Gaming",
-      "date": "2026-09-16T23:05:32.000Z"
+      "date": "2026-09-17T12:06:45.000Z"
     },
     {
-      "title": "Lionsgate releases a new trailer for Sunrise on the Reaping",
-      "link": "https://arstechnica.com/culture/2026/09/haymitch-gets-a-backstory-in-sunrise-on-the-reaping-trailer/",
-      "summary": "Also: Laika Studios debuts a stunning full-length trailer for its stop-motion feature, Wildwood .",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-16T20:44:41.000Z"
-    },
-    {
-      "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Execution",
-      "link": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
-      "summary": "A critical security flaw in Issabel Framework, a web-based framework for the open-source unified communications PBX software, has come under active exploitation. The vulnerability in question is CVE-2026-89026 (CVSS…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T15:50:59.000Z"
-    },
-    {
-      "title": "Roman Sanctuary Hidden in “Cave of the Women”",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-rome/roman-sanctuary-hidden-in-cave-of-women/",
-      "summary": "Recent discoveries at Cova Dones, in Spain’s province of Valencia, offer a fascinating glimpse into Roman religious practice, and potentially women-centered worship. Archaeologists have identified…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-14T12:47:54.000Z"
-    },
-    {
-      "title": "Uncovering the UAE’s Early Christian Community",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-near-eastern-world/uncovering-uae-early-christian-community/",
-      "summary": "During renewed excavations at the monastery of Sir Bani Yas Island in the United Arab Emirates, archaeologists made a remarkable find: a plaster plaque of…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-14T10:00:19.000Z"
-    },
-    {
-      "title": "South Park: Trump Included in New \"South America\" Season 29 Intro",
-      "link": "https://bleedingcool.com/tv/south-park-trump-included-in-new-south-america-season-29-intro/",
-      "summary": "Trey Parker & Matt Stone's South Park made the name change to \"South America\" official in the new Season 29 intro - which now includes Trump.",
+      "title": "Lanterns Trailer: The Mystery Deepens (And Guy's No Hal Jordan Fan)",
+      "link": "https://bleedingcool.com/tv/lanterns-trailer-the-mystery-deepens-and-guys-no-hal-jordan-fan/",
+      "summary": "In the midseason trailer for HBO's Lanterns, the mystery deepens, John and Hal (???) have a heart-to-heart, Guy Gardner appears, and more.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-17T03:16:09.000Z"
+      "date": "2026-09-17T13:30:10.000Z"
     },
     {
-      "title": "Where to find giants' meat in Fire Emblem Fortune's Weave",
-      "link": "https://www.polygon.com/fire-emblem-fortunes-weave-giants-meat-how-to-get-location-goliath/",
-      "summary": "Here's how to get giants' meat in Fire Emblem: Fortune's Weave and where to find giants, so you can recruit Goliath.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-17T04:01:15.000Z"
-    },
-    {
-      "title": "My Hero Academia Creator’s New Manga Clearly Deserves a Longer Run",
-      "link": "https://comicbook.com/anime/feature/my-hero-academia-creators-new-manga-clearly-deserves-a-longer-run/",
-      "summary": "Image Courtesy of Shueisha My Hero Academia is one of the most successful anime and manga series of all time. Although the main story reached its conclusion two years ago, its popularity only continues to rise thanks to…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-09-17T01:00:00.000Z"
-    },
-    {
-      "title": "BragJack Attack Can Turn a Browser's Agentic AI Against It",
-      "link": "https://www.darkreading.com/endpoint-security/bragjack-browser-agentic-ai",
-      "summary": "A new type of attack hijacks the AI assistant built directly into various browsers to access sensitive information, execute malicious actions, and exfiltrate data.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T16:43:37.000Z"
-    },
-    {
-      "title": "Best Boons of Salvation to unlock early in Fire Emblem Fortune's Weave",
-      "link": "https://www.polygon.com/fire-emblem-fortunes-weave-boons-of-salvation-unlock-early/",
-      "summary": "In this guide, we listed all the best Boons of Salvation to unlock early in Fire Emblem: Fortune's Weave so you know how to better spend Karma Shards.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-17T04:01:15.000Z"
-    },
-    {
-      "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon and Claude",
-      "link": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
-      "summary": "Security researchers at Forever Security have shown that one ordinary browser extension could take control of the AI assistants built into five Chromium-based products: Gemini Live in Chrome, Perplexity Comet, Microsoft…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-16T14:36:44.000Z"
+      "title": "Four Early Rabbis You Should Know",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-topics/bible-interpretation/four-early-rabbis-you-should-know/",
+      "summary": "Following the destruction of the Second Temple in 70 CE, Judaism underwent a radical transformation. In the wake of the crisis, a new question loomed…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-16T10:45:31.000Z"
     }
   ]
 }
