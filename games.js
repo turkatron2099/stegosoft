@@ -131,8 +131,11 @@
     }
 
     // Cloned per play (same pattern as CARTRIDGE_CLICK_AUDIO) so rapid
-    // power cycling doesn't cut a prior play short.
-    HOP_ON_THE_BYTE_AUDIO.cloneNode(true).play().catch(() => {});
+    // power cycling doesn't cut a prior play short. Delayed a beat after
+    // the chime above so the two don't overlap.
+    setTimeout(() => {
+      HOP_ON_THE_BYTE_AUDIO.cloneNode(true).play().catch(() => {});
+    }, 1000);
   }
 
   // Safari still needs the -webkit- prefixed names.
