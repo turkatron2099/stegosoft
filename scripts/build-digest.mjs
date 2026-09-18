@@ -13,6 +13,8 @@ const FEEDS = [
   { topic: "Technology", source: "Slashdot", url: "http://rss.slashdot.org/Slashdot/slashdotMain" },
   { topic: "Gaming", source: "Polygon", url: "https://www.polygon.com/rss/index.xml" },
   { topic: "Gaming", source: "IGN", url: "https://feeds.ign.com/ign/games-all" },
+  { topic: "Maker Consoles", source: "Hackaday (game console)", url: "https://hackaday.com/tag/game-console/feed/" },
+  { topic: "Maker Consoles", source: "Hackaday (handheld)", url: "https://hackaday.com/tag/handheld/feed/" },
   { topic: "Biblical Archaeology", source: "Biblical Archaeology Society", url: "https://www.biblicalarchaeology.org/feed/" },
   { topic: "Comics", source: "Bleeding Cool", url: "https://bleedingcool.com/feed/" },
   { topic: "Comics", source: "ComicBook.com", url: "https://comicbook.com/feed/" },
@@ -49,6 +51,10 @@ const TOPIC_LIMITS = {
   // Cyber ever got ranked by recency.
   Cybersecurity: 9,
   "Top News": 2,
+  // Both Hackaday tags feeding this topic post new DIY/indie console
+  // builds only every few weeks, not daily like everything else here —
+  // a limit of 6 would just mean 4+ empty slots most runs.
+  "Maker Consoles": 4,
 };
 const DEFAULT_TOPIC_LIMIT = 6;
 const SUMMARY_MAX_LEN = 220;
