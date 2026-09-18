@@ -119,6 +119,13 @@
     { id: "rainbow", hex: "rainbow", label: "Rainbow", requiresWins: UNLOCK_WINS },
   ];
 
+  // NPC traffic picks a random color from this instead of COLORS directly —
+  // "rainbow" is a player-only unlock, and isn't a real hex color to begin
+  // with, so an NPC that rolled it would silently render as a plain
+  // unrotated red car (see getRecoloredSprite/hexToHue, which have no
+  // "rainbow" special-case the way drawTintedVehicleImage does).
+  const NPC_COLORS = COLORS.filter((c) => c.hex !== "rainbow");
+
   // Real recorded animal clips, keyed by animal id. animalSound() below
   // falls back to the synthesized version for any id missing here, in case
   // a future animal gets added without a clip yet. Preloaded once at module
@@ -732,7 +739,7 @@
         .map((o) => ({ center: o.x, halfWidth: o.r, buffer: 26 }));
       const x = pickSafeX(w / 2, activeNumbers);
       if (x === null) return; // no safe gap right now — just skip this spawn cycle
-      const color = COLORS[randInt(0, COLORS.length - 1)];
+      const color = NPC_COLORS[randInt(0, NPC_COLORS.length - 1)];
       objects.push({ type: "car", x, y: -60, w: 44, h: 70, color: color.hex });
     }
 
