@@ -22,6 +22,10 @@
   const CARTRIDGE_CLICK_AUDIO = new Audio("games/sounds/cartridge-click.mp3");
   CARTRIDGE_CLICK_AUDIO.preload = "auto";
 
+  // "Hop on the byte" boot voice line, played on power-on.
+  const HOP_ON_THE_BYTE_AUDIO = new Audio("games/sounds/hop-on-the-byte.m4a");
+  HOP_ON_THE_BYTE_AUDIO.preload = "auto";
+
   let current = null; // { id, controller }
   let poweredOnIdle = false; // powered on via the Power button, no cartridge inserted
   let pendingInsertTimeoutId = null; // set while waiting out the post-click boot delay below
@@ -104,9 +108,8 @@
     ctx.drawImage(tiny, 0, 0, bootLogoCanvas.width, bootLogoCanvas.height);
   }
 
-  // Synthesized boot chime + a slow, low-pitched voice line, evoking a
-  // classic console startup jingle without reusing anyone else's actual
-  // audio.
+  // Synthesized boot chime + a "Hop on the byte" voice line, evoking a
+  // classic console startup jingle.
   function playBootJingle() {
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -127,13 +130,9 @@
       // Web Audio unavailable — the voice line below can still play alone.
     }
 
-    if (window.speechSynthesis && window.SpeechSynthesisUtterance) {
-      window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance("Hop on the byte");
-      utter.pitch = 0.3;
-      utter.rate = 1.2;
-      window.speechSynthesis.speak(utter);
-    }
+    // Cloned per play (same pattern as CARTRIDGE_CLICK_AUDIO) so rapid
+    // power cycling doesn't cut a prior play short.
+    HOP_ON_THE_BYTE_AUDIO.cloneNode(true).play().catch(() => {});
   }
 
   // Safari still needs the -webkit- prefixed names.
