@@ -1421,10 +1421,18 @@
     // player sprite's blue, so it needs smaller (but still real) boosts.
     // The player truck sprite shares this same red base, so it shares
     // these values too.
+    //
+    // Pink was previously saturate(0.5) brightness(2.7): on this
+    // brighter red base that clipped ~81% of the sprite's pixels to
+    // near-white, wiping out nearly all its line detail — the "some NPC
+    // cars are just white and missing lines" bug. brightness(1.8) alone
+    // (no saturation cut) lands on the same ~69% target lightness the
+    // player-car pink was tuned to, at a measured ~1% clipped (in line
+    // with every other color here), detail fully intact.
     const NPC_CAR_EXTRA_FILTER = {
       "#f3922b": "saturate(1.4) brightness(1.4)", // orange
       "#ffd166": "saturate(1.5) brightness(1.8)", // yellow
-      "#ff5fa2": "saturate(0.5) brightness(2.7)", // pink
+      "#ff5fa2": "saturate(1.0) brightness(1.8)", // pink
     };
     const PLAYER_TRUCK_EXTRA_FILTER = NPC_CAR_EXTRA_FILTER;
 
