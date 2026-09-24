@@ -1,109 +1,221 @@
 {
-  "generatedAt": "2026-09-24T04:56:09.593Z",
+  "generatedAt": "2026-09-24T13:34:41.632Z",
   "items": [
     {
-      "title": "The Papers: 'RAF jet crash escape' and 'Tories to cut benefits'",
-      "link": "https://www.bbc.co.uk/news/articles/cx62m12yrnyqo?at_medium=RSS&at_campaign=rss",
-      "summary": "The moment two RAF pilots ejected from a training jet is splashed across the front page of the Daily Mirror.",
+      "title": "Teenagers to be offered new vocational GCSE subjects in school",
+      "link": "https://www.bbc.co.uk/news/articles/c6rerl41evw5o?at_medium=RSS&at_campaign=rss",
+      "summary": "New GCSE subjects could include child development and building and construction as vocational courses are being introduced.",
       "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-09-24T04:42:02.000Z"
+      "date": "2026-09-24T13:32:41.000Z"
     },
     {
-      "title": "Fears of return to war grow in Ethiopia's Tigray region",
-      "link": "https://www.npr.org/2026/09/24/nx-s1-5978861/conflict-ethiopia-tigray",
-      "summary": "Fears are growing of a return to war in Ethiopia's Tigray region, just four years after a devastating conflict ended in a fragile peace deal.",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-09-24T04:23:38.000Z"
+      "title": "Ghost Service Accounts Enable M365 Data Theft in Chile",
+      "link": "https://www.darkreading.com/cyberattacks-data-breaches/ghost-service-accounts-m365-data-theft-chile",
+      "summary": "Even if the organization locks down employee accounts, forgotten and lost service accounts can still undo the organization's entire M365 environment.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-24T13:30:00.000Z"
     },
     {
-      "title": "How to solve the blood transfusion puzzle in Silent Hill Townfall",
-      "link": "https://www.polygon.com/silent-hill-townfall-blood-transfusion-door-puzzle-blood-bags/",
-      "summary": "Here's how to obtain the missing blood bags and open the blood transfusion door in Silent Hill: Townfall",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-24T04:01:14.000Z"
-    },
-    {
-      "title": "How to save the patient in Silent Hill Townfall",
-      "link": "https://www.polygon.com/silent-hill-townfall-patient-puzzle-walkthrough-vitals-medicine/",
-      "summary": "Here's how to give the blood pressure, make an X-ray, and find the medicine in Silent Hill: Townfall's patient puzzle",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-24T04:01:14.000Z"
-    },
-    {
-      "title": "How to unlock the Community Gardens gate in Silent Hill Townfall",
-      "link": "https://www.polygon.com/silent-hill-townfall-unlock-the-community-gardens-gate-door-key-jane/",
-      "summary": "Here's how to obtain the Community Garden key in Silent Hill: Townfall and reach Mr. Stewart's house",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-24T04:01:14.000Z"
-    },
-    {
-      "title": "How to solve the scales puzzle in Silent Hill Townfall",
-      "link": "https://www.polygon.com/silent-hill-townfall-scales-puzzle-walkthrough-pharmacy-locker-jess/",
-      "summary": "Here's how to solve the pharmacy locker puzzle, enter Jess' house, and complete the scales puzzle in Silent Hill: Townfall",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-24T04:01:14.000Z"
-    },
-    {
-      "title": "Where to find the reception door code in Silent Hill Townfall",
-      "link": "https://www.polygon.com/silent-hill-townfall-reception-door-code-puzzle-clinic/",
-      "summary": "Here's where to find the clinic's reception door code in Silent Hill: Townfall and unlock an extra safe point",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-24T04:01:14.000Z"
-    },
-    {
-      "title": "Beadle & Grimm's Reveals New Magic: The Gathering Deck Boxes",
-      "link": "https://bleedingcool.com/games/beadle-grimms-reveals-new-magic-the-gathering-deck-boxes/",
-      "summary": "Beadle & Grimm's dropped some specialty items for Magic: The Gathering players with their own take on well-made deck boxes.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-24T03:42:10.000Z"
-    },
-    {
-      "title": "On This Day, A Beloved Cartoon Premiered to Commercial & Critical Failure (& 64 Years Later Jim Carrey Is Set to Star in a Live-Action Movie Reboot)",
-      "link": "https://comicbook.com/tv-shows/feature/on-this-day-a-beloved-cartoon-premiered-to-commercial-critical-failure-64-years-later-jim-carrey-is-set-to-star-in-a-live-action-movie-reboot/",
-      "summary": "Hanna-Barbera is one of the most influential animation companies of all time, with it defining the 1960s and 70s and going on to find new audiences for decades to come. The studio gave birth to tons of iconic animated…",
+      "title": "13 Years Ago Today, Marvel Released Its First MCU TV Show (But It Didn’t Hit Its Stride Until It Left the MCU)",
+      "link": "https://comicbook.com/tv-shows/feature/13-years-ago-today-marvel-released-its-first-mcu-tv-show-but-it-didnt-hit-its-stride-until-it-left-the-mcu/",
+      "summary": "Image Courtesy of Marvel It has been 13 years since Marvel released its first show under the Marvel Cinematic Universe banner, but the show really didn’t hit its stride until it broke completely away from the MCU as a…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-24T03:28:58.000Z"
+      "date": "2026-09-24T13:15:00.000Z"
     },
     {
-      "title": "Pokémon GO Tour Returns Next February With Two Locations Revealed",
-      "link": "https://bleedingcool.com/games/pokemon-go-tour-returns-next-february-with-two-locations-revealed/",
-      "summary": "The Pokémon GO Tour will make a return in February 2027, as Los Angeles and Kaohsiung have been announced as the first two cities",
+      "title": "Alien Breed 35th Anniversary Collection Launches Today",
+      "link": "https://bleedingcool.com/games/alien-breed-35th-anniversary-collection-launches-today/",
+      "summary": "The Alien Breed 35th Anniversary Collection has launched today, giving players every game under the IP refreshed for modern platforms.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-24T03:12:09.000Z"
+      "date": "2026-09-24T13:12:10.000Z"
     },
     {
-      "title": "Ryan Murphy \"Just Finished\" Glee Reboot Script; OG Cast \"Enthusiastic\"",
-      "link": "https://bleedingcool.com/tv/ryan-murphy-just-finished-glee-reboot-script-og-cast-enthusiastic/",
-      "summary": "Glee co-creator Ryan Murphy revealed he \"just finished\" a reboot script, and that a number of original cast members are \"very enthusiastic.\"",
-      "source": "Bleeding Cool",
+      "title": "Everyone Loves Doctor Strange and Scarlet Witch, But It’s Time to Admit the Truth: DC Has Better Magic Characters",
+      "link": "https://comicbook.com/comics/feature/everyone-loves-doctor-strange-and-scarlet-witch-but-its-time-to-admit-the-truth-dc-has-better-magic-characters/",
+      "summary": "Image Courtesy of DC Comics Magic has been a part of superhero comics since the beginning. Superman first appeared in DC Comics‘ Action Comics #1, an anthology book that also introduced readers to Zatara. Soon,…",
+      "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-24T02:35:09.000Z"
+      "date": "2026-09-24T13:11:00.000Z"
     },
     {
-      "title": "Godiva Reveals Multiple New 2026 Holiday Chocolate Items",
-      "link": "https://bleedingcool.com/pop-culture/godiva-reveals-multiple-new-2026-holiday-chocolate-items/",
-      "summary": "Godiva has rolled out its 2026 lineup of holiday treats, giving you options to make chocolate a gesture from small presents to large gifts.",
+      "title": "Taylor Swift-Directed \"Patient Zero\" Music Video Set for 2026 MTV VMAs",
+      "link": "https://bleedingcool.com/tv/taylor-swift-directed-patient-zero-music-video-set-for-2026-mtv-vmas/",
+      "summary": "The music video for Taylor Swift's \"Patient Zero\" will have its world premiere during this Sunday's Snoop Dogg-hosted 2026 MTV VMAs.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-24T02:34:10.000Z"
+      "date": "2026-09-24T13:05:14.000Z"
     },
     {
-      "title": "American Horror Story: 13/Scream Queens Crossover Planned: Ryan Murphy",
-      "link": "https://bleedingcool.com/tv/american-horror-story-13-scream-queens-crossover-planned-ryan-murphy/",
-      "summary": "Ryan Murphy revealed that Ariana Grande would've served as a crossover between American Horror Story: 13 and Scream Queens.",
+      "title": "Noah Hawley Teases Peter Parker’s Future in Amazing Spider-Man #1000 First Look Preview [EXCLUSIVE]",
+      "link": "https://comicbook.com/comics/news/noah-hawley-teases-peter-parkers-future-in-amazing-spider-man-1000-first-look-preview-exclusive/",
+      "summary": "It’s been a big year for Marvel Comics. There are multiple characters celebrating their golden 50th anniversaries this year and, this fall, the Midnight Universe debuts to take readers and beloved heroes into a darker,…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-24T13:00:00.000Z"
+    },
+    {
+      "title": "Prompt-Injection Bug Hits $4B Agentic AI App 'Manus'",
+      "link": "https://www.darkreading.com/application-security/prompt-injection-bug-agentic-ai-app-manus",
+      "summary": "AI apps that interpret external data (read: most AI apps) need exceptionally rigorous security filters, or attackers can take advantage.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-24T13:00:00.000Z"
+    },
+    {
+      "title": "Be Brave, Ruby B!, A Civil Rights Graphic Novel By Meg Selkey For 2027",
+      "link": "https://bleedingcool.com/comics/be-brave-ruby-b-a-civil-rights-graphic-novel-by-meg-selkey-for-2027/",
+      "summary": "Be Brave, Ruby B!, a Civil Rights graphic novel by Meg Selkey, about students researching Ruby Bridges, for 2027",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-09-24T02:13:09.000Z"
+      "date": "2026-09-24T12:58:12.000Z"
+    },
+    {
+      "title": "World of Warcraft: Forever Is Getting Heavy Rain — Here's How It Looks",
+      "link": "https://www.ign.com/articles/world-of-warcraft-forever-is-getting-heavy-rain-heres-how-it-looks",
+      "summary": "World of Warcraft: Forever is currently in beta, but Blizzard plans to update it ahead of the full game’s release. Coming soon: heavy rain.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-24T12:43:31.000Z"
+    },
+    {
+      "title": "'One of the Very Few Games I'm Going to Be Buying': Control Resonant Has Leaked, But There's a Push Among Some Pirates to Pay For It Anyway",
+      "link": "https://www.ign.com/articles/one-of-the-very-few-games-im-going-to-be-buying-control-resonant-has-leaked-but-theres-a-push-among-some-pirates-to-pay-for-it-anyway",
+      "summary": "Video game pirates appear to be making a rare effort to pay for Control Resonant, in order to support its developer Remedy.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-24T12:43:26.000Z"
+    },
+    {
+      "title": "Trump rolls out red carpet for Xi as high-stakes summit begins",
+      "link": "https://www.npr.org/2026/09/24/g-s1-144806/trump-rolls-out-red-carpet-for-xi-as-high-stakes-summit-begins",
+      "summary": "On Thursday, the two leaders will hold meetings where Trump and Xi are expected to talk about artificial intelligence, rare earths, trade and geopolitics such as Iran and Taiwan.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-09-24T12:43:15.000Z"
+    },
+    {
+      "title": "The Witcher 3: Wild Hunt – Remastered Global Release Times Confirmed by CD Projekt",
+      "link": "https://www.ign.com/articles/the-witcher-3-wild-hunt-remastered-global-release-times-confirmed-by-cd-projekt",
+      "summary": "CD Projekt has confirmed the global release times for The Witcher 3: Wild Hunt – Remastered. Here's when you can play in your region.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-24T12:25:55.000Z"
+    },
+    {
+      "title": "Corp MDM Spyware Targets Logistics Firms, Steals New SMS and Redirects Calls",
+      "link": "https://thehackernews.com/2026/09/corp-mdm-spyware-targets-logistics.html",
+      "summary": "The logistics sector has become the target of a new malicious cyber campaign that distributes an Android spyware codenamed Corp MDM. According to Have I Been Squatted, the campaign uses fake Google Play pages branded as…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-24T12:05:27.000Z"
+    },
+    {
+      "title": "'Magic: The Gathering's Coolest Planeswalker Is Finally Getting the Backstory He Deserves",
+      "link": "https://www.polygon.com/mtg-mage-of-zhalfir-dark-horse-comics-teferi-preview/",
+      "summary": "A new Magic: The Gathering comic from Dark Horse explore the origin story of Teferi, the Multiverse's most famous time mage.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-24T12:00:16.000Z"
+    },
+    {
+      "title": "Microsoft Culled Age of Empires Studio Before Handing It Over to Activision, With Nearly Half of All Staff Gone",
+      "link": "https://www.ign.com/articles/microsoft-culled-age-of-empires-studio-before-handing-it-over-to-activision-with-nearly-half-of-all-staff-gone",
+      "summary": "Age of Empires studio World's Edge lost almost half of all employees this week, as part of Microsoft's latest round of brutal job losses.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-24T11:35:18.000Z"
+    },
+    {
+      "title": "Smash Bros. owes millions of dollars in OSHA violations | Unraveled",
+      "link": "https://www.polygon.com/video/smash-bros-owes-millions-of-dollars-in-osha-violations-unraveled/",
+      "summary": "Super Smash Bros. Ultimate has a ridiculous amount of stages... but are they all death traps? Brian David Gilbert consults the Occupational Safety and Health Administration (OSHA) to discover how many violations each…",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-24T11:30:52.000Z"
+    },
+    {
+      "title": "There's a new way to break RSA that's faster than anything we've seen before",
+      "link": "https://arstechnica.com/security/2026/09/theres-a-new-way-to-break-rsa-thats-faster-than-anything-weve-seen-before/",
+      "summary": "Until now, cryptographers thought factoring was the only way to break RSA. Not anymore.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-24T11:15:44.000Z"
+    },
+    {
+      "title": "When Was Jesus Born—B.C. or A.D.?",
+      "link": "https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/jesus-historical-jesus/when-was-jesus-born-bc-or-ad/",
+      "summary": "In which year was Jesus born? While this is sometimes debated, the majority of New Testament scholars place Jesus’ birth in 4 B.C. or before.",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-24T11:00:58.000Z"
+    },
+    {
+      "title": "First Person: Human Sacrifice to an Ammonite God?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/daily-life-and-practice/first-person-human-sacrifice-to-an-ammonite-god/",
+      "summary": "Were sons and daughters sacrificed in ancient times? Is there any archaeological evidence?",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-09-24T11:00:55.000Z"
+    },
+    {
+      "title": "Review: Apple's hyper-pricey M5 Ultra Mac Studio made me into a vibe coder",
+      "link": "https://arstechnica.com/gadgets/2026/09/review-apples-hyper-pricey-m5-ultra-mac-studio-made-me-into-a-vibe-coder/",
+      "summary": "Usable local AI is a lot of fun, but how much would you pay for it?",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-24T11:00:04.000Z"
+    },
+    {
+      "title": "Secrets Sprawl Is an Identity Problem That AI Just Made Impossible to Ignore",
+      "link": "https://thehackernews.com/2026/09/secrets-sprawl-is-identity-problem-that.html",
+      "summary": "AI coding agents are changing how quickly developers can build and ship software as well as how quickly credentials can become exposed. According to GitGuardian’s 2026 State of Secrets Sprawl Report, commits identified…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-24T11:00:00.000Z"
+    },
+    {
+      "title": "Qualcomm Announces Snapdragon X2 Series Processors Will Support Linux",
+      "link": "https://linux.slashdot.org/story/26/09/24/0155213/qualcomm-announces-snapdragon-x2-series-processors-will-support-linux?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Snapdragon X2 Series processors feature a neural processing unit (NPU) delivering 80 trillion operations per second and allowing advanced AI features to run locally. And Snapdragon X2 Series \"is expanding to Linux,\"…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-24T10:04:00.000Z"
+    },
+    {
+      "title": "17,000 URLs Reveal How ClickFix Turns Trusted Websites Into Malware Traps: Report by CTM360",
+      "link": "https://thehackernews.com/2026/09/17000-urls-reveal-how-clickfix-turns.html",
+      "summary": "ClickFix has become the most common way attackers get into enterprise networks, and it does it without an exploit, an attachment, or a file on disk. Our new global threat report traces the technique from a novelty in…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-24T09:14:21.000Z"
+    },
+    {
+      "title": "OpenAI Agent Bypassed Australian Medicare Portal Controls to Access Non-Public Files",
+      "link": "https://thehackernews.com/2026/09/openai-agent-bypassed-australian.html",
+      "summary": "An AI agent on an internal OpenAI research task bypassed access controls on an Australian government Medicare statistics portal in June, Prime Minister Anthony Albanese said. The portal publishes aggregate figures, such…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-24T07:07:25.000Z"
+    },
+    {
+      "title": "TeamFiltration Campaign Compromises Seven Microsoft 365 Accounts Using Default Passwords",
+      "link": "https://thehackernews.com/2026/09/teamfiltration-compromises-seven.html",
+      "summary": "Cybersecurity researchers have disclosed details of an active TeamFiltration campaign codenamed UNK_CondorFiltration that has targeted over 5,700 accounts across 28 Microsoft 365 tenants. According to Proofpoint, the…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-24T06:32:03.000Z"
+    },
+    {
+      "title": "Rogue OpenAI Agent Tried to Breach Government Site in May When Prompted for Simple Data-Retrieving Tasks",
+      "link": "https://slashdot.org/story/26/09/24/0528251/rogue-openai-agent-tried-to-breach-government-site-in-may-when-prompted-for-simple-data-retrieving-tasks?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "OpenAI's artificial intelligence \"went rogue this year in at least four additional incidents,\" the New York Times reported Wednesday, \"hacking and trying to break into government and university websites without being…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-24T05:34:00.000Z"
     },
     {
       "title": "Cities Across US Oppose Trump FCC Plan to Preempt Local Broadband Rules",
@@ -114,108 +226,12 @@
       "date": "2026-09-24T01:04:00.000Z"
     },
     {
-      "title": "Artist Behind Pokémon 30th Anniversary Jirachi SIR Card Gives Tearful Response to Late Influencer's Heart-Wrenching Final Pack Opening",
-      "link": "https://www.ign.com/articles/artist-behind-pokemon-30th-anniversary-jirachi-sir-card-gives-tearful-response-to-late-influencers-heart-wrenching-final-pack-opening",
-      "summary": "The artist behind a Pokémon 30th Anniversary Jirachi SIR card has responded after beloved influencer Avery the Poké Kid pulled the card in his last pack opening before his death from pancreatic cancer.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-09-23T23:24:15.000Z"
-    },
-    {
       "title": "RFK Jr.'s CDC isn’t letting states order COVID-19 shots for kids, blocking access",
       "link": "https://arstechnica.com/health/2026/09/rfk-jr-s-cdc-isnt-letting-states-order-covid-19-shots-for-kids-blocking-access/",
       "summary": "US health deptartment said it wants to ensure the vaccine orders are \"appropriate.\"",
       "source": "Ars Technica",
       "topic": "Technology",
       "date": "2026-09-23T22:17:25.000Z"
-    },
-    {
-      "title": "FBI rushes to investigate if ShinyHunters hack of thousands of employees is real",
-      "link": "https://arstechnica.com/tech-policy/2026/09/fbi-rushes-to-investigate-if-shinyhunters-hack-of-thousands-of-employees-is-real/",
-      "summary": "It's unclear what will happen if FBI misses ShinyHunters' deadline.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-23T21:46:36.000Z"
-    },
-    {
-      "title": "Disney+ and Hulu raise prices by up to 13 percent after doubling profits",
-      "link": "https://arstechnica.com/gadgets/2026/09/disney-and-hulu-raise-prices-by-up-to-13-percent-after-doubling-profits/",
-      "summary": "The Disney+ ad-free plan is now more expensive than Netflix's.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-23T21:18:53.000Z"
-    },
-    {
-      "title": "Here's the Torcal, the first fully electric Bentley",
-      "link": "https://arstechnica.com/cars/2026/09/heres-the-torcal-the-first-fully-electric-bentley/",
-      "summary": "It sounds like a V8, rides like a Flying Spur, but handles like a Continental GT.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-23T21:06:07.000Z"
-    },
-    {
-      "title": "EDR Evasion Stack Helps Process Injection Slip Past Defenses",
-      "link": "https://www.darkreading.com/endpoint-security/edr-evasion-stack-helps-process-injection-slip-past-defenses",
-      "summary": "A process parameter-poisoning technique evades EDR by injecting code into process initialization structures without using the Windows APIs that EDR tools typically watch out for.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-23T21:03:01.000Z"
-    },
-    {
-      "title": "GitLab Email Addresses Can Be Weaponized for Supply Chain Attacks",
-      "link": "https://www.darkreading.com/application-security/gitlab-email-addresses-supply-chain-attacks",
-      "summary": "Incoming email addresses automatically assigned to each user on the platform contain highly privileged access tokens that attackers can use.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-23T20:53:38.000Z"
-    },
-    {
-      "title": "Trump’s China rivalry and “AI race” delusion may endanger US, experts say",
-      "link": "https://arstechnica.com/tech-policy/2026/09/china-silent-as-us-touts-plan-for-ai-safety-alerts-that-omits-tech-experts/",
-      "summary": "Trump focus on winning “AI race” may deter China from sharing safety intel.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-23T20:52:28.000Z"
-    },
-    {
-      "title": "Attackers Use Malicious Terraform Providers to Deliver Go Malware via HashiCorp Registry",
-      "link": "https://thehackernews.com/2026/09/attackers-use-malicious-terraform.html",
-      "summary": "Cybersecurity researchers have disclosed Go-based malware distributed via two Go Modules and two Terraform providers, marking the first time threat actors are using the centralized repository hosted by HashiCorp as a…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-23T18:06:30.000Z"
-    },
-    {
-      "title": "A Leaked GitLab Issue Email Address Lets Anyone Push Code and Run CI Jobs as You",
-      "link": "https://thehackernews.com/2026/09/a-leaked-gitlab-issue-email-address.html",
-      "summary": "The private email address GitLab gives you for filing issues by email is a credential. Anyone who gets it can email a patch that GitLab commits in your name, to any branch you can push to, including main, and can start…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-23T16:53:10.000Z"
-    },
-    {
-      "title": "MikroTrick Chain Let Attackers Take Over MikroTik Routers Without a Password or SSH Key",
-      "link": "https://thehackernews.com/2026/09/mikrotrick-chain-let-attackers-take.html",
-      "summary": "Two MikroTik RouterOS SSH vulnerabilities chained together let attackers take full administrative control of Internet-exposed routers without a password, SSH key, or completed authentication. The chain, which CERT…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-23T16:06:41.000Z"
-    },
-    {
-      "title": "UAE, Saudi Arabia Face Onslaught of Increasingly Complex Cyberattacks",
-      "link": "https://www.darkreading.com/threat-intelligence/uae-saudi-arabia-face-onslaught-of-increasingly-sophisticated-automated-cyberattacks",
-      "summary": "The United Arab Emirates and Kingdom of Saudi Arabia together absorbed 50% of all cyberattacks recorded across the Gulf region in the first half of 2026.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-23T16:01:00.000Z"
-    },
-    {
-      "title": "Attackers Manipulate AI Chatbots in Mass Disinformation, Phishing Campaign",
-      "link": "https://www.darkreading.com/threat-intelligence/attackers-manipulate-ai-chatbots-mass-disinformation-phishing-campaign",
-      "summary": "Threat actors are poisoning ChatGPT, Gemini, and Google AI Overview answers by seeding the Web with malicious links and data and then optimizing the content.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-09-23T14:47:09.000Z"
     },
     {
       "title": "Mind the Gap!",
@@ -248,22 +264,6 @@
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
       "date": "2026-09-22T11:00:28.000Z"
-    },
-    {
-      "title": "Rings Before Marriage in Hellenistic Jerusalem?",
-      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/rings-before-marriage-in-hellenistic-jerusalem/",
-      "summary": "A recent ‘Atiqot article draws attention to a small number of remarkable finds from Hellenistic Jerusalem: four gold ornaments and three bronze earrings recovered from…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-21T10:45:43.000Z"
-    },
-    {
-      "title": "Understanding the Jewish Calendar",
-      "link": "https://www.biblicalarchaeology.org/daily/understanding-the-jewish-calendar/",
-      "summary": "Ever wondered why the days for holidays like Hanukkah and Passover seem to shift around from year to year? The simple answer is that these…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-09-21T10:00:18.000Z"
     },
     {
       "title": "Simply Cyber Newsletter #199",
