@@ -1,141 +1,221 @@
 {
-  "generatedAt": "2026-09-28T16:46:46.359Z",
+  "generatedAt": "2026-09-29T00:23:20.125Z",
   "items": [
     {
-      "title": "Police block Protestant Orange Order from controversial parade route",
-      "link": "https://www.bbc.co.uk/news/articles/cmqlwn60yyq9o?at_medium=RSS&at_campaign=rss",
-      "summary": "A controversial march was due to take place on Sunday morning but was blocked by protesters on the mainly-nationalist Garvaghy Road.",
+      "title": "Heroes of the Storm Has Added Xal'atath To The Roster",
+      "link": "https://bleedingcool.com/games/heroes-of-the-storm-has-added-xalatath-to-the-roster/",
+      "summary": "Heroes of the Storm has added its first new character in nearly six years, as Xal’atath has officially been added to the roster.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-29T00:13:10.000Z"
+    },
+    {
+      "title": "WWE Raw Preview: Bloodline Responds to Solo Sikoa Abduction",
+      "link": "https://bleedingcool.com/tv/wwe-raw-preview-bloodline-responds-to-solo-sikoa-abduction/",
+      "summary": "Comrades, tonight's WWE Raw features The Bloodline's response to Solo Sikoa's abduction, plus LA Knight, Stephanie Vaquer, and more from Milwaukee!",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-29T00:07:09.000Z"
+    },
+    {
+      "title": "Switch Finally Gets One of 2025’s Best-Reviewed RPGs",
+      "link": "https://www.polygon.com/keep-driving-switch-recommendation/",
+      "summary": "Keep Driving, one of 2025's best reviewed games is now on consoles, and it's especially perfect for Switch owners.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-29T00:00:16.000Z"
+    },
+    {
+      "title": "5 MAD Magazine Parodies from the 1990s That Aged Perfectly",
+      "link": "https://www.polygon.com/mad-magazine-parodies-1990s-aged-perfectly/",
+      "summary": "MAD Magazine was a great source of pop culture parodies. Here are comic parodies they did of Ninja Turtles, Gremlins 2, the Flintstones and more",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-09-29T00:00:16.000Z"
+    },
+    {
+      "title": "Avengers: Doomsday Cast Member Reveals Shocking Detail About Filming Process (& It Could Be Bad News)",
+      "link": "https://comicbook.com/movies/news/avengers-doomsday-cast-member-reveals-shocking-detail-about-filming-process-it-could-be-bad-news/",
+      "summary": "Marvel Despite news that Spider-Man: Brand New Day will reportedly be getting a theatrical rerelease with new scenes likely stealing some of the attention, and while MCU fans are continuing to discuss Avengers: Endgame…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-09-28T23:45:52.000Z"
+    },
+    {
+      "title": "Resident Evil Fans Have Already Modded Austin Abrams' Character from the Movie Into RE2",
+      "link": "https://www.ign.com/articles/resident-evil-fans-have-already-modded-austin-abrams-character-from-the-movie-into-re2",
+      "summary": "As Zach Cregger's Resident Evil movie spreads to theaters across the globe, one dedicated fan has managed to create a Resident Evil 2 mod featuring Austin Abrams' character, Bryan.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-09-28T23:44:30.000Z"
+    },
+    {
+      "title": "It's Always Sunny in Philadelphia S18E08: Who's The REAL Idea Guy?",
+      "link": "https://bleedingcool.com/tv/its-always-sunny-in-philadelphia-s18e08-whos-the-real-idea-guy/",
+      "summary": "In It's Always Sunny in Philadelphia S18E08, Charlie has to nurse Mac and Dennis back to health, while Dee and Frank try to get some respect.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-09-28T23:37:11.000Z"
+    },
+    {
+      "title": "Burnham to unveil public body to invest in electricity grid",
+      "link": "https://www.bbc.co.uk/news/articles/cqn4k9nypxjro?at_medium=RSS&at_campaign=rss",
+      "summary": "The prime minister will say he wants to reduce energy costs in his first conference speech as Labour leader.",
       "source": "BBC News",
       "topic": "Top News",
-      "date": "2026-09-28T16:45:31.000Z"
+      "date": "2026-09-28T23:35:53.000Z"
     },
     {
-      "title": "'Legacy of a Legendary Sculptor' walkthrough in Fire Emblem Fortune's Weave",
-      "link": "https://www.polygon.com/fire-emblem-fortunes-weave-legacy-legendary-sculptor-walkthrough-statue-locations/",
-      "summary": "Here's where to find each goddess statue in Fire Emblem Fortune's Weave's \"Legacy of a Legendary Sculptor\" quest",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-28T16:43:46.000Z"
-    },
-    {
-      "title": "Horror Game \"Something is Wrong With the Library\" Announced",
-      "link": "https://bleedingcool.com/games/horror-game-something-is-wrong-with-the-library-announced/",
-      "summary": "A new cozy horror game is on the way as Something is Wrong With the Library brings book sorting and terror to PC later this Fall.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-28T16:42:09.000Z"
-    },
-    {
-      "title": "Super Mario Galaxy on PC Is Officially One Step Closer to Being Reality",
-      "link": "https://www.polygon.com/super-mario-galaxy-nintendo-fan-port-pc/",
-      "summary": "One of Mario's best adventures is close to a PC port as community announces Super Mario Galaxy has been decompiled",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-28T16:40:01.000Z"
-    },
-    {
-      "title": "Avatar: Seven Havens: Book One: \"Survival\" Episode Titles Revealed",
-      "link": "https://bleedingcool.com/tv/avatar-seven-havens-book-one-survival-episode-titles-revealed/",
-      "summary": "Check out new key art for Michael DiMartino & Bryan Konietzko's Avatar: Seven Havens, announcing the episode titles for \"Book One: Survival.\"",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-28T16:36:09.000Z"
-    },
-    {
-      "title": "Sony Electronics Unveils New Smoke Blue Color For ULT FIELD 1",
-      "link": "https://bleedingcool.com/pop-culture/sony-electronics-unveils-new-smoke-blue-color-for-ult-field-1/",
-      "summary": "Sony Electronics dropped a brand-new colorway for their ULT FIELD 1 portable speaker, as you can now get it in Smoke Blue.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-28T16:32:09.000Z"
-    },
-    {
-      "title": "New VisionQuest Featurette Confirms the One Thing That Really Made Vision More Human",
-      "link": "https://comicbook.com/tv-shows/news/new-visionquest-featurette-confirms-the-one-thing-that-really-made-vision-more-human/",
-      "summary": "Although Avengers: Doomsday is currently getting significant attention from MCU fans, before that movie hits the big screen, on Oct. 14, VisionQuest will be released on Disney+. The show is confirmed to be the…",
+      "title": "A24’s Gripping $10M Viral Horror Smash Just Replaced Supergirl on HBO Max",
+      "link": "https://comicbook.com/movies/news/a24s-gripping-10m-viral-horror-smash-just-replaced-supergirl-on-hbo-max/",
+      "summary": "Courtesy of A24 The last few years have delivered some unexpected horror movie hits as the genre experiences a huge resurgence thanks to a wave of new and creative releases. In 2026, that success skyrocketed as low…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-28T16:31:12.000Z"
+      "date": "2026-09-28T23:30:00.000Z"
     },
     {
-      "title": "Trump's immigration push has largely spared farms. Idaho dairymen worry it won't last.",
-      "link": "https://www.npr.org/2026/09/28/nx-s1-5976810/trumps-immigration-push-has-largely-spared-farms-idaho-dairymen-worry-it-wont-last",
-      "summary": "America's farms have largely escaped the president's aggressive immigration crackdown. But as ICE sweeps continue across the nation, farmers are uneasy because many still can't find enough workers.",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-09-28T16:27:30.000Z"
-    },
-    {
-      "title": "Ultimate Impact: Reborn #5 Preview: Everyone Wants a Box",
-      "link": "https://bleedingcool.com/comics/ultimate-impact-reborn-5-preview-everyone-wants-a-box/",
-      "summary": "Ultimate Impact: Reborn #5 pits Miles Morales and his allies against Hostilicus as powerful newcomers decide who gets the Origin Boxes.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-09-28T16:26:08.000Z"
-    },
-    {
-      "title": "Severance Season 3 Just Got a Huge Casting Confirmation That Comes As a Major Relief",
-      "link": "https://comicbook.com/tv-shows/news/severance-season-3-just-got-a-huge-casting-confirmation-that-comes-as-a-major-relief/",
-      "summary": "Ever since Severance first premiered, it has been one of the most talked-about shows on television. Blending sci-fi with a tense psychological thriller story, Severance‘s unique premise explores themes that feel…",
+      "title": "Nintendo Switch Online Leak Reveals New Feature Coming",
+      "link": "https://comicbook.com/gaming/news/nintendo-switch-online-nso-new-feature-leak/",
+      "summary": "A new Nintendo Switch Online leak has revealed a new feature coming to the subscription service, or at least seemingly coming. The new leak is specifically a data-mining leak produced from the files of the latest…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-09-28T16:26:00.000Z"
+      "date": "2026-09-28T23:27:16.000Z"
     },
     {
-      "title": "Target's Pokémon 30th Anniversary Event Leaves Parents Angry and Confused",
-      "link": "https://www.polygon.com/target-pokemon-30th-anniversary-tcg-family-event-issues-restock-drop/",
-      "summary": "Misinformed parents were expecting a family-oriented Pokémon 30th Anniversary TCG event at Target",
+      "title": "GTA 6’s $400 Collector’s Edition Is the Latest Example of a Horrible Trend",
+      "link": "https://www.polygon.com/gta-6-good-time-state-collectors-editions/",
+      "summary": "A new Grand Theft Auto 6 collectors box is the latest example of the games industry prioritizing high-spending customers above all else",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-28T16:19:21.000Z"
+      "date": "2026-09-28T23:00:16.000Z"
     },
     {
-      "title": "Avatar: Seven Havens Episode Titles Revealed (Exclusive)",
-      "link": "https://www.polygon.com/avatar-seven-havens-episode-titles-exclusive-reveal/",
-      "summary": "Stay locked to this page as we team-up with Paramount to announce the episode titles for Avatar: Seven Havens all week long",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-09-28T16:00:15.000Z"
-    },
-    {
-      "title": "Bill Gates Says an AI 'Kill Switch' Isn't Enough",
-      "link": "https://slashdot.org/story/26/09/28/0615249/bill-gates-says-an-ai-kill-switch-isnt-enough?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Bill Gates said an AI \"kill switch\" alone would be insufficient to address the technology's risks. \"The kill switch is, that's kind of a weird thing. It's not enough to have a kill switch,\" the Microsoft co-founder said…",
+      "title": "China Broadens Travel Curbs To Encompass Family of Top AI Talent",
+      "link": "https://slashdot.org/story/26/09/28/2052208/china-broadens-travel-curbs-to-encompass-family-of-top-ai-talent?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Longtime Slashdot reader schwit1 shares a report from Business Standard: China has expanded overseas travel restrictions for top AI professionals in private firms to include the families of key personnel, further…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-28T16:00:00.000Z"
+      "date": "2026-09-28T23:00:00.000Z"
     },
     {
-      "title": "Warhammer 40,000: Space Marine 2 Dev Acknowledges That Chaos Is Harder to Fight Than Tyranids, Confirms Plan to Do Something About It",
-      "link": "https://www.ign.com/articles/warhammer-40000-space-marine-2-dev-acknowledges-that-chaos-is-harder-to-fight-than-tyranids-confirms-plan-to-do-something-about-it",
-      "summary": "Ever since Warhammer 40,000: Space Marine 2’s 2024 launch, players have said that the Chaos enemies are harder to fight than the Tyranids. Well, now Space Marine 2’s game director has come out and admitted that is…",
+      "title": "The Elder Scrolls Doesn't Have a New Vegas-Like Spinoff Because Todd Howard Is 'Very Protective' of the Franchise, Former Dev Claims",
+      "link": "https://www.ign.com/articles/the-elder-scrolls-doesnt-have-a-new-vegas-like-spinoff-because-todd-howard-is-very-protective-of-the-franchise-former-dev-claims",
+      "summary": "The Elder Scrolls never got a Fallout: New Vegas-like spinoff because Todd Howard is \"very protective\" of the IP, according to former Bethesda developer Kurt Kuhlmann.",
       "source": "IGN",
       "topic": "Gaming",
-      "date": "2026-09-28T15:57:04.000Z"
+      "date": "2026-09-28T22:54:16.000Z"
     },
     {
-      "title": "God of War Laufey Features Kratos in an Ancient Greek Setting, Sparking Speculation Over the Game's Story — and Praise for His Big Bushy Beard",
-      "link": "https://www.ign.com/articles/god-of-war-laufey-features-kratos-in-an-ancient-greek-setting-sparking-speculation-over-the-games-story-and-praise-for-his-big-bushy-beard",
-      "summary": "Chinstrap in.",
-      "source": "IGN",
+      "title": "Boeing \"incredibly excited\" to serve as nation's only astronaut transportation",
+      "link": "https://arstechnica.com/space/2026/09/boeing-incredibly-excited-to-serve-as-nations-only-astronaut-transportation/",
+      "summary": "\"We couldn't provide detailed pricing to the CLD suppliers.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-28T22:24:33.000Z"
+    },
+    {
+      "title": "Spider-Man: Brand New Day Getting Official New Version, Report Says",
+      "link": "https://www.polygon.com/spider-man-brand-new-day-rerelease-new-footage/",
+      "summary": "Sony will reportedly rerelease Spider-Man: Brand New Day in movie theaters with new footage, including cut cameos of other MCU characters.",
+      "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-09-28T15:57:02.000Z"
+      "date": "2026-09-28T22:23:35.000Z"
     },
     {
-      "title": "JadePuffer AI Actor Compromises Azure Tenant in Destructive Cloud Attack",
-      "link": "https://www.darkreading.com/cloud-security/jadepuffer-ai-actor-azure-tenant-destructive-cloud-attack",
-      "summary": "The \"agentic threat actor\" may have used exposed credentials to access resources and delete cloud-based storage, applications, and databases.",
+      "title": "AMD Acquires Fei-Fei Li's World Labs For $8.2 Billion",
+      "link": "https://slashdot.org/story/26/09/28/2042235/amd-acquires-fei-fei-lis-world-labs-for-82-billion?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "AMD has agreed to acquire Fei-Fei Li's World Labs for about $8.2 billion in stock, making it the chipmaker's second-largest acquisition and giving it a major foothold in \"world models\" that simulate 3D environments for…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-09-28T22:00:00.000Z"
+    },
+    {
+      "title": "Experts worry about Nvidia's AI chip sales in China and influence over Trump",
+      "link": "https://arstechnica.com/tech-policy/2026/09/nvidia-may-sell-more-chips-in-china-as-jensen-huangs-influence-over-trump-grows/",
+      "summary": "China is reportedly mulling letting ByteDance, Alibaba buy banned Nvidia chips.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-28T21:49:10.000Z"
+    },
+    {
+      "title": "SpaceX's Starship goes orbital, deploying first next-gen Starlinks",
+      "link": "https://arstechnica.com/space/2026/09/starships-first-orbital-launch-gives-lift-to-spacexs-next-gen-starlinks/",
+      "summary": "Starship had already flown 99 percent of the way to low-Earth orbit. Monday's flight added the last bit.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-09-28T21:26:19.000Z"
+    },
+    {
+      "title": "One Packet Can Crash OT Servers in Industrial Sectors",
+      "link": "https://www.darkreading.com/ics-ot-security/one-packet-crash-servers-tdengine",
+      "summary": "A high-severity zero-day vulnerability affects the TDengine time-series database used across industrial, IoT, energy, and automotive environments.",
       "source": "Dark Reading",
       "topic": "Cybersecurity",
-      "date": "2026-09-28T15:33:21.000Z"
+      "date": "2026-09-28T21:13:04.000Z"
     },
     {
-      "title": "SpaceX Launches Starship Into Orbit",
-      "link": "https://science.slashdot.org/story/26/09/28/1513251/spacex-launches-starship-into-orbit?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "SpaceX's Starship reached orbit for the first time, successfully deploying 26 operational Starlink V3 satellites after overcoming an early Raptor 3 engine shutdown during ascent. \"SpaceX plans to eventually deploy…",
+      "title": "TikTok to Pay Alabama $100 Million, Limit Teen Use In First State Settlement",
+      "link": "https://tech.slashdot.org/story/26/09/28/184256/tiktok-to-pay-alabama-100-million-limit-teen-use-in-first-state-settlement?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "TikTok has agreed to pay Alabama at least $100 million and adopt new restrictions for teenage users, including a two-hour daily limit, overnight access restrictions, stronger age verification, a ban on beauty filters,…",
       "source": "Slashdot",
       "topic": "Technology",
-      "date": "2026-09-28T15:20:00.000Z"
+      "date": "2026-09-28T21:00:00.000Z"
+    },
+    {
+      "title": "Carbonato Botnet Puts an AI Agent on Hacked Docker Hosts",
+      "link": "https://www.darkreading.com/identity-access-management-security/carbonato-botnet-ai-agent-hacked-docker-hosts",
+      "summary": "The botnet uses the open source Hermes Agent AI framework to execute commands via Telegram and steal AI API keys from exposed Docker hosts.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-28T20:23:58.000Z"
+    },
+    {
+      "title": "Apple Patches CoreGraphics Flaw Possibly Exploited in Targeted Attacks",
+      "link": "https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html",
+      "summary": "Apple has released security updates to address a vulnerability in older versions of iOS, iPadOS, and macOS that it said may have been exploited in targeted attacks. The vulnerability, tracked as CVE-2026-86950, refers…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-28T19:18:01.000Z"
+    },
+    {
+      "title": "AI Agents Are Privileged Users; Who Is Auditing Their Access?",
+      "link": "https://www.darkreading.com/vulnerabilities-threats/ai-agents-are-privileged-users-who-is-auditing-their-access",
+      "summary": "Enterprises regularly rigorously monitor human employees, while autonomous AI agents quietly operate with broad privileges that could turn them into the next generation of insider threats.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-09-28T18:44:22.000Z"
+    },
+    {
+      "title": "Hackers Use NeedyMantis to Maintain Long-Term Access in Breached Networks",
+      "link": "https://thehackernews.com/2026/09/hackers-use-needymantis-to-maintain.html",
+      "summary": "Hackers have used a malware family called NeedyMantis to maintain long-term access to networks they had already breached, Microsoft said in a technical analysis. The malware has been seen in a small number of targeted…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-28T18:35:42.000Z"
+    },
+    {
+      "title": "IAM for AI agents: A Practical Enterprise Framework",
+      "link": "https://thehackernews.com/2026/09/iam-for-ai-agent.html",
+      "summary": "What is IAM for AI agents? AI agents authenticate, invoke tools, and act across enterprise systems with delegated authority. IAM for AI Agents is the identity-control architecture that governs those actors. This guide…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-28T18:20:38.000Z"
+    },
+    {
+      "title": "Bitget Says Attacker Exploited Third-Party Security Product Flaw to Steal $388M",
+      "link": "https://thehackernews.com/2026/09/bitget-says-attacker-exploited-third.html",
+      "summary": "The attacker who stole about $388 million from the cryptocurrency exchange Bitget gained access through a vulnerability in a third-party security product the exchange used, Bitget said on Monday. The attacker exploited…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-09-28T17:42:18.000Z"
+    },
+    {
+      "title": "Prosecutors are reopening a Cornell fraternity rape case. Here's what we know",
+      "link": "https://www.npr.org/2026/09/28/nx-s1-5983480/cornell-fraternity-rape-chi-phi-case-updates",
+      "summary": "New York prosecutors are reopening an investigation into an alleged rape case at Cornell University in 2024. The alleged victim recently filed a lawsuit against seven members of Chi Phi fraternity.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-09-28T17:14:25.000Z"
     },
     {
       "title": "Dutch Police Arrest ‘Reformed’ Hacker in Shiny Hunters Investigation",
@@ -144,46 +224,6 @@
       "source": "Krebs on Security",
       "topic": "Cybersecurity",
       "date": "2026-09-28T15:08:57.000Z"
-    },
-    {
-      "title": "Walmart Says It's Not Using Personal Info To Set Prices As It Expands Digital Shelf Labels",
-      "link": "https://news.slashdot.org/story/26/09/28/060245/walmart-says-its-not-using-personal-info-to-set-prices-as-it-expands-digital-shelf-labels?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from the Associated Press: Walmart is aiming to assuage customers' fears about its new pricing technology as it rolls out digital price labels at its stores. In a statement posted on…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-28T15:00:00.000Z"
-    },
-    {
-      "title": "⚡ Weekly Recap: $387M Crypto Hack, Citrix Exploits, AI Agents Go Off-Script, and More Threats",
-      "link": "https://thehackernews.com/2026/09/weekly-recap-387m-crypto-hack-citrix.html",
-      "summary": "A domain used as harmless placeholder text showed up in roughly 1,700 repositories. Then somebody registered it and started serving malicious lures. That is the kind of week this was: forgotten assumptions turning into…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-28T14:00:53.000Z"
-    },
-    {
-      "title": "Webinar: How to Govern AI Agents, Reduce Excessive Access, and Control Shadow AI",
-      "link": "https://thehackernews.com/2026/09/webinar-how-to-govern-ai-agents-reduce.html",
-      "summary": "AI agents are moving into production faster than security teams can govern them. They are connecting to apps, handling data, calling APIs, and acting across business systems—often without the same controls applied to…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-28T11:58:00.000Z"
-    },
-    {
-      "title": "Carbonato Botnet Compromises Docker Hosts to Deploy Telegram-Controlled Hermes AI Agent",
-      "link": "https://thehackernews.com/2026/09/carbonato-botnet-compromises-docker.html",
-      "summary": "Cybersecurity researchers have disclosed details of a new botnet malware called Carbonato that's targeting exposed Docker daemons to deploy an open-source artificial intelligence (AI) agent framework called Hermes…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-28T11:46:00.000Z"
-    },
-    {
-      "title": "Microsoft goes quiet after church groups ask for 1% of data center costs",
-      "link": "https://arstechnica.com/tech-policy/2026/09/microsoft-goes-quiet-after-church-groups-ask-for-1-of-data-center-costs/",
-      "summary": "“Microsoft claims to want to be a good neighbor, but the jury is still out.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-09-28T11:00:09.000Z"
     },
     {
       "title": "Second Temple Era Mikveh Found…then Moved",
@@ -210,52 +250,12 @@
       "date": "2026-09-28T10:00:00.000Z"
     },
     {
-      "title": "JADEPUFFER-Linked Attackers Used Compromised Service Principals to Delete Azure Resources",
-      "link": "https://thehackernews.com/2026/09/jadepuffer-linked-attackers-used.html",
-      "summary": "The threat actor known as JADEPUFFER has been observed orchestrating destructive actions within a Microsoft Azure environment using compromised service principals. Microsoft, which is tracking the activity under the…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-28T09:08:21.000Z"
-    },
-    {
-      "title": "Are AI Chatbots Spreading Misinformation to US Voters?",
-      "link": "https://politics.slashdot.org/story/26/09/26/2358224/are-ai-chatbots-spreading-misinformation-to-us-voters?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Are AI chatbots quietly shaping the perceptions of U.S. voters? Voters trying to educate themselves about candidates \"are unknowingly being served partisan talking points in the guise of neutral news summaries,\" write…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-28T08:34:00.000Z"
-    },
-    {
-      "title": "CISA Says Attackers Are Exploiting Two Critical Citrix NetScaler Flaws Globally",
-      "link": "https://thehackernews.com/2026/09/cisa-says-attackers-are-exploiting-two.html",
-      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Sunday added two critical Citrix NetScaler ADC and Gateway flaws to its Known Exploited Vulnerabilities (KEV) catalog, following reports of active…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-28T07:21:49.000Z"
-    },
-    {
-      "title": "Apple Faces $5.7 Billion Patent Infringement Verdict Over iPhone And Apple Watch Haptics",
-      "link": "https://apple.slashdot.org/story/26/09/27/0751219/apple-faces-57-billion-patent-infringement-verdict-over-iphone-and-apple-watch-haptics?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "\"A federal jury in San Diego awarded Taction Technology more than $5.7 billion in damages Friday after finding that Apple infringed claims from two haptics patents,\" reports CNBC: Taction sued Apple in 2021 in the U.S.…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-09-28T04:04:00.000Z"
-    },
-    {
       "title": "The Origin of Christianity",
       "link": "https://www.biblicalarchaeology.org/daily/biblical-topics/new-testament/the-origin-of-christianity/",
       "summary": "Geza Vermes explores the origin of Christianity by examining the characteristics of the Jewish Jesus movement to see how it developed into a distinctly gentile religion.",
       "source": "Biblical Archaeology Society",
       "topic": "Biblical Archaeology",
       "date": "2026-09-27T11:00:03.000Z"
-    },
-    {
-      "title": "Warning: Two Unpatched Citrix NetScaler RCE Zero-Days Under Active Exploitation",
-      "link": "https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html",
-      "summary": "Two critical vulnerabilities in Citrix NetScaler ADC and NetScaler Gateway that allow remote code execution have been exploited in the wild, Citrix confirmed on September 27. It released fixes for both, along with six…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-09-27T07:47:57.000Z"
     },
     {
       "title": "Ancient Jerusalem: The Village, the Town, the City",
