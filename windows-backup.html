@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows Backup — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="windows-backup.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="backup-intro">
+    <div class="wrap">
+      <h1>Windows Backup</h1>
+      <p class="tagline">Pack up a Windows PC's files, Outlook data, and settings into one zip for your new Mac or PC.</p>
+      <a class="backup-download" href="downloads/Thagobyte-Backup.cmd" download="Thagobyte-Backup.cmd">Download Thagobyte-Backup.cmd</a>
+      <p class="backup-meta">For Windows 10 &amp; 11 &middot; runs offline &middot; only reads files, never changes or deletes anything</p>
+    </div>
+  </section>
+
+  <section class="backup-panel">
+    <div class="wrap">
+
+      <h2>How to use it</h2>
+      <ol class="backup-steps">
+        <li>
+          <strong>Download</strong> the file on the old Windows PC. Plug in a USB drive if you have one &mdash; it's the
+          easiest way to carry the backup.
+        </li>
+        <li>
+          <strong>Right-click it &rarr; Run as administrator.</strong> If Windows says &ldquo;Windows protected your
+          PC&rdquo;, click <em>More info</em> &rarr; <em>Run anyway</em> (it does this for any downloaded script).
+          Double-clicking works too &mdash; it will ask for administrator rights.
+        </li>
+        <li>
+          <strong>Answer the prompts:</strong> which user accounts, where to save, and whether to include Wi-Fi
+          passwords. It then scans and shows every category with its size so you can switch things on or off.
+        </li>
+        <li>
+          <strong>Copy the zip</strong> to the new computer and open <em>README - How to Restore.txt</em> inside it
+          for step-by-step instructions for each item.
+        </li>
+      </ol>
+      <p class="backup-tip">
+        Close Outlook before you start (the tool offers to do it for you) &mdash; Outlook locks its .pst files while
+        it's open.
+      </p>
+
+      <h2>What it backs up</h2>
+      <div class="backup-grid">
+        <div class="backup-card">
+          <h3>Your files</h3>
+          <ul>
+            <li>Desktop, Documents, Downloads, Pictures, Music, Videos</li>
+            <li>Follows folders moved to OneDrive or another drive</li>
+            <li>Favorites, Links, Contacts, Saved Games</li>
+            <li>Anything else saved in the user folder</li>
+            <li>Every user account on the PC, or just the ones you pick</li>
+          </ul>
+        </div>
+        <div class="backup-card">
+          <h3>Outlook</h3>
+          <ul>
+            <li>Every .pst data file &mdash; searches all drives, not just the usual spots</li>
+            <li>AutoComplete / nickname (.nk2) files</li>
+            <li>AutoComplete addresses as a .csv and a .vcf a Mac can import</li>
+            <li>Signatures, rules (.rwz), stationery, templates (.oft), macros</li>
+          </ul>
+        </div>
+        <div class="backup-card">
+          <h3>Browsers &amp; mail</h3>
+          <ul>
+            <li>Chrome, Edge, Brave, Vivaldi &amp; Opera bookmarks, exported as an .html that Safari and every other browser imports</li>
+            <li>Whole Firefox and Thunderbird profiles (they move straight to a Mac)</li>
+          </ul>
+        </div>
+        <div class="backup-card">
+          <h3>Settings &amp; extras</h3>
+          <ul>
+            <li>Office templates, custom dictionaries, Quick Parts</li>
+            <li>Installed fonts, Sticky Notes, desktop wallpaper</li>
+            <li>iPhone / iPad backups made with iTunes</li>
+            <li>Optional: Wi-Fi passwords, cloud folders, data folders like C:\Scans</li>
+          </ul>
+        </div>
+        <div class="backup-card">
+          <h3>A report</h3>
+          <ul>
+            <li>Installed programs &mdash; your reinstall checklist</li>
+            <li>Printers and mapped network drives</li>
+            <li>Anything that was skipped, and why</li>
+          </ul>
+        </div>
+        <div class="backup-card">
+          <h3>Left behind on purpose</h3>
+          <ul>
+            <li>Windows itself and installed programs (they can't run on a Mac)</li>
+            <li>Outlook .ost files &mdash; they're server caches that re-download</li>
+            <li>Online-only OneDrive / iCloud files &mdash; they're already in the cloud</li>
+            <li>Browser passwords &mdash; Windows locks them to this PC; use browser sync</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Good to know</h2>
+      <ul class="backup-notes">
+        <li>Large backups are fine. On a FAT32 USB stick (4&nbsp;GB file limit) it automatically splits the backup into several zips.</li>
+        <li>If the Mac's Archive Utility won't open a very large zip, open Terminal and run <code>ditto -x -k ~/Downloads/YOUR-BACKUP.zip ~/Desktop/</code> (use your zip's name).</li>
+        <li>Files a program has locked are listed in <em>Backup Report.txt</em> so nothing goes missing without you knowing.</li>
+        <li>Everything happens on your PC. Nothing is uploaded anywhere.</li>
+      </ul>
+
+      <details class="backup-source" id="backup-source">
+        <summary>View the script</summary>
+        <p class="backup-source-note">It's a plain-text PowerShell script wrapped in a small batch launcher, so you can read exactly what it does before running it.</p>
+        <pre><code id="backup-source-code">Loading&hellip;</code></pre>
+      </details>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte</span>
+  </div>
+</footer>
+
+<script src="windows-backup.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
