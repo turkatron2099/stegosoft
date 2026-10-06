@@ -124,14 +124,17 @@
   const BULB_TOP_FRAC = 4.5 / 32;
   const BULB_BOTTOM_FRAC = 22.5 / 32;
 
-  // Gameplay backdrop. The art is 64x64 but the canvas is 3:2, so it's
-  // scaled to the canvas width and cropped vertically: the top 13 rows are
-  // bare wall and the bottom few bare floor, so starting at row 13 keeps the
-  // window, dresser, floor lamp and bed all in frame.
+  // The room the lamp lives in. Everything below that's measured in "room
+  // pixels" is in this 64x64 art's own grid.
   const ROOM_IMAGE = new Image();
   ROOM_IMAGE.src = "games/images/lavalamp-room.png";
-  const ROOM_TOP_ROW = 13;
+  const ROOM_SIZE = 64;
   const ROOM_WALL_HEX = "#72d572"; // the art's wall color, shown until the image loads
+  // Where the lamp stands: bottom-center of its sprite, on the dresser's top
+  // edge (row 26), right of the window so it has plain wall behind it.
+  const ROOM_LAMP_X = 27;
+  const ROOM_LAMP_BOTTOM = 26;
+  const ROOM_LAMP_SIZE = 12;
   const PANEL_FILL = "rgba(5,24,46,0.85)";
 
   function roundRect(ctx, x, y, w, h, r) {
@@ -288,7 +291,9 @@
     ctx.setTransform(RENDER_SCALE, 0, 0, RENDER_SCALE, 0, 0);
     ctx.imageSmoothingEnabled = false; // keep the pixel-art lamp crisp when scaled up
 
-    let state = "start"; // start, playing
+    let state = "start"; // start, zooming, playing
+    let zoomT = 0; // 0..1 progress of the title-to-gameplay zoom
+    const ZOOM_FRAMES = 110; // ~1.8s
     let mode = null; // "easy" or "hard", set by the title-screen buttons
     let clickTargets = [];
     let running = true;
@@ -296,10 +301,6 @@
     let hoverPoint = null;
     let animFrame = 0;
     const sound = makeSound();
-
-    const START_LAMP_SIZE = 200;
-    const START_LAMP_X = (W - START_LAMP_SIZE) / 2;
-    const START_LAMP_Y = 250;
 
     const PLAY_LAMP_SIZE = 290;
     const PLAY_LAMP_X = (W - PLAY_LAMP_SIZE) / 2;
@@ -312,6 +313,32 @@
     };
     const bulbCX = (bulb.left + bulb.right) / 2;
     const bulbCY = (bulb.top + bulb.bottom) / 2;
+
+    // A camera is a zoom (canvas px per room pixel) plus where the lamp's
+    // foot lands on the canvas. CAM_OUT fits the whole room's height, centered;
+    // CAM_IN blows the lamp up to exactly the PLAY_LAMP_* box, so the bulb
+    // math above doesn't need to know the room exists.
+    const OUT_ZOOM = H / ROOM_SIZE;
+    const CAM_OUT = {
+      zoom: OUT_ZOOM,
+      footX: (W - ROOM_SIZE * OUT_ZOOM) / 2 + ROOM_LAMP_X * OUT_ZOOM,
+      footY: ROOM_LAMP_BOTTOM * OUT_ZOOM,
+    };
+    const CAM_IN = {
+      zoom: PLAY_LAMP_SIZE / ROOM_LAMP_SIZE,
+      footX: PLAY_LAMP_X + PLAY_LAMP_SIZE / 2,
+      footY: PLAY_LAMP_Y + PLAY_LAMP_SIZE,
+    };
+    // Zoom is interpolated geometrically so the push-in feels like a steady
+    // speed rather than rushing at the start and crawling at the end.
+    function zoomCamera(t) {
+      const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      return {
+        zoom: CAM_OUT.zoom * Math.pow(CAM_IN.zoom / CAM_OUT.zoom, e),
+        footX: CAM_OUT.footX + (CAM_IN.footX - CAM_OUT.footX) * e,
+        footY: CAM_OUT.footY + (CAM_IN.footY - CAM_OUT.footY) * e,
+      };
+    }
 
     let target = null;
     let picks = []; // up to maxPicks() base-color ids currently in the lamp
@@ -463,6 +490,11 @@
     }
 
     function update(dt) {
+      if (state === "zooming") {
+        zoomT += dt / ZOOM_FRAMES;
+        if (zoomT >= 1) state = "playing";
+        return;
+      }
       if (state !== "playing") return;
       if (merge) {
         merge.t += dt / merge.duration;
@@ -539,13 +571,28 @@
       }
     }
 
-    function drawRoom() {
+    // Draws the room and the lamp standing in it, as seen by `cam`.
+    function drawScene(cam) {
       ctx.fillStyle = ROOM_WALL_HEX;
       ctx.fillRect(0, 0, W, H);
+
+      ctx.save();
+      ctx.translate(cam.footX - ROOM_LAMP_X * cam.zoom, cam.footY - ROOM_LAMP_BOTTOM * cam.zoom);
+      ctx.scale(cam.zoom, cam.zoom);
       if (ROOM_IMAGE.complete && ROOM_IMAGE.naturalWidth) {
-        const scale = W / ROOM_IMAGE.naturalWidth;
-        ctx.drawImage(ROOM_IMAGE, 0, -ROOM_TOP_ROW * scale, W, ROOM_IMAGE.naturalHeight * scale);
+        // The art is square and the canvas is 3:2, so zoomed all the way out
+        // there's a gap either side. Stretching the art's outermost column
+        // across it just makes the window, dresser and bed run wider.
+        const side = (W / OUT_ZOOM - ROOM_SIZE) / 2;
+        ctx.drawImage(ROOM_IMAGE, 0, 0, 1, ROOM_SIZE, -side, 0, side + 0.5, ROOM_SIZE);
+        ctx.drawImage(ROOM_IMAGE, ROOM_SIZE - 1, 0, 1, ROOM_SIZE, ROOM_SIZE - 0.5, 0, side + 0.5, ROOM_SIZE);
+        ctx.drawImage(ROOM_IMAGE, 0, 0, ROOM_SIZE, ROOM_SIZE);
       }
+      const lampX = ROOM_LAMP_X - ROOM_LAMP_SIZE / 2;
+      const lampY = ROOM_LAMP_BOTTOM - ROOM_LAMP_SIZE;
+      drawLampGlass(lampX, lampY, ROOM_LAMP_SIZE);
+      drawLampSprite(lampX, lampY, ROOM_LAMP_SIZE);
+      ctx.restore();
     }
 
     // The sprite's glass is transparent, so without this the room would show
@@ -608,29 +655,30 @@
     }
 
     function drawStartScreen() {
-      ctx.fillStyle = "#0a2540";
-      ctx.fillRect(0, 0, W, H);
+      drawScene(CAM_OUT);
 
-      drawLampSprite(START_LAMP_X, START_LAMP_Y, START_LAMP_SIZE);
-
+      // Title up in the bare wall above the furniture, buttons down over the
+      // floor, so neither hides the lamp on the dresser.
       ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
       ctx.lineWidth = 6;
       ctx.strokeStyle = "#05182e";
       ctx.fillStyle = "#ffd166";
       ctx.font = "bold 64px 'Comic Sans MS', sans-serif";
-      ctx.strokeText("LAVALAMP", W / 2, 90);
-      ctx.fillText("LAVALAMP", W / 2, 90);
+      ctx.strokeText("LAVALAMP", W / 2, 50);
+      ctx.fillText("LAVALAMP", W / 2, 50);
 
       function chooseMode(chosen) {
         mode = chosen;
-        state = "playing";
+        state = "zooming";
+        zoomT = 0;
         sound.startMusic();
         startNewRound(false);
       }
 
       const btnW = 150;
       const btnGap = 20;
-      const btnY = 155;
+      const btnY = 412;
       const btnH = 56;
       const totalBtnW = btnW * 2 + btnGap;
       const easyX = W / 2 - totalBtnW / 2;
@@ -647,7 +695,7 @@
     }
 
     function drawPlayingScreen() {
-      drawRoom();
+      drawScene(CAM_IN);
 
       drawPanel(W / 2 - 90, 4, 180, 96);
       ctx.beginPath();
@@ -663,9 +711,6 @@
       ctx.textAlign = "center";
       ctx.textBaseline = "top";
       ctx.fillText("Make " + target.label, W / 2, 78);
-
-      drawLampGlass(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
-      drawLampSprite(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
 
       ctx.save();
       roundRect(ctx, bulb.left, bulb.top, bulb.right - bulb.left, bulb.bottom - bulb.top, 6);
@@ -717,6 +762,7 @@
     function draw() {
       clickTargets = [];
       if (state === "start") drawStartScreen();
+      else if (state === "zooming") drawScene(zoomCamera(zoomT));
       else drawPlayingScreen();
     }
 
