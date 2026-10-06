@@ -140,16 +140,18 @@
   const ROOM_LAMP_BOTTOM = 26;
   const ROOM_LAMP_SIZE = 12;
 
-  // A poster of the Cool Cars title screen (a shrunk screenshot of it), on
-  // the wall between the lava lamp and the floor lamp — placed so it's also
-  // in frame, right of the lamp, once the camera has zoomed in for gameplay.
+  // A poster of the Cool Cars title screen (a shrunk screenshot of it, minus
+  // the START button), filling the bare wall right of the floor lamp and
+  // above the bed. It's background dressing, so it's dimmed toward the
+  // game's navy to keep it from pulling the eye.
   const POSTER_IMAGE = new Image();
   POSTER_IMAGE.src = "games/images/lavalamp-poster.png";
-  const POSTER_X = 31.5;
-  const POSTER_Y = 14.5;
-  const POSTER_W = 9;
-  const POSTER_H = 6;
-  const POSTER_EDGE = 0.25;
+  const POSTER_X = 52.2;
+  const POSTER_Y = 23;
+  const POSTER_W = 27;
+  const POSTER_H = 18;
+  const POSTER_EDGE = 0.4;
+  const POSTER_DIM = "rgba(10,37,64,0.3)";
 
   // The fish tank on the dresser: its water is rows 17-25 of the art,
   // between the tank's frame at column -4 and the one at column 15.
@@ -722,7 +724,12 @@
       if (POSTER_IMAGE.complete && POSTER_IMAGE.naturalWidth) {
         ctx.fillStyle = "#212121"; // the room art's outline color
         ctx.fillRect(POSTER_X - POSTER_EDGE, POSTER_Y - POSTER_EDGE, POSTER_W + 2 * POSTER_EDGE, POSTER_H + 2 * POSTER_EDGE);
+        // A screenshot rather than pixel art, so let it scale smoothly.
+        ctx.imageSmoothingEnabled = true;
         ctx.drawImage(POSTER_IMAGE, POSTER_X, POSTER_Y, POSTER_W, POSTER_H);
+        ctx.imageSmoothingEnabled = false;
+        ctx.fillStyle = POSTER_DIM;
+        ctx.fillRect(POSTER_X, POSTER_Y, POSTER_W, POSTER_H);
       }
       drawTank();
       const lampX = ROOM_LAMP_X - ROOM_LAMP_SIZE / 2;
