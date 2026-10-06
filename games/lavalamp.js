@@ -124,11 +124,15 @@
   const BULB_TOP_FRAC = 4.5 / 32;
   const BULB_BOTTOM_FRAC = 22.5 / 32;
 
-  // The room the lamp lives in. Everything below that's measured in "room
-  // pixels" is in this 64x64 art's own grid.
+  // The room the lamp lives in: 96x64, the same 3:2 shape as the canvas. It
+  // began as a 64x64 drawing that was widened by 16 pixels each side, and
+  // everything below measured in "room pixels" still uses that original
+  // drawing's grid — hence the image's left edge sitting at x = -16.
   const ROOM_IMAGE = new Image();
   ROOM_IMAGE.src = "games/images/lavalamp-room.png";
-  const ROOM_SIZE = 64;
+  const ROOM_LEFT = -16;
+  const ROOM_W = 96;
+  const ROOM_H = 64;
   const ROOM_WALL_HEX = "#72d572"; // the art's wall color, shown until the image loads
   // Where the lamp stands: bottom-center of its sprite, on the dresser's top
   // edge (row 26), right of the window so it has plain wall behind it.
@@ -136,8 +140,9 @@
   const ROOM_LAMP_BOTTOM = 26;
   const ROOM_LAMP_SIZE = 12;
 
-  // The fish tank on the dresser: its water is rows 17-25 of the art, from
-  // the art's left edge to the tank's frame at column 15.
+  // The fish tank on the dresser: its water is rows 17-25 of the art,
+  // between the tank's frame at column -4 and the one at column 15.
+  const TANK_LEFT = -3;
   const TANK_TOP = 17;
   const TANK_BOTTOM = 26;
   const TANK_RIGHT = 15;
@@ -341,13 +346,13 @@
     const bulbCY = (bulb.top + bulb.bottom) / 2;
 
     // A camera is a zoom (canvas px per room pixel) plus where the lamp's
-    // foot lands on the canvas. CAM_OUT fits the whole room's height, centered;
+    // foot lands on the canvas. CAM_OUT fits the whole room on the canvas;
     // CAM_IN blows the lamp up to exactly the PLAY_LAMP_* box, so the bulb
     // math above doesn't need to know the room exists.
-    const OUT_ZOOM = H / ROOM_SIZE;
+    const OUT_ZOOM = H / ROOM_H;
     const CAM_OUT = {
       zoom: OUT_ZOOM,
-      footX: (W - ROOM_SIZE * OUT_ZOOM) / 2 + ROOM_LAMP_X * OUT_ZOOM,
+      footX: (ROOM_LAMP_X - ROOM_LEFT) * OUT_ZOOM,
       footY: ROOM_LAMP_BOTTOM * OUT_ZOOM,
     };
     const CAM_IN = {
@@ -598,9 +603,6 @@
       }
     }
 
-    // The tank runs off the left of the art into the stretched strip
-    // drawScene() adds, so the fish get that whole width to swim in.
-    const TANK_LEFT = -(W / OUT_ZOOM - ROOM_SIZE) / 2;
     function pickFishTarget(f) {
       const halfW = f.size * FISH_BODY_HALF_W_FRAC;
       const halfH = f.size * FISH_BODY_HALF_H_FRAC;
@@ -681,13 +683,7 @@
       ctx.translate(cam.footX - ROOM_LAMP_X * cam.zoom, cam.footY - ROOM_LAMP_BOTTOM * cam.zoom);
       ctx.scale(cam.zoom, cam.zoom);
       if (ROOM_IMAGE.complete && ROOM_IMAGE.naturalWidth) {
-        // The art is square and the canvas is 3:2, so zoomed all the way out
-        // there's a gap either side. Stretching the art's outermost column
-        // across it just makes the window, dresser and bed run wider.
-        const side = (W / OUT_ZOOM - ROOM_SIZE) / 2;
-        ctx.drawImage(ROOM_IMAGE, 0, 0, 1, ROOM_SIZE, -side, 0, side + 0.5, ROOM_SIZE);
-        ctx.drawImage(ROOM_IMAGE, ROOM_SIZE - 1, 0, 1, ROOM_SIZE, ROOM_SIZE - 0.5, 0, side + 0.5, ROOM_SIZE);
-        ctx.drawImage(ROOM_IMAGE, 0, 0, ROOM_SIZE, ROOM_SIZE);
+        ctx.drawImage(ROOM_IMAGE, ROOM_LEFT, 0, ROOM_W, ROOM_H);
       }
       drawTank();
       const lampX = ROOM_LAMP_X - ROOM_LAMP_SIZE / 2;
