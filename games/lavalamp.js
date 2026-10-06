@@ -156,9 +156,9 @@
   const FISH_BODY_HALF_H_FRAC = 5.5 / 32;
   // Drawn frame size of each fish, in room pixels, back to front. The small
   // ones read as further away, so they're also slower and a little washed out.
-  const FISH_SIZES = [4, 4.5, 6, 6.5, 7.5];
+  const FISH_SIZES = [3, 3.4, 4.3, 4.8, 5.5];
   // Fish smaller than this swim behind the plant, the rest in front of it.
-  const FISH_FAR_SIZE = 5;
+  const FISH_FAR_SIZE = 4;
   // The plant art is rooted at the bottom edge of its 32x32 frame. Drawn 9
   // room pixels square it stands most of the water's height, toward the
   // tank's right end so a little of it stays in view during gameplay.
@@ -616,7 +616,7 @@
     }
     const fish = FISH_SIZES.map((size) => {
       const f = { size, x: TANK_LEFT + Math.random() * (TANK_RIGHT - TANK_LEFT), y: 0, phase: Math.random() * 6.28 };
-      f.speed = (0.02 + Math.random() * 0.01) * (size / 6); // room pixels per frame
+      f.speed = (0.02 + Math.random() * 0.01) * (size / 4.5); // room pixels per frame
       pickFishTarget(f);
       f.y = f.targetY;
       return f;
