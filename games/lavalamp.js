@@ -140,6 +140,17 @@
   const ROOM_LAMP_BOTTOM = 26;
   const ROOM_LAMP_SIZE = 12;
 
+  // A poster of the Cool Cars title screen (a shrunk screenshot of it), on
+  // the wall between the lava lamp and the floor lamp — placed so it's also
+  // in frame, right of the lamp, once the camera has zoomed in for gameplay.
+  const POSTER_IMAGE = new Image();
+  POSTER_IMAGE.src = "games/images/lavalamp-poster.png";
+  const POSTER_X = 31.5;
+  const POSTER_Y = 14.5;
+  const POSTER_W = 9;
+  const POSTER_H = 6;
+  const POSTER_EDGE = 0.25;
+
   // The fish tank on the dresser: its water is rows 17-25 of the art,
   // between the tank's frame at column -4 and the one at column 15.
   const TANK_LEFT = -3;
@@ -283,11 +294,28 @@
       scheduleMusic();
     }
 
+    // Spoken with the browser's built-in voice rather than recordings, so
+    // every color name is covered without shipping a clip per color. Where
+    // there's no speech support (or no voice installed) it's simply silent.
+    let sayTimerId = null;
+    function say(text, delayMs) {
+      if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
+      clearTimeout(sayTimerId);
+      sayTimerId = setTimeout(() => {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.9;
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      }, delayMs);
+    }
+
     return {
       startMusic,
       // Long note tails would otherwise keep ringing after the cartridge is
       // ejected, so fade out and drop the whole context.
       stop() {
+        clearTimeout(sayTimerId);
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
         if (musicTimerId) clearTimeout(musicTimerId);
         if (!ctx) return;
         const c = ctx;
@@ -308,6 +336,11 @@
       celebrate() {
         const now = ensureCtx().currentTime;
         [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => tone(f, 0.16, now + i * 0.1, "square", 0.18));
+      },
+      // Names the color just made, timed to land right after celebrate()'s
+      // half-second arpeggio instead of talking over it.
+      sayColor(label) {
+        say(label, 550);
       },
     };
   }
@@ -508,6 +541,7 @@
       if (correct) {
         showMessage("You made " + target.label + "!", "#ffd166", 150);
         sound.celebrate();
+        sound.sayColor(target.label);
         // Guarded by clearing this in startNewRound(): if the player pours a
         // fresh color in before this fires, that reset already cancels it,
         // so a stale advance can never clobber a round the player restarted.
@@ -684,6 +718,11 @@
       ctx.scale(cam.zoom, cam.zoom);
       if (ROOM_IMAGE.complete && ROOM_IMAGE.naturalWidth) {
         ctx.drawImage(ROOM_IMAGE, ROOM_LEFT, 0, ROOM_W, ROOM_H);
+      }
+      if (POSTER_IMAGE.complete && POSTER_IMAGE.naturalWidth) {
+        ctx.fillStyle = "#212121"; // the room art's outline color
+        ctx.fillRect(POSTER_X - POSTER_EDGE, POSTER_Y - POSTER_EDGE, POSTER_W + 2 * POSTER_EDGE, POSTER_H + 2 * POSTER_EDGE);
+        ctx.drawImage(POSTER_IMAGE, POSTER_X, POSTER_Y, POSTER_W, POSTER_H);
       }
       drawTank();
       const lampX = ROOM_LAMP_X - ROOM_LAMP_SIZE / 2;
