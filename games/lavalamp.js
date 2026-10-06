@@ -470,9 +470,14 @@
         tone(300, 0.12, now, "sine", 0.14);
         tone(220, 0.16, now + 0.08, "sine", 0.12);
       },
-      // Wrong-guess "miss" is deliberately silent — the game is meant to stay
-      // low-pressure for kids, so a bad mix just resets quietly rather than
-      // sounding a negative cue.
+      // A wrong mix gets a soft two-note "uh-oh": round sine tones stepping
+      // gently down, quieter than everything else here. The game is meant to
+      // stay low-pressure for kids, so it's a nudge, never a buzzer.
+      miss() {
+        const now = ensureCtx().currentTime;
+        tone(392, 0.2, now, "sine", 0.11);
+        tone(329.63, 0.3, now + 0.19, "sine", 0.11);
+      },
       celebrate() {
         const now = ensureCtx().currentTime;
         [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => tone(f, 0.16, now + i * 0.1, "square", 0.18));
@@ -618,8 +623,8 @@
       mixFramesLeft = 0;
       message = null;
       resolved = false;
-      // A new round can start early (the player pours again mid-party), so
-      // skip ahead to the fade-out rather than cutting the lights dead.
+      // The party is timed to finish as the next round begins; if it's
+      // running late, skip ahead to the fade-out rather than cut it dead.
       if (disco) disco.t = Math.max(disco.t, DISCO_FRAMES - DISCO_FADE_OUT);
     }
 
@@ -644,15 +649,17 @@
       message = { text, color, framesLeft: frames, totalFrames: frames };
     }
 
-    // Picking a color once a mix has already settled into a result (right or
-    // wrong) always clears the lamp first, even after just 2 colors — the
-    // player doesn't get to keep adding onto an already-resolved mix. While
-    // still building up to that (2 colors, floating, not yet resolved), a
-    // pour is still treated as reaching for a 3rd ingredient in hard mode;
-    // only hitting the mode's cap unresolved also clears, same as an
-    // already-resolved pour.
+    // Once the lamp holds the mode's full count (2 in easy, 3 in hard) those
+    // colors are locked in: further presses are ignored until they've mixed
+    // and the result is showing, so mashing a button can't wipe a pour that's
+    // already under way. The same goes while the blobs are merging, and
+    // during the celebration after a correct mix, which leads into the next
+    // round by itself. After a wrong result the next press clears the lamp
+    // and starts a fresh attempt at the same color.
     function pickColor(id) {
-      if (resolved || picks.length >= maxPicks()) startNewRound(true);
+      if (merge || advanceTimeoutId) return;
+      if (!resolved && picks.length >= maxPicks()) return;
+      if (resolved) startNewRound(true);
       picks.push(id);
       spawnBlob(colorById(id).hex, picks.length - 1);
       sound.pick();
@@ -729,6 +736,7 @@
         }, 2200);
       } else {
         showMessage("Not quite — try again!", "#f6dcac", 90);
+        sound.miss();
       }
     }
 
