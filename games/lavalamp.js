@@ -830,7 +830,7 @@
       ctx.strokeStyle = "#f6dcac";
       ctx.stroke();
       ctx.beginPath();
-      ctx.arc(cx, cy, size / 2 - 12, 0, Math.PI * 2);
+      ctx.arc(cx, cy, size / 2 - 10, 0, Math.PI * 2);
       ctx.fillStyle = color.hex;
       ctx.fill();
       // A faint ring so black (and dark blends) still read as a distinct
@@ -840,9 +840,10 @@
       ctx.stroke();
       ctx.restore();
       ctx.fillStyle = "#f6dcac";
-      ctx.font = "13px sans-serif";
+      ctx.font = "12px sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(color.label, cx, y + size + 16);
+      ctx.textBaseline = "middle";
+      ctx.fillText(color.label, cx, y + size + 13);
     }
 
     function drawLampSprite(x, y, size) {
@@ -1159,9 +1160,9 @@
       drawScene(CAM_IN);
       if (disco) drawDisco();
 
-      drawPanel(W / 2 - 90, 4, 180, 96);
+      drawPanel(W / 2 - 76, 4, 152, 82);
       ctx.beginPath();
-      ctx.arc(W / 2, 42, 28, 0, Math.PI * 2);
+      ctx.arc(W / 2, 37, 24, 0, Math.PI * 2);
       ctx.fillStyle = target.hex;
       ctx.fill();
       ctx.lineWidth = 3;
@@ -1169,10 +1170,10 @@
       ctx.stroke();
 
       ctx.fillStyle = "#f6dcac";
-      ctx.font = "bold 16px sans-serif";
+      ctx.font = "bold 14px sans-serif";
       ctx.textAlign = "center";
       ctx.textBaseline = "top";
-      ctx.fillText("Make " + target.label, W / 2, 78);
+      ctx.fillText("Make " + target.label, W / 2, 67);
 
       ctx.save();
       roundRect(ctx, bulb.left, bulb.top, bulb.right - bulb.left, bulb.bottom - bulb.top, 6);
@@ -1210,12 +1211,12 @@
       }
 
       const colors = activeColors();
-      const btnSize = 56;
-      const gap = 24;
+      const btnSize = 48;
+      const gap = 20;
       const totalW = colors.length * btnSize + (colors.length - 1) * gap;
       const startX = (W - totalW) / 2;
-      const btnY = 396;
-      drawPanel(startX - 20, btnY - 8, totalW + 40, btnSize + 36);
+      const btnY = 407;
+      drawPanel(startX - 16, btnY - 7, totalW + 32, btnSize + 32);
       colors.forEach((c, i) => {
         drawColorButton(startX + i * (btnSize + gap), btnY, btnSize, c);
       });
