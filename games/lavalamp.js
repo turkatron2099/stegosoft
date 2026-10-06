@@ -156,7 +156,100 @@
       osc.start(when);
       osc.stop(when + dur + 0.02);
     }
+
+    // --- background music: generative, so there are no files to ship and it
+    // never loops. A slow random walk over three octaves of C major
+    // pentatonic (same key as the celebrate() arpeggio, and no two notes of
+    // it clash, so any overlap of long tails sounds fine) feeds a feedback
+    // delay that smears the notes into each other.
+    const PENTATONIC = [0, 2, 4, 7, 9]; // semitones above C
+    const MUSIC_ROOT_HZ = 130.81; // C3
+    const MUSIC_STEPS = PENTATONIC.length * 3;
+    let musicBus = null;
+    let musicTimerId = null;
+    let musicStep = 7;
+
+    function stepToFreq(step) {
+      const semis = Math.floor(step / PENTATONIC.length) * 12 + PENTATONIC[step % PENTATONIC.length];
+      return MUSIC_ROOT_HZ * Math.pow(2, semis / 12);
+    }
+
+    // One soft swell: two sines a few cents apart so the note slowly beats
+    // against itself instead of sitting dead still.
+    function musicNote(freq, when, peakGain) {
+      const c = ensureCtx();
+      const attack = 0.8 + Math.random() * 1.4;
+      const tail = 5 + Math.random() * 4;
+      const gain = c.createGain();
+      gain.gain.setValueAtTime(0, when);
+      gain.gain.linearRampToValueAtTime(peakGain, when + attack);
+      gain.gain.setTargetAtTime(0, when + attack, tail / 5);
+      gain.connect(musicBus);
+      [-4, 4].forEach((cents) => {
+        const osc = c.createOscillator();
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        osc.detune.value = cents + (Math.random() - 0.5) * 4;
+        osc.connect(gain);
+        osc.start(when);
+        osc.stop(when + attack + tail);
+      });
+    }
+
+    function scheduleMusic() {
+      const c = ensureCtx();
+      const when = c.currentTime + 0.05;
+      // Mostly neighbouring scale steps, sometimes a wider leap; bounce off
+      // the ends of the range rather than piling up there.
+      const leap = Math.random() < 0.2 ? 3 + Math.floor(Math.random() * 3) : 1 + Math.floor(Math.random() * 2);
+      musicStep += Math.random() < 0.5 ? -leap : leap;
+      if (musicStep < 0) musicStep = -musicStep;
+      if (musicStep >= MUSIC_STEPS) musicStep = 2 * (MUSIC_STEPS - 1) - musicStep;
+      // Higher notes read louder, so ease them back a little.
+      const peak = 0.07 - 0.03 * (musicStep / MUSIC_STEPS);
+      musicNote(stepToFreq(musicStep), when, peak);
+      if (Math.random() < 0.3) {
+        const harmony = Math.min(MUSIC_STEPS - 1, musicStep + 2 + Math.floor(Math.random() * 3));
+        musicNote(stepToFreq(harmony), when + 0.3 + Math.random() * 0.8, peak * 0.6);
+      }
+      musicTimerId = setTimeout(scheduleMusic, 1800 + Math.random() * 3200);
+    }
+
+    function startMusic() {
+      if (musicBus) return;
+      const c = ensureCtx();
+      musicBus = c.createGain();
+      musicBus.gain.setValueAtTime(0, c.currentTime);
+      musicBus.gain.linearRampToValueAtTime(1, c.currentTime + 3);
+      musicBus.connect(c.destination);
+
+      const delay = c.createDelay(2);
+      delay.delayTime.value = 0.9;
+      const feedback = c.createGain();
+      feedback.gain.value = 0.45;
+      const damp = c.createBiquadFilter();
+      damp.type = "lowpass";
+      damp.frequency.value = 1800;
+      musicBus.connect(delay);
+      delay.connect(damp);
+      damp.connect(feedback);
+      feedback.connect(delay);
+      damp.connect(c.destination);
+
+      scheduleMusic();
+    }
+
     return {
+      startMusic,
+      // Long note tails would otherwise keep ringing after the cartridge is
+      // ejected, so fade out and drop the whole context.
+      stop() {
+        if (musicTimerId) clearTimeout(musicTimerId);
+        if (!ctx) return;
+        const c = ctx;
+        if (musicBus) musicBus.gain.setTargetAtTime(0, c.currentTime, 0.05);
+        setTimeout(() => c.close(), 300);
+      },
       pick() {
         tone(520, 0.09, ensureCtx().currentTime, "sine", 0.18);
       },
@@ -495,6 +588,7 @@
       function chooseMode(chosen) {
         mode = chosen;
         state = "playing";
+        sound.startMusic();
         startNewRound(false);
       }
 
@@ -646,6 +740,7 @@
         running = false;
         if (rafId) cancelAnimationFrame(rafId);
         if (advanceTimeoutId) clearTimeout(advanceTimeoutId);
+        sound.stop();
         canvas.removeEventListener("click", onClick);
         canvas.removeEventListener("mousemove", onMouseMove);
         canvas.style.cursor = "default";
