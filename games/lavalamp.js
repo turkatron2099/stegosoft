@@ -47,6 +47,7 @@
     { id: "darkGreen", label: "Dark Green", pair: ["yellow", "blue", "black"] },
     { id: "lightPurple", label: "Light Purple", pair: ["red", "blue", "white"] },
     { id: "darkPurple", label: "Dark Purple", pair: ["red", "blue", "black"] },
+    { id: "gray", label: "Gray", pair: ["black", "white"] },
   ];
 
   function hexToRgb(hex) {
@@ -237,6 +238,7 @@
     // a swung 16th-note grid. The chords loop every four bars, but the bass
     // and stab patterns are re-picked each bar and the lead is improvised
     // from the minor pentatonic, so it never plays the same way twice.
+    const MUSIC_GAIN = 0.5;
     const TEMPO_BPM = 112;
     const STEP_SEC = 60 / TEMPO_BPM / 4; // one 16th note
     const SWING = 0.14; // how late the off 16ths land, as a fraction of a step
@@ -420,7 +422,7 @@
       if (musicBus) return;
       musicBus = c.createGain();
       musicBus.gain.setValueAtTime(0.0001, c.currentTime);
-      musicBus.gain.exponentialRampToValueAtTime(0.5, c.currentTime + 1.2);
+      musicBus.gain.exponentialRampToValueAtTime(MUSIC_GAIN, c.currentTime + 1.2);
       musicBus.connect(c.destination);
 
       noiseBuffer = c.createBuffer(1, c.sampleRate, c.sampleRate);
@@ -470,13 +472,19 @@
         tone(300, 0.12, now, "sine", 0.14);
         tone(220, 0.16, now + 0.08, "sine", 0.12);
       },
-      // A wrong mix gets a soft two-note "uh-oh": round sine tones stepping
-      // gently down, quieter than everything else here. The game is meant to
-      // stay low-pressure for kids, so it's a nudge, never a buzzer.
+      // A wrong mix gets a soft two-note "uh-oh" stepping gently down. The
+      // game is meant to stay low-pressure for kids, so it's a nudge, never a
+      // buzzer — and rather than shout over the music, the music dips out of
+      // its way for the half second it lasts.
       miss() {
         const now = ensureCtx().currentTime;
-        tone(392, 0.2, now, "sine", 0.11);
-        tone(329.63, 0.3, now + 0.19, "sine", 0.11);
+        if (musicBus) {
+          musicBus.gain.cancelScheduledValues(now);
+          musicBus.gain.setTargetAtTime(MUSIC_GAIN * 0.35, now, 0.03);
+          musicBus.gain.setTargetAtTime(MUSIC_GAIN, now + 0.6, 0.15);
+        }
+        tone(392, 0.22, now, "triangle", 0.3);
+        tone(329.63, 0.34, now + 0.2, "triangle", 0.3);
       },
       celebrate() {
         const now = ensureCtx().currentTime;
