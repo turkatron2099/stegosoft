@@ -416,6 +416,28 @@
     const MIX_DELAY_FRAMES = 180; // ~3s at the 60fps-equivalent dt unit used below, restarted on every pour
     let merge = null; // { t, duration, from: [blobSnapshot, ...], resultHex, correct }
     let message = null; // { text, color, framesLeft, totalFrames }
+
+    // The correct-answer celebration: a mirror ball drops in and throws
+    // colored spots of light across the room. Deliberately a slow drift with
+    // soft fades, never a flash or strobe. It runs for as long as the pause
+    // before the next round (the 2200ms advance timeout).
+    let disco = null; // { t } in frames, while the party's on
+    const DISCO_FRAMES = 132;
+    const DISCO_FADE_IN = 18;
+    const DISCO_FADE_OUT = 26;
+    const DISCO_BALL_X = 600;
+    const DISCO_BALL_Y = 104;
+    const DISCO_BALL_R = 30;
+    const DISCO_FACET = 8;
+    const DISCO_COLORS = ["#ff5fa2", "#ffd166", "#5ee6ff", "#9dff6b", "#c58bff", "#ffffff"];
+    const DISCO_SPOTS = Array.from({ length: 28 }, (_, i) => ({
+      x: Math.random() * (W + 80),
+      y: Math.random() * H,
+      r: 9 + Math.random() * 9,
+      speed: 1.1 + Math.random() * 1.3, // canvas px per frame, all one way: the ball only spins one direction
+      phase: Math.random() * 6.28,
+      color: DISCO_COLORS[i % DISCO_COLORS.length],
+    }));
     let advanceTimeoutId = null;
 
     // Easy: 2-color pours only, from EASY_TARGETS. Hard: up to 3, from the
@@ -448,6 +470,9 @@
       mixFramesLeft = 0;
       message = null;
       resolved = false;
+      // A new round can start early (the player pours again mid-party), so
+      // skip ahead to the fade-out rather than cutting the lights dead.
+      if (disco) disco.t = Math.max(disco.t, DISCO_FRAMES - DISCO_FADE_OUT);
     }
 
     // slot 0 (first pick) enters from the top, slot 1 (second) from the
@@ -546,6 +571,7 @@
         showMessage("You made " + target.label + "!", "#ffd166", 150);
         sound.celebrate();
         sound.sayColor(target.label);
+        disco = { t: 0 };
         // Guarded by clearing this in startNewRound(): if the player pours a
         // fresh color in before this fires, that reset already cancels it,
         // so a stale advance can never clobber a round the player restarted.
@@ -579,6 +605,10 @@
       if (message) {
         message.framesLeft -= dt;
         if (message.framesLeft <= 0) message = null;
+      }
+      if (disco) {
+        disco.t += dt;
+        if (disco.t >= DISCO_FRAMES) disco = null;
       }
     }
 
@@ -840,8 +870,87 @@
       ctx.fillText("HARD", hardX + btnW / 2, btnY + btnH / 2);
     }
 
+    function drawDisco() {
+      // 0..1: how far the party has faded in (or back out).
+      const k = Math.min(1, disco.t / DISCO_FADE_IN, (DISCO_FRAMES - disco.t) / DISCO_FADE_OUT);
+      const ease = k * k * (3 - 2 * k);
+
+      // Room lights down a little so the spots show up against the wall.
+      ctx.fillStyle = "rgba(5,24,46," + 0.4 * ease + ")";
+      ctx.fillRect(0, 0, W, H);
+
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      ctx.globalAlpha = 0.6 * ease;
+      DISCO_SPOTS.forEach((sp) => {
+        const x = ((sp.x + animFrame * sp.speed) % (W + 80)) - 40;
+        const y = sp.y + Math.sin(animFrame * 0.02 + sp.phase) * 8;
+        const glow = ctx.createRadialGradient(x, y, 0, x, y, sp.r);
+        glow.addColorStop(0, sp.color);
+        glow.addColorStop(0.6, sp.color);
+        glow.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(x, y, sp.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.restore();
+
+      // The lights land on the wall behind the lamp, not on the lamp.
+      drawLampGlass(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
+      drawLampSprite(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
+
+      // The ball itself, lowered from above the screen on a cord.
+      const by = -DISCO_BALL_R + (DISCO_BALL_Y + DISCO_BALL_R) * ease;
+      ctx.fillStyle = "#212121";
+      ctx.fillRect(DISCO_BALL_X - 1.5, 0, 3, Math.max(0, by - DISCO_BALL_R));
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(DISCO_BALL_X, by, DISCO_BALL_R, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.fillStyle = "#5c6677";
+      ctx.fillRect(DISCO_BALL_X - DISCO_BALL_R, by - DISCO_BALL_R, DISCO_BALL_R * 2, DISCO_BALL_R * 2);
+      // Mirror tiles sliding sideways read as the ball turning; each one
+      // glints on its own slow cycle, a few of them in color.
+      const slide = (animFrame * 0.35) % DISCO_FACET;
+      const cells = Math.ceil((DISCO_BALL_R * 2) / DISCO_FACET) + 1;
+      const turn = Math.floor((animFrame * 0.35) / DISCO_FACET);
+      for (let i = -1; i < cells; i++) {
+        for (let j = 0; j < cells; j++) {
+          const id = i - turn; // stays with the tile as it slides across
+          const glint = 0.5 + 0.5 * Math.sin(animFrame * 0.08 + id * 1.9 + j * 2.7);
+          const tinted = (((id * 7 + j * 13) % 5) + 5) % 5 === 0;
+          ctx.globalAlpha = 0.35 + 0.65 * glint;
+          ctx.fillStyle = tinted ? DISCO_COLORS[(((id + j) % 5) + 5) % 5] : "#e8eef7";
+          ctx.fillRect(
+            DISCO_BALL_X - DISCO_BALL_R + i * DISCO_FACET + slide + 1,
+            by - DISCO_BALL_R + j * DISCO_FACET + 1,
+            DISCO_FACET - 2,
+            DISCO_FACET - 2
+          );
+        }
+      }
+      ctx.globalAlpha = 1;
+      const shade = ctx.createRadialGradient(
+        DISCO_BALL_X - DISCO_BALL_R * 0.35, by - DISCO_BALL_R * 0.4, DISCO_BALL_R * 0.2,
+        DISCO_BALL_X, by, DISCO_BALL_R
+      );
+      shade.addColorStop(0, "rgba(255,255,255,0.25)");
+      shade.addColorStop(0.5, "rgba(0,0,0,0)");
+      shade.addColorStop(1, "rgba(5,24,46,0.6)");
+      ctx.fillStyle = shade;
+      ctx.fillRect(DISCO_BALL_X - DISCO_BALL_R, by - DISCO_BALL_R, DISCO_BALL_R * 2, DISCO_BALL_R * 2);
+      ctx.restore();
+      ctx.beginPath();
+      ctx.arc(DISCO_BALL_X, by, DISCO_BALL_R, 0, Math.PI * 2);
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "#212121";
+      ctx.stroke();
+    }
+
     function drawPlayingScreen() {
       drawScene(CAM_IN);
+      if (disco) drawDisco();
 
       drawPanel(W / 2 - 90, 4, 180, 96);
       ctx.beginPath();
