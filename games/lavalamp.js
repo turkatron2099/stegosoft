@@ -87,6 +87,13 @@
     "blue,red": "#8e4fae",
   };
 
+  // Orange is the one secondary where an even average with black or white
+  // stops looking like the same color: half black is plain brown, half white
+  // is peach. These keep its hue and saturation and only move the lightness,
+  // so they read as dark orange and light orange.
+  const ORANGE_HEX = SECONDARY_MIX["red,yellow"];
+  const ORANGE_SHADES = { black: "#c9600f", white: "#ffae66" };
+
   function blendIds(ids) {
     const chromatic = ids.filter((id) => CHROMATIC_IDS.includes(id));
     const modifiers = ids.filter((id) => !CHROMATIC_IDS.includes(id));
@@ -102,6 +109,7 @@
 
     const modifierHexes = modifiers.map((id) => colorById(id).hex);
     if (!baseHex) return blendMany(modifierHexes); // only black/white picked
+    if (baseHex === ORANGE_HEX && modifiers.length === 1) return ORANGE_SHADES[modifiers[0]];
     return modifierHexes.length ? blendMany([baseHex, ...modifierHexes]) : baseHex;
   }
 
