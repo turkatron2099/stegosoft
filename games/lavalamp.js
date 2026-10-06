@@ -405,9 +405,11 @@
       else ctx.resume();
     }
 
+    // Safe to call again: a repeat call just nudges a context the browser
+    // was holding suspended (see the call sites) back into life.
     function startMusic() {
-      if (musicBus) return;
       const c = ensureCtx();
+      if (musicBus) return;
       musicBus = c.createGain();
       musicBus.gain.setValueAtTime(0.0001, c.currentTime);
       musicBus.gain.exponentialRampToValueAtTime(0.5, c.currentTime + 1.2);
@@ -986,6 +988,8 @@
         mode = chosen;
         state = "zooming";
         zoomT = 0;
+        // Normally already playing since the title screen. If the browser
+        // refused audio until a click on the page, this is that click.
         sound.startMusic();
         startNewRound(false);
       }
@@ -1234,6 +1238,9 @@
 
     running = true;
     rafId = requestAnimationFrame(loop);
+    // Music from the title screen on. Inserting the cartridge was a click or
+    // drag, which is normally all a browser needs to allow audio.
+    sound.startMusic();
 
     return {
       stop() {
