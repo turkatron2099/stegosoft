@@ -496,6 +496,10 @@ button.console-btn:active {
   --label-border: var(--cyan);
 }
 
+.cartridge-spaceforce {
+  --label-border: #8e2f9c;
+}
+
 /* --- Cool Cars Konami-code cheat-unlock toast --- */
 
 .cheat-unlock-toast {
