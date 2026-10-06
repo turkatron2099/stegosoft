@@ -155,6 +155,13 @@
   const POSTER_EDGE = 0.4;
   const POSTER_DIM = "rgba(10,37,64,0.3)";
 
+  // The dancing robots that join the disco. Two 32x32 frames side by side:
+  // arms down (the original art), then arms up (the same art with each
+  // forearm and claw mirrored to stand above its shoulder).
+  const ROBOT_IMAGE = new Image();
+  ROBOT_IMAGE.src = "games/images/lavalamp-robot.png";
+  const ROBOT_FRAME = 32;
+
   // The fish tank on the dresser: its water is rows 17-25 of the art,
   // between the tank's frame at column -4 and the one at column 15.
   const TANK_LEFT = -3;
@@ -549,6 +556,18 @@
     const DISCO_BALL_R = 30;
     const DISCO_FACET = 8;
     const DISCO_COLORS = ["#ff5fa2", "#ffd166", "#5ee6ff", "#9dff6b", "#c58bff", "#ffffff"];
+    // Robots pop up from behind the dresser either side of the lamp and dance
+    // for as long as the ball is down. Each entry is [left arm up, right arm
+    // up] for one half beat of the music.
+    const ROBOT_SIZE = 150;
+    const ROBOT_OFFSET_X = 168; // each robot's center, out from the lamp's
+    const ROBOT_STEP_FRAMES = (60 / 112 / 2) * 60; // half a beat at the music's tempo
+    const ROBOT_MOVES = [
+      [true, true],
+      [false, false],
+      [true, false],
+      [false, true],
+    ];
     const DISCO_SPOTS = Array.from({ length: 28 }, (_, i) => ({
       x: Math.random() * (W + 80),
       y: Math.random() * H,
@@ -1018,6 +1037,31 @@
       // The lights land on the wall behind the lamp, not on the lamp.
       drawLampGlass(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
       drawLampSprite(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
+
+      // Robots rise from behind the dresser's top edge, where the lamp stands.
+      // The right-hand one is mirrored so the pair dance as reflections.
+      if (ROBOT_IMAGE.complete && ROBOT_IMAGE.naturalWidth) {
+        const floorY = PLAY_LAMP_Y + PLAY_LAMP_SIZE;
+        const move = ROBOT_MOVES[Math.floor(disco.t / ROBOT_STEP_FRAMES) % ROBOT_MOVES.length];
+        const hop = move[0] || move[1] ? 6 : 0;
+        const top = floorY - ROBOT_SIZE * ease - hop * ease;
+        const half = ROBOT_FRAME / 2;
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(0, 0, W, floorY);
+        ctx.clip();
+        [-1, 1].forEach((side) => {
+          ctx.save();
+          ctx.translate(W / 2 + side * ROBOT_OFFSET_X, top);
+          ctx.scale(-side, 1);
+          // Each half of the robot comes from whichever frame has that arm
+          // in the right place, so the arms can move independently.
+          ctx.drawImage(ROBOT_IMAGE, move[0] ? ROBOT_FRAME : 0, 0, half, ROBOT_FRAME, -ROBOT_SIZE / 2, 0, ROBOT_SIZE / 2, ROBOT_SIZE);
+          ctx.drawImage(ROBOT_IMAGE, (move[1] ? ROBOT_FRAME : 0) + half, 0, half, ROBOT_FRAME, 0, 0, ROBOT_SIZE / 2, ROBOT_SIZE);
+          ctx.restore();
+        });
+        ctx.restore();
+      }
 
       // The ball itself, lowered from above the screen on a cord.
       const by = -DISCO_BALL_R + (DISCO_BALL_Y + DISCO_BALL_R) * ease;
