@@ -600,6 +600,13 @@
       color: DISCO_COLORS[i % DISCO_COLORS.length],
     }));
     let advanceTimeoutId = null;
+    // A wrong result floats for a couple of seconds so the player can see
+    // what they made, then shrinks away — left sitting in the lamp it looks
+    // like an ingredient the next mix has to include.
+    let wrongClearFrames = 0; // counts down while a wrong result is on show
+    const WRONG_SHOW_FRAMES = 120;
+    const WRONG_SHRINK_FRAMES = 20;
+    const RESULT_RADIUS = 26;
 
     // Easy: 2-color pours only, from EASY_TARGETS. Hard: up to 3, from the
     // full HARD_TARGETS (light/dark tints/shades, black/white included).
@@ -631,6 +638,7 @@
       mixFramesLeft = 0;
       message = null;
       resolved = false;
+      wrongClearFrames = 0;
       // The party is timed to finish as the next round begins; if it's
       // running late, skip ahead to the fade-out rather than cut it dead.
       if (disco) disco.t = Math.max(disco.t, DISCO_FRAMES - DISCO_FADE_OUT);
@@ -720,7 +728,7 @@
       blobs = [
         {
           hex: resultHex,
-          radius: 26,
+          radius: RESULT_RADIUS,
           x: bulbCX,
           y: bulbCY,
           vx: (Math.random() < 0.5 ? -1 : 1) * 0.4,
@@ -745,6 +753,7 @@
       } else {
         showMessage("Not quite — try again!", "#f6dcac", 90);
         sound.miss();
+        wrongClearFrames = WRONG_SHOW_FRAMES;
       }
     }
 
@@ -761,6 +770,13 @@
         if (merge.t >= 1) finishMerge();
       } else {
         blobs.forEach((b) => updateBlob(b, dt));
+        if (wrongClearFrames > 0) {
+          wrongClearFrames -= dt;
+          if (wrongClearFrames <= 0) startNewRound(true);
+          else if (wrongClearFrames < WRONG_SHRINK_FRAMES) {
+            blobs.forEach((b) => (b.radius = RESULT_RADIUS * (wrongClearFrames / WRONG_SHRINK_FRAMES)));
+          }
+        }
         if (picks.length >= 2 && mixFramesLeft > 0) {
           mixFramesLeft -= dt;
           if (mixFramesLeft <= 0) startMerge();
