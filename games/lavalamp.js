@@ -216,86 +216,204 @@
       osc.stop(when + dur + 0.02);
     }
 
-    // --- background music: generative, so there are no files to ship and it
-    // never loops. A slow random walk over three octaves of C major
-    // pentatonic (same key as the celebrate() arpeggio, and no two notes of
-    // it clash, so any overlap of long tails sounds fine) feeds a feedback
-    // delay that smears the notes into each other.
-    const PENTATONIC = [0, 2, 4, 7, 9]; // semitones above C
-    const MUSIC_ROOT_HZ = 130.81; // C3
-    const MUSIC_STEPS = PENTATONIC.length * 3;
+    // --- background music: a 70s disco-funk groove, sequenced live so there
+    // are no files to ship. Four-on-the-floor kick, offbeat open hats, a
+    // syncopated bass, clav stabs through a wah and a square-wave lead, all on
+    // a swung 16th-note grid. The chords loop every four bars, but the bass
+    // and stab patterns are re-picked each bar and the lead is improvised
+    // from the minor pentatonic, so it never plays the same way twice.
+    const TEMPO_BPM = 112;
+    const STEP_SEC = 60 / TEMPO_BPM / 4; // one 16th note
+    const SWING = 0.14; // how late the off 16ths land, as a fraction of a step
+    const STEPS_PER_BAR = 16;
+    // One entry per half bar. `bass` is the root as a MIDI note, `color` the
+    // interval above it that suits the chord (flat 7th, or 6th under the
+    // major chord), `stab` the voicing the clav plays.
+    const AM7 = { bass: 45, color: 10, stab: [57, 60, 64, 67] };
+    const D9 = { bass: 50, color: 10, stab: [54, 57, 60, 64] };
+    const FMAJ7 = { bass: 41, color: 9, stab: [53, 57, 60, 64] };
+    const E7 = { bass: 40, color: 10, stab: [56, 62, 67] };
+    const CHORDS = [AM7, AM7, D9, D9, AM7, AM7, FMAJ7, E7];
+    // Bass lines as step -> interval above the chord's root ("c" = its color note).
+    const BASS_PATTERNS = [
+      { 0: 0, 3: 0, 4: 12, 6: 0, 8: 0, 10: "c", 11: 12, 14: 7 },
+      { 0: 0, 2: 12, 4: 0, 6: 12, 8: 0, 10: 12, 12: 7, 14: "c" },
+      { 0: 0, 3: 12, 6: 0, 7: 0, 8: 12, 11: 7, 12: "c", 14: 12 },
+    ];
+    const STAB_PATTERNS = [
+      [3, 6, 11, 14],
+      [2, 7, 10, 15],
+      [3, 4, 10, 13],
+    ];
+    const LEAD_RHYTHMS = [
+      [0, 3, 6, 8, 11, 14],
+      [2, 4, 7, 10],
+      [0, 2, 3, 6, 10, 12, 13],
+      [4, 6, 7, 10, 12],
+    ];
+    const LEAD_SCALE = [69, 72, 74, 76, 79, 81, 84, 86, 88]; // A minor pentatonic, A4 up
+
     let musicBus = null;
     let musicTimerId = null;
-    let musicStep = 7;
+    let noiseBuffer = null;
+    let nextStepTime = 0;
+    let stepIndex = 0;
+    let bassPattern = BASS_PATTERNS[0];
+    let stabPattern = STAB_PATTERNS[0];
+    let leadRhythm = null; // null on the bars the lead sits out
+    let leadDegree = 3;
 
-    function stepToFreq(step) {
-      const semis = Math.floor(step / PENTATONIC.length) * 12 + PENTATONIC[step % PENTATONIC.length];
-      return MUSIC_ROOT_HZ * Math.pow(2, semis / 12);
+    function midiHz(note) {
+      return 440 * Math.pow(2, (note - 69) / 12);
+    }
+    function pickOne(list) {
+      return list[Math.floor(Math.random() * list.length)];
     }
 
-    // One soft swell: two sines a few cents apart so the note slowly beats
-    // against itself instead of sitting dead still.
-    function musicNote(freq, when, peakGain) {
+    // Short burst of filtered noise: hats and the body of the snare.
+    function noiseHit(when, dur, peakGain, filterType, filterHz) {
       const c = ensureCtx();
-      const attack = 0.8 + Math.random() * 1.4;
-      const tail = 5 + Math.random() * 4;
+      const src = c.createBufferSource();
+      src.buffer = noiseBuffer;
+      const filter = c.createBiquadFilter();
+      filter.type = filterType;
+      filter.frequency.value = filterHz;
       const gain = c.createGain();
-      gain.gain.setValueAtTime(0, when);
-      gain.gain.linearRampToValueAtTime(peakGain, when + attack);
-      gain.gain.setTargetAtTime(0, when + attack, tail / 5);
+      gain.gain.setValueAtTime(peakGain, when);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+      src.connect(filter);
+      filter.connect(gain);
       gain.connect(musicBus);
-      [-4, 4].forEach((cents) => {
+      src.start(when, Math.random() * 0.5);
+      src.stop(when + dur + 0.02);
+    }
+
+    function kick(when) {
+      const c = ensureCtx();
+      const osc = c.createOscillator();
+      osc.frequency.setValueAtTime(150, when);
+      osc.frequency.exponentialRampToValueAtTime(48, when + 0.11);
+      const gain = c.createGain();
+      gain.gain.setValueAtTime(0.9, when);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + 0.24);
+      osc.connect(gain);
+      gain.connect(musicBus);
+      osc.start(when);
+      osc.stop(when + 0.26);
+    }
+
+    function snare(when) {
+      noiseHit(when, 0.16, 0.42, "bandpass", 2200);
+      const c = ensureCtx();
+      const osc = c.createOscillator();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(220, when);
+      osc.frequency.exponentialRampToValueAtTime(150, when + 0.08);
+      const gain = c.createGain();
+      gain.gain.setValueAtTime(0.3, when);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + 0.1);
+      osc.connect(gain);
+      gain.connect(musicBus);
+      osc.start(when);
+      osc.stop(when + 0.12);
+    }
+
+    // A pitched voice through a filter whose cutoff sweeps from filterFrom to
+    // filterTo over the note — the pluck of the bass, the "wah" of the clav.
+    function synthNote(when, dur, notes, type, peakGain, filterType, filterFrom, filterTo, q) {
+      const c = ensureCtx();
+      const filter = c.createBiquadFilter();
+      filter.type = filterType;
+      filter.Q.value = q;
+      filter.frequency.setValueAtTime(filterFrom, when);
+      filter.frequency.exponentialRampToValueAtTime(filterTo, when + dur);
+      const gain = c.createGain();
+      gain.gain.setValueAtTime(0.0001, when);
+      gain.gain.exponentialRampToValueAtTime(peakGain, when + 0.008);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+      filter.connect(gain);
+      gain.connect(musicBus);
+      notes.forEach((note) => {
         const osc = c.createOscillator();
-        osc.type = "sine";
-        osc.frequency.value = freq;
-        osc.detune.value = cents + (Math.random() - 0.5) * 4;
-        osc.connect(gain);
+        osc.type = type;
+        osc.frequency.value = midiHz(note);
+        osc.connect(filter);
         osc.start(when);
-        osc.stop(when + attack + tail);
+        osc.stop(when + dur + 0.02);
       });
     }
 
-    function scheduleMusic() {
-      const c = ensureCtx();
-      const when = c.currentTime + 0.05;
-      // Mostly neighbouring scale steps, sometimes a wider leap; bounce off
-      // the ends of the range rather than piling up there.
-      const leap = Math.random() < 0.2 ? 3 + Math.floor(Math.random() * 3) : 1 + Math.floor(Math.random() * 2);
-      musicStep += Math.random() < 0.5 ? -leap : leap;
-      if (musicStep < 0) musicStep = -musicStep;
-      if (musicStep >= MUSIC_STEPS) musicStep = 2 * (MUSIC_STEPS - 1) - musicStep;
-      // Higher notes read louder, so ease them back a little.
-      const peak = 0.07 - 0.03 * (musicStep / MUSIC_STEPS);
-      musicNote(stepToFreq(musicStep), when, peak);
-      if (Math.random() < 0.3) {
-        const harmony = Math.min(MUSIC_STEPS - 1, musicStep + 2 + Math.floor(Math.random() * 3));
-        musicNote(stepToFreq(harmony), when + 0.3 + Math.random() * 0.8, peak * 0.6);
+    function scheduleStep(index, when) {
+      const step = index % STEPS_PER_BAR;
+      const halfBar = Math.floor(index / (STEPS_PER_BAR / 2)) % CHORDS.length;
+      const chord = CHORDS[halfBar];
+
+      if (step === 0) {
+        bassPattern = pickOne(BASS_PATTERNS);
+        stabPattern = pickOne(STAB_PATTERNS);
+        leadRhythm = Math.random() < 0.6 ? pickOne(LEAD_RHYTHMS) : null;
       }
-      musicTimerId = setTimeout(scheduleMusic, 1800 + Math.random() * 3200);
+
+      if (step % 4 === 0) kick(when);
+      if (step === 4 || step === 12) snare(when);
+      if (step % 4 === 2) noiseHit(when, 0.2, 0.13, "highpass", 7000); // open hat on the offbeat
+      else noiseHit(when, 0.04, step % 2 ? 0.05 : 0.1, "highpass", 8000);
+
+      const bassInterval = bassPattern[step];
+      if (bassInterval !== undefined) {
+        const note = chord.bass + (bassInterval === "c" ? chord.color : bassInterval);
+        synthNote(when, STEP_SEC * 1.6, [note], "sawtooth", 0.4, "lowpass", 1400, 260, 5);
+      }
+
+      if (stabPattern.includes(step)) {
+        synthNote(when, STEP_SEC * 1.3, chord.stab, "square", 0.045, "bandpass", 700, 2400, 4);
+      }
+
+      if (leadRhythm && leadRhythm.includes(step)) {
+        // Mostly steps to a neighbouring note, held inside the scale's range.
+        leadDegree += pickOne([-2, -1, -1, 1, 1, 2]);
+        leadDegree = Math.max(0, Math.min(LEAD_SCALE.length - 1, leadDegree));
+        synthNote(when, STEP_SEC * 2.2, [LEAD_SCALE[leadDegree]], "square", 0.07, "lowpass", 3200, 1200, 1);
+      }
+    }
+
+    // Web Audio events have to be queued slightly ahead of time, so this
+    // wakes up often and schedules every step due in the next 150ms.
+    function pumpMusic() {
+      const c = ensureCtx();
+      while (nextStepTime < c.currentTime + 0.15) {
+        const swing = stepIndex % 2 ? STEP_SEC * SWING : 0;
+        scheduleStep(stepIndex, nextStepTime + swing);
+        stepIndex++;
+        nextStepTime += STEP_SEC;
+      }
+      musicTimerId = setTimeout(pumpMusic, 40);
+    }
+
+    // Browsers slow timers right down in a background tab, which would make
+    // the groove stutter — so the whole context is paused while hidden.
+    function onVisibilityChange() {
+      if (!ctx) return;
+      if (document.hidden) ctx.suspend();
+      else ctx.resume();
     }
 
     function startMusic() {
       if (musicBus) return;
       const c = ensureCtx();
       musicBus = c.createGain();
-      musicBus.gain.setValueAtTime(0, c.currentTime);
-      musicBus.gain.linearRampToValueAtTime(1, c.currentTime + 3);
+      musicBus.gain.setValueAtTime(0.0001, c.currentTime);
+      musicBus.gain.exponentialRampToValueAtTime(0.5, c.currentTime + 1.2);
       musicBus.connect(c.destination);
 
-      const delay = c.createDelay(2);
-      delay.delayTime.value = 0.9;
-      const feedback = c.createGain();
-      feedback.gain.value = 0.45;
-      const damp = c.createBiquadFilter();
-      damp.type = "lowpass";
-      damp.frequency.value = 1800;
-      musicBus.connect(delay);
-      delay.connect(damp);
-      damp.connect(feedback);
-      feedback.connect(delay);
-      damp.connect(c.destination);
+      noiseBuffer = c.createBuffer(1, c.sampleRate, c.sampleRate);
+      const samples = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < samples.length; i++) samples[i] = Math.random() * 2 - 1;
 
-      scheduleMusic();
+      nextStepTime = c.currentTime + 0.1;
+      stepIndex = 0;
+      document.addEventListener("visibilitychange", onVisibilityChange);
+      pumpMusic();
     }
 
     // Spoken with the browser's built-in voice rather than recordings, so
@@ -315,12 +433,13 @@
 
     return {
       startMusic,
-      // Long note tails would otherwise keep ringing after the cartridge is
-      // ejected, so fade out and drop the whole context.
+      // Already-queued notes would otherwise keep playing after the cartridge
+      // is ejected, so fade out and drop the whole context.
       stop() {
         clearTimeout(sayTimerId);
         if (window.speechSynthesis) window.speechSynthesis.cancel();
         if (musicTimerId) clearTimeout(musicTimerId);
+        document.removeEventListener("visibilitychange", onVisibilityChange);
         if (!ctx) return;
         const c = ctx;
         if (musicBus) musicBus.gain.setTargetAtTime(0, c.currentTime, 0.05);
