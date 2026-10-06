@@ -142,18 +142,13 @@
 
   // A movie-poster-shaped (2:3) slice of the Cool Cars title screen — a
   // screenshot of it without the title text or START button, cropped around
-  // the car — on the wall behind the floor lamp. It's background
+  // the car — centered on the bare wall between the floor lamp's shade and
+  // the right edge of the room. It's background
   // dressing, so it's dimmed toward the game's navy to keep it from pulling
   // the eye.
   const POSTER_IMAGE = new Image();
   POSTER_IMAGE.src = "games/images/lavalamp-poster.png";
-  // The floor lamp is part of the room art, which the poster is drawn on top
-  // of — so this is just the lamp's own pixels cut out of that art (same
-  // 96x64 frame, transparent elsewhere) to redraw over the poster. If the
-  // lamp is ever changed in the room art, this needs re-cutting to match.
-  const FLOOR_LAMP_IMAGE = new Image();
-  FLOOR_LAMP_IMAGE.src = "games/images/lavalamp-floor-lamp.png";
-  const POSTER_X = 48.5;
+  const POSTER_X = 60;
   const POSTER_Y = 13;
   const POSTER_W = 16;
   const POSTER_H = 24;
@@ -737,9 +732,6 @@
         ctx.imageSmoothingEnabled = false;
         ctx.fillStyle = POSTER_DIM;
         ctx.fillRect(POSTER_X, POSTER_Y, POSTER_W, POSTER_H);
-        if (FLOOR_LAMP_IMAGE.complete && FLOOR_LAMP_IMAGE.naturalWidth) {
-          ctx.drawImage(FLOOR_LAMP_IMAGE, ROOM_LEFT, 0, ROOM_W, ROOM_H);
-        }
       }
       drawTank();
       const lampX = ROOM_LAMP_X - ROOM_LAMP_SIZE / 2;
