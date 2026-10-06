@@ -124,6 +124,16 @@
   const BULB_TOP_FRAC = 4.5 / 32;
   const BULB_BOTTOM_FRAC = 22.5 / 32;
 
+  // Gameplay backdrop. The art is 64x64 but the canvas is 3:2, so it's
+  // scaled to the canvas width and cropped vertically: the top 13 rows are
+  // bare wall and the bottom few bare floor, so starting at row 13 keeps the
+  // window, dresser, floor lamp and bed all in frame.
+  const ROOM_IMAGE = new Image();
+  ROOM_IMAGE.src = "games/images/lavalamp-room.png";
+  const ROOM_TOP_ROW = 13;
+  const ROOM_WALL_HEX = "#72d572"; // the art's wall color, shown until the image loads
+  const PANEL_FILL = "rgba(5,24,46,0.85)";
+
   function roundRect(ctx, x, y, w, h, r) {
     ctx.beginPath();
     ctx.moveTo(x + r, y);
@@ -529,6 +539,32 @@
       }
     }
 
+    function drawRoom() {
+      ctx.fillStyle = ROOM_WALL_HEX;
+      ctx.fillRect(0, 0, W, H);
+      if (ROOM_IMAGE.complete && ROOM_IMAGE.naturalWidth) {
+        const scale = W / ROOM_IMAGE.naturalWidth;
+        ctx.drawImage(ROOM_IMAGE, 0, -ROOM_TOP_ROW * scale, W, ROOM_IMAGE.naturalHeight * scale);
+      }
+    }
+
+    // The sprite's glass is transparent, so without this the room would show
+    // through and tint how the lava colors read. Painted before the sprite,
+    // half a sprite-pixel under its outline: the main glass (rows 5-22) plus
+    // the 4-pixel notch in the base below it (row 23).
+    function drawLampGlass(x, y, size) {
+      const px = size / 32;
+      ctx.fillStyle = "#0a2540";
+      ctx.fillRect(x + 10.5 * px, y + 4.5 * px, 11 * px, 19 * px);
+      ctx.fillRect(x + 13.5 * px, y + 23 * px, 5 * px, 1.5 * px);
+    }
+
+    function drawPanel(x, y, w, h) {
+      roundRect(ctx, x, y, w, h, 12);
+      ctx.fillStyle = PANEL_FILL;
+      ctx.fill();
+    }
+
     // A real lava lamp blob isn't a flat circle — it's a soft, slowly
     // wobbling glob of wax with a glossy highlight and a faint glow. This
     // builds an irregular outline (radius wobbling per angle, two sine
@@ -611,9 +647,9 @@
     }
 
     function drawPlayingScreen() {
-      ctx.fillStyle = "#0a2540";
-      ctx.fillRect(0, 0, W, H);
+      drawRoom();
 
+      drawPanel(W / 2 - 90, 4, 180, 96);
       ctx.beginPath();
       ctx.arc(W / 2, 42, 28, 0, Math.PI * 2);
       ctx.fillStyle = target.hex;
@@ -628,6 +664,7 @@
       ctx.textBaseline = "top";
       ctx.fillText("Make " + target.label, W / 2, 78);
 
+      drawLampGlass(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
       drawLampSprite(PLAY_LAMP_X, PLAY_LAMP_Y, PLAY_LAMP_SIZE);
 
       ctx.save();
@@ -654,9 +691,7 @@
         const bh = 40;
         const bx = W / 2 - bw / 2;
         const by = 145;
-        roundRect(ctx, bx, by, bw, bh, 12);
-        ctx.fillStyle = "rgba(5,24,46,0.85)";
-        ctx.fill();
+        drawPanel(bx, by, bw, bh);
         ctx.lineWidth = 2;
         ctx.strokeStyle = message.color;
         ctx.stroke();
@@ -673,6 +708,7 @@
       const totalW = colors.length * btnSize + (colors.length - 1) * gap;
       const startX = (W - totalW) / 2;
       const btnY = 396;
+      drawPanel(startX - 20, btnY - 8, totalW + 40, btnSize + 36);
       colors.forEach((c, i) => {
         drawColorButton(startX + i * (btnSize + gap), btnY, btnSize, c);
       });
