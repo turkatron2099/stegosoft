@@ -135,6 +135,32 @@
   const ROOM_LAMP_X = 27;
   const ROOM_LAMP_BOTTOM = 26;
   const ROOM_LAMP_SIZE = 12;
+
+  // The fish tank on the dresser: its water is rows 17-25 of the art, from
+  // the art's left edge to the tank's frame at column 15.
+  const TANK_TOP = 17;
+  const TANK_BOTTOM = 26;
+  const TANK_RIGHT = 15;
+  // The fish art faces left and only fills part of its 32x32 frame (columns
+  // 7-29, rows 11-21), so these locate its body within the frame.
+  const FISH_IMAGE = new Image();
+  FISH_IMAGE.src = "games/images/lavalamp-fish.png";
+  const FISH_BODY_CX_FRAC = 18.5 / 32;
+  const FISH_BODY_CY_FRAC = 16.5 / 32;
+  const FISH_BODY_HALF_W_FRAC = 11.5 / 32;
+  const FISH_BODY_HALF_H_FRAC = 5.5 / 32;
+  // Drawn frame size of each fish, in room pixels, back to front. The small
+  // ones read as further away, so they're also slower and a little washed out.
+  const FISH_SIZES = [4, 4.5, 6, 6.5, 7.5];
+  // Fish smaller than this swim behind the plant, the rest in front of it.
+  const FISH_FAR_SIZE = 5;
+  // The plant art is rooted at the bottom edge of its 32x32 frame. Drawn 9
+  // room pixels square it stands most of the water's height, toward the
+  // tank's right end so a little of it stays in view during gameplay.
+  const PLANT_IMAGE = new Image();
+  PLANT_IMAGE.src = "games/images/lavalamp-plant.png";
+  const PLANT_SIZE = 9;
+  const PLANT_LEFT = 6.5;
   const PANEL_FILL = "rgba(5,24,46,0.85)";
 
   function roundRect(ctx, x, y, w, h, r) {
@@ -490,6 +516,7 @@
     }
 
     function update(dt) {
+      updateFish(dt);
       if (state === "zooming") {
         zoomT += dt / ZOOM_FRAMES;
         if (zoomT >= 1) state = "playing";
@@ -571,6 +598,80 @@
       }
     }
 
+    // The tank runs off the left of the art into the stretched strip
+    // drawScene() adds, so the fish get that whole width to swim in.
+    const TANK_LEFT = -(W / OUT_ZOOM - ROOM_SIZE) / 2;
+    function pickFishTarget(f) {
+      const halfW = f.size * FISH_BODY_HALF_W_FRAC;
+      const halfH = f.size * FISH_BODY_HALF_H_FRAC;
+      const minX = TANK_LEFT + halfW + 0.3;
+      const maxX = TANK_RIGHT - halfW - 0.3;
+      // Far enough away that it's a real swim across, not a twitch.
+      do {
+        f.targetX = minX + Math.random() * (maxX - minX);
+      } while (Math.abs(f.targetX - f.x) < (maxX - minX) * 0.3);
+      f.targetY = TANK_TOP + halfH + 0.6 + Math.random() * (TANK_BOTTOM - TANK_TOP - 2 * halfH - 1.2);
+    }
+    const fish = FISH_SIZES.map((size) => {
+      const f = { size, x: TANK_LEFT + Math.random() * (TANK_RIGHT - TANK_LEFT), y: 0, phase: Math.random() * 6.28 };
+      f.speed = (0.02 + Math.random() * 0.01) * (size / 6); // room pixels per frame
+      pickFishTarget(f);
+      f.y = f.targetY;
+      return f;
+    });
+
+    function updateFish(dt) {
+      fish.forEach((f) => {
+        const dx = f.targetX - f.x;
+        const step = f.speed * dt;
+        if (Math.abs(dx) <= step) {
+          pickFishTarget(f);
+          return;
+        }
+        f.x += Math.sign(dx) * step;
+        f.y += (f.targetY - f.y) * Math.min(1, 0.01 * dt);
+      });
+    }
+
+    function drawFish(near) {
+      if (!(FISH_IMAGE.complete && FISH_IMAGE.naturalWidth)) return;
+      fish.forEach((f) => {
+        if (f.size >= FISH_FAR_SIZE !== near) return;
+        const bob = Math.sin(animFrame * 0.03 + f.phase) * 0.25;
+        ctx.save();
+        ctx.translate(f.x, f.y + bob);
+        if (f.targetX > f.x) ctx.scale(-1, 1); // the art faces left
+        ctx.globalAlpha = near ? 1 : 0.7;
+        ctx.drawImage(FISH_IMAGE, -f.size * FISH_BODY_CX_FRAC, -f.size * FISH_BODY_CY_FRAC, f.size, f.size);
+        ctx.restore();
+      });
+    }
+
+    // Drawn one row of the art at a time, each nudged sideways by a slow
+    // wave that grows toward the tips, so it sways while staying rooted.
+    function drawPlant() {
+      if (!(PLANT_IMAGE.complete && PLANT_IMAGE.naturalWidth)) return;
+      const rows = PLANT_IMAGE.naturalHeight;
+      const rowH = PLANT_SIZE / rows;
+      const top = TANK_BOTTOM - PLANT_SIZE;
+      for (let r = 0; r < rows; r++) {
+        const sway = Math.sin(animFrame * 0.02 + r * 0.15) * 0.3 * (1 - r / (rows - 1));
+        // Slightly over-tall so neighbouring rows overlap instead of leaving a seam.
+        ctx.drawImage(PLANT_IMAGE, 0, r, PLANT_IMAGE.naturalWidth, 1, PLANT_LEFT + sway, top + r * rowH, PLANT_SIZE, rowH * 1.1);
+      }
+    }
+
+    function drawTank() {
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(TANK_LEFT, TANK_TOP, TANK_RIGHT - TANK_LEFT, TANK_BOTTOM - TANK_TOP);
+      ctx.clip();
+      drawFish(false);
+      drawPlant();
+      drawFish(true);
+      ctx.restore();
+    }
+
     // Draws the room and the lamp standing in it, as seen by `cam`.
     function drawScene(cam) {
       ctx.fillStyle = ROOM_WALL_HEX;
@@ -588,6 +689,7 @@
         ctx.drawImage(ROOM_IMAGE, ROOM_SIZE - 1, 0, 1, ROOM_SIZE, ROOM_SIZE - 0.5, 0, side + 0.5, ROOM_SIZE);
         ctx.drawImage(ROOM_IMAGE, 0, 0, ROOM_SIZE, ROOM_SIZE);
       }
+      drawTank();
       const lampX = ROOM_LAMP_X - ROOM_LAMP_SIZE / 2;
       const lampY = ROOM_LAMP_BOTTOM - ROOM_LAMP_SIZE;
       drawLampGlass(lampX, lampY, ROOM_LAMP_SIZE);
