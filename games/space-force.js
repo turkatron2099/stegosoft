@@ -481,9 +481,17 @@
       obj_player: {
         step(self) {
           self.speed = Math.max(self.speed - 0.01, 0);
-          if (random(10) >= 8 && roomName === "rm_redemption") {
-            self.speed = random(10);
-            self.image_angle += 10;
+          // In redemption the ship is out of control. The original did this
+          // with a one-in-five chance each step of snapping to a random speed
+          // (0-10) and jumping 10 degrees round, which judders. This is the
+          // same chaos smoothed out: a steady spin at the old average rate
+          // (10 degrees a fifth of the time is 2 a step, so holding right
+          // still just cancels it), and the speed gliding toward those same
+          // random targets instead of snapping to them.
+          if (roomName === "rm_redemption") {
+            if (random(10) >= 8) self.driftSpeed = random(10);
+            if (self.driftSpeed !== undefined) self.speed += (self.driftSpeed - self.speed) * 0.08;
+            self.image_angle += 2;
           }
         },
         keyboard: {
