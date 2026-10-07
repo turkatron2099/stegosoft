@@ -935,7 +935,6 @@
     let eaten = 0;
     let camX = 0;
     let shake = 0;
-    let sinceEat = 0;
     let particles = [];
     let floaters = [];
     let uiButtons = [];
@@ -961,7 +960,6 @@
       levelIndex = index;
       level = buildLevel(index, ALPHABET[order[index]]);
       eaten = 0;
-      sinceEat = 0;
       particles = [];
       floaters = [];
       Object.assign(dino, { x: 60, y: GROUND_Y, vx: 0, vy: 0, facing: 1, onGround: true, mouth: 0 });
@@ -1008,7 +1006,6 @@
     function eat(item) {
       item.eaten = true;
       eaten++;
-      sinceEat = 0;
       dino.mouth = 80;
       shake = 14;
       sound.chomp();
@@ -1099,7 +1096,6 @@
         if (stateT > 240) beginPlaying();
       } else if (state === "playing") {
         updateDino(dt, left, right);
-        sinceEat += dt;
         for (const item of level.items) {
           if (item.eaten) continue;
           const reach = (item.x - dino.x) * dino.facing; // how far in front of the dino
@@ -1437,44 +1433,6 @@
       for (let i = 0; i < NEEDED; i++) drawIcon(entry, slotsX + 9 + i * 58, 18, 3, i < eaten ? 1 : 0.22);
     }
 
-    function arrow(x, y, angle) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.rotate(angle);
-      ctx.beginPath();
-      ctx.moveTo(26, 0);
-      ctx.lineTo(-6, -24);
-      ctx.lineTo(-6, -10);
-      ctx.lineTo(-28, -10);
-      ctx.lineTo(-28, 10);
-      ctx.lineTo(-6, 10);
-      ctx.lineTo(-6, 24);
-      ctx.closePath();
-      ctx.fillStyle = YELLOW;
-      ctx.fill();
-      ctx.lineWidth = 5;
-      ctx.lineJoin = "round";
-      ctx.strokeStyle = "#2b2118";
-      ctx.stroke();
-      ctx.restore();
-    }
-
-    // No clock and no way to lose, but nobody should get stuck either: after
-    // a while without finding one, an arrow points the way to the nearest.
-    function drawHint() {
-      if (sinceEat < 900) return;
-      let nearest = null;
-      for (const item of level.items) {
-        if (!item.eaten && (!nearest || Math.abs(item.x - dino.x) < Math.abs(nearest.x - dino.x))) nearest = item;
-      }
-      if (!nearest) return;
-      const sx = (nearest.x - camX) * SCALE;
-      const nudge = Math.round(Math.sin(animFrame * 0.15) * 8);
-      if (sx < 0) arrow(60 - nudge, 220, Math.PI);
-      else if (sx > W) arrow(W - 60 + nudge, 220, 0);
-      else arrow(sx, Math.max(120, nearest.y * SCALE - 60 + nudge), Math.PI / 2);
-    }
-
     const TOUCH_BUTTONS = [
       { name: "left", x: 68, y: 408, r: 46, angle: Math.PI },
       { name: "right", x: 186, y: 408, r: 46, angle: 0 },
@@ -1567,10 +1525,7 @@
         return;
       }
       drawHud();
-      if (state === "playing") {
-        drawHint();
-        if (touchUI) drawTouchButtons();
-      }
+      if (state === "playing" && touchUI) drawTouchButtons();
       drawFloaters();
       if (state === "cheer") drawCheer();
       if (state === "intro") drawIntroCard();
