@@ -28,7 +28,16 @@
     spr_menu1: { w: 282, h: 256, ox: 0, oy: 0, bbox: [0, 0, 281, 255] },
     spr_menu2: { w: 282, h: 257, ox: 0, oy: 0, bbox: [0, 0, 281, 256] },
   };
-  const BACKGROUNDS = ["bg_space", "bg_title", "bg_gameover", "bg_win"];
+  const BACKGROUNDS = ["bg_space", "bg_gameover", "bg_win"];
+  // Two images that aren't the original game's as shipped. The title's
+  // lettering, cut out of its old purple background so it can sit on the
+  // same starfield as the splash (the offset is where it sat in that
+  // background); and the Thagobyte logo in its Virtual Boy skin, as
+  // hero-logo.js draws it, shown on the splash screen.
+  const EXTRAS = ["title_words", "thagobyte_vb"];
+  const TITLE_WORDS_X = 68;
+  const TITLE_WORDS_Y = 229;
+  const SPLASH_LOGO_H = 400;
   const SOUNDS = [
     "snd_shoot",
     "snd_explode",
@@ -84,7 +93,7 @@
       stops: [],
     },
     rm_0: {
-      w: 1024, h: 768, speed: 30, color: "#c0c0c0", bg: "bg_title", stretch: false,
+      w: 1024, h: 768, speed: 30, color: "#c0c0c0", bg: "bg_space", stretch: false,
       view: null,
       inst: [["obj_startgame", 96, 96], ["obj_musictitle", 320, 128]],
       walls: [],
@@ -169,7 +178,7 @@
 
   // Images and sounds are shared across inserts of the cartridge.
   const IMAGES = {};
-  [...Object.keys(SPRITES).filter((n) => !SPRITES[n].blank).map((n) => [n, n + ".png"]), ...BACKGROUNDS.map((n) => [n, n + ".jpg"])].forEach(
+  [...Object.keys(SPRITES).filter((n) => !SPRITES[n].blank).map((n) => [n, n + ".png"]), ...BACKGROUNDS.map((n) => [n, n + ".jpg"]), ...EXTRAS.map((n) => [n, n + ".png"])].forEach(
     ([name, file]) => {
       IMAGES[name] = new Image();
       IMAGES[name].src = ASSET + file;
@@ -583,6 +592,12 @@
         },
       },
       obj_startgame: {
+        // Also sits in the game-over and win rooms, whose backgrounds
+        // already carry their own text.
+        draw() {
+          const words = IMAGES.title_words;
+          if (roomName === "rm_0" && words.complete && words.naturalWidth) ctx.drawImage(words, TITLE_WORDS_X, TITLE_WORDS_Y);
+        },
         keypress: {
           13() {
             audio_stop_sound("snd_musictitle");
@@ -659,6 +674,28 @@
       },
       obj_splash: {
         create: (self) => (self.alarm[4] = 5 * room.speed),
+        // The logo, centered, with the same rounded corners it has on the
+        // home page.
+        draw() {
+          const logo = IMAGES.thagobyte_vb;
+          if (!logo.complete || !logo.naturalWidth) return;
+          const h = SPLASH_LOGO_H;
+          const w = h * (logo.naturalWidth / logo.naturalHeight);
+          const x = (room.w - w) / 2;
+          const y = (room.h - h) / 2;
+          const radius = h * (24 / 140);
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(x + radius, y);
+          ctx.arcTo(x + w, y, x + w, y + h, radius);
+          ctx.arcTo(x + w, y + h, x, y + h, radius);
+          ctx.arcTo(x, y + h, x, y, radius);
+          ctx.arcTo(x, y, x + w, y, radius);
+          ctx.closePath();
+          ctx.clip();
+          ctx.drawImage(logo, x, y, w, h);
+          ctx.restore();
+        },
         alarm: { 4: () => room_goto("rm_0") },
       },
       obj_menu1: { mouse: () => room_goto("rm_game1") },
