@@ -24,7 +24,8 @@
     spike: "#d8d8e0",
     torch: "#8a6a3a",
     flame: "#ffb030",
-    hero: "#f6dcac",
+    hero: "#c9d3df",
+    plume: "#f85525",
     sword: "#e8f4ff",
     coin: "#ffd84a",
     potion: "#ff6b8a",
@@ -149,11 +150,14 @@
 
   // --- Sprites -----------------------------------------------------------
   // All drawn facing right; mirror() flips them for facing left.
+  // The knight: a pointed helm, a breastplate with the shield slung on the
+  // back arm, and armoured boots. The helm's plume is drawn separately (see
+  // knight()) so it can be its own colour and flutter.
   const HERO = {
-    idle: [" o ", "/|\\", "/ \\"],
-    walk: [" o ", "/|\\", " | "],
-    jump: ["\\o/", " | ", "/ \\"],
-    dead: ["   ", "   ", "_o/"],
+    idle: [" A ", "(#]", "d b"],
+    walk: [" A ", "(#]", " H "],
+    jump: [" A ", "(#]", "/ /"],
+    dead: ["   ", "   ", "_#A"],
   };
   const SPRITES = {
     skeleton: [
@@ -201,7 +205,7 @@
     "__|_|__________|__|__|__________|_|__",
   ];
 
-  const MIRROR = { "/": "\\", "\\": "/", "(": ")", ")": "(", "<": ">", ">": "<", "[": "]", "]": "[" };
+  const MIRROR = { "/": "\\", "\\": "/", "(": ")", ")": "(", "<": ">", ">": "<", "[": "]", "]": "[", d: "b", b: "d" };
   function mirror(lines) {
     return lines.map((line) =>
       line
@@ -807,6 +811,12 @@
     function sprite(lines, col, row, color) {
       for (let i = 0; i < lines.length; i++) text(lines[i], col, row + i, color);
     }
+    // Draws a hero pose facing dir, with the plume trailing off the back of
+    // the helm.
+    function knight(lines, col, row, dir, plume) {
+      sprite(dir < 0 ? mirror(lines) : lines, col, row, COLOR.hero);
+      put(dir < 0 ? col + 2 : col, row, plume, COLOR.plume);
+    }
     function block(lines, row, color) {
       const width = Math.max(...lines.map((line) => line.length));
       const col = Math.floor((COLS - width) / 2);
@@ -866,8 +876,15 @@
       else if (!hero.onGround) lines = HERO.jump;
       else if (hero.vx !== 0 && Math.floor(frame / 6) % 2 === 0) lines = HERO.walk;
       else lines = HERO.idle;
-      sprite(hero.dir < 0 ? mirror(lines) : lines, col, row, COLOR.hero);
-      if (state === "dead") return;
+      if (state === "dead") {
+        sprite(hero.dir < 0 ? mirror(lines) : lines, col, row, COLOR.hero);
+        return;
+      }
+      // The plume streams back in a run and lifts in the air.
+      let plume = "~";
+      if (!hero.onGround) plume = "'";
+      else if (hero.vx !== 0 && Math.floor(frame / 6) % 2 === 0) plume = "-";
+      knight(lines, col, row, hero.dir, plume);
 
       // The sword: held upright at rest, then swept overhead -> straight
       // out -> down across the swing.
@@ -935,7 +952,7 @@
       if (state === "title") {
         block(TITLE_LOGO, 4, COLOR.title);
         block(TITLE_CASTLE, 12, COLOR.wall);
-        sprite(HERO.idle, 15, 16, COLOR.hero);
+        knight(HERO.idle, 15, 16, 1, "~");
         put(18, 16, "|", COLOR.sword);
         put(18, 17, "+", COLOR.sword);
         center("A castle full of monsters. One sword.", 21, COLOR.text);
@@ -948,7 +965,7 @@
       if (state === "win") {
         block(TITLE_LOGO, 4, COLOR.title);
         center("THE CASTLE IS YOURS", 12, COLOR.coin);
-        sprite(HERO.jump, 38, 15, COLOR.hero);
+        knight(HERO.jump, 38, 15, 1, "'");
         put(41, 14, "|", COLOR.sword);
         put(41, 15, "+", COLOR.sword);
         center("FINAL SCORE  " + String(score).padStart(5, "0"), 20, COLOR.text);
