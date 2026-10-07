@@ -674,27 +674,13 @@
       },
       obj_splash: {
         create: (self) => (self.alarm[4] = 5 * room.speed),
-        // The logo, centered, with the same rounded corners it has on the
-        // home page.
+        // The logo's red line art, centered, straight onto the starfield.
         draw() {
           const logo = IMAGES.thagobyte_vb;
           if (!logo.complete || !logo.naturalWidth) return;
           const h = SPLASH_LOGO_H;
           const w = h * (logo.naturalWidth / logo.naturalHeight);
-          const x = (room.w - w) / 2;
-          const y = (room.h - h) / 2;
-          const radius = h * (24 / 140);
-          ctx.save();
-          ctx.beginPath();
-          ctx.moveTo(x + radius, y);
-          ctx.arcTo(x + w, y, x + w, y + h, radius);
-          ctx.arcTo(x + w, y + h, x, y + h, radius);
-          ctx.arcTo(x, y + h, x, y, radius);
-          ctx.arcTo(x, y, x + w, y, radius);
-          ctx.closePath();
-          ctx.clip();
-          ctx.drawImage(logo, x, y, w, h);
-          ctx.restore();
+          ctx.drawImage(logo, (room.w - w) / 2, (room.h - h) / 2, w, h);
         },
         alarm: { 4: () => room_goto("rm_0") },
       },
