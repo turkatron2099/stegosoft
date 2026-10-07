@@ -386,7 +386,16 @@ button.console-btn:active {
 
 /* --- Cartridge shelf --- */
 
+/* Two sets side by side: arcade games on the left, kids games on the right.
+   They stack (arcade first) once there isn't room for both. */
 .cartridge-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 72px;
+  justify-content: center;
+}
+
+.cartridge-set {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
