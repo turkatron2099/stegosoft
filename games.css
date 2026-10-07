@@ -500,6 +500,10 @@ button.console-btn:active {
   --label-border: #8e2f9c;
 }
 
+.cartridge-dinosaurus {
+  --label-border: #3fb55f;
+}
+
 /* --- Cool Cars Konami-code cheat-unlock toast --- */
 
 .cheat-unlock-toast {
