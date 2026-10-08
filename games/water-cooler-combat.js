@@ -371,7 +371,7 @@
       "+": "00000 00100 00100 11111 00100 00100 00000", "<": "00010 00100 01000 10000 01000 00100 00010",
       ">": "01000 00100 00010 00001 00010 00100 01000", "^": "00100 01110 10101 00100 00100 00100 00100",
       "_": "00100 00100 00100 00100 10101 01110 00100", "*": "00000 10101 01110 11111 01110 10101 00000",
-      "&": "01100 10010 10100 01000 10101 10010 01101", "%": "11000 11001 00010 00100 01000 10011 00011",
+      "&": "01100 10010 10100 01000 10101 10010 01101", "$": "00100 01111 10100 01110 00101 11110 00100", "%": "11000 11001 00010 00100 01000 10011 00011",
     };
     for (const ch in src) FONT[ch] = src[ch].split(" ").map((row) => parseInt(row, 2));
   })();
@@ -550,6 +550,29 @@
 
     T.sign = makeTex(64, 16, (x, y) => (x < 1 || x > 62 || y < 1 || y > 14 ? c3(120, 20, 20) : c3(255, 232, 90)));
     blit(T.sign.d, 64, 16, "LAST ONE!", 5, 4, rgb(180, 30, 30), 1);
+
+    T.tile = makeTex(32, 32, (x, y) => (x % 8 === 0 || y % 8 === 0 ? c3(150, 160, 170) : ((x >> 3) + (y >> 3)) & 1 ? c3(236, 240, 244, n(6)) : c3(150, 196, 214, n(6))));
+    T.tileWall = makeTex(32, 32, (x, y) => (y >= 30 ? c3(90, 110, 130) : x % 8 === 0 || y % 8 === 0 ? c3(170, 180, 186) : y < 12 ? c3(236, 238, 232, n(5)) : c3(120, 190, 200, n(6))));
+    T.marble = makeTex(32, 32, (x, y) => (x === 0 || y === 0 ? c3(120, 116, 110) : c3(214, 208, 198, n(10) + Math.sin((x + y) * 0.5 + Math.sin(y * 0.4) * 3) * 8)));
+    T.wallBlue = makeTex(32, 32, (x, y) => (y >= 30 ? c3(40, 50, 80) : y === 20 ? c3(250, 169, 104) : c3(70, 96, 150, n(8))));
+    T.wallCream = makeTex(32, 32, (x, y) => {
+      if (y >= 30) return c3(120, 96, 70);
+      if (y > 13 && y < 22) return x % 4 === 0 || y % 4 === 2 ? c3(200, 200, 196) : c3(96, 170, 150, n(8));
+      return c3(238, 224, 174, n(8));
+    });
+    T.wallStore = makeTex(32, 32, (x, y) => (y >= 30 ? c3(70, 96, 150) : y < 3 ? c3(250, 169, 104) : c3(230, 230, 236, n(6))));
+    T.mirror = makeTex(32, 32, (x, y) => (x < 2 || x > 29 || y < 2 || y > 29 ? c3(130, 134, 140) : Math.abs(x + y - 26) < 3 ? c3(240, 250, 255) : c3(150 + y, 196 + y, 226)));
+
+    T.logo = makeTex(64, 32, (x, y) => (x < 2 || x > 61 || y < 2 || y > 29 ? c3(250, 169, 104) : c3(24, 30, 60)));
+    blit(T.logo.d, 64, 32, "THAGOCORP", 5, 8, rgb(250, 169, 104), 1);
+    blit(T.logo.d, 64, 32, "SYNERGY.", 8, 19, rgb(160, 170, 200), 1);
+
+    T.vacant = makeTex(64, 16, (x, y) => (x < 1 || x > 62 || y < 1 || y > 14 ? c3(20, 90, 40) : c3(50, 180, 90)));
+    blit(T.vacant.d, 64, 16, "VACANT", 14, 4, WHITE, 1);
+
+    T.card = makeTex(64, 32, (x, y) => (x < 2 || x > 61 || y < 2 || y > 29 ? c3(150, 110, 30) : c3(236, 196, 76, n(10))));
+    blit(T.card.d, 64, 32, "GIFT CARD", 5, 4, rgb(60, 40, 10), 1);
+    blit(T.card.d, 64, 32, "$25", 15, 13, rgb(150, 30, 30), 2);
 
     T.grid = makeTex(32, 32, (x, y) => (x === 0 || y === 0 ? c3(250, 169, 104) : c3(30, 26, 48)));
     return T;
@@ -862,6 +885,58 @@
           shadedQuad(v(a0, b0), v(a1, b0), v(a1, b1), v(a0, b1), col, ref);
         }
       }
+      return;
+    }
+    // An upright tube, optionally tapered, closed off with a flat top.
+    const prism = (r0, r1, y0, y1, col, capCol) => {
+      const N = 8, ref = pt(0, (y0 + y1) / 2, 0), top = pt(0, y1, 0);
+      for (let i = 0; i < N; i++) {
+        const a0 = (i / N) * TAU, a1 = ((i + 1) / N) * TAU;
+        const b0 = pt(Math.cos(a0) * r0, y0, Math.sin(a0) * r0), b1 = pt(Math.cos(a1) * r0, y0, Math.sin(a1) * r0);
+        const t0 = pt(Math.cos(a0) * r1, y1, Math.sin(a0) * r1), t1 = pt(Math.cos(a1) * r1, y1, Math.sin(a1) * r1);
+        shadedQuad(b0, b1, t1, t0, col, ref);
+        shadedQuad(top, t0, t1, t1, capCol || col, ref);
+      }
+    };
+    const lbox = (x0, y0, z0, x1, y1, z1, col) => {
+      const c = [];
+      for (let i = 0; i < 8; i++) c.push(pt(i & 1 ? x1 : x0, i & 2 ? y1 : y0, i & 4 ? z1 : z0));
+      box(c, col);
+    };
+    if (kind === "cake") {
+      // A tall wedge in layers: sponge, cream, sponge, frosting.
+      const tip = [0, 0.2], bl = [-0.15, -0.16], br = [0.15, -0.16];
+      const layer = (y0, y1, col) => {
+        const ref = pt(0, (y0 + y1) / 2, -0.04);
+        const T = (q) => pt(q[0], y1, q[1]), B = (q) => pt(q[0], y0, q[1]);
+        shadedQuad(T(tip), T(bl), T(br), T(br), col, ref);
+        shadedQuad(B(tip), B(bl), B(br), B(br), col, ref);
+        shadedQuad(T(tip), T(bl), B(bl), B(tip), col, ref);
+        shadedQuad(T(tip), T(br), B(br), B(tip), col, ref);
+        shadedQuad(T(bl), T(br), B(br), B(bl), col, ref);
+      };
+      layer(-0.12, -0.02, [240, 206, 124]);
+      layer(-0.02, 0.01, [255, 244, 232]);
+      layer(0.01, 0.1, [240, 206, 124]);
+      layer(0.1, 0.14, [250, 140, 184]);
+      lbox(-0.03, 0.14, -0.1, 0.03, 0.2, -0.04, [214, 30, 50]);
+    } else if (kind === "coffee") {
+      prism(0.1, 0.13, -0.13, 0.12, [244, 244, 238], [88, 50, 26]);
+      lbox(0.12, -0.06, -0.025, 0.2, 0.07, 0.025, [244, 244, 238]);
+    } else if (kind === "bottle") {
+      prism(0.09, 0.09, -0.22, -0.08, [50, 120, 224]);
+      prism(0.095, 0.095, -0.08, 0.0, [250, 169, 104]); // the company colours
+      prism(0.09, 0.09, 0.0, 0.1, [50, 120, 224]);
+      prism(0.05, 0.05, 0.1, 0.17, [50, 120, 224]);
+      prism(0.06, 0.06, 0.17, 0.22, [240, 240, 244]);
+    } else if (kind === "card") {
+      lbox(-0.24, -0.15, -0.012, 0.24, 0.15, 0.012, [200, 160, 50]);
+      bigQuad(pt(-0.24, 0.15, 0.014), pt(0.24, 0.15, 0.014), pt(0.24, -0.15, 0.014), pt(-0.24, -0.15, 0.014), { tex: TEX.card });
+      bigQuad(pt(0.24, 0.15, -0.014), pt(-0.24, 0.15, -0.014), pt(-0.24, -0.15, -0.014), pt(0.24, -0.15, -0.014), { tex: TEX.card });
+    } else if (kind === "stall") {
+      // Nobody can hold a bathroom stall aloft, so the trophy is the roll.
+      prism(0.15, 0.15, -0.1, 0.1, [244, 244, 240]);
+      prism(0.055, 0.055, -0.1, 0.104, [150, 120, 90], [60, 46, 36]);
     } else {
       const ref = pt(0, 0, 0);
       const tip = [0, 0.24], bl = [-0.17, -0.16], br = [0.17, -0.16];
@@ -884,10 +959,24 @@
 
   // --- Stages -------------------------------------------------------------
   const ROOM_X = 12, ROOM_BACK = -4, ROOM_FRONT = 7, ROOM_TOP = 3.4;
+  // Every room has its own thing worth fighting over.
   const STAGES = [
-    { name: "THE BREAK ROOM", floor: TEX.lino, wall: TEX.wall, win: TEX.winDay, sky: rgb(40, 36, 32) },
-    { name: "THE CUBICLE FARM", floor: TEX.carpet, wall: TEX.wallGray, win: TEX.winDay, sky: rgb(34, 36, 42) },
-    { name: "THE BOARDROOM", floor: TEX.wood, wall: TEX.panel, win: TEX.winNight, sky: rgb(22, 16, 14) },
+    { name: "THE BREAK ROOM", room: "break", floor: TEX.lino, wall: TEX.wall, win: TEX.winDay, sky: rgb(40, 36, 32),
+      prize: "donut", pip: PINK, intro: "FOR THE LAST DONUT", stake: "THE LAST DONUT", claim: "CLAIMS THE LAST DONUT" },
+    { name: "THE BOARDROOM", room: "board", floor: TEX.wood, wall: TEX.panel, win: TEX.winNight, sky: rgb(22, 16, 14),
+      prize: "pizza", pip: YELLOW, intro: "FOR THE LAST SLICE OF PIZZA", stake: "THE LAST SLICE OF PIZZA", claim: "CLAIMS THE LAST SLICE OF PIZZA" },
+    { name: "THE CUBICLE FARM", room: "cubicle", floor: TEX.carpet, wall: TEX.wallGray, win: TEX.winDay, sky: rgb(34, 36, 42),
+      prize: "cake", pip: PINK, intro: "FOR THE LAST SLICE OF CAKE", stake: "THE LAST SLICE OF CAKE", claim: "CLAIMS THE LAST SLICE OF CAKE" },
+    { name: "THE RESTROOM", room: "bath", floor: TEX.tile, wall: TEX.tileWall, win: null, sky: rgb(30, 40, 46),
+      prize: "stall", pip: WHITE, intro: "FOR NEXT IN LINE AT THE STALL", stake: "NEXT IN LINE FOR THE STALL", claim: "IS NEXT IN LINE FOR THE STALL",
+      // Everyone else is already queueing, facing the one free stall.
+      spots: [[1.5, -1.9, 1.0], [2.5, -2.0, 1.1], [3.5, -1.9, 0.9], [4.5, -2.0, 1.1], [5.5, -1.9, 1.0], [6.5, -2.0, 1.0]] },
+    { name: "THE KITCHENETTE", room: "kitchen", floor: TEX.wood, wall: TEX.wallCream, win: TEX.winDay, sky: rgb(44, 38, 28),
+      prize: "coffee", pip: ORANGE, intro: "FOR THE LAST CUP OF COFFEE", stake: "THE LAST CUP OF COFFEE", claim: "CLAIMS THE LAST CUP OF COFFEE" },
+    { name: "THE LOBBY", room: "lobby", floor: TEX.marble, wall: TEX.wallBlue, win: TEX.winDay, sky: rgb(20, 26, 44),
+      prize: "bottle", pip: CYAN, intro: "FOR THE COMPANY WATER BOTTLE", stake: "THE COMPANY-BRANDED WATER BOTTLE", claim: "CLAIMS THE COMPANY WATER BOTTLE" },
+    { name: "THE COMPANY STORE", room: "store", floor: TEX.carpet, wall: TEX.wallStore, win: null, sky: rgb(40, 40, 48),
+      prize: "card", pip: YELLOW, intro: "FOR THE $25 GIFT CARD", stake: "A $25 COMPANY STORE GIFT CARD", claim: "CLAIMS THE $25 GIFT CARD" },
   ];
 
   // A picture hung flat on the back wall.
@@ -912,70 +1001,7 @@
     abox(x - 0.19, 0.8, z + 0.15, x + 0.19, 1.09, z + 0.16, [70, 190, 170]);
   }
 
-  function drawStage(index, time, prize, crowd, hype) {
-    const s = STAGES[index];
-    // Floor, ceiling, walls.
-    bigQuad([-ROOM_X, 0, ROOM_BACK], [ROOM_X, 0, ROOM_BACK], [ROOM_X, 0, ROOM_FRONT], [-ROOM_X, 0, ROOM_FRONT],
-      { tex: s.floor, uv: [0, 0, 24, 11], nu: 16, nv: 9, lit: 1.0 });
-    bigQuad([-ROOM_X, ROOM_TOP, ROOM_FRONT], [ROOM_X, ROOM_TOP, ROOM_FRONT], [ROOM_X, ROOM_TOP, ROOM_BACK], [-ROOM_X, ROOM_TOP, ROOM_BACK],
-      { tex: TEX.ceil, uv: [0, 0, 12, 6], nu: 8, nv: 4, lit: 1.05 });
-    bigQuad([-ROOM_X, ROOM_TOP, ROOM_BACK], [ROOM_X, ROOM_TOP, ROOM_BACK], [ROOM_X, 0, ROOM_BACK], [-ROOM_X, 0, ROOM_BACK],
-      { tex: s.wall, uv: [0, 0, 12, 1], nu: 12, nv: 2, lit: 0.95 });
-    bigQuad([-ROOM_X, ROOM_TOP, ROOM_FRONT], [-ROOM_X, ROOM_TOP, ROOM_BACK], [-ROOM_X, 0, ROOM_BACK], [-ROOM_X, 0, ROOM_FRONT],
-      { tex: s.wall, uv: [0, 0, 6, 1], nu: 6, nv: 2, lit: 0.8 });
-    bigQuad([ROOM_X, ROOM_TOP, ROOM_BACK], [ROOM_X, ROOM_TOP, ROOM_FRONT], [ROOM_X, 0, ROOM_FRONT], [ROOM_X, 0, ROOM_BACK],
-      { tex: s.wall, uv: [0, 0, 6, 1], nu: 6, nv: 2, lit: 0.8 });
-    for (const wx of [-9.5, -6.2, 6.2, 9.5]) hang(wx - 1.2, 1.0, wx + 1.2, 2.9, s.win);
-
-    if (index === 0) {
-      hang(-3.4, 1.5, -2.1, 2.8, TEX.poster1);
-      hang(2.6, 1.7, 4.4, 2.6, TEX.board);
-      // Vending machine and fridge.
-      abox(-5.0, 0, -3.9, -3.9, 2.1, -3.0, [150, 30, 38]);
-      bigQuad([-5.0, 2.1, -2.99], [-3.9, 2.1, -2.99], [-3.9, 0, -2.99], [-5.0, 0, -2.99], { tex: TEX.vend, nu: 2, nv: 3 });
-      abox(-6.3, 0, -3.9, -5.3, 1.9, -3.1, [232, 234, 238]);
-      abox(-5.42, 0.9, -3.1, -5.36, 1.5, -3.04, [120, 124, 130]);
-      // Counter with a microwave and coffee maker.
-      abox(2.4, 0, -3.9, 6.0, 0.95, -3.1, [176, 150, 110]);
-      abox(2.4, 0.95, -3.92, 6.0, 1.0, -3.06, [226, 226, 220]);
-      abox(4.6, 1.0, -3.8, 5.5, 1.45, -3.3, [60, 62, 70]);
-      abox(4.7, 1.08, -3.3, 5.2, 1.38, -3.29, [20, 26, 34]);
-      abox(3.0, 1.0, -3.7, 3.35, 1.5, -3.35, [30, 30, 34]);
-      abox(3.06, 1.05, -3.36, 3.29, 1.25, -3.3, [90, 50, 30]);
-      drawPlant(7.4, -3.2);
-    } else if (index === 1) {
-      hang(-3.6, 1.6, -2.4, 2.8, TEX.poster2);
-      for (const cx0 of [-7.6, -4.6, 3.2, 6.2]) {
-        bigQuad([cx0 - 1.3, 1.5, -1.9], [cx0 + 1.3, 1.5, -1.9], [cx0 + 1.3, 0, -1.9], [cx0 - 1.3, 0, -1.9],
-          { tex: TEX.cubicle, uv: [0, 0, 3, 1], nu: 3, nv: 2, lit: 0.95 });
-        abox(cx0 - 1.3, 0, -3.6, cx0 - 1.22, 1.5, -1.9, [112, 126, 146]);
-        abox(cx0 + 1.22, 0, -3.6, cx0 + 1.3, 1.5, -1.9, [112, 126, 146]);
-        drawDesk(cx0, -2.9);
-      }
-      // The copier.
-      abox(8.6, 0, -3.8, 9.9, 1.1, -2.9, [214, 208, 190]);
-      abox(8.7, 1.1, -3.7, 9.8, 1.22, -3.0, [150, 150, 150]);
-      abox(9.2, 0.75, -2.9, 9.7, 0.85, -2.6, [236, 236, 230]);
-      drawPlant(-10.2, -3.2);
-    } else {
-      hang(-3.9, 1.3, -2.1, 3.0, TEX.chart);
-      hang(2.3, 1.5, 3.6, 2.8, TEX.poster1);
-      // The long table and its chairs.
-      abox(-6.2, 0.74, -3.3, -2.0, 0.84, -2.2, [96, 56, 32]);
-      abox(-6.0, 0, -3.1, -5.8, 0.74, -2.4, [60, 36, 22]);
-      abox(-2.4, 0, -3.1, -2.2, 0.74, -2.4, [60, 36, 22]);
-      abox(2.2, 0.74, -3.3, 6.4, 0.84, -2.2, [96, 56, 32]);
-      abox(2.4, 0, -3.1, 2.6, 0.74, -2.4, [60, 36, 22]);
-      abox(6.0, 0, -3.1, 6.2, 0.74, -2.4, [60, 36, 22]);
-      for (const chx of [-5.2, -3.9, -2.8, 3.0, 4.3, 5.5]) {
-        abox(chx - 0.25, 0.45, -1.9, chx + 0.25, 0.52, -1.45, [36, 36, 44]);
-        abox(chx - 0.25, 0.52, -1.52, chx + 0.25, 1.2, -1.45, [36, 36, 44]);
-        abox(chx - 0.04, 0, -1.72, chx + 0.04, 0.45, -1.64, [90, 90, 96]);
-      }
-      drawPlant(8.0, -3.2);
-      drawPlant(-8.0, -3.2);
-    }
-
+  function drawSnackCorner(time, prize) {
     // The water cooler itself, with a slow bubble rising through the jug.
     abox(-0.24, 0, -3.3, 0.24, 1.02, -2.84, [226, 230, 234]);
     abox(-0.2, 0.62, -2.84, 0.2, 0.86, -2.82, [150, 156, 164]);
@@ -995,12 +1021,169 @@
     if (prize === "donut") {
       abox(0.9, 0.88, -2.98, 1.5, 0.94, -2.42, [250, 150, 190]);
       abox(0.9, 0.94, -2.98, 1.5, 1.38, -2.94, [244, 132, 176]);
-    } else {
+    } else if (prize === "pizza") {
       abox(0.86, 0.88, -3.0, 1.54, 0.93, -2.4, [220, 196, 150]);
       abox(0.86, 0.93, -3.0, 1.54, 1.5, -2.96, [206, 180, 134]);
-    }
+    } else abox(0.98, 0.88, -2.9, 1.42, 0.9, -2.46, [250, 250, 250]);
     drawPrize(prize, 1.2, 1.18 + Math.sin(time * 0.05) * 0.04, -2.66, time * 0.04, 1);
     bigQuad([0.72, 2.06, -2.9], [1.68, 2.06, -2.9], [1.68, 1.82, -2.9], [0.72, 1.82, -2.9], { tex: TEX.sign, lit: 1.05 });
+  }
+
+  function drawStage(index, time, prize, crowd, hype) {
+    const s = STAGES[index];
+    // Floor, ceiling, walls.
+    bigQuad([-ROOM_X, 0, ROOM_BACK], [ROOM_X, 0, ROOM_BACK], [ROOM_X, 0, ROOM_FRONT], [-ROOM_X, 0, ROOM_FRONT],
+      { tex: s.floor, uv: [0, 0, 24, 11], nu: 16, nv: 9, lit: 1.0 });
+    bigQuad([-ROOM_X, ROOM_TOP, ROOM_FRONT], [ROOM_X, ROOM_TOP, ROOM_FRONT], [ROOM_X, ROOM_TOP, ROOM_BACK], [-ROOM_X, ROOM_TOP, ROOM_BACK],
+      { tex: TEX.ceil, uv: [0, 0, 12, 6], nu: 8, nv: 4, lit: 1.05 });
+    bigQuad([-ROOM_X, ROOM_TOP, ROOM_BACK], [ROOM_X, ROOM_TOP, ROOM_BACK], [ROOM_X, 0, ROOM_BACK], [-ROOM_X, 0, ROOM_BACK],
+      { tex: s.wall, uv: [0, 0, 12, 1], nu: 12, nv: 2, lit: 0.95 });
+    bigQuad([-ROOM_X, ROOM_TOP, ROOM_FRONT], [-ROOM_X, ROOM_TOP, ROOM_BACK], [-ROOM_X, 0, ROOM_BACK], [-ROOM_X, 0, ROOM_FRONT],
+      { tex: s.wall, uv: [0, 0, 6, 1], nu: 6, nv: 2, lit: 0.8 });
+    bigQuad([ROOM_X, ROOM_TOP, ROOM_BACK], [ROOM_X, ROOM_TOP, ROOM_FRONT], [ROOM_X, 0, ROOM_FRONT], [ROOM_X, 0, ROOM_BACK],
+      { tex: s.wall, uv: [0, 0, 6, 1], nu: 6, nv: 2, lit: 0.8 });
+    if (s.win) for (const wx of [-9.5, -6.2, 6.2, 9.5]) hang(wx - 1.2, 1.0, wx + 1.2, 2.9, s.win);
+
+    if (s.room === "break") {
+      hang(-3.4, 1.5, -2.1, 2.8, TEX.poster1);
+      hang(2.6, 1.7, 4.4, 2.6, TEX.board);
+      // Vending machine and fridge.
+      abox(-5.0, 0, -3.9, -3.9, 2.1, -3.0, [150, 30, 38]);
+      bigQuad([-5.0, 2.1, -2.99], [-3.9, 2.1, -2.99], [-3.9, 0, -2.99], [-5.0, 0, -2.99], { tex: TEX.vend, nu: 2, nv: 3 });
+      abox(-6.3, 0, -3.9, -5.3, 1.9, -3.1, [232, 234, 238]);
+      abox(-5.42, 0.9, -3.1, -5.36, 1.5, -3.04, [120, 124, 130]);
+      // Counter with a microwave and coffee maker.
+      abox(2.4, 0, -3.9, 6.0, 0.95, -3.1, [176, 150, 110]);
+      abox(2.4, 0.95, -3.92, 6.0, 1.0, -3.06, [226, 226, 220]);
+      abox(4.6, 1.0, -3.8, 5.5, 1.45, -3.3, [60, 62, 70]);
+      abox(4.7, 1.08, -3.3, 5.2, 1.38, -3.29, [20, 26, 34]);
+      abox(3.0, 1.0, -3.7, 3.35, 1.5, -3.35, [30, 30, 34]);
+      abox(3.06, 1.05, -3.36, 3.29, 1.25, -3.3, [90, 50, 30]);
+      drawPlant(7.4, -3.2);
+    } else if (s.room === "cubicle") {
+      hang(-3.6, 1.6, -2.4, 2.8, TEX.poster2);
+      for (const cx0 of [-7.6, -4.6, 3.2, 6.2]) {
+        bigQuad([cx0 - 1.3, 1.5, -1.9], [cx0 + 1.3, 1.5, -1.9], [cx0 + 1.3, 0, -1.9], [cx0 - 1.3, 0, -1.9],
+          { tex: TEX.cubicle, uv: [0, 0, 3, 1], nu: 3, nv: 2, lit: 0.95 });
+        abox(cx0 - 1.3, 0, -3.6, cx0 - 1.22, 1.5, -1.9, [112, 126, 146]);
+        abox(cx0 + 1.22, 0, -3.6, cx0 + 1.3, 1.5, -1.9, [112, 126, 146]);
+        drawDesk(cx0, -2.9);
+      }
+      // The copier.
+      abox(8.6, 0, -3.8, 9.9, 1.1, -2.9, [214, 208, 190]);
+      abox(8.7, 1.1, -3.7, 9.8, 1.22, -3.0, [150, 150, 150]);
+      abox(9.2, 0.75, -2.9, 9.7, 0.85, -2.6, [236, 236, 230]);
+      drawPlant(-10.2, -3.2);
+    } else if (s.room === "board") {
+      hang(-3.9, 1.3, -2.1, 3.0, TEX.chart);
+      hang(2.3, 1.5, 3.6, 2.8, TEX.poster1);
+      // The long table and its chairs.
+      abox(-6.2, 0.74, -3.3, -2.0, 0.84, -2.2, [96, 56, 32]);
+      abox(-6.0, 0, -3.1, -5.8, 0.74, -2.4, [60, 36, 22]);
+      abox(-2.4, 0, -3.1, -2.2, 0.74, -2.4, [60, 36, 22]);
+      abox(2.2, 0.74, -3.3, 6.4, 0.84, -2.2, [96, 56, 32]);
+      abox(2.4, 0, -3.1, 2.6, 0.74, -2.4, [60, 36, 22]);
+      abox(6.0, 0, -3.1, 6.2, 0.74, -2.4, [60, 36, 22]);
+      for (const chx of [-5.2, -3.9, -2.8, 3.0, 4.3, 5.5]) {
+        abox(chx - 0.25, 0.45, -1.9, chx + 0.25, 0.52, -1.45, [36, 36, 44]);
+        abox(chx - 0.25, 0.52, -1.52, chx + 0.25, 1.2, -1.45, [36, 36, 44]);
+        abox(chx - 0.04, 0, -1.72, chx + 0.04, 0.45, -1.64, [90, 90, 96]);
+      }
+      drawPlant(8.0, -3.2);
+      drawPlant(-8.0, -3.2);
+    } else if (s.room === "bath") {
+      // A row of stalls; only the one with its door standing open is free.
+      const STALL = [150, 162, 180], DOOR = [112, 134, 168];
+      for (let i = 0; i < 5; i++) {
+        const x0 = -6.0 + i * 1.6;
+        abox(x0, 0.15, -4, x0 + 0.08, 2.1, -2.4, STALL);
+        if (i === 4) break;
+        if (i === 3) {
+          abox(x0 + 0.08, 0.25, -2.4, x0 + 0.14, 1.95, -1.0, DOOR);
+          abox(x0 + 0.55, 0, -3.6, x0 + 1.1, 0.45, -2.95, [244, 244, 246]);
+          abox(x0 + 0.5, 0.45, -3.95, x0 + 1.15, 0.95, -3.6, [236, 236, 240]);
+          bigQuad([x0 + 0.3, 2.34, -2.38], [x0 + 1.3, 2.34, -2.38], [x0 + 1.3, 2.09, -2.38], [x0 + 0.3, 2.09, -2.38], { tex: TEX.vacant, lit: 1.05 });
+        } else {
+          abox(x0 + 0.08, 0.25, -2.44, x0 + 1.6, 1.95, -2.38, DOOR);
+          abox(x0 + 0.2, 1.05, -2.38, x0 + 0.32, 1.15, -2.35, [220, 50, 50]);
+        }
+      }
+      abox(-6.0, 2.1, -2.46, 0.48, 2.2, -2.36, STALL);
+      // Sinks and mirrors.
+      abox(2.4, 0.74, -3.95, 7.0, 0.9, -3.15, [232, 232, 238]);
+      abox(2.5, 0, -3.9, 6.9, 0.74, -3.4, [150, 162, 180]);
+      for (const sx of [3.2, 4.7, 6.2]) {
+        abox(sx - 0.3, 0.9, -3.75, sx + 0.3, 0.92, -3.3, [170, 180, 190]);
+        abox(sx - 0.04, 0.9, -3.9, sx + 0.04, 1.12, -3.82, [190, 194, 200]);
+        abox(sx - 0.04, 1.08, -3.9, sx + 0.04, 1.12, -3.62, [190, 194, 200]);
+        hang(sx - 0.6, 1.3, sx + 0.6, 2.5, TEX.mirror);
+      }
+      abox(8.0, 1.2, -3.98, 8.5, 1.65, -3.72, [240, 240, 244]);
+      abox(9.0, 0, -3.8, 9.6, 0.8, -3.2, [90, 96, 104]);
+      // Wet floor sign.
+      abox(-8.3, 0, -2.5, -7.8, 0.75, -2.44, [250, 214, 50]);
+      abox(-8.3, 0, -2.2, -7.8, 0.75, -2.14, [250, 214, 50]);
+    } else if (s.room === "kitchen") {
+      hang(2.5, 1.6, 3.7, 2.8, TEX.poster2);
+      const WOOD = [196, 150, 96];
+      abox(-6.4, 0, -3.9, -1.2, 0.95, -3.1, WOOD);
+      abox(-6.4, 0.95, -3.92, -1.2, 1.0, -3.06, [60, 60, 66]);
+      abox(-6.4, 2.05, -3.95, -1.2, 2.95, -3.5, WOOD);
+      for (const dx of [-5.1, -3.8, -2.5]) abox(dx - 0.02, 2.1, -3.5, dx + 0.02, 2.9, -3.48, [130, 96, 56]);
+      // The coffee machine, pot nearly empty.
+      abox(-3.5, 1.0, -3.8, -2.7, 1.75, -3.25, [40, 40, 46]);
+      abox(-3.4, 1.55, -3.25, -2.8, 1.68, -3.23, [220, 60, 50]);
+      abox(-3.3, 1.02, -3.25, -2.9, 1.3, -3.05, [150, 170, 180]);
+      abox(-3.3, 1.02, -3.25, -2.9, 1.08, -3.04, [88, 50, 26]);
+      abox(-5.6, 1.0, -3.8, -4.7, 1.45, -3.3, [226, 226, 230]);
+      abox(-5.5, 1.08, -3.3, -5.0, 1.38, -3.29, [20, 26, 34]);
+      for (let i = 0; i < 4; i++) abox(-2.3 + i * 0.22, 1.0, -3.6, -2.15 + i * 0.22, 1.16, -3.45, [[240, 240, 240], [230, 80, 60], [60, 130, 220], [250, 200, 60]][i]);
+      abox(4.6, 0, -3.9, 5.8, 2.05, -3.05, [184, 190, 198]);
+      abox(4.7, 1.3, -3.05, 4.76, 1.9, -3.0, [110, 114, 122]);
+      abox(4.7, 0.5, -3.05, 4.76, 1.1, -3.0, [110, 114, 122]);
+      abox(6.6, 0, -3.8, 7.3, 0.9, -3.2, [90, 96, 104]);
+      drawPlant(-8.0, -3.2);
+    } else if (s.room === "lobby") {
+      hang(-4.6, 1.9, -2.2, 3.1, TEX.logo);
+      // Reception desk.
+      abox(-8.2, 0, -3.3, -3.4, 1.1, -2.5, [240, 240, 244]);
+      abox(-8.3, 1.1, -3.4, -3.3, 1.17, -2.4, [250, 169, 104]);
+      abox(-6.3, 1.17, -3.2, -5.5, 1.7, -2.9, [40, 42, 50]);
+      abox(-4.4, 1.17, -3.1, -4.1, 1.3, -2.8, [220, 60, 60]);
+      // Visitors' sofa and a coffee table of old magazines.
+      abox(3.6, 0, -3.7, 6.8, 0.45, -2.7, [200, 64, 60]);
+      abox(3.6, 0.45, -3.7, 6.8, 1.05, -3.4, [184, 52, 50]);
+      abox(3.4, 0, -3.7, 3.6, 0.7, -2.7, [184, 52, 50]);
+      abox(6.8, 0, -3.7, 7.0, 0.7, -2.7, [184, 52, 50]);
+      abox(4.4, 0.3, -2.2, 6.0, 0.36, -1.6, [60, 60, 66]);
+      abox(4.8, 0.36, -2.1, 5.3, 0.4, -1.75, [240, 220, 120]);
+      drawPlant(8.2, -3.2);
+      drawPlant(-9.4, -3.2);
+      drawPlant(2.6, -3.3);
+    } else if (s.room === "store") {
+      hang(-3.4, 2.0, -1.0, 3.2, TEX.logo);
+      hang(8.2, 1.4, 9.6, 2.8, TEX.poster1);
+      // Shelves of merchandise nobody asked for.
+      const SHELF = [150, 110, 70];
+      const MERCH = [[236, 96, 60], [250, 210, 70], [90, 190, 110], [110, 150, 240], [240, 130, 200], [240, 240, 244]];
+      for (const x0 of [-9.6, -6.8, 2.2, 5.0]) {
+        abox(x0, 0, -3.96, x0 + 2.4, 2.4, -3.86, SHELF);
+        for (let j = 0; j < 3; j++) {
+          const y = 0.45 + j * 0.62;
+          abox(x0, y, -3.86, x0 + 2.4, y + 0.06, -3.3, SHELF);
+          for (let i = 0; i < 4; i++) abox(x0 + 0.15 + i * 0.56, y + 0.06, -3.75, x0 + 0.55 + i * 0.56, y + 0.36 + ((i + j) % 2) * 0.1, -3.4, MERCH[(i * 2 + j * 3 + Math.abs(Math.round(x0 * 10))) % 6]);
+        }
+      }
+      // The till.
+      abox(7.6, 0, -2.9, 9.8, 1.0, -2.1, [70, 96, 150]);
+      abox(7.6, 1.0, -2.95, 9.8, 1.05, -2.05, [250, 169, 104]);
+      abox(8.3, 1.05, -2.75, 8.9, 1.4, -2.3, [50, 52, 60]);
+      abox(8.35, 1.4, -2.7, 8.85, 1.5, -2.5, [120, 200, 150]);
+    }
+
+    if (s.room === "bath") {
+      drawPrize(prize, -0.4, 1.45 + Math.sin(time * 0.05) * 0.04, -1.9, time * 0.04, 1);
+    } else drawSnackCorner(time, prize);
 
     // Coworkers who stopped to watch.
     for (let i = 0; i < crowd.length; i++) {
@@ -1263,6 +1446,15 @@
     let round = 1, phase = "intro", phaseT = 0, timer = 0, roundWinner = -1, perfect = false, timeUp = false;
     let hitstop = 0, shake = 0, superFreeze = 0, banner = null, hype = 0, paused = false;
     let ladder = [], ladderIdx = 0, stage = 0, prize = "donut", matchWinner = 0, matchCount = 0;
+    function shuffle(list) {
+      for (let i = list.length - 1; i > 0; i--) {
+        const j = (Math.random() * (i + 1)) | 0;
+        const t = list[i]; list[i] = list[j]; list[j] = t;
+      }
+      return list;
+    }
+    // Rooms come up in a fresh random order, each once before any repeats.
+    let stageOrder = shuffle(STAGES.map((_, i) => i));
     let time = 0;
     const cam = { x: 0, y: 1.45, z: 5, tx: 0, ty: 1, tz: 0 };
 
@@ -1290,14 +1482,15 @@
 
     function startMatch(c0, c1, cpu1, level) {
       fighters = [makeFighter(0, ROSTER[c0], false, 0), makeFighter(1, ROSTER[c1], cpu1, level)];
-      stage = matchCount % STAGES.length;
-      prize = matchCount % 2 === 0 ? "donut" : "pizza";
+      stage = stageOrder[matchCount % stageOrder.length];
+      prize = STAGES[stage].prize;
       matchCount++;
       // Whoever isn't fighting comes to watch.
       crowd = [];
       const others = ROSTER.filter((_, i) => i !== c0 && i !== c1);
-      for (let i = 0; i < others.length && i < CROWD_SPOTS.length; i++) {
-        crowd.push({ ch: others[i], x: CROWD_SPOTS[i][0], z: CROWD_SPOTS[i][1], turn: CROWD_SPOTS[i][2] });
+      const spots = STAGES[stage].spots || CROWD_SPOTS;
+      for (let i = 0; i < others.length && i < spots.length; i++) {
+        crowd.push({ ch: others[i], x: spots[i][0], z: spots[i][1], turn: spots[i][2] });
       }
       round = 1;
       goto("vs");
@@ -1675,7 +1868,7 @@
       if (step) {
         const f0 = fighters[0], f1 = fighters[1];
         const live = phase === "fight";
-        const i0 = live ? (f0.cpu ? think(f0, f1) : readInput(0)) : EMPTY;
+        const i0 = live ? readInput(0) : EMPTY;
         const i1 = live ? (f1.cpu ? think(f1, f0) : readInput(1)) : EMPTY;
         updateFighter(f0, f1, i0);
         updateFighter(f1, f0, i1);
@@ -1793,13 +1986,11 @@
       // Everyone else in a random order, with the boss (or, if you ARE the
       // boss, the heir apparent) saved for last.
       const last = me === 5 ? 0 : 5;
-      const rest = ROSTER.map((_, i) => i).filter((i) => i !== me && i !== last);
-      for (let i = rest.length - 1; i > 0; i--) {
-        const j = (Math.random() * (i + 1)) | 0;
-        const t = rest[i]; rest[i] = rest[j]; rest[j] = t;
-      }
+      const rest = shuffle(ROSTER.map((_, i) => i).filter((i) => i !== me && i !== last));
       ladder = rest.concat([last]);
       ladderIdx = 0;
+      stageOrder = shuffle(STAGES.map((_, i) => i));
+      matchCount = 0;
     }
     const cpuLevel = () => 0.12 + (ladderIdx / Math.max(1, ladder.length - 1)) * 0.8;
 
@@ -1976,7 +2167,7 @@
       text(f.ch.name, idx === 0 ? 18 : 342, 26, idx === 0 ? CYAN : ORANGE, 1, idx === 0 ? 0 : 2);
       for (let i = 0; i < 2; i++) {
         const px = idx === 0 ? 150 - i * 11 : 210 + i * 11;
-        ring(px, 30, 4, i < f.wins ? (prize === "donut" ? PINK : YELLOW) : rgb(70, 70, 80), false);
+        ring(px, 30, 4, i < f.wins ? STAGES[stage].pip : rgb(70, 70, 80), false);
       }
       // Synergy meter.
       const mx = idx === 0 ? 18 : 272, MW = 70;
@@ -2038,7 +2229,7 @@
       if (phase === "intro") {
         if (phaseT > 20 && phaseT < 80) bigText(round >= 3 ? "FINAL ROUND" : "ROUND " + round, 92, 4);
         else if (phaseT >= 84) bigText("FIGHT!", 84, 6);
-        if (phaseT > 20 && phaseT < 80) text("FOR THE LAST " + (prize === "donut" ? "DONUT" : "SLICE"), CX, 132, WHITE, 1, 1);
+        if (phaseT > 20 && phaseT < 80) text(STAGES[stage].intro, CX, 132, WHITE, 1, 1);
       } else if (phase === "ko") {
         if (phaseT < 96) {
           if (timeUp) { bigText("MEETING", 76, 4, ICE); bigText("ADJOURNED", 112, 4, ICE); }
@@ -2048,7 +2239,7 @@
         } else if (roundWinner >= 0) {
           bigText(fighters[roundWinner].ch.name + " WINS", 78, 4, roundWinner === 0 ? ICE : FIRE);
           if (perfect) bigText("FLAWLESS REVIEW!", 118, 2);
-        } else bigText("NO ONE EATS", 96, 4, ICE);
+        } else bigText("NO ONE WINS", 96, 4, ICE);
       }
       if (paused) {
         shadeRect(0, 0, W, H);
@@ -2149,7 +2340,7 @@
       if (sceneT > 28) bigText("VS", 86, 8);
       if (mode === "arcade") text("MEETING " + (ladderIdx + 1) + " OF " + ladder.length, CX, 180, WHITE, 1, 1);
       text(STAGES[stage].name, CX, 194, YELLOW, 2, 1);
-      text("AT STAKE: THE LAST " + (prize === "donut" ? "DONUT" : "SLICE OF PIZZA"), CX, 218, WHITE, 1, 1);
+      text("AT STAKE: " + STAGES[stage].stake, CX, 218, WHITE, 1, 1);
     }
 
     function renderTitle(boot) {
@@ -2157,7 +2348,9 @@
       const a = time * 0.004;
       setCamera(Math.sin(a) * 3.2 + 0.5, 1.7, 2.4 + Math.cos(a) * 0.8, 0.6, 1.15, -2.8);
       dim = 0.6;
-      drawStage(0, time, (time >> 9) & 1 ? "pizza" : "donut", titleCrowd, 0.15);
+      // The attract screen cycles through everything there is to fight over.
+      const feature = STAGES[TITLE_STAGES[(time >> 8) % TITLE_STAGES.length]];
+      drawStage(0, time, feature.prize, titleCrowd, 0.15);
       dim = 1;
       if (boot) {
         // Fade the company card in and out over black, console-style.
@@ -2172,7 +2365,7 @@
       const bob = Math.round(Math.sin(time * 0.05) * 2);
       bigText("WATER COOLER", 26 + bob, 4, ICE);
       bigText("COMBAT", 62 + bob, 8, FIRE);
-      text("BATTLE FOR THE LAST DONUT", CX, 126, WHITE, 1, 1);
+      text("BATTLE FOR " + feature.stake, CX, 126, WHITE, 1, 1);
       const items = ["ARCADE", "VERSUS  2P"];
       for (let i = 0; i < 2; i++) {
         const on = menuIdx === i;
@@ -2182,6 +2375,7 @@
       text("MOVE: ARROWS/WASD   J PUNCH  K KICK  L SPECIAL", CX, 210, GRAY, 1, 1);
       text("(C) 2026 THAGOBYTE", CX, 228, rgb(110, 110, 124), 1, 1, null);
     }
+    const TITLE_STAGES = STAGES.map((_, i) => i).filter((i) => STAGES[i].room !== "bath");
     const titleCrowd = ROSTER.map((ch, i) => ({ ch, x: CROWD_SPOTS[i][0], z: CROWD_SPOTS[i][1], turn: CROWD_SPOTS[i][2] }));
 
     function renderVictory() {
@@ -2197,7 +2391,7 @@
       shadeRect(0, 162, W, 78);
       bigText(w.ch.name + " WINS!", 166, 3, matchWinner === 0 ? ICE : FIRE);
       text('"' + w.ch.quote + '"', CX, 196, WHITE, 1, 1);
-      text(w.ch.full + " CLAIMS THE LAST " + (prize === "donut" ? "DONUT" : "SLICE"), CX, 209, YELLOW, 1, 1);
+      text(w.ch.full + " " + STAGES[stage].claim, CX, 209, YELLOW, 1, 1);
       if (sceneT > 70 && (time >> 4) & 1) text(touchUI ? "TAP TO CONTINUE" : "PRESS ENTER", CX, 226, WHITE, 1, 1);
     }
 
@@ -2207,7 +2401,7 @@
       bigText("CONTINUE?", 30, 6);
       const n = Math.max(0, 9 - Math.floor(sceneT / 60));
       bigText(String(n), 96, 8, ICE);
-      text("YOUR SNACK IS STILL OUT THERE", CX, 196, WHITE, 1, 1);
+      text("THE PRIZE IS STILL OUT THERE", CX, 196, WHITE, 1, 1);
       if ((time >> 4) & 1) text(touchUI ? "TAP TO TRY AGAIN" : "PRESS ENTER TO TRY AGAIN", CX, 214, YELLOW, 1, 1);
     }
 
@@ -2228,7 +2422,7 @@
       bigText("EMPLOYEE OF", 8, 4, ICE);
       bigText("THE MONTH", 36, 4, FIRE);
       text(ch.full, CX, 184, YELLOW, 2, 1);
-      text("EVERY SNACK IN THE BUILDING IS YOURS.", CX, 206, WHITE, 1, 1);
+      text("EVERYTHING IN THE BUILDING IS YOURS.", CX, 206, WHITE, 1, 1);
       if (sceneT > 150 && (time >> 4) & 1) text("THANKS FOR PLAYING - PRESS ENTER", CX, 222, WHITE, 1, 1);
     }
 
@@ -2299,8 +2493,6 @@
         canvas.width = prevW;
         canvas.height = prevH;
       },
-      // Test hooks: drive the simulation without a display.
-      _debug: { tick, render, press: (code) => pressed.add(code), state: () => ({ scene, phase, round, fighters, ladderIdx, timer }), setCpu: (i) => { fighters[i].cpu = true; fighters[i].level = 0.6; } },
     };
   }
 

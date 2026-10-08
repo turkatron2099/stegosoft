@@ -493,10 +493,6 @@ button.console-btn:active {
   color: #6b6656;
 }
 
-.cartridge-asteroids {
-  --label-border: var(--green);
-}
-
 .cartridge-coolcars {
   --label-border: var(--red);
 }
