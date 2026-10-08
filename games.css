@@ -517,6 +517,10 @@ button.console-btn:active {
   --label-border: #a3a3b5;
 }
 
+.cartridge-watercooler {
+  --label-border: #3d8fe0;
+}
+
 /* --- Cool Cars Konami-code cheat-unlock toast --- */
 
 .cheat-unlock-toast {
