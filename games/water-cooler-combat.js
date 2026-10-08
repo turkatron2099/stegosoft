@@ -1294,6 +1294,8 @@
       win: () => { if (!ac) return; [523, 659, 784, 1047].forEach((f, i) => tone("square", f, 0, 0.16, 0.07, ac.currentTime + i * 0.11)); },
       lose: () => { if (!ac) return; [392, 330, 262, 196].forEach((f, i) => tone("triangle", f, 0, 0.22, 0.1, ac.currentTime + i * 0.16)); },
       tick: () => tone("square", 880, 0, 0.04, 0.05),
+      // A slow swelling chord under the company card.
+      boot: () => { if (!ac) return; [110, 164.8, 220, 329.6].forEach((f, i) => tone(i ? "sine" : "triangle", f, 0, 3.2, 0.09, ac.currentTime + i * 0.12)); tone("sine", 1760, 880, 1.2, 0.03, ac.currentTime + 0.6); },
     };
 
     // Two looping tracks off one 16-step sequencer: lounge muzak for the
@@ -2000,7 +2002,8 @@
       switch (scene) {
         case "boot":
           time++;
-          if (sceneT > 170 || (sceneT > 20 && (pressed.size > 0))) { goto("title"); music("menu"); }
+          if (sceneT === 12) sfx.boot();
+          if (sceneT > BOOT_FRAMES || (sceneT > 20 && (pressed.size > 0))) { goto("title"); music("menu"); }
           break;
         case "title":
           time++;
@@ -2343,7 +2346,82 @@
       text("AT STAKE: " + STAGES[stage].stake, CX, 218, WHITE, 1, 1);
     }
 
-    function renderTitle(boot) {
+    // The company card: the Thagobyte stegosaurus as a spinning low-poly
+    // model in the logo's neon cyan and magenta, the way a console of the
+    // era introduced itself.
+    function drawStego(spin, k) {
+      const cs = Math.cos(spin), sn = Math.sin(spin);
+      const pt = (x, y, z) => [x * cs + z * sn, y, -x * sn + z * cs];
+      const CYAN_C = [70, 226, 240], DEEP = [40, 170, 200], MAGENTA = [255, 44, 150], PALE = [220, 250, 255];
+      // A tapered block between two cross-sections along the body.
+      const seg = (x0, lo0, hi0, w0, x1, lo1, hi1, w1, col) => {
+        const c = [];
+        for (let i = 0; i < 8; i++) {
+          const far = i & 1;
+          c.push(pt(far ? x1 : x0, i & 2 ? (far ? hi1 : hi0) : far ? lo1 : lo0, (i & 4 ? 1 : -1) * (far ? w1 : w0)));
+        }
+        box(c, col);
+      };
+      // A thin two-sided blade (plates, tail spikes) standing along the spine.
+      const blade = (a, b, c, d, col) => {
+        const mid = [(a[0] + c[0]) / 2, (a[1] + c[1]) / 2, (a[2] + c[2]) / 2];
+        for (const side of [-1, 1]) {
+          const A = pt(a[0], a[1], a[2]), B = pt(b[0], b[1], b[2]), C = pt(c[0], c[1], c[2]), D = pt(d[0], d[1], d[2]);
+          shadedQuad(A, B, C, D, col, pt(mid[0], mid[1], mid[2] + side));
+        }
+      };
+      dim = k;
+      seg(-1.5, 0.6, 0.74, 0.08, -1.12, 0.58, 0.86, 0.12, CYAN_C); // head
+      seg(-1.12, 0.6, 0.84, 0.11, -0.6, 0.5, 1.0, 0.22, CYAN_C); // neck
+      seg(-0.6, 0.5, 1.0, 0.22, 0.0, 0.42, 1.28, 0.33, CYAN_C); // chest
+      seg(0.0, 0.42, 1.28, 0.33, 0.7, 0.5, 0.98, 0.22, CYAN_C); // haunch
+      seg(0.7, 0.52, 0.96, 0.2, 1.55, 0.74, 0.82, 0.04, CYAN_C); // tail
+      for (const z of [-1, 1]) {
+        seg(-0.52, 0, 0.56, 0.08, -0.3, 0, 0.56, 0.08, DEEP);
+        const leg = (x0, x1, top) => {
+          const c = [];
+          for (let i = 0; i < 8; i++) c.push(pt(i & 1 ? x1 : x0, i & 2 ? top : 0, z * (i & 4 ? 0.34 : 0.16)));
+          box(c, DEEP);
+        };
+        leg(-0.52, -0.3, 0.6);
+        leg(0.28, 0.56, 0.7);
+        const eye = [];
+        for (let i = 0; i < 8; i++) eye.push(pt(i & 1 ? -1.3 : -1.36, i & 2 ? 0.78 : 0.72, z * (i & 4 ? 0.125 : 0.09)));
+        box(eye, MAGENTA);
+      }
+      // Back plates, largest over the hips.
+      for (const [x, y, h, w] of [[-0.78, 0.9, 0.24, 0.12], [-0.46, 1.04, 0.4, 0.17], [-0.06, 1.24, 0.58, 0.23], [0.36, 1.12, 0.5, 0.2], [0.72, 0.94, 0.32, 0.14], [1.0, 0.86, 0.2, 0.1]]) {
+        blade([x, y, 0], [x + w, y + h * 0.5, 0], [x, y + h, 0], [x - w, y + h * 0.5, 0], MAGENTA);
+      }
+      // The thagomizer.
+      for (const z of [-1, 1]) {
+        blade([1.38, 0.76, 0], [1.5, 0.78, 0], [1.74, 1.2, z * 0.36], [1.74, 1.2, z * 0.36], PALE);
+        blade([1.2, 0.8, 0], [1.32, 0.8, 0], [1.44, 1.24, z * 0.32], [1.44, 1.24, z * 0.32], PALE);
+      }
+      dim = 1;
+    }
+
+    const BOOT_FRAMES = 250;
+    function renderBoot() {
+      // Fade in and out over the logo's own midnight blue.
+      const k = clamp(Math.min(sceneT / 40, (BOOT_FRAMES - sceneT) / 40), 0, 1);
+      const c = (v) => rgb((v[0] * k) | 0, (v[1] * k) | 0, (v[2] * k) | 0);
+      clearTo(c([10, 20, 44]));
+      setCamera(0, 1.25, 4.7, 0.1, 0.38, 0);
+      // Spins in fast, then settles side-on and sways.
+      drawStego((1 - smooth(clamp(sceneT / 120, 0, 1))) * 7 + Math.sin(sceneT * 0.03) * 0.3, k);
+      const y = 158;
+      for (let i = 0; i < 3; i++) {
+        rect(40 + i * 10, y + 4 + i * 9, 34 - i * 10, 2, c([255, 44, 150]));
+        rect(286 + i * 0, y + 4 + i * 9, 34 - i * 10, 2, c([255, 44, 150]));
+      }
+      const grad = [[255, 255, 255], [236, 252, 255], [200, 246, 255], [150, 236, 250], [100, 226, 244], [70, 210, 236], [50, 180, 220]].map(c);
+      blit(fb, W, H, "THAGOBYTE", CX - 107, y, grad, 4);
+      rect(70, y + 34, 220, 2, c([255, 44, 150]));
+      if (sceneT > 70) text("PRESENTS", CX, y + 46, c([246, 220, 172]), 1, 1, null);
+    }
+
+    function renderTitle() {
       clearTo(STAGES[0].sky);
       const a = time * 0.004;
       setCamera(Math.sin(a) * 3.2 + 0.5, 1.7, 2.4 + Math.cos(a) * 0.8, 0.6, 1.15, -2.8);
@@ -2352,15 +2430,6 @@
       const feature = STAGES[TITLE_STAGES[(time >> 8) % TITLE_STAGES.length]];
       drawStage(0, time, feature.prize, titleCrowd, 0.15);
       dim = 1;
-      if (boot) {
-        // Fade the company card in and out over black, console-style.
-        const k = clamp(Math.min(sceneT / 40, (170 - sceneT) / 40), 0, 1);
-        fb.fill(BLACK);
-        const c = (v) => rgb((v[0] * k) | 0, (v[1] * k) | 0, (v[2] * k) | 0);
-        text("THAGOBYTE", CX, 92, c([250, 169, 104]), 4, 1, null);
-        text("PRESENTS", CX, 132, c([246, 220, 172]), 1, 1, null);
-        return;
-      }
       shadeRect(0, 0, W, H);
       const bob = Math.round(Math.sin(time * 0.05) * 2);
       bigText("WATER COOLER", 26 + bob, 4, ICE);
@@ -2428,8 +2497,8 @@
 
     function render() {
       switch (scene) {
-        case "boot": renderTitle(true); break;
-        case "title": renderTitle(false); break;
+        case "boot": renderBoot(); break;
+        case "title": renderTitle(); break;
         case "select": renderSelect(); break;
         case "vs": renderVs(); break;
         case "fight": renderFight(); break;
