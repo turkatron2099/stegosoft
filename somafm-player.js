@@ -14,12 +14,25 @@
   // successful once 'playing' actually fires; otherwise this timeout moves
   // on to the next mirror instead of leaving the button hung forever.
   const CONNECT_TIMEOUT_MS = 8000;
+  // A connection that goes quiet mid-stream fires nothing useful either —
+  // the element just sits there "playing" silence. So playback position is
+  // polled, and this many checks in a row without it advancing counts as a
+  // dead stream.
+  const STALL_CHECK_MS = 5000;
+  const STALL_CHECKS = 3;
 
   const audio = new Audio();
   audio.preload = "none";
   let streamIndex = 0;
   audio.src = STREAM_URLS[streamIndex];
   let connectTimeoutId = null;
+  // wantPlaying is the listener's intent (on until they pause it), as
+  // opposed to audio.paused, which also flips when the stream dies on its
+  // own. hasPlayed marks that the stream has worked at least once on this
+  // page, which is what separates "dropped, reconnect" from "never
+  // connected, give up".
+  let wantPlaying = false;
+  let hasPlayed = false;
 
   const widget = document.createElement("button");
   widget.type = "button";
@@ -59,6 +72,7 @@
   }
 
   function giveUp() {
+    wantPlaying = false;
     clearConnectTimeout();
     audio.pause();
     localStorage.setItem(STORAGE_KEY, "0");
@@ -66,19 +80,46 @@
   }
 
   function attemptPlay() {
+    wantPlaying = true;
     clearConnectTimeout();
     connectTimeoutId = setTimeout(() => {
-      if (tryNextStream()) {
+      if (hasPlayed) {
+        reconnect();
+      } else if (tryNextStream()) {
         attemptPlay();
       } else {
         giveUp();
       }
     }, CONNECT_TIMEOUT_MS);
 
-    audio.play().catch(() => {
+    audio.play().catch((err) => {
+      // AbortError only means a newer attempt (or a pause) superseded this
+      // one. And once the stream has played, a mirror that fails to connect
+      // is left for the timeout above to move past, so a network outage
+      // gets retried at that pace instead of in a tight loop.
+      if (err.name === "AbortError") return;
+      if (hasPlayed && err.name !== "NotAllowedError") return;
+      wantPlaying = false;
       clearConnectTimeout();
       render();
     });
+  }
+
+  // The stream was playing and then died without the listener asking it to
+  // (the server closed the connection, the network dropped, the laptop
+  // slept). Unlike the first connect this never gives up: it keeps rotating
+  // through the mirrors until one plays or the listener hits pause.
+  function reconnect() {
+    streamIndex = (streamIndex + 1) % STREAM_URLS.length;
+    audio.src = STREAM_URLS[streamIndex];
+    attemptPlay();
+  }
+
+  function recover() {
+    // While an attempt is already in flight its connect timeout drives the
+    // retry — see the note in attemptPlay.
+    if (!wantPlaying || !hasPlayed || connectTimeoutId) return;
+    reconnect();
   }
 
   // Set right before a game cartridge programmatically ducks playback, so
@@ -87,16 +128,40 @@
   let ducked = false;
 
   audio.addEventListener("playing", () => {
+    hasPlayed = true;
     clearConnectTimeout();
     localStorage.setItem(STORAGE_KEY, "1");
     render();
   });
   audio.addEventListener("pause", () => {
+    // The browser also fires 'pause' when the stream ends by itself. That
+    // isn't the listener asking for quiet, so don't record it as one — the
+    // 'ended' listener below reconnects.
+    if (wantPlaying && audio.ended) return;
+    wantPlaying = false;
     clearConnectTimeout();
     if (!ducked) localStorage.setItem(STORAGE_KEY, "0");
     ducked = false;
     render();
   });
+  // A live stream has no end, so 'ended' means the server closed the
+  // connection, and a mid-stream 'error' means it broke.
+  audio.addEventListener("ended", recover);
+  audio.addEventListener("error", recover);
+
+  let lastTime = 0;
+  let stalledChecks = 0;
+  setInterval(() => {
+    if (!wantPlaying || !hasPlayed || connectTimeoutId) {
+      stalledChecks = 0;
+    } else if (audio.currentTime !== lastTime) {
+      lastTime = audio.currentTime;
+      stalledChecks = 0;
+    } else if (++stalledChecks >= STALL_CHECKS) {
+      stalledChecks = 0;
+      reconnect();
+    }
+  }, STALL_CHECK_MS);
 
   widget.addEventListener("click", () => {
     if (audio.paused) {
