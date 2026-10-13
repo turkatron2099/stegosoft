@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Fetches RSS feeds for each topic, merges/dedupes/sorts them, and writes
-// digest.json — a single static snapshot the News page reads. Run every
-// 4 hours by .github/workflows/daily-digest.yml, or manually to refresh
-// locally.
+// digest.json — a single static snapshot the News page reads — plus
+// feed.xml, the same digest as an RSS feed for feed readers (e.g. KOReader's
+// news downloader on an e-reader). Run every 4 hours by
+// .github/workflows/daily-digest.yml, or manually to refresh locally.
 
 import { writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -177,6 +178,50 @@ async function fetchFeed(feed) {
   }
 }
 
+function escapeXml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// The digest re-published as RSS 2.0. Each item links to the original
+// story, so a reader that fetches full articles pulls them from the source;
+// the description is the digest's own summary, tagged with where it's from.
+function buildFeedXml(digest) {
+  const items = digest.items
+    .map((item) => {
+      const description = [item.summary, `${item.topic} · ${item.source}`].filter(Boolean).join(" — ");
+      return [
+        "    <item>",
+        `      <title>${escapeXml(item.title)}</title>`,
+        `      <link>${escapeXml(item.link)}</link>`,
+        `      <guid isPermaLink="true">${escapeXml(item.link)}</guid>`,
+        `      <category>${escapeXml(item.topic)}</category>`,
+        `      <description>${escapeXml(description)}</description>`,
+        item.date ? `      <pubDate>${new Date(item.date).toUTCString()}</pubDate>` : null,
+        "    </item>",
+      ]
+        .filter(Boolean)
+        .join("\n");
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Thagobyte News</title>
+    <link>https://thagobyte.com/news.html</link>
+    <description>The Thagobyte news digest: technology, gaming, comics, cybersecurity and more.</description>
+    <language>en</language>
+    <lastBuildDate>${new Date(digest.generatedAt).toUTCString()}</lastBuildDate>
+${items}
+  </channel>
+</rss>
+`;
+}
+
 async function main() {
   const results = await Promise.all(FEEDS.map(fetchFeed));
 
@@ -232,6 +277,10 @@ async function main() {
   const outPath = fileURLToPath(new URL("../digest.json", import.meta.url));
   await writeFile(outPath, JSON.stringify(digest, null, 2) + "\n");
   console.log(`Wrote ${outPath} with ${finalItems.length} items.`);
+
+  const feedPath = fileURLToPath(new URL("../feed.xml", import.meta.url));
+  await writeFile(feedPath, buildFeedXml(digest));
+  console.log(`Wrote ${feedPath}.`);
 }
 
 main().catch((err) => {
