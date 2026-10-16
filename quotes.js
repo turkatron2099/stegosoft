@@ -91,6 +91,7 @@
     { text: "Fasting is, as much as lies in us, an imitation of the angels, a contemning of things present, a school of prayer, a nourishment of the soul, a bridle of the mouth, an abatement of concupiscence: it mollifies rage, it appeases anger, it calms the tempests of nature, it excites reason, it clears the mind, it disburdens the flesh, it chases away night-pollutions, it frees from head-ache. By fasting, a man gets composed behaviour, free utterance of his tongue, right apprehensions of his mind.", author: "John Chrysostom" },
     { text: "I shall open my eyes and ears. Once every day I shall simply stare at a tree, a flower, a cloud, or a person. I shall not then be concerned at all to ask what they are but simply be glad that they are. I shall joyfully allow them the mystery of what Lewis calls their “divine, magical, terrifying, and ecstatic” existence.", author: "Clyde Kilby" },
     { text: "He loves Thee too little, who loves anything together with Thee, which he loves not for Thy sake.", author: "Augustine" },
+    { text: "May knowledge come to us! What is the secret our heart has understood and yet will not reveal to us, although it seems to beat as if it were endeavoring to tell it?", author: "Ayn Rand, Anthem" },
   ];
 
   const textEl = document.getElementById("quote-text");
