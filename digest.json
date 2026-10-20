@@ -1,53 +1,205 @@
 {
-  "generatedAt": "2026-10-20T04:55:10.905Z",
+  "generatedAt": "2026-10-20T13:34:40.675Z",
   "items": [
     {
-      "title": "'The French correction' and 'Labour cuts £2bn from Army'",
-      "link": "https://www.bbc.co.uk/news/articles/c6r7y0vkz2yno?at_medium=RSS&at_campaign=rss",
-      "summary": "Violent unrest in France continues and Defence drops funding for frontline military vehicles lead Tuesday's papers.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-10-20T04:47:29.000Z"
-    },
-    {
-      "title": "Did You Hear About Mimi Green #4 Preview: Final Course Served",
-      "link": "https://bleedingcool.com/comics/did-you-hear-about-mimi-green-4-preview-final-course-served/",
-      "summary": "Did You Hear About Mimi Green #4 concludes the psychological horror saga as Mimi must choke down the truth to escape Answers with her life intact.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-10-20T04:27:09.000Z"
-    },
-    {
-      "title": "Hackers Use New ROMULUS ClickFix Platform to Deliver LegionLoader and Other Malware",
-      "link": "https://thehackernews.com/2026/10/romulus-clickfix-platform-tricks-users.html",
-      "summary": "Cybersecurity researchers have disclosed details of a ClickFix delivery platform called ROMULUS that's being used to distribute malware such as Legion Loader. According to Forescout Research - Vedere Labs, ROMULUS is…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-10-20T04:05:58.000Z"
-    },
-    {
-      "title": "NFL Announces Wild Star Wars Crossover That Will See Darth Vader Interview Real Football Players Every Week",
-      "link": "https://comicbook.com/tv-shows/news/nfl-announces-wild-star-wars-crossover-that-will-see-darth-vader-interview-real-football-players-every-week/",
-      "summary": "Everyone loves a crossover, but this might be the wildest one yet — and it’s bringing together two universes that no one would expect: Star Wars and the NFL. No, we’re not talking about eagerly anticipated movie…",
+      "title": "Cyberpunk 2077 Is Getting Its First New Update in Over a Year to Tie In With Edgerunners 2",
+      "link": "https://comicbook.com/gaming/news/cyberpunk-2077-update-2-5-edgerunners-release/",
+      "summary": "CD Projekt Red has announced that it will be releasing a new update for Cyberpunk 2077 this week to tie in with the release of Cyberpunk: Edgerunners 2. Over the past year, patches for Cyberpunk 2077 have finally come…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-10-20T03:46:22.000Z"
+      "date": "2026-10-20T13:31:44.000Z"
     },
     {
-      "title": "Dragon's Brew Will Officially Launch on November 18",
-      "link": "https://bleedingcool.com/games/dragons-brew-will-officially-launch-on-november-18/",
-      "summary": "Run your own gaming cafe in Dragon's Brew, set to come out on November 18, but you can try the Steam Next Fest demo out today.",
-      "source": "Bleeding Cool",
+      "title": "5 Great Mark Hamill Performances Outside of Luke Skywalker (& 1 Is a Masterpiece)",
+      "link": "https://comicbook.com/movies/list/5-great-mark-hamill-performances-outside-of-luke-skywalker-1-is-a-masterpiece/",
+      "summary": "Image Courtesy of Lucasfilm Mark Hamill will always be known as Luke Skywalker, no matter who else he plays in movies. The most interesting thing about this is that Star Wars was his first major movie role after getting…",
+      "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-10-20T03:43:10.000Z"
+      "date": "2026-10-20T13:28:00.000Z"
     },
     {
-      "title": "Matthew McConaughey & Woody Harrelson Drop a Cocktail For Brothers",
-      "link": "https://bleedingcool.com/pop-culture/matthew-mcconaughey-woody-harrelson-drop-a-cocktail-for-brothers/",
-      "summary": "Matthew McConaughey and Woody Harrelson got together to drop a new cocktail with their tequila and vodka for the show Brothers",
+      "title": "2026's Horror Hit Obsession Is Officially Coming to Fortnite in a Major New Way",
+      "link": "https://www.polygon.com/fortnite-obsession-nikki-skin-inde-navarrette/",
+      "summary": "Inde Navarrette comes to Fortnite this Halloween in an upcoming wave of Obsession cosmetics.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-10-20T13:26:49.000Z"
+    },
+    {
+      "title": "Student who stabbed housemate 30 times admits murder",
+      "link": "https://www.bbc.co.uk/news/articles/ckq6n55l23rlo?at_medium=RSS&at_campaign=rss",
+      "summary": "Zack Coughlan changes his plea to murdering housemate near their Bristol home.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-10-20T13:26:20.000Z"
+    },
+    {
+      "title": "Rebel Ridge Director Reveals Official First Look at New Halloween Action-Thriller",
+      "link": "https://www.polygon.com/slayground-trailer-jeremy-saulnier-a24/",
+      "summary": "Rebel Ridge and Green Room director officially reveals new film Slayground in first trailer from A24",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-10-20T13:17:31.000Z"
+    },
+    {
+      "title": "Rockstar Games’ Newest Games Free for Some PS5 and PS4 Users Until November 20",
+      "link": "https://comicbook.com/gaming/news/rockstar-games-gta-5-red-dead-redemption-2-free-ps5-ps4/",
+      "summary": "Two games from Rockstar Games — its two newest games — are free for PS5 and PS4 users with PS Plus Extra and PS Plus Premium subscriptions until November 20. In other words, essentially free until the launch of GTA 6,…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-10-20T13:04:24.000Z"
+    },
+    {
+      "title": "Nintendo Switch Sports Resort Is a Masterpiece",
+      "link": "https://www.polygon.com/nintendo-switch-sports-resort-is-a-masterpiece/",
+      "summary": "Nintendo's Switch 2-exclusive heir to Wii Sports is as huge and enthralling as a motion-control minigame compilation can be",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-10-20T13:00:17.000Z"
+    },
+    {
+      "title": "Final Fantasy Resonance Is a Missed Opportunity for Square Enix",
+      "link": "https://www.polygon.com/final-fantasy-resonance-review/",
+      "summary": "Final Fantasy gets the HD-2D treatment with Resonance, a remake of Brave Exvius that is a loving homage to the franchise but little else",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-10-20T13:00:17.000Z"
+    },
+    {
+      "title": "25 Years Ago, the Best Space Western Series Ever Released a Shockingly Scary Episode",
+      "link": "https://www.polygon.com/cowboy-bebop-scariest-darkest-episode-pierrot-le-fou/",
+      "summary": "25 years after its Adult Swim debut, Cowboy Bebop’s “Pierrot le Fou” remains a chilling outlier that transforms into a total nightmare.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-10-20T12:59:35.000Z"
+    },
+    {
+      "title": "LEGO, Stillwater, Akira & VisionQuest: Top 10 Hottest Comics This Week",
+      "link": "https://bleedingcool.com/comics/lego-stillwater-akira-visionquest-top-10-hottest-comics-this-week/",
+      "summary": "LEGO Batman, Stillwater, Akira and VisionQuest impact the Top 10 Hottest Comics This Week",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-10-20T03:38:09.000Z"
+      "date": "2026-10-20T12:58:15.000Z"
+    },
+    {
+      "title": "Black Panther Is Actually a Bad Avenger (So Why Does the MCU Try to Convince Everyone Otherwise?)",
+      "link": "https://comicbook.com/comics/feature/black-panther-is-actually-a-bad-avenger-so-why-does-the-mcu-try-to-convince-everyone-otherwise/",
+      "summary": "Image Courtesy of Marvel Comics Black Panther has been one of the biggest successes of the Marvel Cinematic Universe. T’Challa was one of the first major black superheroes and starred in his own stories throughout the…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-10-20T12:51:00.000Z"
+    },
+    {
+      "title": "Doctor Who: TARDIS Crew Sounds Like a Fantastic Idea (So Back Off)",
+      "link": "https://bleedingcool.com/tv/doctor-who-tardis-crew-sounds-like-a-fantastic-idea-so-back-off/",
+      "summary": "Whatever issues you might have about the Christmas Special and the tender process, how about we not take it out on Doctor Who: TARDIS Crew?",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-10-20T12:37:08.000Z"
+    },
+    {
+      "title": "Meta Muse exposes users' personal and business secrets when they share conversations",
+      "link": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/",
+      "summary": "A single query is all that's required to find thousands of conversations listed by title.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-10-20T12:33:13.000Z"
+    },
+    {
+      "title": "WhatsApp Hid Instructions in Help Pages Telling Its AI Chatbot Not to Recommend Privacy Regulators",
+      "link": "https://thehackernews.com/2026/10/whatsapp-hid-instructions-in-help-pages.html",
+      "summary": "WhatsApp's help pages carried hidden instructions for its support chatbot that told it not to recommend a data protection authority or regulator to users who could no longer delete their accounts, even though WhatsApp's…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-10-20T11:41:06.000Z"
+    },
+    {
+      "title": "What Security Teams Can Do To Tame Wild Code",
+      "link": "https://thehackernews.com/2026/10/what-security-teams-can-do-to-tame-wild.html",
+      "summary": "A sales manager builds an AI-assisted workflow to route leads. It connects to customer records, summarizes inbound requests, and posts updates to a shared channel. The workflow saves time, reduces manual work, and soon…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-10-20T11:33:04.000Z"
+    },
+    {
+      "title": "Go Issues Emergency Update Blocking Eight CA Keys Over Undisclosed Security Concerns",
+      "link": "https://thehackernews.com/2026/10/go-issues-emergency-update-blocking.html",
+      "summary": "Go 1.27.3 and Go 1.26.10, released on October 20, make Go's certificate verifier reject any certificate chain that passes through one of eight intermediate certificate authority keys. Programs built on the new release…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-10-20T11:32:59.000Z"
+    },
+    {
+      "title": "Russian APT28 Breaches NATO Naval Shipbuilder in NATO Country, Deploys New Reflective Loader",
+      "link": "https://thehackernews.com/2026/10/russian-apt28-breaches-nato-naval.html",
+      "summary": "The Russia-linked state-sponsored threat actor tracked as APT28 (aka BlueDelta, Fancy Bear, and Forest Blizzard) has been attributed to attacks targeting two member states of the North Atlantic Treaty Organization…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-10-20T11:06:25.000Z"
+    },
+    {
+      "title": "DOJ charges 28 with voting crimes. And, TikTok ignored staff's child safety concerns",
+      "link": "https://www.npr.org/2026/10/20/g-s1-148877/up-first-newsletter-california-elections-doj-midterms-trump-tiktok",
+      "summary": "The Justice Department has charged 28 people in California with voting crimes as Election Day nears. And, TikTok staff raised child safety concerns with executives, who failed to act, court records show.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-10-20T11:04:49.000Z"
+    },
+    {
+      "title": "Visiting Slate’s first showroom as its $25,000 electric truck nears production",
+      "link": "https://arstechnica.com/cars/2026/10/visiting-slates-first-showroom-as-its-25000-electric-truck-nears-production/",
+      "summary": "Slate's first showroom sells the promise. Mass production will determine the rest.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-10-20T11:00:16.000Z"
+    },
+    {
+      "title": "Microsoft Abandons UK AI Supercomputer As Grid Struggles to Keep Up",
+      "link": "https://hardware.slashdot.org/story/26/10/20/0529215/microsoft-abandons-uk-ai-supercomputer-as-grid-struggles-to-keep-up?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Microsoft has reportedly abandoned plans to serve as the anchor customer for Britain's largest proposed AI supercomputer after learning that the project's Essex data center might not receive sufficient grid power until…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-10-20T11:00:00.000Z"
+    },
+    {
+      "title": "ConnectWise Resets Credentials as Cloud Backup Remains Offline After Security Incident",
+      "link": "https://thehackernews.com/2026/10/connectwise-resets-credentials-as-cloud.html",
+      "summary": "ConnectWise on Monday said it has taken remediation measures, including strengthening administrative-access protections and resetting accounts and replacing application credentials, as it continues to respond to a…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-10-20T10:56:08.000Z"
+    },
+    {
+      "title": "Kratos Would Have Had a Different Name Were It Not for Relentless Domino's Pizza Jokes, God of War Creator Reveals",
+      "link": "https://www.ign.com/articles/dominos-pizza-jokes-god-of-war-dev-name-kratos",
+      "summary": "God of War's Kratos almost went by a different name, but developers at Santa Monica Studio made too many Domino's pizza jokes.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-10-20T10:50:33.000Z"
+    },
+    {
+      "title": "Hackers Hijack Five OVHcloud CLI Releases to Distribute Secret-Stealing Malware",
+      "link": "https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html",
+      "summary": "An attacker used a contributor's GitHub account to replace the download archives on five existing releases of OVHcloud's command-line tool on Monday, October 19. The account had been hijacked, and the new files were a…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-10-20T08:21:29.000Z"
+    },
+    {
+      "title": "Japan Launches Historic MMX Sample-Return Mission to Mars' Moon Phobos",
+      "link": "https://science.slashdot.org/story/26/10/20/0522251/japan-launches-historic-mmx-sample-return-mission-to-mars-moon-phobos?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Japan has successfully launched its Martian Moons eXploration (MMX) mission to study Mars' two moons, Phobos and Deimos. Scheduled to arrive in August 2027, \"MMX will become the first spacecraft to land on and return…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-10-20T07:00:00.000Z"
+    },
+    {
+      "title": "Japan launches mission to bring home a piece of the Martian moon Phobos",
+      "link": "https://arstechnica.com/space/2026/10/japan-launches-mission-to-bring-home-a-piece-of-the-martian-moon-phobos/",
+      "summary": "The climax for MMX will come in 2029, when the spacecraft will attempt up to two landings on Phobos.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-10-20T05:59:56.000Z"
     },
     {
       "title": "Amazon To Fund 12 Small Nuclear Reactors At Former Indiana Coal Plant",
@@ -58,164 +210,12 @@
       "date": "2026-10-20T03:30:00.000Z"
     },
     {
-      "title": "Star Wars Just Announced A Live In-Universe Super Bowl Crossover Starring C-3PO & That’s Not The Weirdest Part",
-      "link": "https://comicbook.com/tv-shows/news/star-wars-just-announced-a-live-in-universe-super-bowl-crossover-starring-c-3po-thats-not-the-weirdest-part/",
-      "summary": "As sports go, the Super Bowl is probably the biggest event of the year. It’s the one game each year when it seems like just about everyone in America (and beyond) tunes in to catch a little bit of football, but the…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-10-20T03:17:12.000Z"
-    },
-    {
-      "title": "Whalefall Director & Star On Filming a Movie Unlike Any Other: “It Was An Insane Shoot”",
-      "link": "https://comicbook.com/movies/news/whalefall-director-star-on-filming-a-movie-unlike-any-other-it-was-an-insane-shoot/",
-      "summary": "20th Century Studios - Imagine Ent. The new survival-horror-thriller film Whalefall has a lot of viewers caught up right now, even if they haven’t seen the film. The very thought of a deep-sea diver getting caught in…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-10-20T03:15:59.000Z"
-    },
-    {
-      "title": "Call of Duty: Modern Warfare 4 Pop-Up: The DMZ Has Never Been This Much Fun",
-      "link": "https://www.ign.com/articles/call-of-duty-modern-warfare-4-pop-up-the-dmz-has-never-been-this-much-fun",
-      "summary": "Call of Duty: Modern Warfare 4 Pop-Up: The DMZ Has Never Been This Much Fun",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-10-20T01:24:23.000Z"
-    },
-    {
-      "title": "3 Video Games Where Your Choices Actually Make a Difference",
-      "link": "https://www.polygon.com/best-games-choices-impact/",
-      "summary": "Games where choices matter often narrow what matters to character death or branching endings. These narrative-driven games do it differently",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-10-20T00:34:42.000Z"
-    },
-    {
-      "title": "'Red Dead Redemption' 2 Mod Is 'Shadow of Mordor' Meets the Wild West",
-      "link": "https://www.polygon.com/red-dead-redemption-2-nemesis-system-mod-shadow-of-mordor/",
-      "summary": "The enRAGE mod brings a Nemesis system to Red Dead Redemption 2, adding personal grudges, rival factions and evolving gang wars.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-10-19T23:12:52.000Z"
-    },
-    {
-      "title": "8 Classic PlayStation Adventure Games that are Barely Playable Today",
-      "link": "https://www.polygon.com/classic-playstation-adventure-games-unplayable-today/",
-      "summary": "From Tomb Raider to Silent Hill, eight classic PlayStation games whose tank controls, cameras, or lost code make them hard to play today",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-10-19T23:01:17.000Z"
-    },
-    {
-      "title": "The Legend of Zelda Encyclopedia Is on Sale at Amazon Today",
-      "link": "https://www.ign.com/articles/the-legend-of-zelda-encyclopedia-book-sale-amazon-october-2026",
-      "summary": "Amazon has launched another buy 1, get 1 50% off book sale this week and it includes the wonderful Legend of Zelda Encyclopedia. This hardcover book is a great gift for fans of the video game series and the latest…",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-10-19T23:01:00.000Z"
-    },
-    {
-      "title": "Professor Calls To Abolish Business Schools For Failing Society",
-      "link": "https://news.slashdot.org/story/26/10/19/2126207/professor-calls-to-abolish-business-schools-for-failing-society?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "joshuark writes: Professor Christopher Marquis makes a provocative argument about business schools: \"We need to abolish them.\" A 20-year business educator at Harvard, Cornell and Cambridge, Marquis argues in The New…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-10-19T23:00:00.000Z"
-    },
-    {
-      "title": "Pennsylvania issues alert on congenital measles—something US hasn't seen for decades",
-      "link": "https://arstechnica.com/health/2026/10/pennsylvania-issues-alert-on-congenital-measles-something-us-hasnt-seen-for-decades/",
-      "summary": "Congenital measles can be fatal, and survivors require monitoring for years.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-10-19T22:44:26.000Z"
-    },
-    {
-      "title": "Modern Warfare 4 Is Legitimately a Top-5 Call of Duty Campaign",
-      "link": "https://www.polygon.com/mw4-modern-warfare-4-call-duty-campaign-review/",
-      "summary": "The Modern Warfare 4 campaign is one of the series' best, taking place during a Korean conflict while also following Captain Price on the run.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-10-19T22:15:56.000Z"
-    },
-    {
-      "title": "DOJ charges 28 in California with voting crimes as election tensions escalate",
-      "link": "https://www.npr.org/2026/10/19/nx-s1-6007908/election-tensions-escalate-in-california-as-doj-charges-28-people-with-voting-crimes",
-      "summary": "The DOJ also filed an emergency request in federal court to stop California from processing ballots returned by people on the voter rolls the federal government says are \"likely noncitizens.\"",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-10-19T22:10:06.000Z"
-    },
-    {
-      "title": "TP-Link Moves to Assemble Routers In the US Following Import Ban",
-      "link": "https://mobile.slashdot.org/story/26/10/19/211219/tp-link-moves-to-assemble-routers-in-the-us-following-import-ban?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "TP-Link plans to begin assembling routers in Mississippi as early as 2027 after the FCC banned imports of new foreign-made consumer routers over security concerns. Engadget reports: The company has signed a letter of…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-10-19T22:00:00.000Z"
-    },
-    {
       "title": "Researchers Infiltrate Microsoft Tech Support Scam Operation",
       "link": "https://www.darkreading.com/threat-intelligence/microsoft-tech-support-scam-operation",
       "summary": "A large-scale scam operation impersonating Microsoft uses a malicious traffic distribution system (TDS) run by a Russian organization and abuses thousands of Cloudflare links.",
       "source": "Dark Reading",
       "topic": "Cybersecurity",
       "date": "2026-10-19T21:13:41.000Z"
-    },
-    {
-      "title": "Trump DHS Officials Asked CISA To Secretly Aquire and Hack a Voting Machine",
-      "link": "https://politics.slashdot.org/story/26/10/19/2055248/trump-dhs-officials-asked-cisa-to-secretly-aquire-and-hack-a-voting-machine?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Longtime Slashdot reader fahrbot-bot shares a report from ProPublica: A few months into President Donald Trump's second term, political appointees at the Department of Homeland Security (DHS) wanted Cybersecurity and…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-10-19T21:00:00.000Z"
-    },
-    {
-      "title": "Russian spacecraft maneuvers in \"extreme proximity\" to satellite used by Ukraine",
-      "link": "https://arstechnica.com/space/2026/10/russian-spacecraft-maneuvers-in-extreme-proximity-to-satellite-used-by-ukraine/",
-      "summary": "\"Kosmos 2612 closed from hundreds of kilometers away to extreme proximity to ICEYE-X36.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-10-19T20:54:17.000Z"
-    },
-    {
-      "title": "'AdFection' Turns Ad Impressions Into Zero-Click Spyware Delivery",
-      "link": "https://www.darkreading.com/data-privacy/adfection-online-ads-spyware-delivery",
-      "summary": "Spyware vendors are exploiting targeted ad bidding in the digital ecosystem to identify and track individuals and organizations of interest.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-10-19T19:55:01.000Z"
-    },
-    {
-      "title": "ConnectWise Disables Cloud Backups Amid Concerns for Downstream MSPs",
-      "link": "https://www.darkreading.com/identity-access-management-security/connectwise-disables-cloud-backups-downstream-msps",
-      "summary": "Researchers say attackers authenticated into Microsoft 365 tenants using ConnectWise credentials; ConnectWise says customer impact remains unconfirmed.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-10-19T19:19:33.000Z"
-    },
-    {
-      "title": "Hackers Exploit Plex2Shell Flaws to Install Crypto Miners and Linux Proxy Backdoor",
-      "link": "https://thehackernews.com/2026/10/hackers-exploit-plex2shell-flaws-to.html",
-      "summary": "Threat actors have begun to exploit a chain of vulnerabilities in Plex Media Server to deploy cryptocurrency miners and reverse proxy software, a day after a proof-of-concept (PoC) went public. According to a researcher…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-10-19T17:32:13.000Z"
-    },
-    {
-      "title": "Popular WordPress SEO Plugin Rank Math PRO Hijacked to Deliver Self-Restoring Backdoor",
-      "link": "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html",
-      "summary": "Copies of Rank Math PRO, the paid version of the Rank Math SEO plugin for WordPress, that were downloaded from rankmath.com or delivered as updates between 20:02 UTC on October 15 and 07:12 UTC on October 16 contained…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-10-19T16:28:47.000Z"
-    },
-    {
-      "title": "OnlyFans Copyright Takedowns Expose Compromised Websites",
-      "link": "https://www.darkreading.com/vulnerabilities-threats/onlyfans-copyright-takedowns-expose-compromised-websites",
-      "summary": "Copyright takedown requests tied to OnlyFans and other adult content creators are revealing how attackers exploit vulnerable university and government websites to manipulate search results. UpGuard's Greg Pollock…",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-10-19T14:28:11.000Z"
     },
     {
       "title": "Feds Suspect Ransom Negotiator Ran ShinyHunters Extortion Site",
