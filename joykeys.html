@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JoyKeys — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="joykeys.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="jk-intro">
+    <div class="wrap">
+      <h1>JoyKeys</h1>
+      <p class="tagline">Map joystick and gamepad buttons to keyboard keys, so a controller can play any game that only understands the keyboard.</p>
+      <div class="jk-downloads">
+        <a class="jk-download" data-os="windows" href="downloads/Thagobyte-JoyKeys.cmd" download="Thagobyte-JoyKeys.cmd">Download for Windows</a>
+        <a class="jk-download" data-os="mac" href="downloads/thagobyte-joykeys-mac.js" download="thagobyte-joykeys-mac.js">Download for Mac</a>
+        <a class="jk-download" data-os="linux" href="downloads/thagobyte-joykeys-linux.py" download="thagobyte-joykeys-linux.py">Download for Linux</a>
+      </div>
+      <p class="jk-meta">Windows 10 &amp; 11 &middot; macOS 11.3 or newer &middot; any Linux with Python 3 &middot; nothing to install &middot; runs offline</p>
+    </div>
+  </section>
+
+  <section class="jk-panel">
+    <div class="wrap">
+
+      <h2>Ready to play out of the box</h2>
+      <div class="jk-grid">
+        <div class="jk-card">
+          <h3>Move</h3>
+          <ul>
+            <li>D-pad &rarr; arrow keys</li>
+            <li>Left stick &rarr; arrow keys</li>
+          </ul>
+        </div>
+        <div class="jk-card">
+          <h3>Buttons</h3>
+          <ul>
+            <li>A &rarr; Space</li>
+            <li>B and Start / Menu &rarr; Enter</li>
+            <li>Back / Select / Options &rarr; Escape</li>
+          </ul>
+        </div>
+        <div class="jk-card">
+          <h3>Your own mapping</h3>
+          <ul>
+            <li>Choose <em>S</em> when it starts, press a control, type a key</li>
+            <li>Any button, stick direction, trigger or hat</li>
+            <li>Letters, numbers, arrows, Space, Enter, Esc, Tab, Shift, Ctrl, Alt, F1&ndash;F12</li>
+            <li>Saved in <code>thagobyte-joykeys.txt</code> in your home folder</li>
+          </ul>
+        </div>
+      </div>
+      <p class="jk-tip">
+        The defaults fit the games on <a href="games.html">Thagobyte Games</a>, which use the arrow keys, Space and
+        Enter. Some cheap or unusual controllers number their buttons differently. If a button does nothing, map it
+        yourself with <em>S</em>.
+      </p>
+
+      <h2>How to use it</h2>
+      <div class="jk-os" id="jk-windows">
+        <h3>Windows</h3>
+        <ol class="jk-steps">
+          <li><strong>Plug in your controller</strong> and download <em>Thagobyte-JoyKeys.cmd</em>.</li>
+          <li>
+            <strong>Double-click it.</strong> If Windows says &ldquo;Windows protected your PC&rdquo;, click
+            <em>More info</em> &rarr; <em>Run anyway</em>. Windows shows this for any downloaded script.
+          </li>
+          <li><strong>Press Enter</strong> to start, then switch to your game. Close the window to stop.</li>
+        </ol>
+      </div>
+      <div class="jk-os" id="jk-mac">
+        <h3>Mac</h3>
+        <ol class="jk-steps">
+          <li><strong>Connect your controller</strong> (Xbox, PlayStation, Switch Pro or MFi) and download the file.</li>
+          <li>
+            <strong>Open Terminal</strong> (Applications &rarr; Utilities) and run:<br>
+            <code>osascript -l JavaScript ~/Downloads/thagobyte-joykeys-mac.js</code>
+          </li>
+          <li>
+            <strong>The first time</strong>, turn on Terminal in <em>System Settings &rarr; Privacy &amp; Security
+            &rarr; Accessibility</em>, then quit Terminal and run the command again. macOS won't let any app press
+            keys until you allow it.
+          </li>
+          <li><strong>Press Enter</strong> to start, then switch to your game. Press Ctrl+C in Terminal to stop.</li>
+        </ol>
+      </div>
+      <div class="jk-os" id="jk-linux">
+        <h3>Linux</h3>
+        <ol class="jk-steps">
+          <li><strong>Plug in your controller</strong> and download the file.</li>
+          <li>
+            <strong>In a terminal, run:</strong><br>
+            <code>sudo python3 ~/Downloads/thagobyte-joykeys-linux.py</code><br>
+            It needs <code>sudo</code> to create a virtual keyboard. To skip <code>sudo</code> from then on, run it
+            once without <code>sudo</code> and it prints a one-line fix.
+          </li>
+          <li><strong>Press Enter</strong> to start, then switch to your game. Press Ctrl+C to stop.</li>
+        </ol>
+      </div>
+
+      <h2>Good to know</h2>
+      <ul class="jk-notes">
+        <li>It works with any program, including games in a browser, emulators and older PC games.</li>
+        <li>Holding a button holds the key down. Letting go releases it.</li>
+        <li>If the controller is unplugged, JoyKeys waits for it to come back.</li>
+        <li>Windows supports any controller Windows recognises. Mac supports controllers that Apple's Game Controller framework supports. Linux supports any joystick the kernel recognises, on X11 or Wayland.</li>
+        <li>Everything happens on your computer. Nothing is uploaded anywhere.</li>
+      </ul>
+
+      <details class="jk-source" data-src="downloads/Thagobyte-JoyKeys.cmd">
+        <summary>View the Windows script</summary>
+        <p class="jk-source-note">A small batch launcher around PowerShell and C#. It reads the controller with Windows' built-in joystick API and types with SendInput.</p>
+        <pre><code>Loading&hellip;</code></pre>
+      </details>
+      <details class="jk-source" data-src="downloads/thagobyte-joykeys-mac.js">
+        <summary>View the Mac script</summary>
+        <p class="jk-source-note">JavaScript for Automation, which runs with macOS's built-in <code>osascript</code>. It uses Apple's Game Controller framework and posts key events through Core Graphics.</p>
+        <pre><code>Loading&hellip;</code></pre>
+      </details>
+      <details class="jk-source" data-src="downloads/thagobyte-joykeys-linux.py">
+        <summary>View the Linux script</summary>
+        <p class="jk-source-note">Plain Python 3 with no extra packages. It reads the controller from <code>/dev/input</code> and types through <code>/dev/uinput</code>.</p>
+        <pre><code>Loading&hellip;</code></pre>
+      </details>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte&trade;</span>
+  </div>
+</footer>
+
+<script src="joykeys.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
