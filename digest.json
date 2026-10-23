@@ -1,37 +1,93 @@
 {
-  "generatedAt": "2026-10-22T23:25:07.544Z",
+  "generatedAt": "2026-10-23T04:55:44.749Z",
   "items": [
     {
-      "title": "Zodiac: Amit Cohen & Ron Leshem Tapped as MCU Series' Writers: Report",
-      "link": "https://bleedingcool.com/tv/zodiac-amit-cohen-ron-leshem-tapped-as-mcu-series-writers-report/",
-      "summary": "Report: Amit Cohen and \"Euphoria's\" Ron Leshem (Trust No One) have been tapped to write Marvel Television's live-action series Zodiac.",
+      "title": "SNL UK On-Stage Promo: For Larry Dean, It Was All Just a Dream",
+      "link": "https://bleedingcool.com/tv/snl-uk-on-stage-promo-for-larry-dean-it-was-all-just-a-dream/",
+      "summary": "With the final SNL UK of the year hitting this weekend, check out the on-stage promo with Cynthia Erivo, Blossoms, and SNL UK's Larry Dean.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-10-22T23:22:08.000Z"
+      "date": "2026-10-23T04:37:08.000Z"
     },
     {
-      "title": "Godzilla Minus Zero Director Names the 2 Perfect Sequels That Inspired It, And Now We’re Even More Excited",
-      "link": "https://comicbook.com/movies/news/godzilla-minus-zero-director-names-the-2-perfect-sequels-that-inspired-it-and-now-were-even-more-excited/",
-      "summary": "IMAGE COURTESY OF GKIDS When you’re making a science-fiction sequel about something that doesn’t (yet?) exist in real life, it doesn’t hurt to take after the best in the game. That’s what Takashi Yamazaki did when it…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-10-22T23:14:54.000Z"
+      "title": "The Papers: 'Prepare for the worst' and 'Covid report fallout'",
+      "link": "https://www.bbc.co.uk/news/articles/cwly393mj7y3o?at_medium=RSS&at_campaign=rss",
+      "summary": "Defence Secretary Wes Streeting's national campaign on preparedness for cyber or climate emergencies dominates today's papers.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-10-23T04:28:29.000Z"
     },
     {
-      "title": "Crunchyroll’s Solo Leveling Replacement for Fall 2026 Reveals Its Main Action Element, And It’s Anything Unlike Seen Before",
-      "link": "https://comicbook.com/anime/feature/crunchyrolls-solo-leveling-replacement-for-fall-2026-reveals-its-main-action-element-and-its-anything-unlike-seen-before/",
-      "summary": "Image courtesy of J.C. Staff Crunchyroll has the perfect replacement for Solo Leveling in Fall 2026, and its latest episode has introduced an action element unlike anything you could have expected. More anime like Solo…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-10-22T23:09:00.000Z"
-    },
-    {
-      "title": "Law & Order: SVU S28E03 \"Anonymity\" Preview: Bruno's Breaking Point",
-      "link": "https://bleedingcool.com/tv/law-order-svu-s28e03-anonymity-preview-brunos-breaking-point/",
-      "summary": "Has Bruno reached his breaking point? Here's our preview for NBC's Mariska Hargitay-starring Law & Order: SVU, S28E03: \"Anonymity.\"",
+      "title": "Dead by Daylight Reveals Immersive In-Person Experience in California",
+      "link": "https://bleedingcool.com/pop-culture/dead-by-daylight-reveals-immersive-in-person-experience-in-california/",
+      "summary": "Dead by Daylight: The Immersive Experience is a new expanded haunted attraction opening on October 30 at the Moreno Valley Museum & ArtSpace",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-10-22T23:07:10.000Z"
+      "date": "2026-10-23T04:17:10.000Z"
+    },
+    {
+      "title": "DC: Dark Legion Brings Superman Death Metal For Its Halloween Event",
+      "link": "https://bleedingcool.com/games/dc-dark-legion-brings-superman-death-metal-for-its-halloween-event/",
+      "summary": "Superman Death Metal joins DC: Dark Legion as part of the game's Halloween event, starting today and running through November 8",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-10-23T03:47:09.000Z"
+    },
+    {
+      "title": "CORSAIR Drops Cyberpunk 2077 & Cyberpunk: Edgerunners Collections",
+      "link": "https://bleedingcool.com/pop-culture/corsair-drops-cyberpunk-2077-cyberpunk-edgerunners-collections/",
+      "summary": "CORSAIR has created new gaming accessory collections for Cyberpunk 2077 and Cyberpunk: Edgerunners 2.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-10-23T03:37:09.000Z"
+    },
+    {
+      "title": "Marvel’s Sacha Baron Cohen Reveals the Major Worry the MCU Had About His Character",
+      "link": "https://comicbook.com/tv-shows/news/marvels-sacha-baron-cohen-reveals-the-major-worry-the-mcu-had-about-his-character/",
+      "summary": "IMAGE COURTESY OF MARVEL STUDIOS Sacha Baron Cohen had no qualms about playing the very devilish Mephisto in Ironheart, and potentially the larger Marvel Cinematic Universe as well. It turns out the showrunners had some…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-10-23T03:35:15.000Z"
+    },
+    {
+      "title": "Unvetted AI Agents Are Accessing US Bank Accounts",
+      "link": "https://news.slashdot.org/story/26/10/23/0023257/unvetted-ai-agents-are-accessing-us-bank-accounts?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from Axios: Major U.S. banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions that appear to be…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-10-23T03:30:00.000Z"
+    },
+    {
+      "title": "State Bank of India Suffers a Customer PII Data Leak",
+      "link": "https://www.darkreading.com/cyberattacks-data-breaches/state-bank-india-customer-pii-data-leak",
+      "summary": "Relatively small data breaches in India can turn quite serious, thanks to a sophisticated underground market for trading PII.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-10-23T03:30:00.000Z"
+    },
+    {
+      "title": "Sunderfolk Has Launched a Limited-Time Free Demo",
+      "link": "https://bleedingcool.com/games/sunderfolk-has-launched-a-limited-time-free-demo/",
+      "summary": "You can try out a free demo of Sunderfolk during Steam Next Fest, giving players a chance to try the co-op tactical roguelike.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-10-23T03:13:08.000Z"
+    },
+    {
+      "title": "The Battlestar Galactica Board Game Is Making a Surprise Comeback Next Year",
+      "link": "https://www.ign.com/articles/the-battlestar-galactica-board-game-is-making-a-surprise-comeback-next-year",
+      "summary": "When it comes to board games, a frequent “Holy Grail” game (a term used to describe a game that someone has been hunting for, usually out of print and expensive) on many lists is Fantasy Flight Games’ Battlestar…",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-10-23T02:12:34.000Z"
+    },
+    {
+      "title": "Wo Long 2: Wings of Ember Gets Wuxia… and Let Me Fight a Horrific Spider Thing | IGN Preview",
+      "link": "https://www.ign.com/articles/wo-long-2-wings-of-ember-gets-wuxia-and-let-me-fight-a-horrific-spider-thing-ign-preview",
+      "summary": "Wo Long 2: Wings of Ember is shaping up to be an interesting sequel that combines elements of Team Ninja’s action game expertise with the Three Kingdoms games’ penchant for strategy.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-10-23T01:00:00.000Z"
     },
     {
       "title": "8 Cyberpunk 2077 Replay Ideas to Make Night City Feel Brand New",
@@ -50,28 +106,12 @@
       "date": "2026-10-22T23:00:00.000Z"
     },
     {
-      "title": "O'Neill bemoans marginal moments but are Celtic just not good enough?",
-      "link": "https://www.bbc.co.uk/sport/football/articles/cqx287ekvvvpo?at_medium=RSS&at_campaign=rss",
-      "summary": "Martin O'Neill spoke of refereeing decisions and near misses after the Europa League defeat against Celta Vigo. But is the reality more concerning?",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-10-22T22:52:52.000Z"
-    },
-    {
-      "title": "Eternally Yours S01E03 \"The Mistake\" Preview: Jesse's Backstory & More",
-      "link": "https://bleedingcool.com/tv/eternally-yours-s01e03-the-mistake-preview-jesses-backstory-more/",
-      "summary": "We've got a party for Max and more of Jesse's vampire backstory on tap in tonight's episode of CBS's Eternally Yours, S01E03: \"The Mistake.\"",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-10-22T22:52:09.000Z"
-    },
-    {
-      "title": "Peter Berg Says His Call of Duty Movie With Taylor Sheridan Is All About the “Consequence of War” and “Cost of Having to Be A Warrior” (Exclusive)",
-      "link": "https://comicbook.com/movies/news/peter-berg-says-his-call-of-duty-movie-with-taylor-sheridan-is-all-about-the-consequence-of-war-and-cost-of-having-to-be-a-warrior/",
-      "summary": "Call of Duty has been one of the biggest games in the world for so long now that it’s almost shocking that it’s never gotten a major movie adaptation… until now. Director Peter Berg (The Kingdom, Lone Survivor) has made…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-10-22T22:46:29.000Z"
+      "title": "Switch 2 security takes a hit as hackers unlock homebrew access",
+      "link": "https://arstechnica.com/gaming/2026/10/switch-2-jailbreak-gives-hackers-new-ways-to-run-homebrew-and-mod-games/",
+      "summary": "\"Userland\" exploit relies on integer overflow found in \"SmileBasic\" interpreter.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-10-22T22:25:33.000Z"
     },
     {
       "title": "'Mass Effect Universe' Leak Promised What Fans Have Waited Decades For",
@@ -90,6 +130,14 @@
       "date": "2026-10-22T22:18:28.000Z"
     },
     {
+      "title": "Moderna and Merck say their mRNA cancer vaccine cut death, recurrence by 42%",
+      "link": "https://arstechnica.com/health/2026/10/personalized-mrna-cancer-vaccine-cut-melanoma-death-recurrence-by-42/",
+      "summary": "Markers released top-line results today after previously reporting the trial succeeded.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-10-22T22:12:19.000Z"
+    },
+    {
       "title": "Microsoft Says October Updates Didn't Actually Fix VPN Issues",
       "link": "https://it.slashdot.org/story/26/10/22/1950254/microsoft-says-october-updates-didnt-actually-fix-vpn-issues?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "summary": "joshuark shares a report from BleepingComputer: Microsoft says it mistakenly flagged a bug causing Always On VPN connection issues as fixed in the October 2026 Windows 11 cumulative updates. Always On VPN replaced the…",
@@ -106,28 +154,12 @@
       "date": "2026-10-22T22:00:00.000Z"
     },
     {
-      "title": "Half-Life 3 Rumors Reignite After Valve Employee Lets Codename Slip",
-      "link": "https://www.polygon.com/valve-half-life-3-hlx/",
-      "summary": "A Valve employee just casually mentioned Half-Life 3's rumored codename HLX in public, reigniting rumors that the shooter is returning.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-10-22T21:16:28.000Z"
-    },
-    {
-      "title": "'Clayface' Officially Sets Up Another Iconic Batman Villain in the DC Universe",
-      "link": "https://www.polygon.com/clayface-joker-easter-eggs/",
-      "summary": "Clayface is filled with some very noticible Easter eggs about the Joker",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-10-22T21:00:19.000Z"
-    },
-    {
-      "title": "The Browser Company Retires Its Arc Browser, Pushes Users to Dia",
-      "link": "https://tech.slashdot.org/story/26/10/22/1944228/the-browser-company-retires-its-arc-browser-pushes-users-to-dia?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The Browser Company is shutting down its Arc browser on December 22 and encouraging users to migrate to Dia, its newer AI-powered browser for Apple Silicon Macs and Windows 11 PCs. Thurrott reports: In the message…",
-      "source": "Slashdot",
+      "title": "Latest estimate for Starship launches required to support a Moon landing? 22.",
+      "link": "https://arstechnica.com/space/2026/10/latest-estimate-for-starship-launches-required-to-support-a-moon-landing-22/",
+      "summary": "\"We need to keep our eyes on numerous required fuelings for the lander.\"",
+      "source": "Ars Technica",
       "topic": "Technology",
-      "date": "2026-10-22T21:00:00.000Z"
+      "date": "2026-10-22T21:52:31.000Z"
     },
     {
       "title": "Microsoft Links Storm-0940 to ConnectWise Supply Chain Attack",
@@ -146,36 +178,12 @@
       "date": "2026-10-22T20:33:10.000Z"
     },
     {
-      "title": "Disgraced eMudhra drops out of TLS business after using cert private key of 4",
-      "link": "https://arstechnica.com/security/2026/10/disgraced-emudhra-drops-out-of-tls-business-following-certificate-debacle/",
-      "summary": "Flubbed key signing \"ceremony\" allowed minting of web credentials for any site.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-10-22T20:17:52.000Z"
-    },
-    {
       "title": "Actor Tom Skerritt, who played dads, cops and commanding officers, has died",
       "link": "https://www.npr.org/2026/10/22/981035400/tom-skerritt-dead",
       "summary": "Skerritt was Captain Dallas in<em> Alien</em>, Viper in <em>Top Gun</em>, and a small town sheriff in the TV series <em>Picket Fences</em>.",
       "source": "NPR",
       "topic": "Top News",
       "date": "2026-10-22T20:12:52.000Z"
-    },
-    {
-      "title": "Moderna Shares Plunge After Leak of Cancer Vaccine Data",
-      "link": "https://slashdot.org/story/26/10/22/200209/moderna-shares-plunge-after-leak-of-cancer-vaccine-data?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Moderna shares plunged as much as 25% after partial clinical trial data leaked for its personalized cancer vaccine developed with Merck, despite the full results showing promising outcomes for melanoma patients.…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-10-22T20:01:00.000Z"
-    },
-    {
-      "title": "Leaked Mass Effect: Universe trailer gives a taste of what we're all missing",
-      "link": "https://arstechnica.com/gaming/2026/10/leaked-mass-effect-universe-trailer-gives-a-taste-of-what-were-all-missing/",
-      "summary": "We can't have nice things, but at least we can get trailers for them.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-10-22T19:59:37.000Z"
     },
     {
       "title": "Les supermarchés de l'UE paient d'un firmware de réfrigérateur non mis à jour",
@@ -208,14 +216,6 @@
       "source": "The Hacker News",
       "topic": "Cybersecurity",
       "date": "2026-10-22T18:12:43.000Z"
-    },
-    {
-      "title": "ThreatsDay: AI Secrets Leak, PingCAP Source Theft, Signal Hang-Up Flaw, Laravel Auth Bypass + 21 More",
-      "link": "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html",
-      "summary": "This week has already been rough for cybersecurity. Critical PHP and GitLab RCE flaws, serious Linux security bugs, compromised eMudhra certificates, a Node.js RCE flaw, a hacked LiteLLM release, and hundreds of…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-10-22T17:45:44.000Z"
     },
     {
       "title": "Is Jesus’ Crucifixion Reflected in Soil Deposition?",
