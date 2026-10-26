@@ -92,6 +92,9 @@
     { text: "I shall open my eyes and ears. Once every day I shall simply stare at a tree, a flower, a cloud, or a person. I shall not then be concerned at all to ask what they are but simply be glad that they are. I shall joyfully allow them the mystery of what Lewis calls their “divine, magical, terrifying, and ecstatic” existence.", author: "Clyde Kilby" },
     { text: "He loves Thee too little, who loves anything together with Thee, which he loves not for Thy sake.", author: "Augustine" },
     { text: "May knowledge come to us! What is the secret our heart has understood and yet will not reveal to us, although it seems to beat as if it were endeavoring to tell it?", author: "Ayn Rand, Anthem" },
+    { text: "The eye was placed where one ray should fall, that it might testify of that particular ray. We but half express ourselves, and are ashamed of that divine idea which each of us represents.", author: "Ralph Waldo Emerson" },
+    { text: "Trust thyself: every heart vibrates to that iron string. Accept the place the divine providence has found for you, the society of your contemporaries, the connection of events.", author: "Ralph Waldo Emerson" },
+    { text: "Your goodness must have some edge to it,—else it is none.", author: "Ralph Waldo Emerson" },
   ];
 
   const textEl = document.getElementById("quote-text");
