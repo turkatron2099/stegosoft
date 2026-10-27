@@ -422,8 +422,8 @@ body.tm-fs-open {
 
 .is-fullscreen .tm-feed {
   font-size: 0.85em;
-  /* 6 entries of 3 lines each: time + tag, then up to 2 lines of detail. */
-  height: calc(6 * (3 * 1.45em + 0.4em + 1px));
+  /* 4 entries of 3 lines each: time + tag, then up to 2 lines of detail. */
+  height: calc(4 * (3 * 1.45em + 0.4em + 1px));
 }
 
 .is-fullscreen .tm-feed li {
@@ -433,7 +433,7 @@ body.tm-fs-open {
   white-space: normal;
 }
 
-.is-fullscreen .tm-feed li:nth-child(n + 7) {
+.is-fullscreen .tm-feed li:nth-child(n + 5) {
   display: none;
 }
 
