@@ -6,6 +6,10 @@
   const WORLD_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json";
   const REFRESH_MS = 10 * 60 * 1000;
   const FEED_MAX = 8;
+  // An origin ring stays this long after its arc launches (arcs fly for
+  // up to ~2.2 s), then fades out over ORIGIN_FADE.
+  const ORIGIN_LINGER = 2200;
+  const ORIGIN_FADE = 800;
   const COLORS = {
     land: "#0d2b48",
     border: "#1d4f63",
@@ -269,6 +273,7 @@
 
     // Radar only says which country a route starts in, not which IPs, so
     // each origin country gets one ring at its center, sized by its share.
+    // A ring only shows while one of its arcs is in flight (see ORIGIN_LINGER).
     const byOrigin = new Map();
     for (const a of data.arcs) {
       const o = byOrigin.get(a.from) || { country: a.from, L3: 0, L7: 0 };
@@ -279,9 +284,18 @@
     originPoints = [...byOrigin.values()]
       .map((o) => {
         const p = countryXY(o.country);
-        return p && { ...o, x: p[0], y: p[1], r: mark * (3 + 5 * Math.sqrt((o.L3 + o.L7) / maxShare)) };
+        return p && { ...o, x: p[0], y: p[1], r: mark * (3 + 5 * Math.sqrt((o.L3 + o.L7) / maxShare)), active: -Infinity };
       })
       .filter(Boolean);
+  }
+
+  // How visible an origin ring is: fully while its latest arc is flying,
+  // then fading out. With reduced motion there are no arcs, so all show.
+  function originAlpha(o, now) {
+    if (reducedMotion) return 1;
+    const age = now - o.active;
+    if (age < ORIGIN_LINGER) return 1;
+    return Math.max(0, 1 - (age - ORIGIN_LINGER) / ORIGIN_FADE);
   }
 
   function countryXY(code) {
@@ -302,6 +316,8 @@
         effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 1400, size: 18 });
         return;
       }
+      const origin = originPoints.find((o) => o.country === arc.from);
+      if (origin) origin.active = now;
       effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 900, size: 10 });
       effects.push({ kind: "arc", a, b, color: COLORS[arc.layer], start: now, dur: 1600 + Math.random() * 600 });
     } else if (c2Points.length && roll > 0.97) {
@@ -368,11 +384,13 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     for (const o of originPoints) {
+      const alpha = originAlpha(o, now);
+      if (!alpha) continue;
       ctx.beginPath();
       ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${COLORS.origin}, 0.08)`;
+      ctx.fillStyle = `rgba(${COLORS.origin}, ${0.08 * alpha})`;
       ctx.fill();
-      ctx.strokeStyle = `rgba(${COLORS.origin}, 0.6)`;
+      ctx.strokeStyle = `rgba(${COLORS.origin}, ${0.6 * alpha})`;
       ctx.lineWidth = 1.2 * mark;
       ctx.stroke();
     }
@@ -455,6 +473,7 @@
     }
     if (!best) {
       for (const o of originPoints) {
+        if (!originAlpha(o, performance.now())) continue;
         const d = Math.hypot(o.x - x, o.y - y);
         if (d < Math.max(bestDist, o.r + 4)) {
           best = { kind: "origin", item: o };
