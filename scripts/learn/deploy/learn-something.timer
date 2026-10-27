@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Thagobyte Learn Something article
+
+[Timer]
+# 05:30 Chicago time; Persistent catches up after the machine was off or asleep.
+OnCalendar=*-*-* 05:30:00 America/Chicago
+Persistent=true
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target

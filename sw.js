@@ -39,9 +39,14 @@ self.addEventListener("fetch", (event) => {
   // fetches it with {cache: "no-store"}, but that only controls the
   // browser's own HTTP cache and does nothing against a service worker
   // sitting in front of it, so the bypass has to live here instead.
-  // threats.json (the Threat Map snapshot) is rebuilt hourly, so it needs
-  // the same treatment.
-  if (url.pathname.endsWith("/digest.json") || url.pathname.endsWith("/threats.json")) {
+  // threats.json (the Threat Map snapshot) is rebuilt hourly, and
+  // learn.json (Learn Something) gets a new article each morning, so they
+  // need the same treatment.
+  if (
+    url.pathname.endsWith("/digest.json") ||
+    url.pathname.endsWith("/threats.json") ||
+    url.pathname.endsWith("/learn.json")
+  ) {
     event.respondWith(
       caches.open(CACHE_NAME).then(async (cache) => {
         try {

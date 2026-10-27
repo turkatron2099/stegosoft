@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Something — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="learn.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="ls-intro">
+    <div class="wrap">
+      <h1>Learn Something</h1>
+      <p class="tagline">A two-minute read on something new every day. No tech, just the world.</p>
+    </div>
+  </section>
+
+  <section class="ls-panel">
+    <div class="wrap">
+      <article class="ls-article" id="ls-article" aria-live="polite">
+        <p class="ls-message" id="ls-message">Loading today&rsquo;s article&hellip;</p>
+        <div id="ls-content" hidden>
+          <div class="ls-meta">
+            <span class="ls-category" id="ls-category"></span>
+            <time class="ls-date" id="ls-date"></time>
+            <span class="ls-read" id="ls-read"></span>
+          </div>
+          <h2 class="ls-title" id="ls-title"></h2>
+          <div class="ls-body" id="ls-body"></div>
+          <p class="ls-source" id="ls-source"></p>
+        </div>
+      </article>
+
+      <nav class="ls-pager" id="ls-pager" aria-label="Other days" hidden>
+        <button type="button" class="ls-btn" id="ls-newer">&larr; Newer</button>
+        <button type="button" class="ls-btn ls-btn-primary" id="ls-today">Today</button>
+        <button type="button" class="ls-btn" id="ls-older">Older &rarr;</button>
+      </nav>
+
+      <section class="ls-archive" id="ls-archive-section" hidden>
+        <h2>Past days</h2>
+        <ol class="ls-archive-list" id="ls-archive"></ol>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte&trade;</span>
+  </div>
+</footer>
+
+<script src="learn.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>

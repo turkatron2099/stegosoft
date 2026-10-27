@@ -1,0 +1,17 @@
+[Unit]
+Description=Thagobyte Learn Something: write and publish today's article
+Documentation=file://%h/Work/thagobyte/projects/stegosoft-learn-bot/scripts/learn/README.md
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+# A dedicated clone on main, kept separate from the working copy you edit in.
+WorkingDirectory=%h/Work/thagobyte/projects/stegosoft-learn-bot
+Environment=CLAUDE_BIN=%h/.local/share/mise/shims/claude
+Environment=PATH=%h/.local/share/mise/shims:/usr/local/bin:/usr/bin
+Environment=LEARN_MODEL=sonnet
+ExecStart=/usr/bin/python3 -I %h/Work/thagobyte/projects/stegosoft-learn-bot/scripts/learn/generate.py --publish
+TimeoutStartSec=15min
+NoNewPrivileges=yes
+PrivateTmp=yes

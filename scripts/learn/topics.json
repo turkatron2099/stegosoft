@@ -1,0 +1,140 @@
+{
+  "_comment": "Seed topics for Learn Something. Each category has a pick weight and a list of exact English Wikipedia article titles. The generator picks a weighted category, then a random title from it that isn't already in learn.json. No technology or computing topics. Add titles freely; check them with: python3 scripts/learn/generate.py --check-topics",
+  "categories": {
+    "history": {
+      "label": "History",
+      "weight": 3,
+      "titles": [
+        "Great Molasses Flood", "Dancing plague of 1518", "Great Emu War", "Tulip mania", "Great Stink",
+        "Pony Express", "Defenestrations of Prague", "Christmas truce", "London Beer Flood", "Year Without a Summer",
+        "Great Fire of London", "Library of Alexandria", "Rosetta Stone", "Terracotta Army", "Antikythera wreck",
+        "Hanseatic League", "Silk Road", "Dust Bowl", "Klondike Gold Rush", "Great Boston Fire of 1872",
+        "Lewis and Clark Expedition", "Erie Canal", "Transcontinental railroad", "Pig War (1859)", "Mary Celeste",
+        "Roanoke Colony", "Bayeux Tapestry", "Domesday Book", "Magna Carta", "Black Death",
+        "Children's Crusade", "Battle of Hastings", "Hadrian's Wall", "Sutton Hoo", "Vasa (ship)",
+        "Endurance (1912 ship)", "Gunpowder Plot", "Boston Tea Party", "Oregon Trail", "Shackleton–Rowett Expedition"
+      ]
+    },
+    "how-things-are-made": {
+      "label": "How It's Made",
+      "weight": 3,
+      "titles": [
+        "Glassblowing", "Papermaking", "Damascus steel", "Cheesemaking", "Bell-founding",
+        "Pencil", "Crayon", "Neon sign", "Stained glass", "Porcelain",
+        "Indigo dye", "Tyrian purple", "Vellum", "Parchment", "Washi",
+        "Mosaic", "Fresco", "Tapestry", "Felt", "Linen",
+        "Silk", "Denim", "Tweed", "Cooperage", "Wheelwright",
+        "Blacksmith", "Thatching", "Adobe", "Brick", "Roman concrete",
+        "Marbled paper", "Letterpress printing", "Bookbinding", "Candle", "Soap",
+        "Rope", "Basket weaving", "Pottery", "Lacquerware", "Gold leaf"
+      ]
+    },
+    "word-origins": {
+      "label": "Word Origins",
+      "weight": 2,
+      "titles": [
+        "Mayday", "Abracadabra", "Hocus-pocus", "Bob's your uncle", "Hobson's choice",
+        "Charles Boycott", "Sideburns", "Shibboleth", "Spoonerism", "Malapropism",
+        "Gerrymandering", "Filibuster", "Quisling", "Chauvinism", "Silhouette",
+        "Guillotine", "Bethlem Royal Hospital", "Samuel Maverick", "Tuxedo", "Cardigan (sweater)",
+        "Leotard", "Order of Assassins", "Berserker", "Bikini", "Jaywalking",
+        "Mind your Ps and Qs", "Shrapnel shell", "Eponym", "Toponymy", "Dunce cap",
+        "Hooligan", "Mesmerism", "Sabotage", "Robin Hood", "Jumbo"
+      ]
+    },
+    "nature": {
+      "label": "Nature",
+      "weight": 3,
+      "titles": [
+        "Octopus", "Axolotl", "Tardigrade", "Monarch butterfly", "Arctic tern",
+        "Honey bee", "Leafcutter ant", "Mantis shrimp", "Platypus", "Sloth",
+        "Pando (tree)", "General Sherman (tree)", "Venus flytrap", "Rafflesia arnoldii", "Mycorrhiza",
+        "Bioluminescence", "Coral reef", "Kelp forest", "Mangrove", "Bird migration",
+        "Peregrine falcon", "Starling", "Beaver", "Hummingbird", "Owl",
+        "Lyrebird", "Bowerbird", "Cuttlefish", "Anglerfish", "Narwhal",
+        "Salmon run", "Periodical cicadas", "Firefly", "Lichen", "Welwitschia",
+        "Aurora", "Ball lightning", "Geyser", "Petrified wood", "Fairy circle (arid grass formation)"
+      ]
+    },
+    "food-and-drink": {
+      "label": "Food and Drink",
+      "weight": 2,
+      "titles": [
+        "Sourdough", "Croissant", "Bagel", "Pretzel", "Tortilla",
+        "Pasta", "Ketchup", "Worcestershire sauce", "Vanilla", "Saffron",
+        "Black pepper", "Cinnamon", "Chocolate", "Coffee", "Tea",
+        "Maple syrup", "Honey", "Parmigiano Reggiano", "Roquefort", "Kimchi",
+        "Sauerkraut", "Garum", "Soy sauce", "Miso", "Tofu",
+        "Popcorn", "Potato chip", "Fortune cookie", "Caesar salad", "Hamburger",
+        "Doughnut", "Pumpkin pie", "Marshmallow", "Licorice", "Cheddar cheese",
+        "Champagne", "Mead", "Sake", "Absinthe", "Cider"
+      ]
+    },
+    "art-and-music": {
+      "label": "Art and Music",
+      "weight": 2,
+      "titles": [
+        "Mona Lisa", "The Starry Night", "Girl with a Pearl Earring", "The Great Wave off Kanagawa", "Las Meninas",
+        "The Scream", "The Night Watch", "Sistine Chapel ceiling", "Venus of Willendorf", "Lascaux",
+        "Kintsugi", "Origami", "Ukiyo-e", "Pointillism", "Trompe-l'œil",
+        "Ultramarine", "Mummy brown", "Prussian blue", "Vermilion", "Lapis lazuli",
+        "Stradivarius", "Pipe organ", "Bagpipes", "Theremin", "Didgeridoo",
+        "Steelpan", "Gamelan", "Kazoo", "Accordion", "Banjo",
+        "Sea shanty", "Gregorian chant", "Blues", "Yodeling", "Throat singing",
+        "Haiku", "Limerick (poetry)", "Commedia dell'arte", "Puppetry", "Shadow play"
+      ]
+    },
+    "geography": {
+      "label": "Geography",
+      "weight": 2,
+      "titles": [
+        "Dead Sea", "Mariana Trench", "Lake Baikal", "Sahara", "Atacama Desert",
+        "Salar de Uyuni", "Giant's Causeway", "Cappadocia", "Ha Long Bay", "Socotra",
+        "Svalbard", "Greenland", "Pitcairn Islands", "Tristan da Cunha", "Point Nemo",
+        "Bir Tawil", "Baarle-Hertog", "Four Corners Monument", "International Date Line", "Prime meridian",
+        "Panama Canal", "Suez Canal", "Strait of Gibraltar", "Danube", "Amazon River",
+        "Victoria Falls", "Angel Falls", "Grand Canyon", "Uluru", "Mount Everest",
+        "Iceland", "Faroe Islands", "Venice", "Petra", "Timbuktu",
+        "Okavango Delta", "Galápagos Islands", "Great Barrier Reef", "Yellowstone National Park", "Door to Hell"
+      ]
+    },
+    "everyday-science": {
+      "label": "Everyday Science",
+      "weight": 2,
+      "titles": [
+        "Rainbow", "Diffuse sky radiation", "Petrichor", "Static electricity", "Hiccup",
+        "Yawn", "Goose bumps", "Sneeze", "Déjà vu", "Brain freeze",
+        "Maillard reaction", "Caramelization", "Fermentation", "Yeast", "Boiling",
+        "Soap bubble", "Surface tension", "Capillary action", "Snowflake", "Hail",
+        "Fog", "Dew", "Frost", "Thunder", "Sonic boom",
+        "Echo", "Doppler effect", "Mirage", "Green flash", "Moon illusion",
+        "Tides", "Leap year", "Sundial", "Compass", "Lodestone",
+        "Rust", "Patina", "Tarnish", "Phosphorescence", "Glow stick"
+      ]
+    },
+    "customs-and-traditions": {
+      "label": "Customs and Traditions",
+      "weight": 1,
+      "titles": [
+        "Jack-o'-lantern", "Day of the Dead", "Groundhog Day", "April Fools' Day", "Christmas tree",
+        "Advent calendar", "Piñata", "Hogmanay", "Mardi Gras", "Carnival of Venice",
+        "La Tomatina", "Cheese rolling", "Up Helly Aa", "Hanami", "Tanabata",
+        "Lantern Festival", "Dragon boat", "Highland games", "Morris dance", "Maypole",
+        "Wedding cake", "Birthday cake", "Handshake", "Wassailing", "Krampus",
+        "Easter egg", "Pysanka", "Matryoshka doll", "Teddy bear", "Lucky cat"
+      ]
+    },
+    "architecture-and-places": {
+      "label": "Architecture and Places",
+      "weight": 1,
+      "titles": [
+        "Leaning Tower of Pisa", "Great Pyramid of Giza", "Stonehenge", "Colosseum", "Pantheon, Rome",
+        "Hagia Sophia", "Notre-Dame de Paris", "Sagrada Família", "Alhambra", "Taj Mahal",
+        "Angkor Wat", "Machu Picchu", "Great Wall of China", "Forbidden City", "Neuschwanstein Castle",
+        "Eiffel Tower", "Statue of Liberty", "Golden Gate Bridge", "Brooklyn Bridge", "Mont-Saint-Michel",
+        "Gothic architecture", "Flying buttress", "Gargoyle", "Igloo", "Yurt",
+        "Lighthouse", "Windmill", "Castle", "Moat", "Labyrinth"
+      ]
+    }
+  }
+}
