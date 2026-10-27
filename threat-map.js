@@ -13,6 +13,7 @@
     L3: "250, 169, 104",
     L7: "232, 111, 216",
     c2: "140, 191, 184",
+    origin: "246, 220, 172",
   };
 
   const canvas = document.getElementById("tm-canvas");
@@ -51,6 +52,7 @@
   let baseLayer = null;
   let sourcePoints = [];
   let c2Points = [];
+  let originPoints = [];
   let effects = [];
   let nextSpawn = 0;
   let pickSource = null;
@@ -102,6 +104,7 @@
     document.getElementById("tm-legend-l3").hidden = !data.arcs.some((a) => a.layer === "L3");
     document.getElementById("tm-legend-l7").hidden = !data.arcs.some((a) => a.layer === "L7");
     document.getElementById("tm-legend-c2").hidden = !data.c2.length;
+    document.getElementById("tm-legend-origin").hidden = !data.arcs.length;
     renderUpdated();
     renderStats();
     if (projection) {
@@ -263,6 +266,22 @@
         return p && { ...c, x: p[0], y: p[1] };
       })
       .filter(Boolean);
+
+    // Radar only says which country a route starts in, not which IPs, so
+    // each origin country gets one ring at its center, sized by its share.
+    const byOrigin = new Map();
+    for (const a of data.arcs) {
+      const o = byOrigin.get(a.from) || { country: a.from, L3: 0, L7: 0 };
+      o[a.layer] += a.share;
+      byOrigin.set(a.from, o);
+    }
+    const maxShare = Math.max(...[...byOrigin.values()].map((o) => o.L3 + o.L7), 0.0001);
+    originPoints = [...byOrigin.values()]
+      .map((o) => {
+        const p = countryXY(o.country);
+        return p && { ...o, x: p[0], y: p[1], r: mark * (3 + 5 * Math.sqrt((o.L3 + o.L7) / maxShare)) };
+      })
+      .filter(Boolean);
   }
 
   function countryXY(code) {
@@ -283,6 +302,7 @@
         effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 1400, size: 18 });
         return;
       }
+      effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 900, size: 10 });
       effects.push({ kind: "arc", a, b, color: COLORS[arc.layer], start: now, dur: 1600 + Math.random() * 600 });
     } else if (c2Points.length && roll > 0.97) {
       const c = c2Points[Math.floor(Math.random() * c2Points.length)];
@@ -346,6 +366,16 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (baseLayer) ctx.drawImage(baseLayer, 0, 0);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    for (const o of originPoints) {
+      ctx.beginPath();
+      ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${COLORS.origin}, 0.08)`;
+      ctx.fill();
+      ctx.strokeStyle = `rgba(${COLORS.origin}, 0.6)`;
+      ctx.lineWidth = 1.2 * mark;
+      ctx.stroke();
+    }
 
     for (const s of sourcePoints) {
       ctx.beginPath();
@@ -424,6 +454,15 @@
       }
     }
     if (!best) {
+      for (const o of originPoints) {
+        const d = Math.hypot(o.x - x, o.y - y);
+        if (d < Math.max(bestDist, o.r + 4)) {
+          best = { kind: "origin", item: o };
+          bestDist = d;
+        }
+      }
+    }
+    if (!best) {
       tooltip.hidden = true;
       return;
     }
@@ -433,6 +472,12 @@
     if (best.kind === "c2") {
       title.textContent = `${best.item.malware} control server`;
       detail.textContent = `${best.item.ip}:${best.item.port} · ${countryName(best.item.country)}`;
+    } else if (best.kind === "origin") {
+      const parts = [];
+      if (best.item.L7) parts.push(`${best.item.L7.toFixed(1)}% of web attacks`);
+      if (best.item.L3) parts.push(`${best.item.L3.toFixed(1)}% of network DDoS`);
+      title.textContent = countryName(best.item.country);
+      detail.textContent = "Origin of " + parts.join(", ");
     } else {
       title.textContent = best.item.ip;
       detail.textContent = `${countryName(best.item.country)} · hit ${fmt.format(best.item.targets)} sensors, ${fmt.format(best.item.reports)} reports`;

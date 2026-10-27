@@ -132,6 +132,7 @@
 .tm-key-source { background: var(--red); }
 .tm-key-l3 { background: var(--accent); border-radius: 2px; height: 3px; width: 16px; }
 .tm-key-l7 { background: #e86fd8; border-radius: 2px; height: 3px; width: 16px; }
+.tm-key-origin { border: 1.5px solid rgba(246, 220, 172, 0.75); background: rgba(246, 220, 172, 0.1); }
 .tm-key-c2 { background: var(--cyan); transform: rotate(45deg); border-radius: 1px; width: 9px; height: 9px; }
 
 .tm-grid {
