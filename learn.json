@@ -3,17 +3,17 @@
   "articles": [
     {
       "date": "2026-10-27",
-      "title": "Roman Concrete Heals Its Own Cracks, and Nobody Planned It",
+      "title": "Roman Concrete May Have Healed Its Own Cracks",
       "category": "How It's Made",
       "paragraphs": [
         "Imagine a building material that, when it cracks, quietly patches itself up. The ancient Romans may have been making exactly that, and for a long time, modern scientists mistook the secret ingredient for a mistake.",
         "Roman concrete, called opus caementicium, was used widely from about 150 BC, though some scholars think it was developed a century earlier. Like modern concrete, it paired a hydraulic-setting cement with an aggregate, a chunky filler that could include rock, ceramic tile, and brick rubble from demolished buildings. Because the pieces were often large, the concrete was laid rather than poured. It could also set underwater, which made it perfect for bridges and harbors. The writer Vitruvius even gave a recipe: one part lime to three parts volcanic sand for buildings, and one to two for underwater work.",
         "For years, researchers credited the volcanic ash, called pozzolana, with stopping cracks from spreading. But research in 2023 pointed to something else. Little white lumps of lime, called clasts, had long been seen as a sign of sloppy mixing. It turns out they were likely a feature. Water seeping into a crack reacts with these clasts, producing reactive calcium that forms new calcium carbonate crystals and reseals the gap. The clasts were probably created by hot-mixing with quicklime, which made them brittle, so cracks tended to run right through them.",
         "Seawater helped too. In Roman harbor concrete, seawater seeping into tiny cracks reacted with a mineral found in the volcanic rock and grew rare crystals called aluminous tobermorite. The result is a candidate for the most durable building material in human history. Modern concrete in saltwater, by contrast, deteriorates within decades.",
-        "Roman builders also had earthquakes in mind. Breaks and internal structures within walls and domes let sections shift slightly during tremors. In the Pantheon, the dome's aggregate alternates layers of light tuff and pumice, while the foundation uses dense travertine. That dome is still the world's largest and oldest unreinforced concrete dome.",
-        "And here is the delightful twist: Roman concrete kept gaining strength for several decades after construction was finished. In a sense, those ancient builders were still getting stronger long after they had gone home."
+        "Roman builders may also have had earthquakes in mind. Breaks and internal structures within walls and domes let sections shift slightly during tremors. In the Pantheon, the dome's aggregate alternates layers of light tuff and pumice, while the foundation uses dense travertine. That dome is still the world's largest and oldest unreinforced concrete dome.",
+        "And here is the delightful twist: Roman concrete kept gaining strength for several decades after construction was finished, long after its builders had packed up their tools."
       ],
-      "words": 360,
+      "words": 355,
       "model": "claude-sonnet-5-5",
       "source": {
         "title": "Roman concrete",
