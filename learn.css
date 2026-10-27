@@ -203,3 +203,9 @@
     grid-column: 1;
   }
 }
+
+.ls-footer-note {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--light-foreground);
+}

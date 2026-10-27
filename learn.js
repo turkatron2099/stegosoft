@@ -15,6 +15,7 @@
   const archiveList = $("ls-archive");
 
   const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  const LICENSE_URL = "https://creativecommons.org/licenses/by-sa/4.0/";
   const WORDS_PER_MINUTE = 230;
   const dateFmt = new Intl.DateTimeFormat("en-US", {
     weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
@@ -37,14 +38,34 @@
     const paragraphs = raw.paragraphs.map((p) => str(p, 3000)).filter(Boolean).slice(0, 12);
     if (!paragraphs.length) return null;
     const source = raw.source && typeof raw.source === "object" ? raw.source : {};
+    const sourceUrl = wikipediaUrl(source.url);
     return {
       date: raw.date,
       title,
       category,
       paragraphs,
       sourceTitle: str(source.title, 200),
-      sourceUrl: wikipediaUrl(source.url),
+      sourceUrl,
+      historyUrl: historyUrl(sourceUrl),
     };
+  }
+
+  function externalLink(href, text) {
+    const link = document.createElement("a");
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = text;
+    return link;
+  }
+
+  // The page-history link is derived from the already-validated article
+  // URL rather than read from the JSON.
+  function historyUrl(articleUrl) {
+    if (!articleUrl) return null;
+    const title = new URL(articleUrl).pathname.slice("/wiki/".length);
+    if (!title) return null;
+    return `https://en.wikipedia.org/w/index.php?title=${title}&action=history`;
   }
 
   function wikipediaUrl(value) {
@@ -91,27 +112,24 @@
       return el;
     }));
 
+    // Attribution wording agreed with legal (CC BY-SA 4.0 adaptation).
     const source = $("ls-source");
     source.replaceChildren();
     if (a.sourceTitle) {
-      source.append("Based on the Wikipedia article ");
-      if (a.sourceUrl) {
-        const link = document.createElement("a");
-        link.href = a.sourceUrl;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = `“${a.sourceTitle}”`;
-        source.append(link);
+      const quoted = `‘${a.sourceTitle}’`;
+      source.append("Adapted from the Wikipedia article ");
+      source.append(a.sourceUrl ? externalLink(a.sourceUrl, quoted) : quoted);
+      if (a.historyUrl) {
+        source.append(" (text by ", externalLink(a.historyUrl, "Wikipedia contributors"), ")");
       } else {
-        source.append(`“${a.sourceTitle}”`);
+        source.append(" (text by Wikipedia contributors)");
       }
-      source.append(", available under ");
-      const lic = document.createElement("a");
-      lic.href = "https://creativecommons.org/licenses/by-sa/4.0/";
-      lic.target = "_blank";
-      lic.rel = "noopener noreferrer";
-      lic.textContent = "CC BY-SA 4.0";
-      source.append(lic, ". Summarised by AI, so check the original for details.");
+      source.append(
+        ", licensed under ",
+        externalLink(LICENSE_URL, "CC BY-SA 4.0"),
+        ". Changes were made: this version was summarized and rewritten by AI (Claude) and may contain errors, " +
+          "so check the original. This article is also available under CC BY-SA 4.0."
+      );
     }
     source.hidden = !a.sourceTitle;
 
@@ -151,7 +169,10 @@
   }
 
   function indexFromHash() {
-    const date = decodeURIComponent(location.hash.slice(1));
+    let date = "";
+    try {
+      date = decodeURIComponent(location.hash.slice(1));
+    } catch {}
     const i = DATE_RE.test(date) ? articles.findIndex((a) => a.date === date) : -1;
     return i >= 0 ? i : 0;
   }
