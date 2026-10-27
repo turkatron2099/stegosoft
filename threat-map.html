@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threat Map — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="threat-map.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="tm-intro">
+    <div class="wrap">
+      <h1>Threat Map</h1>
+      <p class="tagline">Where today's internet attacks are coming from, built from public threat-intelligence feeds.</p>
+    </div>
+  </section>
+
+  <section class="tm-panel">
+    <div class="wrap tm-wrap">
+
+      <div class="tm-map-box">
+        <div class="tm-status">
+          <span class="tm-live"><span class="tm-live-dot" aria-hidden="true"></span>Live replay</span>
+          <span class="tm-updated" id="tm-updated">Loading&hellip;</span>
+        </div>
+        <div class="tm-map" id="tm-map">
+          <canvas id="tm-canvas" aria-label="World map of attack sources" role="img"></canvas>
+          <div class="tm-tooltip" id="tm-tooltip" hidden></div>
+          <p class="tm-message" id="tm-message">Loading threat data&hellip;</p>
+        </div>
+        <ul class="tm-legend">
+          <li><span class="tm-key tm-key-source"></span>Attack source (scanning or brute-forcing)</li>
+          <li id="tm-legend-l3" hidden><span class="tm-key tm-key-l3"></span>Network DDoS (layer 3)</li>
+          <li id="tm-legend-l7" hidden><span class="tm-key tm-key-l7"></span>Web attacks (layer 7)</li>
+          <li id="tm-legend-c2" hidden><span class="tm-key tm-key-c2"></span>Botnet control server</li>
+        </ul>
+      </div>
+
+      <div class="tm-grid">
+        <div class="tm-card tm-card-feed">
+          <h2>Attack feed</h2>
+          <ol class="tm-feed" id="tm-feed" aria-live="off"></ol>
+        </div>
+        <div class="tm-card">
+          <h2>Top source countries</h2>
+          <ol class="tm-bars" id="tm-countries"></ol>
+        </div>
+        <div class="tm-card">
+          <h2>Most-attacked ports</h2>
+          <ol class="tm-bars" id="tm-ports"></ol>
+        </div>
+        <div class="tm-card" id="tm-targets-card" hidden>
+          <h2>Most-targeted countries</h2>
+          <ol class="tm-bars" id="tm-targets"></ol>
+        </div>
+      </div>
+
+      <p class="tm-note">
+        The map replays the latest snapshot, which is rebuilt every 2 hours. It isn't a feed of every packet.
+        Attack sources are the IPs reported by the most
+        <a href="https://isc.sans.edu/" target="_blank" rel="noopener">SANS Internet Storm Center</a> (DShield) sensors today.
+        Many of the busiest are research scanners like Shodan and Censys, which is why the US looks so busy.
+        Attack routes come from <a href="https://radar.cloudflare.com/security" target="_blank" rel="noopener">Cloudflare Radar</a>,
+        and botnet servers from <a href="https://feodotracker.abuse.ch/" target="_blank" rel="noopener">abuse.ch Feodo Tracker</a>.
+        <a href="https://db-ip.com" target="_blank" rel="noopener">IP Geolocation by DB-IP</a>; locations are approximate.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte&trade;</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="threat-map.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>

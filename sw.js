@@ -39,7 +39,9 @@ self.addEventListener("fetch", (event) => {
   // fetches it with {cache: "no-store"}, but that only controls the
   // browser's own HTTP cache and does nothing against a service worker
   // sitting in front of it, so the bypass has to live here instead.
-  if (url.pathname.endsWith("/digest.json")) {
+  // threats.json (the Threat Map snapshot) is rebuilt hourly, so it needs
+  // the same treatment.
+  if (url.pathname.endsWith("/digest.json") || url.pathname.endsWith("/threats.json")) {
     event.respondWith(
       caches.open(CACHE_NAME).then(async (cache) => {
         try {
@@ -49,7 +51,7 @@ self.addEventListener("fetch", (event) => {
         } catch {
           const cached = await cache.match(request);
           if (cached) return cached;
-          throw new Error("digest.json unavailable and not cached");
+          throw new Error(`${url.pathname} unavailable and not cached`);
         }
       })
     );

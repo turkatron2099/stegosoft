@@ -1,0 +1,52 @@
+name: Build threat map
+
+on:
+  schedule:
+    # Every 2 hours: the feeds behind it are daily totals, so hourly
+    # would mostly just add commits.
+    - cron: "41 */2 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Never let two runs overlap.
+concurrency:
+  group: threat-map
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # The DB-IP geolocation database is ~85 MB and only changes monthly,
+      # so it's cached once per month.
+      - id: month
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore geolocation database
+        uses: actions/cache@v4
+        with:
+          path: scripts/.cache
+          key: dbip-${{ steps.month.outputs.month }}
+
+      - name: Build threat snapshot
+        run: node scripts/build-threats.mjs
+        env:
+          CLOUDFLARE_RADAR_TOKEN: ${{ secrets.CLOUDFLARE_RADAR_TOKEN }}
+
+      - name: Commit snapshot if changed
+        run: |
+          git config user.name "thagobyte-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add threats.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update threat map"
+          git pull --rebase
+          git push
