@@ -189,7 +189,10 @@
     const t = document.createElement("span");
     t.className = "tm-tag " + tagClass;
     t.textContent = tag;
-    li.append(time, t, document.createTextNode(text));
+    const body = document.createElement("span");
+    body.className = "tm-feed-text";
+    body.textContent = text;
+    li.append(time, t, body);
     li.title = text;
     feedEl.prepend(li);
     while (feedEl.children.length > FEED_MAX) feedEl.lastElementChild.remove();

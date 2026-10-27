@@ -400,12 +400,13 @@ body.tm-fs-open {
   height: 0.25em;
 }
 
+/* A narrow column over the Pacific, so it stays clear of South America. */
 .is-fullscreen .tm-card-feed {
   position: absolute;
   left: 2vw;
   bottom: 2.5vh;
   z-index: 2;
-  width: min(40vw, 900px);
+  width: min(20.5vw, 460px);
   padding: 1em 1.3em;
   background: rgba(3, 18, 34, 0.78);
   border-radius: 10px;
@@ -420,7 +421,29 @@ body.tm-fs-open {
 }
 
 .is-fullscreen .tm-feed {
-  font-size: 0.9em;
+  font-size: 0.85em;
+  /* 6 entries of 3 lines each: time + tag, then up to 2 lines of detail. */
+  height: calc(6 * (3 * 1.45em + 0.4em + 1px));
+}
+
+.is-fullscreen .tm-feed li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1.45em 2.9em;
+  white-space: normal;
+}
+
+.is-fullscreen .tm-feed li:nth-child(n + 7) {
+  display: none;
+}
+
+.is-fullscreen .tm-feed-text {
+  grid-column: 1 / -1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {
