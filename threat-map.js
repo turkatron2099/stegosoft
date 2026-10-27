@@ -45,6 +45,9 @@
   let width = 0;
   let height = 0;
   let dpr = 1;
+  // Marker size multiplier, so dots and arcs stay visible on a big
+  // full-screen display instead of shrinking to specks.
+  let mark = 1;
   let baseLayer = null;
   let sourcePoints = [];
   let c2Points = [];
@@ -199,6 +202,7 @@
     if (!rect.width) return;
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     width = rect.width;
+    mark = Math.max(1, Math.min(width / 1100, 2.2));
     height = rect.height;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
@@ -212,7 +216,9 @@
     drawBase();
     placePoints();
     effects = [];
-    if (reducedMotion) drawFrame(performance.now());
+    // Resizing the canvas clears it, so repaint now rather than leaving it
+    // blank until the next animation frame.
+    drawFrame(performance.now());
   }
 
   function drawBase() {
@@ -244,7 +250,7 @@
     sourcePoints = data.sources
       .map((s) => {
         const p = projection([s.lon, s.lat]);
-        return p && { ...s, x: p[0], y: p[1], r: 1.2 + 3.3 * Math.sqrt(s.targets / maxTargets) };
+        return p && { ...s, x: p[0], y: p[1], r: mark * (1.2 + 3.3 * Math.sqrt(s.targets / maxTargets)) };
       })
       .filter(Boolean);
     c2Points = data.c2
@@ -313,21 +319,21 @@
       ctx.moveTo(p0[0], p0[1]);
       ctx.lineTo(p1[0], p1[1]);
       ctx.strokeStyle = `rgba(${e.color}, ${((i + 1) / steps) * 0.9 * fade})`;
-      ctx.lineWidth = 1.6;
+      ctx.lineWidth = 1.6 * mark;
       ctx.stroke();
     }
     const h = bezierPoint(e.a, control, e.b, head);
     ctx.beginPath();
-    ctx.arc(h[0], h[1], 2.4, 0, Math.PI * 2);
+    ctx.arc(h[0], h[1], 2.4 * mark, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${e.color}, ${fade})`;
     ctx.fill();
     // Impact flash once the head lands.
     if (head >= 1) {
       const k = (progress - 0.7) / 0.3;
       ctx.beginPath();
-      ctx.arc(bx, by, 3 + k * 14, 0, Math.PI * 2);
+      ctx.arc(bx, by, (3 + k * 14) * mark, 0, Math.PI * 2);
       ctx.strokeStyle = `rgba(${e.color}, ${1 - k})`;
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = 1.5 * mark;
       ctx.stroke();
     }
   }
@@ -347,7 +353,7 @@
 
     const pulse = reducedMotion ? 0.5 : (Math.sin(now / 400) + 1) / 2;
     for (const c of c2Points) {
-      const r = 4 + pulse * 1.5;
+      const r = (4 + pulse * 1.5) * mark;
       ctx.beginPath();
       ctx.moveTo(c.x, c.y - r);
       ctx.lineTo(c.x + r, c.y);
@@ -365,12 +371,12 @@
         drawArc(e, progress);
       } else {
         ctx.beginPath();
-        ctx.arc(e.x, e.y, 2 + progress * e.size, 0, Math.PI * 2);
+        ctx.arc(e.x, e.y, (2 + progress * e.size) * mark, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(${e.color}, ${1 - progress})`;
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 1.5 * mark;
         ctx.stroke();
         ctx.beginPath();
-        ctx.arc(e.x, e.y, 2.5, 0, Math.PI * 2);
+        ctx.arc(e.x, e.y, 2.5 * mark, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${e.color}, ${1 - progress})`;
         ctx.fill();
       }
@@ -437,6 +443,60 @@
   canvas.addEventListener("pointermove", (e) => showTooltip(e.clientX, e.clientY));
   canvas.addEventListener("pointerdown", (e) => showTooltip(e.clientX, e.clientY));
   canvas.addEventListener("pointerleave", () => (tooltip.hidden = true));
+
+  // ---- full screen (TV mode) ----
+  // Uses the Fullscreen API where it exists, and otherwise (iPhone Safari)
+  // just pins the map over the page with CSS. Either way the attack feed
+  // card moves into the map as a bottom-left overlay, and goes back to its
+  // place in the grid on exit.
+
+  const box = document.getElementById("tm-map-box");
+  const fsBtn = document.getElementById("tm-fullscreen");
+  const feedCard = document.getElementById("tm-feed-card");
+  const feedHome = feedCard.parentNode;
+  const feedNext = feedCard.nextSibling;
+  let cursorTimer = 0;
+
+  function setFullscreenLayout(on) {
+    box.classList.toggle("is-fullscreen", on);
+    document.body.classList.toggle("tm-fs-open", on);
+    if (on) mapEl.append(feedCard);
+    else feedHome.insertBefore(feedCard, feedNext);
+    fsBtn.textContent = on ? "Exit full screen" : "Full screen";
+    fsBtn.setAttribute("aria-pressed", String(on));
+    tooltip.hidden = true;
+    wakeCursor();
+  }
+
+  function toggleFullscreen() {
+    const on = !box.classList.contains("is-fullscreen");
+    if (box.requestFullscreen) {
+      if (on) box.requestFullscreen().catch(() => setFullscreenLayout(true));
+      else if (document.fullscreenElement) document.exitFullscreen();
+      else setFullscreenLayout(false);
+    } else {
+      setFullscreenLayout(on);
+    }
+  }
+
+  // Hide the mouse pointer after a few idle seconds, so it doesn't sit in
+  // the middle of a TV screen.
+  function wakeCursor() {
+    box.classList.remove("is-idle");
+    clearTimeout(cursorTimer);
+    if (box.classList.contains("is-fullscreen")) cursorTimer = setTimeout(() => box.classList.add("is-idle"), 3000);
+  }
+
+  fsBtn.addEventListener("click", toggleFullscreen);
+  document.addEventListener("fullscreenchange", () => setFullscreenLayout(document.fullscreenElement === box));
+  box.addEventListener("pointermove", wakeCursor);
+  document.addEventListener("keydown", (e) => {
+    if (e.target.closest("input, textarea, select") || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === "f" || e.key === "F") toggleFullscreen();
+    // Esc only needs handling for the CSS fallback; real full screen
+    // exits on its own and fires fullscreenchange.
+    if (e.key === "Escape" && !document.fullscreenElement && box.classList.contains("is-fullscreen")) setFullscreenLayout(false);
+  });
 
   // ---- startup ----
 

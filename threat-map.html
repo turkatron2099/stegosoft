@@ -36,10 +36,13 @@
   <section class="tm-panel">
     <div class="wrap tm-wrap">
 
-      <div class="tm-map-box">
+      <div class="tm-map-box" id="tm-map-box">
         <div class="tm-status">
-          <span class="tm-live"><span class="tm-live-dot" aria-hidden="true"></span>Live replay</span>
-          <span class="tm-updated" id="tm-updated">Loading&hellip;</span>
+          <span class="tm-live"><span class="tm-live-dot" aria-hidden="true"></span>Live replay<span class="tm-fs-title">Thagobyte Threat Map</span></span>
+          <span class="tm-status-right">
+            <span class="tm-updated" id="tm-updated">Loading&hellip;</span>
+            <button type="button" class="tm-fs-btn" id="tm-fullscreen" aria-pressed="false" title="Full screen (F)">Full screen</button>
+          </span>
         </div>
         <div class="tm-map" id="tm-map">
           <canvas id="tm-canvas" aria-label="World map of attack sources" role="img"></canvas>
@@ -55,7 +58,7 @@
       </div>
 
       <div class="tm-grid">
-        <div class="tm-card tm-card-feed">
+        <div class="tm-card tm-card-feed" id="tm-feed-card">
           <h2>Attack feed</h2>
           <ol class="tm-feed" id="tm-feed" aria-live="off"></ol>
         </div>

@@ -166,12 +166,13 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.75rem;
   line-height: 1.45;
-  height: 11.6em;
+  /* Exactly FEED_MAX (8) rows, so the box never shows a half-cut row. */
+  height: calc(8 * (1.45em + 0.4em + 1px));
   overflow: hidden;
 }
 
 .tm-feed li {
-  padding: 3px 0;
+  padding: 0.2em 0;
   border-bottom: 1px solid rgba(42, 107, 120, 0.35);
   color: var(--foreground);
   overflow: hidden;
@@ -262,5 +263,175 @@
   .tm-live-dot,
   .tm-feed li {
     animation: none;
+  }
+}
+
+.tm-status-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tm-fs-btn {
+  background: var(--dark-background);
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  padding: 4px 12px;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tm-fs-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tm-fs-title {
+  display: none;
+}
+
+/* ---- full screen (TV mode) ----
+   Sizes are in vw/vh so the overlays scale with the display: readable from
+   the couch on a TV, still sensible on a laptop. */
+
+body.tm-fs-open {
+  overflow: hidden;
+}
+
+.tm-map-box.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  /* Above the SomaFM player too, for the CSS-only fallback. */
+  z-index: 2147483000;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: var(--dark-background);
+}
+
+.tm-map-box.is-fullscreen.is-idle,
+.tm-map-box.is-fullscreen.is-idle * {
+  cursor: none;
+}
+
+.is-fullscreen .tm-map {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+}
+
+.is-fullscreen #tm-canvas {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.is-fullscreen .tm-status {
+  position: absolute;
+  top: 2.5vh;
+  left: 2vw;
+  right: 2vw;
+  z-index: 2;
+  margin: 0;
+  flex-direction: row;
+  align-items: center;
+  font-size: clamp(0.8rem, 1vw, 1.4rem);
+}
+
+.is-fullscreen .tm-live {
+  font-size: clamp(0.75rem, 0.95vw, 1.3rem);
+  gap: 0.7em;
+}
+
+.is-fullscreen .tm-live-dot {
+  width: 0.7em;
+  height: 0.7em;
+}
+
+.is-fullscreen .tm-fs-title {
+  display: inline;
+  margin-left: 0.9em;
+  padding-left: 0.9em;
+  border-left: 1px solid var(--muted);
+  color: var(--foreground);
+  letter-spacing: 0.12em;
+}
+
+.is-fullscreen .tm-fs-btn {
+  font-size: inherit;
+  padding: 0.3em 1em;
+  opacity: 0.75;
+}
+
+.is-fullscreen.is-idle .tm-fs-btn {
+  opacity: 0;
+}
+
+.is-fullscreen .tm-legend {
+  position: absolute;
+  right: 2vw;
+  bottom: 2.5vh;
+  z-index: 2;
+  max-width: 34vw;
+  margin: 0;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0.9em 1.2em;
+  background: rgba(3, 18, 34, 0.78);
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  font-size: clamp(0.75rem, 0.9vw, 1.25rem);
+}
+
+.is-fullscreen .tm-key {
+  width: 0.8em;
+  height: 0.8em;
+}
+
+.is-fullscreen .tm-key-l3,
+.is-fullscreen .tm-key-l7 {
+  width: 1.4em;
+  height: 0.25em;
+}
+
+.is-fullscreen .tm-card-feed {
+  position: absolute;
+  left: 2vw;
+  bottom: 2.5vh;
+  z-index: 2;
+  width: min(40vw, 900px);
+  padding: 1em 1.3em;
+  background: rgba(3, 18, 34, 0.78);
+  border-radius: 10px;
+  font-size: clamp(0.8rem, 1vw, 1.4rem);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.is-fullscreen .tm-card-feed h2 {
+  font-size: 0.85em;
+  margin-bottom: 0.6em;
+}
+
+.is-fullscreen .tm-feed {
+  font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+  .is-fullscreen .tm-card-feed {
+    width: auto;
+    right: 2vw;
+    bottom: auto;
+    top: 62vh;
+  }
+
+  .is-fullscreen .tm-legend {
+    display: none;
   }
 }
