@@ -353,20 +353,14 @@
     return { pts, size: 0.85 + Math.random() * 0.35, spin: (Math.random() < 0.5 ? -1 : 1) * (6 + Math.random() * 6) };
   }
 
-  // Comic-style impact: lines bursting out of the landing spot, plus a few
-  // chips of rock thrown up that fall back down.
+  // Impact: a few chips of rock thrown up that fall back down.
   function makeImpact() {
-    const n = 7 + Math.floor(Math.random() * 3);
-    const lines = [];
-    for (let i = 0; i < n; i++) {
-      lines.push({ ang: (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.4, len: 0.7 + Math.random() * 0.5 });
-    }
     const chips = [];
     for (let i = 0; i < 4; i++) {
       const ang = -Math.PI / 2 + (Math.random() - 0.5) * 2.2;
       chips.push({ vx: Math.cos(ang) * (10 + Math.random() * 10), vy: Math.sin(ang) * (12 + Math.random() * 10), size: 0.6 + Math.random() * 0.6 });
     }
-    return { lines, chips };
+    return { chips };
   }
 
   function rockPath(rock, x, y, r, rot) {
@@ -419,25 +413,9 @@
       return;
     }
 
-    // Landed: impact lines pop out fast, hold, then fade over IMPACT_MS.
+    // Landed: the impact holds, then fades over the end of IMPACT_MS.
     const k = (elapsed - e.flight) / IMPACT_MS;
-    const pop = Math.min(k / 0.12, 1);
-    const grow = 1 - Math.pow(1 - pop, 3);
     const alpha = k < 0.55 ? 1 : 1 - (k - 0.55) / 0.45;
-    const inner = (4 + 3 * grow) * mark;
-    ctx.lineCap = "round";
-    ctx.lineWidth = 1.8 * mark;
-    ctx.strokeStyle = `rgba(${e.color}, ${alpha})`;
-    for (const l of e.impact.lines) {
-      const outer = inner + 9 * l.len * grow * mark;
-      const cx = Math.cos(l.ang);
-      const cy = Math.sin(l.ang);
-      ctx.beginPath();
-      ctx.moveTo(bx + cx * inner, by + cy * inner);
-      ctx.lineTo(bx + cx * outer, by + cy * outer);
-      ctx.stroke();
-    }
-    ctx.lineCap = "butt";
     // Chips of rock bounce up and fall back under gravity.
     const s = k * (IMPACT_MS / 1000);
     for (const c of e.impact.chips) {
