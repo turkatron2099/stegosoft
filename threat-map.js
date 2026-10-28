@@ -6,9 +6,11 @@
   const WORLD_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json";
   const REFRESH_MS = 10 * 60 * 1000;
   const FEED_MAX = 8;
-  // An origin ring stays this long after its arc launches (arcs fly for
-  // up to ~2.2 s), then fades out over ORIGIN_FADE.
+  // An origin ring stays this long after its rock is thrown (rocks fly for
+  // up to ~1.7 s, then the impact shows for IMPACT_MS), then fades out over
+  // ORIGIN_FADE.
   const ORIGIN_LINGER = 2200;
+  const IMPACT_MS = 1000;
   const ORIGIN_FADE = 800;
   const COLORS = {
     land: "#0d2b48",
@@ -319,7 +321,8 @@
       const origin = originPoints.find((o) => o.country === arc.from);
       if (origin) origin.active = now;
       effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 900, size: 10 });
-      effects.push({ kind: "arc", a, b, color: COLORS[arc.layer], start: now, dur: 1600 + Math.random() * 600 });
+      const flight = 1200 + Math.random() * 500;
+      effects.push({ kind: "arc", a, b, color: COLORS[arc.layer], start: now, flight, dur: flight + IMPACT_MS, rock: makeRock(), impact: makeImpact() });
     } else if (c2Points.length && roll > 0.97) {
       const c = c2Points[Math.floor(Math.random() * c2Points.length)];
       addFeed("C2", "tm-tag-c2", `${c.malware} server ${c.ip}:${c.port} · ${countryName(c.country)}`);
@@ -338,42 +341,119 @@
     return [u * u * a[0] + 2 * u * t * c[0] + t * t * b[0], u * u * a[1] + 2 * u * t * c[1] + t * t * b[1]];
   }
 
-  function drawArc(e, progress) {
+  // A lumpy polygon for a thrown rock: points around a circle, each pushed
+  // in or out a little so no two rocks look the same.
+  function makeRock() {
+    const n = 6 + Math.floor(Math.random() * 3);
+    const pts = [];
+    for (let i = 0; i < n; i++) {
+      const ang = (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
+      pts.push([Math.cos(ang), Math.sin(ang), 0.68 + Math.random() * 0.32]);
+    }
+    return { pts, size: 0.85 + Math.random() * 0.35, spin: (Math.random() < 0.5 ? -1 : 1) * (6 + Math.random() * 6) };
+  }
+
+  // Comic-style impact: lines bursting out of the landing spot, plus a few
+  // chips of rock thrown up that fall back down.
+  function makeImpact() {
+    const n = 7 + Math.floor(Math.random() * 3);
+    const lines = [];
+    for (let i = 0; i < n; i++) {
+      lines.push({ ang: (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.4, len: 0.7 + Math.random() * 0.5 });
+    }
+    const chips = [];
+    for (let i = 0; i < 4; i++) {
+      const ang = -Math.PI / 2 + (Math.random() - 0.5) * 2.2;
+      chips.push({ vx: Math.cos(ang) * (10 + Math.random() * 10), vy: Math.sin(ang) * (12 + Math.random() * 10), size: 0.6 + Math.random() * 0.6 });
+    }
+    return { lines, chips };
+  }
+
+  function rockPath(rock, x, y, r, rot) {
+    ctx.beginPath();
+    rock.pts.forEach(([cx, cy, k], i) => {
+      const px = cx * Math.cos(rot) - cy * Math.sin(rot);
+      const py = cx * Math.sin(rot) + cy * Math.cos(rot);
+      if (i) ctx.lineTo(x + px * k * r, y + py * k * r);
+      else ctx.moveTo(x + px * k * r, y + py * k * r);
+    });
+    ctx.closePath();
+  }
+
+  function drawArc(e, now) {
     const [ax, ay] = e.a;
     const [bx, by] = e.b;
     const dist = Math.hypot(bx - ax, by - ay);
-    // Bow every arc upward (toward the top of the map), more for long routes.
+    // Lob every rock upward (toward the top of the map), higher for long routes.
     const control = e.control || (e.control = [(ax + bx) / 2, (ay + by) / 2 - Math.min(dist * 0.35, height * 0.3)]);
-    // The head travels during the first 70%, then the trail fades out.
-    const head = Math.min(progress / 0.7, 1);
-    const tail = Math.max(0, head - 0.35);
-    const fade = progress > 0.7 ? 1 - (progress - 0.7) / 0.3 : 1;
-    const steps = 24;
-    for (let i = 0; i < steps; i++) {
-      const t0 = tail + ((head - tail) * i) / steps;
-      const t1 = tail + ((head - tail) * (i + 1)) / steps;
-      const p0 = bezierPoint(e.a, control, e.b, t0);
-      const p1 = bezierPoint(e.a, control, e.b, t1);
+    const elapsed = now - e.start;
+    const t = Math.min(elapsed / e.flight, 1);
+
+    if (t < 1) {
+      // Dust trail: fading puffs at earlier points along the path.
+      for (let i = 1; i <= 6; i++) {
+        const tt = t - i * 0.035;
+        if (tt <= 0) break;
+        const p = bezierPoint(e.a, control, e.b, tt);
+        ctx.beginPath();
+        ctx.arc(p[0], p[1], (1.6 - i * 0.18) * mark, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${e.color}, ${0.45 - i * 0.065})`;
+        ctx.fill();
+      }
+      // The rock looks bigger at the top of its arc, like it's closer.
+      const h = bezierPoint(e.a, control, e.b, t);
+      const r = 4.4 * mark * e.rock.size * (1 + 0.45 * Math.sin(Math.PI * t));
+      const rot = (elapsed / 1000) * e.rock.spin;
+      rockPath(e.rock, h[0], h[1], r, rot);
+      ctx.fillStyle = `rgb(${e.color})`;
+      ctx.fill();
+      ctx.strokeStyle = "rgba(8, 20, 34, 0.85)";
+      ctx.lineWidth = 1 * mark;
+      ctx.stroke();
+      // A darker lower half gives the rock some shading.
+      ctx.save();
+      ctx.clip();
+      ctx.fillStyle = "rgba(8, 20, 34, 0.35)";
+      ctx.fillRect(h[0] - r, h[1] + r * 0.15, r * 2, r);
+      ctx.restore();
+      return;
+    }
+
+    // Landed: impact lines pop out fast, hold, then fade over IMPACT_MS.
+    const k = (elapsed - e.flight) / IMPACT_MS;
+    const pop = Math.min(k / 0.12, 1);
+    const grow = 1 - Math.pow(1 - pop, 3);
+    const alpha = k < 0.55 ? 1 : 1 - (k - 0.55) / 0.45;
+    const inner = (4 + 3 * grow) * mark;
+    ctx.lineCap = "round";
+    ctx.lineWidth = 1.8 * mark;
+    ctx.strokeStyle = `rgba(${e.color}, ${alpha})`;
+    for (const l of e.impact.lines) {
+      const outer = inner + 9 * l.len * grow * mark;
+      const cx = Math.cos(l.ang);
+      const cy = Math.sin(l.ang);
       ctx.beginPath();
-      ctx.moveTo(p0[0], p0[1]);
-      ctx.lineTo(p1[0], p1[1]);
-      ctx.strokeStyle = `rgba(${e.color}, ${((i + 1) / steps) * 0.9 * fade})`;
-      ctx.lineWidth = 1.6 * mark;
+      ctx.moveTo(bx + cx * inner, by + cy * inner);
+      ctx.lineTo(bx + cx * outer, by + cy * outer);
       ctx.stroke();
     }
-    const h = bezierPoint(e.a, control, e.b, head);
-    ctx.beginPath();
-    ctx.arc(h[0], h[1], 2.4 * mark, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${e.color}, ${fade})`;
-    ctx.fill();
-    // Impact flash once the head lands.
-    if (head >= 1) {
-      const k = (progress - 0.7) / 0.3;
+    ctx.lineCap = "butt";
+    // Chips of rock bounce up and fall back under gravity.
+    const s = k * (IMPACT_MS / 1000);
+    for (const c of e.impact.chips) {
+      const x = bx + c.vx * s * mark;
+      const y = by + (c.vy * s + 60 * s * s) * mark;
       ctx.beginPath();
-      ctx.arc(bx, by, (3 + k * 14) * mark, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(${e.color}, ${1 - k})`;
-      ctx.lineWidth = 1.5 * mark;
-      ctx.stroke();
+      ctx.arc(x, y, 1.2 * c.size * mark, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${e.color}, ${alpha * 0.9})`;
+      ctx.fill();
+    }
+    // A brief white flash right at the landing spot.
+    if (k < 0.2) {
+      ctx.beginPath();
+      ctx.arc(bx, by, (2 + 6 * (k / 0.2)) * mark, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${0.7 * (1 - k / 0.2)})`;
+      ctx.fill();
     }
   }
 
@@ -419,7 +499,7 @@
     for (const e of effects) {
       const progress = (now - e.start) / e.dur;
       if (e.kind === "arc") {
-        drawArc(e, progress);
+        drawArc(e, now);
       } else {
         ctx.beginPath();
         ctx.arc(e.x, e.y, (2 + progress * e.size) * mark, 0, Math.PI * 2);
