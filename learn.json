@@ -1,6 +1,28 @@
 {
-  "updated": "2026-10-27T15:16:41-05:00",
+  "updated": "2026-10-28T05:38:45-05:00",
   "articles": [
+    {
+      "date": "2026-10-28",
+      "title": "The Ghost Ship That Was Perfectly Fine, Except for the People",
+      "category": "History",
+      "paragraphs": [
+        "Imagine spotting a ship at sea, sails set, cargo stowed, belongings undisturbed, and not a single soul on board. That is what the crew of the Dei Gratia found on December 4, 1872, when they came upon the Mary Celeste drifting in the Atlantic off the Azores. The ship was dishevelled but seaworthy, still amply provisioned, and the lifeboat was missing. The last log entry was ten days old. No one who had been aboard was ever seen or heard from again.",
+        "The ship began life far from the mystery. She was launched in Nova Scotia on May 18, 1861, under the name Amazon, built of local timber at a shipyard on the Bay of Fundy. Her career got off to a rough start: her first captain, Robert McLellan, fell ill and died within days of the maiden voyage beginning. She later collided with fishing equipment and sank a brig in the English Channel. In 1867, a storm drove her ashore, and her owners gave her up as a wreck. An American mariner bought the wreck, restored it, and gave it a new name: Mary Celeste.",
+        "By 1872 she had been enlarged and refitted, and Captain Benjamin Briggs, a devout man from Massachusetts, took command. He owned a share of the ship, chose his crew with care, and brought along his wife and their infant daughter. Their young son stayed home with his grandmother. The ship carried 1,701 barrels of alcohol from New York toward Genoa, Italy. Briggs wrote to his mother that the vessel was in beautiful trim and that he hoped for a fine passage.",
+        "When the ship was brought to Gibraltar, officials looked into mutiny, piracy, and insurance fraud. No convincing evidence turned up, though lingering suspicions led to a relatively low salvage award. The mystery invited wild guesses: alcohol fumes, submarine earthquakes, waterspouts, a giant squid attack, and paranormal intervention.",
+        "The story got an extra push from Arthur Conan Doyle, who wrote a short story based on it in 1884. It was so popular that the incorrect spelling \"Marie Celeste\" became more common than the real name. And the ship's own ending was oddly unmysterious: in 1885, a later captain deliberately wrecked her off Haiti in an attempted insurance fraud."
+      ],
+      "words": 374,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Mary Celeste",
+        "requested": "Mary Celeste",
+        "url": "https://en.wikipedia.org/wiki/Mary_Celeste",
+        "pageid": 408092,
+        "revid": 1380046028,
+        "revision_time": "2026-10-13T13:05:10Z"
+      }
+    },
     {
       "date": "2026-10-27",
       "title": "Roman Concrete May Have Healed Its Own Cracks",
