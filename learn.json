@@ -1,6 +1,29 @@
 {
-  "updated": "2026-10-28T05:38:45-05:00",
+  "updated": "2026-10-29T05:38:17-05:00",
   "articles": [
+    {
+      "date": "2026-10-29",
+      "title": "How a Medieval Fundraising Priory Gave Us the Word 'Bedlam'",
+      "category": "Word Origins",
+      "paragraphs": [
+        "Next time your kitchen turns into a chaotic uproar, you can thank a medieval priory for the perfect word to describe it: bedlam. It started life as a casual nickname for a London institution with a surprisingly different purpose.",
+        "Bethlem Royal Hospital was founded in 1247, just outside London's city walls. Its founder, the Italian Goffredo de Prefetti, was the Bishop-elect of Bethlehem, and he needed money. His bishopric had lost heavily after the Khwarazmian Turks conquered Bethlehem in 1244. So the new priory was not meant to be a hospital in the modern sense, and certainly not a place for the insane. It was a base for collecting alms to support the Crusader Church and to link England to the Holy Land. It also housed the poor, which made it a hospital by medieval standards. Everyone there was supposed to wear a star on their cloak to show loyalty to the church of Bethlehem.",
+        "Over time the connection to Bethlehem faded. In the 1370s, during the Hundred Years' War, Edward III took control so that the hospital's funds would not end up enriching the French monarchy. By 1403, a report noted that the master and inmates no longer wore the star. The origins grew so muddled that in 1381 a royal candidate for master even confused the founder with the crusader Godfrey de Bouillon.",
+        "When did it become a place for people with mental illness? Nobody knows for sure. A popular date of 1377 came from a chaplain's unsupported guess in 1914. The first solid record is from 1403, which listed six men described as \"mente capti,\" along with manacles, chains, locks and stocks. The shift was largely complete by 1460.",
+        "Meanwhile, from the fourteenth century people were saying \"Bedleheem,\" \"Bedleem\" and eventually \"Bedlam.\" By the Jacobean era the word had escaped into everyday speech to mean madness and chaos, helped along by plays like The Duchess of Malfi and The Changeling. Two major playhouses, The Curtain and The Theatre, opened nearby in 1576, which probably didn't hurt.",
+        "Here is the delightful twist: when inspectors visited in 1598, they found the buildings filthy and falling apart, and the governors were already thinking of opening the hospital to general visitors as a spectacle. A word for chaos, it turns out, grew out of a star-wearing fundraising mission for the Holy Land."
+      ],
+      "words": 391,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Bethlem Royal Hospital",
+        "requested": "Bethlem Royal Hospital",
+        "url": "https://en.wikipedia.org/wiki/Bethlem_Royal_Hospital",
+        "pageid": 373047,
+        "revid": 1373954755,
+        "revision_time": "2026-09-08T23:33:19Z"
+      }
+    },
     {
       "date": "2026-10-28",
       "title": "The Ghost Ship That Was Perfectly Fine, Except for the People",
