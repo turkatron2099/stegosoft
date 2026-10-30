@@ -1,6 +1,29 @@
 {
-  "updated": "2026-10-29T05:38:17-05:00",
+  "updated": "2026-10-30T05:33:15-05:00",
   "articles": [
+    {
+      "date": "2026-10-30",
+      "title": "Greenland: The World's Most Successful Bit of Marketing?",
+      "category": "Geography",
+      "paragraphs": [
+        "Here is a fun thought: the world's largest island may owe its cheerful name to a clever sales pitch. According to the Icelandic sagas, a Norwegian named Erik the Red was exiled from Iceland after his father committed manslaughter. Erik sailed off to explore an icy land to the northwest, found a livable spot, and called it Greenland. His reasoning, as the Saga of Erik the Red tells it, was that people would be attracted there if it had a favorable name.",
+        "Today Greenland is an autonomous territory of the Kingdom of Denmark, and it is the largest of the kingdom's three parts. It sits between the Arctic and Atlantic oceans, east of the Canadian Arctic Archipelago. With 56,583 people counted in 2022, it is the least densely populated country in the world. Most residents are Inuit, and most live along the southwest coast. In the Greenlandic language, the place is called Kalaallit Nunaat, meaning land of the Kalaallit.",
+        "People were here long before Erik. Palaeo-Inuit cultures arrived around 2500 BC, including the Saqqaq culture, named for a site near Disko Bay. Then, from 986, Erik led a contingent of 14 boats carrying Icelanders and Norwegians to the southwest, where they formed three settlements on fjords. Between AD 800 and 1300, the fjords of southern Greenland were a few degrees warmer than usual for the North Atlantic. Trees and herbs grew, livestock grazed, and barley was raised as far north as the 70th parallel.",
+        "Then the Norse vanished. Their settlements faded away during the 14th and early 15th centuries, and historians still argue about why. Cold temperatures during the Little Ice Age are one suspect. Others include falling prices for walrus ivory, pirates, plague, and clashes with the Inuit. Some say the Norse never adapted to Inuit clothing and hunting gear, and some think many simply joined Inuit communities. The Norse never numbered more than about 2,500.",
+        "The Thule people, ancestors of today's Greenlanders, arrived around 1300 from the west, bringing dog sleds and toggling harpoons. Centuries later, Danish-Norwegian explorers came looking for the lost Norse and found them gone.",
+        "And here is the delightful twist: the Portuguese had already drawn Greenland's southern coast accurately on a world map made in Lisbon, the Cantino planisphere, in 1502, long before anyone found the missing Norse."
+      ],
+      "words": 384,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Greenland",
+        "requested": "Greenland",
+        "url": "https://en.wikipedia.org/wiki/Greenland",
+        "pageid": 12118,
+        "revid": 1377213152,
+        "revision_time": "2026-09-28T09:32:40Z"
+      }
+    },
     {
       "date": "2026-10-29",
       "title": "How a Medieval Fundraising Priory Gave Us the Word 'Bedlam'",
