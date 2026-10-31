@@ -3,7 +3,11 @@
   // Christmas theme: SomaFM's Christmas Lounge every year from Nov 1 to
   // Dec 31 (visitor's local time), Groove Salad 2 the rest of the year.
   // Same rule as holiday.js.
-  const HOLIDAY = new Date().getMonth() >= 10; // 10 = November, 11 = December
+  // 10 = November, 11 = December; plus Oct 31 2026, the day it launched.
+  const today = new Date();
+  const HOLIDAY =
+    today.getMonth() >= 10 ||
+    (today.getFullYear() === 2026 && today.getMonth() === 9 && today.getDate() === 31);
   const CHANNEL = HOLIDAY ? "christmas" : "groovesalad2";
   const CHANNEL_LABEL = HOLIDAY ? "SomaFM — Christmas Lounge" : "SomaFM — Groove Salad 2";
   // Three mirrors for the same broadcast (ice2/ice6/ice5) — fall back to

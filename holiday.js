@@ -6,7 +6,10 @@
 // and snow over the page. somafm-player.js plays SomaFM's Christmas Lounge
 // over the same dates. Keep this file and its <script> tag in index.html.
 (function () {
-  if (new Date().getMonth() < 10) return; // only November (10) and December (11)
+  // Only November (10) and December (11), plus Oct 31 2026, the day it launched.
+  const today = new Date();
+  const launchDay = today.getFullYear() === 2026 && today.getMonth() === 9 && today.getDate() === 31;
+  if (today.getMonth() < 10 && !launchDay) return;
 
   // --- Santa hat -----------------------------------------------------------
   const logo = document.querySelector(".hero-logo");
