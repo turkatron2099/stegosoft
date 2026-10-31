@@ -1,6 +1,29 @@
 {
-  "updated": "2026-10-30T05:33:15-05:00",
+  "updated": "2026-10-31T05:31:14-05:00",
   "articles": [
+    {
+      "date": "2026-10-31",
+      "title": "The Warship That Sank Before Leaving the Neighborhood",
+      "category": "History",
+      "paragraphs": [
+        "Imagine building one of the most powerful warships in the world, decorating it like a royal masterpiece, and watching it sink about 1,300 meters into its very first trip. That is exactly what happened to the Swedish ship Vasa on August 10, 1628.",
+        "Vasa was ordered by King Gustavus Adolphus, who was busy fighting a war with Poland-Lithuania and wanted a strong navy in the Baltic. Sweden's fleet had suffered a rough few years, including ten ships wrecked in a storm in 1625. The king, a keen artillerist, wanted big ships with two full gundecks and heavy guns. Vasa was to be the first. The final plan called for 56 24-pound guns spread over those two decks, and the ship was richly carved as a symbol of the king's ambitions.",
+        "There was just one problem: she was dangerously top-heavy. Shipbuilders of the day did not yet have a solid theory of how to balance such a design, and extra ballast could not fix the underlying fault. Before the launch, Vice Admiral Klas Fleming ordered a stability test. Thirty men ran back and forth across the upper deck to get the ship rolling, but he stopped it after just three trips because he feared she would capsize. He reportedly wished the king were at home.",
+        "The king was not at home. He was leading his army in Poland and sending a steady stream of letters insisting the ship go to sea. His subordinates lacked the political courage to speak up or postpone the voyage. So Vasa set sail, met a wind stronger than a breeze, and sank only minutes later. An inquiry looked for someone to blame, but in the end no one was punished.",
+        "Then Vasa was forgotten. Most of her valuable bronze cannons were salvaged in the 17th century, and she was found again in the late 1950s in a busy shipping area of Stockholm harbor. In 1961 she was raised with a largely intact hull after 333 years on the seabed. Inside and around her, archaeologists found thousands of artifacts, including clothing, tools, coins, cutlery, food, drink, and six of her ten sails, along with the remains of at least 15 people.",
+        "Today she is the world's best-preserved 17th-century ship, and more than 45 million visitors have come to see her. Not bad for a vessel whose only voyage lasted a few minutes."
+      ],
+      "words": 395,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Vasa (ship)",
+        "requested": "Vasa (ship)",
+        "url": "https://en.wikipedia.org/wiki/Vasa_(ship)",
+        "pageid": 187604,
+        "revid": 1381636771,
+        "revision_time": "2026-10-23T20:29:03Z"
+      }
+    },
     {
       "date": "2026-10-30",
       "title": "Greenland: The World's Most Successful Bit of Marketing?",
