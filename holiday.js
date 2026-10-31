@@ -1,6 +1,7 @@
 // Holiday decorations for the homepage, on until New Year's Day 2027
 // (visitor's local time): a Santa hat that follows the hero logo wherever
-// hero-logo.js sends it, and snow falling over the page. Delete this file
+// hero-logo.js sends it, string lights under the top bar, a nutcracker in
+// the bottom-left corner, and snow falling over the page. Delete this file
 // and its <script> tag in index.html once the season is over.
 (function () {
   if (new Date() >= new Date(2027, 0, 1)) return;
@@ -35,6 +36,65 @@
     };
     requestAnimationFrame(follow);
   }
+
+  // --- String lights along the bottom of the top bar ------------------------
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const lights = document.createElement("div");
+    lights.className = "xmas-lights";
+    lights.setAttribute("aria-hidden", "true");
+    header.appendChild(lights);
+    const COLOURS = ["#ff4d4d", "#ffd23f", "#3fd17a", "#4da3ff", "#ff8c3f", "#d46bff"];
+    const GAP = 46; // px between bulbs
+
+    const hang = () => {
+      const width = header.clientWidth;
+      const n = Math.max(2, Math.round(width / GAP));
+      const step = width / n;
+      let wire = "M0 2";
+      let bulbs = "";
+      for (let i = 0; i < n; i++) {
+        const x = i * step + step / 2;
+        wire += " Q" + (i * step + step / 2) + " 16 " + (i + 1) * step + " 2";
+        const c = COLOURS[i % COLOURS.length];
+        bulbs +=
+          '<g class="bulb" style="animation-delay:' + ((i * 0.37) % 2.2).toFixed(2) + 's">' +
+          '<rect x="' + (x - 2.5) + '" y="8" width="5" height="5" rx="1" fill="#2b3a2b"/>' +
+          '<ellipse cx="' + x + '" cy="19" rx="4.5" ry="7" fill="' + c + '"/>' +
+          '<ellipse cx="' + x + '" cy="19" rx="9" ry="11" fill="' + c + '" opacity=".25"/></g>';
+      }
+      lights.innerHTML =
+        '<svg width="' + width + '" height="32" viewBox="0 0 ' + width + ' 32">' +
+        '<path d="' + wire + '" fill="none" stroke="#2b3a2b" stroke-width="2"/>' + bulbs + "</svg>";
+    };
+    window.addEventListener("resize", hang);
+    hang();
+  }
+
+  // --- Nutcracker standing guard bottom-left, above the radio player --------
+  const nutcracker = document.createElement("img");
+  nutcracker.src = "images/nutcracker.svg";
+  nutcracker.alt = "Nutcracker";
+  nutcracker.className = "nutcracker";
+  nutcracker.title = "Click me";
+  nutcracker.tabIndex = 0;
+  document.body.appendChild(nutcracker);
+  new Image().src = "images/nutcracker-open.svg"; // preload, so the first click is instant
+
+  // Click (or Enter/Space) and he opens his mouth for a moment.
+  let shutTimer = null;
+  const crack = () => {
+    nutcracker.src = "images/nutcracker-open.svg";
+    clearTimeout(shutTimer);
+    shutTimer = setTimeout(() => (nutcracker.src = "images/nutcracker.svg"), 600);
+  };
+  nutcracker.addEventListener("click", crack);
+  nutcracker.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      crack();
+    }
+  });
 
   // --- Snow ----------------------------------------------------------------
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;

@@ -345,3 +345,39 @@ a:hover {
   z-index: 9998;
   pointer-events: none;
 }
+
+.site-header {
+  position: relative;
+}
+
+.xmas-lights {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  height: 32px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.xmas-lights .bulb {
+  animation: xmas-twinkle 2.2s ease-in-out infinite;
+}
+
+@keyframes xmas-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xmas-lights .bulb { animation: none; }
+}
+
+.nutcracker {
+  position: fixed;
+  left: 14px;
+  bottom: 52px;
+  width: 54px;
+  z-index: 9997;
+  cursor: pointer;
+}

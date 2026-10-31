@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 140" fill="none" stroke="#f6dcac" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Line-drawn nutcracker in Thagobyte yellow, #f6dcac, the site foreground colour. -->
+  <!-- hat -->
+  <rect x="16" y="4" width="28" height="28" rx="3"/>
+  <path d="M16 26 h28"/>
+  <circle cx="30" cy="15" r="4"/>
+  <!-- face, hair, eyes, moustache, mouth, beard -->
+  <rect x="18" y="32" width="24" height="26" rx="4"/>
+  <path d="M18 34 Q 13 46 17 58 M42 34 Q 47 46 43 58"/>
+  <path d="M22 37 h6 M32 37 h6"/>
+  <circle cx="25" cy="41" r="1.2" fill="#f6dcac"/>
+  <circle cx="35" cy="41" r="1.2" fill="#f6dcac"/>
+  <path d="M23 45 q 3.5 -3 7 0 q 3.5 -3 7 0"/>
+  <rect x="23" y="48" width="14" height="5" rx="1"/>
+  <path d="M27 48 v5 M30 48 v5 M33 48 v5"/>
+  <path d="M19 55 Q 30 68 41 55"/>
+  <!-- coat, epaulettes, buttons, belt -->
+  <rect x="14" y="58" width="32" height="40" rx="4"/>
+  <path d="M27 58 v40 M33 58 v40"/>
+  <path d="M12 62 q 3 -5 8 -3 M48 62 q -3 -5 -8 -3"/>
+  <circle cx="30" cy="66" r="1.3"/>
+  <circle cx="30" cy="73" r="1.3"/>
+  <circle cx="30" cy="91" r="1.3"/>
+  <path d="M14 80 h32 M14 85 h32"/>
+  <rect x="27" y="79.5" width="6" height="6"/>
+  <!-- arms and hands -->
+  <rect x="7" y="60" width="7" height="30" rx="3"/>
+  <rect x="46" y="60" width="7" height="30" rx="3"/>
+  <path d="M7 84 h7 M46 84 h7"/>
+  <circle cx="10.5" cy="93" r="3.2"/>
+  <circle cx="49.5" cy="93" r="3.2"/>
+  <!-- legs, boots, stand -->
+  <path d="M17 98 v20 M28 98 v20 M32 98 v20 M43 98 v20"/>
+  <rect x="16" y="118" width="13" height="14" rx="2"/>
+  <rect x="31" y="118" width="13" height="14" rx="2"/>
+  <rect x="10" y="132" width="40" height="6" rx="2"/>
+</svg>
