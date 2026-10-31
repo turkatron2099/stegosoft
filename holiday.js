@@ -1,10 +1,12 @@
-// Holiday decorations for the homepage, on until New Year's Day 2027
-// (visitor's local time): a Santa hat that follows the hero logo wherever
-// hero-logo.js sends it, string lights under the top bar, a nutcracker in
-// the bottom-left corner, and snow falling over the page. Delete this file
-// and its <script> tag in index.html once the season is over.
+// Thagobyte's Christmas theme for the homepage. It switches itself on every
+// year from Nov 1 to Dec 31 (visitor's local time) and off again on Jan 1,
+// so it never needs putting up or taking down: a Santa hat on the logo's
+// stegosaurus (follows the logo wherever hero-logo.js sends it), string
+// lights under the top bar, a clickable line-drawn nutcracker bottom-left,
+// and snow over the page. somafm-player.js plays SomaFM's Christmas Lounge
+// over the same dates. Keep this file and its <script> tag in index.html.
 (function () {
-  if (new Date() >= new Date(2027, 0, 1)) return;
+  if (new Date().getMonth() < 10) return; // only November (10) and December (11)
 
   // --- Santa hat -----------------------------------------------------------
   const logo = document.querySelector(".hero-logo");

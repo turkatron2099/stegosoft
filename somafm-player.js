@@ -1,8 +1,9 @@
 (function () {
   const STORAGE_KEY = "somafm-playing";
-  // Holiday season: SomaFM's Christmas Lounge until New Year's Day 2027
-  // (visitor's local time), then back to Groove Salad 2 on its own.
-  const HOLIDAY = new Date() < new Date(2027, 0, 1);
+  // Christmas theme: SomaFM's Christmas Lounge every year from Nov 1 to
+  // Dec 31 (visitor's local time), Groove Salad 2 the rest of the year.
+  // Same rule as holiday.js.
+  const HOLIDAY = new Date().getMonth() >= 10; // 10 = November, 11 = December
   const CHANNEL = HOLIDAY ? "christmas" : "groovesalad2";
   const CHANNEL_LABEL = HOLIDAY ? "SomaFM — Christmas Lounge" : "SomaFM — Groove Salad 2";
   // Three mirrors for the same broadcast (ice2/ice6/ice5) — fall back to

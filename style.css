@@ -327,7 +327,7 @@ a:hover {
   color: var(--accent);
 }
 
-/* Holiday decorations (holiday.js) — remove after the season. */
+/* Christmas theme (holiday.js) — on every year Nov 1 to Dec 31; keep. */
 .santa-hat {
   position: fixed;
   top: 0;
