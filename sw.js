@@ -10,7 +10,7 @@
 // Cross-origin requests (archive.org video streams, the weather/geocoding
 // APIs, CDN libraries) are left alone — those need a live network anyway,
 // and the video files are far too large to want in a browser cache.
-const CACHE_NAME = "thagobyte-v1";
+const CACHE_NAME = "thagobyte-v2"; // bump to clear every visitor's saved copies after a site-wide change
 
 self.addEventListener("install", () => {
   self.skipWaiting();
