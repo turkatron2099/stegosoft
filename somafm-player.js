@@ -1,13 +1,15 @@
 (function () {
   const STORAGE_KEY = "somafm-playing";
-  const CHANNEL_LABEL = "SomaFM — Groove Salad 2";
+  // Holiday season: SomaFM's Christmas Lounge until New Year's Day 2027
+  // (visitor's local time), then back to Groove Salad 2 on its own.
+  const HOLIDAY = new Date() < new Date(2027, 0, 1);
+  const CHANNEL = HOLIDAY ? "christmas" : "groovesalad2";
+  const CHANNEL_LABEL = HOLIDAY ? "SomaFM — Christmas Lounge" : "SomaFM — Groove Salad 2";
   // Three mirrors for the same broadcast (ice2/ice6/ice5) — fall back to
   // the next one if a stream endpoint fails to connect.
-  const STREAM_URLS = [
-    "https://ice2.somafm.com/groovesalad2-256-mp3",
-    "https://ice6.somafm.com/groovesalad2-256-mp3",
-    "https://ice5.somafm.com/groovesalad2-256-mp3",
-  ];
+  const STREAM_URLS = ["ice2", "ice6", "ice5"].map(
+    (host) => "https://" + host + ".somafm.com/" + CHANNEL + "-256-mp3"
+  );
   // A dead/unreachable stream endpoint doesn't reliably fire an 'error' or
   // even a 'play' event — the browser can just quietly give up (loadstart
   // then suspend, nothing else). So connecting is only considered

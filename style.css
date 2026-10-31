@@ -326,3 +326,22 @@ a:hover {
 .somafm-player.is-playing .somafm-icon {
   color: var(--accent);
 }
+
+/* Holiday decorations (holiday.js) — remove after the season. */
+.santa-hat {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  transform-origin: 40% 80%;
+}
+
+.snow {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  pointer-events: none;
+}
