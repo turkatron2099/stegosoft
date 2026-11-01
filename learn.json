@@ -1,6 +1,29 @@
 {
-  "updated": "2026-10-31T05:31:14-05:00",
+  "updated": "2026-11-01T05:39:14-06:00",
   "articles": [
+    {
+      "date": "2026-11-01",
+      "title": "Silk: The Thread That Built a Road Across the World",
+      "category": "How It's Made",
+      "paragraphs": [
+        "Imagine a fabric so precious that an entire network of trade routes ended up named after it. That is silk, a natural protein fiber that most often begins its life as the cocoon of a very small, very hungry caterpillar.",
+        "The best-known silk comes from the mulberry silkworm, which is raised in captivity in a practice called sericulture. The fiber is mostly fibroin, with a coating of a sticky substance called sericin. Plenty of other creatures make silk too, from bees and wasps to fleas and spiders, but generally only moth caterpillars have supplied the textile world.",
+        "Why the pampered silkworms? Wild cocoons are troublesome. Often the moth has already left, tearing the thread into short bits. Many are also covered in a mineral layer that makes reeling long strands nearly impossible, and wild silk can be harder to dye. Commercial silkworms are bred to spin white thread with no mineral coating. The pupae are killed, either in boiling water or with a needle, before the adult moths emerge. That lets the whole cocoon unravel as one continuous thread, which makes for much stronger cloth.",
+        "The craft is ancient. Traces of fibroin turned up in soil from two tombs in Henan, China, dating back about 8,500 years. The oldest surviving silk fabric, from around 3630 BC, wrapped the body of a child. Legend credits an empress named Leizu with the invention. Silk was first reserved for emperors, who kept the secrets of sericulture closely guarded, though the knowledge eventually slipped to Korea, Khotan, and India. Silk was even used as a writing surface, because it was light, absorbed ink well, and gave a nice white background.",
+        "The work is still painstaking in places. In Thailand, a single filament is too thin to use, so women hand-reel many threads together onto a wooden spindle. It takes around 40 hours to produce half a kilogram of silk.",
+        "And here is the delightful twist: silk was found in the hair of an Egyptian mummy from about 1070 BC, the first evidence of long-distance silk trade. A caterpillar's cocoon had traveled across continents to rest in a pharaoh-era burial."
+      ],
+      "words": 355,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Silk",
+        "requested": "Silk",
+        "url": "https://en.wikipedia.org/wiki/Silk",
+        "pageid": 51510,
+        "revid": 1382191254,
+        "revision_time": "2026-10-27T05:11:06Z"
+      }
+    },
     {
       "date": "2026-10-31",
       "title": "The Warship That Sank Before Leaving the Neighborhood",
