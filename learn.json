@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-01T05:39:14-06:00",
+  "updated": "2026-11-02T05:32:24-06:00",
   "articles": [
+    {
+      "date": "2026-11-02",
+      "title": "The Giant Flower That Smells Like Death and Hides Inside a Vine",
+      "category": "Nature",
+      "paragraphs": [
+        "Imagine a flower so big it could cover a doormat, so stinky it smells like rotting meat, and so sneaky that for most of its life you would never know it was there. Meet Rafflesia arnoldii, better known as the corpse flower, native to the rainforests of Sumatra and Borneo.",
+        "This plant holds the title for the largest individual flower on Earth. Its bloom grows to about a meter across and can weigh up to 11 kilograms, or 24 pounds. Other plants, like the titan arum, have bigger flowering structures, but those are clusters of many flowers. Rafflesia does it all with just one. It is reddish-brown with white spots, and it is one of Indonesia's three national flowers.",
+        "Here is the odd part: Rafflesia has no visible leaves, stems, or roots, and no chlorophyll. It lives as a parasite on a rainforest vine, growing as thread-like strands of tissue buried inside its host, a bit like a fungus. It only shows itself when it is ready to reproduce. A tiny bud forms outside the vine and slowly swells over about a year into a dark, cabbage-like knob. The biggest bud ever recorded, found on Mount Sago in 1956, was 43 centimeters across.",
+        "Then the flower opens, reportedly with a hiss, and lasts just a few days. Its stench comes from sulfur-containing compounds also found in decaying matter, and it fools carrion flies into thinking they have found a meal. Male and female flowers are separate, so flies must visit both to make seeds. That is a tall order, especially since most flowers are male, and the plant is also threatened by deforestation, harvesting, and even too many curious tourists.",
+        "Its human history is a soap opera. French explorer Louis Auguste Deschamps collected a specimen in 1797, but his ship was captured by the British and his notes vanished. They resurfaced in 1954, suggesting he had studied the plant long before the British did. It is even thought the British may have hidden them to claim the glory of discovery.",
+        "And the name? Botanists were still sorting out the paperwork in 2017, when one admitted an error about who first validated the genus name. The credit went to a chemist, and Rafflesia is the only plant he ever published."
+      ],
+      "words": 379,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Rafflesia arnoldii",
+        "requested": "Rafflesia arnoldii",
+        "url": "https://en.wikipedia.org/wiki/Rafflesia_arnoldii",
+        "pageid": 1392524,
+        "revid": 1375188120,
+        "revision_time": "2026-09-16T09:11:16Z"
+      }
+    },
     {
       "date": "2026-11-01",
       "title": "Silk: The Thread That Built a Road Across the World",
