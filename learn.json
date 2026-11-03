@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-02T05:32:24-06:00",
+  "updated": "2026-11-03T05:35:13-06:00",
   "articles": [
+    {
+      "date": "2026-11-03",
+      "title": "The River So Big Explorers Called It a Sweet Sea",
+      "category": "Geography",
+      "paragraphs": [
+        "Imagine sailing along the ocean, scooping up a drink, and finding it fresh. That is exactly what happened in March 1500, when Spanish explorer Vicente Yáñez Pinzón became the first documented European to sail up the Amazon River. The river's freshwater pushes so far out into the Atlantic that Pinzón named it Mar Dulce, literally \"sweet sea.\"",
+        "He had a point. The Amazon is the largest river in the world by volume of water, with an average discharge of about 215,000 to 230,000 cubic meters per second. That is greater than the next seven largest independent rivers combined, and it accounts for 20 percent of all the river water flowing into the world's oceans. Its drainage basin covers roughly 7,000,000 square kilometers, the largest on Earth. Even when the Amazon enters Brazil, it carries only one-fifth of the flow it will eventually dump into the Atlantic, yet that is already more than any other river in the world.",
+        "The river's story is full of reversals. Geological studies suggest that for millions of years it flowed east to west. Then the Andes rose, blocked the path to the Pacific, and forced the water to turn around and head for the Atlantic instead.",
+        "The name has its own tale. In 1541, Francisco de Orellana set off with Gonzalo Pizarro, searching for El Dorado and a valley of cinnamon. Orellana ended up floating down the whole river, and along the way native warriors, led by women, attacked his expedition. They reminded him of the female warriors of Greek mythology, the Amazons, and the name stuck. He reached the river's mouth on 24 August 1542.",
+        "People were here long before him. Archaeologists estimate that more than 3 million indigenous people lived around the Amazon by 1541. By repeatedly burning parts of the forest, they enriched the soil, creating dark, fertile ground called terra preta, or \"Indian black earth.\"",
+        "And the cinnamon? Pizarro reported finding cinnamon trees that could not be profitably harvested. True cinnamon is not native to South America at all. He probably saw some of its relatives."
+      ],
+      "words": 345,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Amazon River",
+        "requested": "Amazon River",
+        "url": "https://en.wikipedia.org/wiki/Amazon_River",
+        "pageid": 1701,
+        "revid": 1382171474,
+        "revision_time": "2026-10-27T01:47:40Z"
+      }
+    },
     {
       "date": "2026-11-02",
       "title": "The Giant Flower That Smells Like Death and Hides Inside a Vine",
