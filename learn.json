@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-03T05:35:13-06:00",
+  "updated": "2026-11-04T05:31:14-06:00",
   "articles": [
+    {
+      "date": "2026-11-04",
+      "title": "The 2,170-Mile Road Built by Fur Traders and Lost Explorers",
+      "category": "History",
+      "paragraphs": [
+        "Imagine packing your whole life into a wagon and rolling 2,170 miles toward a valley you have never seen. About 400,000 people did something like that on the Oregon Trail, a route that stretched from the Missouri River to the valleys of Oregon Territory. But the road did not appear overnight, and the people who first sketched it were often lost, hungry, or running scared.",
+        "President Thomas Jefferson kicked things off by sending Lewis and Clark to find a water route across the continent. They did reach the Pacific, but their path was far too rough for wagons. Still, they mapped the river valleys at both ends of what would become the trail, and they showed the way for the mountain men who followed.",
+        "One of those groups worked for John Jacob Astor's Pacific Fur Company. An overland party led by Wilson Price Hunt tried to float down the Snake River in dugout canoes, only to find steep canyons, waterfalls, and impassable rapids. They ended up caching their goods and walking. Their trip still proved that much of the route could be handled by pack train, or even wagons. Meanwhile, Robert Stuart led a small group back east and, while steering away from a feared attack, stumbled onto South Pass, a wide and easy gap over the Continental Divide.",
+        "The western end was a different story, because the British controlled most of it. The Hudson's Bay Company ran Fort Vancouver, and officially discouraged American settlement. Yet its manager, John McLoughlin, quietly helped newcomers with loans, medical care, shelter, clothing, food, supplies, and seed. They often showed up tired and nearly penniless just as winter arrived. He was later hailed as the Father of Oregon.",
+        "By the 1840s, thousands of settlers were arriving, and traffic was especially thick from 1846 to 1869. Then the first transcontinental railroad opened in 1869, making the trip faster, cheaper, and safer, and use of the trail declined.",
+        "The trail never quite disappeared, though. Interstate 80 and Interstate 84 now follow parts of its course, passing through towns that were first established to serve the wagon travelers. So if you ever take a road trip west, you may be driving in the ruts of history."
+      ],
+      "words": 369,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Oregon Trail",
+        "requested": "Oregon Trail",
+        "url": "https://en.wikipedia.org/wiki/Oregon_Trail",
+        "pageid": 48711,
+        "revid": 1382262730,
+        "revision_time": "2026-10-27T17:12:49Z"
+      }
+    },
     {
       "date": "2026-11-03",
       "title": "The River So Big Explorers Called It a Sweet Sea",
