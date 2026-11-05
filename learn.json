@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-04T05:31:14-06:00",
+  "updated": "2026-11-05T05:37:53-06:00",
   "articles": [
+    {
+      "date": "2026-11-05",
+      "title": "The Art of Weaving a Picture You Can Hang on the Wall",
+      "category": "How It's Made",
+      "paragraphs": [
+        "Here is a plot twist for art lovers: the world's most famous tapestry is not a tapestry at all. The Bayeux Tapestry, all 68 meters of it, is actually embroidery. Real tapestry is something quite different, and a lot harder to pull off.",
+        "Technically, tapestry is weft-faced weaving, which means the warp threads, the ones stretched on the loom, are completely hidden in the finished piece. Instead of running one thread across the whole width, the weaver interlaces each colored weft thread back and forth in its own small patch of the design. Warp threads are usually wool, linen, or cotton, while the weft is often wool or cotton, and the fanciest versions might add silk, silver, or gold.",
+        "The weaver always works from the back of the piece, following a full-size painted or drawn pattern called a cartoon. Depending on the setup, the result comes out as a mirror image. On horizontal looms, the cartoon was often cut into strips and slid beneath the threads so the weaver could peek at it through the web. The rare surviving Raphael Cartoons were cut exactly this way.",
+        "The work was slow. One weaver could make about a square yard of medium-quality tapestry in a month, and only half that of the finest quality. Materials mattered, too: silk might quadruple the cost, while gold thread could push it to perhaps fifty times the price of wool alone.",
+        "That expense bought something useful. Tapestries were portable, so kings folded them into canvas bags and carted them from residence to residence. Hung on castle walls, they also helped insulate against winter chill. Many rulers even kept whole \"wardrobe\" departments just to care for and move them.",
+        "And the surprising part? Gold-woven tapestries had a dark side. Some of the Sistine Chapel tapestries were burned by Charles V's soldiers just to recover the precious metal. Meanwhile, one ancient wall hanging found near Khotan, in the Tarim Basin, met a humbler fate: it was reused to make a pair of trousers."
+      ],
+      "words": 335,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Tapestry",
+        "requested": "Tapestry",
+        "url": "https://en.wikipedia.org/wiki/Tapestry",
+        "pageid": 87026,
+        "revid": 1382064559,
+        "revision_time": "2026-10-26T10:37:40Z"
+      }
+    },
     {
       "date": "2026-11-04",
       "title": "The 2,170-Mile Road Built by Fur Traders and Lost Explorers",
