@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-05T05:37:53-06:00",
+  "updated": "2026-11-06T05:33:00-06:00",
   "articles": [
+    {
+      "date": "2026-11-06",
+      "title": "Origami: How a Flat Square Became a Sculpture",
+      "category": "Art and Music",
+      "paragraphs": [
+        "Here is a puzzle: take one flat square of paper, no scissors, no glue, and turn it into a crane. That simple challenge sits at the heart of origami, the art of folding paper. The name is a pairing of two Japanese words, \"ori,\" meaning to fold, and \"kami,\" meaning paper.",
+        "The word may be Japanese, but the practice is surprisingly universal, and its true origin remains unknown. Separate paperfolding traditions arose in Europe, China, and Japan, and they stayed mostly apart until the 20th century. In Europe, napkin folding flourished in the 17th and 18th centuries. One historian suggests it faded when porcelain replaced fancy napkin folds as a dinner-table status symbol among nobility.",
+        "In Japan, a sword fitting made around the turn of the 1600s was decorated with a picture of an origami crane, a hint that folding for fun was already around. By 1747, a book showed paper cranes among its designs. In 1797 came the oldest known technical book on recreational origami, with 49 pieces by a Buddhist monk named Gidō, each paired with a comic poem. Even today, his hometown of Kuwana City protects those 49 methods as Intangible Cultural Properties and certifies people who can fold them correctly.",
+        "Some rules we now think of as classic are actually fairly recent imports. When Japan opened its borders in the 1860s, it brought in Friedrich Fröbel's German Kindergarten system, along with the ban on cuts and the bicolored square. Older Japanese sources used many starting shapes and often included cuts.",
+        "Modern origami is a mix of craft, math, and science. In the 1980s, folders began studying the mathematical properties of folded forms, and the complexity of models shot up. Today the principles show up in stents, packaging, and other engineering uses. Tools range from bone folders to paper clips that act as extra fingers. Paper can be dampened for wet-folding, which creates gentle curves, and it can even be dollar bills.",
+        "And origami can move. Robert Lang designed paper instrumentalists whose hands appear to play music when you pull their heads away from their bodies. That's a pretty lively performance for a single sheet of paper."
+      ],
+      "words": 360,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Origami",
+        "requested": "Origami",
+        "url": "https://en.wikipedia.org/wiki/Origami",
+        "pageid": 52293,
+        "revid": 1383242304,
+        "revision_time": "2026-11-01T18:37:50Z"
+      }
+    },
     {
       "date": "2026-11-05",
       "title": "The Art of Weaving a Picture You Can Hang on the Wall",
