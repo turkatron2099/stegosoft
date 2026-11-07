@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-06T05:33:00-06:00",
+  "updated": "2026-11-07T05:36:51-06:00",
   "articles": [
+    {
+      "date": "2026-11-07",
+      "title": "Owls: The Silent Hunters with a Twist in Their Necks",
+      "category": "Nature",
+      "paragraphs": [
+        "Imagine a hunter that can look straight behind itself without moving its body, glide through the night without a whisper, and pinpoint a mouse by a sound difference of about 30 microseconds. That's the owl, a bird so well equipped for nighttime hunting that it seems almost unfair to its dinner.",
+        "Start with the head. Owls can rotate their heads and necks as much as 270 degrees, and there's a reason. Their large, forward-facing eyes are fixed in their sockets, shaped more like tubes than balls, so they can't glance side to side. Instead, the whole head swivels. Humans have seven neck vertebrae, while owls have 14. Their blood vessels are built with extra slack and a very large junction of arteries, so blood keeps flowing to the brain even mid-twist. Staying still while turning only the head also keeps the owl quiet as it waits for prey.",
+        "Quiet is the owl's specialty. Its flight feathers have serrated edges and a velvety surface that soak up the sound of flapping wings. The noise drops below the range that its usual prey can hear, yet stays within the owl's own best hearing range, so it can still listen for a rustle below.",
+        "That hearing is remarkable too. In some species the ears sit at different heights on the skull. The owl turns its head until the sound reaches both ears at the same moment, and then it is facing its target. The flat, dish-like face helps by funneling sound toward the ears, and the owl can adjust the shape of that disc to focus more sharply. A downward-pointing beak even helps keep sound from bouncing away from the face.",
+        "The finish is all talons. Owls kill by crushing the skull and kneading the body of their prey. The tiny burrowing owl needs only 5 newtons of force to release its grip, while the great horned owl needs more than 130.",
+        "Here's a final surprise: those pointy \"ears\" on top of a great horned owl's head aren't ears at all. They're just tufts of feathers. The real ears are on the sides of the head, hiding in plain sight."
+      ],
+      "words": 357,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Owl",
+        "requested": "Owl",
+        "url": "https://en.wikipedia.org/wiki/Owl",
+        "pageid": 37654,
+        "revid": 1380132528,
+        "revision_time": "2026-10-14T00:10:53Z"
+      }
+    },
     {
       "date": "2026-11-06",
       "title": "Origami: How a Flat Square Became a Sculpture",
