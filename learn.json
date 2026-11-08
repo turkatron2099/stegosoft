@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-07T05:36:51-06:00",
+  "updated": "2026-11-08T05:32:51-06:00",
   "articles": [
+    {
+      "date": "2026-11-08",
+      "title": "When Politics Went Out the Window in Prague",
+      "category": "History",
+      "paragraphs": [
+        "Some political disagreements get settled with votes. In Prague, three times in history, they were settled by tossing people out of windows. The word \"defenestrate\" is believed to have first appeared in English to describe one of these episodes, and it has been handy ever since.",
+        "The first came in 1419, when a priest named Jan Želivský led his congregation through the streets to the New Town Hall. The council had refused to exchange Hussite prisoners. Then a stone was thrown from the town hall, and it allegedly hit Želivský. The enraged crowd stormed inside and threw the judge, the burgomaster and several council members out the window. The result was the long Hussite Wars. The second, in 1483, saw a burgomaster and seven councilors thrown from town halls, and it ended up helping bring religious reconciliation instead.",
+        "The most famous came on May 23, 1618. Bohemia was largely Protestant but ruled by Catholic Habsburgs, and tensions rose when the heir, Ferdinand, pushed to halt construction of some Protestant chapels. A group of angry Protestant nobles confronted four royal regents in the Bohemian Chancellery. Two were sent away unharmed. The other two, Jaroslav Bořita of Martinice and Vilém Slavata of Chlum, were found guilty of working against the estates and the kingdom. Together with their secretary, Philip Fabricius, they were thrown from a high window, a fall of roughly 70 feet.",
+        "All three survived. Catholics said angels or the Virgin Mary had caught them. Protestant pamphleteers later claimed they landed on a dung heap, a story that was apparently unknown to people at the time and was probably invented to mock the miracle claims.",
+        "The consequences were anything but funny. The event set off the Bohemian revolt, and just two years later the Battle of White Mountain became the first battle of the Thirty Years' War.",
+        "And the secretary? Fabricius was later made a nobleman by the Emperor and given the title Baron von Hohenfall, which literally means \"Baron of Highfall.\""
+      ],
+      "words": 331,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Defenestrations of Prague",
+        "requested": "Defenestrations of Prague",
+        "url": "https://en.wikipedia.org/wiki/Defenestrations_of_Prague",
+        "pageid": 44397,
+        "revid": 1383751236,
+        "revision_time": "2026-11-04T16:46:17Z"
+      }
+    },
     {
       "date": "2026-11-07",
       "title": "Owls: The Silent Hunters with a Twist in Their Necks",
