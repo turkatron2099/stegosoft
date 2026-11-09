@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-08T05:32:51-06:00",
+  "updated": "2026-11-09T05:30:52-06:00",
   "articles": [
+    {
+      "date": "2026-11-09",
+      "title": "Tweed: The Fabric Born From a Misread Letter",
+      "category": "How It's Made",
+      "paragraphs": [
+        "Sometimes a whole industry gets its famous name because someone had terrible handwriting. That is the traditional story behind tweed, the rough, cozy fabric that has kept hunters, golfers, and professors comfortable for generations.",
+        "Tweed is a woollen cloth with a soft, open, flexible feel, though it is woven more closely than similar fabrics like cheviot or homespun. Weavers usually use a plain weave, a twill, or a herringbone structure. The colorful flecks you see in it come from a clever trick: dyed wool can be mixed together before it is spun into yarn, so the color effects are built into the thread itself.",
+        "The fabric was made for harsh weather. It resists moisture and lasts and lasts, which is why it became a staple of traditional Scottish, Irish, Welsh, and English clothing. Today, Irish tweed is most associated with County Donegal, while Scottish tweed is tied to the Isle of Harris in the Hebrides. Real Harris Tweed even has a law behind it. The Harris Tweed Act 1993 says it must be handwoven by islanders at home in the Outer Hebrides, finished there, and made from pure virgin wool dyed and spun there too. Donegal tweed, meanwhile, has been made for centuries from local sheep wool, with dyes drawn from plants such as blackberries, gorse, and moss.",
+        "Tweed started out as upper-class country wear, like shooting jackets. Later the Edwardian middle classes adopted it, pairing it with the leisurely pursuits of the elite. Its toughness made tweed Norfolk jackets and plus-fours a favorite of hunters, cyclists, golfers, and early motorists. That is why Kenneth Grahame put Mr. Toad in a Harris Tweed suit. Popular patterns include houndstooth, windowpane, herringbone, and Glen plaid, which Edward VII originally commissioned.",
+        "Now for the name. The cloth was once called tweel, Scots for twill. Around 1831, a London merchant named James Locke got a letter from a Hawick firm about some tweels. He misread the handwriting and thought it was a trade name taken from the River Tweed, which flows through the Scottish Borders textile area. He advertised the goods as Tweed, and the name stuck.",
+        "And the quirks keep coming. Some vintage Danemann upright pianos have a tweed backing to protect their inner workings, and a few Scottish bagpipes were once covered in tweed instead of tartan."
+      ],
+      "words": 385,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Tweed",
+        "requested": "Tweed",
+        "url": "https://en.wikipedia.org/wiki/Tweed",
+        "pageid": 3776458,
+        "revid": 1380918922,
+        "revision_time": "2026-10-18T19:49:29Z"
+      }
+    },
     {
       "date": "2026-11-08",
       "title": "When Politics Went Out the Window in Prague",
