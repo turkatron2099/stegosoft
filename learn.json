@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-09T05:30:52-06:00",
+  "updated": "2026-11-10T05:39:11-06:00",
   "articles": [
+    {
+      "date": "2026-11-10",
+      "title": "The Texas Lawyer Who Gave Us a Word for Rebels",
+      "category": "Word Origins",
+      "paragraphs": [
+        "Some people leave behind monuments. Samuel Augustus Maverick left behind a word. First attested in 1867, \"maverick\" comes from his name, and today it describes anyone who refuses to follow the herd. The man himself, though, led a life that was busy in ways that have nothing to do with dictionaries.",
+        "Born on July 23, 1803, in South Carolina, Maverick was known to his family as \"Gus\" and to his Yale classmates as \"Sam.\" After graduating in 1825, he learned business from his father and then studied law in Virginia. His first run for the South Carolina legislature did not go well. He argued for a peaceful solution to the tariff problem and against nullification, which was unpopular, and he finished ninth out of thirteen candidates. He then tried running a gold mine in Georgia, which also failed, and a plantation in Alabama, which he disliked.",
+        "Texas suited him better. He arrived in April 1835 and started buying land almost immediately, eventually focusing on the drier climate around San Antonio. When the Texas Revolution began, a Mexican general had a guard posted at the door of the house where Maverick was staying. Maverick kept a diary through the siege, and when he was allowed to leave the city, he guided a detachment of Texan troops back in. During the fighting, Ben Milam was shot in the head, and Maverick caught his body as it fell.",
+        "He was chosen as a delegate to the independence convention by the men at the Alamo, and he left the fort on March 2, 1836. William Barret Travis reportedly urged him to ask the convention for reinforcements. By the time Maverick reached the convention, the Alamo defenders were all dead. He signed the Texas Declaration of Independence anyway. His name was left out of the printed version, but it appears on page 11 of the handwritten original as \"Saml. A Maverick (from Bejar).\"",
+        "Later came a marriage, a move to San Antonio, a term as mayor, and a very lucky escape. In late 1839, Maverick left a surveying camp early because he had promised his wife he would be home on a specific day. Later that day, Comanches raided the camp and killed all but one person.",
+        "And the family word-making did not stop with him. His grandson, Texas politician Maury Maverick, coined the term \"gobbledygook\" in 1944. One family, two famous words."
+      ],
+      "words": 398,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Samuel Maverick",
+        "requested": "Samuel Maverick",
+        "url": "https://en.wikipedia.org/wiki/Samuel_Maverick",
+        "pageid": 314109,
+        "revid": 1365780014,
+        "revision_time": "2026-07-24T10:54:15Z"
+      }
+    },
     {
       "date": "2026-11-09",
       "title": "Tweed: The Fabric Born From a Misread Letter",
