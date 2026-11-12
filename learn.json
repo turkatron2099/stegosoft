@@ -1,6 +1,28 @@
 {
-  "updated": "2026-11-11T05:39:44-06:00",
+  "updated": "2026-11-12T05:31:13-06:00",
   "articles": [
+    {
+      "date": "2026-11-12",
+      "title": "The Day a Wave of Porter Swept Through London",
+      "category": "History",
+      "paragraphs": [
+        "Imagine standing in a London street on an ordinary autumn afternoon when a wave of dark beer, roughly 15 feet high, comes crashing around the corner. On 17 October 1814, that really happened.",
+        "The trouble began at Meux & Co's Horse Shoe Brewery, at the junction of Tottenham Court Road and Oxford Street. Around 4:30 that afternoon, a storehouse clerk named George Crick noticed that one of the 700-pound iron bands around a giant wooden vat had slipped. The vat stood 22 feet tall and was filled nearly to the top with ten-month-old porter, a dark beer that was the most popular drink in the capital. Crick wasn't alarmed, since bands slipped off the vats two or three times a year. He was told no harm would come of it, and he was asked to write a note to a partner so it could be fixed later.",
+        "An hour later, with no warning, the vat burst. The rush of liquid knocked the stopcock off a neighboring vat, which began pouring out its own contents, and several more barrels were destroyed. Somewhere between 128,000 and 323,000 imperial gallons were released. The brewery's back wall, two-and-a-half bricks thick, gave way, and some bricks were thrown high enough to land on the roofs of houses on Great Russell Street.",
+        "The porter surged into the St Giles rookery, a crowded slum. Two houses were destroyed, and cellars where families lived filled with beer, forcing people to climb onto furniture. Eight people died, including five mourners at a wake for a two-year-old boy. A coroner's jury ruled that they had lost their lives \"casually, accidentally and by misfortune.\" Because that amounted to an act of God, the brewery owed no compensation. Even so, the disaster cost the company £23,000, and it was saved from bankruptcy only by recovering about £7,250 from HM Excise. Large wooden vats were gradually phased out of the industry, replaced by lined concrete ones.",
+        "You may have heard that crowds gleefully scooped up the beer and that someone died of drinking too much. Brewing historian Martyn Cornell notes that newspapers of the day mentioned neither, and instead reported well-behaved crowds. The one thing that did draw a crowd was the wreckage itself: watchmen at the brewery charged people a fee to come see the remains of the burst vats. And where the brewery once stood, the Dominion Theatre now sits."
+      ],
+      "words": 399,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "London Beer Flood",
+        "requested": "London Beer Flood",
+        "url": "https://en.wikipedia.org/wiki/London_Beer_Flood",
+        "pageid": 13370208,
+        "revid": 1384634169,
+        "revision_time": "2026-11-09T07:00:23Z"
+      }
+    },
     {
       "date": "2026-11-11",
       "title": "Three Hearts, Blue Blood, and Arms With a Mind of Their Own",
