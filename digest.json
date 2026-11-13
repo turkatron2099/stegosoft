@@ -1,53 +1,205 @@
 {
-  "generatedAt": "2026-11-13T12:16:12.111Z",
+  "generatedAt": "2026-11-13T19:51:35.633Z",
   "items": [
     {
-      "title": "What we know about the global outage",
-      "link": "https://www.bbc.co.uk/news/articles/cwvg238zrnm5o?at_medium=RSS&at_campaign=rss",
-      "summary": "Microsoft has said the outage was not caused by a cyber-security incident, but efforts to fix the issues have so far been largely unsuccessful.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-11-13T12:09:57.000Z"
-    },
-    {
-      "title": "Nvidia CEO steps down. And, Sen. Chris Van Hollen to run for majority leader",
-      "link": "https://www.npr.org/2026/11/13/g-s1-153532/up-first-newsletter-nvidia-jensen-huang-colette-kress-ukraine-russia-chris-van-hollen",
-      "summary": "Nvidia's chief financial officer has been appointed interim CEO after Jensen Huang stepped down from the role. And, Sen. Chris Van Hollen says he will challenge Chuck Schumer for majority leader.",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-11-13T12:07:12.000Z"
-    },
-    {
-      "title": "Rocket Report: Starship set for historic test flight; a century of Electron",
-      "link": "https://arstechnica.com/space/2026/11/rocket-report-starship-set-for-historic-test-flight-a-century-of-electron/",
-      "summary": "\"You can simplify it as a big tank feeding engines.\"",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-11-13T12:00:40.000Z"
-    },
-    {
-      "title": "Star Wars’ Answer to Goosebumps Is A Forgotten Piece of Canon That’s Terrifying and Should Return",
-      "link": "https://comicbook.com/movies/feature/star-wars-answer-to-goosebumps-is-a-forgotten-piece-of-canon-thats-terrifying-and-should-return/",
-      "summary": "Star Wars has dabbled in every possible genre with its expansive universe, with stories ranging from space westerns with The Mandalorian, spy thrillers like Andor, and coming-of-age tales in Skeleton Crew. Over the…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-13T11:58:00.000Z"
-    },
-    {
-      "title": "Only 25 Copies Of A1 Deadline Magazine At Thought Bubble",
-      "link": "https://bleedingcool.com/comics/only-25-copies-of-a1-deadline-magazine-at-thought-bubble/",
-      "summary": "Only 25 Copies Of A1 Deadline Magazine At Thought Bubble... if you can find Dave Elliott, that is.",
+      "title": "Razer Has Launched Two New Immersive Gaming Chairs",
+      "link": "https://bleedingcool.com/pop-culture/razer-has-launched-two-new-immersive-gaming-chairs/",
+      "summary": "Razer dropped two new gaming chairs this week in the form of the Soma Pro and Soma Sensa HD Haptics, offering a unique immersive experience.",
       "source": "Bleeding Cool",
       "topic": "Comics",
-      "date": "2026-11-13T11:57:11.000Z"
+      "date": "2026-11-13T19:44:20.000Z"
     },
     {
-      "title": "New Game from Doom studio and New Wolfenstein Announced",
-      "link": "https://www.polygon.com/wolfenstein-doom-bethesda-new-game-announced/",
-      "summary": "Xbox CEO Asha Sharma has unveiled upcoming Bethesda games coming from the studios that made Doom and Wolfenstein.",
+      "title": "Magic: The Gathering Nauctis – Full Pricing, Release, and Commander Deck Details",
+      "link": "https://comicbook.com/gaming/news/mtg-magic-the-gathering-nauctis-release-price-commander/",
+      "summary": "Prior to its launch in just a few short months, Wizards of the Coast has today fully lifted the veil on Nauctis, which is the next major set to be released for Magic: The Gathering. Nauctis is planned to be one of the…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-11-13T19:37:10.000Z"
+    },
+    {
+      "title": "Arnold Schwarzenegger Confirms King Conan Story Details, But Admits There’s 1 Big Problem",
+      "link": "https://comicbook.com/movies/news/arnold-schwarzenegger-confirms-king-conan-story-details-but-admits-theres-1-big-problem/",
+      "summary": "Arnold Schwarzenegger has finally shared some story details about his planned return as Conan the Barbarian. As longtime fans of the actor’s fantasy franchise know, the star has been teasing a return to the character…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-11-13T19:36:31.000Z"
+    },
+    {
+      "title": "Marvel’s Kevin Feige Reveals Doomsday Will Explore an MCU Story Not Seen Since Phase 1",
+      "link": "https://comicbook.com/movies/news/marvels-kevin-feige-reveals-doomsday-will-explore-an-mcu-story-not-seen-since-phase-1/",
+      "summary": "Marvel’s Avengers assembling together was a promise that the MCU made to the audience in its first-ever post-credit scene, all the way back in Iron Man in 2008. As fans know, the early Phase 1 movies put the pieces…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-11-13T19:32:00.000Z"
+    },
+    {
+      "title": "Magic: The Gathering: Planeswalker Set for 2027; Sneak Peek Released",
+      "link": "https://bleedingcool.com/tv/magic-the-gathering-planeswalker-set-for-2027-sneak-peek-released/",
+      "summary": "Set for 2027, Netflix, Hasbro Entertainment, and Wizards of the Coast released a preview for the Magic: The Gathering: Planeswalker.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-11-13T19:29:18.000Z"
+    },
+    {
+      "title": "R2-D2 Joins Hasbro's Star Wars: A New Hope 50th Anniversary Line",
+      "link": "https://bleedingcool.com/collectibles/r2-d2-joins-hasbros-star-wars-a-new-hope-50th-anniversary-line/",
+      "summary": "Hasbro revealed a 50th‑anniversary Star Wars: The Black Series R2‑D2 figure; pre-orders are live on Hasbro Pulse with a February 2027 release.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-11-13T19:23:19.000Z"
+    },
+    {
+      "title": "Tom Hiddleston's Loki: A Marvel Series Evolution",
+      "link": "https://www.polygon.com/tom-hiddleston-loki-better-with-every-episode/",
+      "summary": "Explore how Tom Hiddleston's Loki redefined Marvel's storytelling.",
       "source": "Polygon",
       "topic": "Gaming",
-      "date": "2026-11-13T11:56:30.000Z"
+      "date": "2026-11-13T19:21:43.000Z"
+    },
+    {
+      "title": "Ronaldinho, 46, to play first game since 2015",
+      "link": "https://www.bbc.co.uk/sport/football/articles/cqz0k4e00v0mo?at_medium=RSS&at_campaign=rss",
+      "summary": "Brazil great Ronaldinho is set to make his first competitive start in more than a decade when Ravenna face local rivals Forli in Italy's third division on Sunday.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-11-13T19:12:37.000Z"
+    },
+    {
+      "title": "ChatGPT's New Wallet Lets AI Agents Shop For You",
+      "link": "https://news.slashdot.org/story/26/11/13/1911210/chatgpts-new-wallet-lets-ai-agents-shop-for-you?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "OpenAI has launched ChatGPT Wallet, a feature that lets its Dots AI agents help users choose products and complete purchases on their behalf. TechCrunch reports: The option will initially be available to a limited…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-11-13T19:12:00.000Z"
+    },
+    {
+      "title": "What's Trump's strategy now with Iran? To keep things as they are",
+      "link": "https://www.npr.org/2026/11/13/g-s1-153578/whats-trumps-strategy-now-with-iran-to-keep-things-as-they-are",
+      "summary": "Trump says \"status quo\" is what Gulf Arab allies want as Iran war hits stalemate and midterms force pivot from threats of attacks to economic pressure<br><br>",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-11-13T19:02:04.000Z"
+    },
+    {
+      "title": "Magic Just Revealed 19 New Cards From 2027’s First Set — Including a $30 Reprint With Stunning Art",
+      "link": "https://www.polygon.com/mtg-nauctis-the-sunken-realm-magiccon-reveals-spoilers/",
+      "summary": "Wizards of the Coast gave Nauctis: The Sunken Realm a proper introduction at MagicCon: Atlanta.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-11-13T19:00:18.000Z"
+    },
+    {
+      "title": "How Queen's Domain's 2-Person Team Remade Elden Ring's Legacy in a Basement",
+      "link": "https://www.polygon.com/queens-domain-fromsoftware-interview/",
+      "summary": "The retro Soulslike for Skyrim fiends is quietly the best RPG of 2026 and a GOTY contender. Its creators didn't see it coming.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-11-13T19:00:18.000Z"
+    },
+    {
+      "title": "Magic: The Gathering — 10 Most Valuable Star Trek Cards From the New Set",
+      "link": "https://www.ign.com/articles/mtg-star-trek-most-valuable-cards",
+      "summary": "These are the 10 most valuable cards in Magic: The Gathering’s Star Trek set, led by Captain Jean-Luc Picard’s $300 Showcase card, Mr. Spock, and Captain Kirk.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-11-13T19:00:00.000Z"
+    },
+    {
+      "title": "This Legend of Zelda Triforce Brain Teaser Is Only $13 for Black Friday",
+      "link": "https://www.ign.com/articles/the-legend-of-zelda-triforce-brain-teaser-deal-black-friday-2026",
+      "summary": "You can grab this metal Zelda brain teaser puzzle on sale for the lowest price it's ever been, ahead of Black Friday.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-11-13T18:46:55.000Z"
+    },
+    {
+      "title": "Magic: The Gathering Animated Series Officially Gets First Trailer",
+      "link": "https://www.polygon.com/magic-the-gathering-animated-series-planeswalker-first-trailer/",
+      "summary": "The long-in-development Magic: The Gathering animated series finally got its first trailer.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-11-13T18:43:08.000Z"
+    },
+    {
+      "title": "Advocacy Groups Sue AI Giants to Freeze New Models, Warning of 'Catastrophic' Risks",
+      "link": "https://news.slashdot.org/story/26/11/13/1734203/advocacy-groups-sue-ai-giants-to-freeze-new-models-warning-of-catastrophic-risks?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "A coalition of online safety and consumer advocacy groups has sued five of the world's leading artificial intelligence companies, asking a California judge to halt the development and deployment of new AI models until…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-11-13T18:00:00.000Z"
+    },
+    {
+      "title": "OpenAI board member worries an AI \"takeover\" of society could be months away",
+      "link": "https://arstechnica.com/features/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns/",
+      "summary": "Researcher traces a path from AI reward hacking to potential human extinction.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-11-13T17:25:45.000Z"
+    },
+    {
+      "title": "Nvidia Employees Petition For Jensen Huang's Return",
+      "link": "https://slashdot.org/story/26/11/13/1656259/nvidia-employees-petition-for-jensen-huangs-return?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from Wired: Some Nvidia employees are calling for Jensen Huang's return even after his multiple reported extramarital affairs and abrupt resignation, according to internal…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-11-13T17:00:00.000Z"
+    },
+    {
+      "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RCE",
+      "link": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
+      "summary": "A type confusion flaw in PostgreSQL lets a database user who can create objects run code on the server. Updates released yesterday fix it, along with 51 other security flaws. Full protection from this flaw also requires…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-13T16:53:08.000Z"
+    },
+    {
+      "title": "Windows 0-day dropped by disgruntled researcher hands hackers System rights",
+      "link": "https://arstechnica.com/security/2026/11/windows-0-day-dropped-by-disgruntled-researcher-hands-hackers-system-rights/",
+      "summary": "\"SignDrop\" exploit lets local users gain all-powerful System rights.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-11-13T16:26:32.000Z"
+    },
+    {
+      "title": "Parents and Teachers Decry Google Pledge To Yank Search If Schools Block AI",
+      "link": "https://news.slashdot.org/story/26/11/13/0219251/parents-and-teachers-decry-google-pledge-to-yank-search-if-schools-block-ai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from The Guardian: Parents and teachers across the US are criticizing Google's announcement that schools choosing to block AI tools could also lose access to Google Search. Google…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-11-13T16:00:00.000Z"
+    },
+    {
+      "title": "New Mior and Skyfall Attacks Let Rogue Cloud Hosts Steal Secrets From AMD SEV-SNP VMs",
+      "link": "https://thehackernews.com/2026/11/new-mior-and-skyfall-attacks-let-rogue.html",
+      "summary": "Two attacks made public this week allow a malicious host to read data inside AMD SEV-SNP-protected virtual machines (VMs), which are built to keep the server's operator out. One of them, Mior, can also modify a VM's…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-13T15:27:05.000Z"
+    },
+    {
+      "title": "FBI Says North Korean Hackers Stole Over $400 Million in Crypto Using Deepfake Video Calls",
+      "link": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
+      "summary": "The U.S. Federal Bureau of Investigation (FBI) has established that threat actors tied to the Democratic People's Republic of Korea (DPRK aka North Korea) have stolen more than $400 million worth of cryptocurrency as…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-13T14:28:58.000Z"
+    },
+    {
+      "title": "Trezor Confirms Hidden Implants in CryptoBilis-Sold Wallets That Can Steal Recovery Phrases",
+      "link": "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html",
+      "summary": "Three Trezor Safe 5 wallets bought from the reseller CryptoBilis contain an implant, an extra circuit board that can copy their recovery phrases, hardware wallet maker Trezor said yesterday. The implant reads the phrase…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-13T13:54:20.000Z"
+    },
+    {
+      "title": "Attackers in Binance Breach Targeted Known Weakness, Missing Controls",
+      "link": "https://www.darkreading.com/cybersecurity-operations/attackers-binance-breach-targeted-weakness-missing-controls",
+      "summary": "Blockchain complexities, such as attacker-deployed sweepers, hobble security controls designed to limit the damage of an exchange compromise.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-11-13T13:00:00.000Z"
     },
     {
       "title": "When an AI Agent Goes Wrong, Can You Stop It?",
@@ -58,14 +210,6 @@
       "date": "2026-11-13T11:52:31.000Z"
     },
     {
-      "title": "Specialized’s Tarmac SL9 S-Level is built to wreck your Zone 2 ride",
-      "link": "https://arstechnica.com/gadgets/2026/11/specializeds-tarmac-sl9-s-level-is-built-to-wreck-your-zone-2-ride/",
-      "summary": "Specialized’s second-fastest bike may be the smart buy.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-11-13T11:50:38.000Z"
-    },
-    {
       "title": "American Student Finds Cobra Seal at Gezer",
       "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-egypt/american-student-finds-cobra-seal-at-gezer/",
       "summary": "A few days after arriving in Israel, while on a study tour of Tel Gezer, 17-year-old American high school student Shiloh Attoun saw an object…",
@@ -74,156 +218,12 @@
       "date": "2026-11-13T11:45:55.000Z"
     },
     {
-      "title": "VisionQuest’s Post-Credit Scene is the Best Marketing Doomsday Could Have, and Confirms the MCU’s Secret Weapon",
-      "link": "https://comicbook.com/movies/news/visionquests-post-credit-scene-is-the-best-marketing-doomsday-could-have-and-confirms-the-mcus-secret-weapon/",
-      "summary": "Courtesy of The Walt Disney Company When the Marvel Cinematic Universe began in 2018, it would have been hard for anyone to predict where it is about to arrive this December with Avengers: Doomsday. One of the biggest…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-13T11:14:00.000Z"
-    },
-    {
       "title": "SilentAir Hijacks Asian Telecom Networks to Intercept SMS 2FA Codes and Spy on Taiwanese Users",
       "link": "https://thehackernews.com/2026/11/silentair-hijacks-asian-telecom.html",
       "summary": "A newly identified spying group used hacked equipment inside Asian mobile operators to intercept the calls and texts of selected people, mostly in Taiwan. Enea, a telecom and cybersecurity software company based in…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
       "date": "2026-11-13T11:10:40.000Z"
-    },
-    {
-      "title": "After Giving Away Thousands of Dollars in Cosmetics, Fortnite is Teasing a Big Reveal For Captain X, Its Mysterious Masked Treasure Man — With Fan Guesses Ranging From Mr Beast to Obama",
-      "link": "https://www.ign.com/articles/after-giving-away-thousands-of-dollars-in-cosmetics-fortnite-is-teasing-a-big-reveal-for-captain-x-its-mysterious-masked-treasure-man-with-fan-guesses-ranging-from-mr-beast-to-obama",
-      "summary": "Fortnite is teasing a big reveal for its upcoming December 5 live event, which will reveal the identity of mysterious new character Captain X.",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-11-13T11:06:11.000Z"
-    },
-    {
-      "title": "FAA Expands AI Advice to Manage Air Traffic Congestion Across Entire US Airspace",
-      "link": "https://slashdot.org/story/26/11/13/027258/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The FAA is expanding its $875 million AI-powered SMART system to all 22 U.S. air traffic control centers across the country. Since being implemented over Washington, DC, on September 21, the system has helped reroute…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-13T11:00:00.000Z"
-    },
-    {
-      "title": "Azmodanus Gets A Demonic Debut Spinoff From Dark Cloud",
-      "link": "https://bleedingcool.com/comics/azmodanus-gets-a-demonic-debut-spinoff-from-dark-cloud/",
-      "summary": "Azmodanus gets a Demonic Debut Spinoff from Dark Cloud by Dan Chadwick and Anthony Cook at Thought Bubble tomorrow",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-11-13T10:57:09.000Z"
-    },
-    {
-      "title": "Operation Endgame Takes Down Gootloader, CastleRAT and StealC Servers, Seizes 6.4M Stolen Logins",
-      "link": "https://thehackernews.com/2026/11/operation-endgame-takes-down-gootloader.html",
-      "summary": "An international police operation took down servers behind Gootloader, CastleRAT and StealC this week. Criminals used the three malware tools to gain access to computers, steal passwords, and launch ransomware attacks.…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-11-13T10:55:03.000Z"
-    },
-    {
-      "title": "Pixar's New Movie Gatto Gets First In-Depth Look in Official Trailer",
-      "link": "https://www.polygon.com/pixar-gatto-trailer/",
-      "summary": "Pixar takes viewers to Venice to meet a mobster cat in Gatto, starring Mark Ruffalo and Laurence Fishburne.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-13T10:43:49.000Z"
-    },
-    {
-      "title": "5 DC Heroes and Villains With the Best Fighting Techniques (That Aren’t the Trinity)",
-      "link": "https://comicbook.com/comics/list/5-dc-heroes-and-villains-with-the-best-fighting-techniques-that-arent-the-trinity/",
-      "summary": "Image Courtesy of DC Comics DC Comics has been telling stories of superheroism and villainy since 1938, introducing the world to some of the most formidable characters in pop culture. The DC Multiverse is a vast place…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-13T10:43:00.000Z"
-    },
-    {
-      "title": "4 Times DC Movie Franchises Abruptly Ended Despite Sequel Plans, Including the Series That Started It All",
-      "link": "https://comicbook.com/movies/list/4-times-dc-movie-franchises-abruptly-ended-despite-sequel-plans-including-the-series-that-started-it-all/",
-      "summary": "Image courtesy of Warner Bros. Pictures The DCU has changed forever, as James Gunn and Peter Safran have been removed as the heads of DC Studios. Paramount’s acquisition of Warner Bros. and the company’s rebranding as…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-13T10:43:00.000Z"
-    },
-    {
-      "title": "Leaked Dune Magic Secret Lair Has Amazing Value Reprints and 9 New Cards",
-      "link": "https://www.polygon.com/mtg-dune-magic-secret-lair-drop-leaks/",
-      "summary": "An unconfirmed Dune x Magic Secret Lair superdrop leaked, and it includes great reprints and 9 new cards.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-13T10:30:47.000Z"
-    },
-    {
-      "title": "6 Nintendo Switch Special Editions With the Best Designs, Ranked",
-      "link": "https://www.polygon.com/best-nintendo-switch-special-edition-designs/",
-      "summary": "Even when a person already owns a Switch, some of these are attractive enough to make them want to buy another one.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-13T10:00:17.000Z"
-    },
-    {
-      "title": "5 Sci-Fi Book Trilogies Where Every Entry Is Perfect",
-      "link": "https://www.polygon.com/sci-fi-trilogy-perfect-entries/",
-      "summary": "Not all sci-fi trilogies are made equal, as some are impeccable from start to finish.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-13T09:00:18.000Z"
-    },
-    {
-      "title": "Hackers Exploit PHP2Shell Flaws in Check Point Gateways to Deploy TSGA Backdoor and Wipe ESXi Files",
-      "link": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html",
-      "summary": "An unknown threat actor has been observed targeting unpatched Check Point Security Gateways to obtain initial access via the PHP2Shell vulnerabilities and then a previously unreported local privilege escalation flaw in…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-11-13T08:05:49.000Z"
-    },
-    {
-      "title": "Euclid Mission Data Release Spans More Than 900 Million Galaxies",
-      "link": "https://science.slashdot.org/story/26/11/13/0146211/euclid-mission-data-release-spans-more-than-900-million-galaxies?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "The European Space Agency has released the largest dataset yet from its Euclid space telescope, containing 1.7 petabytes of observations covering more than 900 million galaxies. \"The data unveiled on Thursday covered a…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-13T07:00:00.000Z"
-    },
-    {
-      "title": "Hackers Exploit N-central Flaws to Infect 21 Servers, Including 19 Running Hotfix 2",
-      "link": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html",
-      "summary": "N-able on Thursday said it's taking additional precautions in the wake of public disclosure of a new set of flaws tracked as 4EverAble2Shell and Agent2Shell. \"We are restricting certain N-central features and…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-11-13T05:43:28.000Z"
-    },
-    {
-      "title": "SpaceX To Invest $74 Billion Into Data Center Construction Projects In Texas, Arizona",
-      "link": "https://slashdot.org/story/26/11/13/0121210/spacex-to-invest-74-billion-into-data-center-construction-projects-in-texas-arizona?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from the Hill: Elon Musk's SpaceX plans to invest more than $74 billion into building two data centers in Texas and Arizona, the company announced Thursday, marketing them as projects…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-13T03:30:00.000Z"
-    },
-    {
-      "title": "Whoop Launches a Social Network Where Every User Has a 'Verified Heartbeat'",
-      "link": "https://tech.slashdot.org/story/26/11/13/0135237/whoop-launches-a-social-network-where-every-user-has-a-verified-heartbeat?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Whoop has launched Humans, a social network built into its fitness app where every account is a real person with a \"verified heartbeat.\" The wearable company claims its platform is \"entirely human,\" unlike other social…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-13T01:40:00.000Z"
-    },
-    {
-      "title": "Getting Past the Post-Quantum Cryptography Discovery Phase",
-      "link": "https://www.darkreading.com/cybersecurity-operations/getting-past-post-quantum-cryptography-discovery",
-      "summary": "Most organizations haven't sorted out their cryptographic estate enough to even know where they'd start with post-quantum cryptography (PQC).",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-11-12T22:46:05.000Z"
-    },
-    {
-      "title": "Cyber Experts Weigh In: How to Fight Artex & AntiFox",
-      "link": "https://www.darkreading.com/cybersecurity-operations/cyber-experts-fight-artex-antifox",
-      "summary": "Cybercriminals using agentic pen-testing tools is a proverbial genie out of the bottle at this point, so enterprises need to get a defense plan in place right away.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-11-12T21:18:52.000Z"
     },
     {
       "title": "What Was the Star of Bethlehem?",
