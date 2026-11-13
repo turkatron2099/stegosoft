@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-12T05:31:13-06:00",
+  "updated": "2026-11-13T05:37:12-06:00",
   "articles": [
+    {
+      "date": "2026-11-13",
+      "title": "The Grand Canyon: A Hole in the Ground With a Billion Plot Twists",
+      "category": "Geography",
+      "paragraphs": [
+        "Here is a surprise: the Grand Canyon is not the deepest canyon on land. Kali Gandaki Gorge in Nepal is much deeper. Yet the Grand Canyon still wins hearts for its visually overwhelming size and its intricate, colorful landscape. It stretches 277 miles long, reaches up to 18 miles wide, and plunges over a mile deep.",
+        "The real magic is in the walls. Nearly two billion years of Earth's history are exposed there, layer after layer, as the Colorado River and its tributaries sliced through rock while the Colorado Plateau was pushed upward. At the bottom sits the two-billion-year-old Vishnu Schist. At the rim sits the 270-million-year-old Kaibab Limestone. In between, there is even a missing chapter called the Great Unconformity, where no deposits survive from a span between 1.75 billion and 1.25 billion years ago.",
+        "How old is the canyon itself? Scientists have argued about that for more than 150 years. The long-popular estimate says the river carved its course about 5 to 6 million years ago. But cave studies and other research have hinted at far older origins, with some parts possibly as old as 70 million years. The emerging view is that the canyon is a patchwork of segments that formed at different times and eventually linked up into one waterway. The Hurricane segment is the old-timer, while Marble Canyon and the Westernmost Grand Canyon are the youngsters, carved in the last five to six million years.",
+        "The two sides of the canyon differ, too. The North Rim sits over a thousand feet higher than the South Rim, gets more rain and snow, and sends almost all of its runoff toward the canyon. That gives the north side longer tributary canyons, while the south side has shorter, steeper ones.",
+        "People have known this place for a very long time. Native Americans have lived in the area for thousands of years, and the Pueblo people considered it a holy site. In the mythology of some Third Mesa Hopi communities, the canyon is where humankind first emerged into this world.",
+        "And here is a delightful twist from below the surface: some groundwater feeding the canyon's springs is nearly 20,000 years old, so a sip from certain spots could be a drink from the last ice age."
+      ],
+      "words": 377,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Grand Canyon",
+        "requested": "Grand Canyon",
+        "url": "https://en.wikipedia.org/wiki/Grand_Canyon",
+        "pageid": 46989,
+        "revid": 1382100079,
+        "revision_time": "2026-10-26T16:26:02Z"
+      }
+    },
     {
       "date": "2026-11-12",
       "title": "The Day a Wave of Porter Swept Through London",
