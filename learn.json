@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-13T05:37:12-06:00",
+  "updated": "2026-11-14T05:38:11-06:00",
   "articles": [
+    {
+      "date": "2026-11-14",
+      "title": "The Locked Alarm Boxes That Helped Burn Down Boston",
+      "category": "History",
+      "paragraphs": [
+        "Imagine spotting a fire, running to the alarm box, and finding it locked. That is roughly what happened in Boston on the evening of November 9, 1872, when a blaze erupted in the basement of a dry goods warehouse on Summer Street. Witnesses watched the flames spread before the area's key-holder could be found to unlock the box.",
+        "The locks were not a silly idea on their own. In 1852, Boston had become the first city in the world to install telegraph-based fire alarm boxes, and officials kept them locked to prevent false alarms. Only a few citizens in each area held keys. By the time firefighters arrived, twenty minutes had passed, and the flames had already climbed a wooden elevator shaft and reached the building's wooden mansard roof.",
+        "From there, the city's habits did the rest. Streets were narrow, buildings stood close together, and many were too tall for ladders to reach. Hoses often lacked the pressure to hit rooftop flames, so the fire hopped from roof to roof. Water mains were old and leaky, hydrants were scarce, and the couplings were not standardized. Fire chief John Damrell had asked for money to fix the water system and was told not to magnify the needs of his department. Even a horse flu that weakened the animals pulling the engines played a part, though an investigation later concluded it delayed the response by only a few minutes.",
+        "By midday on November 10, the fire had consumed about 65 acres, 776 buildings, and much of the financial district, causing $73.5 million in damage. At least 26 people died, including 11 or 12 firefighters. Crowds of more than 100,000 watched, and looters slipped in behind building owners. Citizens even packed buildings with gunpowder to make firebreaks, but the plan backfired, and Damrell had to force them to stop.",
+        "The fire was finally halted at the Old South Meeting House, where people covered the building with wet blankets and rugs and climbed onto the roof to put out sparks.",
+        "Boston bounced back fast. Streets were widened and straightened, rubble helped expand Atlantic Avenue, and the financial district was rebuilt in less than two years. Many owners had insured their buildings above value, so the money was there. And here is the delightful twist: a 2017 study found that land values in the burned district actually rose afterward."
+      ],
+      "words": 394,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Great Boston Fire of 1872",
+        "requested": "Great Boston Fire of 1872",
+        "url": "https://en.wikipedia.org/wiki/Great_Boston_Fire_of_1872",
+        "pageid": 563692,
+        "revid": 1384661808,
+        "revision_time": "2026-11-09T11:58:33Z"
+      }
+    },
     {
       "date": "2026-11-13",
       "title": "The Grand Canyon: A Hole in the Ground With a Billion Plot Twists",
