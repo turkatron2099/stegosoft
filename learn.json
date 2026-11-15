@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-14T05:38:11-06:00",
+  "updated": "2026-11-15T05:36:37-06:00",
   "articles": [
+    {
+      "date": "2026-11-15",
+      "title": "Up Helly Aa: The Viking Fire Festival With a Surprising Backstory",
+      "category": "Customs and Traditions",
+      "paragraphs": [
+        "Imagine marching through the streets with a flaming torch, alongside a thousand costumed neighbors, all heading to set a Viking ship on fire. That is the high point of Up Helly Aa, a fire festival held in Shetland, Scotland, to mark the end of the Yule season.",
+        "The biggest celebration takes place in Lerwick, Shetland's capital, on the last Tuesday in January. Squads of costumed participants, known as guizers, parade by torchlight, and the procession ends when the torches are thrown into a replica Viking galley. Smaller \"country\" festivals happen from January to March, and today there are eleven locations, including Scalloway, Bressay, Cullivoe and Delting. Each is scaled to its local population.",
+        "After the ship burns, the night is far from over. Squads visit local halls, including schools, sports facilities and hotels, where private parties are held. At each stop, a squad performs an act, which might be a send-up of a popular TV show or film, a skit on local events, or some singing and dancing. A main guizer, called the Jarl, leads the festivities. To become one, a person must serve on a committee for 15 years, and only one new person is elected to it each year.",
+        "The festival grew out of an older Yule tradition called tar barrelling, in which young men dragged burning barrels of tar through town on sledges, making mischief. The Shetland Museum says boredom after the Napoleonic Wars helped spark the change. Worries about public safety and drunkenness led to torch processions instead. The first galley was built and burned in 1889, and Shetland author Haldane Burgess later gave the festival its Viking flavor with his 1894 book The Viking Path and the Up Helly Aa Song.",
+        "Here is the twist: despite claims of ancient roots, the festival was a product of Victorian do-goodery. The Lerwick event was first established by the Total Abstinence Society in the 1870s to give young men who might otherwise drink themselves silly something to do.",
+        "The name has its own tale. It comes from Upholiday, the lowland Scots word for Twelfth Day. And the festival keeps evolving. A female Jarl was appointed in the South Mainland in 2015, and starting in 2023, restrictions on women in Lerwick squads were removed. Even in 1901, some women joined the march disguised in their costumes."
+      ],
+      "words": 387,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Up Helly Aa",
+        "requested": "Up Helly Aa",
+        "url": "https://en.wikipedia.org/wiki/Up_Helly_Aa",
+        "pageid": 1779449,
+        "revid": 1383882928,
+        "revision_time": "2026-11-05T09:21:36Z"
+      }
+    },
     {
       "date": "2026-11-14",
       "title": "The Locked Alarm Boxes That Helped Burn Down Boston",
