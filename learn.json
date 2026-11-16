@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-15T05:36:37-06:00",
+  "updated": "2026-11-16T05:38:38-06:00",
   "articles": [
+    {
+      "date": "2026-11-16",
+      "title": "The Salt-Defying Trees That Breathe Through Straws",
+      "category": "Nature",
+      "paragraphs": [
+        "Imagine trying to live with your feet in salty, airless mud while the tide comes and goes twice a day. Most plants would give up immediately. Mangroves, on the other hand, thrive there, and they do it with some wonderfully clever tricks.",
+        "Start with the air problem. Waterlogged soil has very little free oxygen, so mangroves have invented ways to breathe. The red mangrove props itself above the water on stilt roots and absorbs air through tiny openings in its bark. The black mangrove sends up specialized roots called pneumatophores, which stick out of the soil like straws. These breathing tubes typically reach up to 30 centimeters, and in some species they top 3 meters.",
+        "Then there is the salt. Mangroves have a complex filtration system built right into their roots. One study found that the roots of an Indian mangrove species keep out 90 to 95 percent of the salt in the water the plant takes up. Another mangrove genus, Bruguiera, filters about 90 percent of sodium ions from the surrounding seawater. Researchers think this could inspire new ways to desalinate water. Mangroves also conserve fresh water by limiting how much they lose through their leaves, and they turn their leaves to dodge the harsh midday sun.",
+        "Their parenting is just as unusual. Many mangroves, including the red mangrove, are viviparous, meaning the seeds germinate while still attached to the parent tree. The seedling grows into a ready-to-go propagule that can make its own food through photosynthesis. When it drops into the water, it can drift great distances. If it finds a suitable low-salinity spot, it shifts from floating sideways to floating upright, which makes it more likely to lodge in the mud and take root.",
+        "These forests are a big deal. Mangroves cover roughly 15.9 million hectares worldwide, and Indonesia alone has the most, at 3.40 million hectares. They shelter coasts from tsunamis and extreme weather, and they store carbon effectively.",
+        "Here is the delightful part: a red mangrove propagule can survive drying out and stay buoyant and viable for up to a year before it finds a home. And if it doesn't root, it can regain its buoyancy and simply drift off again to keep looking."
+      ],
+      "words": 369,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Mangrove",
+        "requested": "Mangrove",
+        "url": "https://en.wikipedia.org/wiki/Mangrove",
+        "pageid": 73448,
+        "revid": 1377249198,
+        "revision_time": "2026-09-28T14:19:12Z"
+      }
+    },
     {
       "date": "2026-11-15",
       "title": "Up Helly Aa: The Viking Fire Festival With a Surprising Backstory",
