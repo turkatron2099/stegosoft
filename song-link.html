@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Song Link — Thagobyte</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="song-link.css">
+<link rel="icon" href="images/thagobyte_logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#faa968">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Home</a>
+    <nav>
+      <a href="news.html">News</a>
+      <a href="games.html">Games</a>
+      <a href="cinema.html">Cinema</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="songlink-intro">
+    <div class="wrap">
+      <h1>Song Link</h1>
+      <p class="tagline">Paste a Spotify link, get Apple Music — or the other way around.</p>
+    </div>
+  </section>
+
+  <section class="songlink-panel">
+    <div class="wrap">
+
+      <form class="songlink-form" id="songlink-form">
+        <input type="url" id="songlink-input" class="songlink-input"
+               placeholder="https://open.spotify.com/track/… or https://music.apple.com/…"
+               autocomplete="off" spellcheck="false" required>
+        <button type="submit" id="songlink-btn">Convert</button>
+      </form>
+
+      <p class="songlink-status" id="status-text" hidden></p>
+
+      <div class="songlink-result" id="songlink-result" hidden>
+        <img class="songlink-art" id="songlink-art" alt="">
+        <div class="songlink-info">
+          <span class="songlink-kind" id="songlink-kind"></span>
+          <span class="songlink-title" id="songlink-title"></span>
+          <span class="songlink-artist" id="songlink-artist"></span>
+          <span class="songlink-warn" id="songlink-warn" hidden>Closest match we found — double-check it's the right version.</span>
+          <a class="songlink-url" id="songlink-url" target="_blank" rel="noopener"></a>
+          <div class="songlink-actions">
+            <a class="songlink-open" id="songlink-open" target="_blank" rel="noopener"></a>
+            <button type="button" class="songlink-copy" id="songlink-copy">Copy link</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="songlink-note">
+        Works with songs and albums. Spotify and Apple don't share track IDs publicly, so matches go by
+        title, artist and length — a remaster or live version can occasionally slip through.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Thagobyte&trade;</span>
+  </div>
+</footer>
+
+<script src="song-link.js"></script>
+<script src="pwa.js"></script>
+<script src="somafm-player.js"></script>
+</body>
+</html>
