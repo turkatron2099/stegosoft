@@ -1,6 +1,28 @@
 {
-  "updated": "2026-11-16T05:38:38-06:00",
+  "updated": "2026-11-17T05:31:37-06:00",
   "articles": [
+    {
+      "date": "2026-11-17",
+      "title": "How a Lump of Gold Becomes Thinner Than Light Itself",
+      "category": "How It's Made",
+      "paragraphs": [
+        "Imagine hitting a bar of gold with a hammer for hours, not to break it, but to make it nearly vanish. That is the strange art of goldbeating, and it has been going on for roughly five thousand years, ever since Egyptian artisans noticed how wonderfully durable and stretchy gold is and pounded it with round stones.",
+        "The modern version starts in a furnace. Gold is melted in a crucible, often with a little silver or copper mixed in, since that changes the karat and the color. Most goldbeaters make 23 karat leaf. The liquid is poured into a mold to make a bar, and then the bar is squeezed through a rolling mill again and again, with the rollers set closer each time, until it is about 25 micrometres thick. That ribbon is cut into squares of about an inch.",
+        "Now the hammering begins. The squares are slipped between about 150 skins in a packet called the cutch, wrapped in parchment, and beaten by hand on a block of marble or granite with a 7-kilogram hammer. It takes about an hour, at up to seventy strokes a minute, and the packet is rotated and flipped so the gold spreads evenly. Then the gold is cut into quarters and moved to a bigger stack of about 1,500 skins called the shoder, which gets about three more hours of beating.",
+        "The final stage is delicate. The gold is now so thin that the cutter can flatten it just by blowing on it. It is quickly cut with a tool called a wagon, whose blades were traditionally made from malacca cane, and placed in a packet called a mold. The skins are dusted with gypsum powder so the fragile gold will not stick. Three to four hours of beating with an 8-pound hammer later, each piece is an unbroken sheet about 100 nanometres thick, roughly 1/250,000 of an inch.",
+        "That tiny sheet has gone on to decorate everything from Byzantine church mosaics to picture frames, and it even shows up in food and drink. Gold leaf is flavorless, but it has been floated in liquors since the late 16th century, when the practice was regarded as medicinal. Today in Kanazawa, Japan, you can even find green tea sprinkled with flecks of it. Not bad for something you can flatten with a puff of breath."
+      ],
+      "words": 392,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Gold leaf",
+        "requested": "Gold leaf",
+        "url": "https://en.wikipedia.org/wiki/Gold_leaf",
+        "pageid": 2927992,
+        "revid": 1381459160,
+        "revision_time": "2026-10-22T17:25:20Z"
+      }
+    },
     {
       "date": "2026-11-16",
       "title": "The Salt-Defying Trees That Breathe Through Straws",
