@@ -1,6 +1,28 @@
 {
-  "updated": "2026-11-17T05:31:37-06:00",
+  "updated": "2026-11-18T05:37:38-06:00",
   "articles": [
+    {
+      "date": "2026-11-18",
+      "title": "The Sky Puddle That Isn't There: How Mirages Really Work",
+      "category": "Everyday Science",
+      "paragraphs": [
+        "Ever driven down a hot highway and spotted a shimmering puddle ahead, only to watch it vanish as you got closer? Congratulations: you've been fooled by a mirage, and your eyes were not actually lying to you. A mirage is a real optical phenomenon, and it can even be captured on camera. Light rays truly bend, a process called refraction, to form a false image at the spot where you stand. Your brain just supplies the story, which is why a patch of bright sky on the road so easily looks like water.",
+        "That road-top puddle is called an inferior mirage, meaning the image appears below the real object. On a hot day, tarmac or desert sand can easily be more than 10 degrees Celsius (18 degrees Fahrenheit) warmer than the air a meter above it. That creates a gradient in the air's refractive index, and light from the sky at a shallow angle gets bent so the road seems to reflect the sky. The image is usually upside-down, which helps the illusion. And just like a rainbow, it keeps retreating as you approach.",
+        "Flip the temperature setup and you get a superior mirage, where the image floats above the real object. This happens when cold air sits below warmer air, an arrangement called a temperature inversion. Light bends downward, and a distant shoreline can seem to tower higher than it really is. These are common over polar ice, and Icelandic has words for them: hillingar for Arctic mirages and hafgerðingar for the dancing spikes and towers.",
+        "The most elaborate version is the Fata Morgana, named from the Italian for Morgan le Fay, King Arthur's shapeshifting half-sister. It stacks compressed, stretched, upright, and upside-down images, and it can change within seconds. One account describes the German battleship Bismarck, pursued by British cruisers in 1941, vanishing into a sea mist, reappearing and steaming toward them, then fluttering and fading away as astonished observers watched. Radar showed it had never changed course.",
+        "Sometimes the bending of light is so well matched to Earth's curve that rays follow the planet's surface for huge distances. In 1596, a ship stuck in the ice at Novaya Zemlya saw the Sun appear to rise two weeks earlier than expected, though the real Sun was still below the horizon. Mirages may also explain old polar tales of flying ships and cities in the sky."
+      ],
+      "words": 397,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Mirage",
+        "requested": "Mirage",
+        "url": "https://en.wikipedia.org/wiki/Mirage",
+        "pageid": 55695,
+        "revid": 1377282595,
+        "revision_time": "2026-09-28T18:04:43Z"
+      }
+    },
     {
       "date": "2026-11-17",
       "title": "How a Lump of Gold Becomes Thinner Than Light Itself",
