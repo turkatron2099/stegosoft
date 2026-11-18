@@ -1,141 +1,237 @@
 {
-  "generatedAt": "2026-11-18T07:34:07.520Z",
+  "generatedAt": "2026-11-18T17:17:00.023Z",
   "items": [
     {
-      "title": "From one of Ajax's future stars to quitting football for music",
-      "link": "https://www.bbc.co.uk/sport/football/articles/cmly053x643ro?at_medium=RSS&at_campaign=rss",
-      "summary": "Former Ajax academy player Elikia Mbinga tells BBC Sport how he swapped football for music after playing with some Premier League stars.",
-      "source": "BBC News",
-      "topic": "Top News",
-      "date": "2026-11-18T07:02:42.000Z"
-    },
-    {
-      "title": "Hacker Pleads Guilty to Leak of Grand Theft Auto VI Footage",
-      "link": "https://yro.slashdot.org/story/26/11/18/0154214/hacker-pleads-guilty-to-leak-of-grand-theft-auto-vi-footage?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Artion Kurtaj, the British hacker responsible for leaking early footage of Grand Theft Auto VI in 2022, pleaded guilty Monday to six offenses stemming from cyberattacks against Rockstar Games, Uber and Revolut. The…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-18T07:00:00.000Z"
-    },
-    {
-      "title": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
-      "link": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
-      "summary": "Threat actors have compromised Microsoft's agent-framework package to push a credential stealer, according to reports from Aikido, Endor Labs, OX Security, SafeDep, Socket, StepSecurity, and Google-owned Wiz. The…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-11-18T06:45:26.000Z"
-    },
-    {
-      "title": "10 Sci-Fi Books You Need to Read Before At Least Once In Your Life",
-      "link": "https://www.polygon.com/essential-sci-fi-books-you-need-to-read-at-least-once/",
-      "summary": "The ultimate reading list for mind-bending, genre-defining speculative fiction",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-18T06:26:17.000Z"
-    },
-    {
-      "title": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
-      "link": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
-      "summary": "The Russia-linked cyber espionage group known as Cold Relic (formerly COLDRIVER and UNC4057) has been observed weaponizing a single cloud compromise into a launchpad for a series of linked intrusions resulting in…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-11-18T05:58:04.000Z"
-    },
-    {
-      "title": "Stitch #9 Preview: Who Let the Dogs Out? Stitch Did",
-      "link": "https://bleedingcool.com/comics/stitch-9-preview-who-let-the-dogs-out-stitch-did/",
-      "summary": "Stitch #9 launches a new arc as Stitch visits a planet of peaceful dogs and leaves them thoroughly riled up. Dynamite's comic hits stores Wednesday.",
-      "source": "Bleeding Cool",
-      "topic": "Comics",
-      "date": "2026-11-18T05:27:09.000Z"
-    },
-    {
-      "title": "Magic: The Gathering’s 10 Best Uncommon Star Trek Cards, Ranked",
-      "link": "https://www.polygon.com/mtg-best-star-trek-uncommon-magic-the-gathering-cards/",
-      "summary": "The most underrated uncommon cards from Magic's Star Trek set that deserve a place in your collection.",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-18T05:00:18.000Z"
-    },
-    {
-      "title": "66 Years Later, William Shatner's Forgotten 'Twilight Zone' Is Still a Haunting Masterpiece",
-      "link": "https://www.polygon.com/william-shatner-the-twilight-zone-nick-of-time/",
-      "summary": "The Twilight Zone episode “Nick of Time” is top-tier Shatner",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-18T05:00:18.000Z"
-    },
-    {
-      "title": "Doomsday Film Rating Warning Makes It the Most Violent Avengers Movie Yet",
-      "link": "https://comicbook.com/movies/news/doomsday-film-rating-warning-makes-it-the-most-violent-avengers-movie-yet/",
-      "summary": "Marvel Studios Avengers: Doomsday is about to hit theaters, and Marvel fans everywhere are ready to see what it brings. Marvel Studios has kept the new Avengers movie shrouded in secrecy; all we know is that the Marvel…",
+      "title": "New Lilo & Stitch Animated Revival Reveals Sneak Peek Clip Ahead of Release in Theaters",
+      "link": "https://comicbook.com/movies/news/new-lilo-stitch-animated-revival-reveals-sneak-peek-clip-ahead-of-release-in-theaters/",
+      "summary": "Image Courtesy of Walt Disney Animation Studios Lilo & Stitch is coming to theaters with an animated revival bringing back the classic franchise for a new generation, and a new sneak peek is showing off the first look…",
       "source": "ComicBook.com",
       "topic": "Comics",
-      "date": "2026-11-18T04:40:49.000Z"
+      "date": "2026-11-18T17:15:11.000Z"
     },
     {
-      "title": "Critical Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
+      "title": "BBL practitioner 'unbothered' when woman collapsed",
+      "link": "https://www.bbc.co.uk/news/articles/cmrrg02nkpjeo?at_medium=RSS&at_campaign=rss",
+      "summary": "Alice Webb died in 2024 after having a procedure known as a Brazilian Butt Lift, an inquest hears.",
+      "source": "BBC News",
+      "topic": "Top News",
+      "date": "2026-11-18T17:15:08.000Z"
+    },
+    {
+      "title": "GTA 6 Players Have Already Discovered the Most Evil Crime in the Game",
+      "link": "https://www.polygon.com/gta-6-kick-bodega-cat/",
+      "summary": "Just like in Red Dead Redemption 2, it seems like there are plenty of ways for a sincere oopsie in GTA 6 to spiral out of control fast.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-11-18T17:12:34.000Z"
+    },
+    {
+      "title": "GTA6 Gets Real Competition in Devolver's Volvy's Adventure: Reslimed",
+      "link": "https://bleedingcool.com/games/gta6-gets-real-competition-in-devolvers-volvys-adventure-reslimed/",
+      "summary": "Devolver Digital isn't scared of GTA6, and they are releasing their latest platformer, Volvy's Adventure: Reslimed, on November 19",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-11-18T17:12:09.000Z"
+    },
+    {
+      "title": "2026 Pop-Tarts Bowl Has a Dark, Delicious Twist: Eat Your Competition",
+      "link": "https://bleedingcool.com/tv/2026-pop-tarts-bowl-has-a-dark-delicious-twist-eat-your-competition/",
+      "summary": "Set for December 29th, the 2026 Pop-Tarts Bowl introduces Super Stuffed Strawberry Blast and allows our Edible Mascots to eat - each other?!?",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-11-18T17:08:10.000Z"
+    },
+    {
+      "title": "Jensen Huang's Fall Hits 'Open' Models In Boost to Anthropic and OpenAI",
+      "link": "https://slashdot.org/story/26/11/18/1659257/jensen-huangs-fall-hits-open-models-in-boost-to-anthropic-and-openai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "Jensen Huang's departure from Nvidia could weaken the open AI model ecosystem he spent years championing, potentially strengthening closed-model developers like OpenAI and Anthropic, according to the Financial Times.…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-11-18T17:02:00.000Z"
+    },
+    {
+      "title": "Game Awards 2026: All Game of the Year Nominees and Predictions",
+      "link": "https://www.polygon.com/game-of-the-year-goty-game-awards-2026-frontrunners/",
+      "summary": "We rank the contenders for GOTY 2026 at TGAs, including GTA 6 and Zelda: Ocarina of Time",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-11-18T17:00:42.000Z"
+    },
+    {
+      "title": "Magic: the Gathering Is Officially Reprinting an Iconic $42 Artifact with Perfect Dune Art",
+      "link": "https://www.polygon.com/mtg-dune-secret-lair-card-spoilers/",
+      "summary": "The Dune Secret Lair Superdrop features nine new cards and valuable reprints. Here's a look at every card.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-11-18T17:00:19.000Z"
+    },
+    {
+      "title": "Magic: The Gathering Designers Reveal the Best Commander in Their Dune Crossover",
+      "link": "https://www.polygon.com/mtg-dune-secret-lair-designer-interview/",
+      "summary": "Magic: The Gathering’s Dune designers explain the new Secret Lair cards, their favorite Commanders, and why Duncan Idaho didn’t make the cut.",
+      "source": "Polygon",
+      "topic": "Gaming",
+      "date": "2026-11-18T17:00:19.000Z"
+    },
+    {
+      "title": "Vulcan failure caused by inadequate fuel supply to engines, ULA says",
+      "link": "https://arstechnica.com/space/2026/11/vulcan-failure-caused-by-inadequate-fuel-supply-to-engines-ula-says/",
+      "summary": "\"ULA is a valued partner, and we look forward to Vulcan's return to flight.\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-11-18T16:58:32.000Z"
+    },
+    {
+      "title": "I've Played the First 30 Minutes of GTA 6 on Every Console, Here's How Performance Compares",
+      "link": "https://www.ign.com/articles/ive-played-the-first-30-minutes-of-gta-6-on-every-console-heres-how-performance-compares",
+      "summary": "How GTA 6 performance compares across every console, based on our early tests.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-11-18T16:56:31.000Z"
+    },
+    {
+      "title": "Java4Shell Flaw Threatens Global Enterprises, Java Application Ecosystem",
+      "link": "https://www.darkreading.com/vulnerabilities-threats/java4shell-flaw-threatens-global-java-application-ecosystem",
+      "summary": "Discovered using AI, the memory corruption vulnerability affects the OpenJDK runtime and could allow unauthenticated attackers to take over systems.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-11-18T16:54:52.000Z"
+    },
+    {
+      "title": "Hasbro Unveils Marvel Legends Superior Iron Man & The Maker 2-Pack",
+      "link": "https://bleedingcool.com/collectibles/hasbro-unveils-marvel-legends-superior-iron-man-the-maker-2-pack/",
+      "summary": "Hasbro has unveiled a new Marvel Legends two-pack — Superior Iron Man and Marvel's The Maker — available for pre-order December 10 and shipping Spring 2027.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-11-18T16:52:08.000Z"
+    },
+    {
+      "title": "Magic: The Gathering Reveals Full Secret Lair x Dune Collaboration",
+      "link": "https://bleedingcool.com/games/magic-the-gathering-reveals-full-secret-lair-x-dune-collaboration/",
+      "summary": "Magic: The Gathering is headed to Arrakis with an all-new Secret Lair collaboration with Dune, creating three new exclusive sets.",
+      "source": "Bleeding Cool",
+      "topic": "Comics",
+      "date": "2026-11-18T16:43:10.000Z"
+    },
+    {
+      "title": "GTA 6 – How to Make Money Early in the Game",
+      "link": "https://comicbook.com/gaming/feature/gta-6-how-to-make-money-early-in-the-game/",
+      "summary": "Courtesy of Rockstar Games As a wise man once said, “Cash rules everything around me.” In Grand Theft Auto 6, that’s more true than ever. While pulling off high-stakes robberies and filling your bank account has always…",
+      "source": "ComicBook.com",
+      "topic": "Comics",
+      "date": "2026-11-18T16:42:57.000Z"
+    },
+    {
+      "title": "Clair Obscur: Expedition 33's Lead Writer Has Left Sandfall to Help Game Devs Tell Better Stories",
+      "link": "https://www.ign.com/articles/clair-obscur-expedition-33-lead-writer-left-sandfall",
+      "summary": "Clair Obscur: Expedition 33’s lead writer has left Sandfall to help other game developers think about story from the outset.",
+      "source": "IGN",
+      "topic": "Gaming",
+      "date": "2026-11-18T16:35:23.000Z"
+    },
+    {
+      "title": "Waymo has stopped its robotaxis from driving on the freeway—here’s why",
+      "link": "https://arstechnica.com/cars/2026/11/waymo-suspends-freeway-driving-after-california-construction-zone-complaint/",
+      "summary": "Robotaxis already had to be recalled in May after they entered highway construction zones.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-11-18T16:24:34.000Z"
+    },
+    {
+      "title": "Satya Nadella Says He's AGI-Pilled Now",
+      "link": "https://slashdot.org/story/26/11/18/026229/satya-nadella-says-hes-agi-pilled-now?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "summary": "An anonymous reader quotes a report from The Verge: Microsoft CEO Satya Nadella says he's AGI-pilled, at least when it comes to how AI might make startling changes to the structure of the economy and how politics might…",
+      "source": "Slashdot",
+      "topic": "Technology",
+      "date": "2026-11-18T16:00:00.000Z"
+    },
+    {
+      "title": "Democrats formally nominate Hakeem Jeffries for speaker of the House",
+      "link": "https://www.npr.org/2026/11/18/nx-s1-6043183/hakeem-jeffries-house-democrats-leadership-votes",
+      "summary": "The New York Democrat moved a step closer to becoming the first Black lawmaker in U.S. history to serve in the job, after House Democrats voted overwhelmingly to support him.",
+      "source": "NPR",
+      "topic": "Top News",
+      "date": "2026-11-18T15:56:30.000Z"
+    },
+    {
+      "title": "New EggStreme Malware Variant Goes Silent to Evade Security Tools in Government Attacks",
+      "link": "https://thehackernews.com/2026/11/eggstreme-hackers-rebuild-malware-with.html",
+      "summary": "The suspected Chinese advanced persistent threat (APT) group behind the sophisticated EggStreme malware has rebuilt its toolkit as it continues to target government organizations in the Philippines. \"When attackers are…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-18T14:11:28.000Z"
+    },
+    {
+      "title": "Tesla’s $30,000 Cybercab comes with a $299 monthly catch",
+      "link": "https://arstechnica.com/cars/2026/11/tesla-will-sell-you-a-cybercab-for-30000-then-charge-299-a-month-to-use-it/",
+      "summary": "Tesla can restrict where Cybercabs drive and even block owners from reselling them.",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-11-18T14:01:45.000Z"
+    },
+    {
+      "title": "Major Brazilian Signature Apps Enable RCE & Fraud",
+      "link": "https://www.darkreading.com/vulnerabilities-threats/major-brazilian-signature-app-rce-fraud",
+      "summary": "Government-sanctioned authentication middleware is used for exceptionally important legal documents, yet it's often rife with RCE bugs.",
+      "source": "Dark Reading",
+      "topic": "Cybersecurity",
+      "date": "2026-11-18T14:00:00.000Z"
+    },
+    {
+      "title": "New Attack Bypasses TPM Lockout to Crack Windows Hello and BitLocker PINs in Days, Not Years",
+      "link": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html",
+      "summary": "On AMD-based PCs and some Intel PCs, the TPM lockout for Windows Hello and BitLocker PINs can be reset by someone who opens the PC's case, researchers at Technische Universität Berlin say. That leaves short PINs open to…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-18T12:28:30.000Z"
+    },
+    {
+      "title": "Voyager 1 at one light-day: Historian revisits Golden Record's forgotten details",
+      "link": "https://arstechnica.com/space/2026/11/voyager-1-at-one-light-day-historian-revisits-golden-records-forgotten-details/",
+      "summary": "\"They are pretty confident that it's going to last a long, long, long time...\"",
+      "source": "Ars Technica",
+      "topic": "Technology",
+      "date": "2026-11-18T12:15:44.000Z"
+    },
+    {
+      "title": "AI Pentesting Checklist for Web Apps: 15 Questions to Ask Before Choosing a Vendor",
+      "link": "https://thehackernews.com/2026/11/ai-pentesting-checklist-for-web-apps-15.html",
+      "summary": "TL;DR Attackers move first. On average, exploitation now starts before a patch exists (Mandiant M-Trends 2026). In 1H 2026, 23% of vulnerabilities VulnCheck added to its exploited list were hit on or before disclosure…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-18T12:15:00.000Z"
+    },
+    {
+      "title": "Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
       "link": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
       "summary": "A Java flaw called Java4Shell can let attackers without an account run their own code on Jira, Jenkins, Keycloak, and three other widely used applications, says Calif, the security research firm that disclosed it this…",
       "source": "The Hacker News",
       "topic": "Cybersecurity",
-      "date": "2026-11-18T04:27:41.000Z"
+      "date": "2026-11-18T11:55:49.000Z"
     },
     {
-      "title": "New Man of Tomorrow & Brainiac Details Confirm Justice League Setup Rumors",
-      "link": "https://comicbook.com/movies/news/new-man-of-tomorrow-brainiac-details-confirm-justice-league-setup-rumors/",
-      "summary": "Image Courtesy of Warner Bros. James Gunn might be finished running the DCU with the new regime coming in, but it sounds like Man of Tomorrow was planned to set up a huge moment in the third film in the franchise.…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-18T04:17:15.000Z"
+      "title": "Mesopotamia’s Primeval Waters",
+      "link": "https://www.biblicalarchaeology.org/exhibits-events/mesopotamias-primeval-waters/",
+      "summary": "Through March 15, 2027 Musée du Louvre Paris, France louvre.fr An exhibition currently on view at the Louvre is dedicated to ancient Mesopotamia’s critical relationship…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-11-18T11:45:06.000Z"
     },
     {
-      "title": "The Matrix Creators File to Win Back Franchise Rights from David Ellison’s Skydance & It Could Block Upcoming Sequel",
-      "link": "https://comicbook.com/movies/news/the-matrix-creators-file-to-win-back-franchise-rights-from-david-ellisons-skydance-it-could-block-upcoming-sequel/",
-      "summary": "Image Courtesy of Warner Bros. The is no debate that The Matrix is one of Hollywood’s most iconic franchises. The first film changed revolutionized filmmaking and visual effects and changed how people viewed action…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-18T03:56:33.000Z"
+      "title": "Quality Isn’t The Main Worry About AI Pentesting — Data Privacy and Production Safety Are",
+      "link": "https://thehackernews.com/2026/11/quality-isnt-main-worry-about-ai.html",
+      "summary": "AI is speeding up how software is built, which means more code, more changes, and more chances for vulnerabilities to reach production. It's speeding up how attackers find and exploit them too, with time-to-exploit now…",
+      "source": "The Hacker News",
+      "topic": "Cybersecurity",
+      "date": "2026-11-18T11:03:57.000Z"
     },
     {
-      "title": "4 More Anime Still Coming to Netflix in 2026",
-      "link": "https://comicbook.com/anime/list/4-more-anime-still-coming-to-netflix-in-2026/",
-      "summary": "Image Courtesy of Studio VOLN / Netflix 2026 is heading towards the final month of the year, as the Fall 2026 anime season will wrap up along with the year. The final quarter of the year began last month, when all major…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-18T03:40:42.000Z"
-    },
-    {
-      "title": "A Fantastic Four & Doomsday Star Made His Forgotten MCU Debut 7 Years Ago, And Got a Good Ending",
-      "link": "https://comicbook.com/movies/feature/a-fantastic-four-doomsday-star-made-his-forgotten-mcu-debut-7-years-ago-and-got-a-good-ending/",
-      "summary": "The Fantastic Four: First Steps introduced some of Marvel Comics’ most iconic superheroes to the MCU, setting them up as members of the main cast of Avengers: Doomsday. Mister Fantastic, the Invisible Woman, the Human…",
-      "source": "ComicBook.com",
-      "topic": "Comics",
-      "date": "2026-11-18T03:35:00.000Z"
-    },
-    {
-      "title": "US Officially a Measles Endemic Country",
-      "link": "https://science.slashdot.org/story/26/11/18/0029236/us-officially-a-measles-endemic-country?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "An anonymous reader quotes a report from The Hill: The Pan American Health Organization (PAHO) confirmed Tuesday that it was withdrawing the U.S.'s measles elimination status, ending more than two decades of what is…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-18T03:30:00.000Z"
-    },
-    {
-      "title": "Mary Peltola flips Alaska's Senate seat into Democrats' column",
-      "link": "https://www.npr.org/2026/11/17/g-s1-151567/alaska-senate-results-peltola-sullivan",
-      "summary": "Former Democratic Rep. Mary Peltola has narrowly won Alaska's U.S. Senate race, toppling the Republican incumbent, according to a race call by The Associated Press.",
-      "source": "NPR",
-      "topic": "Top News",
-      "date": "2026-11-18T03:27:23.000Z"
-    },
-    {
-      "title": "63 Years Later, the Best 'Peanuts' Sally Line Is Still an Iconic Comic Strip Quote",
-      "link": "https://www.polygon.com/sally-brown-best-quotes-peanuts-charlie-brown/",
-      "summary": "In Peanuts, it's Sally Brown vs. school",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-18T03:10:17.000Z"
+      "title": "The Woman and the Goose",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-israel/the-woman-and-the-goose/",
+      "summary": "Carrying out excavations at a prehistoric village overlooking the Sea of Galilee, archaeologists from the Hebrew University of Jerusalem uncovered a small clay figurine unlike…",
+      "source": "Biblical Archaeology Society",
+      "topic": "Biblical Archaeology",
+      "date": "2026-11-18T11:00:48.000Z"
     },
     {
       "title": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
@@ -144,86 +240,6 @@
       "source": "Krebs on Security",
       "topic": "Cybersecurity",
       "date": "2026-11-18T02:52:04.000Z"
-    },
-    {
-      "title": "Nvidia Rejects Jensen Huang's Offer to Return as CEO",
-      "link": "https://slashdot.org/story/26/11/18/0124249/nvidia-rejects-jensen-huangs-offer-to-return-as-ceo?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "Nvidia's board has unanimously rejected former CEO Jensen Huang's offer to return, despite public support from President Trump and prominent Silicon Valley figures. The decision came as Nvidia reported blockbuster…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-18T01:30:00.000Z"
-    },
-    {
-      "title": "GTA 6's Release Will Stress The Internet Just As Everything's Falling Apart",
-      "link": "https://www.polygon.com/gta-6-release-apple-down-outages-microsoft-chase-bank-issues/",
-      "summary": "GTA 6 is releasing within days of major outages for Apple, Microsoft, and Chase Bank",
-      "source": "Polygon",
-      "topic": "Gaming",
-      "date": "2026-11-18T01:29:36.000Z"
-    },
-    {
-      "title": "'It's Been a Sh*tshow' — Esports Casters Call for Change After Embark Studios Replaces Talent for The Finals' Grand Major Qualifier Highlight Reel With Game's AI Commentators",
-      "link": "https://www.ign.com/articles/its-been-a-shtshow-esports-casters-call-for-change-after-embark-studios-replaces-talent-for-the-finals-grand-major-qualifier-highlight-reel-with-games-ai-commentators",
-      "summary": "The Grand Major, an official tournament for Embark Studios' first-person shooter The Finals, is at the center of a heated debate after the developer replaced its real-life esports casters with AI commentators in a…",
-      "source": "IGN",
-      "topic": "Gaming",
-      "date": "2026-11-18T00:32:54.000Z"
-    },
-    {
-      "title": "Copilot is \"the new OS for work,\" and now Office runs inside of it",
-      "link": "https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote/",
-      "summary": "Word, Excel, and PowerPoint now live inside Copilot; always-on agents are next.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-11-18T00:27:29.000Z"
-    },
-    {
-      "title": "San Diego dumps both Flock cameras and smart streetlights",
-      "link": "https://arstechnica.com/tech-policy/2026/11/san-diego-dumps-both-flock-cameras-and-smart-streetlights/",
-      "summary": "500+ cameras will go dark just 3 years after mayor urged approval.",
-      "source": "Ars Technica",
-      "topic": "Technology",
-      "date": "2026-11-17T23:09:09.000Z"
-    },
-    {
-      "title": "Google To Keep Temporary Gemini Chats For Two Months",
-      "link": "https://yro.slashdot.org/story/26/11/17/2246233/google-to-keep-temporary-gemini-chats-for-two-months?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "summary": "timob58 shares a report from TechCrunch: Google is extending how long it keeps temporary Gemini chats and conversations made with chat history turned off to around two months, saying the change aims to improve safety…",
-      "source": "Slashdot",
-      "topic": "Technology",
-      "date": "2026-11-17T23:00:00.000Z"
-    },
-    {
-      "title": "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
-      "link": "https://www.darkreading.com/cyber-risk/optimizely-malware-attacks-third-party-vendor-risks",
-      "summary": "At least 178 organizations, including several major brands, unwittingly exposed website visitors to hydra-like malware via a third-party platform.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-11-17T22:34:22.000Z"
-    },
-    {
-      "title": "'TheMailer' Phishing Kit Puts AI in the Driver's Seat",
-      "link": "https://www.darkreading.com/perimeter/themailer-phishing-kit-ai-drivers-seat",
-      "summary": "The commercial kit uses attacker-supplied AI models to personalize lures, evade spam filters, and scale campaigns to tens of thousands of targets.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-11-17T20:58:13.000Z"
-    },
-    {
-      "title": "Researchers Claim Two RCE Exploits That Bypass Telegram’s New Android Defenses",
-      "link": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
-      "summary": "A malicious widget can bypass the security filter that Telegram added to its Android app last week and run code outside it, according to NebuSec, a security company. Widgets are small interactive blocks that bots send…",
-      "source": "The Hacker News",
-      "topic": "Cybersecurity",
-      "date": "2026-11-17T19:34:20.000Z"
-    },
-    {
-      "title": "Cursor Traces Malicious Claude Code Extension to Third-Party Breach",
-      "link": "https://www.darkreading.com/application-security/cursor-malicious-claude-code-extension-third-party-breach",
-      "summary": "A compromised key issued to AI infrastructure provider Fireworks was used by threat actors to access Cursor data and credentials.",
-      "source": "Dark Reading",
-      "topic": "Cybersecurity",
-      "date": "2026-11-17T18:38:37.000Z"
     },
     {
       "title": "When Did Monotheism Emerge in Ancient Israel?",
@@ -264,22 +280,6 @@
       "source": "Simply Cyber Newsletter",
       "topic": "Cybersecurity",
       "date": "2026-11-16T11:00:00.000Z"
-    },
-    {
-      "title": "Summer 2026 Caption Contest Winners",
-      "link": "https://www.biblicalarchaeology.org/cartoon-captions/caption-contest-winners/summer-2026-2/",
-      "summary": "“Why am I on his left? I’m the GOAT!” Jim Schmutz, Central, South Carolina Thank you to all those who submitted caption entries for our…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-11-16T10:00:56.000Z"
-    },
-    {
-      "title": "More Queries and Comments Winter 2026",
-      "link": "https://www.biblicalarchaeology.org/queries-comments/winter-2026-2/",
-      "summary": "Thank you for your thoughts and comments about our Summer 2026 issue. We appreciate your feedback. Here are a few of the letters and responses…",
-      "source": "Biblical Archaeology Society",
-      "topic": "Biblical Archaeology",
-      "date": "2026-11-16T10:00:51.000Z"
     },
     {
       "title": "Single Button, Handheld Gaming Console",
