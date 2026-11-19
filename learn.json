@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-18T05:37:38-06:00",
+  "updated": "2026-11-19T05:36:08-06:00",
   "articles": [
+    {
+      "date": "2026-11-19",
+      "title": "How a Stingy Finance Minister Lent His Name to Shadow Art",
+      "category": "Word Origins",
+      "paragraphs": [
+        "Imagine being so famous for pinching pennies that your name becomes a word for doing things on the cheap. That is exactly what happened to Étienne de Silhouette, a French finance minister who, in 1759, was forced by a credit crisis during the Seven Years' War to impose severe economic demands on the French people, especially the wealthy.",
+        "Because of his austere economies, his name became synonymous with anything done or made cheaply. And what was cheaper than a portrait cut from a sheet of black card? Before photography came along, these profile cutouts were the least expensive way to record what a person looked like. They were a cheap but effective alternative to the portrait miniature, and a skilled artist could cut a high-quality bust in a matter of minutes, working purely by eye. Interestingly, the word wasn't widely applied to the art until the 19th century. Before that, these pictures were usually called \"profiles\" or \"shades.\"",
+        "The idea itself is far older than the name. The Roman writer Pliny the Elder told a story about Butades, a potter of Sicyon. His daughter, deeply in love with a young man about to leave on a long journey, traced the outline of his face as the lamplight threw it on a wall. Her father pressed clay into the outline and made a relief portrait, then hardened it in fire along with his pots. Pliny noted that all the Greeks agreed painting began with tracing lines around a human shadow.",
+        "Profiles work well for good reason. They depend on the proportions of the forehead, nose, and chin, which makes the image clear and simple. Research at Stanford University indicated that people can pull accurate information about gender and age from a silhouette alone. That is why character designers care so much about the shape of a figure.",
+        "Silhouettes have had a long and busy career. Artists like John Miers advertised \"three minute sittings,\" and in America silhouettes were highly popular from about 1790 to 1840. Later they showed up in shadow theatre, book illustrations, and movies, from James Bond opening credits to the killer in the shower scene of Psycho.",
+        "Here is a delightful twist: Hans Christian Andersen, the famous author, was among the 19th century artists who worked with papercutting. So the man behind so many fairy tales also picked up scissors and shaped stories out of paper."
+      ],
+      "words": 398,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Silhouette",
+        "requested": "Silhouette",
+        "url": "https://en.wikipedia.org/wiki/Silhouette",
+        "pageid": 959658,
+        "revid": 1385664408,
+        "revision_time": "2026-11-14T16:01:41Z"
+      }
+    },
     {
       "date": "2026-11-18",
       "title": "The Sky Puddle That Isn't There: How Mirages Really Work",
