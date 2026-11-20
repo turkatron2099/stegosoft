@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-19T05:36:08-06:00",
+  "updated": "2026-11-20T05:38:08-06:00",
   "articles": [
+    {
+      "date": "2026-11-20",
+      "title": "The Platypus: The Animal Scientists Thought Was a Prank",
+      "category": "Nature",
+      "paragraphs": [
+        "In 1799, a group of British scientists took a pair of scissors to a preserved animal, hunting for stitches. They suspected someone had sewn a duck's beak onto a beaver-like body. The creature was a platypus, and it was entirely real, though you can hardly blame them for doubting it.",
+        "The platypus is a semiaquatic, egg-laying mammal found in eastern Australia, including Tasmania. It is one of just five living species of monotremes, mammals that lay eggs instead of giving birth to live young. The other four are echidnas. Its wide, flat tail is furry rather than scaly, and it stores fat reserves. It also works as a rudder while swimming. Its dense, waterproof fur traps a layer of insulating air, making it one of the most densely furred mammals, behind only otters.",
+        "Then there is the hunting trick. When a platypus dives, its eyes, ears and nostrils all close. It digs along the bottom of a stream with its bill, which carries about 40,000 electroreceptors. These detect the tiny electric currents made by the muscles of its prey. Researchers found that a platypus will even react to an artificial shrimp if a small electric current is passed through it. The brain may treat these signals as a kind of touch, so the platypus may essentially feel electric fields.",
+        "The oddities keep stacking up. Adults have no teeth, only keratin grinding pads. The platypus has no functional stomach, because it lacks the genes needed to make pepsin proteases. Males have a spur on each hind foot that delivers venom painful enough to cause swelling and heightened pain sensitivity that can last for months. Males use the spurs as weapons in battles over breeding.",
+        "The name itself is a bit of a puzzle. Platypus means flat-foot in Greek, but the first scientific name, Platypus anatinus, was already taken by a beetle. The animal was renamed Ornithorhynchus anatinus, or duck-like bird-snout. Nobody agrees on the plural either: platypuses, platypus, or the pseudo-Latin platypi. Young platypuses have unofficial names too, platypup and puggle.",
+        "And here is the final delight. Under ultraviolet light, the platypus glows cyan and green. Its fur is biofluorescent, which may help camouflage it from UV-sensitive predators in low light. The animal that looked like a hoax turns out to have a secret glow."
+      ],
+      "words": 384,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Platypus",
+        "requested": "Platypus",
+        "url": "https://en.wikipedia.org/wiki/Platypus",
+        "pageid": 23749,
+        "revid": 1385840908,
+        "revision_time": "2026-11-15T13:53:44Z"
+      }
+    },
     {
       "date": "2026-11-19",
       "title": "How a Stingy Finance Minister Lent His Name to Shadow Art",
