@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-20T05:38:08-06:00",
+  "updated": "2026-11-21T05:39:08-06:00",
   "articles": [
+    {
+      "date": "2026-11-21",
+      "title": "Laying Tracks Across a Continent, One Rail at a Time",
+      "category": "History",
+      "paragraphs": [
+        "Imagine trying to ride a train from Perth to Brisbane and having to switch trains again and again, not because of distance, but because the tracks were different widths. That was real life in Australia in 1917, and it hints at the surprising story of the transcontinental railroad: a line of track that crosses a whole continent, with ends at different oceans or borders.",
+        "These railroads did more than move people. They opened up the interiors of continents to exploration and settlement that otherwise would not have been feasible, and they often became the backbones of passenger and freight networks. The Trans-Siberian Railway, completed in 1905, was the first network of railways connecting Europe and Asia. Running from Moscow to Vladivostok on the Pacific coast, it stretches over 9,289 kilometers and is the longest railway line in the world.",
+        "In the United States, the first transcontinental line was built between 1863 and 1869 and was known as the Pacific Railroad. Considered one of the greatest American technological feats of the 19th century, it replaced most of the slower, more hazardous stagecoach lines and wagon trains. The number of emigrants on the Oregon and California Trails dropped dramatically. Much of its original route is still used today by Amtrak's California Zephyr.",
+        "The people who built it were a mixed crew. The Union Pacific recruited Army veterans and Irish immigrants, and many of its engineers were ex-Army men who had learned their trade keeping trains running during the Civil War. The Central Pacific, facing a labor shortage in the sparsely settled West, recruited Cantonese laborers from China. They built the line over and through the Sierra Nevada and across Nevada to the meeting point in northern Utah, and made up ninety percent of the workforce.",
+        "Some grand plans never got finished. Cecil Rhodes dreamed of a Cape-Cairo railway across Africa, but it was never completed. Australia, meanwhile, finally finished its north-south line from Adelaide to Darwin in 2004, ending 126 years of passengers and freight having to switch between trains on different gauges.",
+        "And here is the delightful twist: the first transcontinental railroad was not the famous American one at all. That honor goes to the much shorter Panama Railroad of 1855, which made the American line the world's second."
+      ],
+      "words": 378,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Transcontinental railroad",
+        "requested": "Transcontinental railroad",
+        "url": "https://en.wikipedia.org/wiki/Transcontinental_railroad",
+        "pageid": 51916,
+        "revid": 1383425816,
+        "revision_time": "2026-11-02T16:42:36Z"
+      }
+    },
     {
       "date": "2026-11-20",
       "title": "The Platypus: The Animal Scientists Thought Was a Prank",
