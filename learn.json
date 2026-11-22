@@ -1,6 +1,28 @@
 {
-  "updated": "2026-11-21T05:39:08-06:00",
+  "updated": "2026-11-22T05:35:08-06:00",
   "articles": [
+    {
+      "date": "2026-11-22",
+      "title": "The Tiny Bird With a Motor That Never Idles",
+      "category": "Nature",
+      "paragraphs": [
+        "Imagine a bird so small that its eggs are the size of peas, and its heart of a lifestyle runs faster than that of any other warm-blooded animal. Meet the hummingbird, a family of about 375 species found only in the Americas, from Alaska all the way down to Tierra del Fuego.",
+        "The name comes straight from the sound. Their wings beat so fast that they hum, a noise that other birds can hear and that humans can too. The largest species flaps about 12 times per second, while the little woodstar hits 99 beats per second while hovering. Their wings are long and bladelike, letting them fly like tiny helicopters in any direction. Their legs, meanwhile, are so short that they don't walk or hop. They just shuffle sideways and use their feet to grip perches, preen, and, when a fight breaks out, grab an opponent's feathers.",
+        "All that motion burns a staggering amount of fuel. Hummingbirds have the highest mass-specific metabolic rate of any homeothermic animal, so they live on sugary flower nectar, plus small insects. When food is scarce, or at night, they can enter torpor, a hibernation-like state that slows their metabolism to one fifteenth of its normal rate. Some also travel far. The rufous hummingbird migrates about 3,900 miles twice a year between Alaska and Mexico.",
+        "Size varies, but everything is small. The bee hummingbird, at roughly 2 grams, is the world's smallest bird and smallest warm-blooded vertebrate. The giant hummingbird is about 9 inches long. Males are the fashion plates, with the widest diversity of plumage color among all birds. Many wear a gorget, an iridescent neck patch that changes brilliance with the viewing angle to attract females and warn rivals away. During courtship, some males dive from about 100 feet up at around 51 miles per hour.",
+        "Here is the twist: hummingbirds seem to be a New World family, yet their fossil record starts in Europe. In 2004, researcher Gerald Mayr took a closer look at two 30-million-year-old fossils that had been sitting in a museum drawer in Stuttgart. Because no one assumed hummingbirds ever lived outside the Americas, no one had recognized them. He named the species Eurotrochilus inexpectatus, the \"unexpected European hummingbird.\""
+      ],
+      "words": 371,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Hummingbird",
+        "requested": "Hummingbird",
+        "url": "https://en.wikipedia.org/wiki/Hummingbird",
+        "pageid": 70649,
+        "revid": 1386252857,
+        "revision_time": "2026-11-17T14:45:26Z"
+      }
+    },
     {
       "date": "2026-11-21",
       "title": "Laying Tracks Across a Continent, One Rail at a Time",
