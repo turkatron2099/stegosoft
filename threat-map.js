@@ -20,7 +20,27 @@
     L7: "232, 111, 216",
     c2: "140, 191, 184",
     origin: "246, 220, 172",
+    sweep: "140, 191, 184",
   };
+  // The radar beam crosses the map once per SWEEP_MS; scanner dots flare
+  // as it passes.
+  const SWEEP_MS = 9000;
+  // Surges: every SURGE_MIN..SURGE_MIN+SURGE_SPREAD ms one origin (picked
+  // by share, like every other arc) fires SURGE_SHOTS of its own routes in
+  // a quick barrage.
+  const SURGE_MIN = 25000;
+  const SURGE_SPREAD = 20000;
+  const SURGE_SHOTS = 8;
+  const PARTICLE_MAX = 500;
+  // Threat level: events replayed in the last LEVEL_WINDOW ms, against
+  // these thresholds (GUARDED below the first, SEVERE above the last).
+  const LEVEL_WINDOW = 10000;
+  const LEVELS = [
+    { at: 0, name: "Guarded" },
+    { at: 20, name: "Elevated" },
+    { at: 26, name: "High" },
+    { at: 33, name: "Severe" },
+  ];
 
   const canvas = document.getElementById("tm-canvas");
   const mapEl = document.getElementById("tm-map");
@@ -28,6 +48,10 @@
   const message = document.getElementById("tm-message");
   const feedEl = document.getElementById("tm-feed");
   const updatedEl = document.getElementById("tm-updated");
+  const levelEl = document.getElementById("tm-level");
+  const levelNameEl = document.getElementById("tm-level-name");
+  const countEl = document.getElementById("tm-count");
+  const surgeEl = document.getElementById("tm-surge");
   const ctx = canvas.getContext("2d");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -63,6 +87,18 @@
   let nextSpawn = 0;
   let pickSource = null;
   let pickArc = null;
+  let pickOrigin = null;
+  let particles = [];
+  // country code → { heat, color }: lit up by impacts, cooling over time
+  let heat = new Map();
+  let countryShapes = new Map();
+  let shake = 0;
+  let lastNow = 0;
+  let nextSurge = 0;
+  let surge = null;
+  let eventTimes = [];
+  let eventCount = 0;
+  let shownLevel = -1;
 
   // ---- data ----
 
@@ -107,6 +143,10 @@
     data = snapshot;
     pickSource = weightedPicker(data.sources, (s) => Math.sqrt(s.targets));
     pickArc = weightedPicker(data.arcs, (a) => a.share);
+    const originShare = new Map();
+    for (const a of data.arcs) if (a.from !== a.to) originShare.set(a.from, (originShare.get(a.from) || 0) + a.share);
+    pickOrigin = weightedPicker([...originShare], ([, share]) => share);
+    countryShapes = new Map();
     document.getElementById("tm-legend-l3").hidden = !data.arcs.some((a) => a.layer === "L3");
     document.getElementById("tm-legend-l7").hidden = !data.arcs.some((a) => a.layer === "L7");
     document.getElementById("tm-legend-c2").hidden = !data.c2.length;
@@ -228,6 +268,7 @@
     drawBase();
     placePoints();
     effects = [];
+    particles = [];
     // Resizing the canvas clears it, so repaint now rather than leaving it
     // blank until the next animation frame.
     drawFrame(performance.now());
@@ -300,12 +341,81 @@
     return Math.max(0, 1 - (age - ORIGIN_LINGER) / ORIGIN_FADE);
   }
 
+  // The map's outline for a country code, found by which shape contains
+  // its centroid (the atlas keys countries by number, the data by letters).
+  // null when the 110m atlas has no shape there (e.g. Hong Kong).
+  function countryShape(code) {
+    if (countryShapes.has(code)) return countryShapes.get(code);
+    const c = data.countries[code];
+    const shape = (c && land.features.find((f) => d3.geoContains(f, [c[1], c[0]]))) || null;
+    countryShapes.set(code, shape);
+    return shape;
+  }
+
   function countryXY(code) {
     const c = data.countries[code];
     return c ? projection([c[1], c[0]]) : null;
   }
 
+  function launch(arc, a, b, now, surging) {
+    const origin = originPoints.find((o) => o.country === arc.from);
+    if (origin) origin.active = now;
+    effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 900, size: 10 });
+    const flight = 1200 + Math.random() * 500;
+    effects.push({ kind: "arc", a, b, to: arc.to, color: COLORS[arc.layer], start: now, flight, dur: flight + IMPACT_MS, rock: makeRock(), impact: makeImpact(), surging });
+  }
+
+  function countEvent(now) {
+    eventTimes.push(now);
+    eventCount++;
+    countEl.textContent = fmt.format(eventCount);
+  }
+
+  // Start a surge: one origin's routes, fired off one after another.
+  function startSurge(now) {
+    const [from] = pickOrigin();
+    const routes = data.arcs.filter((a) => a.from === from && a.to !== from);
+    const pick = weightedPicker(routes, (a) => a.share);
+    if (!pick) return;
+    const targets = [...new Set(routes.map((a) => a.to))].slice(0, 3).map(countryName);
+    surge = { from, pick, shots: SURGE_SHOTS, next: now, end: Infinity };
+    surgeEl.replaceChildren();
+    const tag = document.createElement("strong");
+    tag.textContent = "Surge";
+    surgeEl.append(tag, `${countryName(from)} → ${targets.join(", ")}`);
+    surgeEl.hidden = false;
+    surgeEl.classList.remove("is-on");
+    void surgeEl.offsetWidth; // restart the CSS animation
+    surgeEl.classList.add("is-on");
+    addFeed("SURGE", "tm-tag-surge", `Barrage from ${countryName(from)}`);
+  }
+
+  function runSurge(now) {
+    if (!surge) {
+      if (pickOrigin && now >= nextSurge) startSurge(now);
+      return;
+    }
+    if (surge.shots > 0 && now >= surge.next) {
+      const arc = surge.pick();
+      const a = countryXY(arc.from);
+      const b = countryXY(arc.to);
+      if (a && b) {
+        launch(arc, a, b, now, true);
+        countEvent(now);
+      }
+      surge.shots--;
+      surge.next = now + 220 + Math.random() * 180;
+      if (!surge.shots) surge.end = now + 2600;
+    }
+    if (now >= surge.end) {
+      surge = null;
+      surgeEl.classList.remove("is-on");
+      nextSurge = now + SURGE_MIN + Math.random() * SURGE_SPREAD;
+    }
+  }
+
   function spawn(now) {
+    countEvent(now);
     const roll = Math.random();
     if (pickArc && roll < 0.55) {
       const arc = pickArc();
@@ -318,11 +428,7 @@
         effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 1400, size: 18 });
         return;
       }
-      const origin = originPoints.find((o) => o.country === arc.from);
-      if (origin) origin.active = now;
-      effects.push({ kind: "ring", x: a[0], y: a[1], color: COLORS[arc.layer], start: now, dur: 900, size: 10 });
-      const flight = 1200 + Math.random() * 500;
-      effects.push({ kind: "arc", a, b, color: COLORS[arc.layer], start: now, flight, dur: flight + IMPACT_MS, rock: makeRock(), impact: makeImpact() });
+      launch(arc, a, b, now, false);
     } else if (c2Points.length && roll > 0.97) {
       const c = c2Points[Math.floor(Math.random() * c2Points.length)];
       addFeed("C2", "tm-tag-c2", `${c.malware} server ${c.ip}:${c.port} · ${countryName(c.country)}`);
@@ -384,19 +490,24 @@
     const t = Math.min(elapsed / e.flight, 1);
 
     if (t < 1) {
-      // Dust trail: fading puffs at earlier points along the path.
-      for (let i = 1; i <= 6; i++) {
-        const tt = t - i * 0.035;
-        if (tt <= 0) break;
-        const p = bezierPoint(e.a, control, e.b, tt);
-        ctx.beginPath();
-        ctx.arc(p[0], p[1], (1.6 - i * 0.18) * mark, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${e.color}, ${0.45 - i * 0.065})`;
-        ctx.fill();
-      }
       // The rock looks bigger at the top of its arc, like it's closer.
       const h = bezierPoint(e.a, control, e.b, t);
       const r = 4.4 * mark * e.rock.size * (1 + 0.45 * Math.sin(Math.PI * t));
+      // It burns on the way: embers shed behind it, and a glow around it.
+      const prev = bezierPoint(e.a, control, e.b, Math.max(t - 0.02, 0));
+      for (let i = 0; i < 2; i++) {
+        emit(h[0] + (Math.random() - 0.5) * r, h[1] + (Math.random() - 0.5) * r,
+          (prev[0] - h[0]) * 1.5 + (Math.random() - 0.5) * 14, (prev[1] - h[1]) * 1.5 + (Math.random() - 0.5) * 14 - 6,
+          380 + Math.random() * 420, (0.8 + Math.random() * 1.2) * mark, Math.random() < 0.3 ? "255, 236, 190" : e.color);
+      }
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      const glow = ctx.createRadialGradient(h[0], h[1], 0, h[0], h[1], r * 3);
+      glow.addColorStop(0, `rgba(${e.color}, 0.55)`);
+      glow.addColorStop(1, `rgba(${e.color}, 0)`);
+      ctx.fillStyle = glow;
+      ctx.fillRect(h[0] - r * 3, h[1] - r * 3, r * 6, r * 6);
+      ctx.restore();
       const rot = (elapsed / 1000) * e.rock.spin;
       rockPath(e.rock, h[0], h[1], r, rot);
       ctx.fillStyle = `rgb(${e.color})`;
@@ -415,6 +526,26 @@
 
     // Landed: the impact holds, then fades over the end of IMPACT_MS.
     const k = (elapsed - e.flight) / IMPACT_MS;
+    if (!e.landed) {
+      e.landed = true;
+      const h = heat.get(e.to) || { heat: 0 };
+      heat.set(e.to, { heat: Math.min(h.heat + 0.45, 1.3), color: e.color });
+      for (let i = 0; i < 14; i++) {
+        const ang = Math.random() * Math.PI * 2;
+        const v = 20 + Math.random() * 45;
+        emit(bx, by, Math.cos(ang) * v, Math.sin(ang) * v - 10, 300 + Math.random() * 500, (0.7 + Math.random()) * mark, Math.random() < 0.4 ? "255, 236, 190" : e.color);
+      }
+      if (e.surging) shake = Math.max(shake, 3.5);
+    }
+    // Shockwave: a ring racing outward, thinning as it goes.
+    if (k < 0.6) {
+      const q = k / 0.6;
+      ctx.beginPath();
+      ctx.arc(bx, by, (3 + 26 * Math.sqrt(q)) * mark, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${e.color}, ${0.8 * (1 - q)})`;
+      ctx.lineWidth = (2.5 - 2 * q) * mark;
+      ctx.stroke();
+    }
     const alpha = k < 0.55 ? 1 : 1 - (k - 0.55) / 0.45;
     // Chips of rock bounce up and fall back under gravity.
     const s = k * (IMPACT_MS / 1000);
@@ -435,11 +566,118 @@
     }
   }
 
+  function emit(x, y, vx, vy, life, size, color) {
+    if (particles.length >= PARTICLE_MAX) particles.shift();
+    particles.push({ x, y, vx: vx * mark, vy: vy * mark, life, age: 0, size, color });
+  }
+
+  function drawParticles(dt) {
+    const s = dt / 1000;
+    particles = particles.filter((p) => (p.age += dt) < p.life);
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    for (const p of particles) {
+      p.x += p.vx * s;
+      p.y += p.vy * s;
+      p.vx *= 1 - 1.5 * s;
+      p.vy = p.vy * (1 - 1.5 * s) + 25 * mark * s;
+      const f = 1 - p.age / p.life;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * (0.4 + 0.6 * f), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color}, ${0.85 * f})`;
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  // Countries that were just hit glow in the attack's color, brighter
+  // the more rocks land, cooling off over a few seconds. Ones too small
+  // for the atlas get a glow at their centroid instead.
+  function drawHeat(dt) {
+    const path = d3.geoPath(projection, ctx);
+    for (const [code, h] of heat) {
+      h.heat *= Math.exp(-dt / 2600);
+      if (h.heat < 0.02) {
+        heat.delete(code);
+        continue;
+      }
+      const a = Math.min(h.heat, 1);
+      const shape = countryShape(code);
+      if (shape) {
+        ctx.beginPath();
+        path(shape);
+        ctx.fillStyle = `rgba(${h.color}, ${0.32 * a})`;
+        ctx.fill();
+        ctx.strokeStyle = `rgba(${h.color}, ${0.8 * a})`;
+        ctx.lineWidth = 1 * mark;
+        ctx.stroke();
+      } else {
+        const p = countryXY(code);
+        if (!p) continue;
+        const g = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], 16 * mark);
+        g.addColorStop(0, `rgba(${h.color}, ${0.6 * a})`);
+        g.addColorStop(1, `rgba(${h.color}, 0)`);
+        ctx.fillStyle = g;
+        ctx.fillRect(p[0] - 16 * mark, p[1] - 16 * mark, 32 * mark, 32 * mark);
+      }
+    }
+  }
+
+  // The radar beam's x position: sweeps left to right, starting and
+  // ending a little off the map so it doesn't pop in.
+  function sweepX(now) {
+    return ((now % SWEEP_MS) / SWEEP_MS) * (width + 240) - 120;
+  }
+
+  function drawSweep(now) {
+    const x = sweepX(now);
+    const tail = 140 * mark;
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    const g = ctx.createLinearGradient(x - tail, 0, x, 0);
+    g.addColorStop(0, `rgba(${COLORS.sweep}, 0)`);
+    g.addColorStop(1, `rgba(${COLORS.sweep}, 0.09)`);
+    ctx.fillStyle = g;
+    ctx.fillRect(x - tail, 0, tail, height);
+    ctx.fillStyle = `rgba(${COLORS.sweep}, 0.35)`;
+    ctx.fillRect(x - 1, 0, 1.5 * mark, height);
+    ctx.restore();
+  }
+
+  // Threat level from how many events were replayed in the last
+  // LEVEL_WINDOW ms.
+  function updateLevel(now) {
+    while (eventTimes.length && eventTimes[0] < now - LEVEL_WINDOW) eventTimes.shift();
+    let level = 0;
+    LEVELS.forEach((l, i) => {
+      if (eventTimes.length >= l.at) level = i;
+    });
+    if (level === shownLevel) return;
+    shownLevel = level;
+    levelEl.dataset.level = String(level);
+    levelNameEl.textContent = LEVELS[level].name;
+  }
+
   function drawFrame(now) {
+    const dt = Math.min(now - lastNow, 100) || 0;
+    lastNow = now;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // A brief shake when a surge's rocks land.
+    let sx = 0;
+    let sy = 0;
+    if (shake > 0.05) {
+      sx = (Math.random() - 0.5) * shake * mark;
+      sy = (Math.random() - 0.5) * shake * mark;
+      shake *= Math.exp(-dt / 120);
+    }
+    ctx.setTransform(1, 0, 0, 1, sx * dpr, sy * dpr);
     if (baseLayer) ctx.drawImage(baseLayer, 0, 0);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.setTransform(dpr, 0, 0, dpr, sx * dpr, sy * dpr);
+    if (!reducedMotion) {
+      drawHeat(dt);
+      drawSweep(now);
+    }
 
     for (const o of originPoints) {
       const alpha = originAlpha(o, now);
@@ -453,11 +691,24 @@
       ctx.stroke();
     }
 
+    const beam = reducedMotion ? -Infinity : sweepX(now);
     for (const s of sourcePoints) {
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${COLORS.source}, 0.55)`;
       ctx.fill();
+      // Flare as the radar beam passes over, fading behind it.
+      const behind = beam - s.x;
+      if (behind >= 0 && behind < 90 * mark) {
+        const f = 1 - behind / (90 * mark);
+        ctx.save();
+        ctx.globalCompositeOperation = "lighter";
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r * (1 + 1.6 * f), 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${COLORS.source}, ${0.5 * f})`;
+        ctx.fill();
+        ctx.restore();
+      }
     }
 
     const pulse = reducedMotion ? 0.5 : (Math.sin(now / 400) + 1) / 2;
@@ -490,15 +741,26 @@
         ctx.fill();
       }
     }
+    if (!reducedMotion) drawParticles(dt);
   }
 
   function loop(now) {
     if (data && now >= nextSpawn) {
       // Catch up gently after the tab was in the background instead of
       // firing a burst of every missed event at once.
-      if (now - nextSpawn > 2000) nextSpawn = now;
+      if (now - nextSpawn > 2000) {
+        nextSpawn = now;
+        if (!surge) nextSurge = Math.max(nextSurge, now + 4000);
+      }
       spawn(now);
-      nextSpawn += 260 + Math.random() * 420;
+      // The pace swells and ebbs on two slow overlapping waves, so the
+      // threat level climbs and calms instead of sitting still.
+      const wave = (Math.sin(now / 21000) + Math.sin(now / 8300 + 1)) / 2;
+      nextSpawn += (260 + Math.random() * 420) / (1 + 0.45 * wave);
+    }
+    if (data) {
+      runSurge(now);
+      updateLevel(now);
     }
     drawFrame(now);
     requestAnimationFrame(loop);
@@ -659,6 +921,7 @@
       }
       drawFrame(performance.now());
     } else {
+      nextSurge = performance.now() + 8000;
       requestAnimationFrame(loop);
     }
   }

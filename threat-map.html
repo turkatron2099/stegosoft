@@ -40,6 +40,12 @@
         <div class="tm-status">
           <span class="tm-live"><span class="tm-live-dot" aria-hidden="true"></span>Live replay<span class="tm-fs-title">Thagobyte Threat Map</span></span>
           <span class="tm-status-right">
+            <span class="tm-level" id="tm-level" data-level="0" title="How busy the replay is right now">
+              <span class="tm-level-label">Threat level</span>
+              <span class="tm-level-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              <span class="tm-level-name" id="tm-level-name">Guarded</span>
+            </span>
+            <span class="tm-count"><span id="tm-count">0</span> events</span>
             <span class="tm-updated" id="tm-updated">Loading&hellip;</span>
             <button type="button" class="tm-fs-btn" id="tm-fullscreen" aria-pressed="false" title="Full screen (F)">Full screen</button>
           </span>
@@ -47,6 +53,7 @@
         <div class="tm-map" id="tm-map">
           <canvas id="tm-canvas" aria-label="World map of attack sources" role="img"></canvas>
           <div class="tm-tooltip" id="tm-tooltip" hidden></div>
+          <div class="tm-surge" id="tm-surge" role="status" hidden></div>
           <p class="tm-message" id="tm-message">Loading threat data&hellip;</p>
         </div>
         <ul class="tm-legend">
@@ -82,7 +89,8 @@
         Attack sources are the IPs reported by the most
         <a href="https://isc.sans.edu/" target="_blank" rel="noopener">SANS Internet Storm Center</a> (DShield) sensors today.
         Many of the busiest are research scanners like Shodan and Censys, which is why the US looks so busy.
-        Attack routes come from <a href="https://radar.cloudflare.com/security" target="_blank" rel="noopener">Cloudflare Radar</a>,
+        Attack routes come from <a href="https://radar.cloudflare.com/security" target="_blank" rel="noopener">Cloudflare Radar</a>;
+        a surge replays one origin's routes in a quick burst, and the threat level shows how busy the replay is, not the real internet.
         and botnet servers from <a href="https://feodotracker.abuse.ch/" target="_blank" rel="noopener">abuse.ch Feodo Tracker</a>.
         <a href="https://db-ip.com" target="_blank" rel="noopener">IP Geolocation by DB-IP</a>; locations are approximate.
       </p>
