@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-22T05:35:08-06:00",
+  "updated": "2026-11-23T05:39:56-06:00",
   "articles": [
+    {
+      "date": "2026-11-23",
+      "title": "Strings, Socks, and Shadows: The Ancient Art of Puppetry",
+      "category": "Art and Music",
+      "paragraphs": [
+        "Here is a thought to chew on: puppets may be older than actors. Some historians claim exactly that, which means the humble sock puppet could have very distinguished ancestors.",
+        "Puppetry is theatre in which a person, called a puppeteer, animates an object that often looks like a human or an animal. The range is wonderfully wide. The simplest puppets are finger puppets, which fit on a single finger, and sock puppets, where opening and closing your hand makes the \"mouth\" talk. Marionettes dangle from strings, sometimes with a central rod, controlled from above. Rod puppets have a head on a central rod and arms moved by separate rods, so they can do more than a simple hand puppet. Japanese bunraku puppets are so big that each one needs more than one puppeteer.",
+        "The art form is ancient. The oldest written records come from Herodotus and Xenophon in the 5th century BC in Ancient Greece, but the evidence goes back much further. In Egypt, string-operated wooden figures were made to knead bread as early as 2000 BCE, and articulated puppets of clay and ivory turned up in tombs. In the Indus Valley, archaeologists found a terracotta doll with a detachable head that could be worked by a string, dating to 2500 BC.",
+        "Around the world, puppets took on local flavors. Vietnam created water puppetry, with wooden puppets performing in a waist-high pool. A large rod under the water supports them, so they seem to glide over the surface. It began about 700 years ago, when villagers entertained one another during flooded rice-field seasons. Village competitions eventually led to secretive, exclusive puppet societies. In the Philippines, giant papier-mâché puppets called higantes are paraded through town, partly as a mockery of colonial-era landowners who discriminated against Filipinos.",
+        "In Japan, bunraku grew out of Shinto temple rites. By 1730, three puppeteers worked each puppet in full view of the audience. They dressed all in black so they would seem to vanish against a black background, leaving the painted wooden puppets glowing in torchlight.",
+        "India's shadow puppets might hold the most staying power. In Kerala, a complete performance of the Ramayana using leather shadow puppets can take forty-one nights. Even the making of a puppet is a ritual: artist families pray, go into seclusion, and then celebrate the \"metaphorical birth of a puppet\" with flowers and incense."
+      ],
+      "words": 392,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Puppetry",
+        "requested": "Puppetry",
+        "url": "https://en.wikipedia.org/wiki/Puppetry",
+        "pageid": 156593,
+        "revid": 1384406079,
+        "revision_time": "2026-11-08T02:32:38Z"
+      }
+    },
     {
       "date": "2026-11-22",
       "title": "The Tiny Bird With a Motor That Never Idles",
