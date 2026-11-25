@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-23T05:39:56-06:00",
+  "updated": "2026-11-24T22:16:36-06:00",
   "articles": [
+    {
+      "date": "2026-11-24",
+      "title": "The Last Voyage of Shackleton: A Small Ship and Big Gadgets",
+      "category": "History",
+      "paragraphs": [
+        "Imagine setting off for the bottom of the world in a ship that rarely managed more than five-and-a-half knots, rolled in heavy seas and leaked steadily. That was the Quest, the little vessel that carried Sir Ernest Shackleton on his final adventure in 1921.",
+        "The plan did not start in the Antarctic. Shackleton wanted to fill in what he called the great blank of the Beaufort Sea, north of Alaska, where he believed tidal records hinted at undiscovered land. Then a new Canadian prime minister withdrew government support, and Shackleton swung south instead. His old school friend John Quiller Rowett, a businessman, had already put up seed money. He ended up covering the costs of the whole expedition, asking only that his name be attached to it. Thanks to him, the expedition came home with no outstanding debt, which was unique among Antarctic expeditions of the era.",
+        "The money bought some remarkable gear. Quest had an electrically heated crow's nest, heated overalls for the lookouts, a wireless set, and an odograph that could trace the ship's route automatically. There was a large outfit of cameras, a deep-sea sounding machine, and even an aeroplane. One biographer says the voyage marked the dividing line between the Heroic Age of exploration and the Mechanical Age.",
+        "The crew had its own charms. Eight of the 20 men who sailed from London were old comrades from Shackleton's Endurance expedition, some of whom had not even been fully paid for that trip but joined out of loyalty. Two Boy Scouts were chosen from about 1,700 applicants. One left the ship at Madeira with chronic seasickness. The other, 18-year-old James Marr, stuck it out, even after being put to work in the coal bunkers.",
+        "The ship's troubles began almost at once. Engine problems forced stops in Lisbon, Madeira, the Cape Verde Islands and Rio de Janeiro. Shackleton himself admitted on the first day that they were not fitted to ignore even the mildest storm. Shackleton died aboard just after reaching South Georgia, and Frank Wild led a three-month cruise to the eastern Antarctic. Quest could not push through the pack ice, and the expedition ended quietly when Rowett ordered the ship home.",
+        "And the aeroplane, the pioneering star of all that technology? It was never used, because of some missing parts."
+      ],
+      "words": 384,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Shackleton–Rowett Expedition",
+        "requested": "Shackleton–Rowett Expedition",
+        "url": "https://en.wikipedia.org/wiki/Shackleton%E2%80%93Rowett_Expedition",
+        "pageid": 4349252,
+        "revid": 1384239974,
+        "revision_time": "2026-11-07T07:55:48Z"
+      }
+    },
     {
       "date": "2026-11-23",
       "title": "Strings, Socks, and Shadows: The Ancient Art of Puppetry",
