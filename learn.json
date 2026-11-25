@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-24T22:16:36-06:00",
+  "updated": "2026-11-25T05:38:28-06:00",
   "articles": [
+    {
+      "date": "2026-11-25",
+      "title": "The One Word That Could Save Your Life at the River",
+      "category": "Word Origins",
+      "paragraphs": [
+        "Imagine your life depending on how you say a single word. For some fleeing soldiers in an ancient story, it did exactly that. The word was shibboleth, and it has been giving us a name for secret handshakes of speech ever since.",
+        "In Hebrew, shibboleth means the part of a plant that holds grain, like the ear of a wheat or rye stalk. It can also, less commonly, mean a flood or torrent. The word got its fame from the Book of Judges. After the Gileadites, led by Jephthah, defeated the invading Ephraimites, the survivors tried to cross the River Jordan toward home. The Gileadites held the fords and asked each suspect to say shibboleth. Ephraimite speech made it come out sounding like sibboleth, and that gave the travelers away.",
+        "Here is the twist: scholars still argue about how the test really worked. Why didn't the Ephraimites just copy the guards? Assyriologist Ephraim Avigdor Speiser suggested the real password involved a trickier sound, like the English th, which the Gileadites kept and others had lost. Another scholar, John Emerton, proposed that the Ephraimites made the sh sound in a slightly different way that Gileadite ears heard as s. And David Marcus thinks the story may be satire, poking fun at the Ephraimites as nincompoops who could not repeat a word.",
+        "The idea has popped up all over history. In Sicily in 1282, French occupiers were said to be exposed by their trouble with the word for chickpeas, cìciri. In Kraków in 1312, a tongue-twister about lentils, wheels, and mills reportedly sorted Poles from German-speaking burghers. In the Frisian rebellion, a rhyme about butter, rye bread, and green cheese did the job.",
+        "Today, a shibboleth can be any in-group word or bit of jargon that marks you as an insider. It can also be an insult, meaning a symbol whose original meaning has been lost. Even computer science borrowed it: a system called Shibboleth lets a community share one password-like access without revealing who is who.",
+        "My favorite detail comes from 18th-century American newspapers. Ads for runaway servants often described their regional accents, such as broad Yorkshire. Researcher Allen Walker Read noticed that runaways were never described as having London accents. His conclusion: early American English sounded most like the speech around London, so those runaways simply blended in."
+      ],
+      "words": 388,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Shibboleth",
+        "requested": "Shibboleth",
+        "url": "https://en.wikipedia.org/wiki/Shibboleth",
+        "pageid": 102065,
+        "revid": 1386695902,
+        "revision_time": "2026-11-20T01:08:17Z"
+      }
+    },
     {
       "date": "2026-11-24",
       "title": "The Last Voyage of Shackleton: A Small Ship and Big Gadgets",
