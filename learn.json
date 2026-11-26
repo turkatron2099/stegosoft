@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-25T05:38:28-06:00",
+  "updated": "2026-11-26T05:40:09-06:00",
   "articles": [
+    {
+      "date": "2026-11-26",
+      "title": "Hadrian's Wall: Rome's Giant Whitewashed Statement",
+      "category": "History",
+      "paragraphs": [
+        "Imagine walking across northern England nearly two thousand years ago and spotting a bright, gleaming line stretching across the hills for miles. That may be exactly what Roman travelers saw. There is some evidence that Hadrian's Wall was originally covered in plaster and whitewashed, so its shining surface would have reflected the sunlight and been visible for miles around.",
+        "Begun in AD 122 under Emperor Hadrian, the wall ran 80 Roman miles, or about 73 modern miles, from Wallsend on the River Tyne in the east to Bowness-on-Solway in the west. Along the way stood large forts, smaller milecastles, and turrets about every third of a mile. Building most of it took six years and the labor of three Roman legions, around 15,000 soldiers, plus some members of the Roman fleet. Those soldiers had the skills for the job, since some would have trained as surveyors, engineers, masons, and carpenters.",
+        "Why build it at all? Hadrian stopped his predecessor's policy of expanding the empire and focused on defending existing borders. Many borders followed rivers, but Britain had no natural boundary to divide Roman territory from the tribes to the north. The wall was meant to slow raiders hunting for animals, treasure, or slaves. In front of it, pits held entangled, sharpened branches, which you might think of as the Roman version of barbed wire. The wall also channeled movement through its gates, where people could be monitored, permitted, or taxed.",
+        "The plans changed along the way. The wall was first meant to be 10 feet thick, but it was soon reduced to about 8 feet, or less depending on the terrain. Some sections began as turf and timber, and were replaced with stone years or decades later. In the western stretch, the turf wall was about 20 feet wide at its base and roughly 12 feet high.",
+        "Today none of the wall stands at its original height. Almost all the standing stone was carted off in early modern times and reused for local roads and farmhouses. Still, it remains the largest Roman archaeological feature in Britain and a UNESCO World Heritage Site since 1987.",
+        "And here is the twist: despite its fame, Hadrian's Wall lies entirely within England and has never formed the Anglo-Scottish border, even though people sometimes casually describe it that way."
+      ],
+      "words": 384,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Hadrian's Wall",
+        "requested": "Hadrian's Wall",
+        "url": "https://en.wikipedia.org/wiki/Hadrian's_Wall",
+        "pageid": 18618416,
+        "revid": 1386273015,
+        "revision_time": "2026-11-17T17:10:38Z"
+      }
+    },
     {
       "date": "2026-11-25",
       "title": "The One Word That Could Save Your Life at the River",
