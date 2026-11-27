@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-26T05:40:09-06:00",
+  "updated": "2026-11-27T05:31:41-06:00",
   "articles": [
+    {
+      "date": "2026-11-27",
+      "title": "The Humble Roof That Burns Like a Closed Book",
+      "category": "How It's Made",
+      "paragraphs": [
+        "What if your roof were a thick, cozy blanket of dried grass? For much of the world, it still is. Thatching, the craft of layering dry vegetation so that water runs away from the inner roof, is described as the most common roofing material on the planet, simply because the materials are so easy to find.",
+        "The ingredients vary wildly with geography. Hawaiians used ti leaves, lauhala, or pili grass. Bali uses alang-alang and the black fibers of the sugar palm, called ijuk, on temple roofs. In Southeast Asia, nipa palm leaves do the job, while in Kenya, Kikuyu homes have used sugar cane leaves. In England, the classics are wheat straw and water reed.",
+        "The trick is in the layers. Straw is bundled into yelms, carried up to the roof, and pinned down with hairpin-shaped staples called spars, made from twisted hazel sticks. Because the bulk of the thatch stays dry and is packed with trapped air, it doubles as insulation, keeping a building cool in summer and warm in winter. A steep pitch of at least 50 degrees sends rain sliding off before it can sneak inside. Skilled work can last more than 50 years, and a roof is only as good as the amount of correctly laid thatch covering its fixings.",
+        "Fire is thatch's famous worry, but the text says it is not as flammable as many people believe. It is said to burn slowly, like a closed book. Most fires trace back to wood burners and faulty chimneys. Still, history remembers the scary moments: London forbade new thatched roofs in 1212 after a major fire, and the original Globe Theatre burned in 1613 when a burning wad from a special effects cannon landed on its thatch.",
+        "The craft had its own ups and downs. Once the only roofing choice for most English country folk, thatch became a mark of poverty as slate and railways arrived. Today it is a symbol of wealth, with about 1,000 full-time thatchers working in the UK.",
+        "Here is the delightful part. Traditionally, new straw was simply laid over the old, and some very old buildings have built up thatch more than seven feet thick. Over 250 roofs in Southern England still hide base coats of thatch applied more than 500 years ago, tucked beneath the newer layers like a time capsule."
+      ],
+      "words": 390,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "Thatching",
+        "requested": "Thatching",
+        "url": "https://en.wikipedia.org/wiki/Thatching",
+        "pageid": 103141,
+        "revid": 1381090106,
+        "revision_time": "2026-10-19T23:45:44Z"
+      }
+    },
     {
       "date": "2026-11-26",
       "title": "Hadrian's Wall: Rome's Giant Whitewashed Statement",
