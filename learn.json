@@ -1,6 +1,29 @@
 {
-  "updated": "2026-11-27T05:31:41-06:00",
+  "updated": "2026-11-28T05:35:10-06:00",
   "articles": [
+    {
+      "date": "2026-11-28",
+      "title": "The Giant Tree That Was Once Renamed for Karl Marx",
+      "category": "Nature",
+      "paragraphs": [
+        "Imagine a living thing so big that when one of its branches fell off, the branch was larger than most tree trunks. That's life for the General Sherman Tree, a giant sequoia in the Giant Forest of Sequoia National Park in California. By volume, it is the largest known living single-stem tree on Earth.",
+        "The numbers are staggering. The tree stands 83.8 meters (275 feet) tall, measures 7.7 meters (25 feet) across, and holds an estimated 1,487 cubic meters of wood. It is thought to be between 2,300 and 2,700 years old. Yet it doesn't win every contest. Hyperion, a coast redwood, is taller. Both the largest cypress and the largest baobab are wider. And a bristlecone pine named Prometheus was older, until it was cut down in 1964. General Sherman is simply among the tallest, widest, and longest-lived trees all at once.",
+        "The tree's name comes from Civil War general William Tecumseh Sherman. The official story says naturalist James Wolverton, who had served under Sherman, named it in 1879, though that tale may be apocryphal. In 1886, a utopian socialist community called the Kaweah Colony took control of the land. Because of Sherman's role in the Indian Wars and the forced relocation of native tribes, they renamed the tree for Karl Marx. The colony disbanded in 1892, largely because Sequoia National Park was established, and the tree went back to its old name.",
+        "In 1931, comparisons with the nearby General Grant Tree identified General Sherman as the largest tree in the world. That process also made wood volume the accepted way to compare the sizes of trees.",
+        "The tree has had some dramatic moments. In January 2006, its largest branch, over 2 meters wide and over 30 meters long, broke off with no witnesses. It smashed part of a fence and cratered the pavement of the walkway below. Experts don't think it signals poor health, and it may even be a natural defense against bad weather. Then, in September 2021, the KNP Complex Fire threatened the grove, and crews wrapped the tree's base in protective foil usually used on structures. The tree came through unharmed.",
+        "Here's the humbling twist: General Sherman is only the largest living tree. The Crannell Creek Giant, a coast redwood cut down in the mid-1940s, is estimated to have been 15 to 25 percent larger by volume."
+      ],
+      "words": 392,
+      "model": "claude-sonnet-5-5",
+      "source": {
+        "title": "General Sherman Tree",
+        "requested": "General Sherman (tree)",
+        "url": "https://en.wikipedia.org/wiki/General_Sherman_Tree",
+        "pageid": 292914,
+        "revid": 1380178829,
+        "revision_time": "2026-10-14T06:43:15Z"
+      }
+    },
     {
       "date": "2026-11-27",
       "title": "The Humble Roof That Burns Like a Closed Book",
